@@ -1,0 +1,3360 @@
+{
+  "contract_version": 1,
+  "id": "geography",
+  "order": 13,
+  "title": "Geografía del parque",
+  "description": "Nevados, paramillos, alturas, lagunas, ríos, departamentos, municipios, sectores y la diferencia entre el área protegida y el volcán.",
+  "retrieval": {
+    "profile": "explain",
+    "bm25_weight": 0.25,
+    "top_k": 3,
+    "min_score": null,
+    "entity_filters": [
+      "landform",
+      "sector"
+    ]
+  },
+  "clarification": {
+    "between_entries": "¿Te refieres a {label_a} o a {label_b}?",
+    "bank": [
+      "¿Preguntas por el parque completo o por una cumbre en particular?",
+      "¿Cuál te interesa: Ruiz, Santa Isabel, Tolima, Quindío o Cisne?",
+      "¿Buscas una laguna: Otún, Verde o del Encanto?",
+      "¿Hablas de un sector de visita o de la montaña que le da nombre?",
+      "¿Quieres la ubicación, la altura o la diferencia entre el parque y el volcán?",
+      "¿La duda es el departamento, el municipio o la cordillera?",
+      "¿Preguntas por el cráter Arenas del Ruiz o por el cráter del Tolima?"
+    ],
+    "slot_questions": {
+      "landform": "¿Preguntas por un nevado, una laguna, un río, un cráter o por el parque completo?",
+      "sector": "¿Te interesa Brisas-Kumanday, Cisne-Poleka Kasue, la Laguna del Otún o Quindío-Dulima?"
+    },
+    "fallback": "Puedo ubicarte los nevados, las lagunas, los sectores y los departamentos del parque. Dime cuál de esos lugares tienes en mente."
+  },
+  "featured": [
+    "geography.main_peaks",
+    "geography.ruiz_height",
+    "geography.park_versus_volcano",
+    "geography.laguna_otun",
+    "geography.four_sectors"
+  ],
+  "entries": [
+    {
+      "id": "geography.main_peaks",
+      "label": "nevados principales del parque",
+      "kind": "explanation",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "qué nevados hay",
+        "cuáles son las cumbres del parque",
+        "qué montañas tiene Los Nevados",
+        "cuales son los volcanes de alla",
+        "que nevados ay en el parque",
+        "el parque son solo tres montañas o hay más",
+        "nombres de los nevados y los paramillos",
+        "qué es el Parque Los Nevados en el mapa",
+        "which snow peaks are in the park",
+        "what mountains make up Los Nevados",
+        "además del Ruiz qué otras cumbres protege",
+        "Kumanday Poleka Kasue y Dulima son los tres",
+        "dónde queda este parque de alta montaña"
+      ],
+      "hard_negatives": [
+        "es lo mismo el parque que el volcán",
+        "a qué altura está la cima del Ruiz",
+        "qué sectores hay"
+      ],
+      "needs": [],
+      "answer": {
+        "short": "El parque protege un complejo volcánico de la cordillera Central. Sus tres nevados principales son el Ruiz, o Kumanday; Santa Isabel, o Poleka Kasue; y el Tolima, o Dulima. La misma ficha nombra además los paramillos del Cisne, de Santa Rosa y del Quindío, y los cráteres La Olleta y La Piraña.",
+        "variants": [
+          "Si preguntas por las montañas, empieza por Ruiz, Santa Isabel y Tolima. El parque también incluye los paramillos del Cisne, Santa Rosa y Quindío, más La Olleta y La Piraña junto al Ruiz."
+        ],
+        "detail": "En la ficha, la palabra nevado queda reservada a las tres cumbres con las que asocia el hielo. Paramillo nombra otras alturas del mismo complejo.",
+        "reflection": "Con el nombre de la cumbre ya puedes pedir la altura o el sector que la acompaña."
+      },
+      "sources": [
+        {
+          "label": "Parques Nacionales Naturales de Colombia",
+          "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "last_verified": "2026-11-21",
+      "valid_until": null,
+      "related": [
+        "geography.park_versus_volcano",
+        "geography.paramillo_cisne",
+        "geography.glacier_summits"
+      ],
+      "tags": [
+        "nevados",
+        "cumbres",
+        "paramillos"
+      ],
+      "entities": {
+        "landform": [
+          "peak",
+          "park"
+        ]
+      }
+    },
+    {
+      "id": "geography.ruiz_identity",
+      "label": "qué es el Nevado del Ruiz",
+      "kind": "explanation",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "qué es el Ruiz",
+        "el Nevado del Ruiz es un estratovolcán",
+        "cuéntame qué tipo de volcán es Kumanday",
+        "que tipo de volcan es el ruiz",
+        "el ruis es un estratovolcan activo",
+        "ficha corta del Nevado del Ruiz",
+        "tiene cráter y glaciar ese volcán",
+        "háblame del volcán sin meterme en la historia de Armero",
+        "what kind of volcano is Nevado del Ruiz",
+        "is the Ruiz an active stratovolcano",
+        "Kumanday y Arenas son del mismo volcán",
+        "el Ruiz queda dentro del parque o es el parque",
+        "datos básicos del volcán de la cordillera Central"
+      ],
+      "hard_negatives": [
+        "cuánto mide el Nevado del Ruiz",
+        "cómo se llama el cráter principal",
+        "en qué año geológico se formó el volcán"
+      ],
+      "needs": [],
+      "answer": {
+        "short": "El Nevado del Ruiz, también llamado Kumanday, es un estratovolcán activo de la cordillera Central y queda dentro del parque, en el límite de Caldas y Tolima. Tiene casquete glaciar y su cráter principal se llama Arenas. La altura de la cima y el tamaño del cráter son datos aparte, porque no describen el tipo de volcán.",
+        "variants": [
+          "Kumanday es el Nevado del Ruiz: un estratovolcán activo, con hielo en la cima y con el cráter Arenas. Está en el parque, no es el parque entero."
+        ],
+        "detail": null,
+        "reflection": "Si vas a salir, el estado de actividad se mira en el Servicio Geológico cuando tengas señal."
+      },
+      "sources": [
+        {
+          "label": "Servicio Geológico Colombiano, hoja informativa del Nevado del Ruiz, septiembre de 2024",
+          "url": "https://www2.sgc.gov.co/Temas-destacados/Documents/Hoja-informativa-volcan-Nevado-de-Ruiz-SGC.pdf",
+          "retrieved_at": "2026-11-21"
+        },
+        {
+          "label": "Parques Nacionales Naturales de Colombia",
+          "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "last_verified": "2026-11-21",
+      "valid_until": null,
+      "related": [
+        "geography.ruiz_height",
+        "geography.arenas_crater",
+        "geography.park_versus_volcano"
+      ],
+      "tags": [
+        "ruiz",
+        "estratovolcán",
+        "kumanday"
+      ],
+      "entities": {
+        "landform": [
+          "peak"
+        ],
+        "sector": [
+          "brisas"
+        ]
+      }
+    },
+    {
+      "id": "geography.ruiz_height",
+      "label": "altura del Nevado del Ruiz",
+      "kind": "fact",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "altura del Ruiz",
+        "a qué altura está la cima del Ruiz",
+        "cuánto mide el Nevado del Ruiz",
+        "cuantos metros tiene el ruiz",
+        "cuanto mide el nevado del ruis",
+        "altitud de la cumbre sobre el nivel del mar",
+        "qué tan alto es ese volcán",
+        "la cima pasa de cinco mil metros",
+        "how high is Nevado del Ruiz",
+        "what is the summit elevation of the Ruiz",
+        "5321 es la cumbre o el mirador",
+        "altura del cráter no es lo mismo que hasta dónde llego yo",
+        "msnm del Nevado del Ruiz"
+      ],
+      "hard_negatives": [
+        "a qué altura está el Nevado del Tolima",
+        "altura de Santa Isabel",
+        "cuál es la cumbre más alta dentro del parque"
+      ],
+      "needs": [],
+      "answer": {
+        "short": "La cima del Nevado del Ruiz está a 5.321 metros sobre el nivel del mar, cifra en la que coinciden el Servicio Geológico y el Ideam. Ese número es la cumbre del volcán, no la cota hasta la que llega un recorrido de visita. En esa zona alta está el cráter Arenas.",
+        "variants": [
+          "Si preguntas por la cumbre, la referencia oficial es 5.321 metros. El punto al que tú puedes llegar depende del recorrido autorizado, no de esa cima."
+        ],
+        "detail": "El boletín del segmento norte y la hoja de septiembre de 2024 repiten 5.321 metros. El Ideam usa la misma cota para la cumbre única.",
+        "reflection": "La altura de la cumbre no dice nada sobre cómo te va a sentar la altura en el camino."
+      },
+      "sources": [
+        {
+          "label": "Servicio Geológico Colombiano, hoja informativa del Nevado del Ruiz, septiembre de 2024",
+          "url": "https://www2.sgc.gov.co/Temas-destacados/Documents/Hoja-informativa-volcan-Nevado-de-Ruiz-SGC.pdf",
+          "retrieved_at": "2026-11-21"
+        },
+        {
+          "label": "IDEAM, glaciar Nevado del Ruiz",
+          "url": "https://www.ideam.gov.co/nuestra-entidad/ecosistemas-e-informacion-ambiental/glaciares/nevado-del-ruiz",
+          "retrieved_at": "2026-11-21"
+        },
+        {
+          "label": "Servicio Geológico Colombiano, los 10 volcanes más altos de Colombia, 9 de agosto de 2024",
+          "url": "https://www2.sgc.gov.co/Noticias/Paginas/Los-10-volcanes-mas-altos-de-Colombia.aspx",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "last_verified": "2026-11-21",
+      "valid_until": null,
+      "related": [
+        "geography.arenas_crater",
+        "geography.highest_in_park",
+        "geography.tolima_height"
+      ],
+      "tags": [
+        "altura",
+        "5321",
+        "cumbre"
+      ],
+      "entities": {
+        "landform": [
+          "peak"
+        ]
+      }
+    },
+    {
+      "id": "geography.ruiz_where",
+      "label": "dónde queda el Nevado del Ruiz",
+      "kind": "fact",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "dónde queda el Ruiz",
+        "en qué departamentos está el volcán",
+        "el Ruiz queda entre Caldas y Tolima",
+        "a cuantos kilometros de manizales esta el volcan",
+        "coordenadas del nevado del ruis",
+        "queda al sureste de Manizales",
+        "qué tan lejos está de Bogotá en línea de ubicación",
+        "Villamaría Murillo y Casabianca lo comparten",
+        "where is Nevado del Ruiz located",
+        "how far is the volcano from Manizales as a location",
+        "latitud y longitud de la cima",
+        "no me des la vía, dime en qué parte del mapa está",
+        "el volcán está en la cordillera Central"
+      ],
+      "hard_negatives": [
+        "Manizales queda dentro del parque",
+        "por qué hay un volcán en esas fallas",
+        "Villamaría sí entra en el parque"
+      ],
+      "needs": [],
+      "answer": {
+        "short": "El Ruiz está en la cordillera Central, dentro del parque, en el límite de Caldas y Tolima. El Servicio Geológico lo sitúa a 4 grados 53 minutos 43 segundos norte y 75 grados 19 minutos 21 segundos oeste, a unos 28 kilómetros al sureste de Manizales y a unos 140 kilómetros al oeste-noroeste de Bogotá. Esas son distancias de ubicación del volcán, no los kilómetros ni el tiempo por carretera.",
+        "variants": [
+          "En el mapa, el Ruiz marca el límite entre Caldas y Tolima, a unos 28 kilómetros al sureste de Manizales y unos 140 al oeste-noroeste de Bogotá. No confundas esas distancias con el recorrido en carro."
+        ],
+        "detail": "El Ideam precisa la jurisdicción del glaciar en Villamaría, Casabianca y Murillo.",
+        "reflection": "Para la carretera y el tiempo de viaje necesitas la sección de cómo llegar, con señal o antes de salir."
+      },
+      "sources": [
+        {
+          "label": "Servicio Geológico Colombiano, boletín de actividad del segmento volcánico norte, 2023",
+          "url": "https://www2.sgc.gov.co/Publicaciones/Informes%20tcnicos/Informe_de_actividad_volcanica_segmento_norte_2023.pdf",
+          "retrieved_at": "2026-11-21"
+        },
+        {
+          "label": "Servicio Geológico Colombiano, hoja informativa del Nevado del Ruiz, septiembre de 2024",
+          "url": "https://www2.sgc.gov.co/Temas-destacados/Documents/Hoja-informativa-volcan-Nevado-de-Ruiz-SGC.pdf",
+          "retrieved_at": "2026-11-21"
+        },
+        {
+          "label": "IDEAM, glaciar Nevado del Ruiz",
+          "url": "https://www.ideam.gov.co/nuestra-entidad/ecosistemas-e-informacion-ambiental/glaciares/nevado-del-ruiz",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "last_verified": "2026-11-21",
+      "valid_until": null,
+      "related": [
+        "geography.manizales_outside",
+        "geography.murillo_ruiz",
+        "geography.villamaria_caldas"
+      ],
+      "tags": [
+        "coordenadas",
+        "manizales",
+        "caldas",
+        "tolima"
+      ],
+      "entities": {
+        "landform": [
+          "peak"
+        ],
+        "sector": [
+          "brisas"
+        ]
+      }
+    },
+    {
+      "id": "geography.arenas_crater",
+      "label": "cráter Arenas del Ruiz",
+      "kind": "explanation",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "cráter Arenas",
+        "cómo se llama el cráter principal",
+        "qué es Arenas en la cima del Ruiz",
+        "nombre del crater del ruiz",
+        "el crater arenas que tan grande es",
+        "Arenas queda en la cumbre o en el valle",
+        "diámetro y profundidad del cráter",
+        "puedo asomarme al cráter en la visita",
+        "what is the Arenas crater",
+        "how big is the Ruiz crater",
+        "el cráter del Ruiz no es el del Tolima",
+        "hay un domo adentro o solo el hueco",
+        "la medida del cráter cambia con los años"
+      ],
+      "hard_negatives": [
+        "el Tolima también tiene cráter",
+        "qué es el volcán La Olleta",
+        "altura del Ruiz"
+      ],
+      "needs": [],
+      "answer": {
+        "short": "El cráter principal del Ruiz se llama Arenas y está en la cima, a 5.321 metros. No tiene una sola medida vigente: en 2020 el Servicio Geológico lo describió irregular, de unos 980 por 900 metros y cerca de 300 metros de profundidad, y su boletín de 2023 habla de 800 metros de diámetro máximo y 200 de profundidad. Si necesitas el contorno de ahora, míralo en el SGC al recuperar señal; acercarte al borde no hace parte de una visita normal.",
+        "variants": [
+          "Arenas es el cráter activo de la cima del Ruiz. Las medidas de 2020 y de 2023 no coinciden, así que ninguna de las dos es el tamaño permanente."
+        ],
+        "detail": "La nota de 2020 también estimó un domo de lava en el fondo. Ese volumen era una foto de enero de 2020 y no se repite aquí como medida actual.",
+        "reflection": "Ver el cráter de lejos, si el día abre, no es lo mismo que estar en su borde."
+      },
+      "sources": [
+        {
+          "label": "Servicio Geológico Colombiano, hoja informativa del Nevado del Ruiz, septiembre de 2024",
+          "url": "https://www2.sgc.gov.co/Temas-destacados/Documents/Hoja-informativa-volcan-Nevado-de-Ruiz-SGC.pdf",
+          "retrieved_at": "2026-11-21"
+        },
+        {
+          "label": "Servicio Geológico Colombiano, geomorfología del cráter Arenas, 31 de enero de 2020",
+          "url": "https://www2.sgc.gov.co/Noticias/Paginas/El-Nuevo-Domo-de-Lava-del-Volcan-Nevado-del-Ruiz-y-la-Geomorfologia-Actual-del-Crater-Arenas-2020.aspx",
+          "retrieved_at": "2026-11-21"
+        },
+        {
+          "label": "Servicio Geológico Colombiano, boletín de actividad del segmento volcánico norte, 2023",
+          "url": "https://www2.sgc.gov.co/Publicaciones/Informes%20tcnicos/Informe_de_actividad_volcanica_segmento_norte_2023.pdf",
+          "retrieved_at": "2026-11-21"
+        },
+        {
+          "label": "IDEAM, glaciar Nevado del Ruiz",
+          "url": "https://www.ideam.gov.co/nuestra-entidad/ecosistemas-e-informacion-ambiental/glaciares/nevado-del-ruiz",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "last_verified": "2026-11-21",
+      "valid_until": null,
+      "related": [
+        "geography.ruiz_identity",
+        "geography.tolima_crater",
+        "geography.ruiz_height"
+      ],
+      "tags": [
+        "cráter",
+        "arenas"
+      ],
+      "entities": {
+        "landform": [
+          "crater"
+        ],
+        "sector": [
+          "brisas"
+        ]
+      }
+    },
+    {
+      "id": "geography.park_area",
+      "label": "extensión oficial del parque",
+      "kind": "fact",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "extensión del parque",
+        "cuántas hectáreas tiene Los Nevados",
+        "qué tan grande es el área protegida",
+        "cuantas hectareas son",
+        "extencion del parque en hectareas",
+        "61.388 es la cifra de la ficha",
+        "por qué unas páginas dicen 61.410",
+        "tamaño del parque sin la fecha de creación",
+        "how many hectares is the national park",
+        "what is the official area of Los Nevados",
+        "el área cambió según quién la publique",
+        "no me des el año en que lo declararon, dame el tamaño",
+        "superficie en hectáreas del área protegida"
+      ],
+      "hard_negatives": [
+        "qué porcentaje del parque está en Risaralda",
+        "qué municipios toca el parque",
+        "en qué departamentos está"
+      ],
+      "needs": [],
+      "answer": {
+        "short": "En el encabezado de la ficha de Parques Nacionales la extensión figura como 61.388,24 hectáreas. En el texto de ubicación de esa misma página aparecen 61.410 hectáreas, y la Carder publicó el 14 de julio de 2026 la cifra 61.410,53. Quédate con la ficha como referencia y ten presente que los textos oficiales no cierran en la misma hectárea.",
+        "variants": [
+          "La ficha vigente marca 61.388,24 hectáreas. Otras páginas oficiales todavía redondean cerca de 61.410, así que el tamaño publicado no es idéntico en todas."
+        ],
+        "detail": "La fecha en que el parque fue declarado es historia del área. Aquí solo está el tamaño publicado.",
+        "reflection": "El tamaño del polígono no cambia lo que debes confirmar del sector antes de viajar."
+      },
+      "sources": [
+        {
+          "label": "Parques Nacionales Naturales de Colombia",
+          "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+          "retrieved_at": "2026-11-21"
+        },
+        {
+          "label": "CARDER, nota sobre Los Nevados, 14 de julio de 2026",
+          "url": "https://www.carder.gov.co/pnn-los-nevados-un-patrimonio-natural-que-garantiza-el-agua-y-la-vida-de-risaralda/",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "last_verified": "2026-11-21",
+      "valid_until": null,
+      "related": [
+        "geography.departments",
+        "geography.municipalities",
+        "geography.risaralda_share"
+      ],
+      "tags": [
+        "hectáreas",
+        "extensión"
+      ],
+      "entities": {
+        "landform": [
+          "park"
+        ]
+      }
+    },
+    {
+      "id": "geography.departments",
+      "label": "departamentos que cubre el parque",
+      "kind": "fact",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "en qué departamentos está",
+        "departamentos de Los Nevados",
+        "queda en Caldas Risaralda Quindío y Tolima",
+        "en que parte de colombia queda",
+        "departamentos del parque los nevado",
+        "son cuatro departamentos o tres",
+        "el Eje Cafetero cuáles abarca",
+        "distribución departamental del área protegida",
+        "which departments does Los Nevados cover",
+        "is the park in Caldas and Tolima only",
+        "Quindío también entra en el polígono",
+        "no pregunto por la capital, pregunto por el departamento",
+        "mapa departamental del parque"
+      ],
+      "hard_negatives": [
+        "lista de municipios de Los Nevados",
+        "la ciudad de Manizales es parte de Los Nevados",
+        "el parque llega hasta Salento"
+      ],
+      "needs": [],
+      "answer": {
+        "short": "El área protegida se extiende por Caldas, Quindío, Risaralda y Tolima, en la cordillera Central. La ficha los nombra en ese orden. Que un departamento aparezca no pone su capital dentro del parque: eso se mira municipio por municipio.",
+        "variants": [
+          "Son cuatro departamentos: Caldas, Quindío, Risaralda y Tolima. La capital de cada uno es otra pregunta."
+        ],
+        "detail": null,
+        "reflection": "Si me dices la ciudad, te digo si el parque nombra ese municipio."
+      },
+      "sources": [
+        {
+          "label": "Parques Nacionales Naturales de Colombia",
+          "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "last_verified": "2026-11-21",
+      "valid_until": null,
+      "related": [
+        "geography.municipalities",
+        "geography.cordillera_central",
+        "geography.manizales_outside"
+      ],
+      "tags": [
+        "departamentos",
+        "caldas",
+        "tolima",
+        "quindio",
+        "risaralda"
+      ],
+      "entities": {
+        "landform": [
+          "park"
+        ]
+      }
+    },
+    {
+      "id": "geography.cordillera_central",
+      "label": "cordillera Central entre dos ríos",
+      "kind": "explanation",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "en qué cordillera está",
+        "queda en la cordillera Central o en la Occidental",
+        "el parque está entre el Cauca y el Magdalena",
+        "los nevados quedan en el eje cafetero",
+        "cordillera central de colombia",
+        "no es la Sierra Nevada de Santa Marta",
+        "corazón del Eje Cafetero en el mapa",
+        "por qué lo ubican entre dos ríos grandes",
+        "which mountain range is the park in",
+        "is Los Nevados in the Central Cordillera",
+        "Andes de Colombia, ramal central",
+        "alta montaña del centro del país",
+        "ubicación entre las hoyas del Cauca y del Magdalena"
+      ],
+      "hard_negatives": [
+        "por qué la ficha dice Andes Occidentales",
+        "qué ríos nacen hacia cada vertiente",
+        "departamentos de Los Nevados"
+      ],
+      "needs": [],
+      "answer": {
+        "short": "El parque está en la cordillera Central, en el Eje Cafetero, entre los ríos Magdalena y Cauca. No está en la cordillera Occidental ni en la Oriental. La ficha lo presenta como reserva de agua para Caldas, Risaralda, Quindío y Tolima.",
+        "variants": [
+          "Piensa en la cordillera Central, entre el Magdalena y el Cauca, en el centro cafetero del país. Las otras dos cordilleras quedan por fuera."
+        ],
+        "detail": null,
+        "reflection": "La cordillera explica el frío y el agua; el clima del día se consulta aparte."
+      },
+      "sources": [
+        {
+          "label": "Parques Nacionales Naturales de Colombia",
+          "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "last_verified": "2026-11-21",
+      "valid_until": null,
+      "related": [
+        "geography.andes_occidentales_office",
+        "geography.watersheds",
+        "geography.departments"
+      ],
+      "tags": [
+        "cordillera",
+        "eje cafetero",
+        "cauca",
+        "magdalena"
+      ],
+      "entities": {
+        "landform": [
+          "park"
+        ]
+      }
+    },
+    {
+      "id": "geography.andes_occidentales_office",
+      "label": "región Andes Occidentales",
+      "kind": "explanation",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "región Andes Occidentales",
+        "por qué la ficha dice Andes Occidentales",
+        "eso significa que está en la cordillera Occidental",
+        "direccion territorial del parque",
+        "andes occidentales es la administracion",
+        "no confundir región del parque con cordillera",
+        "Parques Nacionales en qué territorial lo tiene",
+        "el rótulo de la ficha no es el ramal de los Andes",
+        "what does Andes Occidentales mean on the park page",
+        "is the western Andes label the same as the cordillera",
+        "dirección territorial Andes Occidentales",
+        "error de mapa o nombre administrativo",
+        "la ficha dice una región y el texto otra cordillera"
+      ],
+      "hard_negatives": [
+        "en qué cordillera está",
+        "queda en Caldas Risaralda Quindío y Tolima",
+        "qué es el Parque Los Nevados en el mapa"
+      ],
+      "needs": [],
+      "answer": {
+        "short": "En la ficha, Andes Occidentales es la dirección territorial de Parques Nacionales que administra el área. No quiere decir que el macizo esté en la cordillera Occidental. El parque sigue en la cordillera Central.",
+        "variants": [
+          "Andes Occidentales, en esa ficha, es la oficina territorial, no la cordillera. La montaña está en la cordillera Central."
+        ],
+        "detail": null,
+        "reflection": "El rótulo administrativo no cambia el lugar al que vas."
+      },
+      "sources": [
+        {
+          "label": "Parques Nacionales Naturales de Colombia",
+          "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "last_verified": "2026-11-21",
+      "valid_until": null,
+      "related": [
+        "geography.cordillera_central",
+        "geography.departments"
+      ],
+      "tags": [
+        "región",
+        "administración"
+      ],
+      "entities": {
+        "landform": [
+          "park"
+        ]
+      }
+    },
+    {
+      "id": "geography.municipalities",
+      "label": "municipios del área protegida",
+      "kind": "fact",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "qué municipios toca el parque",
+        "lista de municipios de Los Nevados",
+        "en qué pueblos está el área protegida",
+        "municipios del parque nacional",
+        "son diez o once municipios",
+        "Santa Rosa Pereira Villamaría Murillo y los demás",
+        "la Carder cuenta uno más y no lo nombra",
+        "jurisdicción municipal del polígono",
+        "which municipalities overlap the park",
+        "how many towns does the protected area include",
+        "Anzoátegui Ibagué Salento Herveo Casabianca",
+        "el municipio de Santa Isabel también está en la lista",
+        "no me des solo el departamento, dime los municipios"
+      ],
+      "hard_negatives": [
+        "en qué departamentos está",
+        "Ibagué ciudad queda dentro del nevado",
+        "Armenia está dentro de Los Nevados"
+      ],
+      "needs": [],
+      "answer": {
+        "short": "En el apartado de ubicación, Parques Nacionales nombra diez municipios: Santa Rosa de Cabal, Pereira, Villamaría, Murillo, Anzoátegui, Ibagué, Santa Isabel, Casabianca, Herveo y Salento. La Carder, el 14 de julio de 2026, habla de 11 municipios y no escribe el undécimo. Usa los diez que la ficha sí lista y toma el pueblo, no solo el casco urbano, como la parte que puede entrar al área.",
+        "variants": [
+          "La ficha escribe diez municipios, de Villamaría y Salento a Herveo, Murillo, Pereira y Santa Rosa. La Carder cuenta 11 y deja sin nombre el que falta."
+        ],
+        "detail": null,
+        "reflection": "El nombre del municipio no significa que el pueblo esté a la altura de la cumbre."
+      },
+      "sources": [
+        {
+          "label": "Parques Nacionales Naturales de Colombia",
+          "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+          "retrieved_at": "2026-11-21"
+        },
+        {
+          "label": "CARDER, nota sobre Los Nevados, 14 de julio de 2026",
+          "url": "https://www.carder.gov.co/pnn-los-nevados-un-patrimonio-natural-que-garantiza-el-agua-y-la-vida-de-risaralda/",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "last_verified": "2026-11-21",
+      "valid_until": null,
+      "related": [
+        "geography.departments",
+        "geography.tolima_municipalities",
+        "geography.salento_quindio"
+      ],
+      "tags": [
+        "municipios"
+      ],
+      "entities": {
+        "landform": [
+          "municipality"
+        ]
+      }
+    },
+    {
+      "id": "geography.manizales_outside",
+      "label": "Manizales queda fuera del parque",
+      "kind": "fact",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "Manizales queda dentro del parque",
+        "la ciudad de Manizales es parte de Los Nevados",
+        "vivo en Manizales, estoy dentro del área protegida",
+        "manizales esta en el parque o no",
+        "manizales queda adentro del nevado",
+        "el Ruiz es de Manizales o de Villamaría",
+        "desde la ciudad se ve, pero la ciudad no es el parque",
+        "capital de Caldas y límite del área",
+        "is Manizales inside Los Nevados",
+        "does the national park include the city of Manizales",
+        "28 kilómetros no meten a la ciudad en el polígono",
+        "el municipio caldense del parque cuál es",
+        "Manizales es la salida, no el área protegida"
+      ],
+      "hard_negatives": [
+        "dónde queda el Ruiz",
+        "el municipio caldense es Villamaría",
+        "Murillo está del lado del Ruiz"
+      ],
+      "needs": [],
+      "answer": {
+        "short": "Manizales no está entre los municipios que la ficha del parque enumera. El Ruiz queda a unos 28 kilómetros al sureste de la ciudad y el municipio caldense del área es Villamaría. Sales desde Manizales hacia el parque; la ciudad no es el parque.",
+        "variants": [
+          "La ciudad de Manizales queda por fuera del polígono. El lado caldense que la ficha nombra es Villamaría, y el volcán está a unos 28 kilómetros al sureste."
+        ],
+        "detail": null,
+        "reflection": "Ver el nevado desde la ciudad no te pone dentro del área protegida."
+      },
+      "sources": [
+        {
+          "label": "Parques Nacionales Naturales de Colombia",
+          "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+          "retrieved_at": "2026-11-21"
+        },
+        {
+          "label": "Servicio Geológico Colombiano, boletín de actividad del segmento volcánico norte, 2023",
+          "url": "https://www2.sgc.gov.co/Publicaciones/Informes%20tcnicos/Informe_de_actividad_volcanica_segmento_norte_2023.pdf",
+          "retrieved_at": "2026-11-21"
+        },
+        {
+          "label": "IDEAM, glaciar Nevado del Ruiz",
+          "url": "https://www.ideam.gov.co/nuestra-entidad/ecosistemas-e-informacion-ambiental/glaciares/nevado-del-ruiz",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "last_verified": "2026-11-21",
+      "valid_until": null,
+      "related": [
+        "geography.villamaria_caldas",
+        "geography.ruiz_where",
+        "geography.departments"
+      ],
+      "tags": [
+        "manizales",
+        "caldas"
+      ],
+      "entities": {
+        "landform": [
+          "municipality"
+        ]
+      }
+    },
+    {
+      "id": "geography.park_versus_volcano",
+      "label": "el parque no es el volcán",
+      "kind": "explanation",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "es lo mismo el parque que el volcán",
+        "diferencia entre Los Nevados y el Nevado del Ruiz",
+        "el nevado queda dentro del parque",
+        "parque y volcan son lo mismo",
+        "el ruiz es todo el parque?",
+        "voy al nevado o voy al parque",
+        "Santa Isabel y Tolima también están adentro",
+        "un volcán no agota el área protegida",
+        "is the park the same thing as the volcano",
+        "does Nevado del Ruiz mean the whole national park",
+        "decir Ruiz no describe todo Los Nevados",
+        "el área protegida contiene varios centros volcánicos",
+        "no confundir el nombre del parque con una sola cima"
+      ],
+      "hard_negatives": [
+        "qué nevados hay",
+        "cuántas hectáreas tiene Los Nevados",
+        "cuáles son los cuatro sectores del parque"
+      ],
+      "needs": [],
+      "answer": {
+        "short": "Los Nevados es el área protegida, repartida en cuatro departamentos. El Nevado del Ruiz es un volcán dentro de ella, junto con Santa Isabel, el Tolima y otros centros como el Cisne y La Olleta. Ir al Ruiz no recorre todo el parque, e ir al parque no significa llegar a la cumbre del Ruiz.",
+        "variants": [
+          "El parque es el territorio protegido. El Ruiz es solo uno de sus volcanes, al lado de Santa Isabel, el Tolima y otros centros."
+        ],
+        "detail": null,
+        "reflection": "Cuando digas a cuál vas, el sector y la cumbre dejan de mezclarse."
+      },
+      "sources": [
+        {
+          "label": "Parques Nacionales Naturales de Colombia",
+          "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+          "retrieved_at": "2026-11-21"
+        },
+        {
+          "label": "Servicio Geológico Colombiano, hoja informativa del Nevado del Ruiz, septiembre de 2024",
+          "url": "https://www2.sgc.gov.co/Temas-destacados/Documents/Hoja-informativa-volcan-Nevado-de-Ruiz-SGC.pdf",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "last_verified": "2026-11-21",
+      "valid_until": null,
+      "related": [
+        "geography.main_peaks",
+        "geography.park_area",
+        "geography.four_sectors"
+      ],
+      "tags": [
+        "parque",
+        "volcán"
+      ],
+      "entities": {
+        "landform": [
+          "park",
+          "peak"
+        ]
+      }
+    },
+    {
+      "id": "geography.four_sectors",
+      "label": "cuatro sectores ecoturísticos",
+      "kind": "explanation",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "qué sectores hay",
+        "cuáles son los cuatro sectores del parque",
+        "nombres de las zonas de visita",
+        "sectores ecoturisticos de los nevados",
+        "brisas cisne otun y dulima",
+        "son cuatro o cinco sectores oficiales de visita",
+        "cada sector mira a una montaña distinta",
+        "entradas geográficas, no la carretera",
+        "what are the four visitor sectors",
+        "how is the park divided geographically",
+        "Brisas-Kumanday Cisne-Poleka Kasue Otún y Quindío-Dulima",
+        "el sector no es lo mismo que el sendero",
+        "mapa de sectores sin horarios ni tarifas"
+      ],
+      "hard_negatives": [
+        "qué es el sector Brisas",
+        "qué es el sector del Cisne",
+        "sector Otún dónde queda"
+      ],
+      "needs": [],
+      "answer": {
+        "short": "Para la visita, la ficha describe cuatro sectores: Brisas-Kumanday, Cisne-Poleka Kasue, Laguna del Otún y Quindío-Dulima, con presencia en Caldas, Risaralda, Quindío y Tolima. Cada uno se arrima a un paisaje distinto: el Ruiz, Santa Isabel y el Cisne, la laguna, o el Tolima. Las vías, los horarios y los cupos se confirman aparte.",
+        "variants": [
+          "La división de visita que publica la ficha tiene cuatro nombres: Brisas-Kumanday, Cisne-Poleka Kasue, Laguna del Otún y Quindío-Dulima. Aquí va la geografía de esos sectores, no el recorrido en carro."
+        ],
+        "detail": "Un plan de ordenamiento de marzo de 2026 propone sectores de manejo y menciona una pieza adicional hacia Santa Isabel y Murillo. La ficha de visita, modificada después, sigue publicando cuatro.",
+        "reflection": "Elige primero el paisaje y después confirma si ese sector está habilitado."
+      },
+      "sources": [
+        {
+          "label": "Parques Nacionales Naturales de Colombia",
+          "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "last_verified": "2026-11-21",
+      "valid_until": null,
+      "related": [
+        "geography.sector_brisas_kumanday",
+        "geography.sector_cisne_poleka",
+        "geography.sector_laguna_otun"
+      ],
+      "tags": [
+        "sectores"
+      ],
+      "entities": {
+        "landform": [
+          "sector"
+        ]
+      }
+    },
+    {
+      "id": "geography.sector_brisas_kumanday",
+      "label": "sector norte Brisas Kumanday",
+      "kind": "fact",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "qué es el sector Brisas",
+        "Brisas-Kumanday dónde queda",
+        "el sector norte es el del Ruiz",
+        "brisas a cuantos metros queda",
+        "centro de brisas 4100 metros",
+        "Arenales queda antes del valle",
+        "sector del volcán Nevado del Ruiz",
+        "Kumanday es el nombre de ese sector norte",
+        "where is the Brisas sector",
+        "what landscape is Brisas-Kumanday next to",
+        "no quiero la vía, quiero saber qué montaña tiene al lado",
+        "el carreteable sale de Brisas hacia el valle",
+        "4100 metros es la cabaña, no la cima"
+      ],
+      "hard_negatives": [
+        "el valle y el silencio son el mismo sitio",
+        "msnm del Nevado del Ruiz",
+        "brisas cisne otun y dulima"
+      ],
+      "needs": [],
+      "answer": {
+        "short": "Brisas-Kumanday es el sector norte, en las inmediaciones del Nevado del Ruiz. La ficha ubica el centro de inducción Brisas a unos 4.100 metros y el carreteable sigue por Arenales hasta el Valle del Silencio, o Valle de las Tumbas. Esa cota es del centro, no de la cima, y el estado del tramo se confirma con el parque.",
+        "variants": [
+          "El sector norte se llama Brisas-Kumanday y queda junto al Ruiz. Brisas está publicada a unos 4.100 metros; la cumbre del volcán está mucho más arriba."
+        ],
+        "detail": null,
+        "reflection": "La altura del centro ya es alta montaña, aunque no sea la cima."
+      },
+      "sources": [
+        {
+          "label": "Parques Nacionales Naturales de Colombia",
+          "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "last_verified": "2026-11-21",
+      "valid_until": null,
+      "related": [
+        "geography.valle_tumbas",
+        "geography.ruiz_where",
+        "geography.four_sectors"
+      ],
+      "tags": [
+        "brisas",
+        "norte",
+        "kumanday"
+      ],
+      "entities": {
+        "landform": [
+          "sector"
+        ],
+        "sector": [
+          "brisas"
+        ]
+      }
+    },
+    {
+      "id": "geography.sector_cisne_poleka",
+      "label": "sector Cisne Poleka Kasue",
+      "kind": "explanation",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "qué es el sector del Cisne",
+        "Cisne-Poleka Kasue qué montañas muestra",
+        "desde ese sector se ven Ruiz y Santa Isabel",
+        "el cisne es el sector o la montaña",
+        "el centro El Cisne mira hacia Poleka Kasue",
+        "El Cisne queda a unos 4100 metros",
+        "ahí está la Laguna Verde",
+        "sector de Santa Isabel y del paramillo",
+        "where is the Cisne sector",
+        "what can you see from Cisne-Poleka Kasue",
+        "cabañas La Cueva y Potosí en ese paisaje",
+        "no me des el horario, ubícame el sector",
+        "Conejeras es un nombre de ese lado, no de Brisas"
+      ],
+      "hard_negatives": [
+        "qué es el Paramillo del Cisne",
+        "dónde queda la Laguna Verde",
+        "nombres de las zonas de visita"
+      ],
+      "needs": [],
+      "answer": {
+        "short": "Cisne-Poleka Kasue es el sector desde el que la ficha dice que se observan el Ruiz, Santa Isabel y el paramillo del Cisne. El centro El Cisne está publicado a unos 4.100 metros, y por ahí quedan también las cabañas La Cueva y Potosí y el sendero hacia la Laguna Verde. El paramillo y el sector comparten nombre; no son la misma cosa.",
+        "variants": [
+          "Ese sector junta el paisaje de Santa Isabel, o Poleka Kasue, con el paramillo del Cisne y la vista hacia el Ruiz. El centro El Cisne figura a unos 4.100 metros."
+        ],
+        "detail": null,
+        "reflection": "El nombre indígena de la ficha señala la montaña; el sector es la zona de visita que la rodea."
+      },
+      "sources": [
+        {
+          "label": "Parques Nacionales Naturales de Colombia",
+          "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "last_verified": "2026-11-21",
+      "valid_until": null,
+      "related": [
+        "geography.paramillo_cisne",
+        "geography.santa_isabel",
+        "geography.laguna_verde"
+      ],
+      "tags": [
+        "cisne",
+        "poleka kasue",
+        "santa isabel"
+      ],
+      "entities": {
+        "landform": [
+          "sector"
+        ],
+        "sector": [
+          "cisne"
+        ]
+      }
+    },
+    {
+      "id": "geography.sector_laguna_otun",
+      "label": "sector de la Laguna del Otún",
+      "kind": "fact",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "sector Otún dónde queda",
+        "el sector de la laguna es Risaralda",
+        "Potosí a qué altura está",
+        "cabana potosi 3920 metros",
+        "la laguna mas grande es ese sector",
+        "paramillos del Quindío y Santa Rosa la rodean",
+        "vereda El Bosque es un acceso, no la laguna",
+        "geografía del sector Laguna del Otún",
+        "where is the Otún sector",
+        "what surrounds the Otún lake sector",
+        "no quiero los kilómetros a pie, quiero el lugar",
+        "Pereira es la referencia municipal de ese lado",
+        "3920 metros es Potosí, no el espejo de agua"
+      ],
+      "hard_negatives": [
+        "qué es la laguna del Otún",
+        "de dónde nace el río Otún",
+        "Pereira está dentro del parque"
+      ],
+      "needs": [],
+      "answer": {
+        "short": "El sector Laguna del Otún está en Risaralda. La ficha dice que la laguna es la más grande del parque y que la rodean los paramillos del Quindío y de Santa Rosa. La cabaña Potosí, uno de los accesos, está publicada a unos 3.920 metros; esa no es la cota de la laguna.",
+        "variants": [
+          "Ese sector risaraldense se organiza alrededor de la Laguna del Otún, entre los paramillos del Quindío y de Santa Rosa. Potosí figura a unos 3.920 metros."
+        ],
+        "detail": null,
+        "reflection": "El camino desde Pereira o desde Potosí se confirma como ruta de acceso."
+      },
+      "sources": [
+        {
+          "label": "Parques Nacionales Naturales de Colombia",
+          "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "last_verified": "2026-11-21",
+      "valid_until": null,
+      "related": [
+        "geography.laguna_otun",
+        "geography.paramillo_quindio",
+        "geography.paramillo_santa_rosa"
+      ],
+      "tags": [
+        "otún",
+        "potosí",
+        "risaralda"
+      ],
+      "entities": {
+        "landform": [
+          "sector",
+          "lake"
+        ],
+        "sector": [
+          "otun"
+        ]
+      }
+    },
+    {
+      "id": "geography.sector_quindio_dulima",
+      "label": "sector Quindío Dulima",
+      "kind": "explanation",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "qué es el sector del Tolima",
+        "Quindío-Dulima a qué volcán corresponde",
+        "el sector sur es el del Nevado del Tolima",
+        "dulima es el tolima",
+        "salento ibague y anzoategui son ese lado",
+        "no es el sector de Brisas",
+        "paisaje del volcán Tolima dentro del parque",
+        "sector más asociado a la montaña cónica",
+        "where is the Quindío-Dulima sector",
+        "which volcano is next to the Dulima sector",
+        "Cocora Juntas y Palomar son referencias, no el mapa del sendero",
+        "el bosque altoandino empieza más abajo que el glaciar",
+        "geografía del lado tolimense y quindiano"
+      ],
+      "hard_negatives": [
+        "qué es el Nevado del Tolima",
+        "Salento es el municipio quindiano del área",
+        "el municipio de Ibagué sí está en la ficha"
+      ],
+      "needs": [],
+      "answer": {
+        "short": "Quindío-Dulima es el sector de las inmediaciones del volcán Nevado del Tolima. La ficha lo separa de los otros tres y lo asocia con el paso del bosque altoandino hasta el glaciar. Salento, Ibagué y Anzoátegui son las referencias municipales de ese lado; el trayecto se consulta en acceso.",
+        "variants": [
+          "Dulima, en el nombre del sector, apunta al Nevado del Tolima. Quindío-Dulima es esa zona del parque, no el sector norte del Ruiz."
+        ],
+        "detail": null,
+        "reflection": "Saber el sector no te dice si la cumbre está autorizada ese día."
+      },
+      "sources": [
+        {
+          "label": "Parques Nacionales Naturales de Colombia",
+          "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "last_verified": "2026-11-21",
+      "valid_until": null,
+      "related": [
+        "geography.tolima_volcano",
+        "geography.salento_quindio",
+        "geography.ibague_highlands"
+      ],
+      "tags": [
+        "dulima",
+        "tolima",
+        "sector"
+      ],
+      "entities": {
+        "landform": [
+          "sector"
+        ],
+        "sector": [
+          "dulima"
+        ]
+      }
+    },
+    {
+      "id": "geography.valle_tumbas",
+      "label": "Valle de las Tumbas",
+      "kind": "fact",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "Valle de las Tumbas",
+        "Valle del Silencio dónde queda",
+        "el valle y el silencio son el mismo sitio",
+        "que queda despues de brisas",
+        "valle de las tumbas es el crater",
+        "Arenales está antes de ese valle",
+        "atractivo del sector norte junto al Ruiz",
+        "no es una laguna, es un valle alto",
+        "where is Valle de las Tumbas",
+        "is Valle del Silencio the same place",
+        "queda en Brisas-Kumanday, no en el Otún",
+        "el nombre oficial usa los dos",
+        "cerca del Ruiz, lejos de la Laguna del Otún"
+      ],
+      "hard_negatives": [
+        "Brisas-Kumanday dónde queda",
+        "cráter Arenas",
+        "es la laguna más grande del parque"
+      ],
+      "needs": [],
+      "answer": {
+        "short": "El Valle de las Tumbas, llamado también Valle del Silencio en la ficha, es un atractivo del sector norte Brisas-Kumanday, junto al Nevado del Ruiz. El carreteable sale del centro Brisas, pasa por Arenales y llega a ese valle. Los tramos habilitados cambian; confírmalos con Parques Nacionales antes de viajar o al recuperar la señal.",
+        "variants": [
+          "Valle de las Tumbas y Valle del Silencio son el mismo lugar de la ficha, en el norte, cerca del Ruiz. No es el cráter ni la Laguna del Otún."
+        ],
+        "detail": null,
+        "reflection": "Si está nublado, el valle sigue estando ahí aunque la cima no se vea."
+      },
+      "sources": [
+        {
+          "label": "Parques Nacionales Naturales de Colombia",
+          "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "last_verified": "2026-11-21",
+      "valid_until": null,
+      "related": [
+        "geography.sector_brisas_kumanday",
+        "geography.arenas_crater",
+        "geography.ruiz_where"
+      ],
+      "tags": [
+        "valle",
+        "tumbas",
+        "silencio"
+      ],
+      "entities": {
+        "landform": [
+          "valley"
+        ],
+        "sector": [
+          "brisas"
+        ]
+      }
+    },
+    {
+      "id": "geography.laguna_otun",
+      "label": "Laguna del Otún en Risaralda",
+      "kind": "explanation",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "Laguna del Otún",
+        "qué es la laguna del Otún",
+        "es la laguna más grande del parque",
+        "laguana del otun donde queda",
+        "la laguna grande de los nevados",
+        "queda en Pereira y Santa Rosa",
+        "puedo visitar el Otún, es un sector aparte",
+        "humedal Ramsar alrededor de esa laguna",
+        "where is Laguna del Otún",
+        "which is the largest lake in the park",
+        "no es la Laguna Verde ni la del Encanto",
+        "está entre Santa Isabel y el páramo de Santa Rosa",
+        "dato de lugar, no de peces ni de plantas"
+      ],
+      "hard_negatives": [
+        "cómo se formó la Laguna del Otún",
+        "el Otún sale de la laguna",
+        "dónde queda la Laguna Verde"
+      ],
+      "needs": [],
+      "answer": {
+        "short": "La Laguna del Otún es la más grande del parque, según la ficha, y da nombre a un sector en Risaralda. Queda entre el Nevado Santa Isabel y el páramo de Santa Rosa, en los municipios de Pereira y Santa Rosa de Cabal. Los humedales de esa laguna son un sitio Ramsar; la ruta y el cupo se confirman con el parque.",
+        "variants": [
+          "Si buscas la laguna grande, es la del Otún, en Risaralda, entre Santa Isabel y Santa Rosa. El sector de visita lleva su nombre y los humedales están reconocidos por Ramsar."
+        ],
+        "detail": "La ficha Ramsar de 2006 da 6.578,5 hectáreas y un rango de 3.300 a 4.850 metros para el complejo de humedales, no para el espejo de agua solo. No hay una hectárea oficial reciente de la laguna suelta.",
+        "reflection": "Llegar a la orilla depende del sector habilitado, no solo de que la laguna exista."
+      },
+      "sources": [
+        {
+          "label": "Parques Nacionales Naturales de Colombia",
+          "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+          "retrieved_at": "2026-11-21"
+        },
+        {
+          "label": "Ficha Ramsar del complejo Laguna del Otún, 17 de julio de 2006",
+          "url": "https://rsis.ramsar.org/RISapp/files/RISrep/CO1781RIS.pdf",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "last_verified": "2026-11-21",
+      "valid_until": null,
+      "related": [
+        "geography.sector_laguna_otun",
+        "geography.rio_otun",
+        "geography.laguna_otun_formation"
+      ],
+      "tags": [
+        "laguna",
+        "otún",
+        "ramsar"
+      ],
+      "entities": {
+        "landform": [
+          "lake"
+        ],
+        "sector": [
+          "otun"
+        ]
+      }
+    },
+    {
+      "id": "geography.laguna_otun_formation",
+      "label": "origen de la Laguna del Otún",
+      "kind": "explanation",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "cómo se formó la Laguna del Otún",
+        "la laguna es de origen glacial",
+        "una lava del Santa Isabel la represó",
+        "de donde salio la laguna del otun",
+        "es una laguna volcanica o de glaciar",
+        "represamiento de un valle glacial",
+        "por qué hay agua entre Santa Isabel y Santa Rosa",
+        "origen geológico, no la caminata",
+        "how did Laguna del Otún form",
+        "is the Otún lake a lava-dammed valley",
+        "el IGAC lo explicó y Ramsar lo recoge",
+        "diecisiete humedales menores alrededor, dato de 2006",
+        "no me cuentes el ecosistema, cuéntame el hueco que se llenó"
+      ],
+      "hard_negatives": [
+        "qué es la laguna del Otún",
+        "a qué altura nace el río según Ramsar",
+        "qué es Santa Isabel"
+      ],
+      "needs": [],
+      "answer": {
+        "short": "La ficha Ramsar de 2006, con base en el IGAC, explica la Laguna del Otún como un valle glacial que una lava del Santa Isabel represó. Es una laguna permanente entre ese nevado y el páramo de Santa Rosa. Ese texto describe el origen y el paisaje de entonces; no mide el hielo que la alimenta hoy.",
+        "variants": [
+          "El Otún se formó cuando una colada del Santa Isabel cerró un valle glacial. La explicación está en la ficha Ramsar de 2006 y no sustituye el estado actual del hielo."
+        ],
+        "detail": "La misma ficha de 2006 habla de otros 17 humedales menores en los alrededores. No es un inventario de 2026.",
+        "reflection": "Saber cómo nació la laguna no dice si el camino está abierto."
+      },
+      "sources": [
+        {
+          "label": "Ficha Ramsar del complejo Laguna del Otún, 17 de julio de 2006",
+          "url": "https://rsis.ramsar.org/RISapp/files/RISrep/CO1781RIS.pdf",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "last_verified": "2026-11-21",
+      "valid_until": null,
+      "related": [
+        "geography.laguna_otun",
+        "geography.santa_isabel",
+        "geography.rio_otun"
+      ],
+      "tags": [
+        "origen",
+        "glacial",
+        "lava"
+      ],
+      "entities": {
+        "landform": [
+          "lake"
+        ],
+        "sector": [
+          "otun"
+        ]
+      }
+    },
+    {
+      "id": "geography.laguna_verde",
+      "label": "Laguna Verde junto a Santa Isabel",
+      "kind": "explanation",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "dónde queda la Laguna Verde",
+        "Laguna Verde es del sector del Cisne",
+        "hay una laguna verde cerca de Santa Isabel",
+        "laguna verde donde queda",
+        "la laguna verde es un glaciar o un lago",
+        "sendero Laguna Verde en Cisne-Poleka Kasue",
+        "no la confundas con la del Otún",
+        "el Ideam usa el mismo nombre para un hielo",
+        "where is Laguna Verde",
+        "is Laguna Verde a lake or a glacier",
+        "vertiente oriental de Santa Isabel y la laguna",
+        "no tengo la altura del espejo de agua",
+        "pregunta de lugar, no de horario del sendero"
+      ],
+      "hard_negatives": [
+        "qué cumbres todavía tienen nieve",
+        "Cisne-Poleka Kasue qué montañas muestra",
+        "dónde queda la Laguna del Encanto"
+      ],
+      "needs": [],
+      "answer": {
+        "short": "La Laguna Verde es un lugar del sector Cisne-Poleka Kasue, el de Santa Isabel y el paramillo del Cisne, y la ficha habla de un sendero hacia ella. El Ideam también llama Laguna Verde a un relicto de hielo en la vertiente oriental de Santa Isabel. Las fuentes no dicen que el hielo y la laguna sean el mismo punto, y no publican la altitud del espejo de agua.",
+        "variants": [
+          "Busca la Laguna Verde en el sector de Santa Isabel y el Cisne. El mismo nombre aparece en el Ideam para un resto de hielo, y no está demostrado que sea el mismo sitio."
+        ],
+        "detail": null,
+        "reflection": "Si vas por la laguna, pide el sendero; si preguntas por el hielo, la fuente es el Ideam."
+      },
+      "sources": [
+        {
+          "label": "Parques Nacionales Naturales de Colombia",
+          "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+          "retrieved_at": "2026-11-21"
+        },
+        {
+          "label": "IDEAM, glaciar Nevado Santa Isabel",
+          "url": "https://www.ideam.gov.co/nuestra-entidad/ecosistemas-e-informacion-ambiental/glaciares/nevado-santa-isabel",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "last_verified": "2026-11-21",
+      "valid_until": null,
+      "related": [
+        "geography.sector_cisne_poleka",
+        "geography.glacier_summits",
+        "geography.santa_isabel"
+      ],
+      "tags": [
+        "laguna verde"
+      ],
+      "entities": {
+        "landform": [
+          "lake"
+        ],
+        "sector": [
+          "cisne"
+        ]
+      }
+    },
+    {
+      "id": "geography.laguna_encanto",
+      "label": "Laguna del Encanto y el Totare",
+      "kind": "fact",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "Laguna del Encanto",
+        "dónde queda la Laguna del Encanto",
+        "la laguna de la base del Tolima",
+        "laguna del encanto a cuantos metros",
+        "en hoyo frio nace el totare",
+        "Anzoátegui y la laguna del nevado",
+        "está dentro del parque o solo en el municipio",
+        "4.000 metros según la Gobernación",
+        "where is Laguna del Encanto",
+        "does the Totare river start at that lake",
+        "no es la Laguna del Otún",
+        "vereda Hoyo Frío, base del Tolima",
+        "ficha turística del Tolima, no un levantamiento nuevo"
+      ],
+      "hard_negatives": [
+        "qué es el sector del Tolima",
+        "altura del Tolima",
+        "la laguna grande de los nevados"
+      ],
+      "needs": [],
+      "answer": {
+        "short": "La Gobernación del Tolima ubica la Laguna del Encanto en la vereda Hoyo Frío de Anzoátegui, a unos 4.000 metros, en la base del Nevado del Tolima, y dice que allí nace el río Totare. Anzoátegui es municipio del parque y puerta de entrada publicada, pero esa página no aclara si el espejo de agua cae dentro del límite. Confirma el punto con Parques Nacionales antes de la visita.",
+        "variants": [
+          "El Encanto, según la Gobernación, está en Hoyo Frío, Anzoátegui, a unos 4.000 metros, al pie del Tolima, y de ahí sale el Totare. Falta una frase oficial que lo meta o lo saque del polígono del parque."
+        ],
+        "detail": null,
+        "reflection": "Una cota redonda de una ficha turística no reemplaza el mapa del parque."
+      },
+      "sources": [
+        {
+          "label": "Gobernación del Tolima, turismo de Anzoátegui",
+          "url": "https://tolima.gov.co/tolima/informacion-general/turismo/1996-municipio-de-anzoategui",
+          "retrieved_at": "2026-11-21"
+        },
+        {
+          "label": "Parques Nacionales Naturales de Colombia",
+          "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "last_verified": "2026-11-21",
+      "valid_until": null,
+      "related": [
+        "geography.tolima_volcano",
+        "geography.sector_quindio_dulima",
+        "geography.watersheds"
+      ],
+      "tags": [
+        "encanto",
+        "totare",
+        "anzoátegui"
+      ],
+      "entities": {
+        "landform": [
+          "lake"
+        ],
+        "sector": [
+          "dulima"
+        ]
+      }
+    },
+    {
+      "id": "geography.santa_isabel",
+      "label": "qué es el Nevado Santa Isabel",
+      "kind": "explanation",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "qué es Santa Isabel",
+        "Poleka Kasue es el Nevado Santa Isabel",
+        "no es un cono con un solo cráter",
+        "santa isabel es un conjunto de domos",
+        "tres cumbres norte centro y sur",
+        "la cumbre norte se llama Hongo",
+        "queda entre Risaralda Caldas y Tolima",
+        "es uno de los tres nevados del parque",
+        "what is Nevado Santa Isabel",
+        "is Santa Isabel a single crater like the Ruiz",
+        "alineado de norte a sur, no como el Tolima",
+        "doncella de la montaña es el nombre de la ficha",
+        "domos y no un estratovolcán clásico"
+      ],
+      "hard_negatives": [
+        "altura de Santa Isabel",
+        "el centro El Cisne mira hacia Poleka Kasue",
+        "el Cisne es un nevado o un paramillo"
+      ],
+      "needs": [],
+      "answer": {
+        "short": "Santa Isabel, llamado Poleka Kasue en la ficha del parque, no tiene la forma de un cono con un cráter como el Ruiz o el Tolima. El Ideam lo describe como domos alineados de norte a sur, con cumbres Norte o Hongo, Central y Sur. El Servicio Geológico lo sitúa entre Risaralda, Caldas y Tolima, y el parque lo cuenta entre sus tres nevados principales.",
+        "variants": [
+          "Poleka Kasue es Santa Isabel: un grupo de domos con tres cumbres, no un cráter único. Está en los tres departamentos y es uno de los nevados del parque."
+        ],
+        "detail": null,
+        "reflection": "El nombre del sector y el de la montaña se parecen; conviene decir cuál de los dos preguntas."
+      },
+      "sources": [
+        {
+          "label": "Parques Nacionales Naturales de Colombia",
+          "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+          "retrieved_at": "2026-11-21"
+        },
+        {
+          "label": "IDEAM, glaciar Nevado Santa Isabel",
+          "url": "https://www.ideam.gov.co/nuestra-entidad/ecosistemas-e-informacion-ambiental/glaciares/nevado-santa-isabel",
+          "retrieved_at": "2026-11-21"
+        },
+        {
+          "label": "Servicio Geológico Colombiano, los 10 volcanes más altos de Colombia, 9 de agosto de 2024",
+          "url": "https://www2.sgc.gov.co/Noticias/Paginas/Los-10-volcanes-mas-altos-de-Colombia.aspx",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "last_verified": "2026-11-21",
+      "valid_until": null,
+      "related": [
+        "geography.santa_isabel_height",
+        "geography.sector_cisne_poleka",
+        "geography.glacier_summits"
+      ],
+      "tags": [
+        "santa isabel",
+        "poleka kasue",
+        "domos"
+      ],
+      "entities": {
+        "landform": [
+          "peak"
+        ],
+        "sector": [
+          "cisne"
+        ]
+      }
+    },
+    {
+      "id": "geography.santa_isabel_height",
+      "label": "altura del Nevado Santa Isabel",
+      "kind": "fact",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "altura de Santa Isabel",
+        "cuánto mide el Nevado de Santa Isabel",
+        "las tres cumbres no tienen la misma cota",
+        "cuanto mide santa isabel",
+        "4965 o 4935 cual es",
+        "cumbre Sur Central y Norte en metros",
+        "el SGC y el Ideam no publican la misma cifra",
+        "Hongo es la más baja de las tres",
+        "how high is Nevado Santa Isabel",
+        "why are there two official heights for Santa Isabel",
+        "4.935 la sur, 4.923 la central, 4.903 la norte",
+        "no me des una sola cifra si hay dos fuentes",
+        "altitud del domo, no del sendero"
+      ],
+      "hard_negatives": [
+        "cuánto mide el Nevado del Ruiz",
+        "cuánto mide la cumbre del Tolima",
+        "tres cumbres norte centro y sur"
+      ],
+      "needs": [],
+      "answer": {
+        "short": "El Ideam publica tres cotas, calculadas con un modelo de elevación del IGAC y un levantamiento topográfico: cumbre Sur a 4.935 metros, Central a 4.923 y Norte, o Hongo, a 4.903. El Servicio Geológico, el 9 de agosto de 2024, lista una sola cifra, 4.965 metros. Las dos entidades no coinciden, así que conviene mirar las dos.",
+        "variants": [
+          "Para Santa Isabel el Ideam separa 4.935, 4.923 y 4.903 metros según la cumbre, y el SGC publica 4.965. Conserva las dos versiones."
+        ],
+        "detail": "El Ideam llama al Santa Isabel el glaciar de menor altitud del país, a 4.903 metros, que es la cumbre Norte de su tabla. Eso no explica por sí solo los 4.965 del SGC.",
+        "reflection": "Ninguna de esas cotas es una meta de caminata."
+      },
+      "sources": [
+        {
+          "label": "IDEAM, glaciar Nevado Santa Isabel",
+          "url": "https://www.ideam.gov.co/nuestra-entidad/ecosistemas-e-informacion-ambiental/glaciares/nevado-santa-isabel",
+          "retrieved_at": "2026-11-21"
+        },
+        {
+          "label": "Servicio Geológico Colombiano, los 10 volcanes más altos de Colombia, 9 de agosto de 2024",
+          "url": "https://www2.sgc.gov.co/Noticias/Paginas/Los-10-volcanes-mas-altos-de-Colombia.aspx",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "last_verified": "2026-11-21",
+      "valid_until": null,
+      "related": [
+        "geography.santa_isabel",
+        "geography.ruiz_height",
+        "geography.highest_in_park"
+      ],
+      "tags": [
+        "altura",
+        "santa isabel"
+      ],
+      "entities": {
+        "landform": [
+          "peak"
+        ],
+        "sector": [
+          "cisne"
+        ]
+      }
+    },
+    {
+      "id": "geography.tolima_volcano",
+      "label": "qué es el Nevado del Tolima",
+      "kind": "explanation",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "qué es el Nevado del Tolima",
+        "Dulima es el volcán del Tolima",
+        "es un cono en el sur del parque",
+        "el tolima es un estratovolcan",
+        "nevado del tolima en ibague y anzoategui",
+        "una sola cumbre, no tres como Santa Isabel",
+        "hace parte del parque junto con Ruiz y Santa Isabel",
+        "forma cónica del volcán",
+        "what is Nevado del Tolima",
+        "is Tolima a cone-shaped stratovolcano",
+        "coordenadas aproximadas 4 grados 39 norte",
+        "no me hables del sendero, dime qué montaña es",
+        "el glaciar se llama con varios nombres y la montaña es una"
+      ],
+      "hard_negatives": [
+        "5215 es la cima",
+        "Quindío-Dulima a qué volcán corresponde",
+        "cómo es el cráter del Tolima"
+      ],
+      "needs": [],
+      "answer": {
+        "short": "El Nevado del Tolima, Dulima en la ficha del parque, es un estratovolcán cónico de una sola cumbre en el departamento del Tolima. El Ideam lo ubica cerca de 4 grados 39 minutos norte y 75 grados 19 minutos oeste, en jurisdicción de Ibagué y Anzoátegui, dentro del parque. No es el Ruiz ni el sector norte.",
+        "variants": [
+          "Dulima es el Tolima: un volcán en forma de cono, con una cumbre, en Ibagué y Anzoátegui y dentro del parque."
+        ],
+        "detail": null,
+        "reflection": "La fama de montañistas que tiene esa cima no la convierte en un paseo corto."
+      },
+      "sources": [
+        {
+          "label": "Parques Nacionales Naturales de Colombia",
+          "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+          "retrieved_at": "2026-11-21"
+        },
+        {
+          "label": "IDEAM, glaciar Nevado del Tolima",
+          "url": "https://www.ideam.gov.co/nuestra-entidad/ecosistemas-e-informacion-ambiental/glaciares/nevado-del-tolima",
+          "retrieved_at": "2026-11-21"
+        },
+        {
+          "label": "Gobernación del Tolima, turismo de Anzoátegui",
+          "url": "https://tolima.gov.co/tolima/informacion-general/turismo/1996-municipio-de-anzoategui",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "last_verified": "2026-11-21",
+      "valid_until": null,
+      "related": [
+        "geography.tolima_height",
+        "geography.sector_quindio_dulima",
+        "geography.tolima_crater"
+      ],
+      "tags": [
+        "tolima",
+        "dulima"
+      ],
+      "entities": {
+        "landform": [
+          "peak"
+        ],
+        "sector": [
+          "dulima"
+        ]
+      }
+    },
+    {
+      "id": "geography.tolima_height",
+      "label": "altura del Nevado del Tolima",
+      "kind": "fact",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "altura del Tolima",
+        "a qué altura está el Nevado del Tolima",
+        "cuánto mide la cumbre del Tolima",
+        "cuantos metros tiene el tolima",
+        "5215 es la cima",
+        "el SGC y el Ideam coinciden en el Tolima",
+        "pasa de cinco mil doscientos metros",
+        "cota de la única cumbre",
+        "how high is Nevado del Tolima",
+        "what elevation does the SGC give for Tolima",
+        "no es 5.321, ese es el Ruiz",
+        "altitud estimada con el modelo del IGAC",
+        "metros de Dulima sobre el nivel del mar"
+      ],
+      "hard_negatives": [
+        "a qué altura está la cima del Ruiz",
+        "el Ruiz le gana al Tolima en metros",
+        "una sola cumbre, no tres como Santa Isabel"
+      ],
+      "needs": [],
+      "answer": {
+        "short": "La cumbre única del Nevado del Tolima está a 5.215 metros sobre el nivel del mar. Coinciden el Servicio Geológico, en su ranking del 9 de agosto de 2024, y el Ideam, que la estima con el modelo SRTM 12,5 del IGAC. Está por debajo del Ruiz y por encima de las cotas publicadas para Santa Isabel.",
+        "variants": [
+          "Si la pregunta es la cima del Tolima, la cifra compartida es 5.215 metros. El Ruiz, a 5.321, es otra montaña."
+        ],
+        "detail": null,
+        "reflection": "Esa cota es la cima, no el lugar hasta el que llega cualquier camino."
+      },
+      "sources": [
+        {
+          "label": "Servicio Geológico Colombiano, los 10 volcanes más altos de Colombia, 9 de agosto de 2024",
+          "url": "https://www2.sgc.gov.co/Noticias/Paginas/Los-10-volcanes-mas-altos-de-Colombia.aspx",
+          "retrieved_at": "2026-11-21"
+        },
+        {
+          "label": "IDEAM, glaciar Nevado del Tolima",
+          "url": "https://www.ideam.gov.co/nuestra-entidad/ecosistemas-e-informacion-ambiental/glaciares/nevado-del-tolima",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "last_verified": "2026-11-21",
+      "valid_until": null,
+      "related": [
+        "geography.tolima_volcano",
+        "geography.ruiz_height",
+        "geography.highest_in_park"
+      ],
+      "tags": [
+        "altura",
+        "tolima",
+        "5215"
+      ],
+      "entities": {
+        "landform": [
+          "peak"
+        ],
+        "sector": [
+          "dulima"
+        ]
+      }
+    },
+    {
+      "id": "geography.paramillo_quindio",
+      "label": "Paramillo del Quindío",
+      "kind": "fact",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "Paramillo del Quindío",
+        "a qué altura está el Quindío",
+        "el Quindío todavía es un nevado con hielo",
+        "paramillo del quindio a cuantos metros",
+        "4700 metros en el limite de tres departamentos",
+        "Tolima Quindío y Risaralda se tocan ahí",
+        "rodea la Laguna del Otún junto con Santa Rosa",
+        "no lo cuentes entre los tres nevados glaciados",
+        "how high is Paramillo del Quindío",
+        "where do the three departments meet at Quindío",
+        "el SGC lo lista en 4.700 metros",
+        "eje de la cordillera Central",
+        "paramillo no significa el volcán del Tolima"
+      ],
+      "hard_negatives": [
+        "a qué altura está Santa Rosa",
+        "no confundir el pueblo con la cumbre del Quindío",
+        "los paramillos no entran en esa lista de la ficha"
+      ],
+      "needs": [],
+      "answer": {
+        "short": "El Paramillo del Quindío figura a 4.700 metros en el ranking del Servicio Geológico del 9 de agosto de 2024. Está en el eje de la cordillera Central, en el límite de Tolima, Quindío y Risaralda. La ficha del parque lo pone, con el de Santa Rosa, alrededor de la Laguna del Otún, y no lo incluye entre los tres nevados a los que asocia el glaciar.",
+        "variants": [
+          "El Quindío de este parque es un paramillo de 4.700 metros en el límite de tres departamentos, no uno de los tres nevados con hielo de la ficha."
+        ],
+        "detail": null,
+        "reflection": null
+      },
+      "sources": [
+        {
+          "label": "Servicio Geológico Colombiano, los 10 volcanes más altos de Colombia, 9 de agosto de 2024",
+          "url": "https://www2.sgc.gov.co/Noticias/Paginas/Los-10-volcanes-mas-altos-de-Colombia.aspx",
+          "retrieved_at": "2026-11-21"
+        },
+        {
+          "label": "Parques Nacionales Naturales de Colombia",
+          "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "last_verified": "2026-11-21",
+      "valid_until": null,
+      "related": [
+        "geography.paramillo_santa_rosa",
+        "geography.laguna_otun",
+        "geography.salento_quindio"
+      ],
+      "tags": [
+        "quindío",
+        "paramillo"
+      ],
+      "entities": {
+        "landform": [
+          "peak"
+        ],
+        "sector": [
+          "otun"
+        ]
+      }
+    },
+    {
+      "id": "geography.paramillo_cisne",
+      "label": "Paramillo del Cisne",
+      "kind": "fact",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "qué es el Paramillo del Cisne",
+        "el Cisne es un nevado o un paramillo",
+        "Morro Negro va con el Cisne",
+        "paramillo del cisne altura",
+        "4700 entre caldas y tolima",
+        "es un domo, no el glaciar del Ruiz",
+        "da nombre al sector pero es otra cosa",
+        "Cisne-Morro Negro en el ranking del SGC",
+        "what is Paramillo del Cisne",
+        "is El Cisne one of the snow-capped peaks",
+        "no lo confundas con el centro de visitantes El Cisne",
+        "lava en domo según el boletín del SGC",
+        "queda al norte de Santa Isabel en la lista del segmento"
+      ],
+      "hard_negatives": [
+        "el cisne es el sector o la montaña",
+        "santa isabel es un conjunto de domos",
+        "nombres de los nevados y los paramillos"
+      ],
+      "needs": [],
+      "answer": {
+        "short": "El Paramillo del Cisne, asociado por el Servicio Geológico al domo Morro Negro, está entre Caldas y Tolima y figura a 4.700 metros en el ranking del 9 de agosto de 2024. El boletín del segmento lo muestra como un domo de lava, no como uno de los tres nevados glaciados. Comparte nombre con el sector Cisne-Poleka Kasue y con el centro El Cisne; la montaña, el sector y la casa de visitantes no son el mismo sitio.",
+        "variants": [
+          "El Cisne del mapa es un paramillo de unos 4.700 metros, con el domo Morro Negro, entre Caldas y Tolima. No es la cabaña El Cisne ni el hielo de Santa Isabel."
+        ],
+        "detail": null,
+        "reflection": "Si dices solo Cisne, aclara si hablas de la montaña, del sector o del centro."
+      },
+      "sources": [
+        {
+          "label": "Servicio Geológico Colombiano, los 10 volcanes más altos de Colombia, 9 de agosto de 2024",
+          "url": "https://www2.sgc.gov.co/Noticias/Paginas/Los-10-volcanes-mas-altos-de-Colombia.aspx",
+          "retrieved_at": "2026-11-21"
+        },
+        {
+          "label": "Servicio Geológico Colombiano, boletín de actividad del segmento volcánico norte, 2023",
+          "url": "https://www2.sgc.gov.co/Publicaciones/Informes%20tcnicos/Informe_de_actividad_volcanica_segmento_norte_2023.pdf",
+          "retrieved_at": "2026-11-21"
+        },
+        {
+          "label": "Parques Nacionales Naturales de Colombia",
+          "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "last_verified": "2026-11-21",
+      "valid_until": null,
+      "related": [
+        "geography.sector_cisne_poleka",
+        "geography.santa_isabel",
+        "geography.main_peaks"
+      ],
+      "tags": [
+        "cisne",
+        "morro negro",
+        "paramillo"
+      ],
+      "entities": {
+        "landform": [
+          "peak"
+        ],
+        "sector": [
+          "cisne"
+        ]
+      }
+    },
+    {
+      "id": "geography.paramillo_santa_rosa",
+      "label": "Paramillo de Santa Rosa",
+      "kind": "fact",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "Paramillo de Santa Rosa",
+        "a qué altura está Santa Rosa",
+        "el paramillo queda en Risaralda",
+        "santa rosa de cabal es el paramillo o el pueblo",
+        "4600 metros publica el SGC",
+        "junto con el Quindío enmarca la laguna",
+        "no es el Nevado de Santa Isabel",
+        "montaña del lado de la Laguna del Otún",
+        "how high is Paramillo de Santa Rosa",
+        "is Santa Rosa a glacier peak",
+        "departamento de Risaralda, ranking de agosto de 2024",
+        "paramillo de Santa Rosa de Cabal en la ficha",
+        "4.600 no es la cota de la laguna"
+      ],
+      "hard_negatives": [
+        "rodea la Laguna del Otún junto con Santa Rosa",
+        "está entre Santa Isabel y el páramo de Santa Rosa",
+        "Santa Rosa de Cabal también entra"
+      ],
+      "needs": [],
+      "answer": {
+        "short": "El Paramillo de Santa Rosa está a 4.600 metros y en Risaralda, según el ranking del Servicio Geológico del 9 de agosto de 2024. La ficha del parque dice que, con el Paramillo del Quindío, rodea la Laguna del Otún. No es el municipio de Santa Rosa de Cabal ni el Nevado Santa Isabel.",
+        "variants": [
+          "Santa Rosa, como montaña, es un paramillo risaraldense de 4.600 metros al borde de la Laguna del Otún. El pueblo y el nevado Santa Isabel son otros lugares."
+        ],
+        "detail": null,
+        "reflection": "El nombre del municipio y el de la montaña se pisan; di cuál de los dos buscas."
+      },
+      "sources": [
+        {
+          "label": "Servicio Geológico Colombiano, los 10 volcanes más altos de Colombia, 9 de agosto de 2024",
+          "url": "https://www2.sgc.gov.co/Noticias/Paginas/Los-10-volcanes-mas-altos-de-Colombia.aspx",
+          "retrieved_at": "2026-11-21"
+        },
+        {
+          "label": "Parques Nacionales Naturales de Colombia",
+          "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "last_verified": "2026-11-21",
+      "valid_until": null,
+      "related": [
+        "geography.paramillo_quindio",
+        "geography.laguna_otun",
+        "geography.pereira_santa_rosa"
+      ],
+      "tags": [
+        "santa rosa",
+        "paramillo"
+      ],
+      "entities": {
+        "landform": [
+          "peak"
+        ],
+        "sector": [
+          "otun"
+        ]
+      }
+    },
+    {
+      "id": "geography.olleta_pirana",
+      "label": "conos La Olleta y La Piraña",
+      "kind": "explanation",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "qué es el volcán La Olleta",
+        "La Piraña también es del Ruiz",
+        "son cráteres parásitos o volcanes aparte",
+        "la olleta esta activa",
+        "nereidas entra en el mismo complejo",
+        "la ficha nombra Olleta y Piraña junto al Ruiz",
+        "centros inactivos al lado del cráter Arenas",
+        "no tengo la altura de esos conos",
+        "what are La Olleta and La Piraña",
+        "are those cones still active",
+        "el complejo del Ruiz no es solo la cima nevada",
+        "Nereidas lo dice el SGC, la ficha no lo repite igual",
+        "volcanes apagados del mismo macizo"
+      ],
+      "hard_negatives": [
+        "qué es Arenas en la cima del Ruiz",
+        "tiene cráter y glaciar ese volcán",
+        "la olleta no esta activa"
+      ],
+      "needs": [],
+      "answer": {
+        "short": "La Olleta y La Piraña son volcanes inactivos del complejo del Ruiz: así los describe la hoja del Servicio Geológico de septiembre de 2024, lo repite el boletín del segmento norte y la ficha del parque los nombra junto a Kumanday. Ese boletín también suma a Nereidas entre los centros inactivos. Esas fuentes no publican la altura de estos conos.",
+        "variants": [
+          "Olleta y Piraña acompañan al Ruiz y el SGC los trata como volcanes inactivos del mismo complejo, igual que a Nereidas. No hay una cota oficial de esos conos en lo consultado."
+        ],
+        "detail": null,
+        "reflection": "Inactivo en esos informes no autoriza a caminar hacia un cráter."
+      },
+      "sources": [
+        {
+          "label": "Servicio Geológico Colombiano, hoja informativa del Nevado del Ruiz, septiembre de 2024",
+          "url": "https://www2.sgc.gov.co/Temas-destacados/Documents/Hoja-informativa-volcan-Nevado-de-Ruiz-SGC.pdf",
+          "retrieved_at": "2026-11-21"
+        },
+        {
+          "label": "Servicio Geológico Colombiano, boletín de actividad del segmento volcánico norte, 2023",
+          "url": "https://www2.sgc.gov.co/Publicaciones/Informes%20tcnicos/Informe_de_actividad_volcanica_segmento_norte_2023.pdf",
+          "retrieved_at": "2026-11-21"
+        },
+        {
+          "label": "Parques Nacionales Naturales de Colombia",
+          "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "last_verified": "2026-11-21",
+      "valid_until": null,
+      "related": [
+        "geography.ruiz_identity",
+        "geography.arenas_crater",
+        "geography.volcanic_centers"
+      ],
+      "tags": [
+        "olleta",
+        "piraña",
+        "nereidas"
+      ],
+      "entities": {
+        "landform": [
+          "peak"
+        ],
+        "sector": [
+          "brisas"
+        ]
+      }
+    },
+    {
+      "id": "geography.glacier_summits",
+      "label": "qué cumbres conservan glaciar",
+      "kind": "explanation",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "qué cumbres todavía tienen nieve",
+        "cuáles nevados siguen con glaciar",
+        "Santa Isabel todavía tiene hielo",
+        "el hielo de conejeras se acabo",
+        "ruiz santa isabel y tolima son los tres",
+        "los paramillos no entran en esa lista de la ficha",
+        "el hielo cambia y hay que mirar el Ideam",
+        "no me des el área en kilómetros, dime dónde hay hielo",
+        "which summits still have glaciers",
+        "does Santa Isabel still have ice",
+        "Conejeras desapareció entre 2023 y 2024",
+        "ver nieve no está garantizado",
+        "glaciar no es lo mismo que páramo"
+      ],
+      "hard_negatives": [
+        "la laguna verde es un glaciar o un lago",
+        "es uno de los tres nevados del parque",
+        "el Quindío todavía es un nevado con hielo"
+      ],
+      "needs": [],
+      "answer": {
+        "short": "La ficha del parque asocia el glaciar con tres cumbres: Ruiz, Santa Isabel y Tolima. El Ideam sigue describiendo hielo en las tres y trata el de Santa Isabel como el más bajo y fragmentado; el hielo llamado Conejeras se extinguió entre finales de 2023 y comienzos de 2024. La superficie cambia: si quieres saber cuánto se ve, revisa el Ideam cuando tengas señal.",
+        "variants": [
+          "Ruiz, Santa Isabel y Tolima son las tres cumbres con glaciar en la ficha. El de Santa Isabel quedó en relictos y Conejeras ya no está, según el Ideam; confirma el estado antes de viajar."
+        ],
+        "detail": "El Ideam publica además el área del hielo, que cambia con los años. Para el retroceso conviene ir a esas páginas; aquí solo queda en qué cumbres el hielo sigue descrito.",
+        "reflection": "Que haya hielo en la estadística no promete que lo veas entre las nubes."
+      },
+      "sources": [
+        {
+          "label": "Parques Nacionales Naturales de Colombia",
+          "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+          "retrieved_at": "2026-11-21"
+        },
+        {
+          "label": "IDEAM, glaciar Nevado del Ruiz",
+          "url": "https://www.ideam.gov.co/nuestra-entidad/ecosistemas-e-informacion-ambiental/glaciares/nevado-del-ruiz",
+          "retrieved_at": "2026-11-21"
+        },
+        {
+          "label": "IDEAM, glaciar Nevado Santa Isabel",
+          "url": "https://www.ideam.gov.co/nuestra-entidad/ecosistemas-e-informacion-ambiental/glaciares/nevado-santa-isabel",
+          "retrieved_at": "2026-11-21"
+        },
+        {
+          "label": "IDEAM, glaciar Nevado del Tolima",
+          "url": "https://www.ideam.gov.co/nuestra-entidad/ecosistemas-e-informacion-ambiental/glaciares/nevado-del-tolima",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "last_verified": "2026-11-21",
+      "valid_until": null,
+      "related": [
+        "geography.santa_isabel",
+        "geography.main_peaks",
+        "geography.laguna_verde"
+      ],
+      "tags": [
+        "glaciar",
+        "nieve",
+        "hielo"
+      ],
+      "entities": {
+        "landform": [
+          "peak"
+        ]
+      }
+    },
+    {
+      "id": "geography.highest_in_park",
+      "label": "cumbre más alta del parque",
+      "kind": "fact",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "cuál es la cumbre más alta dentro del parque",
+        "el punto más alto de Los Nevados",
+        "el Ruiz le gana al Tolima en metros",
+        "que montaña es la mas alta alla",
+        "5321 contra 5215",
+        "Santa Isabel queda por debajo de las dos",
+        "dentro del parque, no en Colombia",
+        "comparación de las cotas publicadas",
+        "what is the highest summit in the park",
+        "is Ruiz higher than Tolima",
+        "las cifras del SGC y del Ideam ordenan así la cima",
+        "no es una medición nueva del polígono entero",
+        "la más alta de las cumbres nombradas"
+      ],
+      "hard_negatives": [
+        "el Ruiz es el volcán más alto de Colombia",
+        "la cima pasa de cinco mil metros",
+        "pasa de cinco mil doscientos metros"
+      ],
+      "needs": [],
+      "answer": {
+        "short": "Entre las cotas que publican el Servicio Geológico y el Ideam, el Ruiz a 5.321 metros queda por encima del Tolima a 5.215 y de Santa Isabel, cuyas cumbres el Ideam pone bajo 5.000 metros y el SGC lista a 4.965. Con esas cifras, el Ruiz es la cumbre más alta de las medidas dentro del parque. El volcán más alto del país es otro: el Huila.",
+        "variants": [
+          "Si comparas las alturas publicadas, el Ruiz supera al Tolima y a Santa Isabel. Por eso es la cima más alta de este parque, no la de Colombia."
+        ],
+        "detail": "La comparación usa las cotas de las cumbres nombradas. No es un barrido nuevo de todo el polígono.",
+        "reflection": null
+      },
+      "sources": [
+        {
+          "label": "Servicio Geológico Colombiano, los 10 volcanes más altos de Colombia, 9 de agosto de 2024",
+          "url": "https://www2.sgc.gov.co/Noticias/Paginas/Los-10-volcanes-mas-altos-de-Colombia.aspx",
+          "retrieved_at": "2026-11-21"
+        },
+        {
+          "label": "IDEAM, glaciar Nevado del Ruiz",
+          "url": "https://www.ideam.gov.co/nuestra-entidad/ecosistemas-e-informacion-ambiental/glaciares/nevado-del-ruiz",
+          "retrieved_at": "2026-11-21"
+        },
+        {
+          "label": "IDEAM, glaciar Nevado del Tolima",
+          "url": "https://www.ideam.gov.co/nuestra-entidad/ecosistemas-e-informacion-ambiental/glaciares/nevado-del-tolima",
+          "retrieved_at": "2026-11-21"
+        },
+        {
+          "label": "IDEAM, glaciar Nevado Santa Isabel",
+          "url": "https://www.ideam.gov.co/nuestra-entidad/ecosistemas-e-informacion-ambiental/glaciares/nevado-santa-isabel",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "last_verified": "2026-11-21",
+      "valid_until": null,
+      "related": [
+        "geography.ruiz_height",
+        "geography.ruiz_versus_huila",
+        "geography.tolima_height"
+      ],
+      "tags": [
+        "cima",
+        "máxima"
+      ],
+      "entities": {
+        "landform": [
+          "peak"
+        ]
+      }
+    },
+    {
+      "id": "geography.ruiz_versus_huila",
+      "label": "el Ruiz no es el más alto",
+      "kind": "fact",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "el Ruiz es el volcán más alto de Colombia",
+        "qué volcán colombiano lo supera",
+        "el Huila es más alto que el Ruiz",
+        "el ruiz es el mas alto del pais",
+        "5364 contra 5321",
+        "el Huila no está en este parque",
+        "segundo puesto en el ranking del SGC",
+        "Cauca Huila y Tolima son del otro nevado",
+        "is Nevado del Ruiz the highest volcano in Colombia",
+        "which volcano is taller than the Ruiz",
+        "los 10 más altos, puesto número dos",
+        "no confundir el más famoso con el más alto",
+        "ranking del 9 de agosto de 2024"
+      ],
+      "hard_negatives": [
+        "el punto más alto de Los Nevados",
+        "qué tan alto es ese volcán",
+        "es un cono en el sur del parque"
+      ],
+      "needs": [],
+      "answer": {
+        "short": "No: en el ranking del Servicio Geológico del 9 de agosto de 2024 el Nevado del Huila va primero, con 5.364 metros, y el Ruiz segundo, con 5.321. El Huila está entre Cauca, Tolima y Huila, fuera de este parque. Dentro de Los Nevados, el Ruiz sí es la cumbre más alta de las publicadas.",
+        "variants": [
+          "El Ruiz es el segundo volcán más alto del país en ese ranking. El Huila, a 5.364 metros, queda por fuera del parque."
+        ],
+        "detail": null,
+        "reflection": "La fama del Ruiz viene de su actividad y de su historia, no de ser el más alto."
+      },
+      "sources": [
+        {
+          "label": "Servicio Geológico Colombiano, los 10 volcanes más altos de Colombia, 9 de agosto de 2024",
+          "url": "https://www2.sgc.gov.co/Noticias/Paginas/Los-10-volcanes-mas-altos-de-Colombia.aspx",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "last_verified": "2026-11-21",
+      "valid_until": null,
+      "related": [
+        "geography.highest_in_park",
+        "geography.ruiz_height"
+      ],
+      "tags": [
+        "huila",
+        "ranking"
+      ],
+      "entities": {
+        "landform": [
+          "peak"
+        ]
+      }
+    },
+    {
+      "id": "geography.watersheds",
+      "label": "vertientes Cauca y Magdalena",
+      "kind": "explanation",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "qué ríos nacen en el parque",
+        "qué ríos nacen hacia cada vertiente",
+        "el agua baja al Cauca o al Magdalena",
+        "rios que salen de los nevados",
+        "chinchina otun guali y lagunilla",
+        "Campoalegre Quindío y Combeima también",
+        "Totare y Coello por el Tolima",
+        "Azufrado y Recio por el Ruiz",
+        "which rivers start in Los Nevados",
+        "does the park feed both the Cauca and the Magdalena",
+        "estrella de agua entre dos hoyas",
+        "no es la lista de cada quebrada",
+        "de qué lado cae el agua según el Ideam y la Carder"
+      ],
+      "hard_negatives": [
+        "de dónde nace el río Otún",
+        "de dónde sale el río Chinchiná",
+        "el parque está entre el Cauca y el Magdalena"
+      ],
+      "needs": [],
+      "answer": {
+        "short": "El parque está en la cordillera Central, entre las hoyas del Cauca y del Magdalena. Hacia el Cauca se cuentan el Chinchiná, el Otún, el Campoalegre y el Quindío; hacia el Magdalena, el Gualí, el Azufrado, el Lagunilla, el Recio, el Totare, el Coello y el Combeima. Esa lista junta lo que publican la ficha, el Ideam, la Carder y la Gobernación del Tolima; no agota cada quebrada.",
+        "variants": [
+          "El agua del parque baja a los dos grandes ríos. Cauca recibe, entre otros, Otún, Chinchiná, Campoalegre y Quindío; Magdalena recibe Gualí, Lagunilla, Recio, Totare, Coello y Combeima."
+        ],
+        "detail": "Campoalegre, Quindío y Combeima salen de la nota de la Carder del 14 de julio de 2026. Totare sale además de la ficha de Anzoátegui para la Laguna del Encanto. Coello y los drenajes del Ruiz salen de las tablas del Ideam.",
+        "reflection": "El río explica de quién es el agua; no dice si el grifo del camino funciona."
+      },
+      "sources": [
+        {
+          "label": "Parques Nacionales Naturales de Colombia",
+          "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+          "retrieved_at": "2026-11-21"
+        },
+        {
+          "label": "IDEAM, glaciar Nevado del Ruiz",
+          "url": "https://www.ideam.gov.co/nuestra-entidad/ecosistemas-e-informacion-ambiental/glaciares/nevado-del-ruiz",
+          "retrieved_at": "2026-11-21"
+        },
+        {
+          "label": "IDEAM, glaciar Nevado del Tolima",
+          "url": "https://www.ideam.gov.co/nuestra-entidad/ecosistemas-e-informacion-ambiental/glaciares/nevado-del-tolima",
+          "retrieved_at": "2026-11-21"
+        },
+        {
+          "label": "CARDER, nota sobre Los Nevados, 14 de julio de 2026",
+          "url": "https://www.carder.gov.co/pnn-los-nevados-un-patrimonio-natural-que-garantiza-el-agua-y-la-vida-de-risaralda/",
+          "retrieved_at": "2026-11-21"
+        },
+        {
+          "label": "Gobernación del Tolima, turismo de Anzoátegui",
+          "url": "https://tolima.gov.co/tolima/informacion-general/turismo/1996-municipio-de-anzoategui",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "last_verified": "2026-11-21",
+      "valid_until": null,
+      "related": [
+        "geography.rio_otun",
+        "geography.rio_chinchina",
+        "geography.cordillera_central"
+      ],
+      "tags": [
+        "ríos",
+        "cuencas"
+      ],
+      "entities": {
+        "landform": [
+          "river"
+        ]
+      }
+    },
+    {
+      "id": "geography.rio_otun",
+      "label": "nacimiento del río Otún",
+      "kind": "fact",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "de dónde nace el río Otún",
+        "el Otún sale de la laguna",
+        "a qué altura nace el río según Ramsar",
+        "el rio otun nace a 4000",
+        "la cabecera está en Pereira",
+        "cae a la cuenca del Cauca",
+        "dato de 2006, no una medición de este año",
+        "la laguna y el río son la misma pregunta de origen",
+        "where does the Otún river start",
+        "is the river born in the lake",
+        "no me des el acueducto de Pereira, dame la cabecera",
+        "4.000 metros es la ficha Ramsar",
+        "nacimiento en el parque, desembocadura aparte"
+      ],
+      "hard_negatives": [
+        "puedo visitar el Otún, es un sector aparte",
+        "la laguna es de origen glacial",
+        "el agua baja al Cauca o al Magdalena"
+      ],
+      "needs": [],
+      "answer": {
+        "short": "El río Otún nace en la Laguna del Otún, en el municipio de Pereira, y hace parte de la cuenca del Cauca. La ficha Ramsar de 2006 publica esa cabecera a 4.000 metros; es la cota de ese documento, no un levantamiento nuevo. La Carder sigue tratando la cuenca alta como agua que sale del parque.",
+        "variants": [
+          "El Otún empieza en su laguna, del lado de Pereira, camino a la cuenca del Cauca. Los 4.000 metros son los de la ficha Ramsar de 2006."
+        ],
+        "detail": null,
+        "reflection": "La ciudad bebe de esa cuenca mucho más abajo de la laguna."
+      },
+      "sources": [
+        {
+          "label": "Ficha Ramsar del complejo Laguna del Otún, 17 de julio de 2006",
+          "url": "https://rsis.ramsar.org/RISapp/files/RISrep/CO1781RIS.pdf",
+          "retrieved_at": "2026-11-21"
+        },
+        {
+          "label": "CARDER, nota sobre Los Nevados, 14 de julio de 2026",
+          "url": "https://www.carder.gov.co/pnn-los-nevados-un-patrimonio-natural-que-garantiza-el-agua-y-la-vida-de-risaralda/",
+          "retrieved_at": "2026-11-21"
+        },
+        {
+          "label": "Parques Nacionales Naturales de Colombia",
+          "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "last_verified": "2026-11-21",
+      "valid_until": null,
+      "related": [
+        "geography.laguna_otun",
+        "geography.laguna_otun_formation",
+        "geography.watersheds"
+      ],
+      "tags": [
+        "otún",
+        "río"
+      ],
+      "entities": {
+        "landform": [
+          "river"
+        ],
+        "sector": [
+          "otun"
+        ]
+      }
+    },
+    {
+      "id": "geography.rio_chinchina",
+      "label": "nacimiento del río Chinchiná",
+      "kind": "explanation",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "de dónde sale el río Chinchiná",
+        "el Chinchiná nace en el Ruiz",
+        "el agua de Manizales y el volcán",
+        "chinchina baja hacia el cauca",
+        "la cuenca alta es valor de conservación del parque",
+        "Río Claro y Río Blanco van por esa subzona",
+        "no es el río Otún",
+        "lado occidental del Ruiz",
+        "where does the Chinchiná river come from",
+        "does the Ruiz drain toward Chinchiná",
+        "tabla del Ideam, subzona Chinchiná",
+        "Villamaría y la vertiente caldense",
+        "cabecera en el parque, ciudad más abajo"
+      ],
+      "hard_negatives": [
+        "cae a la cuenca del Cauca",
+        "Azufrado y Recio por el Ruiz",
+        "lado caldense del Ruiz y de Santa Isabel"
+      ],
+      "needs": [],
+      "answer": {
+        "short": "La ficha del parque incluye la cuenca alta del Chinchiná entre lo que conserva, y el Ideam muestra que parte del hielo del Ruiz drena a esa subzona, hacia el Cauca. En la misma tabla aparecen el propio Chinchiná, el Río Claro y el Río Blanco. Es la vertiente occidental del volcán, distinta del Otún y de los ríos que bajan al Magdalena.",
+        "variants": [
+          "El Chinchiná cabecea en el lado del Ruiz que mira al Cauca. El Ideam lo agrupa con el Río Claro y el Río Blanco, y el parque lo nombra como cuenca alta a conservar."
+        ],
+        "detail": null,
+        "reflection": "Ver el río en la ciudad no es ver su nacimiento."
+      },
+      "sources": [
+        {
+          "label": "Parques Nacionales Naturales de Colombia",
+          "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+          "retrieved_at": "2026-11-21"
+        },
+        {
+          "label": "IDEAM, glaciar Nevado del Ruiz",
+          "url": "https://www.ideam.gov.co/nuestra-entidad/ecosistemas-e-informacion-ambiental/glaciares/nevado-del-ruiz",
+          "retrieved_at": "2026-11-21"
+        },
+        {
+          "label": "CARDER, nota sobre Los Nevados, 14 de julio de 2026",
+          "url": "https://www.carder.gov.co/pnn-los-nevados-un-patrimonio-natural-que-garantiza-el-agua-y-la-vida-de-risaralda/",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "last_verified": "2026-11-21",
+      "valid_until": null,
+      "related": [
+        "geography.watersheds",
+        "geography.ruiz_where",
+        "geography.villamaria_caldas"
+      ],
+      "tags": [
+        "chinchiná",
+        "río"
+      ],
+      "entities": {
+        "landform": [
+          "river"
+        ],
+        "sector": [
+          "brisas"
+        ]
+      }
+    },
+    {
+      "id": "geography.ruiz_age",
+      "label": "edad del Nevado del Ruiz",
+      "kind": "explanation",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "qué edad tiene el Ruiz",
+        "en qué año geológico se formó el volcán",
+        "66.000 años no es lo mismo que 1,8 millones",
+        "cuantos años tiene el nevado del ruiz",
+        "el complejo es mas viejo que la cima actual",
+        "edad del edificio y edad del conjunto",
+        "hoja del SGC de septiembre de 2024",
+        "el Ruiz ancestral es otra etapa",
+        "how old is Nevado del Ruiz",
+        "is the volcano 66 thousand or 1.8 million years old",
+        "dos relojes para no mezclarlos",
+        "La Olleta nace en una etapa intermedia",
+        "no es la fecha de la erupción de 1985"
+      ],
+      "hard_negatives": [
+        "el Nevado del Ruiz es un estratovolcán",
+        "desde 2022 es patrimonio geológico internacional",
+        "Ruiz es el estratovolcán activo del complejo"
+      ],
+      "needs": [],
+      "answer": {
+        "short": "El Servicio Geológico estima en unos 66.000 años la edad del volcán que se ve hoy y en 1,8 millones de años la historia del complejo del que hace parte. Son dos relojes: el edificio actual y el conjunto más viejo, que incluye centros como La Olleta y La Piraña. No es la fecha de una erupción.",
+        "variants": [
+          "Unos 66.000 años corresponden al Ruiz actual y unos 1,8 millones al complejo. Si mezclas las dos cifras, estás juntando dos historias."
+        ],
+        "detail": "El boletín detalla el inicio del edificio actual en 66 mil años, con un margen de 5,6 mil, y el Ruiz ancestral entre 1,8 y 0,97 millones de años. La respuesta corta usa la hoja pública de 2024.",
+        "reflection": "La edad geológica no dice en qué estado está el volcán esta semana."
+      },
+      "sources": [
+        {
+          "label": "Servicio Geológico Colombiano, hoja informativa del Nevado del Ruiz, septiembre de 2024",
+          "url": "https://www2.sgc.gov.co/Temas-destacados/Documents/Hoja-informativa-volcan-Nevado-de-Ruiz-SGC.pdf",
+          "retrieved_at": "2026-11-21"
+        },
+        {
+          "label": "Servicio Geológico Colombiano, boletín de actividad del segmento volcánico norte, 2023",
+          "url": "https://www2.sgc.gov.co/Publicaciones/Informes%20tcnicos/Informe_de_actividad_volcanica_segmento_norte_2023.pdf",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "last_verified": "2026-11-21",
+      "valid_until": null,
+      "related": [
+        "geography.ruiz_identity",
+        "geography.olleta_pirana",
+        "geography.volcanic_centers"
+      ],
+      "tags": [
+        "edad",
+        "geología"
+      ],
+      "entities": {
+        "landform": [
+          "peak"
+        ]
+      }
+    },
+    {
+      "id": "geography.volcanic_centers",
+      "label": "volcanes activos e inactivos",
+      "kind": "explanation",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "cuáles volcanes del parque están activos",
+        "el Tolima está apagado para siempre",
+        "Santa Isabel también lo monitorean",
+        "la olleta no esta activa",
+        "reposo no significa extinto",
+        "el SGC vigila el segmento norte",
+        "Cisne Quindío y Santa Rosa están en esa red",
+        "no me des el color de alerta de hoy",
+        "which volcanoes here are active",
+        "does inactive mean the cone is extinct",
+        "Ruiz es el estratovolcán activo del complejo",
+        "Cerro Bravo y Machín salen en el segmento y no en la lista del parque",
+        "mira el boletín vigente cuando tengas señal"
+      ],
+      "hard_negatives": [
+        "son cráteres parásitos o volcanes aparte",
+        "el ruis es un estratovolcan activo",
+        "no es el mapa de amenaza de esta semana"
+      ],
+      "needs": [],
+      "answer": {
+        "short": "El Servicio Geológico describe al Ruiz como estratovolcán activo y a La Olleta, La Piraña y Nereidas como centros inactivos de su complejo. También monitorea a Santa Isabel, al Tolima y a los paramillos del Cisne, de Santa Rosa y del Quindío: un volcán en reposo sigue siendo un volcán vigilado. El color de alerta de hoy no está en esta guía; míralo en el SGC antes de salir, cuando tengas conexión.",
+        "variants": [
+          "Activo, en reposo e inactivo no son la misma palabra. El Ruiz es el activo del complejo; Olleta, Piraña y Nereidas figuran como inactivos, y los otros los vigila el SGC. La alerta de esta semana se consulta allá."
+        ],
+        "detail": "El informe de 2023 asignó colores de alerta de ese año. No se copian aquí como si siguieran vigentes.",
+        "reflection": "Una montaña quieta en un informe viejo puede no estar quieta el día de tu viaje."
+      },
+      "sources": [
+        {
+          "label": "Servicio Geológico Colombiano, hoja informativa del Nevado del Ruiz, septiembre de 2024",
+          "url": "https://www2.sgc.gov.co/Temas-destacados/Documents/Hoja-informativa-volcan-Nevado-de-Ruiz-SGC.pdf",
+          "retrieved_at": "2026-11-21"
+        },
+        {
+          "label": "Servicio Geológico Colombiano, boletín de actividad del segmento volcánico norte, 2023",
+          "url": "https://www2.sgc.gov.co/Publicaciones/Informes%20tcnicos/Informe_de_actividad_volcanica_segmento_norte_2023.pdf",
+          "retrieved_at": "2026-11-21"
+        },
+        {
+          "label": "Servicio Geológico Colombiano, los 10 volcanes más altos de Colombia, 9 de agosto de 2024",
+          "url": "https://www2.sgc.gov.co/Noticias/Paginas/Los-10-volcanes-mas-altos-de-Colombia.aspx",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "last_verified": "2026-11-21",
+      "valid_until": null,
+      "related": [
+        "geography.ruiz_identity",
+        "geography.olleta_pirana",
+        "geography.glacier_summits"
+      ],
+      "tags": [
+        "activo",
+        "monitoreo"
+      ],
+      "entities": {
+        "landform": [
+          "peak"
+        ]
+      }
+    },
+    {
+      "id": "geography.geoheritage",
+      "label": "patrimonio geológico del Ruiz",
+      "kind": "fact",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "el Ruiz es patrimonio geológico",
+        "la IUGS lo incluyó entre cien sitios",
+        "desde 2022 es patrimonio geológico internacional",
+        "patrimonio natural de la nacion en 2025",
+        "la unesco geologica y el ruiz",
+        "eso permite entrar al cráter",
+        "reconocimiento del lugar, no un permiso",
+        "hoja del SGC y ficha del parque",
+        "is the Ruiz a geological heritage site",
+        "what does the IUGS recognition mean for a visit",
+        "cien sitios de relevancia internacional",
+        "no es un premio que abra la cima",
+        "patrimonio del volcán, no de la aplicación"
+      ],
+      "hard_negatives": [
+        "ficha corta del Nevado del Ruiz",
+        "puedo asomarme al cráter en la visita",
+        "no es la fecha de la erupción de 1985"
+      ],
+      "needs": [],
+      "answer": {
+        "short": "La hoja del Servicio Geológico de septiembre de 2024 recuerda que desde 2022 la IUGS, vinculada a la Unesco, incluye al Ruiz entre 100 sitios de patrimonio geológico de relevancia internacional. La ficha del parque añade que en 2025 fue declarado Patrimonio Natural de la Nación. Es un reconocimiento del lugar, no un permiso para acercarte al cráter ni un aval de esta guía.",
+        "variants": [
+          "El Ruiz tiene dos reconocimientos de lugar: el geológico de la IUGS desde 2022 y el de Patrimonio Natural de la Nación en 2025, según la ficha. Ninguno abre el cráter."
+        ],
+        "detail": "El relato cultural de los nombres indígenas y la declaratoria del parque en 1974 quedan en historia. Aquí solo está el estatus del sitio geológico.",
+        "reflection": null
+      },
+      "sources": [
+        {
+          "label": "Servicio Geológico Colombiano, hoja informativa del Nevado del Ruiz, septiembre de 2024",
+          "url": "https://www2.sgc.gov.co/Temas-destacados/Documents/Hoja-informativa-volcan-Nevado-de-Ruiz-SGC.pdf",
+          "retrieved_at": "2026-11-21"
+        },
+        {
+          "label": "Parques Nacionales Naturales de Colombia",
+          "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "last_verified": "2026-11-21",
+      "valid_until": null,
+      "related": [
+        "geography.ruiz_identity",
+        "geography.arenas_crater"
+      ],
+      "tags": [
+        "patrimonio",
+        "iugs"
+      ],
+      "entities": {
+        "landform": [
+          "peak"
+        ]
+      }
+    },
+    {
+      "id": "geography.ruiz_faults",
+      "label": "fallas junto al Ruiz",
+      "kind": "explanation",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "por qué hay un volcán en esas fallas",
+        "falla de Palestina y falla Termales Villamaría",
+        "en qué cruce de fallas está el Ruiz",
+        "por que hay un volcan ahi",
+        "geologia del limite caldas tolima",
+        "no es el mapa de amenaza de esta semana",
+        "la cordillera Central y las fallas que el SGC destaca",
+        "explicación del lugar, no del sismo de hoy",
+        "why is there a volcano at the Ruiz",
+        "which faults does the geological service mention",
+        "Palestina y Termales-Villamaría",
+        "ubicación estructural del estratovolcán",
+        "las fallas no reemplazan el boletín de actividad"
+      ],
+      "hard_negatives": [
+        "el volcán está en la cordillera Central",
+        "no me des el color de alerta de hoy",
+        "háblame del volcán sin meterme en la historia de Armero"
+      ],
+      "needs": [],
+      "answer": {
+        "short": "El Ruiz está en la cordillera Central, en el límite de Caldas y Tolima, donde el Servicio Geológico señala el cruce de varios sistemas de fallas. Las que destaca en su hoja de 2024 son Palestina y Termales-Villamaría. Eso explica el lugar del volcán, no el estado de actividad de esta semana.",
+        "variants": [
+          "El volcán quedó en un cruce de fallas de la cordillera Central. Palestina y Termales-Villamaría son las que el SGC resalta; la alerta de hoy se mira en el boletín."
+        ],
+        "detail": null,
+        "reflection": "Saber el nombre de la falla no te dice si conviene salir mañana."
+      },
+      "sources": [
+        {
+          "label": "Servicio Geológico Colombiano, hoja informativa del Nevado del Ruiz, septiembre de 2024",
+          "url": "https://www2.sgc.gov.co/Temas-destacados/Documents/Hoja-informativa-volcan-Nevado-de-Ruiz-SGC.pdf",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "last_verified": "2026-11-21",
+      "valid_until": null,
+      "related": [
+        "geography.ruiz_where",
+        "geography.ruiz_identity",
+        "geography.volcanic_centers"
+      ],
+      "tags": [
+        "fallas",
+        "geología"
+      ],
+      "entities": {
+        "landform": [
+          "peak"
+        ]
+      }
+    },
+    {
+      "id": "geography.summit_line",
+      "label": "orden norte sur de las cumbres",
+      "kind": "explanation",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "cuál nevado queda más al norte",
+        "el Ruiz está al norte del Tolima",
+        "en qué orden siguen Cisne Santa Isabel y Quindío",
+        "de norte a sur cuales van",
+        "el tolima es el del sur",
+        "la lista del segmento volcánico no es el mapa del parque",
+        "Cerro Bravo y Machín no salen en la frase del parque",
+        "4 grados 53 contra 4 grados 39",
+        "which summit is the northernmost",
+        "are the peaks lined up north to south",
+        "Ruiz, Cisne, Santa Isabel, Santa Rosa, Quindío y Tolima",
+        "no es una brújula para caminar sin guía",
+        "orden de nombres del boletín del SGC"
+      ],
+      "hard_negatives": [
+        "cuáles son las cumbres del parque",
+        "queda al sureste de Manizales",
+        "coordenadas aproximadas 4 grados 39 norte"
+      ],
+      "needs": [],
+      "answer": {
+        "short": "El Ruiz está más al norte que el Tolima: el Servicio Geológico lo pone cerca de 4 grados 53 minutos norte y el Ideam pone el Tolima cerca de 4 grados 39. En la lista del segmento norte aparecen, en este orden, Ruiz, Cisne, Santa Isabel, Santa Rosa, Quindío y Tolima. La ficha del parque no mete en esa frase a Cerro Bravo ni a Cerro Machín.",
+        "variants": [
+          "De las cumbres del parque, el Ruiz queda al norte del Tolima. Entre los dos, el SGC enumera Cisne, Santa Isabel, Santa Rosa y Quindío."
+        ],
+        "detail": "El boletín no rotula esa lista como norte-sur. El sentido se apoya en las latitudes publicadas del Ruiz y del Tolima y en el orden en que el SGC los enumera.",
+        "reflection": "El orden en el mapa no es un itinerario."
+      },
+      "sources": [
+        {
+          "label": "Servicio Geológico Colombiano, boletín de actividad del segmento volcánico norte, 2023",
+          "url": "https://www2.sgc.gov.co/Publicaciones/Informes%20tcnicos/Informe_de_actividad_volcanica_segmento_norte_2023.pdf",
+          "retrieved_at": "2026-11-21"
+        },
+        {
+          "label": "IDEAM, glaciar Nevado del Tolima",
+          "url": "https://www.ideam.gov.co/nuestra-entidad/ecosistemas-e-informacion-ambiental/glaciares/nevado-del-tolima",
+          "retrieved_at": "2026-11-21"
+        },
+        {
+          "label": "Parques Nacionales Naturales de Colombia",
+          "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "last_verified": "2026-11-21",
+      "valid_until": null,
+      "related": [
+        "geography.main_peaks",
+        "geography.ruiz_where",
+        "geography.tolima_volcano"
+      ],
+      "tags": [
+        "norte",
+        "sur",
+        "alineación"
+      ],
+      "entities": {
+        "landform": [
+          "peak"
+        ]
+      }
+    },
+    {
+      "id": "geography.risaralda_share",
+      "label": "porción del parque en Risaralda",
+      "kind": "fact",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "qué porcentaje del parque está en Risaralda",
+        "cuánta área les toca a Pereira y Santa Rosa",
+        "35,6 por ciento según la Carder",
+        "risaralda tiene mas de un tercio",
+        "dato del 14 de julio de 2026",
+        "la ficha del parque no repite ese porcentaje",
+        "Otún y Campoalegre salen por ese lado",
+        "no es la hectárea total del parque",
+        "how much of the park is in Risaralda",
+        "what share do Pereira and Santa Rosa hold",
+        "autoridad ambiental departamental, no la ficha",
+        "un tercio largo del polígono",
+        "porcentaje de área, no de visitantes"
+      ],
+      "hard_negatives": [
+        "61.388 es la cifra de la ficha",
+        "los dos municipios risaraldenses de la ficha",
+        "queda en Pereira y Santa Rosa"
+      ],
+      "needs": [],
+      "answer": {
+        "short": "La Carder informó el 14 de julio de 2026 que Pereira y Santa Rosa de Cabal concentran el 35,6 por ciento del parque. En ese lado risaraldense están la Laguna del Otún y la cuenca alta del Campoalegre. El porcentaje es de la autoridad ambiental departamental; la ficha de Parques Nacionales no lo repite.",
+        "variants": [
+          "Risaralda, por Pereira y Santa Rosa, tiene el 35,6 por ciento del área según la Carder en julio de 2026. La laguna del Otún queda de ese lado."
+        ],
+        "detail": null,
+        "reflection": "El porcentaje no dice qué sector conviene a tu plan."
+      },
+      "sources": [
+        {
+          "label": "CARDER, nota sobre Los Nevados, 14 de julio de 2026",
+          "url": "https://www.carder.gov.co/pnn-los-nevados-un-patrimonio-natural-que-garantiza-el-agua-y-la-vida-de-risaralda/",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "last_verified": "2026-11-21",
+      "valid_until": null,
+      "related": [
+        "geography.park_area",
+        "geography.pereira_santa_rosa",
+        "geography.laguna_otun"
+      ],
+      "tags": [
+        "risaralda",
+        "porcentaje"
+      ],
+      "entities": {
+        "landform": [
+          "park"
+        ]
+      }
+    },
+    {
+      "id": "geography.salento_quindio",
+      "label": "el parque llega a Salento",
+      "kind": "fact",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "el parque llega hasta Salento",
+        "Salento es el municipio quindiano del área",
+        "Armenia está dentro de Los Nevados",
+        "en quindio solo nombran a salento",
+        "la ficha no escribe Armenia",
+        "Cocora es la vereda de referencia, no el polígono entero",
+        "lado quindiano del sector Dulima",
+        "Salento sí, la capital no está en la lista",
+        "does the park reach Salento",
+        "is Armenia inside Los Nevados",
+        "un solo municipio quindiano en el texto oficial",
+        "no confundir el pueblo con la cumbre del Quindío",
+        "el Paramillo del Quindío toca el límite departamental"
+      ],
+      "hard_negatives": [
+        "salento ibague y anzoategui son ese lado",
+        "Tolima Quindío y Risaralda se tocan ahí",
+        "Anzoátegui Ibagué Salento Herveo Casabianca"
+      ],
+      "needs": [],
+      "answer": {
+        "short": "En Quindío, la ficha del parque nombra a Salento entre los municipios del área protegida. No nombra a Armenia. Salento es también una puerta publicada hacia el sector Quindío-Dulima; el casco urbano no es la cumbre.",
+        "variants": [
+          "El municipio quindiano que la ficha escribe es Salento, no Armenia. Por ahí se entra hacia el lado del Tolima, y el pueblo no es la montaña."
+        ],
+        "detail": "Decir que Armenia no está en la lista no es un levantamiento del límite predial. Es lo que la ficha alcanza a nombrar.",
+        "reflection": null
+      },
+      "sources": [
+        {
+          "label": "Parques Nacionales Naturales de Colombia",
+          "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "last_verified": "2026-11-21",
+      "valid_until": null,
+      "related": [
+        "geography.sector_quindio_dulima",
+        "geography.paramillo_quindio",
+        "geography.municipalities"
+      ],
+      "tags": [
+        "salento",
+        "quindío"
+      ],
+      "entities": {
+        "landform": [
+          "municipality"
+        ],
+        "sector": [
+          "dulima"
+        ]
+      }
+    },
+    {
+      "id": "geography.villamaria_caldas",
+      "label": "Villamaría y el lado caldense",
+      "kind": "fact",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "Villamaría sí entra en el parque",
+        "el municipio caldense es Villamaría",
+        "el glaciar del Ruiz pasa por Villamaría",
+        "villamaria o manizales cual es",
+        "caldas tiene un municipio en la lista de diez",
+        "veredas El Páramo y Potosí salen de Villamaría",
+        "lado caldense del Ruiz y de Santa Isabel",
+        "no es todo el departamento",
+        "is Villamaría inside the national park",
+        "which Caldas municipality does the park include",
+        "Ideam: Villamaría en la jurisdicción del glaciar",
+        "la ciudad vecina no sustituye a Villamaría",
+        "Potosí también se nombra desde este municipio"
+      ],
+      "hard_negatives": [
+        "el Ruiz es de Manizales o de Villamaría",
+        "Villamaría Murillo y Casabianca lo comparten",
+        "no es Villamaría, aunque el hielo los junte"
+      ],
+      "needs": [],
+      "answer": {
+        "short": "Villamaría es el municipio de Caldas que la ficha incluye en el parque. El Ideam también lo pone en la jurisdicción del glaciar del Ruiz, junto con Murillo y Casabianca. Manizales no está en esa lista: es la ciudad vecina, no el área.",
+        "variants": [
+          "Del lado caldense, el municipio que sí nombra la ficha es Villamaría. Manizales queda al lado, fuera de esa lista."
+        ],
+        "detail": "La ficha de acceso también nombra las veredas El Páramo y Potosí al salir de Villamaría hacia el sector de Santa Isabel. La vía concreta no se repite aquí.",
+        "reflection": null
+      },
+      "sources": [
+        {
+          "label": "Parques Nacionales Naturales de Colombia",
+          "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+          "retrieved_at": "2026-11-21"
+        },
+        {
+          "label": "IDEAM, glaciar Nevado del Ruiz",
+          "url": "https://www.ideam.gov.co/nuestra-entidad/ecosistemas-e-informacion-ambiental/glaciares/nevado-del-ruiz",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "last_verified": "2026-11-21",
+      "valid_until": null,
+      "related": [
+        "geography.manizales_outside",
+        "geography.ruiz_where",
+        "geography.sector_cisne_poleka"
+      ],
+      "tags": [
+        "villamaría",
+        "caldas"
+      ],
+      "entities": {
+        "landform": [
+          "municipality"
+        ],
+        "sector": [
+          "brisas"
+        ]
+      }
+    },
+    {
+      "id": "geography.tolima_municipalities",
+      "label": "municipios tolimenses del parque",
+      "kind": "fact",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "qué municipios del Tolima toca el parque",
+        "Murillo Anzoátegui Ibagué Santa Isabel Casabianca y Herveo",
+        "seis nombres tolimenses en la ficha",
+        "el libano esta en la lista del parque",
+        "Herveo y Casabianca sí aparecen",
+        "Santa Isabel es municipio y también es nevado",
+        "no todo el departamento del Tolima es el parque",
+        "lista tolimense, sin repetir el país entero",
+        "which Tolima towns overlap Los Nevados",
+        "does the park include Herveo and Casabianca",
+        "Armero no es uno de los diez",
+        "la parte alta, no cada cabecera municipal",
+        "Tolima tiene más nombres que cualquier otro departamento de la lista"
+      ],
+      "hard_negatives": [
+        "son diez o once municipios",
+        "el municipio de Murillo entra al parque",
+        "Ibagué está en la lista de diez"
+      ],
+      "needs": [],
+      "answer": {
+        "short": "En el Tolima, la ficha nombra seis municipios: Murillo, Anzoátegui, Ibagué, Santa Isabel, Casabianca y Herveo. El Líbano y Armero no están en esa lista. El nombre del municipio cubre la parte de alta montaña que entra al área, no automáticamente el casco urbano.",
+        "variants": [
+          "Los seis del Tolima en la ficha son Murillo, Anzoátegui, Ibagué, Santa Isabel, Casabianca y Herveo. Que el pueblo se llame igual que un nevado no mete la plaza dentro del hielo."
+        ],
+        "detail": "Santa Isabel, en esta lista, es el municipio tolimense. El nevado del mismo nombre es otra entrada.",
+        "reflection": null
+      },
+      "sources": [
+        {
+          "label": "Parques Nacionales Naturales de Colombia",
+          "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "last_verified": "2026-11-21",
+      "valid_until": null,
+      "related": [
+        "geography.municipalities",
+        "geography.murillo_ruiz",
+        "geography.ibague_highlands"
+      ],
+      "tags": [
+        "tolima",
+        "municipios"
+      ],
+      "entities": {
+        "landform": [
+          "municipality"
+        ]
+      }
+    },
+    {
+      "id": "geography.pereira_santa_rosa",
+      "label": "Pereira y Santa Rosa de Cabal",
+      "kind": "fact",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "Pereira está dentro del parque",
+        "Santa Rosa de Cabal también entra",
+        "la ciudad de Pereira es la laguna",
+        "pereira queda en los nevados",
+        "los dos municipios risaraldenses de la ficha",
+        "la parte alta, no el centro de Pereira",
+        "El Cedral y La Florida son caminos, no la laguna",
+        "35 por ciento no cabe en esta frase de municipios",
+        "are Pereira and Santa Rosa inside the park",
+        "is downtown Pereira part of the national park",
+        "la ficha los nombra a los dos",
+        "Risaralda no se reduce a la capital",
+        "vereda El Bosque se menciona del lado de Pereira"
+      ],
+      "hard_negatives": [
+        "Pereira es la referencia municipal de ese lado",
+        "cuánta área les toca a Pereira y Santa Rosa",
+        "El Cedral está en Ucumarí, no en la laguna"
+      ],
+      "needs": [],
+      "answer": {
+        "short": "Pereira y Santa Rosa de Cabal son los dos municipios de Risaralda que la ficha incluye en el parque. La Laguna del Otún y su sector están de ese lado, en la parte alta, no en el centro de Pereira. La Carder les asigna juntas el 35,6 por ciento del área.",
+        "variants": [
+          "Sí entran Pereira y Santa Rosa de Cabal, por su zona alta. La ciudad de Pereira no es la laguna, aunque el municipio sí está en la lista."
+        ],
+        "detail": null,
+        "reflection": "Bajar a Pereira no es salir de la cuenca; salir del parque sí ocurre mucho antes de la ciudad."
+      },
+      "sources": [
+        {
+          "label": "Parques Nacionales Naturales de Colombia",
+          "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+          "retrieved_at": "2026-11-21"
+        },
+        {
+          "label": "CARDER, nota sobre Los Nevados, 14 de julio de 2026",
+          "url": "https://www.carder.gov.co/pnn-los-nevados-un-patrimonio-natural-que-garantiza-el-agua-y-la-vida-de-risaralda/",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "last_verified": "2026-11-21",
+      "valid_until": null,
+      "related": [
+        "geography.laguna_otun",
+        "geography.risaralda_share",
+        "geography.sector_laguna_otun"
+      ],
+      "tags": [
+        "pereira",
+        "santa rosa de cabal"
+      ],
+      "entities": {
+        "landform": [
+          "municipality"
+        ],
+        "sector": [
+          "otun"
+        ]
+      }
+    },
+    {
+      "id": "geography.ibague_highlands",
+      "label": "Ibagué y la parte alta",
+      "kind": "fact",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "Ibagué ciudad queda dentro del nevado",
+        "el municipio de Ibagué sí está en la ficha",
+        "la parte alta de Ibagué toca el Tolima",
+        "ibague es el parque o solo la vereda",
+        "Juntas es la referencia de acceso, no la plaza",
+        "Anzoátegui comparte ese volcán con Ibagué",
+        "el casco urbano está a otra altura",
+        "Ideam: glaciar en jurisdicción de Ibagué",
+        "is the city of Ibagué inside the park",
+        "does Ibagué municipality reach Nevado del Tolima",
+        "no subas a la cumbre pensando que sales del centro",
+        "Ibagué está en la lista de diez",
+        "la ciudad y el glaciar no son el mismo punto"
+      ],
+      "hard_negatives": [
+        "nevado del tolima en ibague y anzoategui",
+        "salento ibague y anzoategui son ese lado",
+        "metros de Dulima sobre el nivel del mar"
+      ],
+      "needs": [],
+      "answer": {
+        "short": "Ibagué está en la lista de municipios del parque y el Ideam pone el glaciar del Tolima en su jurisdicción, junto con Anzoátegui. Eso es la parte alta del municipio, no la ciudad de Ibagué. La ficha usa la vereda Juntas como referencia de llegada; el camino se confirma en acceso.",
+        "variants": [
+          "El municipio de Ibagué sí llega al Nevado del Tolima por su zona alta. La ciudad no es el glaciar."
+        ],
+        "detail": null,
+        "reflection": "La distancia desde la ciudad hasta la nieve se mira como viaje, aparte de la ubicación del municipio."
+      },
+      "sources": [
+        {
+          "label": "Parques Nacionales Naturales de Colombia",
+          "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+          "retrieved_at": "2026-11-21"
+        },
+        {
+          "label": "IDEAM, glaciar Nevado del Tolima",
+          "url": "https://www.ideam.gov.co/nuestra-entidad/ecosistemas-e-informacion-ambiental/glaciares/nevado-del-tolima",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "last_verified": "2026-11-21",
+      "valid_until": null,
+      "related": [
+        "geography.tolima_volcano",
+        "geography.sector_quindio_dulima",
+        "geography.tolima_municipalities"
+      ],
+      "tags": [
+        "ibagué"
+      ],
+      "entities": {
+        "landform": [
+          "municipality"
+        ],
+        "sector": [
+          "dulima"
+        ]
+      }
+    },
+    {
+      "id": "geography.murillo_ruiz",
+      "label": "Murillo junto al Ruiz",
+      "kind": "fact",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "Murillo está del lado del Ruiz",
+        "el municipio de Murillo entra al parque",
+        "Murillo es Tolima y el volcán queda en el límite",
+        "murillo queda debajo del ruiz",
+        "el Ideam lo pone en el glaciar del Ruiz",
+        "la cabecera no es la cima",
+        "desde Murillo también se habla del corredor norte",
+        "Casabianca es el otro tolimense de ese hielo",
+        "is Murillo inside Los Nevados",
+        "does the Ruiz glacier reach Murillo",
+        "pueblo tolimense, volcán en el límite con Caldas",
+        "no es Villamaría, aunque el hielo los junte",
+        "sector norte visto desde el Tolima"
+      ],
+      "hard_negatives": [
+        "a cuantos kilometros de manizales esta el volcan",
+        "el glaciar del Ruiz pasa por Villamaría",
+        "sector del volcán Nevado del Ruiz"
+      ],
+      "needs": [],
+      "answer": {
+        "short": "Murillo, en el Tolima, está en la lista de municipios del parque. El Ideam lo incluye en la jurisdicción del glaciar del Ruiz, junto con Casabianca y Villamaría. El volcán queda en el límite Caldas-Tolima; el casco de Murillo no es la cima.",
+        "variants": [
+          "Murillo sí entra en el área y en la jurisdicción del hielo del Ruiz. El pueblo y la cumbre siguen siendo dos puntos distintos."
+        ],
+        "detail": null,
+        "reflection": "El corredor que pasa cerca de Murillo se confirma con el parque; aquí solo está el lugar del municipio."
+      },
+      "sources": [
+        {
+          "label": "Parques Nacionales Naturales de Colombia",
+          "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+          "retrieved_at": "2026-11-21"
+        },
+        {
+          "label": "IDEAM, glaciar Nevado del Ruiz",
+          "url": "https://www.ideam.gov.co/nuestra-entidad/ecosistemas-e-informacion-ambiental/glaciares/nevado-del-ruiz",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "last_verified": "2026-11-21",
+      "valid_until": null,
+      "related": [
+        "geography.ruiz_where",
+        "geography.tolima_municipalities",
+        "geography.villamaria_caldas"
+      ],
+      "tags": [
+        "murillo"
+      ],
+      "entities": {
+        "landform": [
+          "municipality"
+        ],
+        "sector": [
+          "brisas"
+        ]
+      }
+    },
+    {
+      "id": "geography.ucumari_buffer",
+      "label": "Ucumarí no es el parque",
+      "kind": "explanation",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "Ucumarí es lo mismo que Los Nevados",
+        "el parque regional Ucumarí queda dentro del nacional",
+        "Campoalegre es zona amortiguadora",
+        "ucumari es otro parque",
+        "la Carder los separa",
+        "El Cedral está en Ucumarí, no en la laguna",
+        "conecta con el parque y no lo reemplaza",
+        "zona amortiguadora de Risaralda",
+        "is Ucumarí part of Los Nevados",
+        "what is the buffer next to the national park",
+        "Distrito de Conservación de Suelos Campoalegre",
+        "dos áreas distintas pegadas",
+        "no pagas la misma entrada por estar en el regional"
+      ],
+      "hard_negatives": [
+        "humedal Ramsar alrededor de esa laguna",
+        "el Otún sale de la laguna",
+        "la ciudad de Pereira es la laguna"
+      ],
+      "needs": [],
+      "answer": {
+        "short": "El Parque Regional Natural Ucumarí no es el Parque Nacional Natural Los Nevados. La Carder lo describe, junto con el Distrito de Conservación de Suelos Campoalegre, como zona amortiguadora que conecta con el parque nacional. La Laguna del Otún sí está dentro de Los Nevados.",
+        "variants": [
+          "Ucumarí y Campoalegre acompañan al parque nacional por Risaralda, pero son otras figuras. La laguna del Otún sigue siendo de Los Nevados."
+        ],
+        "detail": "La nota de la Carder es del 14 de julio de 2026. No fija tarifas ni horarios de Ucumarí.",
+        "reflection": "Si tu caminata empieza en El Cedral, pregunta cuál tramo ya es el parque nacional."
+      },
+      "sources": [
+        {
+          "label": "CARDER, nota sobre Los Nevados, 14 de julio de 2026",
+          "url": "https://www.carder.gov.co/pnn-los-nevados-un-patrimonio-natural-que-garantiza-el-agua-y-la-vida-de-risaralda/",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "last_verified": "2026-11-21",
+      "valid_until": null,
+      "related": [
+        "geography.laguna_otun",
+        "geography.pereira_santa_rosa",
+        "geography.rio_otun"
+      ],
+      "tags": [
+        "ucumarí",
+        "amortiguadora"
+      ],
+      "entities": {
+        "landform": [
+          "park"
+        ],
+        "sector": [
+          "otun"
+        ]
+      }
+    },
+    {
+      "id": "geography.tolima_crater",
+      "label": "cráter del Nevado del Tolima",
+      "kind": "explanation",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "el Tolima también tiene cráter",
+        "cómo es el cráter del Tolima",
+        "El Oído son fumarolas antes de la cima",
+        "el crater del tolima se llama arenas",
+        "no es el cráter del Ruiz",
+        "volcán cónico con fumarolas cerca de la cumbre",
+        "el Ideam lo menciona para montañistas",
+        "no te digo por dónde se sube",
+        "does Tolima have its own crater",
+        "what is El Oído on the Tolima summit",
+        "Arenas es del Ruiz, no lo pases al Tolima",
+        "una cumbre, un cráter, varias lenguas de hielo",
+        "pregunta de forma del volcán, no de permiso de cima"
+      ],
+      "hard_negatives": [
+        "nombre del crater del ruiz",
+        "forma cónica del volcán",
+        "cota de la única cumbre"
+      ],
+      "needs": [],
+      "answer": {
+        "short": "El Tolima tiene su propio cráter: el Ideam lo describe en un estratovolcán de una sola cumbre y menciona fumarolas en el punto que los montañistas llaman El Oído, antes de la cima. No es el cráter Arenas, que es del Ruiz. Llegar allí depende de la ruta que el parque tenga autorizada.",
+        "variants": [
+          "Sí, el Tolima tiene cráter y fumarolas cerca de la cima, en el sitio llamado El Oído. Arenas es el cráter del otro volcán, el Ruiz."
+        ],
+        "detail": null,
+        "reflection": "Saber que hay un cráter no es una invitación a buscar el borde."
+      },
+      "sources": [
+        {
+          "label": "IDEAM, glaciar Nevado del Tolima",
+          "url": "https://www.ideam.gov.co/nuestra-entidad/ecosistemas-e-informacion-ambiental/glaciares/nevado-del-tolima",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "last_verified": "2026-11-21",
+      "valid_until": null,
+      "related": [
+        "geography.tolima_volcano",
+        "geography.arenas_crater",
+        "geography.tolima_height"
+      ],
+      "tags": [
+        "cráter",
+        "tolima",
+        "oído"
+      ],
+      "entities": {
+        "landform": [
+          "crater"
+        ],
+        "sector": [
+          "dulima"
+        ]
+      }
+    }
+  ]
+}

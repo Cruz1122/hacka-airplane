@@ -1,0 +1,19 @@
+.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+.ruff_cache/
+models/
+results/
+
+# Heavy generated datasets, fixtures, and packaged zips
+*.zip
+data/finetune/
+mobile/src/core/__fixtures__/*.json
+
+# Heavy raw downloaded sources and runtime lock/transaction state in research_notes
+research_notes/**/evidence/raw/
+research_notes/**/*.pdf
+research_notes/**/*.docx
+research_notes/**/coordination/*.lock
+research_notes/**/coordination/addition_transactions/

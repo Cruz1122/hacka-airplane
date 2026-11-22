@@ -1,0 +1,19 @@
+{
+  "sample_seed": 20261121,
+  "sampled_ids": [
+    "weather_volcano.alert_levels_meaning",
+    "weather_volcano.seasonal_weather",
+    "weather_volcano.daily_forecast",
+    "weather_volcano.ash_emission",
+    "weather_volcano.current_alert"
+  ],
+  "status": "changes_required",
+  "findings": [
+    "Four volcanic entries cite SGC sources that were not retrieved but still stamp retrieved_at and last_verified. Need actual supporting evidence or transparently remove factual verification claims.",
+    "alert_levels_meaning answer leaks research environment: 'no pude consultar desde este entorno'; visitor response must be useful offline, no research implementation details.",
+    "Climate intents park_climate, bimodal_rainfall and seasonal_weather have substantial overlap and only one shared fact. Refine or merge to avoid retrieval ambiguity.",
+    "Examples in sample lack Colombian colloquial phrasing and several lack accentless/typo forms.",
+    "ash_emission mixes 'what do I do if ash falls' with current ash status but answers only online lookup, leaving immediate safety intent unanswered.",
+    "Featured omits current alert and safety topics; related list appears mechanically circular rather than visitor-oriented."
+  ]
+}

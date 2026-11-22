@@ -1,0 +1,219 @@
+{
+  "contract_version": 1,
+  "id": "access",
+  "order": 4,
+  "title": "Cómo llegar y accesos",
+  "description": "Rutas, vías, sectores y puntos de entrada al parque, y cómo llegar desde cada ciudad.",
+  "retrieval": {
+    "profile": "procedure",
+    "top_k": 2
+  },
+  "clarification": {
+    "between_entries": "¿Te refieres a {label_a} o a {label_b}?",
+    "bank": [
+      "¿Desde qué ciudad sales?",
+      "¿A qué sector vas: Brisas, Santa Isabel, Laguna del Otún o Tolima?"
+    ],
+    "fallback": "No tengo esa ruta exacta, pero puedo contarte cómo llegar desde Manizales o Murillo."
+  },
+  "featured": [
+    "access.from_manizales",
+    "access.by_vehicle",
+    "access.sector_santa_isabel"
+  ],
+  "entries": [
+    {
+      "id": "access.from_manizales",
+      "label": "cómo llegar desde Manizales",
+      "kind": "procedure",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "ruta",
+        "cómo llegar",
+        "desde Manizales",
+        "cómo llego desde Manizales",
+        "cómo ir al nevado",
+        "por dónde se entra",
+        "ruta desde Manizales",
+        "dónde queda la entrada Brisas",
+        "qué carretera tomo",
+        "cómo llego al Valle de las Tumbas",
+        "vía desde Manizales",
+        "qué vía cojo para ir desde Manizales"
+      ],
+      "answer": {
+        "short": "Desde Manizales, la referencia para el sector norte es la vía a Bogotá por Letras. Desde allí se toma el corredor hacia la entrada de Brisas. Confirma con Parques Nacionales el estado de la vía y del acceso antes de salir.",
+        "variants": [
+          "Si sales de Manizales hacia Brisas, toma como referencia la vía a Bogotá por Letras y luego el corredor que lleva al acceso norte. Confirma con Parques Nacionales el estado de la vía y del ingreso."
+        ],
+        "steps": [
+          [
+            "Desde Manizales, toma la vía hacia Bogotá por Letras y sigue el corredor hasta la entrada de Brisas. Confirma el acceso y el estado de la vía antes de salir.",
+            "Para llegar a Brisas desde Manizales, usa como referencia la vía a Bogotá por Letras. Desde allí, sigue hacia la entrada y verifica las condiciones antes del viaje."
+          ],
+          [
+            "Brisas es el acceso al recorrido hacia el Valle de las Tumbas, cerca del Nevado del Ruiz. Los tramos habilitados pueden cambiar."
+          ],
+          [
+            "Puedes llegar en tu carro al centro de visitantes. Para el recorrido hacia el valle se usa un vehículo cubierto y no se admite el ingreso de motos al atractivo."
+          ]
+        ],
+        "reflection": "Puedes preparar la ruta con tiempo y adaptar el plan a las condiciones que encuentres."
+      },
+      "sources": [
+        {
+          "label": "Parques Nacionales Naturales",
+          "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+          "retrieved_at": "2026-11-21"
+        }
+      ]
+    },
+    {
+      "id": "access.by_vehicle",
+      "label": "cómo entrar en vehículo",
+      "kind": "procedure",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "carro",
+        "moto",
+        "transporte",
+        "puedo subir en carro",
+        "puedo ir en moto",
+        "se puede llegar en bus",
+        "puedo entrar con mi vehiculo"
+      ],
+      "answer": {
+        "short": "La ficha oficial indica que puedes llegar al centro de visitantes Brisas en tu vehículo. Para el recorrido hacia Valle de las Tumbas se usa un vehículo cubierto y no se admite el ingreso de motos al atractivo."
+      },
+      "sources": [
+        {
+          "label": "Parques Nacionales Naturales",
+          "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+          "retrieved_at": "2026-11-21"
+        }
+      ]
+    },
+    {
+      "id": "access.sector_santa_isabel",
+      "label": "el sector Santa Isabel",
+      "kind": "fact",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "Santa Isabel",
+        "Poleka Kasue",
+        "Cisne",
+        "cómo llegar a Potosí",
+        "cómo visitar el nevado Santa Isabel"
+      ],
+      "answer": {
+        "short": "El sector Cisne–Poleka Kasue permite conocer atractivos cercanos al Nevado de Santa Isabel. La ficha del parque describe accesos desde Villamaría y Santa Rosa de Cabal, con puntos de control en Potosí y Alto de Santa Bárbara."
+      },
+      "sources": [
+        {
+          "label": "Parques Nacionales Naturales",
+          "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+          "retrieved_at": "2026-11-21"
+        }
+      ]
+    },
+    {
+      "id": "access.sector_tolima",
+      "label": "el sector Nevado del Tolima",
+      "kind": "fact",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "nevado del Tolima",
+        "Dulima",
+        "sector Quindío Dulima",
+        "puedo entrar por el Cocora",
+        "cuál es el acceso por Salento"
+      ],
+      "answer": {
+        "short": "Quindío–Dulima es uno de los sectores ecoturísticos del parque. El Valle del Cocora es uno de los puntos de acceso indicados para ese sector. Confirma la ruta y la reserva con un operador registrado."
+      },
+      "sources": [
+        {
+          "label": "Parques Nacionales Naturales",
+          "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+          "retrieved_at": "2026-11-21"
+        }
+      ]
+    },
+    {
+      "id": "access.from_murillo",
+      "label": "el acceso desde Murillo",
+      "kind": "procedure",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "Murillo",
+        "cómo llegar desde Murillo",
+        "puedo entrar desde Tolima",
+        "corredor La Esperanza Murillo",
+        "cómo ir a Brisas desde Murillo"
+      ],
+      "answer": {
+        "short": "Desde Murillo, Tolima, el corredor vial La Esperanza–Murillo conduce al centro de visitantes Brisas. Confirma el estado de la vía antes de salir."
+      },
+      "sources": [
+        {
+          "label": "Parques Nacionales Naturales",
+          "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+          "retrieved_at": "2026-11-21"
+        }
+      ]
+    },
+    {
+      "id": "access.sectors",
+      "label": "los cuatro sectores del parque",
+      "kind": "fact",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "sectores",
+        "entradas al parque",
+        "qué sectores hay",
+        "por qué entradas se puede ingresar",
+        "nombres de los sectores"
+      ],
+      "answer": {
+        "short": "El parque tiene cuatro sectores ecoturísticos: Brisas–Kumanday, Cisne–Poleka Kasue, Laguna del Otún y Quindío–Dulima. Cada uno tiene sus propios accesos y condiciones de visita.",
+        "detail": "Brisas es la referencia para la visita al sector norte, cerca del Nevado del Ruiz."
+      },
+      "sources": [
+        {
+          "label": "Parques Nacionales Naturales",
+          "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+          "retrieved_at": "2026-11-21"
+        }
+      ]
+    },
+    {
+      "id": "access.valle_tumbas_location",
+      "label": "dónde queda Valle de las Tumbas",
+      "kind": "fact",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "Valle de las Tumbas",
+        "Valle del Silencio",
+        "dónde es el valle",
+        "qué queda después de Brisas"
+      ],
+      "answer": {
+        "short": "Valle de las Tumbas, también llamado Valle del Silencio en la ficha oficial, es un atractivo del sector norte Brisas–Kumanday, cerca del Nevado del Ruiz. Confirma los tramos abiertos para el recorrido."
+      },
+      "sources": [
+        {
+          "label": "Parques Nacionales Naturales",
+          "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+          "retrieved_at": "2026-11-21"
+        }
+      ]
+    }
+  ]
+}

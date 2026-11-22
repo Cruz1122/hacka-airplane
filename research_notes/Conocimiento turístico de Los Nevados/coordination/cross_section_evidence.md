@@ -1,0 +1,17 @@
+# Existing evidence for the correction pass
+
+These are pointers to other researchers' evidence, not additional coordinator research.
+
+- **SGC access:** `conversation.research.md` records a successful read of https://www2.sgc.gov.co/Noticias/Paginas/Boletines-semanales.aspx. The saved HTML is under `conversation/evidence/`. `weather_volcano` previously failed to fetch other SGC paths; try the successfully read index before declaring SGC wholly inaccessible. No current alert is established by this pointer.
+- **General visitor rules:** `health_safety.research.md` records reading the official protected-area visitor decalogue at https://old.parquesnacionales.gov.co/portal/es/decalogo-de-recomendaciones-para-el-uso-de-areas-protegidas-en-parques-nacionales-naturales-de-colombia/. Check the saved extracts before using this to close gaps in `rules`; do not infer individual prohibitions from conservation purpose alone.
+- **Formal park regulation:** `booking_fees.research.md` records a successful read of https://www.parquesnacionales.gov.co/wp-content/uploads/2023/08/Resolucion_207_2023_ReglamentacionNevados.pdf. `rules`, `activities` and `hours_status` may reuse the actual document subject to later amendments and verified current rules.
+- **2026 admission fees:** `booking_fees.research.md` cites the dated Resolution 551 of 2025. Conflicting vehicle category summaries on the park webpage should be compared against the actual resolution table.
+- **Historical facilities:** `services.research.md` cites the 2024 assistance-needs report. Proposed facilities and maintenance needs must not be described as operational services; 2024 status is not 2026 availability.
+- **Conservation closures:** `services.research.md` notes that the park webpage gives a recurrence rule for November closure. Calendar dates derived from that rule must be labeled as a calculation unless a dated official notice explicitly confirms them.
+
+- **Successful 2026 POE download:** `activities.research.md` records reading https://www.parquesnacionales.gov.co/wp-content/uploads/2026/03/PUBLICACIO%CC%81N-PNN-LOS-NEVADOS-2026-V2.pdf (decomposed accent encoding). `services` previously got 404 for another encoding; reuse the saved actual PDF rather than conclude the 2026 document is inaccessible. Its map/text limits and prospective trail openings remain unverified.
+- **Current Ruiz summit restriction:** `activities.research.md` records an official park response dated 2026-05-11: https://www.parquesnacionales.gov.co/wp-content/uploads/2026/05/Respuesta-Radicado-Ano%CC%81nimo-No.-20264700042282.pdf. It refers to Resolution 207 and summit/crater prohibition as of that date.
+- **Rules evidence in Resolution 207:** `activities.research.md` records explicit drone, fire, playback, fishing, swimming and camping provisions. `rules` can read the stored source instead of leaving these core rules wholly unsupported.
+
+- **Official dated SGC Ruiz fact sheet accessible:** `geography.research.md` records reading September 2024 https://www2.sgc.gov.co/Temas-destacados/Documents/Hoja-informativa-volcan-Nevado-de-Ruiz-SGC.pdf. Saved evidence notes can support geology/history and general risk context, but do not establish current alert status.
+- **Park webpage modification timestamp:** `geography.research.md` reports HTML article:modified_time 2026-10-31, unlike logs which only inspected visible dates. Check actual saved HTML metadata before resolving recency conflicts; metadata update is not proof each individual rule was amended that date.

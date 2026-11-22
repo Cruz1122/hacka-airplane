@@ -1,0 +1,764 @@
+{
+  "contract_version": 1,
+  "id": "health_safety",
+  "order": 2,
+  "title": "Salud y seguridad en alta montaña",
+  "description": "Orientación general para reconocer malestares de altura, frío, sol y deshidratación, pedir ayuda y visitar Los Nevados con precaución.",
+  "retrieval": {
+    "profile": "safety",
+    "bm25_weight": 0.25,
+    "top_k": 3,
+    "min_score": null
+  },
+  "clarification": {
+    "between_entries": "¿Te preocupa {label_a} o {label_b}?",
+    "bank": [
+      "¿Qué síntomas tienes y desde cuándo?",
+      "¿La persona afectada es adulta o niña?",
+      "¿Estás con un guía o personal del parque?",
+      "¿La persona está consciente y puede hablar?",
+      "¿Tienes señal para llamar a emergencias?"
+    ],
+    "fallback": "Puedo orientarte sobre mal de altura, frío, deshidratación y cómo pedir ayuda; si es urgente, busca al guía o al personal del parque."
+  },
+  "featured": [
+    "health_safety.altitude_sickness_symptoms",
+    "health_safety.severe_altitude_warning_signs",
+    "health_safety.hypothermia_warning_signs",
+    "health_safety.national_emergency_number_123"
+  ],
+  "entries": [
+    {
+      "id": "health_safety.high_altitude_health_risk",
+      "label": "riesgo de salud en altura",
+      "kind": "safety",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "salud en altura",
+        "qué riesgo tiene la altura",
+        "me puede afectar la altura en Los Nevados",
+        "es pesado para el cuerpo ir al parque",
+        "alta montaña y salud",
+        "me da algo por falta de oxígeno",
+        "uno se puede enfermar por subir",
+        "qué debo saber de salud antes de ir",
+        "la altura afecta a cualquiera?",
+        "is high altitude risky for visitors?",
+        "que tan duro es para el cuerpo",
+        "me preocupa la altura del parque"
+      ],
+      "answer": {
+        "short": "Los Nevados es un destino de alta montaña y Parques Nacionales recomienda tener salud adecuada para visitarlo. La altura puede causar malestar; conoce sus señales y coméntale al guía cualquier condición de salud antes del recorrido.",
+        "variants": [
+          "La visita es de alta montaña: revisa cómo te sientes y consulta con un profesional si tienes dudas de salud."
+        ]
+      },
+      "sources": [
+        {
+          "label": "Parques Nacionales Naturales de Colombia",
+          "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+          "retrieved_at": "2026-11-21"
+        },
+        {
+          "label": "CDC Yellow Book: High-Altitude Travel and Altitude Illness",
+          "url": "https://www.cdc.gov/yellow-book/hcp/environmental-hazards-risks/high-altitude-travel-and-altitude-illness.html",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "last_verified": "2026-11-21",
+      "related": [
+        "health_safety.altitude_sickness_symptoms",
+        "health_safety.pretrip_medical_advice"
+      ],
+      "tags": [
+        "Mal de altura",
+        "alta montaña",
+        "prevención"
+      ],
+      "hard_negatives": [
+        "síntomas de soroche",
+        "debo preguntarle al médico antes de ir"
+      ]
+    },
+    {
+      "id": "health_safety.altitude_sickness_symptoms",
+      "label": "síntomas del mal de altura",
+      "kind": "safety",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "síntomas de soroche",
+        "cómo sé si me dio mal de altura",
+        "me duele la cabeza y tengo náuseas arriba",
+        "mareo y cansancio después de subir",
+        "el soroche da dolor de cabeza",
+        "qué señales da la altura",
+        "me siento como enguayabado en la montaña",
+        "la altura puede dar vómito?",
+        "poco apetito y dolor de cabeza al subir",
+        "how do I recognize altitude sickness?",
+        "me dio dolor de cabeza al llegar arriba",
+        "que sintomas vigilo en altura"
+      ],
+      "answer": {
+        "short": "Después de subir, el mal de altura puede sentirse como dolor de cabeza acompañado de mareo, cansancio, náuseas o poco apetito. Si aparecen síntomas, cuéntaselo al guía y no sigas subiendo mientras te sientas mal.",
+        "variants": [
+          "El soroche suele dar dolor de cabeza junto con malestar como náuseas, cansancio o mareo. Avisa al guía y detén el ascenso."
+        ]
+      },
+      "sources": [
+        {
+          "label": "CDC Yellow Book: High-Altitude Travel and Altitude Illness",
+          "url": "https://www.cdc.gov/yellow-book/hcp/environmental-hazards-risks/high-altitude-travel-and-altitude-illness.html",
+          "retrieved_at": "2026-11-21"
+        },
+        {
+          "label": "CDC Travelers’ Health: Travel to High Altitudes",
+          "url": "https://wwwnc.cdc.gov/travel/page/travel-to-high-altitudes",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "last_verified": "2026-11-21",
+      "related": [
+        "health_safety.severe_altitude_warning_signs",
+        "health_safety.no_ascend_while_symptomatic"
+      ],
+      "tags": [
+        "soroche",
+        "síntomas",
+        "mal de montaña"
+      ],
+      "hard_negatives": [
+        "confusión en altura",
+        "me puedo quemar aunque esté nublado"
+      ]
+    },
+    {
+      "id": "health_safety.severe_altitude_warning_signs",
+      "label": "señales graves por altura",
+      "kind": "safety",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "confusión en altura",
+        "me cuesta coordinar al caminar arriba",
+        "falta de aire en reposo en la montaña",
+        "tos y ahogo después de subir",
+        "cuándo el soroche es grave",
+        "somnolencia y desorientación en altura",
+        "no puedo respirar bien en altura",
+        "debilidad y tos al subir",
+        "mi compañero está confundido en el páramo",
+        "what are danger signs of altitude illness?",
+        "señales de emergencia por mal de altura",
+        "se puso torpe y confundido al subir"
+      ],
+      "answer": {
+        "short": "Confusión, pérdida de coordinación, somnolencia intensa o falta de aire son señales de alarma en altura. Busca ayuda urgente con el guía o personal del parque y procura descender con asistencia; no dejes sola a la persona.",
+        "variants": [
+          "Si hay confusión, mala coordinación o dificultad para respirar, trátalo como una urgencia: pide ayuda y desciende con apoyo."
+        ]
+      },
+      "sources": [
+        {
+          "label": "CDC Travelers’ Health: Travel to High Altitudes",
+          "url": "https://wwwnc.cdc.gov/travel/page/travel-to-high-altitudes",
+          "retrieved_at": "2026-11-21"
+        },
+        {
+          "label": "CDC Yellow Book: High-Altitude Travel and Altitude Illness",
+          "url": "https://www.cdc.gov/yellow-book/hcp/environmental-hazards-risks/high-altitude-travel-and-altitude-illness.html",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "last_verified": "2026-11-21",
+      "related": [
+        "health_safety.altitude_sickness_symptoms",
+        "health_safety.descent_for_worsening_altitude"
+      ],
+      "tags": [
+        "mal de altura grave",
+        "urgencia",
+        "alarma"
+      ],
+      "hard_negatives": [
+        "me duele la cabeza y tengo náuseas arriba",
+        "número para una emergencia en Colombia"
+      ]
+    },
+    {
+      "id": "health_safety.no_ascend_while_symptomatic",
+      "label": "no subir con síntomas",
+      "kind": "safety",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "puedo seguir subiendo con dolor de cabeza",
+        "me siento mal pero sigo al mirador",
+        "si tengo soroche puedo subir más",
+        "toca parar si me mareo",
+        "puedo continuar con náuseas en altura",
+        "es normal seguir caminando con malestar",
+        "me dio soroche pero quiero llegar",
+        "debo cancelar el ascenso si me duele la cabeza",
+        "subir más ayuda a aclimatar",
+        "should I keep climbing with symptoms?",
+        "puedo avanzar aunque me sienta raro",
+        "me aguanto el mareo y sigo?"
+      ],
+      "answer": {
+        "short": "No continúes el ascenso mientras tengas síntomas compatibles con mal de altura. Quédate a la misma altitud, avisa al guía y sigue su orientación; si empeoras, necesitas descender con ayuda.",
+        "variants": [
+          "Si te sientes mal por la altura, no subas más: informa al guía y sigue su indicación."
+        ]
+      },
+      "sources": [
+        {
+          "label": "CDC Travelers’ Health: Travel to High Altitudes",
+          "url": "https://wwwnc.cdc.gov/travel/page/travel-to-high-altitudes",
+          "retrieved_at": "2026-11-21"
+        },
+        {
+          "label": "CDC Yellow Book: High-Altitude Travel and Altitude Illness",
+          "url": "https://www.cdc.gov/yellow-book/hcp/environmental-hazards-risks/high-altitude-travel-and-altitude-illness.html",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "last_verified": "2026-11-21",
+      "related": [
+        "health_safety.altitude_sickness_symptoms",
+        "health_safety.descent_for_worsening_altitude"
+      ],
+      "tags": [
+        "ascenso",
+        "síntomas",
+        "prevención"
+      ],
+      "hard_negatives": [
+        "temblar mucho en el frío es peligroso",
+        "cómo sé si me dio mal de altura"
+      ]
+    },
+    {
+      "id": "health_safety.descent_for_worsening_altitude",
+      "label": "descenso si empeoras",
+      "kind": "safety",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "empeoré descansando en altura",
+        "qué hago si el soroche se pone peor",
+        "debo bajar si sigo con síntomas",
+        "mal de altura no mejora al parar",
+        "cuándo hay que descender por soroche",
+        "me siento cada vez peor arriba",
+        "si descanso y no mejoro qué hago",
+        "bajar de altura por malestar",
+        "mi dolor de cabeza empeora en la montaña",
+        "should I descend if symptoms get worse?",
+        "empeora el mareo aunque pare",
+        "me puse peor mientras descansaba"
+      ],
+      "answer": {
+        "short": "Si los síntomas empeoran aunque descanses a la misma altura, desciende y pide ayuda al guía o al personal del parque. No intentes resolver un empeoramiento grave solo ni continúes hacia cotas más altas.",
+        "variants": [
+          "El empeoramiento durante el descanso es una señal para descender con ayuda y solicitar atención."
+        ]
+      },
+      "sources": [
+        {
+          "label": "CDC Yellow Book: High-Altitude Travel and Altitude Illness",
+          "url": "https://www.cdc.gov/yellow-book/hcp/environmental-hazards-risks/high-altitude-travel-and-altitude-illness.html",
+          "retrieved_at": "2026-11-21"
+        },
+        {
+          "label": "CDC Travelers’ Health: Travel to High Altitudes",
+          "url": "https://wwwnc.cdc.gov/travel/page/travel-to-high-altitudes",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "last_verified": "2026-11-21",
+      "related": [
+        "health_safety.severe_altitude_warning_signs",
+        "health_safety.no_ascend_while_symptomatic"
+      ],
+      "tags": [
+        "descenso",
+        "empeoramiento",
+        "mal de altura"
+      ],
+      "hard_negatives": [
+        "me siento mal pero sigo al mirador",
+        "a quién le digo que me siento mal"
+      ]
+    },
+    {
+      "id": "health_safety.pretrip_medical_advice",
+      "label": "consulta médica antes del viaje",
+      "kind": "procedure",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "debo preguntarle al médico antes de ir",
+        "tengo una condición de salud y quiero subir",
+        "consulta médica para viajar a Los Nevados",
+        "quién debe hablar con un doctor antes de ir",
+        "es prudente ir con enfermedad del corazón",
+        "tengo problema pulmonar puedo visitar altura",
+        "medicina para prevenir soroche",
+        "me automedico para el mal de altura?",
+        "qué revisar con mi médico antes de viajar",
+        "should I ask my doctor before a high-altitude trip?",
+        "tengo una enfermedad crónica y voy al parque",
+        "me recomienda un médico para subir"
+      ],
+      "answer": {
+        "short": "Si tienes una condición de salud previa, especialmente cardíaca o pulmonar, consulta antes con un profesional que conozca los viajes a gran altura. No te automediques ni uses esta guía como reemplazo de una valoración médica.",
+        "variants": [
+          "Habla con tu profesional de salud antes del viaje si tienes una enfermedad o dudas sobre la altura."
+        ]
+      },
+      "sources": [
+        {
+          "label": "Parques Nacionales Naturales de Colombia",
+          "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+          "retrieved_at": "2026-11-21"
+        },
+        {
+          "label": "CDC Yellow Book: High-Altitude Travel and Altitude Illness",
+          "url": "https://www.cdc.gov/yellow-book/hcp/environmental-hazards-risks/high-altitude-travel-and-altitude-illness.html",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "last_verified": "2026-11-21",
+      "related": [
+        "health_safety.children_altitude_signs",
+        "health_safety.high_altitude_health_risk"
+      ],
+      "tags": [
+        "consulta médica",
+        "condición previa",
+        "medicación"
+      ],
+      "hard_negatives": [
+        "mi niño está irritable arriba",
+        "me duele la cabeza y tengo náuseas arriba"
+      ]
+    },
+    {
+      "id": "health_safety.children_altitude_signs",
+      "label": "niños y mal de altura",
+      "kind": "safety",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "cómo afecta la altura a los niños",
+        "mi niño está irritable arriba",
+        "mi bebé no quiere comer en altura",
+        "niños también sufren soroche",
+        "qué señales mirar en niños pequeños",
+        "mi hijo está raro después de subir",
+        "cambió el sueño de mi niño en la montaña",
+        "niño con dolor de cabeza en altura",
+        "cómo noto mal de altura si no habla",
+        "can children get altitude sickness?",
+        "mi hija está fastidiosa y cansada arriba",
+        "se ve pálido mi hijo al subir"
+      ],
+      "answer": {
+        "short": "Los niños también pueden sufrir mal de altura. En los pequeños observa irritabilidad, menos apetito o cambios de sueño y actividad; si notas síntomas inexplicables tras subir, avisa al guía y busca orientación para descender.",
+        "variants": [
+          "En un niño pequeño, un cambio inusual de ánimo, apetito o sueño después de subir puede ser una señal: avisa al guía."
+        ]
+      },
+      "sources": [
+        {
+          "label": "CDC Yellow Book: Traveling Safely with Infants and Children",
+          "url": "https://www.cdc.gov/yellow-book/hcp/family-travel/traveling-safely-with-infants-and-children.html",
+          "retrieved_at": "2026-11-21"
+        },
+        {
+          "label": "CDC Travelers’ Health: Travel to High Altitudes",
+          "url": "https://wwwnc.cdc.gov/travel/page/travel-to-high-altitudes",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "last_verified": "2026-11-21",
+      "related": [
+        "health_safety.altitude_sickness_symptoms",
+        "health_safety.pretrip_medical_advice"
+      ],
+      "tags": [
+        "niños",
+        "altura",
+        "síntomas"
+      ],
+      "hard_negatives": [
+        "un niño llora sin lágrimas",
+        "me duele la cabeza y tengo náuseas arriba"
+      ]
+    },
+    {
+      "id": "health_safety.tell_guide_about_health_change",
+      "label": "avisar al guía por malestar",
+      "kind": "procedure",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "a quién le digo que me siento mal",
+        "debo contarle al guía mis síntomas",
+        "me dio mareo con quién hablo",
+        "aviso al guardaparque si me duele la cabeza",
+        "qué hago si me siento raro durante el recorrido",
+        "puedo decirle al guía que estoy enfermo",
+        "a quién notifico una anomalía de salud",
+        "me da pena avisar que estoy mal",
+        "el guía debe saber si me siento mal",
+        "who should I tell if I feel unwell?",
+        "me empezó un malestar caminando",
+        "como le aviso al personal del parque"
+      ],
+      "answer": {
+        "short": "Avísale de inmediato al guía certificado o al personal del parque si notas un cambio en tu salud. Parques Nacionales recomienda reportar cualquier anomalía durante la visita; sigue sus indicaciones.",
+        "variants": [
+          "Cuéntaselo al guía o al personal del parque en cuanto notes el malestar, para que te indiquen qué hacer."
+        ]
+      },
+      "sources": [
+        {
+          "label": "Parques Nacionales Naturales de Colombia",
+          "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+          "retrieved_at": "2026-11-21"
+        },
+        {
+          "label": "Parques Nacionales: recomendaciones para áreas protegidas",
+          "url": "https://old.parquesnacionales.gov.co/portal/es/decalogo-de-recomendaciones-para-el-uso-de-areas-protegidas-en-parques-nacionales-naturales-de-colombia/",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "last_verified": "2026-11-21",
+      "related": [
+        "health_safety.altitude_sickness_symptoms",
+        "health_safety.national_emergency_number_123"
+      ],
+      "tags": [
+        "guía",
+        "síntomas",
+        "apoyo"
+      ],
+      "hard_negatives": [
+        "número para una emergencia en Colombia",
+        "me duele la cabeza y tengo náuseas arriba"
+      ]
+    },
+    {
+      "id": "health_safety.hypothermia_warning_signs",
+      "label": "señales de hipotermia",
+      "kind": "safety",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "cómo reconocer hipotermia",
+        "temblar mucho en el frío es peligroso",
+        "está confundido y tiene frío",
+        "torpeza después de mojarse en la montaña",
+        "cuáles son las señales de enfriamiento",
+        "dejar de temblar es mala señal",
+        "mi compañero está muy cansado y frío",
+        "se le puso azul la piel por el frío",
+        "hipotermia por lluvia y viento",
+        "what are signs of hypothermia?",
+        "me mojé y no paro de temblar",
+        "tengo frío y me siento desorientado"
+      ],
+      "answer": {
+        "short": "El temblor, el cansancio, la torpeza y la confusión pueden ser señales tempranas de hipotermia; si el temblor cesa o la persona pierde el conocimiento, es grave. Busca atención médica de inmediato y avisa al guía.",
+        "variants": [
+          "Temblar y perder coordinación con frío puede ser hipotermia. Busca ayuda médica enseguida."
+        ]
+      },
+      "sources": [
+        {
+          "label": "CDC Travelers’ Health: Cold Weather and Travel",
+          "url": "https://wwwnc.cdc.gov/travel/page/travel-to-cold-climates/",
+          "retrieved_at": "2026-11-21"
+        },
+        {
+          "label": "CDC NIOSH: Cold-related Illnesses",
+          "url": "https://www.cdc.gov/niosh/cold-stress/about/related-illness.html",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "last_verified": "2026-11-21",
+      "related": [
+        "health_safety.hypothermia_first_response",
+        "health_safety.frostbite_warning_signs"
+      ],
+      "tags": [
+        "frío",
+        "hipotermia",
+        "síntomas"
+      ],
+      "hard_negatives": [
+        "dedos entumecidos por el frío",
+        "qué hago si alguien tiene hipotermia"
+      ]
+    },
+    {
+      "id": "health_safety.hypothermia_first_response",
+      "label": "primeros auxilios por hipotermia",
+      "kind": "procedure",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "qué hago si alguien tiene hipotermia",
+        "cómo ayudar a una persona muy fría",
+        "mi amigo está mojado y tiembla mucho",
+        "primeros auxilios por enfriamiento",
+        "lo meto en una carpa si tiene hipotermia",
+        "debo quitarle la ropa mojada",
+        "persona confundida por frío qué hago",
+        "cómo caliento a alguien con hipotermia",
+        "le doy una bebida caliente si está inconsciente",
+        "how do I help someone with hypothermia?",
+        "necesito actuar por frío extremo",
+        "se mojó y está perdiendo coordinación"
+      ],
+      "answer": {
+        "short": "Pide ayuda médica y lleva a la persona a un lugar protegido; quítale la ropa mojada y abrígala gradualmente. Solo ofrece una bebida tibia si está plenamente alerta y puede tragar con seguridad; de lo contrario, no le des nada por la boca.",
+        "variants": [
+          "Busca ayuda, resguárdala del frío, retira lo mojado y abrígala. Solo ofrece una bebida tibia si está plenamente alerta y puede tragar con seguridad."
+        ]
+      },
+      "sources": [
+        {
+          "label": "CDC Travelers’ Health: Cold Weather and Travel",
+          "url": "https://wwwnc.cdc.gov/travel/page/travel-to-cold-climates/",
+          "retrieved_at": "2026-11-21"
+        },
+        {
+          "label": "CDC NIOSH: Cold-related Illnesses",
+          "url": "https://www.cdc.gov/niosh/cold-stress/about/related-illness.html",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "last_verified": "2026-11-21",
+      "related": [
+        "health_safety.hypothermia_warning_signs",
+        "health_safety.national_emergency_number_123"
+      ],
+      "tags": [
+        "hipotermia",
+        "primeros auxilios",
+        "frío"
+      ],
+      "hard_negatives": [
+        "cómo reconocer hipotermia",
+        "dedos entumecidos por el frío"
+      ]
+    },
+    {
+      "id": "health_safety.frostbite_warning_signs",
+      "label": "señales de congelación",
+      "kind": "safety",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "dedos entumecidos por el frío",
+        "cómo saber si tengo congelación",
+        "hormigueo y ardor en los dedos",
+        "nariz dormida en la montaña",
+        "piel pálida y cerosa por frío",
+        "me duelen los dedos y no los siento",
+        "qué señales da la congelación",
+        "se me entumecieron las orejas en la nieve",
+        "frostbite en los pies qué es",
+        "how do I spot frostbite?",
+        "tengo los dedos con hormigueo y dolor",
+        "parte de la cara sin sensibilidad por frío"
+      ],
+      "answer": {
+        "short": "El entumecimiento, hormigueo o dolor en dedos, orejas o nariz pueden indicar congelación. Busca atención médica, ve a un lugar protegido del frío y no frotes la zona afectada.",
+        "variants": [
+          "Si una parte expuesta al frío pierde sensibilidad, duele o siente hormigueo, busca atención y protéjala del frío."
+        ]
+      },
+      "sources": [
+        {
+          "label": "CDC Travelers’ Health: Cold Weather and Travel",
+          "url": "https://wwwnc.cdc.gov/travel/page/travel-to-cold-climates/",
+          "retrieved_at": "2026-11-21"
+        },
+        {
+          "label": "CDC NIOSH: Cold-related Illnesses",
+          "url": "https://www.cdc.gov/niosh/cold-stress/about/related-illness.html",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "last_verified": "2026-11-21",
+      "related": [
+        "health_safety.hypothermia_warning_signs",
+        "health_safety.hypothermia_first_response"
+      ],
+      "tags": [
+        "congelación",
+        "entumecimiento",
+        "frío"
+      ],
+      "hard_negatives": [
+        "cómo reconocer hipotermia",
+        "qué hago si alguien tiene hipotermia"
+      ]
+    },
+    {
+      "id": "health_safety.sun_uv_protection",
+      "label": "protección solar en altura",
+      "kind": "procedure",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "me puedo quemar aunque esté nublado",
+        "el sol pega más en la montaña",
+        "cómo evitar quemarme en Los Nevados",
+        "protector solar para alta montaña",
+        "la nieve refleja los rayos del sol",
+        "necesito gafas aunque haga frío",
+        "qué hago para cuidarme del sol arriba",
+        "el clima frío protege de la radiación",
+        "se puede quemar uno en el páramo",
+        "how do I protect myself from UV at altitude?",
+        "me quemé la cara en un día nublado",
+        "como cuido los ojos del sol en altura"
+      ],
+      "answer": {
+        "short": "En altura y cerca del ecuador puedes recibir más radiación UV, incluso con nubes o frío; la nieve también la refleja. Usa protector de amplio espectro, gafas con filtro UV y ropa que cubra la piel.",
+        "variants": [
+          "El frío o las nubes no eliminan la radiación: protege piel y ojos durante todo el recorrido."
+        ]
+      },
+      "sources": [
+        {
+          "label": "CDC Travelers’ Health: Sun Exposure",
+          "url": "https://wwwnc.cdc.gov/travel/page/sun-exposure",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "last_verified": "2026-11-21",
+      "related": [
+        "health_safety.dehydration_warning_signs",
+        "health_safety.high_altitude_health_risk"
+      ],
+      "tags": [
+        "sol",
+        "radiación UV",
+        "protección"
+      ],
+      "hard_negatives": [
+        "mucha sed y boca seca en el parque",
+        "me dio dolor de cabeza al llegar arriba"
+      ]
+    },
+    {
+      "id": "health_safety.dehydration_warning_signs",
+      "label": "señales de deshidratación",
+      "kind": "safety",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "cómo noto que estoy deshidratado",
+        "orina oscura y mareo caminando",
+        "mucha sed y boca seca en el parque",
+        "me siento agotado por no tomar agua",
+        "la altura me dio dolor de cabeza con náuseas",
+        "un niño llora sin lágrimas",
+        "cuándo la deshidratación es urgente",
+        "tengo la boca seca y casi no orino",
+        "deshidratación en caminata de montaña",
+        "what are dehydration warning signs?",
+        "mi hijo está muy dormido y no toma agua",
+        "me mareo y tengo sed en el recorrido"
+      ],
+      "answer": {
+        "short": "La sed, la boca seca, el cansancio, el mareo y la orina oscura pueden ser señales de deshidratación. Confusión, desmayo, casi no orinar o respiración rápida requieren ayuda médica inmediata.",
+        "variants": [
+          "La sed con cansancio o mareo puede ser deshidratación; si hay confusión o desmayo, busca atención urgente."
+        ]
+      },
+      "sources": [
+        {
+          "label": "MedlinePlus: Dehydration",
+          "url": "https://medlineplus.gov/dehydration.html",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "last_verified": "2026-11-21",
+      "related": [
+        "health_safety.children_altitude_signs",
+        "health_safety.national_emergency_number_123"
+      ],
+      "tags": [
+        "deshidratación",
+        "sed",
+        "mareo"
+      ],
+      "hard_negatives": [
+        "cómo evitar quemarme en Los Nevados",
+        "síntomas de soroche"
+      ]
+    },
+    {
+      "id": "health_safety.national_emergency_number_123",
+      "label": "línea nacional de emergencias 123",
+      "kind": "fact",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "número para una emergencia en Colombia",
+        "a qué teléfono llamo si hay una urgencia",
+        "línea de emergencia nacional",
+        "cómo pido ayuda por teléfono en Colombia",
+        "cuál es el número de emergencias",
+        "llamar a la policía por una emergencia",
+        "estoy en una emergencia cuál número marco",
+        "teléfono de urgencias en Colombia",
+        "número único para reportar una emergencia",
+        "what number do I call for an emergency in Colombia?",
+        "me pasó algo grave y necesito llamar",
+        "como contacto emergencias si tengo señal"
+      ],
+      "answer": {
+        "short": "En Colombia, la línea nacional de emergencias es el 123. Si tienes señal y una emergencia, llama y explica dónde estás y qué ocurrió; en el parque, avisa también al guía o al personal. Esta aplicación funciona sin conexión y no transmite reportes.",
+        "variants": [
+          "Si puedes llamar, marca 123 y explica la emergencia y tu ubicación; avisa además al guía o al personal del parque."
+        ]
+      },
+      "sources": [
+        {
+          "label": "Policía Nacional de Colombia: línea 123",
+          "url": "https://www.policia.gov.co/noticia/policia-nacional-sensibiliza-comunidad-sobre-uso-las-lineas-emergencia-123-155",
+          "retrieved_at": "2026-11-21"
+        },
+        {
+          "label": "Parques Nacionales Naturales de Colombia",
+          "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "last_verified": "2026-11-21",
+      "related": [
+        "health_safety.tell_guide_about_health_change",
+        "health_safety.severe_altitude_warning_signs"
+      ],
+      "tags": [
+        "emergencia",
+        "teléfono",
+        "Colombia"
+      ],
+      "hard_negatives": [
+        "cómo noto que estoy deshidratado",
+        "a quién le digo que me siento mal"
+      ]
+    }
+  ]
+}

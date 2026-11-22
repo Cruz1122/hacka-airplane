@@ -1,0 +1,18 @@
+{
+  "sample_seed": 20261121,
+  "sampled_ids": [
+    "actions.report_fire",
+    "actions.report_emergency_general",
+    "actions.report_lost_person",
+    "actions.report_offline_emergency",
+    "actions.report_storm"
+  ],
+  "status": "changes_required",
+  "findings": [
+    "Sampled answers contradict the no-transmission constraint: report_fire, report_lost_person, report_storm say lo envío solo si confirmas; report_emergency_general says no lo envío sin tu confirmación. All short/variants/steps must clearly hand off to the local flow without promising external delivery.",
+    "report_offline_emergency mixes app capability questions and active emergency reports. Review action trigger scope to avoid starting emergency FSM for an informational question.",
+    "needs includes location and people count. Ensure slots cannot delay urgent safety instructions or imply these values are needed before calling emergency services.",
+    "Sources for 123 are official and publication date is logged (2023-03-12); do not call the number unverified merely because the article is old without contrary evidence. Current coverage/connection still must not be guaranteed.",
+    "Source labels expose long technical editorial disclaimers to tourists. Move app-endorsement caveats to research log and use concise source labels."
+  ]
+}

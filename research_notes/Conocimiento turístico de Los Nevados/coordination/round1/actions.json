@@ -1,0 +1,808 @@
+{
+  "contract_version": 1,
+  "id": "actions",
+  "order": 1,
+  "title": "Registrar visita y reportar emergencia",
+  "description": "Acciones de la app: preparar el registro de una visita o un reporte de emergencia, siempre con tu confirmación. No garantiza envío ni guardado sin conexión; en una emergencia real, marca el 123 si tienes señal.",
+  "retrieval": {
+    "profile": "safety",
+    "bm25_weight": 0.3,
+    "top_k": 2,
+    "min_score": null,
+    "entity_filters": [
+      "sector",
+      "date",
+      "group_size",
+      "visitor_type",
+      "emergency_type",
+      "people_count"
+    ]
+  },
+  "clarification": {
+    "between_entries": "¿Te refieres a {label_a} o a {label_b}?",
+    "bank": [
+      "¿Es una emergencia con peligro inmediato? Si lo es, marca primero el 123 cuando tengas señal.",
+      "¿Quieres registrar una visita para otra fecha o estás llegando hoy?",
+      "¿Qué tipo de emergencia es: lesión, persona perdida, mal de altura, hipotermia, tormenta eléctrica o incendio?",
+      "¿Tienes señal en este momento o estás sin conexión?",
+      "¿En qué sector estás: Brisas, Cisne, Otún o Quindío–Dulima?",
+      "¿Cuántas personas están involucradas en la situación?"
+    ],
+    "slot_questions": {
+      "sector": "¿En qué sector estás o vas a ir: Brisas, Cisne, Otún o Quindío–Dulima?",
+      "date": "¿Para qué fecha quieres registrar la visita?",
+      "group_size": "¿Cuántas personas integran el grupo?",
+      "visitor_type": "¿El visitante es nacional o extranjero?",
+      "emergency_type": "¿Qué tipo de emergencia es: lesión, persona perdida, mal de altura, hipotermia, tormenta eléctrica o incendio?",
+      "people_count": "¿Cuántas personas están involucradas en la emergencia?"
+    },
+    "fallback": "Puedo ayudarte a registrar una visita o a preparar un reporte de emergencia. Si hay peligro inmediato, marca el 123 cuando tengas señal."
+  },
+  "featured": [
+    "actions.report_emergency_general",
+    "actions.report_offline_emergency",
+    "actions.report_injury",
+    "actions.register_planned_visit",
+    "actions.report_lost_person"
+  ],
+  "entries": [
+    {
+      "id": "actions.register_planned_visit",
+      "label": "registrar una visita para otra fecha",
+      "kind": "action",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "quiero registrar mi visita para el sábado",
+        "registrar un grupo para una fecha futura",
+        "cómo dejo registrado mi grupo para otro día",
+        "anotar a cuatro personas para el domingo",
+        "registro de visita para el puente festivo",
+        "necesito dejar registrada una visita",
+        "registrar visita al Otún el mes que viene",
+        "me ayudas a registrar la visita del fin de semana",
+        "¿registrar la visita sirve como reserva?",
+        "quiero registrar mi grupo con anticipación",
+        "I want to register a visit for a future date",
+        "register my group visit for next weekend",
+        "reg visita pa el sabado pa seis personas",
+        "ayúdame a registrar la visita de mañana"
+      ],
+      "hard_negatives": [
+        "cómo reservo",
+        "cuánto cuesta entrar",
+        "a qué hora abren"
+      ],
+      "entities": {
+        "sector": [
+          "brisas",
+          "cisne",
+          "otun",
+          "quindio_dulima"
+        ],
+        "visitor_type": [
+          "nacional",
+          "extranjero"
+        ]
+      },
+      "needs": [
+        "sector",
+        "date",
+        "group_size",
+        "visitor_type"
+      ],
+      "action": "register_visit",
+      "answer": {
+        "short": "Puedo preparar el registro de tu visita con sector, fecha, número de personas y tipo de visitante. Te muestro un resumen y no lo envío sin tu confirmación; sin conexión no puedo asegurar que quede guardado.",
+        "variants": [
+          "Te ayudo a dejar lista la visita: dime el sector, la fecha, cuántas personas son y si son nacionales o extranjeros. Confirmas el resumen antes de cualquier envío, y sin conexión no puedo garantizar que quede guardado."
+        ],
+        "steps": [
+          [
+            "Dime el sector, la fecha, el número de personas y el tipo de visitante.",
+            "Revisa el resumen que te muestro antes de confirmar."
+          ],
+          [
+            "El registro de ingreso del parque se hace en el punto de registro del sector; esta acción no lo reemplaza.",
+            "En Brisas, para fines de semana y festivos, la ficha pide reservar con al menos un día de anticipación en reservasnevados.com. En los demás sectores la reserva es obligatoria y la gestiona tu agencia registrada."
+          ]
+        ]
+      },
+      "sources": [
+        {
+          "label": "Parques Nacionales Naturales · ficha Los Nevados (reservas y registro de ingreso; no describe el registro de esta app)",
+          "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "last_verified": "2026-11-21",
+      "valid_until": null,
+      "related": [
+        "actions.register_arrival_today",
+        "actions.report_emergency_general"
+      ],
+      "tags": [
+        "registro",
+        "visita",
+        "grupo",
+        "fecha"
+      ]
+    },
+    {
+      "id": "actions.register_arrival_today",
+      "label": "registrar mi llegada al sector hoy",
+      "kind": "action",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "ya llegué a la entrada, quiero registrarme",
+        "estoy en el punto de ingreso, cómo me registro",
+        "llegamos hoy al sector, registro el grupo",
+        "registrar llegada hoy",
+        "ya estoy en Brisas, anoto a mi grupo",
+        "me registro ahorita que llegué al parque",
+        "ya llegué al control de Potosí, ¿me registro?",
+        "acabo de llegar, hay que registrarnos",
+        "toca registrarnos aquí en la entrada?",
+        "ya llegue, como me registro",
+        "llegué hoy sin reservar, ¿me puedo registrar?",
+        "just arrived at the entrance, how do I register my group",
+        "I just got to the park, need to register"
+      ],
+      "hard_negatives": [
+        "a qué hora abren",
+        "cuánto cuesta entrar",
+        "necesito seguro para entrar"
+      ],
+      "entities": {
+        "sector": [
+          "brisas",
+          "cisne",
+          "otun",
+          "quindio_dulima"
+        ],
+        "visitor_type": [
+          "nacional",
+          "extranjero"
+        ]
+      },
+      "needs": [
+        "sector",
+        "group_size",
+        "visitor_type"
+      ],
+      "action": "register_visit",
+      "answer": {
+        "short": "Puedo preparar tu registro de llegada con el sector, cuántas personas van y el tipo de visitante. Te muestro el resumen y solo lo envío si confirmas; sin conexión no puedo garantizar que quede guardado. El registro oficial de ingreso se hace en el punto de registro del sector.",
+        "variants": [
+          "Si ya estás en la entrada, dime el sector, cuántas personas son y el tipo de visitante. Confirma el resumen antes de enviarlo; el paso oficial sigue siendo el punto de registro del sector."
+        ],
+        "steps": [
+          [
+            "Dime el sector en el que estás, el número de personas y el tipo de visitante.",
+            "Confirma el resumen que te muestro antes de que la app lo envíe."
+          ],
+          [
+            "En el punto de registro del sector, sigue las indicaciones del personal para completar el ingreso."
+          ]
+        ]
+      },
+      "sources": [
+        {
+          "label": "Parques Nacionales Naturales · ficha Los Nevados (reservas y registro de ingreso; no describe el registro de esta app)",
+          "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "last_verified": "2026-11-21",
+      "valid_until": null,
+      "related": [
+        "actions.register_planned_visit",
+        "actions.report_emergency_general"
+      ],
+      "tags": [
+        "llegada",
+        "registro",
+        "ingreso",
+        "hoy"
+      ]
+    },
+    {
+      "id": "actions.report_emergency_general",
+      "label": "reportar una emergencia en el parque",
+      "kind": "action",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "hay una emergencia",
+        "quiero reportar una emergencia",
+        "necesito ayuda urgente",
+        "es una emergencia, ¿qué hago?",
+        "cómo reporto una emergencia",
+        "ayuda, emergencia aquí en el sendero",
+        "socorro, necesitamos ayuda ya",
+        "hay una situación de emergencia con mi grupo",
+        "como reporto una emergencia en la montaña",
+        "emergencia, mándame ayuda",
+        "tengo una urgencia en el páramo",
+        "I need to report an emergency",
+        "emergency on the trail, how do I report it"
+      ],
+      "hard_negatives": [
+        "qué hago si me pierdo",
+        "qué es el mal de altura",
+        "qué número llamar si me lastimo"
+      ],
+      "entities": {},
+      "needs": [
+        "emergency_type",
+        "sector",
+        "people_count"
+      ],
+      "action": "report_emergency",
+      "answer": {
+        "short": "Si hay peligro inmediato, marca primero el 123 cuando tengas señal: es la línea única de emergencias del país y atiende las 24 horas. Luego puedo preparar tu reporte con el sector, el tipo de emergencia y cuántas personas están involucradas; no lo envío sin tu confirmación.",
+        "variants": [
+          "Si la situación es urgente, marca primero el 123 cuando tengas señal; es la línea única de emergencias del país. Después dime el sector, el tipo de emergencia y cuántas personas están involucradas para preparar el reporte."
+        ],
+        "steps": [
+          [
+            "Si hay peligro inmediato, marca el 123 cuando tengas señal."
+          ],
+          [
+            "Dime el tipo de emergencia, el sector y cuántas personas están involucradas para preparar el reporte."
+          ]
+        ],
+        "detail": "La línea 123 atiende emergencias y seguridad. La Policía advierte que las llamadas de broma o sin motivo pueden impedir la atención de una emergencia real, así que úsala solo para una emergencia."
+      },
+      "sources": [
+        {
+          "label": "Policía Nacional · nota sobre la línea 123, publicada el 12 mar 2023 (no describe el reporte de esta app)",
+          "url": "https://www.policia.gov.co/noticia/policia-nacional-sensibiliza-comunidad-sobre-uso-las-lineas-emergencia-123-155",
+          "retrieved_at": "2026-11-21"
+        },
+        {
+          "label": "Parques Nacionales Naturales · ficha Los Nevados (guías registrados: equipo médico de respuesta y radios; no describe esta app)",
+          "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "last_verified": "2026-11-21",
+      "valid_until": null,
+      "related": [
+        "actions.report_injury",
+        "actions.report_offline_emergency"
+      ],
+      "tags": [
+        "emergencia",
+        "ayuda",
+        "reporte",
+        "urgencia"
+      ]
+    },
+    {
+      "id": "actions.report_injury",
+      "label": "reportar una lesión o accidente",
+      "kind": "action",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "se lastimó alguien del grupo",
+        "se cayó y se lastimó la pierna",
+        "reportar un accidente en el sendero",
+        "mi amigo se torció el tobillo",
+        "se fracturo la mano, no puede mover los dedos",
+        "se cortó feo con una piedra",
+        "se golpeó la cabeza al caer",
+        "me caí y me duele mucho la rodilla",
+        "reporte de lesión en la caminata",
+        "compañero herido, no puede caminar",
+        "one of my friends fell and hurt his leg",
+        "a hiker got injured, can I report it?",
+        "se pegó una caída feísima"
+      ],
+      "hard_negatives": [
+        "primeros auxilios para un esguince",
+        "qué hacer si te pierdes",
+        "cuánto cuesta el seguro de accidentes"
+      ],
+      "entities": {
+        "emergency_type": [
+          "lesion"
+        ]
+      },
+      "needs": [
+        "sector",
+        "people_count"
+      ],
+      "action": "report_emergency",
+      "answer": {
+        "short": "Si la persona está herida o no puede caminar, marca primero el 123 cuando tengas señal. Puedo preparar un reporte de lesión con el sector, cuántas personas están involucradas y la referencia del sendero; lo envío solo si confirmas.",
+        "variants": [
+          "Si alguien se lastimó, marca el 123 cuando tengas señal. Después dime el sector, cuántas personas están involucradas y dónde ocurrió en el sendero, y confirma el reporte antes de enviarlo."
+        ],
+        "steps": [
+          [
+            "Si hay una lesión grave, marca el 123 cuando tengas señal.",
+            "Avisa a tu guía o agencia: según el parque, los guías registrados deben contar con equipo médico de respuesta y radios."
+          ],
+          [
+            "Dime el sector, cuántas personas están involucradas y la referencia del sendero para preparar el reporte."
+          ]
+        ]
+      },
+      "sources": [
+        {
+          "label": "Policía Nacional · nota sobre la línea 123, publicada el 12 mar 2023 (no describe el reporte de esta app)",
+          "url": "https://www.policia.gov.co/noticia/policia-nacional-sensibiliza-comunidad-sobre-uso-las-lineas-emergencia-123-155",
+          "retrieved_at": "2026-11-21"
+        },
+        {
+          "label": "Parques Nacionales Naturales · ficha Los Nevados (guías registrados: equipo médico de respuesta y radios; no describe esta app)",
+          "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "last_verified": "2026-11-21",
+      "valid_until": null,
+      "related": [
+        "actions.report_emergency_general",
+        "actions.report_lost_person"
+      ],
+      "tags": [
+        "lesión",
+        "accidente",
+        "herido",
+        "caída"
+      ]
+    },
+    {
+      "id": "actions.report_lost_person",
+      "label": "reportar una persona perdida",
+      "kind": "action",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "se perdio mi amigo en el paramo",
+        "no encuentro a mi grupo",
+        "perdí de vista a mi hijo en el sendero",
+        "una persona no volvió del recorrido",
+        "persona desaparecida en la montaña",
+        "mi compañero se separó del grupo y no aparece",
+        "reportar persona extraviada",
+        "se nos perdió un señor en la laguna",
+        "alguien del grupo está perdido desde hace rato",
+        "mi esposa se quedó atrás y no la veo",
+        "se nos perdió la niña",
+        "someone from my group is missing",
+        "a person is lost on the trail, I need help"
+      ],
+      "hard_negatives": [
+        "qué hago si me pierdo",
+        "cómo leer el mapa del sendero",
+        "qué debo llevar"
+      ],
+      "entities": {
+        "emergency_type": [
+          "persona_perdida"
+        ]
+      },
+      "needs": [
+        "sector",
+        "people_count"
+      ],
+      "action": "report_emergency",
+      "answer": {
+        "short": "Si la persona está en peligro o no sabes dónde está, marca primero el 123 cuando tengas señal. Puedo preparar el reporte de persona perdida con el sector, cuántas personas faltan y la última referencia del recorrido; lo envío solo si confirmas.",
+        "variants": [
+          "Si alguien de tu grupo no aparece, pide ayuda ya: marca el 123 cuando tengas señal. Después dime el sector, cuántas personas faltan y la última referencia del recorrido que tuviste, y confirma el reporte antes de enviarlo."
+        ],
+        "steps": [
+          [
+            "Si alguien no aparece, marca el 123 cuando tengas señal.",
+            "Avisa a tu guía o agencia; según el parque, sus guías registrados deben contar con radios."
+          ],
+          [
+            "Dime el sector, cuántas personas faltan y la última referencia del recorrido para preparar el reporte."
+          ]
+        ]
+      },
+      "sources": [
+        {
+          "label": "Policía Nacional · nota sobre la línea 123, publicada el 12 mar 2023 (no describe el reporte de esta app)",
+          "url": "https://www.policia.gov.co/noticia/policia-nacional-sensibiliza-comunidad-sobre-uso-las-lineas-emergencia-123-155",
+          "retrieved_at": "2026-11-21"
+        },
+        {
+          "label": "Parques Nacionales Naturales · ficha Los Nevados (guías registrados: equipo médico de respuesta y radios; no describe esta app)",
+          "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "last_verified": "2026-11-21",
+      "valid_until": null,
+      "related": [
+        "actions.report_injury",
+        "actions.report_offline_emergency"
+      ],
+      "tags": [
+        "perdido",
+        "desaparecido",
+        "grupo",
+        "búsqueda"
+      ]
+    },
+    {
+      "id": "actions.report_altitude_sickness",
+      "label": "reportar mal de altura de alguien",
+      "kind": "action",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "mi compañera tiene mal de altura",
+        "a alguien le dio soroche",
+        "mi hermano está muy mareado por la altura",
+        "se desmayó por la altura",
+        "persona con dolor de cabeza fuerte en la cumbre",
+        "le dio mal de montaña a mi amigo",
+        "el soroche se puso grave",
+        "mareo y vómito de un compañero por la altura",
+        "reportar soroche",
+        "tiene soroche y ya no habla bien",
+        "altitude sickness, my friend is not well",
+        "my friend has altitude sickness, how do I report it"
+      ],
+      "hard_negatives": [
+        "qué es el mal de altura",
+        "cómo se previene el soroche",
+        "a qué altura es peligroso subir"
+      ],
+      "entities": {
+        "emergency_type": [
+          "mal_de_altura"
+        ]
+      },
+      "needs": [
+        "sector",
+        "people_count"
+      ],
+      "action": "report_emergency",
+      "answer": {
+        "short": "Si la persona está confundida, no responde o empeora, marca primero el 123 cuando tengas señal y no la dejes sola. Puedo preparar un reporte de mal de altura con el sector y cuántas personas están involucradas; lo envío solo si confirmas.",
+        "variants": [
+          "Si alguien del grupo tiene soroche y empeora, marca el 123 cuando tengas señal y avisa a tu guía. Dime el sector y cuántas personas están involucradas para preparar el reporte; no lo envío sin tu confirmación."
+        ],
+        "steps": [
+          [
+            "Si hay confusión, pérdida de conocimiento o empeoramiento, marca el 123 cuando tengas señal.",
+            "Avisa a tu guía, que según el parque debe contar con equipo médico de respuesta."
+          ],
+          [
+            "Para indicaciones de salud en altura, pregunta al asistente por ese tema."
+          ]
+        ]
+      },
+      "sources": [
+        {
+          "label": "Policía Nacional · nota sobre la línea 123, publicada el 12 mar 2023 (no describe el reporte de esta app)",
+          "url": "https://www.policia.gov.co/noticia/policia-nacional-sensibiliza-comunidad-sobre-uso-las-lineas-emergencia-123-155",
+          "retrieved_at": "2026-11-21"
+        },
+        {
+          "label": "Parques Nacionales Naturales · ficha Los Nevados (guías registrados: equipo médico de respuesta y radios; no describe esta app)",
+          "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "last_verified": "2026-11-21",
+      "valid_until": null,
+      "related": [
+        "actions.report_emergency_general",
+        "actions.report_hypothermia"
+      ],
+      "tags": [
+        "soroche",
+        "mal de altura",
+        "altura",
+        "reporte"
+      ]
+    },
+    {
+      "id": "actions.report_hypothermia",
+      "label": "reportar hipotermia de una persona",
+      "kind": "action",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "alguien tirita sin parar",
+        "mi amigo está congelado y no habla bien",
+        "compañero con hipotermia",
+        "tiene frio y tirita mucho",
+        "mi hermano está temblando y muy confundido",
+        "se mojó con la lluvia y tiembla feo",
+        "reporte de hipotermia en el páramo",
+        "mi compañero se quedó sin fuerzas por el frío",
+        "hay una persona con hipotermia en el sendero",
+        "tiritando sin control, necesito ayuda",
+        "someone is shivering uncontrollably and confused",
+        "I think my friend has hypothermia, what do I report?"
+      ],
+      "hard_negatives": [
+        "qué ropa llevar para el frío",
+        "cómo se previene la hipotermia",
+        "qué es la hipotermia"
+      ],
+      "entities": {
+        "emergency_type": [
+          "hipotermia"
+        ]
+      },
+      "needs": [
+        "sector",
+        "people_count"
+      ],
+      "action": "report_emergency",
+      "answer": {
+        "short": "Si la persona está confundida, no puede moverse o casi no habla, marca primero el 123 cuando tengas señal. Puedo preparar un reporte de hipotermia con el sector y cuántas personas están involucradas; lo envío solo si confirmas.",
+        "variants": [
+          "Si alguien tirita sin control o está confundido, marca el 123 cuando tengas señal. Dime el sector y cuántas personas están involucradas para preparar el reporte, que solo se envía con tu confirmación."
+        ],
+        "steps": [
+          [
+            "Si la persona está confundida o no puede moverse, marca el 123 cuando tengas señal.",
+            "Avisa a tu guía, que según el parque debe contar con equipo médico de respuesta."
+          ],
+          [
+            "Dime el sector y cuántas personas están involucradas para preparar el reporte."
+          ]
+        ]
+      },
+      "sources": [
+        {
+          "label": "Policía Nacional · nota sobre la línea 123, publicada el 12 mar 2023 (no describe el reporte de esta app)",
+          "url": "https://www.policia.gov.co/noticia/policia-nacional-sensibiliza-comunidad-sobre-uso-las-lineas-emergencia-123-155",
+          "retrieved_at": "2026-11-21"
+        },
+        {
+          "label": "Parques Nacionales Naturales · ficha Los Nevados (guías registrados: equipo médico de respuesta y radios; no describe esta app)",
+          "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "last_verified": "2026-11-21",
+      "valid_until": null,
+      "related": [
+        "actions.report_altitude_sickness",
+        "actions.report_storm"
+      ],
+      "tags": [
+        "hipotermia",
+        "frío",
+        "tiritar",
+        "reporte"
+      ]
+    },
+    {
+      "id": "actions.report_storm",
+      "label": "reportar tormenta eléctrica cerca",
+      "kind": "action",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "hay tormenta electrica, ayuda",
+        "caen rayos cerca del grupo",
+        "nos cayó un rayo",
+        "truenos y rayos en la cumbre",
+        "tormenta con granizo y rayos en el páramo",
+        "reportar tormenta con rayos",
+        "hay rayos y no sabemos qué hacer",
+        "se viene una tormenta eléctrica fuerte, avisa",
+        "lightning storm near the lagoon, I need to report it",
+        "lightning hit close to our group, what do I report",
+        "está tronando muy duro y hay rayos",
+        "rayo cayó cerca de la cabaña"
+      ],
+      "hard_negatives": [
+        "pronóstico de lluvia para hoy",
+        "qué hacer en una tormenta",
+        "cómo llegar a la cabaña Potosí"
+      ],
+      "entities": {
+        "emergency_type": [
+          "tormenta_electrica"
+        ]
+      },
+      "needs": [
+        "sector",
+        "people_count"
+      ],
+      "action": "report_emergency",
+      "answer": {
+        "short": "Si hay rayos cerca, sigue las indicaciones de tu guía o del personal del parque; si hay personas heridas, marca el 123 cuando tengas señal. Puedo preparar un reporte de tormenta eléctrica con el sector y cuántas personas están involucradas; lo envío solo si confirmas.",
+        "variants": [
+          "Con tormenta eléctrica, pide indicaciones a tu guía o al personal del parque. Si hay personas heridas, marca el 123 cuando tengas señal. Dime el sector y cuántas personas están involucradas para preparar el reporte."
+        ],
+        "steps": [
+          [
+            "Si hay rayos cerca, sigue las indicaciones de tu guía o del personal del parque."
+          ],
+          [
+            "Si hay personas heridas, marca el 123 cuando tengas señal.",
+            "Dime el sector y cuántas personas están involucradas para preparar el reporte."
+          ]
+        ]
+      },
+      "sources": [
+        {
+          "label": "Policía Nacional · nota sobre la línea 123, publicada el 12 mar 2023 (no describe el reporte de esta app)",
+          "url": "https://www.policia.gov.co/noticia/policia-nacional-sensibiliza-comunidad-sobre-uso-las-lineas-emergencia-123-155",
+          "retrieved_at": "2026-11-21"
+        },
+        {
+          "label": "Parques Nacionales Naturales · ficha Los Nevados (guías registrados: equipo médico de respuesta y radios; no describe esta app)",
+          "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "last_verified": "2026-11-21",
+      "valid_until": null,
+      "related": [
+        "actions.report_fire",
+        "actions.report_hypothermia"
+      ],
+      "tags": [
+        "tormenta",
+        "rayos",
+        "granizo",
+        "reporte"
+      ]
+    },
+    {
+      "id": "actions.report_fire",
+      "label": "reportar un incendio en el sector",
+      "kind": "action",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "hay fuego en el paramo",
+        "se está quemando el pajonal",
+        "incendio forestal cerca del sendero",
+        "veo llamas en la montaña",
+        "humo y fuego cerca de la laguna",
+        "reportar candela en la montaña",
+        "se prendió el monte, hay humo",
+        "hay una quemada cerca del camino",
+        "conato de incendio en el páramo",
+        "there's a fire on the paramo",
+        "wildfire near the trail, what do I do",
+        "se ve fuego y mucho humo desde el sendero"
+      ],
+      "hard_negatives": [
+        "qué está prohibido con fuego en el parque",
+        "cómo cuidar el páramo",
+        "qué es un pajonal"
+      ],
+      "entities": {
+        "emergency_type": [
+          "incendio"
+        ]
+      },
+      "needs": [
+        "sector",
+        "people_count"
+      ],
+      "action": "report_emergency",
+      "answer": {
+        "short": "Si ves fuego o mucho humo, aléjate de la zona y marca el 123 cuando tengas señal. Puedo preparar un reporte de incendio con el sector y cuántas personas están involucradas; lo envío solo si confirmas.",
+        "variants": [
+          "Si hay fuego en el páramo, aléjate y marca el 123 cuando tengas señal. Dime el sector y cuántas personas están involucradas para preparar el reporte; no lo envío sin tu confirmación."
+        ],
+        "steps": [
+          [
+            "Aléjate del fuego y del humo, y marca el 123 cuando tengas señal.",
+            "Si vas con guía, avísale: sus guías registrados deben contar con radios."
+          ],
+          [
+            "Dime el sector y cuántas personas están involucradas para preparar el reporte."
+          ]
+        ]
+      },
+      "sources": [
+        {
+          "label": "Policía Nacional · nota sobre la línea 123, publicada el 12 mar 2023 (no describe el reporte de esta app)",
+          "url": "https://www.policia.gov.co/noticia/policia-nacional-sensibiliza-comunidad-sobre-uso-las-lineas-emergencia-123-155",
+          "retrieved_at": "2026-11-21"
+        },
+        {
+          "label": "Parques Nacionales Naturales · ficha Los Nevados (guías registrados: equipo médico de respuesta y radios; no describe esta app)",
+          "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "last_verified": "2026-11-21",
+      "valid_until": null,
+      "related": [
+        "actions.report_storm",
+        "actions.report_emergency_general"
+      ],
+      "tags": [
+        "incendio",
+        "fuego",
+        "humo",
+        "páramo"
+      ]
+    },
+    {
+      "id": "actions.report_offline_emergency",
+      "label": "reportar emergencia sin señal",
+      "kind": "action",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "puedo reportar una emergencia sin señal",
+        "reportar sin internet",
+        "no tengo señal y hay emergencia",
+        "se puede mandar la alerta sin datos",
+        "la app sirve para emergencias sin conexion?",
+        "sin señal, cómo aviso de una emergencia",
+        "si no hay señal cómo pido ayuda",
+        "reporto emergencia sin datos del celular",
+        "emergencia y no tengo cobertura",
+        "se puede reportar sin señal en el páramo",
+        "can I report an emergency without signal",
+        "no signal here, emergency, what do I do"
+      ],
+      "hard_negatives": [
+        "dónde hay señal de celular",
+        "qué hago si me pierdo",
+        "cómo llegar a Brisas"
+      ],
+      "entities": {},
+      "needs": [
+        "emergency_type",
+        "sector",
+        "people_count"
+      ],
+      "action": "report_emergency",
+      "answer": {
+        "short": "Sin señal no puedo garantizar que un reporte llegue al equipo de rescate ni que quede guardado. Si tienes señal, aunque sea poca, marca el 123 primero; si vas con guía, avísale de inmediato, porque según el parque debe contar con radios.",
+        "variants": [
+          "Si no hay señal, no te prometo que el reporte salga desde la app. Lo más seguro es conseguir señal para marcar el 123 o avisar a tu guía, que según el parque debe contar con radio y equipo médico de respuesta."
+        ],
+        "steps": [
+          [
+            "Si tienes señal, marca el 123 primero.",
+            "Si vas con guía o agencia, avísales de inmediato por radio o en persona."
+          ],
+          [
+            "Con señal, puedo preparar el reporte con el sector y cuántas personas están involucradas; revisa el resumen y confírmalo antes de enviarlo."
+          ]
+        ]
+      },
+      "sources": [
+        {
+          "label": "Policía Nacional · nota sobre la línea 123, publicada el 12 mar 2023 (no describe el reporte de esta app)",
+          "url": "https://www.policia.gov.co/noticia/policia-nacional-sensibiliza-comunidad-sobre-uso-las-lineas-emergencia-123-155",
+          "retrieved_at": "2026-11-21"
+        },
+        {
+          "label": "Parques Nacionales Naturales · ficha Los Nevados (guías registrados: equipo médico de respuesta y radios; no describe esta app)",
+          "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "last_verified": "2026-11-21",
+      "valid_until": null,
+      "related": [
+        "actions.report_emergency_general",
+        "actions.report_lost_person"
+      ],
+      "tags": [
+        "sin señal",
+        "sin conexión",
+        "offline",
+        "emergencia"
+      ]
+    }
+  ]
+}

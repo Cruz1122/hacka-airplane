@@ -1,0 +1,65 @@
+{
+  "contract_version": 1,
+  "id": "preparation",
+  "order": 7,
+  "title": "Preparación y equipo",
+  "description": "Qué ropa, calzado y equipo llevar a la alta montaña.",
+  "retrieval": {
+    "profile": "procedure",
+    "top_k": 2
+  },
+  "clarification": {
+    "between_entries": "¿Te refieres a {label_a} o a {label_b}?",
+    "bank": [
+      "¿Preguntas por ropa, equipo o comida?",
+      "¿Vas con niños o en grupo?"
+    ],
+    "fallback": "No tengo ese detalle, pero puedo decirte qué ropa y equipo llevar."
+  },
+  "featured": [
+    "preparation.clothing_gear"
+  ],
+  "entries": [
+    {
+      "id": "preparation.clothing_gear",
+      "label": "qué ropa y equipo llevar",
+      "kind": "procedure",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "qué ropa llevo",
+        "cómo me visto",
+        "qué equipo necesito",
+        "qué empaco",
+        "hace frío",
+        "cómo es el clima",
+        "qué debo llevar"
+      ],
+      "answer": {
+        "short": "Para la alta montaña lleva ropa en capas, chaqueta impermeable, calzado con buen agarre, agua y protección solar. Una vez en el parque, sigue las indicaciones del personal y mantente en los senderos habilitados.",
+        "variants": [
+          "Para el frío y el viento, vístete en capas y empaca una chaqueta impermeable. Suma zapatos con buen agarre, agua y protección solar. Sigue las indicaciones del personal y usa los senderos habilitados."
+        ],
+        "steps": [
+          [
+            "Para la alta montaña, vístete en capas y lleva chaqueta impermeable y calzado con buen agarre. Usa los senderos habilitados y sigue las indicaciones del personal."
+          ],
+          [
+            "También conviene empacar agua y protección solar. La ficha del parque recomienda gafas con protección UV."
+          ],
+          [
+            "Si tienes una reserva de camping, revisa el equipo para bajas temperaturas, como una carpa y un saco de dormir adecuados."
+          ]
+        ],
+        "reflection": "El tiempo cambia por su cuenta. Preparar bien tu mochila sí depende de ti."
+      },
+      "sources": [
+        {
+          "label": "Parques Nacionales Naturales",
+          "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+          "retrieved_at": "2026-11-21"
+        }
+      ]
+    }
+  ]
+}

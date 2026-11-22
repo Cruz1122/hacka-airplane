@@ -1,0 +1,113 @@
+{
+  "contract_version": 1,
+  "id": "history_culture",
+  "order": 14,
+  "title": "Historia y cultura",
+  "description": "Historia del volcán y del parque: Armero 1985, lahares y el nombre Kumanday.",
+  "retrieval": {
+    "profile": "explain",
+    "top_k": 2
+  },
+  "clarification": {
+    "between_entries": "¿Te refieres a {label_a} o a {label_b}?",
+    "bank": [
+      "¿Te interesa la tragedia de Armero o el origen de los nombres?",
+      "¿Quieres la historia del volcán o del parque?"
+    ],
+    "fallback": "No tengo esa historia, pero puedo contarte sobre la erupción de 1985 y Armero."
+  },
+  "featured": [
+    "history_culture.kumanday",
+    "history_culture.armero_1985",
+    "history_culture.lahar"
+  ],
+  "entries": [
+    {
+      "id": "history_culture.kumanday",
+      "label": "el nombre Kumanday",
+      "kind": "explanation",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "qué significa Kumanday",
+        "qué es Kumanday",
+        "cómo se llama el Nevado del Ruiz",
+        "cuál es el otro nombre del Ruiz",
+        "nombre ancestral del nevado"
+      ],
+      "answer": {
+        "short": "Kumanday es otro nombre del Nevado del Ruiz. Parques Nacionales también identifica al Nevado de Santa Isabel como Poleka Kasue y al Nevado del Tolima como Dulima."
+      },
+      "sources": [
+        {
+          "label": "Parques Nacionales Naturales",
+          "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+          "retrieved_at": "2026-11-21"
+        }
+      ]
+    },
+    {
+      "id": "history_culture.armero_1985",
+      "label": "la erupción de 1985 y Armero",
+      "kind": "explanation",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "Armero",
+        "1985",
+        "historia del volcán",
+        "qué pasó en Armero",
+        "cuándo fue la tragedia de Armero",
+        "cuándo hizo erupción en 1985"
+      ],
+      "answer": {
+        "short": "El 13 de noviembre de 1985, una erupción del Nevado del Ruiz fundió parte del hielo y la nieve de la cima. Se formaron flujos de agua, lodo y rocas llamados lahares. Uno de ellos arrasó Armero, en Tolima.",
+        "variants": [
+          "El 13 de noviembre de 1985, la erupción del Ruiz derritió parte de la nieve y el hielo de la cumbre. El agua se mezcló con lodo y rocas y formó lahares. Uno de esos flujos arrasó Armero, en Tolima."
+        ],
+        "steps": [
+          [
+            "El 13 de noviembre de 1985, una erupción del Nevado del Ruiz desencadenó el desastre que arrasó Armero, en Tolima."
+          ],
+          [
+            "La erupción fundió parte del hielo y la nieve de la cima. El agua se mezcló con lodo y rocas y formó flujos llamados lahares."
+          ],
+          [
+            "Los lahares pueden bajar por quebradas y ríos. En 1985, uno de esos flujos alcanzó Armero."
+          ]
+        ]
+      },
+      "sources": [
+        {
+          "label": "Servicio Geológico Colombiano · Historia del Ruiz",
+          "url": "https://historia-volcanes.sgc.gov.co/volcan-detalle?id=6",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "last_verified": "2026-11-21"
+    },
+    {
+      "id": "history_culture.lahar",
+      "label": "qué es un lahar",
+      "kind": "explanation",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "lahar",
+        "qué son los lahares",
+        "qué es una avalancha volcánica",
+        "cómo se forma un lahar"
+      ],
+      "answer": {
+        "short": "Un lahar es un flujo de agua y material volcánico que puede bajar por quebradas y ríos. En el Ruiz, una erupción puede aportar agua al fundir parte del hielo de la cima."
+      },
+      "sources": [
+        {
+          "label": "Servicio Geológico Colombiano · Historia del Ruiz",
+          "url": "https://historia-volcanes.sgc.gov.co/volcan-detalle?id=6",
+          "retrieved_at": "2026-11-21"
+        }
+      ]
+    }
+  ]
+}

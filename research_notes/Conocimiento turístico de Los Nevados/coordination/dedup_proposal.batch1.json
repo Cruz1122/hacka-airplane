@@ -1,0 +1,186 @@
+{
+  "merges": [
+    [
+      "hours_status.pico_y_placa_hours_murillo",
+      "access.pico_placa_north"
+    ],
+    [
+      "flora_ecosystems.glaciers_snow_presence",
+      "geography.glacier_summits"
+    ],
+    [
+      "flora_ecosystems.santa_isabel_projection_three_years",
+      "flora_ecosystems.santa_isabel_glacier_extinction"
+    ],
+    [
+      "flora_ecosystems.coffee_region_water_reserve",
+      "flora_ecosystems.water_cycle_basin_supply"
+    ],
+    [
+      "weather_volcano.current_alert",
+      "weather_volcano.bulletin_channels"
+    ],
+    [
+      "weather_volcano.separate_volcano_alerts",
+      "weather_volcano.tolima_bulletin"
+    ],
+    [
+      "access.gateway_towns",
+      "access.no_published_gate_towns"
+    ],
+    [
+      "fauna.yellow_eared_national_status",
+      "fauna.yellow_eared_parrot"
+    ]
+  ],
+  "drop_examples": {
+    "fauna.mammals_overview": [
+      "qué es una danta de montaña"
+    ],
+    "weather_volcano.ash_actions": [
+      "qué hago con ceniza en los ojos"
+    ],
+    "flora_ecosystems.glaciers_snow_presence": [
+      "porcentaje de glaciares en el parque nacional"
+    ],
+    "flora_ecosystems.laguna_del_otun_ecosystem": [
+      "que rio nace en la laguna del otun",
+      "donde nace el rio otun"
+    ],
+    "flora_ecosystems.otun_river_supplies_pereira": [
+      "where does Pereira's Otún river begin"
+    ],
+    "hours_status.conservation_closures": [
+      "por qué cierran el parque",
+      "a qué hora cierran el parque?"
+    ],
+    "booking_fees.reservation_requirements": [
+      "con cuántos días toca reservar pa Cisne?",
+      "cuántos días hábiles de anticipación para el tolima"
+    ],
+    "flora_ecosystems.ecological_restoration_programs": [
+      "siembra de plantas nativas y recuperacion vegetal"
+    ],
+    "weather_volcano.rainy_seasons": [
+      "temporadas de lluvia y de verano en los nevados"
+    ],
+    "weather_volcano.snow_and_hail": [
+      "hay nieve en el parque"
+    ],
+    "flora_ecosystems.santa_isabel_glacier_extinction": [
+      "por que se derrite tan rapido el santa isabel"
+    ]
+  },
+  "answer_needs": [
+    {
+      "keep": "hours_status.pico_y_placa_hours_murillo",
+      "drop": "access.pico_placa_north",
+      "missing_fact": "La respuesta de acceso dice que la medida «no aplica a todo el año ni a las otras porterías» (solo Brisas–Valle de las Tumbas). El detalle de horarios ya trae la Resolución 1815 del 24 de julio de 2026 y el tramo Murillo–Cerro Gualí; el short de horarios habla solo de noviembre."
+    },
+    {
+      "keep": "flora_ecosystems.glaciers_snow_presence",
+      "drop": "geography.glacier_summits",
+      "missing_fact": "El Ideam sigue describiendo hielo en esas tres cumbres. Cuánto queda cambia con los años; para ver el retroceso, mira el Ideam cuando tengas conexión."
+    },
+    {
+      "keep": "flora_ecosystems.santa_isabel_projection_three_years",
+      "drop": "flora_ecosystems.santa_isabel_glacier_extinction",
+      "missing_fact": "Es una posibilidad condicionada por el clima y la actividad del Ruiz (la ficha de 2028 ya está en la respuesta que se conserva; falta la condición de actividad del Ruiz)."
+    },
+    {
+      "keep": "flora_ecosystems.coffee_region_water_reserve",
+      "drop": "flora_ecosystems.water_cycle_basin_supply",
+      "missing_fact": "Sus ríos alimentan las cuencas del Cauca y del Magdalena."
+    },
+    {
+      "keep": "weather_volcano.current_alert",
+      "drop": "weather_volcano.bulletin_channels",
+      "missing_fact": "Los boletines semanales, mensuales y extraordinarios del Ruiz están en la página del SGC. El Observatorio de Manizales monitorea desde 1986, pero no reemplaza ese boletín."
+    },
+    {
+      "keep": "weather_volcano.separate_volcano_alerts",
+      "drop": "weather_volcano.tolima_bulletin",
+      "missing_fact": "El Tolima se consulta en su propia ficha del SGC, no en el boletín del Ruiz. Esta respuesta no fija el color, porque cambia."
+    },
+    {
+      "keep": "access.gateway_towns",
+      "drop": "access.no_published_gate_towns",
+      "missing_fact": "No tengo una ruta de visitantes verificada desde Herveo, Casabianca ni el casco de Santa Isabel."
+    },
+    {
+      "keep": "fauna.yellow_eared_national_status",
+      "drop": "fauna.yellow_eared_parrot",
+      "missing_fact": "El parque estudia al loro orejiamarillo (Ognorhynchus icterotis) como especie vulnerable o indicadora, y está registrado allí. No copies «vulnerable o indicadora» encima de En Peligro (Resolución 0126, nombre Perico Palmero): el dato que faltaría es que está registrado en el parque."
+    }
+  ],
+  "template_risk": [
+    {
+      "template": "categoria de {especie} segun la resolucion 0126 (y variantes: lista roja, categoria nacional, que tan grave)",
+      "entries": [
+        "fauna.bear_national_status",
+        "fauna.brocket_national_status",
+        "fauna.condor_national_status",
+        "fauna.eagle_national_status",
+        "fauna.fuertes_national_status",
+        "fauna.guagua_national_status",
+        "fauna.helmetcrest_national_status",
+        "fauna.miller_national_status",
+        "fauna.oncilla_national_status",
+        "fauna.paramo_parakeet_national_status",
+        "fauna.pudu_national_status",
+        "fauna.tapir_national_status",
+        "fauna.toucan_national_status",
+        "fauna.yellow_eared_national_status"
+      ]
+    },
+    {
+      "template": "qué significa alerta {color} del Ruiz / what does {color} volcanic alert mean",
+      "entries": [
+        "weather_volcano.alert_orange_meaning",
+        "weather_volcano.alert_red_meaning",
+        "weather_volcano.alert_yellow_meaning"
+      ]
+    },
+    {
+      "template": "toca madrugar pa {lugar}",
+      "entries": [
+        "hours_status.brisas_induction_talk_schedule",
+        "hours_status.quindio_dulima_cocora_hours",
+        "hours_status.quindio_dulima_juntas_anzoategui_hours"
+      ]
+    },
+    {
+      "template": "horario de atencion {entre semana|fin de semana|general}",
+      "entries": [
+        "hours_status.general_opening_schedule",
+        "hours_status.weekday_opening",
+        "hours_status.weekend_and_holiday_opening"
+      ]
+    },
+    {
+      "template": "cuánto cuesta para un {menor|mayor} de 25 en Brisas",
+      "entries": [
+        "booking_fees.adult_resident_admission_fee",
+        "booking_fees.under25_admission_fee"
+      ]
+    },
+    {
+      "template": "despues de la {vereda|cabaña} se camina",
+      "entries": [
+        "access.from_ibague_juntas",
+        "access.otun_via_potosi",
+        "access.three_south_paths"
+      ]
+    },
+    {
+      "template": "{descriptor} grande en Los Nevados",
+      "entries": [
+        "fauna.cougar_puma",
+        "fauna.little_red_brocket",
+        "fauna.pacarana_guagua_loba",
+        "fauna.white_tailed_deer"
+      ]
+    }
+  ],
+  "distinct_count": 207
+}

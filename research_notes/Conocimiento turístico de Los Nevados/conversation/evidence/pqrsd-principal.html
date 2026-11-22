@@ -1,0 +1,34 @@
+<!DOCTYPE html><html lang="es"><head>
+    <meta charset="utf-8">
+    <title>Ventanilla Unica PNN</title>
+    <base href="/">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js" integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA==" crossorigin=""></script>
+  <style>@charset "UTF-8";.preloader{position:fixed;top:0;left:0;width:100%;height:100%;overflow:hidden;background-color:#23b7e5;background-image:linear-gradient(90deg,#23b7e5 10%,#19a9d5 90%);z-index:9999;transition:opacity .65s}.preloader-progress{right:0;width:121px;height:150px;margin:auto;overflow:auto;background-image:url(preloader.empty.93cc4c6f5a81bf2a5cc5.png)}.preloader-progress,.preloader-progress-bar{position:absolute;top:0;left:0;bottom:0;background-size:121px 150px}.preloader-progress-bar{min-width:10px;background-image:url(preloader.full.9e5ae22d0c5785c082bd.png)}:root{--blue:#007bff;--indigo:#6610f2;--purple:#7266ba;--pink:#f532e5;--red:#dc3545;--orange:#fd7e14;--yellow:#fad732;--green:#37bc9b;--teal:#20c997;--cyan:#17a2b8;--white:#fff;--gray:#6c757d;--gray-dark:#343a40;--inverse:#131e26;--primary-light:#8bb8f1;--primary-dark:#2f80e7;--success-light:#43d967;--success-dark:#1e983b;--info-light:#51c6ea;--info-dark:#1797be;--warning-light:#ffab5e;--warning-dark:#f77600;--danger-light:#f47f7f;--danger-dark:#ec2121;--green-light:#58ceb1;--green-dark:#2b957a;--pink-light:#f763eb;--pink-dark:#e90bd6;--purple-light:#9289ca;--purple-dark:#564aa3;--inverse-light:#243948;--inverse-dark:#020304;--yellow-light:#fbe164;--yellow-dark:#f3ca06;--primary:#5d9cec;--secondary:#fff;--success:#27c24c;--info:#23b7e5;--warning:#ff902b;--danger:#f05050;--light:#f8f9fa;--dark:#3a3f51;--breakpoint-xs:0;--breakpoint-sm:576px;--breakpoint-md:768px;--breakpoint-lg:992px;--breakpoint-xl:1200px;--font-family-sans-serif:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans","Liberation Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";--font-family-monospace:SFMono-Regular,Menlo,Monaco,Consolas,"Liberation Mono","Courier New",monospace}*,:after,:before{box-sizing:border-box}html{font-family:sans-serif;line-height:1.15;-webkit-text-size-adjust:100%;-webkit-tap-highlight-color:rgba(0,0,0,0)}body{margin:0;font-family:-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,Noto Sans,Liberation Sans,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,Noto Color Emoji;font-size:1rem;font-weight:400;line-height:1.528571429;text-align:left;background-color:#f5f7fa}@media print{*,:after,:before{text-shadow:none!important;box-shadow:none!important}@page{size:a3}body{min-width:992px!important}}html{direction:ltr;touch-action:manipulation;font-size:16px}body,html{height:100%}@media (min-width: 768px){body{min-height:100%}}@font-face{font-family:Source Sans Pro;font-weight:300;font-style:normal;font-stretch:normal;src:url(SourceSansPro-Light.ttf.8835b1108ce8188deff8.woff2) format("woff2"),url(SourceSansPro-Light.otf.d817d3e3a593d890c8f5.woff) format("woff"),url(SourceSansPro-Light.ffe4954a8c837444aecb.otf) format("opentype"),url(SourceSansPro-Light.5f784100ecc582db5544.ttf) format("truetype")}@font-face{font-family:Source Sans Pro;font-weight:400;font-style:normal;font-stretch:normal;src:url(SourceSansPro-Regular.ttf.7b9d00a3bbdf9cbd61e2.woff2) format("woff2"),url(SourceSansPro-Regular.otf.45a6c12e9479ab2ce2f5.woff) format("woff"),url(SourceSansPro-Regular.1ad4ee9ac5342aa9517b.otf) format("opentype"),url(SourceSansPro-Regular.4a0ad4e3ea89dd9af350.ttf) format("truetype")}@font-face{font-family:Source Sans Pro;font-weight:400;font-style:italic;font-stretch:normal;src:url(SourceSansPro-It.ttf.908e2cef05212cb71b3d.woff2) format("woff2"),url(SourceSansPro-It.otf.637f599a4c8ebbbafcca.woff) format("woff"),url(SourceSansPro-It.9ca90bd56aa2d7adc0e8.otf) format("opentype"),url(SourceSansPro-It.7cb14a9ed9ec10da7ae2.ttf) format("truetype")}@font-face{font-family:Source Sans Pro;font-weight:600;font-style:normal;font-stretch:normal;src:url(SourceSansPro-Semibold.ttf.712bbf0d6d466fa7245b.woff2) format("woff2"),url(SourceSansPro-Semibold.otf.e6c6564831dfb20a0ed2.woff) format("woff"),url(SourceSansPro-Semibold.983e21420fc690c961e3.otf) format("opentype"),url(SourceSansPro-Semibold.18626a93841302f40cd4.ttf) format("truetype")}body{font-family:Source Sans Pro,sans-serif;color:#656565;font-size:.875rem}</style><link rel="stylesheet" href="styles.84af0710d4acef6483ee.css" media="print" onload="this.media='all'"><noscript><link rel="stylesheet" href="styles.84af0710d4acef6483ee.css"></noscript></head>
+
+  <body>
+    <app-root></app-root>
+    <div class="preloader">
+      <div class="preloader-progress">
+        <div class="preloader-progress-bar"></div>
+      </div>
+    </div>
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <!-- <script
+    async
+    src="https://www.googletagmanager.com/gtag/js?id=UA-XXXXXXXXX-X"
+  ></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+    gtag('js', new Date());
+    gtag('config', 'UA-XXXXXXXXX-X');
+  </script> -->
+  <script src="runtime-es2017.1c0e349524d95a43b984.js" type="module"></script><script src="runtime-es5.1c0e349524d95a43b984.js" nomodule defer></script><script src="polyfills-es5.7da4a969dfc45ffead8e.js" nomodule defer></script><script src="polyfills-es2017.f97c61edbbec5e2f829b.js" type="module"></script><script src="scripts.6d2e3921e075deff008c.js" defer></script><script src="vendor-es2017.7a25ce2fb222adca01ba.js" type="module"></script><script src="vendor-es5.7a25ce2fb222adca01ba.js" nomodule defer></script><script src="main-es2017.4935185267bc16df87f5.js" type="module"></script><script src="main-es5.4935185267bc16df87f5.js" nomodule defer></script>
+
+</body></html>

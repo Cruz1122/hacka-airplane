@@ -1,0 +1,19 @@
+{
+  "sample_seed": 20261121,
+  "sampled_ids": [
+    "booking_fees.accident_insurance_requirement",
+    "booking_fees.brisas_booking_channel",
+    "booking_fees.foreign_nonresident_admission_fee",
+    "booking_fees.sector_entry_fee_difference",
+    "booking_fees.guide_required"
+  ],
+  "status": "changes_required",
+  "findings": [
+    "foreign_nonresident_admission_fee short publishes a 2026 amount but lacks explicit warning that prices may change and instruction to confirm officially. Its variant drops year and caution entirely. Audit ALL price/booking-condition variants so any independently served answer retains material category, year and change caveats.",
+    "brisas_booking_channel says use the channel linked by PNN but does not give the verified linked destination. Offline visitor should get the exact previously verified URL if the PNN source supports it, while stating it must be used when connected and no booking occurs in app.",
+    "Sampled guide and insurance answers are supported by current official park page. Verify not every agency employee qualifies as guide: follow exact wording and registered authorization for chosen attraction.",
+    "Maximum age: official dated 2023 resolution says 6–70, current webpage says 69 but lacks editorial date. Treat the legal-versus-web difference explicitly and avoid claiming a definitive legal maximum merely by assuming webpage is newer. Visitors at boundary should confirm official admission before travel.",
+    "Age exactly 25 is a genuine source gap. Preserve uncertainty in served answers, not only log; do not classify by inference.",
+    "Merge services.registered_providers and admission aspect of services.charla_induccion into this section or keep a distinct facility-location service intent; prevent duplicated registration/briefing requirement examples across spaces."
+  ]
+}

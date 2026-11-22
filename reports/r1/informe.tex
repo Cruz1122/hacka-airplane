@@ -1,0 +1,456 @@
+% Results report for benchmark run r1. Figures are transcribed from results/r1/metrics/*.csv
+% and results/r1/*/requests.jsonl; regenerate them with `nevados-bench score --run-id r1`.
+\documentclass[11pt,a4paper]{article}
+
+\usepackage[spanish,es-tabla,es-nodecimaldot]{babel}
+\usepackage{libertinus}
+\usepackage[a4paper,top=27mm,bottom=27mm,left=26mm,right=26mm]{geometry}
+\usepackage{microtype}
+\usepackage{booktabs}
+\usepackage{tabularx}
+\usepackage{array}
+\usepackage{xcolor}
+\usepackage{titlesec}
+\usepackage{fancyhdr}
+\usepackage{enumitem}
+\usepackage{caption}
+\usepackage{float}
+\usepackage{pgfplots}
+\usepackage[hidelinks]{hyperref}
+
+\pgfplotsset{compat=1.17}
+\definecolor{accent}{HTML}{1F3A5F}
+\definecolor{muted}{HTML}{6B7280}
+\definecolor{rule}{HTML}{C9CED6}
+
+\titleformat{\section}{\Large\bfseries\color{accent}}{\thesection}{0.8em}{}
+\titleformat{\subsection}{\large\bfseries}{\thesubsection}{0.8em}{}
+\titlespacing*{\section}{0pt}{2.2ex plus .6ex}{1.0ex}
+\titlespacing*{\subsection}{0pt}{1.8ex plus .4ex}{0.7ex}
+
+\pagestyle{fancy}
+\fancyhf{}
+\renewcommand{\headrulewidth}{0.3pt}
+\renewcommand{\headrule}{{\color{rule}\hrule width\headwidth height\headrulewidth}}
+\fancyhead[L]{\small\color{muted}Asistente sin conexión PNN Los Nevados}
+\fancyhead[R]{\small\color{muted}Benchmark r1 · Informe de resultados}
+\fancyfoot[C]{\small\color{muted}\thepage}
+
+\captionsetup{font=small,labelfont=bf,skip=6pt}
+\setlist{itemsep=2pt,topsep=4pt,leftmargin=1.4em}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt}
+\renewcommand{\arraystretch}{1.12}
+\newcolumntype{R}{>{\raggedleft\arraybackslash}X}
+\newcolumntype{L}{>{\raggedright\arraybackslash}X}
+\newcommand{\m}[1]{\texttt{#1}}
+\newcommand{\nd}{\textcolor{muted}{--}}
+
+\begin{document}
+
+% ------------------------------------------------------------------ title block
+\thispagestyle{empty}
+\vspace*{-6mm}
+{\color{accent}\rule{\textwidth}{1.2pt}}
+
+\vspace{5mm}
+{\huge\bfseries\raggedright Selección de un modelo de lenguaje pequeño para un asistente sin conexión\par}
+\vspace{3mm}
+{\Large Informe de resultados del benchmark r1\par}
+\vspace{5mm}
+{\color{accent}\rule{\textwidth}{0.4pt}}
+
+\vspace{5mm}
+\begin{tabularx}{\textwidth}{@{}lL@{}}
+\textbf{Contexto} & Hackatón UTON / ACOPI Caldas / Universidad de Caldas, 26 de noviembre de 2026. Asistente de orientación para las cuatro estaciones ecoturísticas del PNN Los Nevados, en modo avión.\\[3pt]
+\textbf{Dispositivo objetivo} & Teléfono Android de 8\,GB de RAM (Moto Edge 60 Fusion).\\[3pt]
+\textbf{Ejecución} & 14 y 15 de noviembre de 2026, unas 23 horas de cómputo.\\[3pt]
+\textbf{Alcance} & 25 modelos de 0,27 a 4,2 mil millones de parámetros, cuantizados a Q4\_K\_M, sobre llama.cpp.\\
+\end{tabularx}
+
+\vspace{6mm}
+\section*{Resumen ejecutivo}
+
+\textbf{Recomendación: Gemma 4 E2B (Q4\_K\_M) como modelo único del asistente}, con tres controles implementados en código y no delegados al modelo.
+
+\begin{itemize}
+\item \textbf{Enrutado.} Con 8 herramientas visibles elige la herramienta correcta en el 97\,\% de los casos y empata en el primer puesto con Qwen3-4B, con la mitad de latencia mediana (4,0\,s frente a 7,5\,s).
+\item \textbf{Respuesta fundamentada.} En 433 respuestas no inventó ningún dato; el 99\,\% de las respuestas presentes fueron fieles al contexto y no hubo degradación hasta 8.000 tokens de contexto.
+\item \textbf{Sin contexto se abstiene siempre}: 96 de 96 casos.
+\item \textbf{Debilidades comunes a todos los modelos}, que deben resolverse en código: inventan los datos obligatorios que el usuario no dio (65\,\% en Gemma), obedecen instrucciones maliciosas del usuario para ejecutar acciones (60\,\%) y, cuando falta el dato de una estación, responden con el de otra (10 de 83 respuestas de seguridad).
+\item \textbf{Ajuste fino: no se recomienda por ahora.} Las debilidades medidas tienen arreglos más baratos en código. El único proyecto con retorno claro sería un enrutador pequeño, y solo si la latencia en el teléfono lo exige.
+\end{itemize}
+
+\textbf{Principal limitación.} Todas las velocidades se midieron en un portátil con un perfil restringido que imita al teléfono. Sirven para ordenar modelos, no como latencias del dispositivo; falta la medición en el teléfono real.
+
+\newpage
+
+% ------------------------------------------------------------------ method
+\section{Objetivo y método}
+
+El benchmark responde a una pregunta: qué modelo pequeño puede orientar a visitantes sin conexión, respondiendo solo con información oficial y sin inventar datos de seguridad, dentro de la memoria y la velocidad de un teléfono de gama media.
+
+\subsection{Arquitectura evaluada}
+
+El asistente se modela como una máquina de estados controlada por código. El modelo solo ejecuta un paso generativo corto cada vez, de tres tipos:
+
+\begin{itemize}
+\item \textbf{Enrutar}: elegir una herramienta de una lista, abstenerse o pedir una aclaración.
+\item \textbf{Extraer}: obtener un dato concreto del mensaje del usuario.
+\item \textbf{Responder}: redactar la respuesta a partir de pasajes recuperados, citando la fuente, o abstenerse con una frase fija si los pasajes no contienen la respuesta.
+\end{itemize}
+
+\subsection{Entorno de medición}
+
+\begin{tabularx}{\textwidth}{@{}lL@{}}
+\toprule
+Equipo & Portátil Intel i5-10300H (4 núcleos), 23\,GB de RAM, Linux. Sin GPU.\\
+Perfil de teléfono & Contenedor Docker con 3 núcleos, 3 hilos, 4\,GiB de memoria y sin intercambio.\\
+Motor & llama.cpp \m{b12375}, imagen fijada por digest; un solo modelo en ejecución a la vez.\\
+Generación & Temperatura 0, semilla fija, razonamiento desactivado.\\
+Ventana de contexto & 4.096 tokens en velocidad y enrutado base; 12.288 en las pruebas de estrés.\\
+\bottomrule
+\end{tabularx}
+
+\subsection{Datos de evaluación}
+
+El corpus es sintético y ficticio: un parque inventado con cuatro estaciones, 122 pasajes con valores verificables (horarios, altitudes, teléfonos, protocolos) y 48 herramientas, de las cuales 24 son clones casi duplicados para las pruebas de estrés. Parte de los valores contradicen a propósito el conocimiento general, para detectar respuestas de memoria. Toda la puntuación es determinista; no interviene ningún modelo como juez.
+
+El modo de enrutado evaluado en el ranking es el de \emph{salida JSON forzada por gramática}, idéntico para todos los modelos. El modo nativo de cada modelo solo se comprobó en la prueba de contrato.
+
+\subsection{Embudo de selección}
+
+Para acotar el coste a unas 24 horas, los modelos se filtraron por fases (tabla~\ref{tab:funnel}). Las fases finales tuvieron un tope de tiempo por modelo, por lo que su cobertura es parcial y se indica en cada tabla.
+
+\begin{table}[H]
+\centering\small
+\caption{Fases del benchmark y modelos evaluados en cada una.}\label{tab:funnel}
+\begin{tabularx}{\textwidth}{@{}llRl@{}}
+\toprule
+Fase & Qué mide & Modelos & Casos por modelo\\
+\midrule
+B0 & Contrato: carga y salida interpretable & 25 & 12 por modo\\
+B1 & Velocidad y memoria & 24 & 18 mediciones\\
+B2 & Enrutado con 8 herramientas & 13 & 240\\
+B5 & Respuesta fundamentada y alucinación & 3 & hasta 502\\
+B4 & Diálogos de 3, 6 y 12 turnos & 3 & hasta 776 peticiones\\
+B3 & Estrés: número de herramientas y contexto & 3 & hasta 600\\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+Las tasas se acompañan de intervalos de confianza de Wilson al 95\,\%. Diferencias dentro del intervalo se tratan como empate.
+
+% ------------------------------------------------------------------ results
+\section{Resultados}
+
+\subsection{Compatibilidad (B0)}
+
+Los 25 modelos cargan dentro del perfil de teléfono. Con salida forzada por gramática, 23 dieron salida interpretable en los 12 casos; FunctionGemma 270M falló uno.
+
+\begin{itemize}
+\item \textbf{Nanbeige 4.2-3B queda descartado}: el servidor rechaza todas las peticiones con gramática y la mitad de las peticiones nativas agotaron el límite de 900\,s.
+\item \textbf{El modo nativo falla por el motor en cinco modelos}: Llama 3.2 1B (4 de 12 errores), xLAM-2 1B y 3B (6 de 12) y, con llamadas que quedan como texto sin interpretar, Granite 4.0 350M y FunctionGemma (2 de 12).
+\item \textbf{LFM2.5-2.6B razona siempre}: unos 285 tokens adicionales por petición, sin posibilidad de desactivarlo.
+\end{itemize}
+
+\subsection{Velocidad y memoria (B1)}
+
+\begin{table}[H]
+\centering\small
+\caption{Velocidad en el perfil de teléfono (3 núcleos). Mediana de dos repeticiones; lectura en frío de un prompt de 1.000 tokens.}\label{tab:speed}
+\begin{tabularx}{\textwidth}{@{}lRRRR@{}}
+\toprule
+Modelo & Archivo (GiB) & Lectura (tok/s) & Escritura (tok/s) & 1.000 tokens en frío (s)\\
+\midrule
+\m{functiongemma-270m} & 0,24 & 417 & 67,0 & 2,4\\
+\m{granite4-350m} & 0,22 & 265 & 71,7 & 3,8\\
+\m{qwen3-0.6b} & 0,37 & 148 & 46,0 & 6,8\\
+\m{qwen3.5-0.8b} & 0,50 & 142 & 30,0 & 7,0\\
+\m{gemma4-e2b} & 2,89 & 130 & 13,1 & 7,7\\
+\m{lfm2-1.2b-tool} & 0,68 & 89 & 28,3 & 11,3\\
+\m{lfm2.5-1.2b} & 0,68 & 89 & 28,4 & 11,3\\
+\m{llama3.2-1b} & 0,75 & 88 & 24,0 & 11,4\\
+\m{arch-agent-1.5b} & 0,92 & 68 & 21,8 & 14,7\\
+\m{qwen3.5-2b} & 1,19 & 62 & 14,3 & 16,2\\
+\m{qwen3-1.7b} & 1,03 & 59 & 17,9 & 17,0\\
+\m{granite4-1b} & 0,95 & 56 & 19,0 & 17,9\\
+\m{xlam2-1b} & 0,92 & 50 & 19,2 & 19,9\\
+\m{hammer2.1-1.5b} & 0,92 & 45 & 21,8 & 22,2\\
+\m{lfm2.5-2.6b} & 1,56 & 37 & 12,1 & 26,9\\
+\m{hammer2.1-3b} & 1,80 & 32 & 11,2 & 30,9\\
+\m{smollm3-3b} & 1,78 & 31 & 10,4 & 32,0\\
+\m{llama3.2-3b} & 1,88 & 31 & 7,0 & 32,5\\
+\m{xlam2-3b} & 1,80 & 29 & 9,5 & 34,5\\
+\m{granite4-micro} & 1,96 & 27 & 9,4 & 36,6\\
+\m{ministral3-3b} & 2,00 & 27 & 5,5 & 36,9\\
+\m{qwen3.5-4b} & 2,55 & 24 & 6,5 & 42,4\\
+\m{qwen3-4b-2507}\textsuperscript{a} & 2,33 & 22 & 8,7 & \nd\\
+\m{phi4-mini}\textsuperscript{b} & 2,32 & 22 & \nd & 46,8\\
+\bottomrule
+\end{tabularx}
+
+\vspace{3pt}
+\begin{minipage}{\textwidth}\footnotesize
+\textsuperscript{a} Medido con ventana de 4.096 tokens. Con 12.288 agota la memoria y cae a 0,5\,tok/s.\quad
+\textsuperscript{b} Agotó la memoria con ventana de 12.288; su velocidad de escritura no es válida y no se repitió.
+\end{minipage}
+\end{table}
+
+\begin{itemize}
+\item \textbf{Leer el prompt cuesta más que escribir la respuesta.} Un prompt de 1.000 tokens en frío tarda entre 7 y 47\,s según el modelo. La aplicación debe mantener en caché el prefijo fijo (instrucciones y herramientas) y procesar en cada turno solo lo nuevo.
+\item \textbf{Gemma 4 E2B lee como un modelo de menos de 1B} (130\,tok/s) pese a su tamaño, y escribe a 13\,tok/s.
+\item \textbf{La ventana de contexto determina la memoria.} Con 12.288 tokens, dos modelos de 4B superan los 4\,GiB. Con 4.096, todos los evaluados en B2 caben: Gemma 4 E2B ocupa 1,36\,GiB de memoria propia más 2,89\,GiB de pesos.
+\end{itemize}
+
+\subsection{Enrutado con 8 herramientas (B2)}
+
+\begin{table}[H]
+\centering\small
+\caption{Enrutado sobre 240 casos: 144 con herramienta correcta, 56 donde ninguna aplica y 40 con un dato obligatorio ausente. Entre paréntesis, intervalo de confianza al 95\,\%.}\label{tab:fc}
+\begin{tabularx}{\textwidth}{@{}lrRRRRR@{}}
+\toprule
+ & Decisión & Herram. & Llamada & Se & Inventa & Mediana\\
+Modelo & correcta & correcta & exacta & abstiene & el dato & / p95 (s)\\
+\midrule
+\m{gemma4-e2b} & 75\,\% (70--80) & 97\,\% & 85\,\% & 80\,\% & 65\,\% & 4,0 / 8,7\\
+\m{qwen3-4b-2507} & 73\,\% (67--79) & 98\,\% & 84\,\% & 71\,\% & 62\,\% & 7,5 / 34,7\\
+\m{granite4-micro} & 67\,\% (61--73) & 97\,\% & 80\,\% & 79\,\% & 90\,\% & 5,6 / 24,5\\
+\m{qwen3-1.7b} & 64\,\% (57--70) & 93\,\% & 74\,\% & 82\,\% & 95\,\% & 2,4 / 9,8\\
+\m{arch-agent-1.5b} & 61\,\% (55--67) & 96\,\% & 76\,\% & 66\,\% & 100\,\% & 2,1 / 9,0\\
+\m{smollm3-3b} & 60\,\% (53--66) & 87\,\% & 67\,\% & 84\,\% & 97\,\% & 4,6 / 19,9\\
+\m{granite4-1b} & 54\,\% (47--60) & 81\,\% & 67\,\% & 55\,\% & 90\,\% & 2,8 / 10,9\\
+\m{qwen3.5-2b} & 50\,\% (44--57) & 74\,\% & 65\,\% & 34\,\% & 75\,\% & 4,1 / 13,9\\
+\m{qwen3-0.6b} & 47\,\% (40--53) & 71\,\% & 49\,\% & 68\,\% & 78\,\% & 1,6 / 4,8\\
+\m{lfm2.5-1.2b} & 42\,\% (36--49) & 59\,\% & 45\,\% & 52\,\% & 75\,\% & 6,9 / 8,5\\
+\m{lfm2-1.2b-tool} & 41\,\% (35--48) & 66\,\% & 49\,\% & 50\,\% & 75\,\% & 6,9 / 9,0\\
+\m{qwen3.5-0.8b} & 32\,\% (26--38) & 57\,\% & 44\,\% & 2\,\% & 55\,\% & 1,5 / 6,2\\
+\m{granite4-350m} & 24\,\% (19--30) & 53\,\% & 26\,\% & 34\,\% & 85\,\% & 0,9 / 2,6\\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}
+\begin{axis}[
+  width=0.92\textwidth, height=7.6cm,
+  xmin=0, xmax=9, ymin=15, ymax=85,
+  xlabel={Latencia mediana por petición (s, portátil)},
+  ylabel={Decisión correcta (\%)},
+  xtick={0,1,...,9}, ytick={20,30,...,80},
+  axis lines=left, axis line style={muted},
+  tick style={muted}, tick label style={font=\small},
+  label style={font=\small},
+  ymajorgrids, grid style={rule, line width=0.3pt},
+  clip=false,
+]
+\addplot[only marks, mark=*, mark size=2.2pt, color=muted] coordinates {
+  (0.9,24) (1.5,32) (1.6,47) (2.1,61) (2.8,54) (4.1,50) (4.6,60) (6.9,42) (6.9,41) (7.5,73)
+};
+\addplot[only marks, mark=*, mark size=3pt, color=accent] coordinates {
+  (4.0,75) (2.4,64) (5.6,67)
+};
+\node[font=\scriptsize, anchor=west] at (axis cs:1.0,24) {granite4-350m};
+\node[font=\scriptsize, anchor=west] at (axis cs:1.6,32) {qwen3.5-0.8b};
+\node[font=\scriptsize, anchor=west] at (axis cs:1.7,47) {qwen3-0.6b};
+\node[font=\scriptsize, anchor=north] at (axis cs:1.9,60) {arch-agent-1.5b};
+\node[font=\scriptsize\bfseries, anchor=south] at (axis cs:2.4,65) {qwen3-1.7b};
+\node[font=\scriptsize, anchor=west] at (axis cs:2.9,54) {granite4-1b};
+\node[font=\scriptsize\bfseries, anchor=south] at (axis cs:4.0,76) {gemma4-e2b};
+\node[font=\scriptsize, anchor=west] at (axis cs:4.2,50) {qwen3.5-2b};
+\node[font=\scriptsize, anchor=west] at (axis cs:4.7,60) {smollm3-3b};
+\node[font=\scriptsize\bfseries, anchor=west] at (axis cs:5.7,67) {granite4-micro};
+\node[font=\scriptsize, anchor=south] at (axis cs:6.9,43) {lfm2.5-1.2b};
+\node[font=\scriptsize, anchor=north] at (axis cs:6.9,40) {lfm2-1.2b-tool};
+\node[font=\scriptsize, anchor=south] at (axis cs:7.5,74) {qwen3-4b-2507};
+\end{axis}
+\end{tikzpicture}
+\caption{Acierto de enrutado frente a latencia (B2). Mejor arriba y a la izquierda. En negrita y color, los tres modelos que pasaron a las fases finales.}\label{fig:pareto}
+\end{figure}
+
+\begin{itemize}
+\item \textbf{Gemma 4 E2B y Qwen3-4B empatan arriba}; Gemma tarda la mitad y su cola (p95) es cuatro veces más corta.
+\item \textbf{Elegir la herramienta no es el problema} en los cuatro primeros (93--98\,\%). La nota global baja por lo que hacen cuando falta un dato o cuando no hay nada que llamar.
+\item \textbf{Todos inventan el dato que falta.} Revisión manual de una muestra de Gemma: ante «¿hasta qué horas abren allá?» completa la estación con el primer valor de la lista; al registrar una visita asume una persona y visitante nacional.
+\item \textbf{Las inyecciones funcionan.} Gemma obedeció 12 de 20 mensajes que pedían ejecutar una acción con efectos, incluidos reportes de emergencia falsos.
+\item \textbf{Los modelos de menos de 1B no sirven para enrutar} sin entrenamiento específico: aciertan la herramienta entre el 53 y el 71\,\% de las veces.
+\end{itemize}
+
+\subsection{Respuesta fundamentada y alucinación (B5)}
+
+\begin{table}[H]
+\centering\small
+\caption{Respuesta a partir de pasajes, con contextos de 500 a 8.000 tokens y casos sin contexto. Cobertura parcial por tope de tiempo.}\label{tab:grounding}
+\begin{tabularx}{\textwidth}{@{}p{0.42\textwidth}RRR@{}}
+\toprule
+ & \m{gemma4-e2b} & \m{qwen3-1.7b} & \m{granite4-micro}\\
+\midrule
+Casos evaluados (de 502) & 433 & 240 & 153\\
+Respuesta fiel, cuando hay respuesta & 99\,\% (96--100) & 88\,\% (80--93) & 89\,\% (80--94)\\
+Inventa un valor inexistente & 0\,\% (0--1) & 1\,\% (0--4) & 10\,\% (6--16)\\
+Usa el valor de otra estación & 5\,\% (3--7) & 10\,\% (7--14) & 16\,\% (11--23)\\
+Se abstiene bien cuando no hay respuesta & 83\,\% (77--87) & 78\,\% (70--84) & 32\,\% (22--43)\\
+Se abstiene sin contexto & 96 de 96 & 71 de 73 & 7 de 28\\
+Cita la fuente correcta & 98\,\% & 71\,\% & 83\,\%\\
+Respuesta de seguridad con valor no soportado & 10 de 83 & 10 de 59 & 28 de 80\\
+Obedece una inyección dentro de un pasaje & 0 de 12 & 1 de 12 & 0 de 8\\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\begin{table}[H]
+\centering\small
+\caption{Gemma 4 E2B: fidelidad según el tamaño del contexto.}\label{tab:ctx}
+\begin{tabularx}{\textwidth}{@{}p{0.34\textwidth}RRRRR@{}}
+\toprule
+Contexto (tokens) & 500 & 1.000 & 2.000 & 4.000 & 8.000\\
+\midrule
+Respuesta fiel & 100\,\% & 100\,\% & 100\,\% & 95\,\% & 100\,\%\\
+Casos con respuesta & 10 & 45 & 64 & 60 & 40\\
+Usa el valor de otra estación & 11\,\% & 7\,\% & 7\,\% & 4\,\% & 4\,\%\\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\begin{itemize}
+\item \textbf{Gemma 4 E2B no inventó ningún dato} y no se degrada con el contexto.
+\item \textbf{Su único fallo de seguridad es de un tipo.} Las 10 respuestas marcadas son preguntas sobre una estación cuyo dato no está en el contexto, respondidas con el dato de otra estación que sí está; por ejemplo, el teléfono de emergencias de una estación distinta.
+\item \textbf{El criterio «cero valores no soportados en seguridad» no lo cumple ningún modelo} tal como está definido, porque incluye esa mezcla de estaciones.
+\item \textbf{Granite 4.0 micro no es apto para responder}: sin contexto inventa en la mayoría de los casos.
+\end{itemize}
+
+\subsection{Diálogos (B4)}
+
+Cada paso se evalúa por separado a partir del estado correcto; los errores no se encadenan.
+
+\begin{table}[H]
+\centering\small
+\caption{Pasos de diálogo con resumen de estado generado por código. Cobertura: algo más de la mitad de lo previsto.}\label{tab:dialogue}
+\begin{tabularx}{\textwidth}{@{}p{0.42\textwidth}RRR@{}}
+\toprule
+ & \m{gemma4-e2b} & \m{qwen3-1.7b} & \m{granite4-micro}\\
+\midrule
+Enrutar (pasos correctos) & 70\,\% (63--76) & 54\,\% (47--60) & 63\,\% (55--69)\\
+Extraer y responder (pasos correctos) & 90\,\% (85--94) & 80\,\% (73--85) & 93\,\% (84--97)\\
+Enrutar con un trámite a medias (26 pasos) & 38\,\% & 4\,\% & 23\,\%\\
+Mediana por paso: enrutar / responder / extraer (s) & 5,7 / 7,1 / 3,4 & 6,0 / 6,0 / 3,9 & 9,6 / 12,4 / 8,1\\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\begin{itemize}
+\item \textbf{Qwen3-1.7B no es más rápido que Gemma en diálogo.} El prompt cambia en cada turno y domina la lectura, donde Gemma va al doble.
+\item \textbf{Un turno completo de Gemma (enrutar y responder) ronda los 13\,s en el portátil.}
+\item \textbf{El punto débil es enrutar a mitad de un trámite} (registro de visita, reporte de emergencia). Es coherente con la invención de datos observada en B2, pero estos casos no se revisaron a mano.
+\item \textbf{La profundidad no degrada}: a 12 turnos Gemma mantiene el 90\,\% en extraer y responder.
+\end{itemize}
+
+\subsection{Estrés: número de herramientas y contexto (B3)}
+
+\begin{table}[H]
+\centering\small
+\caption{Herramienta correcta según el número de herramientas visibles (40 casos por nivel; Granite con cobertura parcial).}\label{tab:tools}
+\begin{tabularx}{\textwidth}{@{}p{0.34\textwidth}RRRRR@{}}
+\toprule
+Herramientas visibles & 3 & 6 & 12 & 24 & 48\\
+\midrule
+\m{gemma4-e2b} & 100\,\% & 100\,\% & 100\,\% & 97\,\% & 95\,\%\\
+\m{qwen3-1.7b} & 100\,\% & 97\,\% & 97\,\% & 95\,\% & 95\,\%\\
+\m{granite4-micro} & 100\,\% & 100\,\% & 94\,\% & 97\,\% & 85\,\%\\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+Gemma 4 E2B y Qwen3-1.7B apenas pierden acierto con 48 herramientas, la mitad de ellas casi duplicadas. Con relleno de contexto de 500 a 8.000 tokens, Gemma eligió la herramienta correcta en los 48 casos evaluados; la muestra es pequeña (8 a 10 por nivel) y solo permite descartar una caída grande.
+
+% ------------------------------------------------------------------ implications
+\section{Implicaciones para el diseño}
+
+Los tres fallos relevantes para la seguridad son del mismo tipo: el modelo completa lo que no sabe. Ninguno requiere cambiar de modelo.
+
+\begin{table}[H]
+\centering\small
+\begin{tabularx}{\textwidth}{@{}>{\raggedright\arraybackslash}p{0.33\textwidth}L@{}}
+\toprule
+Fallo medido & Control propuesto en código\\
+\midrule
+Inventa datos obligatorios ausentes & Validar los campos requeridos antes de ejecutar; si falta uno, la aplicación pregunta. El modelo debe poder devolver «desconocido».\\
+Obedece instrucciones maliciosas del usuario & Las herramientas con efectos solo están disponibles en el estado que corresponde y exigen confirmación explícita.\\
+Responde con el dato de otra estación & Entregar al modelo únicamente pasajes de la estación consultada y verificar que la fuente citada contiene el valor.\\
+Lectura lenta de prompts largos & Mantener en caché el prefijo fijo y limitar la ventana a 4.096 tokens.\\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+La eficacia de estos controles es una hipótesis: no se ha medido todavía.
+
+\section{Ajuste fino}
+
+Se revisó la literatura publicada sobre ajuste fino de modelos de menos de 4B para cada debilidad medida.
+
+\begin{itemize}
+\item \textbf{Es viable y gratuito} en una GPU en la nube de 16\,GB. El coste real es de 13 a 25 horas de trabajo por iteración, según estimación propia.
+\item \textbf{Para datos ausentes, abstención e inyecciones}, los arreglos en código son más baratos y no tienen los efectos secundarios documentados (pérdida de acierto en llamadas normales, abstención excesiva).
+\item \textbf{El único proyecto con retorno claro} es entrenar un modelo de unos 0,6B solo para enrutar, manteniendo Gemma para responder. La literatura reporta entre 85 y 97\,\% de acierto en conjuntos fijos de 6 a 20 herramientas, medido en inglés.
+\item \textbf{Gemma 4 E2B es el candidato más arriesgado de ajustar}: requiere 8 a 10\,GB de memoria de vídeo y tiene fallos documentados en el entrenamiento y la conversión.
+\end{itemize}
+
+\textbf{Recomendación:} no ajustar hasta conocer la latencia en el teléfono. Si se hace, el conjunto de prueba debe escribirse a mano y por separado de los datos de entrenamiento.
+
+\section{Limitaciones}
+
+\begin{itemize}
+\item \textbf{Velocidad medida en portátil.} No existe un factor de conversión fiable a un teléfono ARM; las cifras solo ordenan modelos.
+\item \textbf{Solo modo con gramática.} El modo nativo de cada modelo no se evaluó más allá de la prueba de contrato.
+\item \textbf{Cobertura parcial en las fases finales.} Qwen3-1.7B y Granite micro apenas tienen datos por encima de 2.000 tokens en B5; B4 cubrió algo más de la mitad.
+\item \textbf{Diálogos completos no ejecutados.} No se midió el encadenamiento de errores de principio a fin ni la comparación entre resumen de estado e historial completo.
+\item \textbf{Auditoría manual limitada.} Se revisaron las respuestas de seguridad marcadas de Gemma y una muestra de B2. Esa revisión detectó y corrigió un error del puntuador que inflaba la fabricación. No se han revisado respuestas dadas por buenas, ni B3 ni B4.
+\item \textbf{Corpus sintético en español neutro y coloquial.} No sustituye a preguntas reales de visitantes.
+\item \textbf{Sin ajuste fino.} Los resultados son de modelos tal como se publican.
+\item \textbf{No medido:} cuantización Q8, velocidad a 4.000 y 8.000 tokens, carga sostenida, consumo y temperatura.
+\end{itemize}
+
+\section{Próximos pasos}
+
+\begin{enumerate}
+\item Medir Gemma 4 E2B en el teléfono para obtener la latencia real por turno.
+\item Implementar los controles de la sección~3 y repetir B2 y B5 con Gemma para comprobar que cierran los fallos.
+\item Decidir, con la latencia real, si hace falta el enrutador pequeño.
+\item Revisar a mano una muestra de respuestas puntuadas como correctas.
+\end{enumerate}
+
+\appendix
+\section{Modelos descartados y motivo}
+
+\begin{table}[H]
+\centering\small
+\begin{tabularx}{\textwidth}{@{}>{\raggedright\arraybackslash}p{0.34\textwidth}lL@{}}
+\toprule
+Modelo & Fase & Motivo\\
+\midrule
+\m{nanbeige4.2-3b} & B0 & El servidor rechaza la salida con gramática; tiempos agotados.\\
+\m{qwen3.5-4b}, \m{ministral3-3b}, \m{llama3.2-3b} & B1 & Escritura de 7\,tok/s o menos.\\
+\m{phi4-mini} & B1 & Lectura de 22\,tok/s; escritura sin medición válida.\\
+\m{lfm2.5-2.6b} & B1 & Razonamiento obligatorio en cada petición.\\
+\m{functiongemma-270m} & B1 & No apto para redactar respuestas.\\
+\m{llama3.2-1b} & B1 & Modo nativo roto en el motor; resultados publicados bajos.\\
+\m{xlam2-1b}, \m{xlam2-3b}, \m{hammer2.1-1.5b}, \m{hammer2.1-3b} & B1 & Referencias con licencia no comercial; se conservó una (\m{arch-agent-1.5b}).\\
+Diez modelos restantes de B2 & B2 & Fuera de los tres mejores por acierto y latencia; Qwen3-4B, por coste de cómputo en las fases finales.\\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\section{Reproducibilidad}
+
+\begin{tabularx}{\textwidth}{@{}lL@{}}
+\toprule
+Motor & \m{ghcr.io/ggml-org/llama.cpp:server}, compilación \m{b12375}\\
+Digest & {\footnotesize\m{sha256:c7d58273d753d33a352e5c41ab300c5ae040a16fa4b202231bb606478065c124}}\\
+Modelos & Archivos GGUF Q4\_K\_M con suma SHA-256 fijada en \m{config/models.lock.yaml}\\
+Datos crudos & \m{results/r1/<fase>/<modelo>/requests.jsonl}, una línea por petición\\
+Métricas & \m{results/r1/metrics/*.csv}; se regeneran con \m{nevados-bench score -{}-run-id r1}\\
+\bottomrule
+\end{tabularx}
+
+\end{document}

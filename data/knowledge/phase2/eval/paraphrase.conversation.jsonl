@@ -1,0 +1,71 @@
+{"q": "buenas que mas", "expected": ["conversation.greeting_hello"]}
+{"q": "Hola, acabo de abrir el chat.", "expected": ["conversation.greeting_hello"]}
+{"q": "como estas, todo bien?", "expected": ["conversation.how_are_you"], "near_copy": true}
+{"q": "¿Cómo te encuentras hoy?", "expected": ["conversation.how_are_you"]}
+{"q": "mil gracias de verdad", "expected": ["conversation.thanks"]}
+{"q": "Te agradezco un montón la ayuda.", "expected": ["conversation.thanks"], "near_copy": true}
+{"q": "listo me voy, chao", "expected": ["conversation.goodbye"]}
+{"q": "Ya terminé por hoy, me despido.", "expected": ["conversation.goodbye"]}
+{"q": "y vos q sabes hacer", "expected": ["conversation.capabilities_overview"]}
+{"q": "What kind of help can you give me about the park?", "expected": ["conversation.capabilities_overview"]}
+{"q": "voy primera vez y no se ni q preguntarte", "expected": ["conversation.first_time_help"], "near_copy": true}
+{"q": "Es mi primera visita y necesito que me orientes por dónde empezar.", "expected": ["conversation.first_time_help"]}
+{"q": "sos un robot o hay alguien ahi?", "expected": ["conversation.ai_identity"]}
+{"q": "¿Me responde una persona o un programa guardado en el teléfono?", "expected": ["conversation.ai_identity"]}
+{"q": "me respondes en ingles porfa", "expected": ["conversation.language_request"]}
+{"q": "¿Puedes contestar en un idioma distinto del que usas ahora?", "expected": ["conversation.language_request"]}
+{"q": "hazme un poema del paramo", "expected": ["conversation.free_generation_limits"]}
+{"q": "¿Me inventas un texto que no venga de la información del parque?", "expected": ["conversation.free_generation_limits"]}
+{"q": "eso no era lo que preguntaba, quedo mal", "expected": ["conversation.feedback_wrong_answer"]}
+{"q": "Your last answer was wrong and did not help.", "expected": ["conversation.feedback_wrong_answer"]}
+{"q": "que pendejada, no servis pa nada", "expected": ["conversation.insults_to_assistant"]}
+{"q": "Eres un inútil, deja de contestar así.", "expected": ["conversation.insults_to_assistant"]}
+{"q": "como echo una queja formal contra el parque", "expected": ["conversation.park_complaint_channel"], "near_copy": true}
+{"q": "¿Dónde radico un reclamo escrito ante la entidad?", "expected": ["conversation.park_complaint_channel"]}
+{"q": "comuniqueme con una persona de carne y hueso", "expected": ["conversation.human_contact_request"], "near_copy": true}
+{"q": "Necesito hablar con alguien del parque, no seguir en el chat.", "expected": ["conversation.human_contact_request"]}
+{"q": "echame un chiste pues", "expected": ["conversation.joke_request"], "near_copy": true}
+{"q": "¿Me cuentas algo gracioso?", "expected": ["conversation.joke_request"]}
+{"q": "cuanto vale el dolar hoy", "expected": ["conversation.off_topic_question"], "near_copy": true}
+{"q": "Who won the football match last night?", "expected": ["conversation.off_topic_question"]}
+{"q": "no capte, repetilo otra ves", "expected": ["conversation.repeat_or_unclear"]}
+{"q": "¿Me lo aclaras? No entendí lo que dijiste.", "expected": ["conversation.repeat_or_unclear"]}
+{"q": "dale listo", "expected": ["conversation.acknowledge_ok"]}
+{"q": "Perfecto, quedó claro.", "expected": ["conversation.acknowledge_ok"]}
+{"q": "ya dejemos ese tema", "expected": ["conversation.cancel_topic"]}
+{"q": "Quiero soltar lo que veníamos hablando y pasar a otra cosa.", "expected": ["conversation.cancel_topic"]}
+{"q": "que chimba contestas", "expected": ["conversation.compliment_reply"]}
+{"q": "Qué buena ayuda, de verdad que sí.", "expected": ["conversation.compliment_reply"]}
+{"q": "ampliame eso ultimo", "expected": ["conversation.more_detail_followup"]}
+{"q": "Can you expand on the last point?", "expected": ["conversation.more_detail_followup"], "near_copy": true}
+{"q": "eso de donde lo sacaste", "expected": ["conversation.info_source_trust"]}
+{"q": "¿Cada dato trae una fuente que yo pueda revisar?", "expected": ["conversation.info_source_trust"]}
+{"q": "el chat me responde sin datos?", "expected": ["conversation.offline_operation"]}
+{"q": "¿Sigues contestando igual cuando no hay internet?", "expected": ["conversation.offline_operation"]}
+{"q": "si estoy en peligro tu pides el rescate?", "expected": ["conversation.emergency_limits"]}
+{"q": "¿Puedo confiar en que este chat avise a emergencias por mí?", "expected": ["conversation.emergency_limits"]}
+{"q": "este chat donde queda guardado", "expected": ["conversation.history_storage"]}
+{"q": "¿La conversación se almacena en el teléfono?", "expected": ["conversation.history_storage"]}
+{"q": "me programas un recordatorio pa mañana", "expected": ["conversation.no_outside_actions"]}
+{"q": "Can you place a phone call for me?", "expected": ["conversation.no_outside_actions"]}
+{"q": "me ubicas en un mapa?", "expected": ["conversation.location_map_request"], "near_copy": true}
+{"q": "¿Esta versión conoce mi posición?", "expected": ["conversation.location_map_request"]}
+{"q": "leeme eso en voz alta", "expected": ["conversation.voice_reading_request"], "near_copy": true}
+{"q": "¿Puedo dictarte la pregunta en lugar de escribirla?", "expected": ["conversation.voice_reading_request"]}
+{"q": "tu cual prefieres, el norte o la laguna", "expected": ["conversation.opinion_request"]}
+{"q": "¿Tienes una opinión propia sobre qué plan conviene más?", "expected": ["conversation.opinion_request"]}
+{"q": "q hora es", "expected": ["conversation.time_or_date_request"], "near_copy": true}
+{"q": "¿Me dices qué día es hoy?", "expected": ["conversation.time_or_date_request"]}
+{"q": "mas cortico porfa", "expected": ["conversation.summary_request"]}
+{"q": "Can you say that in fewer words?", "expected": ["conversation.summary_request"]}
+{"q": "estoy extraviado, puedes usar mi ubicacion y mostrarme en un mapa", "expected": ["conversation.location_map_request"], "replaces_near_copy": "me ubicas en un mapa?"}
+{"q": "quiero dejar un reclamo formal de la visita, lo envias tu o va por la pagina de parques", "expected": ["conversation.park_complaint_channel"], "replaces_near_copy": "como echo una queja formal contra el parque"}
+{"q": "me pasas con un funcionario de parques o busco yo los canales de atencion oficiales", "expected": ["conversation.human_contact_request"], "replaces_near_copy": "comuniqueme con una persona de carne y hueso"}
+{"q": "se me descargo el celular y no se ni la fecha ni la hora, me las das", "expected": ["conversation.time_or_date_request"], "replaces_near_copy": "q hora es"}
+{"q": "mil gracias, quedaste de lujo con la explicacion", "expected": ["conversation.thanks"], "replaces_near_copy": "Te agradezco un montón la ayuda."}
+{"q": "no puedo escribir bien, o me lees la respuesta en voz alta o entiendes lo que te hablo", "expected": ["conversation.voice_reading_request"], "replaces_near_copy": "leeme eso en voz alta"}
+{"q": "ando en blanco con este viaje, arranco preguntando por el clima y que empacar o por otro lado", "expected": ["conversation.first_time_help"], "replaces_near_copy": "voy primera vez y no se ni q preguntarte"}
+{"q": "cuanto esta el salario minimo este año, aunque no sea tema del parque", "expected": ["conversation.off_topic_question"], "replaces_near_copy": "cuanto vale el dolar hoy"}
+{"q": "bueno y usted como ha estado, yo ya voy de salida", "expected": ["conversation.how_are_you"], "replaces_near_copy": "como estas, todo bien?"}
+{"q": "hazme reir con algo corto antes de que salgamos", "expected": ["conversation.joke_request"], "replaces_near_copy": "echame un chiste pues"}
+{"q": "Same topic as your last reply — add more detail if you have any.", "expected": ["conversation.more_detail_followup"], "replaces_near_copy": "Can you expand on the last point?"}

@@ -1,0 +1,2695 @@
+{
+  "contract_version": 1,
+  "id": "history_culture",
+  "order": 14,
+  "title": "Historia y cultura",
+  "description": "Nombres indígenas, creación del parque, erupciones históricas, memoria de Armero y la cultura campesina y cafetera ligada a Los Nevados.",
+  "retrieval": {
+    "profile": "explain",
+    "bm25_weight": 0.35,
+    "top_k": 3,
+    "min_score": null,
+    "entity_filters": [
+      "volcano"
+    ]
+  },
+  "clarification": {
+    "between_entries": "¿Te refieres a {label_a} o a {label_b}?",
+    "bank": [
+      "¿Preguntas por la tragedia de 1985, por una erupción más antigua o por el nombre de un nevado?",
+      "¿Hablas del Ruiz, de Santa Isabel, del Tolima o del parque en general?",
+      "¿Quieres saber cuándo se creó el parque o qué pasó en Armero?",
+      "¿Buscas el significado de Kumanday, de Poleka Kasue o de Dulima?",
+      "¿La pregunta es sobre la historia de 1985 o sobre el estado del volcán hoy?",
+      "¿Te interesa el paisaje cafetero, las casas de El Bosque o las comunidades del páramo?",
+      "¿Preguntas por la ley de Armero o por la sentencia que declaró sujeto de derechos al parque?"
+    ],
+    "slot_questions": {
+      "volcano": "¿Sobre cuál nevado preguntas: el Ruiz, Santa Isabel o el Tolima?"
+    },
+    "fallback": "Puedo contarte los nombres indígenas, la creación del parque o qué pasó en Armero. El estado del volcán de esta semana se mira en el Servicio Geológico Colombiano."
+  },
+  "featured": [
+    "history_culture.armero_1985",
+    "history_culture.what_is_a_lahar",
+    "history_culture.kumanday_name",
+    "history_culture.park_creation_1974",
+    "history_culture.coffee_landscape"
+  ],
+  "entries": [
+    {
+      "id": "history_culture.kumanday_name",
+      "label": "nombre indígena Kumanday",
+      "kind": "fact",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "qué significa Kumanday",
+        "qué es Kumanday",
+        "cómo se llama el Nevado del Ruiz",
+        "cuál es el otro nombre del Ruiz",
+        "nombre ancestral del nevado",
+        "kumanday es el ruiz o es otra montaña",
+        "que significa kumanday sin tilde",
+        "me dijeron cerro blanco, es el Ruiz",
+        "por qué el letrero dice Kumanday",
+        "el ruiz tiene nombre indigena",
+        "what does Kumanday mean",
+        "is Kumanday the same mountain as the Ruiz"
+      ],
+      "hard_negatives": [
+        "qué pasó en Armero",
+        "cómo llego al sector Brisas",
+        "cuál es la alerta del Ruiz hoy"
+      ],
+      "needs": [],
+      "answer": {
+        "short": "Kumanday es el nombre que Parques Nacionales atribuye a los quimbaya para el Nevado del Ruiz, y significa cerro blanco. En la misma ficha, Poleka Kasue es Santa Isabel y Dulima es el Tolima. El Servicio Geológico escribe Cumanday, así que vas a encontrar las dos grafías.",
+        "variants": [
+          "Si lees Kumanday en el parque, es el Nevado del Ruiz. Parques Nacionales traduce esa palabra quimbaya como cerro blanco, y el SGC la escribe Cumanday.",
+          "Kumanday y Cumanday nombran al Ruiz. La ficha del parque dice cerro blanco y reserva Poleka Kasue para Santa Isabel y Dulima para el Tolima."
+        ],
+        "detail": null,
+        "reflection": null
+      },
+      "sources": [
+        {
+          "label": "Parques Nacionales Naturales, ficha Los Nevados",
+          "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+          "retrieved_at": "2026-11-21"
+        },
+        {
+          "label": "Servicio Geológico Colombiano, hoja del Ruiz, septiembre de 2024",
+          "url": "https://www2.sgc.gov.co/Temas-destacados/Documents/Hoja-informativa-volcan-Nevado-de-Ruiz-SGC.pdf",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "last_verified": "2026-11-21",
+      "valid_until": null,
+      "related": [
+        "history_culture.poleka_kasue",
+        "history_culture.dulima",
+        "history_culture.ruiz_other_ancestral_names"
+      ],
+      "tags": [
+        "kumanday",
+        "ruiz",
+        "nombre"
+      ],
+      "entities": {
+        "volcano": [
+          "ruiz"
+        ]
+      }
+    },
+    {
+      "id": "history_culture.ruiz_other_ancestral_names",
+      "label": "otros nombres ancestrales del Ruiz",
+      "kind": "fact",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "cómo más llamaban al Ruiz",
+        "qué es Tabuchía",
+        "Tama es un nombre del nevado",
+        "cumanday tabuchia y tama",
+        "el ruiz se llamaba candela o fuego",
+        "padre mayor es el nombre del volcan",
+        "nombres precolombinos del Ruiz",
+        "ademas de kumanday como le decian",
+        "tabuchia es el mismo ruiz",
+        "which ancestral names does the Ruiz have",
+        "what do Tabuchía and Tama mean",
+        "había otros nombres además de Kumanday"
+      ],
+      "hard_negatives": [
+        "qué significa Kumanday",
+        "altura del Nevado del Ruiz",
+        "puedo subir al cráter Arenas"
+      ],
+      "needs": [],
+      "answer": {
+        "short": "Además de Kumanday, la hoja del SGC de septiembre de 2024 recuerda que al Ruiz lo llamaron Cumanday, cerro blanco, Tabuchía, candela o fuego, y Tama, padre mayor o grande. Son nombres del mismo volcán.",
+        "variants": [
+          "En la hoja de 2024 el Ruiz aparece como Cumanday, Tabuchía y Tama: cerro blanco, candela o fuego, y padre mayor o grande. No son tres montañas distintas."
+        ],
+        "detail": null,
+        "reflection": null
+      },
+      "sources": [
+        {
+          "label": "Servicio Geológico Colombiano, hoja del Ruiz, septiembre de 2024",
+          "url": "https://www2.sgc.gov.co/Temas-destacados/Documents/Hoja-informativa-volcan-Nevado-de-Ruiz-SGC.pdf",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "last_verified": "2026-11-21",
+      "valid_until": null,
+      "related": [
+        "history_culture.kumanday_name",
+        "history_culture.indigenous_peoples"
+      ],
+      "tags": [
+        "tabuchia",
+        "tama",
+        "cumanday"
+      ],
+      "entities": {
+        "volcano": [
+          "ruiz"
+        ]
+      }
+    },
+    {
+      "id": "history_culture.poleka_kasue",
+      "label": "nombre Poleka Kasue",
+      "kind": "fact",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "qué significa Poleka Kasue",
+        "poleka kasue es el nombre de santa isabel",
+        "doncella de la montaña cuál nevado es",
+        "el sector se llama poleka por qué",
+        "nombre indigena de santa isabel",
+        "poleka kasue es una laguna o un volcan",
+        "que es poleka kasue",
+        "por qué dicen doncella de la montaña",
+        "santa isabel tiene otro nombre",
+        "what does Poleka Kasue mean",
+        "is Poleka Kasue the name of Santa Isabel",
+        "el letrero cisne poleka kasue de qué montaña habla"
+      ],
+      "hard_negatives": [
+        "qué significa Kumanday",
+        "hay erupciones históricas de Santa Isabel",
+        "cómo llego a la cabaña Potosí"
+      ],
+      "needs": [],
+      "answer": {
+        "short": "Parques Nacionales dice que los quimbaya llamaron Poleka Kasue al Nevado de Santa Isabel, doncella de la montaña. El sector Cisne-Poleka Kasue usa ese nombre junto a Santa Isabel y al paramillo del Cisne.",
+        "variants": [
+          "Poleka Kasue es el nombre quimbaya de Santa Isabel, doncella de la montaña, según la ficha del parque. No es una laguna ni otro volcán."
+        ],
+        "detail": null,
+        "reflection": null
+      },
+      "sources": [
+        {
+          "label": "Parques Nacionales Naturales, ficha Los Nevados",
+          "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "last_verified": "2026-11-21",
+      "valid_until": null,
+      "related": [
+        "history_culture.kumanday_name",
+        "history_culture.santa_isabel_record",
+        "history_culture.sector_indigenous_names"
+      ],
+      "tags": [
+        "poleka",
+        "santa isabel"
+      ],
+      "entities": {
+        "volcano": [
+          "santa_isabel"
+        ]
+      }
+    },
+    {
+      "id": "history_culture.dulima",
+      "label": "nombre indígena Dulima",
+      "kind": "fact",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "qué significa Dulima",
+        "dulima nombra al nevado del tolima",
+        "los pijaos como llamaban al tolima",
+        "rio de nieve es un nevado",
+        "que es dulima",
+        "el sector quindio dulima de qué volcan habla",
+        "nombre indigena del nevado del tolima",
+        "dulima significa nube",
+        "por qué el tolima se llama dulima",
+        "what does Dulima mean",
+        "is Dulima another name for Tolima",
+        "dulima es resistencia pijao o es la montaña"
+      ],
+      "hard_negatives": [
+        "qué significa Kumanday",
+        "historia eruptiva del Tolima",
+        "cómo subo al Tolima desde Salento"
+      ],
+      "needs": [],
+      "answer": {
+        "short": "Parques Nacionales cuenta que los pijaos llamaban Dulima al Nevado del Tolima. La ficha entiende esa voz como río de nieve o nube, y también como expresión de la resistencia de ese pueblo. El sector Quindío-Dulima toma de ahí el nombre del volcán.",
+        "variants": [
+          "Dulima es el Nevado del Tolima en la ficha del parque: una voz pijao leída como río de nieve o nube, y también como resistencia. No es un nevado distinto del Tolima."
+        ],
+        "detail": null,
+        "reflection": null
+      },
+      "sources": [
+        {
+          "label": "Parques Nacionales Naturales, ficha Los Nevados",
+          "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "last_verified": "2026-11-21",
+      "valid_until": null,
+      "related": [
+        "history_culture.tolima_history",
+        "history_culture.indigenous_peoples",
+        "history_culture.sector_indigenous_names"
+      ],
+      "tags": [
+        "dulima",
+        "pijaos",
+        "tolima"
+      ],
+      "entities": {
+        "volcano": [
+          "tolima"
+        ]
+      }
+    },
+    {
+      "id": "history_culture.indigenous_peoples",
+      "label": "pueblos indígenas de los nevados",
+      "kind": "explanation",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "qué pueblos indígenas habitaron los nevados",
+        "quimbayas y pijaos en el parque",
+        "había muiscas en los nevados",
+        "pantagoras y el ruiz",
+        "quienes vivian en estas montañas",
+        "pueblos originarios de los nevados",
+        "los quimbaya nombraron las dos cumbres",
+        "hay resguardo indigena dentro del parque",
+        "cultura indigena del paramo",
+        "which indigenous peoples named the peaks",
+        "did the Pijao name the Tolima volcano",
+        "quimbayas pijaos pantagoras y muiscas"
+      ],
+      "hard_negatives": [
+        "qué significa Dulima",
+        "comunidades campesinas del parque",
+        "puedo llevarme una planta"
+      ],
+      "needs": [],
+      "answer": {
+        "short": "La ficha del parque dice que los tres volcanes nevados fueron símbolo cultural y espiritual para pueblos que habitaron el territorio, y nombra a quimbayas, pijaos, pantágoras y muiscas. Atribuye Kumanday y Poleka Kasue a los quimbaya, y Dulima a los pijaos. No publica un mapa de resguardos actuales dentro del parque.",
+        "variants": [
+          "Parques Nacionales relaciona los tres nevados con quimbayas, pijaos, pantágoras y muiscas. Los nombres Kumanday y Poleka Kasue quedan con los quimbaya, y Dulima con los pijaos."
+        ],
+        "detail": null,
+        "reflection": null
+      },
+      "sources": [
+        {
+          "label": "Parques Nacionales Naturales, ficha Los Nevados",
+          "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "last_verified": "2026-11-21",
+      "valid_until": null,
+      "related": [
+        "history_culture.kumanday_name",
+        "history_culture.dulima",
+        "history_culture.campesino_communities"
+      ],
+      "tags": [
+        "quimbaya",
+        "pijao",
+        "pueblos"
+      ]
+    },
+    {
+      "id": "history_culture.sector_indigenous_names",
+      "label": "nombres indígenas en los sectores",
+      "kind": "fact",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "por qué el sector se llama Kumanday",
+        "cisne poleka kasue qué nombre es",
+        "quindio dulima es el nombre del volcan",
+        "los sectores tienen nombres indigenas",
+        "brisas kumanday de qué cima habla",
+        "el letrero del sector y el nombre ancestral",
+        "cuatro sectores y sus nombres viejos",
+        "laguna del otun tambien tiene nombre indigena",
+        "que montana nombra cada sector",
+        "why is a sector called Poleka Kasue",
+        "which peak is behind the Dulima sector name",
+        "el nombre del sector no es otra montaña"
+      ],
+      "hard_negatives": [
+        "cómo llego a Brisas desde Manizales",
+        "a qué hora abre Brisas",
+        "qué significa Kumanday"
+      ],
+      "needs": [],
+      "answer": {
+        "short": "La ficha nombra cuatro sectores: Brisas-Kumanday, Cisne-Poleka Kasue, Laguna del Otún y Quindío-Dulima. Kumanday, Poleka Kasue y Dulima son los nombres indígenas del Ruiz, de Santa Isabel y del Tolima. El nombre te dice de qué montaña habla el sector.",
+        "variants": [
+          "Si el sector dice Kumanday, Poleka Kasue o Dulima, está usando el nombre indígena del Ruiz, de Santa Isabel o del Tolima. Laguna del Otún no lleva uno de esos tres nombres."
+        ],
+        "detail": null,
+        "reflection": null
+      },
+      "sources": [
+        {
+          "label": "Parques Nacionales Naturales, ficha Los Nevados",
+          "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "last_verified": "2026-11-21",
+      "valid_until": null,
+      "related": [
+        "history_culture.kumanday_name",
+        "history_culture.poleka_kasue",
+        "history_culture.dulima"
+      ],
+      "tags": [
+        "sectores",
+        "nombres"
+      ]
+    },
+    {
+      "id": "history_culture.park_creation_1974",
+      "label": "creación del parque en 1974",
+      "kind": "fact",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "cuándo se creó el parque",
+        "en qué año se declaró",
+        "qué día declararon Los Nevados",
+        "resolucion 148 de 1974",
+        "acuerdo 15 del inderena",
+        "cuando nacio el parque nacional",
+        "30 de abril es la declaratoria",
+        "por que crearon el parque",
+        "diario oficial de la creacion",
+        "when was Los Nevados national park created",
+        "what was the park created to protect",
+        "el parque es de 1974 o de 1959"
+      ],
+      "hard_negatives": [
+        "cuántas hectáreas tiene el parque hoy",
+        "cuánto vale la entrada",
+        "qué prohibía el acuerdo de 1973"
+      ],
+      "needs": [],
+      "answer": {
+        "short": "Los Nevados quedó delimitado el 30 de abril de 1974, cuando la Resolución Ejecutiva 148 aprobó el Acuerdo 15 del 28 de marzo de 1973. El objeto era conservar la flora, la fauna y las bellezas escénicas con fines científicos, educativos, recreativos o estéticos. El índice del parque anota esa resolución en el Diario Oficial 34090 del 29 de mayo de 1974.",
+        "variants": [
+          "La declaratoria con linderos es del 30 de abril de 1974: la Resolución 148 aprobó el Acuerdo 15 del 28 de marzo de 1973 para conservar flora, fauna y paisaje. Salió en el Diario Oficial 34090 del 29 de mayo de 1974.",
+          "Si preguntas cuándo nació el parque con nombre y linderos, la fecha es el 30 de abril de 1974. El acuerdo venía del 28 de marzo de 1973 y el diario oficial es del 29 de mayo de 1974."
+        ],
+        "detail": "La resolución llama al INDERENA Instituto de Desarrollo de los Recursos Naturales Renovables. El índice de Parques alarga el nombre a Instituto Nacional de los Recursos Naturales Renovables y del Ambiente. La sigla es la misma. Una línea del escaneo dice Decreto 2420 de 1938; el encabezado y el artículo tercero dicen 1968, y esa es la cita que se usa.",
+        "reflection": null
+      },
+      "sources": [
+        {
+          "label": "Parques Nacionales Naturales, ficha Los Nevados",
+          "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+          "retrieved_at": "2026-11-21"
+        },
+        {
+          "label": "Resolución Ejecutiva 148 de 1974 y Acuerdo 15 de 1973",
+          "url": "https://old.parquesnacionales.gov.co/portal/wp-content/uploads/2022/01/148-de-1974.pdf",
+          "retrieved_at": "2026-11-21"
+        },
+        {
+          "label": "Parques Nacionales, índice normativo de Los Nevados",
+          "url": "https://old.parquesnacionales.gov.co/portal/es/normatividad/marco-normativo-areas-protegidas/dreccion-territorial-andes-occidentales/parque-nacional-natural-nevados/",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "last_verified": "2026-11-21",
+      "valid_until": null,
+      "related": [
+        "history_culture.ley_2_1959",
+        "history_culture.founding_approximate_area",
+        "history_culture.prior_rights_1973"
+      ],
+      "tags": [
+        "1974",
+        "creacion",
+        "acuerdo"
+      ]
+    },
+    {
+      "id": "history_culture.ley_2_1959",
+      "label": "nevados como parques en 1959",
+      "kind": "fact",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "la ley 2 de 1959 y los nevados",
+        "desde cuándo los nevados son parques",
+        "el articulo 13 declaro los nevados",
+        "1959 es la creacion de los nevados",
+        "ley forestal y el parque",
+        "los nevados ya eran parque antes de 1974",
+        "que dia es la ley 2",
+        "17 de enero o 16 de diciembre de 1959",
+        "la ley de 1959 puso los linderos",
+        "did a 1959 law already call the snow peaks parks",
+        "is Los Nevados the same as the 1959 declaration",
+        "articulo 13 de la ley 2"
+      ],
+      "hard_negatives": [
+        "cuándo se creó el parque",
+        "qué prohibía el acuerdo de 1973",
+        "puedo hacer una fogata"
+      ],
+      "needs": [],
+      "answer": {
+        "short": "El Acuerdo 15 cita la Ley 2 de 1959, artículo 13, como la norma que declaró parques nacionales a los nevados y a las áreas que los circundan. El acuerdo fecha esa ley el 17 de enero de 1959 y el índice de Parques la fecha el 16 de diciembre de 1959. Los linderos de Los Nevados llegaron después, aprobados el 30 de abril de 1974.",
+        "variants": [
+          "La figura general de los nevados como parques está en el artículo 13 de la Ley 2 de 1959, según el Acuerdo 15. Las fuentes oficiales no coinciden en el día: 17 de enero en el acuerdo y 16 de diciembre en el índice del parque. El lindero de Los Nevados es el de 1974."
+        ],
+        "detail": "El Acuerdo 15 escribe 17 de enero de 1959 y el índice de Parques escribe 16 de diciembre de 1959. Las dos fechas quedan visibles porque ninguna de las páginas leídas cierra el día.",
+        "reflection": null
+      },
+      "sources": [
+        {
+          "label": "Resolución Ejecutiva 148 de 1974 y Acuerdo 15 de 1973",
+          "url": "https://old.parquesnacionales.gov.co/portal/wp-content/uploads/2022/01/148-de-1974.pdf",
+          "retrieved_at": "2026-11-21"
+        },
+        {
+          "label": "Parques Nacionales, índice normativo de Los Nevados",
+          "url": "https://old.parquesnacionales.gov.co/portal/es/normatividad/marco-normativo-areas-protegidas/dreccion-territorial-andes-occidentales/parque-nacional-natural-nevados/",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "last_verified": "2026-11-21",
+      "valid_until": null,
+      "related": [
+        "history_culture.park_creation_1974",
+        "history_culture.acuerdo_1973_limits"
+      ],
+      "tags": [
+        "ley 2",
+        "1959"
+      ]
+    },
+    {
+      "id": "history_culture.founding_approximate_area",
+      "label": "hectáreas del acuerdo de 1973",
+      "kind": "fact",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "cuántas hectáreas decía el acuerdo de 1973",
+        "38.000 hectáreas son las de hoy",
+        "area aproximada cuando lo crearon",
+        "el lindero original de cuantas hectareas era",
+        "treinta y ocho mil hectareas del acuerdo",
+        "la cifra de 1973 sigue vigente",
+        "superficie aproximada del acto de creacion",
+        "no me des el tamaño de hoy, el del acuerdo",
+        "hectareas que reservo el inderena",
+        "how many hectares did the 1973 agreement set aside",
+        "was the original area approximate",
+        "38 mil hectareas de 1973"
+      ],
+      "hard_negatives": [
+        "cuántas hectáreas tiene el parque hoy",
+        "cuándo se creó el parque",
+        "en qué departamentos está"
+      ],
+      "needs": [],
+      "answer": {
+        "short": "El Acuerdo 15 de 1973 reservó un área de 38.000 hectáreas aproximadas. Esa cifra es la del acto de lindero, no el tamaño que la ficha del parque publica hoy.",
+        "variants": [
+          "En 1973 el acuerdo habló de 38.000 hectáreas aproximadas. Si buscas la extensión actual, no la calcules desde ese número: está en la ficha vigente del parque."
+        ],
+        "detail": null,
+        "reflection": null
+      },
+      "sources": [
+        {
+          "label": "Resolución Ejecutiva 148 de 1974 y Acuerdo 15 de 1973",
+          "url": "https://old.parquesnacionales.gov.co/portal/wp-content/uploads/2022/01/148-de-1974.pdf",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "last_verified": "2026-11-21",
+      "valid_until": null,
+      "related": [
+        "history_culture.park_creation_1974",
+        "history_culture.ley_2_1959"
+      ],
+      "tags": [
+        "38000",
+        "1973",
+        "area"
+      ]
+    },
+    {
+      "id": "history_culture.prior_rights_1973",
+      "label": "derechos anteriores a 1973",
+      "kind": "fact",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "el parque respetó derechos ya adquiridos",
+        "había dueños antes de 1973",
+        "el acuerdo dejo a salvo predios viejos",
+        "la creacion borro la propiedad anterior",
+        "derechos adquiridos en los nevados",
+        "mi familia estaba antes del parque",
+        "el articulo cuarto del acuerdo 15",
+        "el lindero cayo sobre terreno vacio",
+        "que paso con los derechos previos",
+        "did the 1973 agreement cancel older property rights",
+        "were there already owners when the park was delimited",
+        "derechos antes de la vigencia del acuerdo"
+      ],
+      "hard_negatives": [
+        "comunidades campesinas del parque",
+        "qué prohibía el acuerdo de 1973",
+        "puedo comprar un lote dentro del parque"
+      ],
+      "needs": [],
+      "answer": {
+        "short": "El artículo cuarto del Acuerdo 15 dejó a salvo los derechos adquiridos antes de su vigencia. La historia del parque no empieza en un terreno vacío. Qué se puede hacer hoy en un predio lo define Parques Nacionales.",
+        "variants": [
+          "El acuerdo de 1973 no presentó el área como tierra de nadie: dejó a salvo los derechos adquiridos antes de entrar en vigencia. El uso actual de un predio se confirma con el parque."
+        ],
+        "detail": null,
+        "reflection": null
+      },
+      "sources": [
+        {
+          "label": "Resolución Ejecutiva 148 de 1974 y Acuerdo 15 de 1973",
+          "url": "https://old.parquesnacionales.gov.co/portal/wp-content/uploads/2022/01/148-de-1974.pdf",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "last_verified": "2026-11-21",
+      "valid_until": null,
+      "related": [
+        "history_culture.park_creation_1974",
+        "history_culture.campesino_communities"
+      ],
+      "tags": [
+        "derechos",
+        "1973"
+      ]
+    },
+    {
+      "id": "history_culture.acuerdo_1973_limits",
+      "label": "prohibiciones del acuerdo de 1973",
+      "kind": "fact",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "qué prohibía el acuerdo de 1973",
+        "el acta de creacion prohibia cazar",
+        "se podia vender tierras en 1973",
+        "baldios dentro del lindero nuevo",
+        "actividad agricola en el acuerdo 15",
+        "que excepcion dejo el inderena",
+        "la prohibicion vieja es la regla de hoy",
+        "articulo segundo del acuerdo de linderos",
+        "caza y pesca en el texto de 1973",
+        "what did the 1973 agreement forbid inside the boundary",
+        "was that founding ban the same as today's visitor rules",
+        "industria y ganaderia en el acuerdo original"
+      ],
+      "hard_negatives": [
+        "puedo entrar con mi perro",
+        "puedo usar un dron",
+        "la ley 2 de 1959 y los nevados"
+      ],
+      "needs": [],
+      "answer": {
+        "short": "El artículo segundo del Acuerdo 15 prohibió, en el área alinderada, adjudicar baldíos, vender tierras, cazar, pescar y la actividad industrial, ganadera o agrícola, salvo lo que el INDERENA considerara conveniente para conservar o embellecer la zona. Es el texto de 1973. Las reglas de tu visita son las que publica hoy el parque.",
+        "variants": [
+          "En 1973 el acuerdo cerró baldíos, ventas, caza, pesca e industria, ganadería o agricultura dentro del lindero, con la excepción que el INDERENA viera conveniente para conservar o embellecer. Ese artículo no reemplaza el reglamento actual de la visita."
+        ],
+        "detail": "El artículo remite al artículo 13 de la Ley 2 de 1959 y no escribe la palabra turismo. La salvedad que sí está en el acuerdo es la que el INDERENA considerara conveniente para conservar o embellecer la zona.",
+        "reflection": null
+      },
+      "sources": [
+        {
+          "label": "Resolución Ejecutiva 148 de 1974 y Acuerdo 15 de 1973",
+          "url": "https://old.parquesnacionales.gov.co/portal/wp-content/uploads/2022/01/148-de-1974.pdf",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "last_verified": "2026-11-21",
+      "valid_until": null,
+      "related": [
+        "history_culture.ley_2_1959",
+        "history_culture.park_creation_1974"
+      ],
+      "tags": [
+        "1973",
+        "prohibiciones"
+      ]
+    },
+    {
+      "id": "history_culture.subject_of_rights",
+      "label": "parque como sujeto de derechos",
+      "kind": "fact",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "el parque es sujeto de derechos",
+        "sentencia del 25 de noviembre de 2020",
+        "stl10716 que decidio",
+        "quien representa al parque",
+        "el fallo cerro la visita",
+        "los nevados tienen derechos",
+        "corte suprema y el parque en 2020",
+        "plan conjunto de recuperacion",
+        "cero presencia humana sigue vigente",
+        "did a court declare the park a subject of rights",
+        "does that 2020 ruling ban visitors",
+        "vida salud y ambiente sano del parque"
+      ],
+      "hard_negatives": [
+        "qué hago si me da mal de altura",
+        "el parque está cerrado hoy",
+        "adopción del plan de manejo"
+      ],
+      "needs": [],
+      "answer": {
+        "short": "El 25 de noviembre de 2020 la Corte Suprema declaró al parque sujeto de derechos a la vida, la salud y un ambiente sano. Su representación quedó en el Presidente, que puede ejercerla por medio de Parques Nacionales, y la sentencia ordenó un plan conjunto de recuperación. Si puedes entrar hoy lo define el parque en cada sector.",
+        "variants": [
+          "Desde el 25 de noviembre de 2020 el parque es sujeto de derechos a la vida, la salud y un ambiente sano, representado por el Presidente a través de Parques Nacionales. El fallo ordena un plan de recuperación y no sustituye el aviso de ingreso del sector."
+        ],
+        "detail": "La primera instancia, el 13 de octubre de 2020, metió en el numeral primero una directriz de cero presencia humana, agropecuaria e industrial. La Corte modificó ese numeral. El texto de reemplazo declara los derechos y ordena el plan conjunto, y no repite esa frase de cero presencia. No la uses como si la visita regulada estuviera prohibida. El índice del parque también lista el Decreto 1270 del 18 de septiembre de 2020, ligado a una sentencia de tribunal de agosto de 2020: es otro documento, no esta sentencia de noviembre.",
+        "reflection": null
+      },
+      "sources": [
+        {
+          "label": "Corte Suprema de Justicia, STL10716-2020, 25 de noviembre de 2020",
+          "url": "https://cortesuprema.gov.co/corte/wp-content/uploads/2020/11/STL10716-2020.pdf",
+          "retrieved_at": "2026-11-21"
+        },
+        {
+          "label": "Parques Nacionales Naturales, ficha Los Nevados",
+          "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "last_verified": "2026-11-21",
+      "valid_until": null,
+      "related": [
+        "history_culture.management_plan_adoptions",
+        "history_culture.park_creation_1974"
+      ],
+      "tags": [
+        "sentencia",
+        "derechos"
+      ]
+    },
+    {
+      "id": "history_culture.management_plan_adoptions",
+      "label": "adopción del plan de manejo",
+      "kind": "fact",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "cuándo adoptaron el plan de manejo",
+        "resolucion 052 de 2007",
+        "resolucion 0393 de 2017",
+        "hay dos planes de manejo",
+        "diario oficial del plan de 2007",
+        "el indice dice cual plan adoptaron",
+        "plan de manejo de septiembre de 2017",
+        "el plan de 2007 sigue solo",
+        "que resolucion adopto el plan",
+        "when does the park index say the management plan was adopted",
+        "are there two adoption resolutions on the index",
+        "plan de manejo 26 de enero de 2007"
+      ],
+      "hard_negatives": [
+        "el parque es sujeto de derechos",
+        "a qué hora abre el parque",
+        "cuánto vale la entrada"
+      ],
+      "needs": [],
+      "answer": {
+        "short": "El índice normativo del parque lista dos adopciones del plan de manejo: la Resolución 052 del 26 de enero de 2007, en el Diario Oficial 46754 del 17 de septiembre de 2007, y la Resolución 0393 del 14 de septiembre de 2017, en el Diario Oficial 50370 del 28 de septiembre de 2017. Un índice puede quedarse atrás. Si necesitas el plan que aplica hoy, confírmalo con Parques Nacionales.",
+        "variants": [
+          "En el índice aparecen la Resolución 052 de 2007 y la Resolución 0393 de 2017 como adopciones del plan de manejo, con sus diarios oficiales. Para saber cuál rige tu visita, confirma con el parque."
+        ],
+        "detail": null,
+        "reflection": null
+      },
+      "sources": [
+        {
+          "label": "Parques Nacionales, índice normativo de Los Nevados",
+          "url": "https://old.parquesnacionales.gov.co/portal/es/normatividad/marco-normativo-areas-protegidas/dreccion-territorial-andes-occidentales/parque-nacional-natural-nevados/",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "last_verified": "2026-11-21",
+      "valid_until": null,
+      "related": [
+        "history_culture.park_creation_1974",
+        "history_culture.subject_of_rights"
+      ],
+      "tags": [
+        "plan de manejo",
+        "2007",
+        "2017"
+      ]
+    },
+    {
+      "id": "history_culture.armero_1985",
+      "label": "tragedia de Armero en 1985",
+      "kind": "fact",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "Armero",
+        "1985",
+        "historia del volcán",
+        "qué pasó en Armero",
+        "cuándo fue la tragedia de Armero",
+        "cuándo hizo erupción en 1985",
+        "el 13 de noviembre que paso",
+        "cuantos muertos hubo en armero",
+        "el lahar de armero a cuantos kilometros",
+        "la erupcion del ruiz destruyo armero",
+        "what happened in Armero in 1985",
+        "how far was Armero from the summit",
+        "el ruiz derritio el hielo y bajo el lodo"
+      ],
+      "hard_negatives": [
+        "cuál es la alerta del Ruiz hoy",
+        "qué es un lahar",
+        "Armero queda dentro del parque"
+      ],
+      "needs": [],
+      "answer": {
+        "short": "El 13 de noviembre de 1985 una erupción del Ruiz derritió parte del glaciar y los lahares arrasaron Armero, en Tolima, a unos 74 km de la cima. También hubo muertos en Chinchiná y Rioclaro. El SGC no publica un solo total: el portal histórico habla de más de 20.000 en Armero, su relato del día de más de 23.000, y la hoja de 2024 de 25 mil.",
+        "variants": [
+          "Ese 13 de noviembre de 1985 el deshielo del Ruiz alimentó lahares que sepultaron Armero, a unos 74 km, y golpearon también a Chinchiná y Rioclaro. Las páginas del SGC no cierran una sola cifra de muertos.",
+          "Armero, en Tolima, quedó bajo los lahares del 13 de noviembre de 1985, a unos 74 km de la cima. Chinchiná y Rioclaro también perdieron vidas. El propio SGC publica totales distintos, así que no hay una sola cifra."
+        ],
+        "detail": "Otras lecturas oficiales, sin convertirlas en un entero: la tabla de actividad dice «Más de 25000 muertos» para la erupción del 13 de noviembre de 1985. La memoria del mapa, de noviembre de 2015, dice más de 25.000 muertos en Armero y Chinchiná, y en otra frase aproximadamente 25.000. El resumen del portal junta tres eventos, 1595, 1845 y 1985, en más de 25.000, y aparte deja 1985 en más de 20.000 solo en Armero. La ficha del parque recuerda la población sepultada y usa la palabra amanecer: no trae una hora ni un conteo.",
+        "reflection": null,
+        "steps": [
+          [
+            "El 13 de noviembre de 1985 la erupción derritió parte del glaciar y formó lahares."
+          ],
+          [
+            "Esos flujos arrasaron Armero, a unos 74 km de la cima, y también afectaron a Chinchiná y Rioclaro."
+          ],
+          [
+            "El SGC publica más de un total de muertos. Ninguna de esas páginas deja una sola cifra cerrada."
+          ]
+        ]
+      },
+      "sources": [
+        {
+          "label": "Servicio Geológico Colombiano, portal histórico del Ruiz",
+          "url": "https://historia-volcanes.sgc.gov.co/volcan-detalle?id=6",
+          "retrieved_at": "2026-11-21"
+        },
+        {
+          "label": "Servicio Geológico Colombiano, hoja del Ruiz, septiembre de 2024",
+          "url": "https://www2.sgc.gov.co/Temas-destacados/Documents/Hoja-informativa-volcan-Nevado-de-Ruiz-SGC.pdf",
+          "retrieved_at": "2026-11-21"
+        },
+        {
+          "label": "Servicio Geológico Colombiano, actividad histórica del Ruiz",
+          "url": "https://www2.sgc.gov.co/sgc/volcanes/VolcanNevadoRuiz/Paginas/Actividad-historica.aspx",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "last_verified": "2026-11-21",
+      "valid_until": null,
+      "related": [
+        "history_culture.what_is_a_lahar",
+        "history_culture.rivers_1985",
+        "history_culture.armero_outside_park"
+      ],
+      "tags": [
+        "armero",
+        "1985",
+        "lahar"
+      ],
+      "entities": {
+        "volcano": [
+          "ruiz"
+        ]
+      }
+    },
+    {
+      "id": "history_culture.what_is_a_lahar",
+      "label": "qué es un lahar",
+      "kind": "explanation",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "lahar",
+        "qué son los lahares",
+        "qué es una avalancha volcánica",
+        "cómo se forma un lahar",
+        "el lodo del volcan como se llama",
+        "lahar es lo mismo que avalancha",
+        "de que esta hecho un lahar",
+        "por que un lahar parece concreto",
+        "el lahar baja por los rios",
+        "what is a lahar",
+        "why do people in Colombia say avalancha",
+        "el hielo derretido se vuelve lahar"
+      ],
+      "hard_negatives": [
+        "lahar primario o secundario",
+        "qué pasó en Armero",
+        "qué hago si cae ceniza"
+      ],
+      "needs": [],
+      "answer": {
+        "short": "Un lahar es una mezcla de fragmentos de roca, arena, limo, arcilla y agua que baja por quebradas y ríos. El SGC lo compara con concreto húmedo y recuerda que en Colombia mucha gente dice avalancha. En el Ruiz, una erupción puede alimentar ese flujo al derretir parte del hielo de la cima, como pasó en Armero.",
+        "variants": [
+          "Lahar, o avalancha en el habla corriente, es lodo volcánico con roca y agua que corre por los cauces. En el Ruiz el agua puede salir del hielo derretido por la erupción."
+        ],
+        "detail": null,
+        "reflection": null
+      },
+      "sources": [
+        {
+          "label": "Servicio Geológico Colombiano, conceptos del mapa de amenaza del Ruiz",
+          "url": "https://www2.sgc.gov.co/sgc/volcanes/VolcanNevadoRuiz/Paginas/Mapa-amenaza.aspx",
+          "retrieved_at": "2026-11-21"
+        },
+        {
+          "label": "Servicio Geológico Colombiano, hoja del Ruiz, septiembre de 2024",
+          "url": "https://www2.sgc.gov.co/Temas-destacados/Documents/Hoja-informativa-volcan-Nevado-de-Ruiz-SGC.pdf",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "last_verified": "2026-11-21",
+      "valid_until": null,
+      "related": [
+        "history_culture.primary_secondary_lahar",
+        "history_culture.armero_1985",
+        "history_culture.rivers_1985"
+      ],
+      "tags": [
+        "lahar",
+        "avalancha"
+      ],
+      "entities": {
+        "volcano": [
+          "ruiz"
+        ]
+      }
+    },
+    {
+      "id": "history_culture.primary_secondary_lahar",
+      "label": "lahar primario y secundario",
+      "kind": "explanation",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "lahar primario o secundario",
+        "que es un lahar primario",
+        "el lahar de lluvia es otro",
+        "la nota del sgc sobre lahares",
+        "derretimiento del hielo o lluvia",
+        "lahar secundario por la lluvia",
+        "armero fue lahar primario",
+        "no confundas el lodo de la erupcion con el de la lluvia",
+        "diferencia entre los dos lahares",
+        "what is a primary lahar",
+        "how is a rain-triggered lahar different",
+        "el ideam y el sgc no hablaban del mismo lahar"
+      ],
+      "hard_negatives": [
+        "qué es un lahar",
+        "cuál es la alerta del Ruiz hoy",
+        "va a llover en el páramo"
+      ],
+      "needs": [],
+      "answer": {
+        "short": "Un lahar primario, según la nota del SGC del 28 de abril de 2023, nace cuando una erupción derrite rápido el hielo y la nieve. Uno secundario aparece cuando la lluvia remueve material volcánico suelto de erupciones anteriores. Esa nota pone a Armero como ejemplo de lahar primario.",
+        "variants": [
+          "El primario lo dispara el deshielo en la erupción y el secundario lo dispara la lluvia sobre material suelto. El SGC usa Armero para explicar el primero."
+        ],
+        "detail": "La nota describe una capacidad general de los lahares primarios, velocidades incluso mayores a 70 km/h, y dice que ese día el Ruiz estaba en nivel naranja. Esa frase es del 28 de abril de 2023, no el estado de hoy. El relato histórico del 13 de noviembre de 1985 habla de lahares a más de 40 km/h. No son la misma medición y no se funden en una sola velocidad de aquella noche. La página del mapa de amenaza añade que también hay lahares primarios durante la erupción y secundarios por otros contactos del agua con material volcánico, con agua de nieve, hielo, lagos, lluvia u otras fuentes.",
+        "reflection": null
+      },
+      "sources": [
+        {
+          "label": "Servicio Geológico Colombiano, nota del 28 de abril de 2023",
+          "url": "https://www2.sgc.gov.co/Noticias/Paginas/Nota-aclaratoria-sobre-el-t%C3%A9rmino-%E2%80%98lahares%E2%80%99-con-relaci%C3%B3n-a-las-recientes-alertas-anunciadas-por-el-IDEAM.aspx",
+          "retrieved_at": "2026-11-21"
+        },
+        {
+          "label": "Servicio Geológico Colombiano, conceptos del mapa de amenaza del Ruiz",
+          "url": "https://www2.sgc.gov.co/sgc/volcanes/VolcanNevadoRuiz/Paginas/Mapa-amenaza.aspx",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "last_verified": "2026-11-21",
+      "valid_until": null,
+      "related": [
+        "history_culture.what_is_a_lahar",
+        "history_culture.armero_1985"
+      ],
+      "tags": [
+        "primario",
+        "secundario"
+      ],
+      "entities": {
+        "volcano": [
+          "ruiz"
+        ]
+      }
+    },
+    {
+      "id": "history_culture.eruption_1595",
+      "label": "lahares de marzo de 1595",
+      "kind": "fact",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "erupción de 1595",
+        "que paso el 12 de marzo de 1595",
+        "fray pedro simon y el ruiz",
+        "el volcan de cartago",
+        "lahares de 1595 por el guali",
+        "cuantos murieron en 1595",
+        "la primera erupcion contada del ruiz",
+        "1595 llego al magdalena",
+        "hubo seiscientos muertos en 1595",
+        "what happened at the Ruiz in 1595",
+        "is the 1595 death toll a single official number",
+        "cronica del 12 de marzo"
+      ],
+      "hard_negatives": [
+        "erupción del Ruiz en 1845",
+        "qué pasó en Armero",
+        "cuál es la alerta del Ruiz hoy"
+      ],
+      "needs": [],
+      "answer": {
+        "short": "El 12 de marzo de 1595 es, en el portal del SGC, la primera noticia detallada del Ruiz: fray Pedro Simón recogió relatos de ceniza, piedra pómez y lahares que bajaron por el Gualí y el Lagunilla hasta el Magdalena. Las muertes no tienen una sola cifra. El resumen del portal dice alrededor de 600 y la hoja de 2024 dice más de 600.",
+        "variants": [
+          "Ese 12 de marzo de 1595 el portal histórico describe lahares hacia el Magdalena por el Gualí y el Lagunilla, a partir de Simón. Una página del SGC habla de alrededor de 600 muertos y otra de más de 600."
+        ],
+        "detail": "La memoria del mapa, de noviembre de 2015, no separa 1595 y 1845: dice que en esos dos años murieron alrededor de 1000 personas en la antigua población de Armero. Esa frase no se suma con los conteos separados del portal.",
+        "reflection": null
+      },
+      "sources": [
+        {
+          "label": "Servicio Geológico Colombiano, portal histórico del Ruiz",
+          "url": "https://historia-volcanes.sgc.gov.co/volcan-detalle?id=6",
+          "retrieved_at": "2026-11-21"
+        },
+        {
+          "label": "Servicio Geológico Colombiano, hoja del Ruiz, septiembre de 2024",
+          "url": "https://www2.sgc.gov.co/Temas-destacados/Documents/Hoja-informativa-volcan-Nevado-de-Ruiz-SGC.pdf",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "last_verified": "2026-11-21",
+      "valid_until": null,
+      "related": [
+        "history_culture.eruption_1845",
+        "history_culture.armero_1985"
+      ],
+      "tags": [
+        "1595",
+        "simon"
+      ],
+      "entities": {
+        "volcano": [
+          "ruiz"
+        ]
+      }
+    },
+    {
+      "id": "history_culture.eruption_1845",
+      "label": "flujo de lodo en 1845",
+      "kind": "fact",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "erupción del Ruiz en 1845",
+        "que paso el 19 de febrero de 1845",
+        "el lahar de 1845 por el lagunilla",
+        "murio gente antes de que existiera armero",
+        "tabaco y cacao en 1845",
+        "cuantos muertos en 1845",
+        "flujo de lodo de febrero de 1845",
+        "mas de mil o cerca de mil",
+        "la erupcion de 1845 en la mañana",
+        "what happened on 19 February 1845",
+        "did the 1845 mudflow hit a town called Armero",
+        "perdida de cultivos en 1845"
+      ],
+      "hard_negatives": [
+        "erupción de 1595",
+        "Armero antes de 1985",
+        "qué pasó en Armero"
+      ],
+      "needs": [],
+      "answer": {
+        "short": "El 19 de febrero de 1845, en la mañana, bajó un gran flujo de lodo por el Lagunilla, sobre una zona donde Armero todavía no existía: el relato pone la fundación en 1895. El portal habla de cerca de mil muertos y de la pérdida de tabaco y cacao, y la hoja de 2024 dice más de mil.",
+        "variants": [
+          "En la mañana del 19 de febrero de 1845 el lodo bajó por el Lagunilla sobre una población dispersa, no sobre el Armero de 1985. El SGC habla de cerca de mil muertos y también de más de mil, y menciona el tabaco y el cacao."
+        ],
+        "detail": "La tabla de actividad dice «más de 1000 muertos» para el 19 de febrero de 1845. La memoria de 2015 junta 1595 y 1845 en alrededor de 1000 personas en la antigua Armero. El resumen del portal, en cambio, da aproximadamente 1.000 solo a 1845 y alrededor de 600 a 1595. El relato del día añade que el lodo ocupó también canales viejos. No se elige un solo entero.",
+        "reflection": null
+      },
+      "sources": [
+        {
+          "label": "Servicio Geológico Colombiano, portal histórico del Ruiz",
+          "url": "https://historia-volcanes.sgc.gov.co/volcan-detalle?id=6",
+          "retrieved_at": "2026-11-21"
+        },
+        {
+          "label": "Servicio Geológico Colombiano, hoja del Ruiz, septiembre de 2024",
+          "url": "https://www2.sgc.gov.co/Temas-destacados/Documents/Hoja-informativa-volcan-Nevado-de-Ruiz-SGC.pdf",
+          "retrieved_at": "2026-11-21"
+        },
+        {
+          "label": "Servicio Geológico Colombiano, actividad histórica del Ruiz",
+          "url": "https://www2.sgc.gov.co/sgc/volcanes/VolcanNevadoRuiz/Paginas/Actividad-historica.aspx",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "last_verified": "2026-11-21",
+      "valid_until": null,
+      "related": [
+        "history_culture.eruption_1595",
+        "history_culture.armero_before_1985",
+        "history_culture.armero_1985"
+      ],
+      "tags": [
+        "1845",
+        "lagunilla"
+      ],
+      "entities": {
+        "volcano": [
+          "ruiz"
+        ]
+      }
+    },
+    {
+      "id": "history_culture.armero_before_1985",
+      "label": "Armero antes de 1985",
+      "kind": "fact",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "cuándo se fundó Armero",
+        "armero existia en 1845",
+        "el pueblo se fundo en 1895",
+        "antes de la tragedia ya habia municipio",
+        "armero en el siglo xix",
+        "la antigua armero y el lahar viejo",
+        "1895 es la fundacion",
+        "en 1845 no habia casco urbano",
+        "armero es anterior al parque",
+        "when was Armero founded",
+        "did Armero already exist in 1845",
+        "el municipio que encontro el lahar de 1985"
+      ],
+      "hard_negatives": [
+        "qué pasó en Armero",
+        "Armero y Armero Guayabal",
+        "erupción del Ruiz en 1845"
+      ],
+      "needs": [],
+      "answer": {
+        "short": "El relato del SGC sobre 1845 dice que entonces no había un pueblo en ese punto y que Armero se fundó en 1895. La tragedia de 1985 cayó sobre un municipio que ya existía.",
+        "variants": [
+          "Armero no estaba fundado en 1845. El portal histórico pone la fundación en 1895, así que en 1985 el lahar llegó a un pueblo ya constituido."
+        ],
+        "detail": null,
+        "reflection": null
+      },
+      "sources": [
+        {
+          "label": "Servicio Geológico Colombiano, portal histórico del Ruiz",
+          "url": "https://historia-volcanes.sgc.gov.co/volcan-detalle?id=6",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "last_verified": "2026-11-21",
+      "valid_until": null,
+      "related": [
+        "history_culture.eruption_1845",
+        "history_culture.armero_1985",
+        "history_culture.armero_guayabal_name"
+      ],
+      "tags": [
+        "1895",
+        "fundacion"
+      ]
+    },
+    {
+      "id": "history_culture.chinchina_rioclaro_1985",
+      "label": "Chinchiná y Rioclaro en 1985",
+      "kind": "fact",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "chinchina tambien sufrio en 1985",
+        "que paso en rioclaro",
+        "hubo muertos en caldas ese noviembre",
+        "la tragedia no fue solo armero",
+        "chinchina y el lahar",
+        "rioclaro cuantos muertos",
+        "el ruiz afecto pueblos de caldas",
+        "ademas de armero que pueblos",
+        "chinchina quedo en la memoria del desastre",
+        "did Chinchiná lose people in 1985",
+        "was Rioclaro also hit",
+        "el desastre en caldas el 13 de noviembre"
+      ],
+      "hard_negatives": [
+        "qué pasó en Armero",
+        "ríos de los lahares de 1985",
+        "cómo llego a Chinchiná"
+      ],
+      "needs": [],
+      "answer": {
+        "short": "El resumen histórico del SGC dice que Chinchiná y Rioclaro, en Caldas, también sufrieron afectaciones graves y pérdida de vidas el 13 de noviembre de 1985. El relato de ese día nombra a Chinchiná y no da una cifra aparte para Rioclaro. La memoria de 2015 cuenta más de 25.000 muertos entre Armero y Chinchiná, que es otro total, no un conteo separado de Rioclaro.",
+        "variants": [
+          "Chinchiná y Rioclaro entran en el resumen del SGC como pueblos con muertos en 1985, además de Armero. No hay en esas páginas una cifra sola para Rioclaro."
+        ],
+        "detail": null,
+        "reflection": null
+      },
+      "sources": [
+        {
+          "label": "Servicio Geológico Colombiano, portal histórico del Ruiz",
+          "url": "https://historia-volcanes.sgc.gov.co/volcan-detalle?id=6",
+          "retrieved_at": "2026-11-21"
+        },
+        {
+          "label": "Servicio Geológico Colombiano, memoria del mapa de amenaza, noviembre de 2015",
+          "url": "https://www2.sgc.gov.co/sgc/volcanes/VolcanNevadoRuiz/Documents/MemMapaAmenVNR.pdf",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "last_verified": "2026-11-21",
+      "valid_until": null,
+      "related": [
+        "history_culture.armero_1985",
+        "history_culture.rivers_1985"
+      ],
+      "tags": [
+        "chinchina",
+        "rioclaro"
+      ]
+    },
+    {
+      "id": "history_culture.rivers_1985",
+      "label": "ríos de los lahares de 1985",
+      "kind": "fact",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "por qué ríos bajó el lahar de 1985",
+        "lagunilla o lagunillas en armero",
+        "el azufrado llevo lodo",
+        "el guali en la tragedia",
+        "nereidas y molinos en 1985",
+        "que rio destruyo armero",
+        "el chinchina tambien fue cauce",
+        "listas distintas de rios del desastre",
+        "por donde bajo el lodo hasta armero",
+        "which rivers carried the 1985 lahars",
+        "did the Azufrado and Lagunilla reach Armero",
+        "el chinchina tambien salio en el relato"
+      ],
+      "hard_negatives": [
+        "dónde nace el río Otún",
+        "qué es un lahar",
+        "Chinchiná y Rioclaro en 1985"
+      ],
+      "needs": [],
+      "answer": {
+        "short": "La memoria del SGC de 2015 dice que los lahares del 13 de noviembre de 1985 bajaron por el Gualí, el Azufrado, el Lagunilla, Nereidas y Molinos, y que Azufrado y Lagunilla destruyeron Armero. El portal histórico escribe Lagunillas y suma afluentes, y la ficha del parque nombra Lagunilla, Gualí y Chinchiná: no es la misma lista.",
+        "variants": [
+          "Para 1985 el SGC atribuye la destrucción de Armero a los lahares del Azufrado y del Lagunilla, dentro de un grupo más amplio de cauces. La grafía Lagunilla o Lagunillas, y el río Chinchiná en la ficha del parque, cambian según la página."
+        ],
+        "detail": "El relato del portal dice que esos lahares superaron los 40 km/h. La nota del 28 de abril de 2023 habla de lahares primarios con velocidades incluso mayores a 70 km/h como capacidad general. No se presenta ninguna de las dos como la velocidad medida de aquella noche. Nereidas y Molinos, en la memoria, tributan al Claro y al Chinchiná. Eso explica la afectación ribereña del Chinchiná sin convertir la lista en un mapa de nacimientos.",
+        "reflection": null
+      },
+      "sources": [
+        {
+          "label": "Servicio Geológico Colombiano, memoria del mapa de amenaza, noviembre de 2015",
+          "url": "https://www2.sgc.gov.co/sgc/volcanes/VolcanNevadoRuiz/Documents/MemMapaAmenVNR.pdf",
+          "retrieved_at": "2026-11-21"
+        },
+        {
+          "label": "Servicio Geológico Colombiano, portal histórico del Ruiz",
+          "url": "https://historia-volcanes.sgc.gov.co/volcan-detalle?id=6",
+          "retrieved_at": "2026-11-21"
+        },
+        {
+          "label": "Parques Nacionales Naturales, ficha Los Nevados",
+          "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "last_verified": "2026-11-21",
+      "valid_until": null,
+      "related": [
+        "history_culture.armero_1985",
+        "history_culture.what_is_a_lahar",
+        "history_culture.chinchina_rioclaro_1985"
+      ],
+      "tags": [
+        "rios",
+        "1985"
+      ],
+      "entities": {
+        "volcano": [
+          "ruiz"
+        ]
+      }
+    },
+    {
+      "id": "history_culture.phenomena_1985",
+      "label": "fenómenos de la erupción de 1985",
+      "kind": "explanation",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "que fenomenos hubo el 13 de noviembre",
+        "solo fue un lahar o hubo ceniza",
+        "hubo nubes ardientes en 1985",
+        "flujos piroclasticos de esa noche",
+        "la columna se derrumbo y derritio el hielo",
+        "caida de ceniza en la erupcion de armero",
+        "que salio del crater ese dia",
+        "la erupcion fue de lodo y de ceniza",
+        "fenomenos volcanicos del 13 de noviembre",
+        "what volcanic phenomena occurred on 13 November 1985",
+        "was it only a mudflow or also ash and pyroclastic flows",
+        "el glaciar se derritio por las corrientes calientes"
+      ],
+      "hard_negatives": [
+        "qué es un lahar",
+        "índice de explosividad de 1985",
+        "qué hago si cae ceniza hoy"
+      ],
+      "needs": [],
+      "answer": {
+        "short": "La hoja del SGC de 2024 dice que el 13 de noviembre de 1985 hubo sobre todo lahares, también llamados avalanchas, además de caída de ceniza y flujos piroclásticos. El portal histórico añade que el colapso de la columna generó corrientes que derritieron parte del glaciar y así alimentaron los lahares.",
+        "variants": [
+          "Esa erupción no fue solo lodo. La hoja de 2024 enumera lahares, ceniza y flujos piroclásticos, y el portal explica el deshielo por el colapso de la columna."
+        ],
+        "detail": null,
+        "reflection": null
+      },
+      "sources": [
+        {
+          "label": "Servicio Geológico Colombiano, hoja del Ruiz, septiembre de 2024",
+          "url": "https://www2.sgc.gov.co/Temas-destacados/Documents/Hoja-informativa-volcan-Nevado-de-Ruiz-SGC.pdf",
+          "retrieved_at": "2026-11-21"
+        },
+        {
+          "label": "Servicio Geológico Colombiano, portal histórico del Ruiz",
+          "url": "https://historia-volcanes.sgc.gov.co/volcan-detalle?id=6",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "last_verified": "2026-11-21",
+      "valid_until": null,
+      "related": [
+        "history_culture.what_is_a_lahar",
+        "history_culture.armero_1985",
+        "history_culture.why_1985_deadly"
+      ],
+      "tags": [
+        "fenomenos",
+        "1985"
+      ],
+      "entities": {
+        "volcano": [
+          "ruiz"
+        ]
+      }
+    },
+    {
+      "id": "history_culture.why_1985_deadly",
+      "label": "por qué 1985 fue tan mortal",
+      "kind": "explanation",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "por qué murió tanta gente en 1985",
+        "si el indice no era tan alto por que fue tan grave",
+        "armero estaba expuesto al lahar",
+        "falta de memoria e incredulidad",
+        "la institucionalidad y la tragedia",
+        "el desastre no se explica solo con el vei",
+        "por que armero fue tan mortal",
+        "gestion del riesgo despues del desastre",
+        "el mapa ya mostraba armero",
+        "why was the 1985 eruption so deadly",
+        "was the death toll only a matter of eruption size",
+        "desconocimiento del volcan en 1985"
+      ],
+      "hard_negatives": [
+        "índice de explosividad de 1985",
+        "cuál es la alerta del Ruiz hoy",
+        "qué hago si me da mal de altura"
+      ],
+      "needs": [],
+      "answer": {
+        "short": "La erupción del 13 de noviembre de 1985 fue tan mortífera porque los lahares bajaron hacia zonas habitadas, entre ellas Armero. La hoja del SGC de 2024 señala el desconocimiento del volcán, la falta de memoria histórica, la incredulidad y la falta de institucionalidad. El índice de explosividad no explica solo el desastre.",
+        "variants": [
+          "Lo que multiplicó los muertos fue la exposición al lahar, no únicamente el tamaño de la erupción. La hoja de 2024 nombra el desconocimiento, la falta de memoria, la incredulidad y la debilidad institucional."
+        ],
+        "detail": "La misma hoja ilustra la idea con el Pinatubo de 1991, de índice 6 y 300 muertos, frente a la cifra de 25 mil que ella usa para el Ruiz. Otras páginas del SGC no coinciden en ese total. El 7 de octubre de 1985 el portal fecha el primer mapa de riesgo del Ruiz, hecho por Ingeominas y la Universidad de Caldas, e incluye a Armero y veredas de Chinchiná y Villamaría entre las zonas de lahar. El mismo párrafo dice «20 días antes» de la erupción del 13 de noviembre: entre el 7 de octubre y el 13 de noviembre hay más de 20 días, así que esa frase no se repite como plazo.",
+        "reflection": null,
+        "steps": [
+          [
+            "Los lahares bajaron hacia zonas habitadas. Armero estaba en ese camino."
+          ],
+          [
+            "La hoja de 2024 señala desconocimiento del volcán, falta de memoria histórica, incredulidad y falta de institucionalidad."
+          ],
+          [
+            "El índice de explosividad no alcanza para explicar los muertos, y las cifras oficiales no coinciden en un solo total."
+          ]
+        ]
+      },
+      "sources": [
+        {
+          "label": "Servicio Geológico Colombiano, hoja del Ruiz, septiembre de 2024",
+          "url": "https://www2.sgc.gov.co/Temas-destacados/Documents/Hoja-informativa-volcan-Nevado-de-Ruiz-SGC.pdf",
+          "retrieved_at": "2026-11-21"
+        },
+        {
+          "label": "Servicio Geológico Colombiano, portal histórico del Ruiz",
+          "url": "https://historia-volcanes.sgc.gov.co/volcan-detalle?id=6",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "last_verified": "2026-11-21",
+      "valid_until": null,
+      "related": [
+        "history_culture.armero_1985",
+        "history_culture.vei_1985",
+        "history_culture.risk_lessons"
+      ],
+      "tags": [
+        "causas",
+        "1985"
+      ],
+      "entities": {
+        "volcano": [
+          "ruiz"
+        ]
+      }
+    },
+    {
+      "id": "history_culture.vei_1985",
+      "label": "índice de explosividad de 1985",
+      "kind": "fact",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "qué VEI tuvo la erupción de 1985",
+        "el ruiz fue vei 3 o 4",
+        "indice de explosividad de armero",
+        "la escala de 0 a 8 en 1985",
+        "fue un vei 3 exacto",
+        "el indice fue de 3 a 4",
+        "que tan explosiva fue esa erupcion",
+        "vei de noviembre de 1985",
+        "no es un solo numero el indice",
+        "what VEI does the geological service give for 1985",
+        "is the 1985 explosivity index settled",
+        "escala de explosividad del ruiz"
+      ],
+      "hard_negatives": [
+        "por qué 1985 fue tan mortal",
+        "segunda erupción más mortífera",
+        "cuál es la alerta del Ruiz hoy"
+      ],
+      "needs": [],
+      "answer": {
+        "short": "La hoja del SGC de septiembre de 2024 da a la erupción del 13 de noviembre de 1985 un índice de explosividad de 3 a 4, en una escala de 0 a 8. La memoria del mapa, de noviembre de 2015, dice VEI 3 para esa misma erupción. No es un solo número.",
+        "variants": [
+          "Para 1985 vas a leer 3 a 4 en la hoja de 2024 y VEI 3 en la memoria de 2015. Las dos son del SGC y no se reducen a un entero."
+        ],
+        "detail": null,
+        "reflection": null
+      },
+      "sources": [
+        {
+          "label": "Servicio Geológico Colombiano, hoja del Ruiz, septiembre de 2024",
+          "url": "https://www2.sgc.gov.co/Temas-destacados/Documents/Hoja-informativa-volcan-Nevado-de-Ruiz-SGC.pdf",
+          "retrieved_at": "2026-11-21"
+        },
+        {
+          "label": "Servicio Geológico Colombiano, memoria del mapa de amenaza, noviembre de 2015",
+          "url": "https://www2.sgc.gov.co/sgc/volcanes/VolcanNevadoRuiz/Documents/MemMapaAmenVNR.pdf",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "last_verified": "2026-11-21",
+      "valid_until": null,
+      "related": [
+        "history_culture.why_1985_deadly",
+        "history_culture.phenomena_1985"
+      ],
+      "tags": [
+        "vei",
+        "1985"
+      ],
+      "entities": {
+        "volcano": [
+          "ruiz"
+        ]
+      }
+    },
+    {
+      "id": "history_culture.second_deadliest",
+      "label": "segunda erupción más mortífera",
+      "kind": "fact",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "la erupcion de 1985 fue de las mas mortales",
+        "segunda del siglo xx",
+        "el ruiz en el ranking de tragedias",
+        "desastre volcanico del siglo 20",
+        "que tan grave fue en la historia mundial",
+        "fue la segunda mas mortal del siglo",
+        "1985 entre las peores erupciones",
+        "no fue la mas explosiva y si de las mas mortales",
+        "segundo desastre volcanico del siglo",
+        "was 1985 among the deadliest eruptions of the century",
+        "does the geological service call it the second deadliest",
+        "siglo xx y armero"
+      ],
+      "hard_negatives": [
+        "por qué 1985 fue tan mortal",
+        "qué VEI tuvo la erupción de 1985",
+        "cuántos muertos hubo en armero"
+      ],
+      "needs": [],
+      "answer": {
+        "short": "La hoja del SGC de septiembre de 2024 llama a la erupción de 1985 la segunda erupción volcánica más mortífera del siglo XX. La memoria de 2015 usa una frase parecida: segundo desastre volcánico mundial de ese siglo. El lugar en esa lista no cierra el número de muertos, que el SGC publica de varias formas.",
+        "variants": [
+          "El SGC ubica 1985 como la segunda gran tragedia volcánica del siglo XX. Esa frase no elige entre los totales distintos que la misma entidad publica."
+        ],
+        "detail": null,
+        "reflection": null
+      },
+      "sources": [
+        {
+          "label": "Servicio Geológico Colombiano, hoja del Ruiz, septiembre de 2024",
+          "url": "https://www2.sgc.gov.co/Temas-destacados/Documents/Hoja-informativa-volcan-Nevado-de-Ruiz-SGC.pdf",
+          "retrieved_at": "2026-11-21"
+        },
+        {
+          "label": "Servicio Geológico Colombiano, memoria del mapa de amenaza, noviembre de 2015",
+          "url": "https://www2.sgc.gov.co/sgc/volcanes/VolcanNevadoRuiz/Documents/MemMapaAmenVNR.pdf",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "last_verified": "2026-11-21",
+      "valid_until": null,
+      "related": [
+        "history_culture.armero_1985",
+        "history_culture.why_1985_deadly"
+      ],
+      "tags": [
+        "siglo xx"
+      ],
+      "entities": {
+        "volcano": [
+          "ruiz"
+        ]
+      }
+    },
+    {
+      "id": "history_culture.minor_19th_century",
+      "label": "actividad menor del siglo XIX",
+      "kind": "fact",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "hubo erupciones del ruiz en 1805",
+        "que paso en 1828 y 1829",
+        "explosiones pequenas del siglo xix",
+        "la tabla lista 1805 como explosion",
+        "boussingault y la ceniza de 1805",
+        "1805 fue ceniza o erupcion",
+        "actividad del ruiz antes de 1845",
+        "crater parasito en 1828",
+        "junio de 1829 hubo explosion",
+        "were there smaller Ruiz eruptions in the 1800s",
+        "is the 1805 event confirmed",
+        "14 de marzo de 1805"
+      ],
+      "hard_negatives": [
+        "erupción del Ruiz en 1845",
+        "erupción de 1595",
+        "cuál es la alerta del Ruiz hoy"
+      ],
+      "needs": [],
+      "answer": {
+        "short": "La tabla de actividad del SGC anota una explosión el 14 de marzo de 1805 y explosiones de cráter parásito en junio de 1828 y el 18 de junio de 1829. El portal histórico no trata 1805 como erupción confirmada: lo cuenta como una tormenta de ceniza que un alcalde indígena relató a Boussingault. Esas dos páginas no dicen lo mismo.",
+        "variants": [
+          "Para el siglo XIX menor, la tabla pone explosiones en 1805, 1828 y 1829, y el relato histórico deja 1805 como una tormenta de ceniza oída por Boussingault. 1805 no queda como erupción cerrada."
+        ],
+        "detail": null,
+        "reflection": null
+      },
+      "sources": [
+        {
+          "label": "Servicio Geológico Colombiano, actividad histórica del Ruiz",
+          "url": "https://www2.sgc.gov.co/sgc/volcanes/VolcanNevadoRuiz/Paginas/Actividad-historica.aspx",
+          "retrieved_at": "2026-11-21"
+        },
+        {
+          "label": "Servicio Geológico Colombiano, portal histórico del Ruiz",
+          "url": "https://historia-volcanes.sgc.gov.co/volcan-detalle?id=6",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "last_verified": "2026-11-21",
+      "valid_until": null,
+      "related": [
+        "history_culture.eruption_1845",
+        "history_culture.scientific_observers"
+      ],
+      "tags": [
+        "1805",
+        "1828",
+        "1829"
+      ],
+      "entities": {
+        "volcano": [
+          "ruiz"
+        ]
+      }
+    },
+    {
+      "id": "history_culture.precursors_1984_1985",
+      "label": "señales antes de noviembre de 1985",
+      "kind": "fact",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "que paso antes del 13 de noviembre",
+        "reactivacion de diciembre de 1984",
+        "el 11 de septiembre de 1985",
+        "hubo un lahar pequeno en el azufrado",
+        "ceniza en manizales semanas antes",
+        "el mapa de riesgo de octubre de 1985",
+        "murio gente el 11 de septiembre",
+        "ganado afectado por la ceniza",
+        "ya se sabia que armero estaba en el mapa",
+        "what happened on 11 September 1985",
+        "was there a hazard map before the November eruption",
+        "senales previas a la tragedia"
+      ],
+      "hard_negatives": [
+        "qué pasó en Armero",
+        "por qué 1985 fue tan mortal",
+        "cuál es la alerta del Ruiz hoy"
+      ],
+      "needs": [],
+      "answer": {
+        "short": "El 11 de septiembre de 1985 el portal describe ceniza hasta Manizales y Chinchiná, a unos 35 km, y un lahar pequeño en el Azufrado, sin víctimas humanas y con unas 1500 reses afectadas. La tabla anota en diciembre de 1984 gases azufrados y reactivación. El 7 de octubre de 1985 se publicó un mapa de riesgo que ya incluía a Armero.",
+        "variants": [
+          "Antes de noviembre ya había señales: gases a finales de 1984 y, el 11 de septiembre de 1985, ceniza y un lahar pequeño sin muertos humanos. El mapa del 7 de octubre incluía a Armero entre las zonas de lahar."
+        ],
+        "detail": null,
+        "reflection": null
+      },
+      "sources": [
+        {
+          "label": "Servicio Geológico Colombiano, portal histórico del Ruiz",
+          "url": "https://historia-volcanes.sgc.gov.co/volcan-detalle?id=6",
+          "retrieved_at": "2026-11-21"
+        },
+        {
+          "label": "Servicio Geológico Colombiano, actividad histórica del Ruiz",
+          "url": "https://www2.sgc.gov.co/sgc/volcanes/VolcanNevadoRuiz/Paginas/Actividad-historica.aspx",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "last_verified": "2026-11-21",
+      "valid_until": null,
+      "related": [
+        "history_culture.armero_1985",
+        "history_culture.why_1985_deadly"
+      ],
+      "tags": [
+        "1984",
+        "septiembre"
+      ],
+      "entities": {
+        "volcano": [
+          "ruiz"
+        ]
+      }
+    },
+    {
+      "id": "history_culture.after_1985_until_1989",
+      "label": "el Ruiz entre 1986 y 1989",
+      "kind": "fact",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "que hizo el ruiz despues de armero",
+        "emisiones de ceniza en 1986",
+        "hubo erupcion el 1 de septiembre de 1989",
+        "el lahar de 1989 dano un puente",
+        "murio gente en 1989",
+        "ceniza en marzo de 1988",
+        "actividad entre 1986 y 1988",
+        "erupcion pequena sin fatalidades",
+        "el azufrado en 1989",
+        "what happened at the Ruiz on 1 September 1989",
+        "was there another deadly eruption before 1990",
+        "ceniza despues de la tragedia"
+      ],
+      "hard_negatives": [
+        "qué pasó en Armero",
+        "erupciones de 2012 y el domo",
+        "cuál es la alerta del Ruiz hoy"
+      ],
+      "needs": [],
+      "answer": {
+        "short": "Después de noviembre de 1985 la tabla del SGC anota emisiones de ceniza en 1986, 1987 y 1988. El 1 de septiembre de 1989 la hoja de 2024 describe una erupción pequeña sin fatalidades, y el portal añade ceniza y un lahar en el Azufrado que dañó el puente de la vía Manizales-Murillo.",
+        "variants": [
+          "Entre 1986 y 1988 el SGC registra ceniza. El 1 de septiembre de 1989 hubo otra erupción, sin muertos según la hoja de 2024, con un lahar que rompió el puente hacia Murillo."
+        ],
+        "detail": null,
+        "reflection": null
+      },
+      "sources": [
+        {
+          "label": "Servicio Geológico Colombiano, actividad histórica del Ruiz",
+          "url": "https://www2.sgc.gov.co/sgc/volcanes/VolcanNevadoRuiz/Paginas/Actividad-historica.aspx",
+          "retrieved_at": "2026-11-21"
+        },
+        {
+          "label": "Servicio Geológico Colombiano, hoja del Ruiz, septiembre de 2024",
+          "url": "https://www2.sgc.gov.co/Temas-destacados/Documents/Hoja-informativa-volcan-Nevado-de-Ruiz-SGC.pdf",
+          "retrieved_at": "2026-11-21"
+        },
+        {
+          "label": "Servicio Geológico Colombiano, portal histórico del Ruiz",
+          "url": "https://historia-volcanes.sgc.gov.co/volcan-detalle?id=6",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "last_verified": "2026-11-21",
+      "valid_until": null,
+      "related": [
+        "history_culture.armero_1985",
+        "history_culture.eruptions_2012_and_dome"
+      ],
+      "tags": [
+        "1989",
+        "ceniza"
+      ],
+      "entities": {
+        "volcano": [
+          "ruiz"
+        ]
+      }
+    },
+    {
+      "id": "history_culture.eruptions_2012_and_dome",
+      "label": "erupciones de 2012 y el domo",
+      "kind": "fact",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "erupciones del ruiz en 2012",
+        "que paso el 29 de mayo de 2012",
+        "el 30 de junio de 2012",
+        "cuando salio el domo del crater arenas",
+        "domo de finales de 2015",
+        "hubo explosiones menores en 2012",
+        "eso de 2012 es la alerta de hoy",
+        "actividad reciente ya ocurrida",
+        "el ruiz hizo erupcion en mayo y junio",
+        "what eruptions does the 2024 fact sheet list for 2012",
+        "when did a lava dome appear in Arenas crater",
+        "el domo de 2015 ya paso"
+      ],
+      "hard_negatives": [
+        "cuál es la alerta del Ruiz hoy",
+        "qué hago si cae ceniza",
+        "el Ruiz entre 1986 y 1989"
+      ],
+      "needs": [],
+      "answer": {
+        "short": "La hoja del SGC de septiembre de 2024 recuerda erupciones explosivas menores el 29 de mayo y el 30 de junio de 2012, y un domo de lava en el fondo del cráter Arenas a finales de 2015. Son hechos ya ocurridos, no el parte de actividad de esta semana.",
+        "variants": [
+          "En la hoja de 2024, 2012 tiene dos erupciones menores, el 29 de mayo y el 30 de junio, y a finales de 2015 aparece un domo en el cráter Arenas. Para saber cómo está el volcán ahora, mira el boletín del SGC."
+        ],
+        "detail": "El portal histórico añade que el 30 de junio de 2012 la columna llegó a 8 km sobre la cima y que la ceniza cayó hacia el oeste y el noroeste, en municipios de Caldas y Risaralda. Esa altura es la de ese día en el portal, no una medida permanente del volcán.",
+        "reflection": null
+      },
+      "sources": [
+        {
+          "label": "Servicio Geológico Colombiano, hoja del Ruiz, septiembre de 2024",
+          "url": "https://www2.sgc.gov.co/Temas-destacados/Documents/Hoja-informativa-volcan-Nevado-de-Ruiz-SGC.pdf",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "last_verified": "2026-11-21",
+      "valid_until": null,
+      "related": [
+        "history_culture.after_1985_until_1989",
+        "history_culture.monitoring_since_1985"
+      ],
+      "tags": [
+        "2012",
+        "domo"
+      ],
+      "entities": {
+        "volcano": [
+          "ruiz"
+        ]
+      }
+    },
+    {
+      "id": "history_culture.tolima_history",
+      "label": "historia eruptiva del Tolima",
+      "kind": "explanation",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "el tolima ha hecho erupcion",
+        "historia del nevado del tolima",
+        "hubo explosion en 1943",
+        "fumarolas de 1918 en el tolima",
+        "azufre en 1925",
+        "caldas y humboldt vieron actividad",
+        "el catalogo de 1822 y 1825",
+        "roulin se equivoco de volcan",
+        "poca historia eruptiva del tolima",
+        "does the Tolima volcano have a confirmed eruption record",
+        "what did nineteenth century travelers see on Tolima",
+        "1943 tiene depositos o no"
+      ],
+      "hard_negatives": [
+        "qué significa Dulima",
+        "qué pasó en Armero",
+        "puedo subir a la cumbre del Tolima"
+      ],
+      "needs": [],
+      "answer": {
+        "short": "El portal histórico del Tolima dice que se conoce poca actividad explosiva confirmada, aunque el volcán está dentro del parque. Varios viajeros del siglo XIX, entre ellos Caldas y Humboldt, no vieron señales claras. El mismo texto registra fumarolas en 1918 y azufre en 1925, y advierte que un catálogo cita explosiones en 1822, 1825 y 1943 sin dejar la de 1943 asociada a depósitos.",
+        "variants": [
+          "No hay en ese portal una erupción del Tolima contada como la de Armero. Hay observadores del siglo XIX que no vieron mayor actividad, fumarolas descritas en 1918 y 1925, y fechas de catálogo que la propia ficha deja en duda."
+        ],
+        "detail": "Roulin creyó ver actividad en 1826 y luego la atribuyó a otro volcán, entre el valle detrás del Tolima y la cadena principal. Hantke y Parodi citan 1822, 1825 y 1943. El portal dice que no se han identificado depósitos para 1943. Klein en 1926 y Krauss en 1943 no reportaron actividad visible en sus ascensos. El portal también dice que hoy el Tolima está en alerta verde: eso no se copia como estado de la semana.",
+        "reflection": null
+      },
+      "sources": [
+        {
+          "label": "Servicio Geológico Colombiano, portal histórico del Tolima",
+          "url": "https://historia-volcanes.sgc.gov.co/volcan-detalle?id=5680",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "last_verified": "2026-11-21",
+      "valid_until": null,
+      "related": [
+        "history_culture.dulima",
+        "history_culture.scientific_observers",
+        "history_culture.which_volcano_history"
+      ],
+      "tags": [
+        "tolima",
+        "fumarolas"
+      ],
+      "entities": {
+        "volcano": [
+          "tolima"
+        ]
+      }
+    },
+    {
+      "id": "history_culture.santa_isabel_record",
+      "label": "registro histórico de Santa Isabel",
+      "kind": "fact",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "santa isabel ha hecho erupcion",
+        "hay cronologia del nevado santa isabel",
+        "santa isabel aparece en la historia volcanica",
+        "poleka kasue tuvo tragedia como armero",
+        "fechas eruptivas de santa isabel",
+        "hay fechas historicas de santa isabel",
+        "la historia escrita es del ruiz y del tolima",
+        "no encuentro erupciones de santa isabel",
+        "santa isabel es un volcan con historia escrita ahi",
+        "does the historical portal include Santa Isabel",
+        "are there dated eruptions for Santa Isabel",
+        "quiero la historia eruptiva de poleka kasue"
+      ],
+      "hard_negatives": [
+        "qué significa Poleka Kasue",
+        "qué pasó en Armero",
+        "puedo subir a la cumbre de Santa Isabel"
+      ],
+      "needs": [],
+      "answer": {
+        "short": "El listado del portal histórico del SGC incluye al Ruiz y al Tolima, y no trae a Santa Isabel. En ese listado no hay una cronología eruptiva de ese nevado. Parques Nacionales sí le da el nombre Poleka Kasue.",
+        "variants": [
+          "Santa Isabel no aparece en el portal histórico donde sí están el Ruiz y el Tolima. Ese portal no trae fechas de erupción de ese nevado. El nombre Poleka Kasue está en la ficha del parque."
+        ],
+        "detail": null,
+        "reflection": null
+      },
+      "sources": [
+        {
+          "label": "Servicio Geológico Colombiano, portal histórico del Ruiz",
+          "url": "https://historia-volcanes.sgc.gov.co/volcan-detalle?id=6",
+          "retrieved_at": "2026-11-21"
+        },
+        {
+          "label": "Parques Nacionales Naturales, ficha Los Nevados",
+          "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "last_verified": "2026-11-21",
+      "valid_until": null,
+      "related": [
+        "history_culture.poleka_kasue",
+        "history_culture.which_volcano_history"
+      ],
+      "tags": [
+        "santa isabel"
+      ],
+      "entities": {
+        "volcano": [
+          "santa_isabel"
+        ]
+      }
+    },
+    {
+      "id": "history_culture.which_volcano_history",
+      "label": "qué volcán tiene historia eruptiva",
+      "kind": "explanation",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "cuál nevado hizo la erupción famosa",
+        "la historia es del ruiz o de todos",
+        "santa isabel tolima o ruiz cual erupciono",
+        "que volcan del parque tiene tragedia",
+        "no todos los nevados tienen la misma historia",
+        "armero fue el ruiz",
+        "el tolima tiene menos registro",
+        "de cual cima es la historia eruptiva",
+        "los tres tienen cronologia",
+        "which peak in the park has the documented disasters",
+        "is the eruption history the same for every summit",
+        "preguntar por el volcan correcto"
+      ],
+      "hard_negatives": [
+        "qué significa Kumanday",
+        "cuál es la alerta del Ruiz hoy",
+        "qué nevados hay en el parque"
+      ],
+      "needs": [],
+      "answer": {
+        "short": "Las tragedias fechadas de 1595, 1845 y 1985 son del Ruiz. El portal del Tolima es mucho más cauto y no trae un desastre equivalente. Santa Isabel no tiene ficha en ese portal histórico.",
+        "variants": [
+          "Si la pregunta es por Armero o por los grandes lahares, el volcán es el Ruiz. Tolima y Santa Isabel no tienen, en esas páginas, una cronología igual."
+        ],
+        "detail": null,
+        "reflection": null
+      },
+      "sources": [
+        {
+          "label": "Servicio Geológico Colombiano, portal histórico del Ruiz",
+          "url": "https://historia-volcanes.sgc.gov.co/volcan-detalle?id=6",
+          "retrieved_at": "2026-11-21"
+        },
+        {
+          "label": "Servicio Geológico Colombiano, portal histórico del Tolima",
+          "url": "https://historia-volcanes.sgc.gov.co/volcan-detalle?id=5680",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "last_verified": "2026-11-21",
+      "valid_until": null,
+      "related": [
+        "history_culture.armero_1985",
+        "history_culture.tolima_history",
+        "history_culture.santa_isabel_record"
+      ],
+      "tags": [
+        "cual volcan"
+      ]
+    },
+    {
+      "id": "history_culture.scientific_observers",
+      "label": "viajeros que describieron los nevados",
+      "kind": "fact",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "quienes describieron el ruiz en el siglo xix",
+        "acosta y el ruiz en 1846",
+        "humboldt vio el tolima",
+        "el sabio caldas y el nevado",
+        "viajeros cientificos de los nevados",
+        "boussingault en el ruiz",
+        "hettner y el derrumbe",
+        "la primera descripcion geocientifica",
+        "naturalistas que subieron a estas montañas",
+        "who wrote the first geoscientific note on the Ruiz",
+        "which travelers described Tolima in the nineteenth century",
+        "joaquin acosta 1846"
+      ],
+      "hard_negatives": [
+        "actividad menor del siglo XIX",
+        "historia eruptiva del Tolima",
+        "monitoreo del Ruiz desde 1985"
+      ],
+      "needs": [],
+      "answer": {
+        "short": "La ficha de la IUGS señala la descripción de Joaquín Acosta, en 1846, como la primera nota geocientífica de la actividad del Ruiz. En el Tolima, el portal del SGC dice que Caldas, Humboldt, Stübel, Reiss, Boussingault y Roulin no observaron mayor actividad.",
+        "variants": [
+          "Acosta, en 1846, es la primera descripción geocientífica del Ruiz que cita la ficha de la IUGS. Para el Tolima, el SGC lista viajeros del siglo XIX que no vieron una erupción clara."
+        ],
+        "detail": "El portal del Ruiz también guarda relatos de Boussingault sobre una ceniza de 1805, de Codazzi en los termales y de Hettner en 1883 ante el derrumbe de 1845. En 1845 Joaquín Arango y Elías González, colonizadores antioqueños, describieron termales mientras abrían un camino hacia Lérida. Eso no demuestra de qué familias desciende quien vive hoy en el parque.",
+        "reflection": null
+      },
+      "sources": [
+        {
+          "label": "IUGS, ficha del complejo volcánico del Ruiz",
+          "url": "https://iugs-geoheritage.org/geoheritage_sites/nevado-del-ruiz-quaternary-volcanic-complex/",
+          "retrieved_at": "2026-11-21"
+        },
+        {
+          "label": "Servicio Geológico Colombiano, portal histórico del Tolima",
+          "url": "https://historia-volcanes.sgc.gov.co/volcan-detalle?id=5680",
+          "retrieved_at": "2026-11-21"
+        },
+        {
+          "label": "Servicio Geológico Colombiano, portal histórico del Ruiz",
+          "url": "https://historia-volcanes.sgc.gov.co/volcan-detalle?id=6",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "last_verified": "2026-11-21",
+      "valid_until": null,
+      "related": [
+        "history_culture.tolima_history",
+        "history_culture.minor_19th_century"
+      ],
+      "tags": [
+        "acosta",
+        "viajeros"
+      ]
+    },
+    {
+      "id": "history_culture.monitoring_since_1985",
+      "label": "monitoreo del Ruiz desde 1985",
+      "kind": "fact",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "desde cuándo monitorean el Ruiz",
+        "el seguimiento empezo en 1985",
+        "el sgc vigila el ruiz desde la tragedia",
+        "cuando nacio el monitoreo permanente",
+        "la vulcanologia colombiana empezo en 1986",
+        "monitoreo no es la alerta de hoy",
+        "hay observatorio desde 1985",
+        "quien vigila el volcan desde entonces",
+        "el ruiz quedo en observacion permanente",
+        "since when has the geological service monitored the Ruiz",
+        "is the start of monitoring the same as this week's bulletin",
+        "vigilancia despues de armero"
+      ],
+      "hard_negatives": [
+        "cuál es la alerta del Ruiz hoy",
+        "viajeros que describieron los nevados",
+        "lección de riesgo tras Armero"
+      ],
+      "needs": [],
+      "answer": {
+        "short": "La hoja del SGC de 2024 dice que desde 1985 el Servicio Geológico monitorea el Ruiz de forma permanente. Eso cuenta el origen del seguimiento, no el boletín de esta semana.",
+        "variants": [
+          "El monitoreo permanente del Ruiz, según la hoja de 2024, arranca en 1985. Para saber cómo está el volcán ahora hace falta el boletín vigente, no solo esa fecha."
+        ],
+        "detail": "La ficha de la IUGS dice que el inicio formal de la vulcanología en Colombia fue en 1986, a raíz de la erupción, y que desde entonces el SGC mantiene la red. No es la misma frase que «monitoreo permanente desde 1985». Las dos se dejan juntas, sin fundirlas en un solo año. El reconocimiento de patrimonio geológico de esa ficha no se responde aquí.",
+        "reflection": null
+      },
+      "sources": [
+        {
+          "label": "Servicio Geológico Colombiano, hoja del Ruiz, septiembre de 2024",
+          "url": "https://www2.sgc.gov.co/Temas-destacados/Documents/Hoja-informativa-volcan-Nevado-de-Ruiz-SGC.pdf",
+          "retrieved_at": "2026-11-21"
+        },
+        {
+          "label": "IUGS, ficha del complejo volcánico del Ruiz",
+          "url": "https://iugs-geoheritage.org/geoheritage_sites/nevado-del-ruiz-quaternary-volcanic-complex/",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "last_verified": "2026-11-21",
+      "valid_until": null,
+      "related": [
+        "history_culture.risk_lessons",
+        "history_culture.eruptions_2012_and_dome"
+      ],
+      "tags": [
+        "monitoreo",
+        "1985"
+      ],
+      "entities": {
+        "volcano": [
+          "ruiz"
+        ]
+      }
+    },
+    {
+      "id": "history_culture.risk_lessons",
+      "label": "lección de riesgo tras Armero",
+      "kind": "explanation",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "que cambio en colombia despues de armero",
+        "la tragedia creo la gestion del riesgo",
+        "leccion de 1985 para el pais",
+        "memoria historica y el volcan",
+        "por que armero importa para prevenir",
+        "el desastre impulso instituciones",
+        "aprender del lahar de armero",
+        "la gestion del riesgo nacio de ahi",
+        "que enseno la tragedia",
+        "what did Colombia change after Armero",
+        "did the disaster shape disaster risk management",
+        "la leccion no reemplaza el plan de mi municipio"
+      ],
+      "hard_negatives": [
+        "por qué 1985 fue tan mortal",
+        "monitoreo del Ruiz desde 1985",
+        "cuál es el plan de evacuación de mi pueblo hoy"
+      ],
+      "needs": [],
+      "answer": {
+        "short": "La hoja del SGC de 2024 dice que la tragedia impulsó la gestión del riesgo en Colombia, después de un desastre marcado por el desconocimiento, la falta de memoria y la incredulidad. Esa lección no reemplaza el plan de tu municipio ni el boletín del SGC.",
+        "variants": [
+          "Después de Armero, el SGC vincula el desastre con el fortalecimiento de la gestión del riesgo. El plan local y el estado del volcán de esta semana se consultan con las autoridades y con el SGC."
+        ],
+        "detail": null,
+        "reflection": null
+      },
+      "sources": [
+        {
+          "label": "Servicio Geológico Colombiano, hoja del Ruiz, septiembre de 2024",
+          "url": "https://www2.sgc.gov.co/Temas-destacados/Documents/Hoja-informativa-volcan-Nevado-de-Ruiz-SGC.pdf",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "last_verified": "2026-11-21",
+      "valid_until": null,
+      "related": [
+        "history_culture.why_1985_deadly",
+        "history_culture.monitoring_since_1985",
+        "history_culture.respectful_memory"
+      ],
+      "tags": [
+        "riesgo",
+        "leccion"
+      ],
+      "entities": {
+        "volcano": [
+          "ruiz"
+        ]
+      }
+    },
+    {
+      "id": "history_culture.armero_outside_park",
+      "label": "Armero queda fuera del parque",
+      "kind": "fact",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "Armero queda dentro del parque",
+        "armero es una entrada a los nevados",
+        "puedo entrar al parque por armero",
+        "a cuantos kilometros quedo armero de la cima",
+        "el pueblo destruido esta en tolima",
+        "visitar armero es visitar el nevado",
+        "la memoria de armero no es la porteria",
+        "74 kilometros es adentro o afuera",
+        "armero y el parque son el mismo sitio",
+        "is Armero inside Los Nevados national park",
+        "how far was Armero from the volcano summit",
+        "un lugar de memoria no es el ingreso al paramo"
+      ],
+      "hard_negatives": [
+        "qué pasó en Armero",
+        "cómo llego desde Manizales a Brisas",
+        "centro de memoria de Armero"
+      ],
+      "needs": [],
+      "answer": {
+        "short": "Armero no está dentro del parque. El portal del SGC lo ubica en Tolima, a unos 74 km de la cima, arrasado por un lahar que bajó desde el Ruiz. Un lugar de memoria en el viejo Armero no es una portería de Los Nevados.",
+        "variants": [
+          "Los 74 km que el SGC da entre la cima y Armero ponen el pueblo fuera del área protegida, en Tolima. Recordar Armero no es entrar al parque."
+        ],
+        "detail": null,
+        "reflection": null
+      },
+      "sources": [
+        {
+          "label": "Servicio Geológico Colombiano, portal histórico del Ruiz",
+          "url": "https://historia-volcanes.sgc.gov.co/volcan-detalle?id=6",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "last_verified": "2026-11-21",
+      "valid_until": null,
+      "related": [
+        "history_culture.armero_1985",
+        "history_culture.armero_guayabal_name",
+        "history_culture.ley_2505_armero"
+      ],
+      "tags": [
+        "armero",
+        "distancia"
+      ]
+    },
+    {
+      "id": "history_culture.ley_2505_armero",
+      "label": "ley de memoria de Armero",
+      "kind": "fact",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "ley 2505 de 2025",
+        "armero es bien de interes cultural",
+        "ya terminaron el tramite del bic",
+        "que ordena la ley de armero",
+        "diario oficial de la ley 2505",
+        "28 de julio de 2025",
+        "la ley exalta al armero desaparecido",
+        "lista de candidatos a bien cultural",
+        "el objeto de la ley ya declaro el bic",
+        "what does the 2025 Armero law actually order",
+        "is the cultural heritage listing already finished",
+        "ley de julio de 2025 sobre armero"
+      ],
+      "hard_negatives": [
+        "centro de memoria de Armero",
+        "Ruiz en la ley de patrimonio",
+        "cómo hablar de la tragedia"
+      ],
+      "needs": [],
+      "answer": {
+        "short": "La Ley 2505, del 28 de julio de 2025, publicada en el Diario Oficial 53.200 del 2 de agosto de 2025, busca exaltar al desaparecido Armero y declararlo bien de interés cultural de la Nación. El artículo 2 ordena iniciar el trámite, incluirlo en la lista de candidatos y hacer el estudio, según presupuesto. El objeto de la ley no significa que ese trámite ya terminó.",
+        "variants": [
+          "La ley del 28 de julio de 2025 quiere declarar bien de interés cultural al territorio del Armero desaparecido, pero el artículo 2 manda empezar el procedimiento y la lista de candidatos. No des por cerrado un expediente que la propia ley deja en curso."
+        ],
+        "detail": null,
+        "reflection": null
+      },
+      "sources": [
+        {
+          "label": "Congreso de Colombia, Ley 2505 de 2025",
+          "url": "http://www.secretariasenado.gov.co/senado/basedoc/ley_2505_2025.html",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "last_verified": "2026-11-21",
+      "valid_until": null,
+      "related": [
+        "history_culture.memory_center",
+        "history_culture.ruiz_natural_heritage",
+        "history_culture.respectful_memory"
+      ],
+      "tags": [
+        "ley 2505",
+        "armero"
+      ]
+    },
+    {
+      "id": "history_culture.ruiz_natural_heritage",
+      "label": "Ruiz en la ley de patrimonio",
+      "kind": "fact",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "el ruiz es patrimonio natural de la nacion",
+        "la ley 2505 lo declaro o solo pidio postularlo",
+        "patrimonio natural en 2025",
+        "que dice el articulo y que dice el titulo",
+        "ambiente y parques deben buscar la postulacion",
+        "en 2025 lo declararon patrimonio",
+        "valor simbolico y ambiental del ruiz",
+        "es una declaratoria o un tramite",
+        "patrimonio natural no es entrada gratis",
+        "did the 2025 law finish a natural heritage declaration",
+        "what did Law 2505 order for the Ruiz",
+        "el ruiz ordena el territorio alrededor del agua segun la ley"
+      ],
+      "hard_negatives": [
+        "ley de memoria de Armero",
+        "el parque es patrimonio de la humanidad",
+        "puedo entrar al cráter por ser patrimonio"
+      ],
+      "needs": [],
+      "answer": {
+        "short": "La Ley 2505 de 2025 reconoce al Ruiz como parte del patrimonio natural por su valor simbólico, ambiental y por el agua en Tolima, Caldas, Risaralda y Quindío. El título habla de declararlo y un parágrafo pide a Ambiente y a Parques que busquen su postulación. La ficha del parque resume eso como una declaratoria de 2025.",
+        "variants": [
+          "En 2025 la ley reconoce al Ruiz dentro del patrimonio natural y, a la vez, ordena buscar su postulación. La ficha del parque lo cuenta como declaratoria. Esas frases oficiales no dicen lo mismo y ninguna abre el cráter."
+        ],
+        "detail": "El artículo 1 dice «reconocer al volcán Nevado del Ruiz como parte del patrimonio natural» y cita el ecosistema que ordena el territorio alrededor del agua. El parágrafo del artículo 2 dice que Ambiente y Parques «buscará su postulación». El título de la ley usa «se declara». No se escoge una sola de esas tres frases.",
+        "reflection": null
+      },
+      "sources": [
+        {
+          "label": "Congreso de Colombia, Ley 2505 de 2025",
+          "url": "http://www.secretariasenado.gov.co/senado/basedoc/ley_2505_2025.html",
+          "retrieved_at": "2026-11-21"
+        },
+        {
+          "label": "Parques Nacionales Naturales, ficha Los Nevados",
+          "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "last_verified": "2026-11-21",
+      "valid_until": null,
+      "related": [
+        "history_culture.ley_2505_armero",
+        "history_culture.coffee_landscape"
+      ],
+      "tags": [
+        "patrimonio",
+        "2025"
+      ]
+    },
+    {
+      "id": "history_culture.coffee_landscape",
+      "label": "paisaje cafetero y el parque",
+      "kind": "fact",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "el parque es patrimonio de la humanidad",
+        "paisaje cultural cafetero y los nevados",
+        "la unesco declaro la region en 2011",
+        "criterios cinco y seis del cafe",
+        "el paramo esta inscrito como paisaje cafetero",
+        "seis paisajes y dieciocho pueblos",
+        "el eje cafetero y el parque son lo mismo",
+        "los nevados quedan en el corazon de esa region",
+        "patrimonio mundial es el cafe no el glaciar",
+        "is the national park the UNESCO coffee landscape",
+        "when was the Coffee Cultural Landscape inscribed",
+        "la region cafetera es patrimonio y el parque que es"
+      ],
+      "hard_negatives": [
+        "bahareque del paisaje cafetero",
+        "Ruiz en la ley de patrimonio",
+        "cuánto vale un tour de café"
+      ],
+      "needs": [],
+      "answer": {
+        "short": "El paisaje cultural cafetero se inscribió en la Unesco en 2011, con los criterios (v) y (vi). La ficha lo describe como seis paisajes y dieciocho centros urbanos del Eje Cafetero, no como el páramo del parque. Parques Nacionales sí dice que el parque está en el corazón de la región declarada ese año: son vecindades, no el mismo título.",
+        "variants": [
+          "La Unesco inscribió en 2011 el paisaje cafetero, criterios (v) y (vi), como una serie de paisajes y pueblos. El parque está, según su ficha, en el corazón de esa región, y no es el bien inscrito."
+        ],
+        "detail": "La ficha de la Unesco da al bien 141.120 hectáreas y una zona de amortiguamiento de 207.000. Esas áreas son del paisaje cafetero, no la extensión del parque. El comité de manejo que la página nombra incluye a los gobernadores de Caldas, Quindío, Risaralda y Valle.",
+        "reflection": null
+      },
+      "sources": [
+        {
+          "label": "Unesco, Paisaje cultural cafetero de Colombia, lista del patrimonio mundial",
+          "url": "https://whc.unesco.org/en/list/1121",
+          "retrieved_at": "2026-11-21"
+        },
+        {
+          "label": "Parques Nacionales Naturales, ficha Los Nevados",
+          "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "last_verified": "2026-11-21",
+      "valid_until": null,
+      "related": [
+        "history_culture.bahareque",
+        "history_culture.ruiz_natural_heritage"
+      ],
+      "tags": [
+        "unesco",
+        "cafe",
+        "2011"
+      ]
+    },
+    {
+      "id": "history_culture.bahareque",
+      "label": "bahareque del paisaje cafetero",
+      "kind": "fact",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "que es el bahareque",
+        "las casas de los pueblos cafeteros",
+        "cañas trenzadas y teja de barro",
+        "la arquitectura de colonos antioqueños",
+        "bahareque en el superparamo",
+        "mas de la mitad de los muros",
+        "la unesco describe las casas del cafe",
+        "colonizacion antioqueña y la arquitectura",
+        "eso es de la finca cafetera no del sendero de nieve",
+        "what is bahareque in the coffee landscape",
+        "did Antioquia settlers shape those coffee towns",
+        "hay casas de bahareque en la nieve del parque"
+      ],
+      "hard_negatives": [
+        "casas de la vereda El Bosque",
+        "paisaje cafetero y el parque",
+        "qué ropa llevo al páramo"
+      ],
+      "needs": [],
+      "answer": {
+        "short": "La Unesco describe los pueblos del paisaje cafetero con arquitectura de colonos de Antioquia: muros de bahareque, cañas trenzadas, y tejas de barro. La ficha en inglés dice que más de la mitad de esos muros seguían hechos así. Es la arquitectura de esos poblados, no un refugio del superpáramo ni un censo de familias dentro del parque.",
+        "variants": [
+          "El bahareque de cañas trenzadas es la casa del paisaje cafetero que describe la Unesco, ligada a colonos antioqueños. No lo busques como albergue de la nieve ni como lista de quien vive hoy en el parque."
+        ],
+        "detail": null,
+        "reflection": null
+      },
+      "sources": [
+        {
+          "label": "Unesco, Paisaje cultural cafetero de Colombia, lista del patrimonio mundial",
+          "url": "https://whc.unesco.org/en/list/1121",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "last_verified": "2026-11-21",
+      "valid_until": null,
+      "related": [
+        "history_culture.coffee_landscape",
+        "history_culture.el_bosque"
+      ],
+      "tags": [
+        "bahareque",
+        "antioquia"
+      ]
+    },
+    {
+      "id": "history_culture.campesino_communities",
+      "label": "comunidades campesinas del parque",
+      "kind": "fact",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "hay comunidades campesinas en el parque",
+        "campesinos en la alta montana",
+        "el paramo fue territorio de transito",
+        "quien ha vivido en estas cumbres",
+        "los campesinos han permanecido en la montana",
+        "cuantas familias viven adentro",
+        "poblacion campesina historica",
+        "el parque no estuvo vacio de gente",
+        "comunidades del paramo segun parques",
+        "does the park page mention campesino communities",
+        "have farming communities historically used these mountains",
+        "cuanta gente vive hoy en el paramo"
+      ],
+      "hard_negatives": [
+        "casas de la vereda El Bosque",
+        "derechos anteriores a 1973",
+        "pueblos indígenas de los nevados"
+      ],
+      "needs": [],
+      "answer": {
+        "short": "Parques Nacionales dice que estas altas montañas han sido, históricamente, territorio de tránsito y permanencia de comunidades campesinas. La ficha no publica un censo actual de familias.",
+        "variants": [
+          "La presencia campesina en estas cumbres está en la ficha como historia de tránsito y permanencia. No trae un número vigente de habitantes."
+        ],
+        "detail": null,
+        "reflection": null
+      },
+      "sources": [
+        {
+          "label": "Parques Nacionales Naturales, ficha Los Nevados",
+          "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "last_verified": "2026-11-21",
+      "valid_until": null,
+      "related": [
+        "history_culture.el_bosque",
+        "history_culture.prior_rights_1973",
+        "history_culture.indigenous_peoples"
+      ],
+      "tags": [
+        "campesinos"
+      ]
+    },
+    {
+      "id": "history_culture.el_bosque",
+      "label": "casas de la vereda El Bosque",
+      "kind": "fact",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "vereda el bosque en el otun",
+        "casas tradicionales junto a la laguna",
+        "puedo ver las casas de el bosque",
+        "habitantes historicos de esa vereda",
+        "el bosque es un pueblo dentro del parque",
+        "donde quedan las casas de el bosque",
+        "casas del sector laguna del otun",
+        "se puede entrar a esas casas",
+        "el bosque es una vereda del otun",
+        "are there traditional houses at El Bosque",
+        "which sector mentions the El Bosque hamlet",
+        "casas de los habitantes historicos"
+      ],
+      "hard_negatives": [
+        "bahareque del paisaje cafetero",
+        "comunidades campesinas del parque",
+        "cómo llego a la Laguna del Otún"
+      ],
+      "needs": [],
+      "answer": {
+        "short": "En el sector de la Laguna del Otún, Parques Nacionales dice que se pueden ver casas tradicionales de los habitantes históricos de la vereda El Bosque. Confirma con el parque si ese tramo está habilitado.",
+        "variants": [
+          "La ficha ubica casas tradicionales de la vereda El Bosque en el recorrido de la Laguna del Otún. Pregunta al parque si ese paso está abierto."
+        ],
+        "detail": null,
+        "reflection": null
+      },
+      "sources": [
+        {
+          "label": "Parques Nacionales Naturales, ficha Los Nevados",
+          "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "last_verified": "2026-11-21",
+      "valid_until": null,
+      "related": [
+        "history_culture.campesino_communities",
+        "history_culture.bahareque"
+      ],
+      "tags": [
+        "el bosque",
+        "otun"
+      ]
+    },
+    {
+      "id": "history_culture.respectful_memory",
+      "label": "cómo hablar de la tragedia",
+      "kind": "explanation",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "como hablar de armero sin hacer dano",
+        "se puede usar la tragedia para publicidad",
+        "dignidad de las victimas",
+        "la ley pide no revictimizar",
+        "quiero la historia de una victima",
+        "quien fue omaira sanchez",
+        "contar armero con respeto",
+        "sin sensacionalismo",
+        "memoria y no gancho comercial",
+        "how should the Armero story be told",
+        "does the 2025 law forbid exploiting the tragedy",
+        "respeto a las familias de armero"
+      ],
+      "hard_negatives": [
+        "qué pasó en Armero",
+        "centro de memoria de Armero",
+        "ley de memoria de Armero"
+      ],
+      "needs": [],
+      "answer": {
+        "short": "La Ley 2505 de 2025 pide que la memoria de Armero se cuente con dignidad, sin revictimizar y sin usar el dolor como gancho comercial. Si preguntas por una persona, no hay aquí su biografía.",
+        "variants": [
+          "Si vas a hablar de la tragedia, la ley de 2025 exige respeto por las víctimas y rechaza el sensacionalismo y la explotación comercial. La historia de una persona concreta hay que buscarla en una fuente de memoria."
+        ],
+        "detail": null,
+        "reflection": "Nombrar a las víctimas con respeto ya es parte de entender el lugar."
+      },
+      "sources": [
+        {
+          "label": "Congreso de Colombia, Ley 2505 de 2025",
+          "url": "http://www.secretariasenado.gov.co/senado/basedoc/ley_2505_2025.html",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "last_verified": "2026-11-21",
+      "valid_until": null,
+      "related": [
+        "history_culture.armero_1985",
+        "history_culture.ley_2505_armero",
+        "history_culture.memory_center"
+      ],
+      "tags": [
+        "dignidad",
+        "memoria"
+      ]
+    },
+    {
+      "id": "history_culture.memory_center",
+      "label": "centro de memoria de Armero",
+      "kind": "fact",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "hay un centro de memoria en armero",
+        "museo de la tragedia",
+        "la ley ordena un centro de memoria",
+        "horario del museo de armero",
+        "quien debe crear el centro",
+        "participan las comunidades afectadas",
+        "unidad de gestion del riesgo y culturas",
+        "el centro ya esta abierto",
+        "direccion del museo de armero",
+        "does the 2025 law create an Armero memory center",
+        "is the memory museum's schedule published in the law",
+        "centro de memoria con las victimas"
+      ],
+      "hard_negatives": [
+        "cómo hablar de la tragedia",
+        "ley de memoria de Armero",
+        "Armero y Armero Guayabal"
+      ],
+      "needs": [],
+      "answer": {
+        "short": "La Ley 2505 de 2025 ordena que la Unidad de Gestión del Riesgo, el Ministerio de las Culturas y entidades del Tolima, Caldas, Risaralda y Quindío concurran, según presupuesto, a un centro de memoria en Armero, con las comunidades afectadas. La ley no publica dirección ni horario. Pregunta a la Alcaldía de Armero Guayabal o al ministerio.",
+        "variants": [
+          "El centro de memoria de Armero está ordenado por la ley de 2025, con presupuesto y con las comunidades, y la norma no trae puerta, dirección ni horario. Esas tres cosas se confirman en el municipio o en el ministerio."
+        ],
+        "detail": null,
+        "reflection": null
+      },
+      "sources": [
+        {
+          "label": "Congreso de Colombia, Ley 2505 de 2025",
+          "url": "http://www.secretariasenado.gov.co/senado/basedoc/ley_2505_2025.html",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "last_verified": "2026-11-21",
+      "valid_until": null,
+      "related": [
+        "history_culture.ley_2505_armero",
+        "history_culture.respectful_memory",
+        "history_culture.armero_guayabal_name"
+      ],
+      "tags": [
+        "memoria",
+        "museo"
+      ]
+    },
+    {
+      "id": "history_culture.armero_guayabal_name",
+      "label": "Armero y Armero Guayabal",
+      "kind": "fact",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "armero y armero guayabal son lo mismo",
+        "el municipio de hoy como se llama",
+        "el armero desaparecido y el municipio nuevo",
+        "guayabal es el casco viejo",
+        "la ley distingue los dos nombres",
+        "infraestructura en armero guayabal",
+        "no es el parque nacional",
+        "dos nombres para dos lugares",
+        "donde quedo el pueblo que se llevo el lahar",
+        "what is the difference between Armero and Armero Guayabal",
+        "which name does the 2025 law use for the destroyed town",
+        "el municipio actual no es la zona sepultada"
+      ],
+      "hard_negatives": [
+        "Armero queda dentro del parque",
+        "qué pasó en Armero",
+        "centro de memoria de Armero"
+      ],
+      "needs": [],
+      "answer": {
+        "short": "La Ley 2505 de 2025 distingue el territorio del desaparecido Armero, arrasado en 1985, del municipio de Armero-Guayabal cuando habla de infraestructura. No son dos nombres casuales del mismo punto, y ninguno es el parque nacional.",
+        "variants": [
+          "Armero, el pueblo que destruyó el lahar, y Armero-Guayabal, el municipio que la ley nombra para obras, no se usan como sinónimos. Los dos quedan fuera del parque."
+        ],
+        "detail": null,
+        "reflection": null
+      },
+      "sources": [
+        {
+          "label": "Congreso de Colombia, Ley 2505 de 2025",
+          "url": "http://www.secretariasenado.gov.co/senado/basedoc/ley_2505_2025.html",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "last_verified": "2026-11-21",
+      "valid_until": null,
+      "related": [
+        "history_culture.armero_outside_park",
+        "history_culture.memory_center",
+        "history_culture.armero_1985"
+      ],
+      "tags": [
+        "guayabal",
+        "armero"
+      ]
+    }
+  ]
+}
