@@ -1,0 +1,49 @@
+{
+  "seed": 20261122,
+  "format": "single choice, 3-5 FAQ options plus 'ninguna de estas opciones'",
+  "retrieval": {
+    "embedding": "intfloat/multilingual-e5-base",
+    "query_prefix": "query: ",
+    "mode": "gateway",
+    "k": 5,
+    "delta": 0.05,
+    "max_sections": 5,
+    "tau_gate": -1.0
+  },
+  "input": {
+    "path": "research_notes/curation_v2/inputs/train_core.jsonl",
+    "sha256": "a30a0023b7e384cb94004385a17145a4bf676fa348dee62f518730b9f2a0f5c9",
+    "rows": 6543
+  },
+  "audit": {
+    "path": "/home/cruz1122/dev/hacka-airplane/research_notes/curation_v2/audit/label_audit.jsonl",
+    "sha256": "037ccbe92297bd9ad4c08a3bbacfa06d533ca5477b1dca0e123d45cd4b946eef",
+    "verified_rows_before_pool_filter": 3328
+  },
+  "corpus": {
+    "path": "/home/cruz1122/dev/hacka-airplane/research_notes/curation_v2/snapshots/sections_after.sha256.json",
+    "manifest_sha256": "255695f3095c12cc9d68938f38fd800c962a6894481e411e0ca285d8150aa195"
+  },
+  "counts": {
+    "train": 1784,
+    "dev": 94,
+    "exported": 1878,
+    "skipped_pool_outside_3_to_5": 4665
+  },
+  "label_origin_counts": {
+    "verified": 891,
+    "synthetic": 987
+  },
+  "test_blind_leak_check": {
+    "path": "data/knowledge/laya_ft_v2/test_blind_leak_check.json",
+    "sha256": "84cc4caa937d4df0b6018c3d00ee161f3ab317acf5b158fce3fd390619ac92d9",
+    "exact_count": 0,
+    "cosine_ge_0_93_count": 0,
+    "union_count": 0
+  },
+  "files_sha256": {
+    "train.jsonl": "ec090c87e4eed1d4da21d187527e4ba586f9ef4ef7fd7983ab050eff1a5199da",
+    "dev.jsonl": "d8b802f19224765f04b58480d0e3d34caefdef689dd568716d3f8705daeb19e1"
+  },
+  "training_note": "Export only; no model training was run."
+}
