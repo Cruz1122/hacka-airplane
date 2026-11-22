@@ -1,0 +1,702 @@
+{
+ "section": "activities",
+ "reviewer": "agent 27 / claude-haiku-5-5",
+ "ops": [
+  {
+   "id": "activities.cloudy_visit_landscape",
+   "op": "update",
+   "verdict": "revise",
+   "entailment": "none",
+   "label_change": "justified",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "n/a",
+   "reason": "La etiqueta nueva está justificada: confusión documentada con weather_volcano.summit_visibility (findings/activities.cross.json). La respuesta sí afirma que el valle sigue siendo el plan con la cima tapada, y la excerpt no lo dice.",
+   "required_change": "Citar la política de cima tapada o retirar esa frase. Conservar la etiqueta nueva."
+  },
+  {
+   "id": "activities.snow_and_glacier_access",
+   "op": "update",
+   "verdict": "revise",
+   "entailment": "partial",
+   "label_change": "justified",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "n/a",
+   "reason": "Etiqueta justificada por confusión documentada con flora_ecosystems.glaciers_snow_presence. La HN \"se puede ver hielo en la visita al nevado\" es una consulta sobre el propio tema de la entrada, no una negativa.",
+   "required_change": "Quitar la HN \"se puede ver hielo en la visita al nevado\". Citar la cumbre del Santa Isabel y el borde glaciar en la excerpt, o retirar la frase. Conservar la etiqueta nueva."
+  },
+  {
+   "id": "activities.birdwatching",
+   "op": "update",
+   "verdict": "revise",
+   "entailment": "partial",
+   "label_change": "stylistic",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "n/a",
+   "reason": "La excerpt respalda aves en Cisne y Otún. \"En Brisas la observación publicada es de fauna y flora\" no sale de la excerpt.",
+   "required_change": "Citar la línea de Brisas o quitar la frase. Conservar la etiqueta anterior \"observación de aves en la visita\"."
+  },
+  {
+   "id": "activities.wildlife_from_trail",
+   "op": "update",
+   "verdict": "revise",
+   "entailment": "full",
+   "label_change": "stylistic",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "n/a",
+   "reason": "La excerpt respalda observación de fauna y flora (fotografía no comercial incluida). Respaldado.",
+   "required_change": "Conservar la etiqueta anterior \"observar fauna y flora\"."
+  },
+  {
+   "id": "activities.termales_canon",
+   "op": "update",
+   "verdict": "revise",
+   "entailment": "partial",
+   "label_change": "stylistic",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "n/a",
+   "reason": "La excerpt sólo da el tramo \"Predio Vancouver - Termales de Cañón\". Parada y pernocte transitorio son afirmaciones de la norma. La prohibición de baños no está en la excerpt. HN \"puedo pasar por Termales del Cañón\" es una consulta propia de la entrada, no una negativa.",
+   "required_change": "Quitar esa HN. Citar la prohibición de baños (la respuesta la menciona) o separarla. Conservar la etiqueta anterior."
+  },
+  {
+   "id": "activities.therapeutic_baths_banned",
+   "op": "update",
+   "verdict": "revise",
+   "entailment": "full",
+   "label_change": "stylistic",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "n/a",
+   "reason": "La prohibición está en la excerpt. La frase \"«baños de salud» ... 2024\" es un dato secundario sin cita.",
+   "required_change": "Quitar la frase de \"baños de salud\" o citarla. Conservar la etiqueta anterior \"baños en lagunas o termales\"."
+  },
+  {
+   "id": "activities.camping_cisne",
+   "op": "update",
+   "verdict": "revise",
+   "entailment": "full",
+   "label_change": "justified",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "n/a",
+   "reason": "Etiqueta justificada: la etiqueta anterior (\"pernocte\") afirmaba un uso que la norma condiciona, y el cruce de camping está en findings. HN \"puedo quedarme en el centro El Cisne\" es una consulta propia de la entrada.",
+   "required_change": "Quitar esa HN. Aceptar la etiqueta nueva."
+  },
+  {
+   "id": "activities.horseback_not_allowed",
+   "op": "update",
+   "verdict": "revise",
+   "entailment": "full",
+   "label_change": "stylistic",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "n/a",
+   "reason": "Excerpt respalda la prohibición de cabalgatas. HN \"se puede entrar con mulas al parque\" es ambigua: la norma permite mulas de carga con arriero avalado.",
+   "required_change": "Reformular esa HN como \"se puede montar a caballo en el parque\" o quitarla. Conservar la etiqueta anterior \"cabalgata turística en el parque\"."
+  },
+  {
+   "id": "activities.north_route_stops",
+   "op": "update",
+   "verdict": "revise",
+   "entailment": "full",
+   "label_change": "misstates",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "n/a",
+   "reason": "Excerpt respalda las paradas del norte. La etiqueta nueva añade \"autorizadas\", una afirmación que la respuesta no sostiene.",
+   "required_change": "Conservar la etiqueta anterior \"paradas del carreteable norte\"."
+  },
+  {
+   "id": "activities.aguacerales_stop",
+   "op": "update",
+   "verdict": "revise",
+   "entailment": "full",
+   "label_change": "stylistic",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "n/a",
+   "reason": "Excerpt respalda la parada. HN \"Aguacerales queda en el recorrido norte\" es una cuasi-copia (similitud 0,85) de un ejemplo propio: \"aguacerales sale en el recorrido del norte?\".",
+   "required_change": "Quitar esa HN. Conservar la etiqueta anterior \"parada Aguacerales del norte\"."
+  },
+  {
+   "id": "activities.conejeras_glacier_edge",
+   "op": "update",
+   "verdict": "revise",
+   "entailment": "partial",
+   "label_change": "stylistic",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "n/a",
+   "reason": "La excerpt respalda la ruta Cisne–Conejeras–borde glaciar. La regla de guía de alta montaña no está en la excerpt.",
+   "required_change": "Citar la regla de guía de alta montaña o quitarla. Conservar la etiqueta anterior."
+  },
+  {
+   "id": "activities.south_glacier_edge",
+   "op": "update",
+   "verdict": "revise",
+   "entailment": "partial",
+   "label_change": "stylistic",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "n/a",
+   "reason": "La excerpt respalda la ruta Otún–Alsacia–borde glaciar. La regla de guía no está en la excerpt. La etiqueta nueva cambia el foco sin confusión documentada.",
+   "required_change": "Citar la regla de guía o quitarla. Conservar la etiqueta anterior \"borde glaciar sur de Santa Isabel\"."
+  },
+  {
+   "id": "activities.unlisted_activities",
+   "op": "update",
+   "verdict": "revise",
+   "entailment": "none",
+   "label_change": "misstates",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "n/a",
+   "reason": "La excerpt habla de fogatas y no respalda bote, picnic ni esquí. La etiqueta nueva omite caminata nocturna y esquí, que la respuesta menciona.",
+   "required_change": "Citar la lista de actividades no listadas o retirar esas afirmaciones. Conservar la etiqueta anterior \"actividades que no aparecen publicadas\"."
+  },
+  {
+   "id": "activities.ski_and_canyoning",
+   "op": "update",
+   "verdict": "revise",
+   "entailment": "full",
+   "label_change": "stylistic",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "n/a",
+   "reason": "La excerpt respalda la inclusión de esquí y barranquismo como montañismo deportivo. HN \"puedo esquiar en el nevado\" es una consulta propia de la entrada, no una negativa.",
+   "required_change": "Quitar esa HN. Conservar la etiqueta anterior \"esquí de montaña y barranquismo\"."
+  },
+  {
+   "id": "activities.cycling_roads_2017",
+   "op": "update",
+   "verdict": "revise",
+   "entailment": "partial",
+   "label_change": "stylistic",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "n/a",
+   "reason": "La excerpt sólo da la definición de ciclomontañismo. Las vías de 2017 no están en la excerpt.",
+   "required_change": "Citar el plan 2017 sobre las vías o retirar la lista. Conservar la etiqueta anterior."
+  },
+  {
+   "id": "activities.regulated_sports",
+   "op": "update",
+   "verdict": "revise",
+   "entailment": "full",
+   "label_change": "stylistic",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "n/a",
+   "reason": "La excerpt respalda que ciclomontañismo y trail running tienen requisitos.",
+   "required_change": "Conservar la etiqueta anterior \"ciclomontañismo y trail running\"."
+  },
+  {
+   "id": "activities.potosi_laguna_road",
+   "op": "update",
+   "verdict": "revise",
+   "entailment": "partial",
+   "label_change": "misstates",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "n/a",
+   "reason": "La excerpt respalda la ruta Potosí–Corraleja–Asomadera–Muelle. Las 11 km son de otra fuente (plan 2017) y no están citadas. La etiqueta nueva cambia \"carreteable\" por \"sendero\" sin fuente. HN \"la laguna se entra por potosi\" es una consulta propia de la entrada.",
+   "required_change": "Quitar esa HN. Citar las 11 km del plan 2017 o quitar la cifra. Conservar la etiqueta anterior \"carreteable de Potosí a la laguna\"."
+  },
+  {
+   "id": "activities.laguna_verde",
+   "op": "update",
+   "verdict": "revise",
+   "entailment": "partial",
+   "label_change": "stylistic",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "n/a",
+   "reason": "La excerpt respalda el sendero y el horario de ingreso. La condición \"regular en 2024\" no está. HN \"dónde queda la Laguna Verde\" es una consulta propia de la entrada.",
+   "required_change": "Quitar esa HN. Citar o quitar la condición de 2024. Conservar la etiqueta anterior \"sendero al mirador Laguna Verde\"."
+  },
+  {
+   "id": "activities.camping_where",
+   "op": "update",
+   "verdict": "revise",
+   "entailment": "none",
+   "label_change": "stylistic",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "n/a",
+   "reason": "CRÍTICO: findings/contradictions.json marca conflicto entre activities.camping_tolima, camping_brisas_restricted, camping_where y hours_status.camping_arrival_cutoff. La excerpt dice que la zona permitida es Laguna Otún, no respalda la afirmación sobre Arenales. HN \"dónde se puede acampar en Los Nevados\" es una consulta propia de la entrada.",
+   "required_change": "Resolver el conflicto antes de publicar: no listar Arenales como sitio de camping; separar Arenales del norte (no habilitado en 2024) de Arenales del Tolima (transitorio de 2023); citar el dato de 2024 del informe; pedir confirmación. Quitar esa HN. Conservar la etiqueta anterior."
+  },
+  {
+   "id": "activities.day_or_multiday",
+   "op": "update",
+   "verdict": "revise",
+   "entailment": "partial",
+   "label_change": "stylistic",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "n/a",
+   "reason": "La excerpt respalda pasadía sin pernocte en el norte. Que los otros sectores son de varios días no está en la excerpt. Dos HN son consultas propias de la entrada: \"brisas es la visita corta\" y \"¿los demás son pa' travesía de varios días?\".",
+   "required_change": "Quitar esas dos HN. Citar que los demás sectores son de varios días o quitar la frase. Conservar la etiqueta anterior \"visita corta o de varios días\"."
+  },
+  {
+   "id": "activities.brisas_valle_tumbas",
+   "op": "update",
+   "verdict": "revise",
+   "entailment": "full",
+   "label_change": "stylistic",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "n/a",
+   "reason": "La excerpt respalda el recorrido en vehículo desde Brisas hasta el Valle de las Tumbas. Tres HN son consultas propias de esta entrada: \"el carreteable de brisas sigue en carro hasta las tumbas?\", \"de brisas a tumbas hay carreteable\" y \"¿hasta el valle del Silencio sí se puede ir en carro?\".",
+   "required_change": "Reemplazar esas tres HN por consultas de otra entrada (por ejemplo, ir a pie o paradas). Conservar la etiqueta anterior \"recorrido Brisas al Valle de las Tumbas\"."
+  },
+  {
+   "id": "activities.otun_cedral_walk",
+   "op": "update",
+   "verdict": "revise",
+   "entailment": "full",
+   "label_change": "stylistic",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "n/a",
+   "reason": "La excerpt respalda 7,5 km y 18 km. Tres HN son consultas propias de la entrada: \"cuántos km a pie desde el cedral\", \"7,5 km hasta el límite\" y \"18 km a la laguna del otun\".",
+   "required_change": "Quitar esas tres HN. Conservar la etiqueta anterior \"caminata El Cedral a Laguna del Otún\"."
+  }
+ ],
+ "audit_rows": [
+  {
+   "id": "activities.what_to_visit",
+   "claimed": "primary_ok",
+   "support": "partial",
+   "note": "La excerpt sostiene una parte; una afirmación material (cifra, condición, excepción, ruta o requisito) no aparece en ella."
+  },
+  {
+   "id": "activities.brisas_valle_tumbas",
+   "claimed": "primary_ok",
+   "support": "full",
+   "note": "La excerpt sostiene la afirmación central de la respuesta."
+  },
+  {
+   "id": "activities.north_route_stops",
+   "claimed": "primary_ok",
+   "support": "full",
+   "note": "La excerpt sostiene la afirmación central de la respuesta."
+  },
+  {
+   "id": "activities.arenales_two_places",
+   "claimed": "primary_ok",
+   "support": "partial",
+   "note": "La excerpt sostiene una parte; una afirmación material (cifra, condición, excepción, ruta o requisito) no aparece en ella."
+  },
+  {
+   "id": "activities.ruiz_summit_closed",
+   "claimed": "primary_ok",
+   "support": "partial",
+   "note": "La excerpt sostiene una parte; una afirmación material (cifra, condición, excepción, ruta o requisito) no aparece en ella."
+  },
+  {
+   "id": "activities.cloudy_visit_landscape",
+   "claimed": "primary_ok",
+   "support": "none",
+   "note": "La excerpt sólo menciona el atractivo Brisas–Valle de las Tumbas; la política de qué hacer con cima tapada no aparece."
+  },
+  {
+   "id": "activities.short_walks_brisas",
+   "claimed": "primary_ok",
+   "support": "full",
+   "note": "La excerpt sostiene la afirmación central de la respuesta."
+  },
+  {
+   "id": "activities.superparamo_landscape",
+   "claimed": "primary_ok",
+   "support": "full",
+   "note": "La excerpt sostiene la afirmación central de la respuesta."
+  },
+  {
+   "id": "activities.geology_watching",
+   "claimed": "primary_ok",
+   "support": "partial",
+   "note": "La excerpt sostiene una parte; una afirmación material (cifra, condición, excepción, ruta o requisito) no aparece en ella."
+  },
+  {
+   "id": "activities.vehicle_or_on_foot",
+   "claimed": "primary_ok",
+   "support": "partial",
+   "note": "La excerpt sostiene una parte; una afirmación material (cifra, condición, excepción, ruta o requisito) no aparece en ella."
+  },
+  {
+   "id": "activities.sector_santa_isabel",
+   "claimed": "primary_ok",
+   "support": "partial",
+   "note": "La excerpt sostiene una parte; una afirmación material (cifra, condición, excepción, ruta o requisito) no aparece en ella."
+  },
+  {
+   "id": "activities.santa_isabel_summit",
+   "claimed": "primary_ok",
+   "support": "partial",
+   "note": "La excerpt sostiene una parte; una afirmación material (cifra, condición, excepción, ruta o requisito) no aparece en ella."
+  },
+  {
+   "id": "activities.conejeras_glacier_edge",
+   "claimed": "primary_ok",
+   "support": "partial",
+   "note": "La excerpt sostiene una parte; una afirmación material (cifra, condición, excepción, ruta o requisito) no aparece en ella."
+  },
+  {
+   "id": "activities.south_glacier_edge",
+   "claimed": "primary_ok",
+   "support": "partial",
+   "note": "La excerpt sostiene una parte; una afirmación material (cifra, condición, excepción, ruta o requisito) no aparece en ella."
+  },
+  {
+   "id": "activities.laguna_verde",
+   "claimed": "primary_ok",
+   "support": "partial",
+   "note": "La excerpt sostiene una parte; una afirmación material (cifra, condición, excepción, ruta o requisito) no aparece en ella."
+  },
+  {
+   "id": "activities.conservation_values_trail",
+   "claimed": "primary_ok",
+   "support": "partial",
+   "note": "La excerpt sostiene una parte; una afirmación material (cifra, condición, excepción, ruta o requisito) no aparece en ella."
+  },
+  {
+   "id": "activities.cisne_viewpoints",
+   "claimed": "primary_ok",
+   "support": "partial",
+   "note": "La excerpt sostiene una parte; una afirmación material (cifra, condición, excepción, ruta o requisito) no aparece en ella."
+  },
+  {
+   "id": "activities.sector_laguna_otun",
+   "claimed": "primary_ok",
+   "support": "partial",
+   "note": "La excerpt sostiene una parte; una afirmación material (cifra, condición, excepción, ruta o requisito) no aparece en ella."
+  },
+  {
+   "id": "activities.asomadera_day",
+   "claimed": "primary_ok",
+   "support": "partial",
+   "note": "La excerpt sostiene una parte; una afirmación material (cifra, condición, excepción, ruta o requisito) no aparece en ella."
+  },
+  {
+   "id": "activities.victor_mariposa_lagoons",
+   "claimed": "primary_ok",
+   "support": "partial",
+   "note": "La excerpt sostiene una parte; una afirmación material (cifra, condición, excepción, ruta o requisito) no aparece en ella."
+  },
+  {
+   "id": "activities.otun_cedral_walk",
+   "claimed": "primary_ok",
+   "support": "full",
+   "note": "La excerpt sostiene la afirmación central de la respuesta."
+  },
+  {
+   "id": "activities.otun_cocora_traverse",
+   "claimed": "primary_ok",
+   "support": "partial",
+   "note": "La excerpt sostiene una parte; una afirmación material (cifra, condición, excepción, ruta o requisito) no aparece en ella."
+  },
+  {
+   "id": "activities.sector_tolima",
+   "claimed": "primary_ok",
+   "support": "full",
+   "note": "La excerpt sostiene la afirmación central de la respuesta."
+  },
+  {
+   "id": "activities.tolima_summit_schimmer",
+   "claimed": "primary_ok",
+   "support": "full",
+   "note": "La excerpt sostiene la afirmación central de la respuesta."
+  },
+  {
+   "id": "activities.tolima_closed_routes",
+   "claimed": "primary_ok",
+   "support": "full",
+   "note": "La excerpt sostiene la afirmación central de la respuesta."
+  },
+  {
+   "id": "activities.combeima_cocora_traverse",
+   "claimed": "primary_ok",
+   "support": "partial",
+   "note": "La excerpt sostiene una parte; una afirmación material (cifra, condición, excepción, ruta o requisito) no aparece en ella."
+  },
+  {
+   "id": "activities.termales_canon",
+   "claimed": "primary_ok",
+   "support": "partial",
+   "note": "La excerpt sostiene una parte; una afirmación material (cifra, condición, excepción, ruta o requisito) no aparece en ella."
+  },
+  {
+   "id": "activities.chilcos_trail",
+   "claimed": "primary_ok",
+   "support": "full",
+   "note": "La excerpt sostiene la afirmación central de la respuesta."
+  },
+  {
+   "id": "activities.paramillo_trails_announced",
+   "claimed": "primary_ok",
+   "support": "full",
+   "note": "La excerpt sostiene la afirmación central de la respuesta."
+  },
+  {
+   "id": "activities.quindio_summit_ask",
+   "claimed": "primary_ok",
+   "support": "none",
+   "note": "La evidence_excerpt no sostiene la afirmación central de la respuesta."
+  },
+  {
+   "id": "activities.day_or_multiday",
+   "claimed": "primary_ok",
+   "support": "partial",
+   "note": "La excerpt sostiene una parte; una afirmación material (cifra, condición, excepción, ruta o requisito) no aparece en ella."
+  },
+  {
+   "id": "activities.demanding_south",
+   "claimed": "primary_ok",
+   "support": "partial",
+   "note": "La excerpt sostiene una parte; una afirmación material (cifra, condición, excepción, ruta o requisito) no aparece en ella."
+  },
+  {
+   "id": "activities.camping_where",
+   "claimed": "primary_ok",
+   "support": "none",
+   "note": "Conflicto crítico (findings/contradictions.json): la excerpt dice que la zona permitida es Laguna Otún; la respuesta dice que Arenales no estaba habilitado en 2024, dato del informe 2024 que la cita no contiene."
+  },
+  {
+   "id": "activities.camping_otun",
+   "claimed": "primary_ok",
+   "support": "full",
+   "note": "La excerpt sostiene la afirmación central de la respuesta."
+  },
+  {
+   "id": "activities.camping_cisne",
+   "claimed": "primary_ok",
+   "support": "full",
+   "note": "La excerpt sostiene la afirmación central de la respuesta."
+  },
+  {
+   "id": "activities.camping_brisas_restricted",
+   "claimed": "primary_ok",
+   "support": "full",
+   "note": "La excerpt sostiene la afirmación central de la respuesta."
+  },
+  {
+   "id": "activities.camping_tolima",
+   "claimed": "primary_ok",
+   "support": "full",
+   "note": "La excerpt sostiene la afirmación central de la respuesta."
+  },
+  {
+   "id": "activities.photography_amateur",
+   "claimed": "primary_ok",
+   "support": "partial",
+   "note": "La excerpt sostiene una parte; una afirmación material (cifra, condición, excepción, ruta o requisito) no aparece en ella."
+  },
+  {
+   "id": "activities.birdwatching",
+   "claimed": "primary_ok",
+   "support": "partial",
+   "note": "La excerpt sostiene una parte; una afirmación material (cifra, condición, excepción, ruta o requisito) no aparece en ella."
+  },
+  {
+   "id": "activities.wildlife_from_trail",
+   "claimed": "primary_ok",
+   "support": "full",
+   "note": "La excerpt sostiene la afirmación central de la respuesta."
+  },
+  {
+   "id": "activities.children_visit_style",
+   "claimed": "primary_ok",
+   "support": "partial",
+   "note": "La excerpt sostiene una parte; una afirmación material (cifra, condición, excepción, ruta o requisito) no aparece en ella."
+  },
+  {
+   "id": "activities.regulated_sports",
+   "claimed": "primary_ok",
+   "support": "full",
+   "note": "La excerpt sostiene la afirmación central de la respuesta."
+  },
+  {
+   "id": "activities.sport_mountaineering",
+   "claimed": "primary_ok",
+   "support": "partial",
+   "note": "La excerpt sostiene una parte; una afirmación material (cifra, condición, excepción, ruta o requisito) no aparece en ella."
+  },
+  {
+   "id": "activities.horseback_not_allowed",
+   "claimed": "primary_ok",
+   "support": "full",
+   "note": "La excerpt sostiene la afirmación central de la respuesta."
+  },
+  {
+   "id": "activities.therapeutic_baths_banned",
+   "claimed": "primary_ok",
+   "support": "full",
+   "note": "La excerpt sostiene la afirmación central de la respuesta."
+  },
+  {
+   "id": "activities.snow_and_glacier_access",
+   "claimed": "primary_ok",
+   "support": "partial",
+   "note": "La excerpt sostiene una parte; una afirmación material (cifra, condición, excepción, ruta o requisito) no aparece en ella."
+  },
+  {
+   "id": "activities.published_trails",
+   "claimed": "primary_ok",
+   "support": "partial",
+   "note": "La excerpt sostiene una parte; una afirmación material (cifra, condición, excepción, ruta o requisito) no aparece en ella."
+  },
+  {
+   "id": "activities.unlisted_activities",
+   "claimed": "primary_ok",
+   "support": "none",
+   "note": "La excerpt habla de fogatas; bote, picnic y esquí no aparecen."
+  },
+  {
+   "id": "activities.potosi_laguna_road",
+   "claimed": "primary_ok",
+   "support": "partial",
+   "note": "La excerpt sostiene una parte; una afirmación material (cifra, condición, excepción, ruta o requisito) no aparece en ella."
+  },
+  {
+   "id": "activities.laguna_el_mosquito",
+   "claimed": "primary_ok",
+   "support": "full",
+   "note": "La excerpt sostiene la afirmación central de la respuesta."
+  },
+  {
+   "id": "activities.recreation_zone_trails",
+   "claimed": "primary_ok",
+   "support": "partial",
+   "note": "La excerpt sostiene una parte; una afirmación material (cifra, condición, excepción, ruta o requisito) no aparece en ella."
+  },
+  {
+   "id": "activities.permitted_activity_menu",
+   "claimed": "primary_ok",
+   "support": "partial",
+   "note": "La excerpt sostiene una parte; una afirmación material (cifra, condición, excepción, ruta o requisito) no aparece en ella."
+  },
+  {
+   "id": "activities.paramo_walk",
+   "claimed": "primary_ok",
+   "support": "full",
+   "note": "La excerpt sostiene la afirmación central de la respuesta."
+  },
+  {
+   "id": "activities.interpretive_hiking",
+   "claimed": "primary_ok",
+   "support": "full",
+   "note": "La excerpt sostiene la afirmación central de la respuesta."
+  },
+  {
+   "id": "activities.wellness_on_trail",
+   "claimed": "primary_ok",
+   "support": "full",
+   "note": "La excerpt sostiene la afirmación central de la respuesta."
+  },
+  {
+   "id": "activities.environmental_education",
+   "claimed": "primary_ok",
+   "support": "full",
+   "note": "La excerpt sostiene la afirmación central de la respuesta."
+  },
+  {
+   "id": "activities.ski_and_canyoning",
+   "claimed": "primary_ok",
+   "support": "full",
+   "note": "La excerpt sostiene la afirmación central de la respuesta."
+  },
+  {
+   "id": "activities.cambio_climatico_trail",
+   "claimed": "primary_ok",
+   "support": "none",
+   "note": "La excerpt es sólo una fecha (9 de diciembre de 2020); el nombre del sendero y el estado no aparecen."
+  },
+  {
+   "id": "activities.calvito_overnight",
+   "claimed": "primary_ok",
+   "support": "partial",
+   "note": "La excerpt sostiene una parte; una afirmación material (cifra, condición, excepción, ruta o requisito) no aparece en ella."
+  },
+  {
+   "id": "activities.cocora_named_stops",
+   "claimed": "primary_ok",
+   "support": "partial",
+   "note": "La excerpt sostiene una parte; una afirmación material (cifra, condición, excepción, ruta o requisito) no aparece en ella."
+  },
+  {
+   "id": "activities.south_operation_transitory",
+   "claimed": "primary_ok",
+   "support": "partial",
+   "note": "La excerpt sostiene una parte; una afirmación material (cifra, condición, excepción, ruta o requisito) no aparece en ella."
+  },
+  {
+   "id": "activities.mirador_laguna_otun",
+   "claimed": "quote_missing",
+   "support": "none",
+   "note": "Sin evidence_ref y sin excerpt (quote_missing). La respuesta afirma condiciones de 2024 y ubicación sin fuente."
+  },
+  {
+   "id": "activities.gazaperas_climb",
+   "claimed": "primary_ok",
+   "support": "full",
+   "note": "La excerpt sostiene la afirmación central de la respuesta."
+  },
+  {
+   "id": "activities.special_permit_activities",
+   "claimed": "primary_ok",
+   "support": "none",
+   "note": "La excerpt es \"Educación ambiental.\"; cursos de rescate, carreras y yoga no aparecen."
+  },
+  {
+   "id": "activities.la_cueva_start",
+   "claimed": "primary_ok",
+   "support": "partial",
+   "note": "La excerpt sostiene una parte; una afirmación material (cifra, condición, excepción, ruta o requisito) no aparece en ella."
+  },
+  {
+   "id": "activities.sietecuerales_point",
+   "claimed": "primary_ok",
+   "support": "partial",
+   "note": "La excerpt sostiene una parte; una afirmación material (cifra, condición, excepción, ruta o requisito) no aparece en ella."
+  },
+  {
+   "id": "activities.aguacerales_stop",
+   "claimed": "primary_ok",
+   "support": "full",
+   "note": "La excerpt sostiene la afirmación central de la respuesta."
+  },
+  {
+   "id": "activities.ruiz_glacier_edge",
+   "claimed": "primary_ok",
+   "support": "partial",
+   "note": "La excerpt sostiene una parte; una afirmación material (cifra, condición, excepción, ruta o requisito) no aparece en ella."
+  },
+  {
+   "id": "activities.cycling_roads_2017",
+   "claimed": "primary_ok",
+   "support": "partial",
+   "note": "La excerpt sostiene una parte; una afirmación material (cifra, condición, excepción, ruta o requisito) no aparece en ella."
+  },
+  {
+   "id": "activities.conejeras_hut",
+   "claimed": "quote_missing",
+   "support": "none",
+   "note": "Sin evidence_ref y sin excerpt (quote_missing). La respuesta describe una caseta sin fuente."
+  }
+ ],
+ "summary": {
+  "approve": 0,
+  "revise": 22,
+  "reject": 0,
+  "audit_support": {
+   "full": 26,
+   "partial": 36,
+   "none": 8
+  }
+ }
+}

@@ -1,0 +1,2453 @@
+{
+  "version": 1,
+  "root": "/home/cruz1122/dev/hacka-airplane",
+  "proposal": {
+    "operations": [
+      {
+        "op": "update",
+        "reason": "Optimizar metadatos de preparation.layering_system: clarificar etiqueta para System 1 y enriquecer hard negatives contrastivos contra pares confusibles.",
+        "entry": {
+          "id": "preparation.layering_system",
+          "label": "sistema de capas de ropa para montaña",
+          "kind": "procedure",
+          "audience": "visitor",
+          "lang": "es",
+          "examples": [
+            "cómo vestirme para ir al nevado",
+            "qué ropa empaco pal nevado?",
+            "cómo funciona el sistema de capas",
+            "qué ropa me pongo para no pasar frío",
+            "qué ropa me llevo, que hace harto frío",
+            "llevo varias capas o con una sola chaqueta basta?",
+            "cómo vestir por capas en el páramo",
+            "qué me pongo para subir al nevado",
+            "toca vestirse por capas o cómo?",
+            "que ropa llevar para el frio",
+            "como vestirse para el parque",
+            "what clothes should I wear to Los Nevados",
+            "how should I dress in layers for the park",
+            "qué ropa empaco para la visita"
+          ],
+          "hard_negatives": [
+            "sirve un poncho de plástico para la lluvia",
+            "a un niño que ropa y que calzado le pongo pa esa altura?",
+            "que zapatos ponerme para subir al nevado",
+            "con qué abrigarme la cabeza en el nevado"
+          ],
+          "entities": {
+            "trip_duration": [
+              "pasadia",
+              "travesia"
+            ]
+          },
+          "needs": [],
+          "answer": {
+            "short": "Para Los Nevados lleva ropa abrigada e impermeable: hace falta para senderismo, con climas fríos inferiores a 0 ºC y lluviosos (Resolución 207 de 2023). Vístete en capas para quitarte o ponerte prendas según el clima.",
+            "variants": [
+              "Lleva ropa abrigada e impermeable para el frío y la lluvia del parque. Empaca en capas para regular el calor."
+            ],
+            "detail": "Resolución 207 de 2023, numeral 6.1: ropa impermeable y ropa abrigada. Ficha oficial: ropa y calzado apropiado para climas fríos inferiores a 0 ºC y lluviosos."
+          },
+          "sources": [
+            {
+              "label": "Parques Nacionales Naturales de Colombia · Resolución 207 de 2023",
+              "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2023/08/Resolucion_207_2023_ReglamentacionNevados_.pdf",
+              "retrieved_at": "2026-11-21"
+            },
+            {
+              "label": "Parques Nacionales Naturales de Colombia · Los Nevados",
+              "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+              "retrieved_at": "2026-11-21"
+            }
+          ],
+          "last_verified": "2026-11-21",
+          "valid_until": null,
+          "related": [
+            "preparation.first_layer_thermal",
+            "preparation.second_layer_fleece",
+            "preparation.third_layer_waterproof"
+          ],
+          "tags": [
+            "capas",
+            "ropa",
+            "vestimenta",
+            "frio",
+            "abrigo"
+          ]
+        }
+      },
+      {
+        "op": "update",
+        "reason": "Optimizar metadatos de preparation.first_layer_thermal: clarificar etiqueta para System 1 y enriquecer hard negatives contrastivos contra pares confusibles.",
+        "entry": {
+          "id": "preparation.first_layer_thermal",
+          "label": "primera capa térmica y ropa interior técnica",
+          "kind": "procedure",
+          "audience": "visitor",
+          "lang": "es",
+          "examples": [
+            "qué es la primera capa térmica",
+            "qué camiseta térmica llevar al nevado",
+            "para qué sirve la ropa interior térmica",
+            "qué material debe ser la primera capa",
+            "puedo llevar licra térmica a los nevados",
+            "qué me pongo de primera capa?",
+            "necesito licras térmicas para el frío",
+            "camiseta interior para el páramo",
+            "mallas térmicas para caminar en montaña",
+            "que tipo de camiseta termica empacar",
+            "la camiseta de abajo, ¿qué tiene que ser?",
+            "what base layer should I wear",
+            "thermal underwear for high altitude hike",
+            "sirve la licra pa' el frío?",
+            "debo llevar chaqueta acolchada al nevado",
+            "sirve una chaqueta de plumas para el páramo",
+            "chaqueta de plumón o fibra para el frío",
+            "chaqueta térmica gruesa para descansos",
+            "necesito abrigo pesado para ir a brisas",
+            "chaqueta para temperaturas bajo cero",
+            "abrigo adicional para paradas y campamento",
+            "chaqueta acolchada para alta montaña",
+            "vale la pena llevar chaqueta de pluma",
+            "que tipo de chaqueta gruesa empacar",
+            "chaqueta de descanso para campamento",
+            "do I need an insulated down jacket",
+            "warm insulated coat for cold stops",
+            "cuándo usar la chaqueta de pluma en la ruta",
+            "necesito pantalón impermeable para el nevado",
+            "qué es un sobrepantalón impermeable",
+            "pantalón para lluvia en caminatas de páramo",
+            "debo comprar sobrepantalón para ir al parque",
+            "pantalón impermeable para senderismo lluvioso",
+            "sirve un pantalón impermeable sobre el de trekking",
+            "pantalón de lluvia para travesías largas",
+            "cómo proteger las piernas de la lluvia en montaña",
+            "sobrepantalón cortavientos para frío extremo",
+            "pantalon impermeable para alta montana",
+            "cuando usar sobrepantalon en el parque",
+            "do I need waterproof rain pants",
+            "overpants for heavy rain in high altitude",
+            "vale la pena llevar pantalón impermeable extra",
+            "debo llevar ropa de repuesto al nevado",
+            "llevar muda seca en la mochila o carro",
+            "cuánta ropa de cambio empacar para el viaje",
+            "es necesario llevar medias y camiseta extra",
+            "muda completa seca para después de la caminata",
+            "llevar cambio de ropa por si llueve",
+            "ropa de repuesto recomendada para el parque",
+            "dejo ropa seca en el vehículo",
+            "muda de emergencia en bolsa hermética",
+            "cuanta ropa de cambio llevar al parque",
+            "muda seca para cambiarse al regresar",
+            "should I pack spare dry clothes",
+            "extra change of clothes for after hike",
+            "por qué es importante tener una muda seca"
+          ],
+          "hard_negatives": [
+            "qué chaqueta impermeable llevar al parque",
+            "cómo aislar la ropa seca dentro del morral",
+            "cómo funciona el sistema de capas",
+            "gorro para no pasar frío en los nevados"
+          ],
+          "entities": {
+            "trip_duration": [
+              "pasadia",
+              "travesia"
+            ]
+          },
+          "needs": [],
+          "answer": {
+            "short": "Lleva ropa térmica, impermeable y un cambio extra por si llueve. Tiene que ser adecuada para clima frío e impermeable (guía de Semana Santa 2018).",
+            "variants": [
+              "Empaca ropa térmica y un cambio extra por si llueve: así lo recomienda Colombia.travel para los páramos."
+            ],
+            "detail": "Guía de Semana Santa 2018 del PNN (dato de 2018): ropa adecuada para clima frío, impermeable. Lineamientos PNN de montaña (2018, nacional): vestimenta térmica e impermeable. Colombia.travel: ropa térmica y un cambio extra por si llueve."
+          },
+          "sources": [
+            {
+              "label": "Parques Nacionales Naturales de Colombia · Recomendaciones Semana Santa 2018 (Los Nevados, dato de 2018)",
+              "url": "https://old.parquesnacionales.gov.co/portal/es/recomendaciones-para-ingresar-al-pnn-los-nevados-esta-temporada-de-semana-santa-2018/",
+              "retrieved_at": "2026-11-21"
+            },
+            {
+              "label": "Parques Nacionales Naturales de Colombia · Lineamientos de actividades deportivas de montaña y escalada (2018, nacional, no específico de Los Nevados)",
+              "url": "https://old.parquesnacionales.gov.co/portal/wp-content/uploads/2018/08/Documento-Lineamientos-Deportes-de-Montan%CC%83a-en-PNN-2018-1.pdf",
+              "retrieved_at": "2026-11-21"
+            },
+            {
+              "label": "Colombia.travel · Páramos en Colombia: planes de turismo de altura (portal oficial de turismo)",
+              "url": "https://colombia.travel/es/blog/paramos-en-colombia-planes-imperdibles-de-turismo-de-altura",
+              "retrieved_at": "2026-11-21"
+            }
+          ],
+          "last_verified": "2026-11-21",
+          "valid_until": null,
+          "related": [
+            "preparation.layering_system",
+            "preparation.second_layer_fleece"
+          ],
+          "tags": [
+            "primera_capa",
+            "termica",
+            "transpirable",
+            "mallas",
+            "camiseta"
+          ]
+        }
+      },
+      {
+        "op": "update",
+        "reason": "Optimizar metadatos de preparation.second_layer_fleece: clarificar etiqueta para System 1 y enriquecer hard negatives contrastivos contra pares confusibles.",
+        "entry": {
+          "id": "preparation.second_layer_fleece",
+          "label": "segunda capa de abrigo y buzo polar",
+          "kind": "procedure",
+          "audience": "visitor",
+          "lang": "es",
+          "examples": [
+            "qué buzo o forro polar llevar",
+            "para qué sirve la segunda capa de ropa",
+            "qué chaqueta intermedia usar en el nevado",
+            "sirve un buzo térmico para el frío",
+            "chaqueta de forro polar para páramo",
+            "qué saco de abrigo me pongo",
+            "segunda capa para caminar en el parque",
+            "el buzo sí sirve pa' el nevado?",
+            "buzo de lana o fleece, ¿cuál llevo?",
+            "que tipo de abrigo intermedio empacar",
+            "qué chaqueta de abrigo sirve pa' el sendero?",
+            "what mid layer fleece should I wear",
+            "warm fleece jacket for cold weather",
+            "cuál chaqueta térmica intermedia llevar"
+          ],
+          "hard_negatives": [
+            "qué camiseta térmica llevar al nevado",
+            "chaqueta para protegerse de la lluvia y el viento",
+            "que ropa llevar para el frio",
+            "chaqueta de plumón o fibra para el frío"
+          ],
+          "entities": {
+            "trip_duration": [
+              "pasadia",
+              "travesia"
+            ]
+          },
+          "needs": [],
+          "answer": {
+            "short": "Como segunda capa, usa un buzo o chaqueta de forro polar o micropolar que abrigue sin ser muy pesado para caminar.",
+            "variants": [
+              "Un forro polar o una chaqueta liviana sirve de capa de abrigo intermedia."
+            ],
+            "detail": "Resolución 207 de 2023, numeral 6.1: ropa abrigada para soportar temperaturas extremas de frío en cabeza, tórax y extremidades."
+          },
+          "sources": [
+            {
+              "label": "Parques Nacionales Naturales de Colombia · Resolución 207 de 2023",
+              "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2023/08/Resolucion_207_2023_ReglamentacionNevados_.pdf",
+              "retrieved_at": "2026-11-21"
+            }
+          ],
+          "last_verified": "2026-11-21",
+          "valid_until": null,
+          "related": [
+            "preparation.layering_system",
+            "preparation.third_layer_waterproof"
+          ],
+          "tags": [
+            "segunda_capa",
+            "polar",
+            "fleece",
+            "abrigo",
+            "buzo"
+          ]
+        }
+      },
+      {
+        "op": "update",
+        "reason": "Optimizar metadatos de preparation.third_layer_waterproof: clarificar etiqueta para System 1 y enriquecer hard negatives contrastivos contra pares confusibles.",
+        "entry": {
+          "id": "preparation.third_layer_waterproof",
+          "label": "chaqueta impermeable cortavientos y tercera capa exterior",
+          "kind": "procedure",
+          "audience": "visitor",
+          "lang": "es",
+          "examples": [
+            "qué chaqueta impermeable llevar al parque",
+            "sirve una chaqueta cortavientos para el nevado",
+            "toca llevar impermeable o no?",
+            "chaqueta para protegerse de la lluvia y el viento",
+            "qué tipo de impermeable llevar a la montaña",
+            "necesito chaqueta con membrana impermeable",
+            "chaqueta con capucha para el páramo",
+            "el impermeable sirve pa' ese aguacero?",
+            "chaqueta para tormenta y frío en los nevados",
+            "que chaqueta corta viento comprar",
+            "chaqueta pa' la lluvia y el viento, ¿cuál?",
+            "what waterproof jacket do I need",
+            "rain jacket and windbreaker for páramo",
+            "cómo debe ser la chaqueta exterior"
+          ],
+          "hard_negatives": [
+            "qué camiseta térmica llevar al nevado",
+            "chaqueta de forro polar para páramo",
+            "necesito pantalón impermeable para el nevado",
+            "qué chaqueta intermedia usar en el nevado"
+          ],
+          "entities": {
+            "trip_duration": [
+              "pasadia",
+              "travesia"
+            ]
+          },
+          "needs": [],
+          "answer": {
+            "short": "Como capa exterior, lleva una chaqueta impermeable y cortavientos con capucha. La Resolución 207 de 2023 exige ropa impermeable en el equipo mínimo para recorrer los senderos.",
+            "variants": [
+              "Lleva chaqueta impermeable con capucha por si llueve en el sendero: la Resolución 207 la incluye en el equipo mínimo."
+            ],
+            "detail": null
+          },
+          "sources": [
+            {
+              "label": "Parques Nacionales Naturales de Colombia · Resolución 207 de 2023",
+              "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2023/08/Resolucion_207_2023_ReglamentacionNevados_.pdf",
+              "retrieved_at": "2026-11-21"
+            }
+          ],
+          "last_verified": "2026-11-21",
+          "valid_until": null,
+          "related": [
+            "preparation.layering_system",
+            "preparation.rain_poncho"
+          ],
+          "tags": [
+            "tercera_capa",
+            "impermeable",
+            "chaqueta",
+            "cortavientos",
+            "lluvia"
+          ]
+        }
+      },
+      {
+        "op": "update",
+        "reason": "Optimizar metadatos de preparation.rain_poncho: clarificar etiqueta para System 1 y enriquecer hard negatives contrastivos contra pares confusibles.",
+        "entry": {
+          "id": "preparation.rain_poncho",
+          "label": "uso de poncho impermeable para lluvia",
+          "kind": "procedure",
+          "audience": "visitor",
+          "lang": "es",
+          "examples": [
+            "sirve un poncho de plástico para la lluvia",
+            "puedo llevar capa o poncho al nevado",
+            "es mejor poncho impermeable o chaqueta",
+            "pal nevado toca chaqueta o poncho?",
+            "usar capa impermeable para caminar en páramo",
+            "poncho de agua para senderismo en los nevados",
+            "se puede usar poncho para cubrir el morral",
+            "por qué no recomiendan ponchos plásticos delgados",
+            "la capa de agua, ¿sirve pa' el parque?",
+            "sirve capa plastica para la lluvia en el nevado",
+            "el poncho sí aguanta el viento?",
+            "is a rain poncho suitable for Los Nevados",
+            "rain jacket versus rain poncho in high wind",
+            "qué inconveniente tiene el poncho en el páramo"
+          ],
+          "hard_negatives": [
+            "cómo funciona el sistema de capas",
+            "cómo vestirme para ir al nevado",
+            "debo llevar chaqueta acolchada al nevado",
+            "debo llevar sombrero o gorra al nevado"
+          ],
+          "entities": {
+            "trip_duration": [
+              "pasadia",
+              "travesia"
+            ]
+          },
+          "needs": [],
+          "answer": {
+            "short": "Lleva chaqueta impermeable, que la Resolución 207 de 2023 pide. Si usas poncho, que sea reutilizable: el parque prohíbe los plásticos de un solo uso.",
+            "variants": [
+              "Para la lluvia, usa chaqueta impermeable. Un poncho desechable de plástico no es admitido en el parque."
+            ],
+            "detail": "Resolución 207 de 2023 sobre plásticos: no ingresar plásticos de un solo uso, prohibido de acuerdo a la Resolución 1558 de 2019."
+          },
+          "sources": [
+            {
+              "label": "Parques Nacionales Naturales de Colombia · Resolución 207 de 2023",
+              "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2023/08/Resolucion_207_2023_ReglamentacionNevados_.pdf",
+              "retrieved_at": "2026-11-21"
+            }
+          ],
+          "last_verified": "2026-11-21",
+          "valid_until": null,
+          "related": [
+            "preparation.third_layer_waterproof",
+            "preparation.what_not_to_pack"
+          ],
+          "tags": [
+            "poncho",
+            "lluvia",
+            "impermeable",
+            "viento",
+            "plastico"
+          ]
+        }
+      },
+      {
+        "op": "update",
+        "reason": "Optimizar metadatos de preparation.hiking_boots: clarificar etiqueta para System 1 y enriquecer hard negatives contrastivos contra pares confusibles.",
+        "entry": {
+          "id": "preparation.hiking_boots",
+          "label": "calzado cerrado de senderismo con buen agarre",
+          "kind": "procedure",
+          "audience": "visitor",
+          "lang": "es",
+          "examples": [
+            "sirven tenis o toca bota de senderismo que agarre?",
+            "puedo ir en tenis al parque",
+            "botas recomendadas para caminar en el nevado",
+            "qué zapatos me toca llevar pa' la montaña?",
+            "qué tipo de botas usar en alta montaña",
+            "sirven tenis deportivos normales para el sendero",
+            "con tenis se camina bien en la roca mojada?",
+            "botas de caña media para senderismo",
+            "botas que agarren bien en la arena?",
+            "que zapatos ponerme para subir al nevado",
+            "calzado para no resbalar en el paramo",
+            "what boots should I wear to Los Nevados",
+            "can I wear running sneakers to the park",
+            "cómo debe ser la suela del calzado"
+          ],
+          "hard_negatives": [
+            "guantes impermeables para el frío extremo",
+            "son obligatorios los guantes para el parque",
+            "qué equipo llevar para pernoctar en la montaña",
+            "necesito pantalón impermeable para el nevado"
+          ],
+          "entities": {
+            "trip_duration": [
+              "pasadia",
+              "travesia"
+            ]
+          },
+          "needs": [],
+          "answer": {
+            "short": "Usa zapatos cómodos y preferiblemente impermeables, con suela que agarre bien. La Resolución 207 de 2023 los incluye en el equipo mínimo para los senderos del parque.",
+            "variants": [
+              "Lleva zapatos cómodos, preferiblemente impermeables, para caminar. Evita los tenis de suela lisa."
+            ],
+            "detail": "Resolución 207 de 2023, numeral 6.1: zapatos cómodos preferiblemente impermeables. Ficha oficial: calzado apropiado para climas fríos inferiores a 0 ºC y lluviosos."
+          },
+          "sources": [
+            {
+              "label": "Parques Nacionales Naturales de Colombia · Resolución 207 de 2023",
+              "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2023/08/Resolucion_207_2023_ReglamentacionNevados_.pdf",
+              "retrieved_at": "2026-11-21"
+            },
+            {
+              "label": "Parques Nacionales Naturales de Colombia · Los Nevados",
+              "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+              "retrieved_at": "2026-11-21"
+            }
+          ],
+          "last_verified": "2026-11-21",
+          "valid_until": null,
+          "related": [
+            "preparation.layering_system"
+          ],
+          "tags": [
+            "botas",
+            "calzado",
+            "zapatos",
+            "trekking",
+            "suela"
+          ]
+        }
+      },
+      {
+        "op": "update",
+        "reason": "Optimizar metadatos de preparation.thermal_gloves: clarificar etiqueta para System 1 y enriquecer hard negatives contrastivos contra pares confusibles.",
+        "entry": {
+          "id": "preparation.thermal_gloves",
+          "label": "guantes abrigados para el frío de páramo",
+          "kind": "procedure",
+          "audience": "visitor",
+          "lang": "es",
+          "examples": [
+            "sin guantes se aguanta el frio del paramo o van en el equipo?",
+            "son obligatorios los guantes para el parque",
+            "guantes impermeables para el frío extremo",
+            "sirven guantes de lana comunes en el nevado",
+            "las manos se me congelan, ¿qué guantes llevo?",
+            "qué tipo de guantes empacar para páramo",
+            "guantes para viento y lluvia en los nevados",
+            "debo llevar dos pares de guantes a la montaña",
+            "guantes que no se mojen, ¿cuáles son?",
+            "¿me van a pedir guantes pa' entrar?",
+            "que guantes comprar para subir a brisas",
+            "what warm gloves should I wear to the park",
+            "waterproof insulated gloves for cold weather",
+            "cómo proteger las manos del frío y viento"
+          ],
+          "hard_negatives": [
+            "es obligatoria la linterna para ir a los nevados",
+            "necesito mapa o gps para caminar?",
+            "gorro para no pasar frío en los nevados",
+            "dedos entumecidos por el frío"
+          ],
+          "entities": {
+            "trip_duration": [
+              "pasadia",
+              "travesia"
+            ]
+          },
+          "needs": [],
+          "answer": {
+            "short": "Lleva guantes que abriguen para el frío del páramo: van en el equipo mínimo para los senderos (Resolución 207 de 2023).",
+            "variants": [
+              "Para el páramo, lleva guantes que abriguen: la resolución los incluye en el equipo mínimo."
+            ],
+            "detail": "Resolución 207 de 2023, numeral 6.1: guantes."
+          },
+          "sources": [
+            {
+              "label": "Parques Nacionales Naturales de Colombia · Resolución 207 de 2023",
+              "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2023/08/Resolucion_207_2023_ReglamentacionNevados_.pdf",
+              "retrieved_at": "2026-11-21"
+            }
+          ],
+          "last_verified": "2026-11-21",
+          "valid_until": null,
+          "related": [
+            "preparation.layering_system",
+            "preparation.thermal_hat",
+            "preparation.neck_gaiter"
+          ],
+          "tags": [
+            "guantes",
+            "manos",
+            "frio",
+            "abrigo",
+            "extremidades"
+          ]
+        }
+      },
+      {
+        "op": "update",
+        "reason": "Optimizar metadatos de preparation.thermal_hat: clarificar etiqueta para System 1 y enriquecer hard negatives contrastivos contra pares confusibles.",
+        "entry": {
+          "id": "preparation.thermal_hat",
+          "label": "gorro térmico abrigado que cubra orejas",
+          "kind": "procedure",
+          "audience": "visitor",
+          "lang": "es",
+          "examples": [
+            "qué gorro llevar al parque los nevados",
+            "sirve un gorro de lana para el frío",
+            "gorro sí o sí toca llevarlo?",
+            "gorro que tape las orejas en el páramo",
+            "gorro de forro polar para alta montaña",
+            "con qué abrigarme la cabeza en el nevado",
+            "gorro para no pasar frío en los nevados",
+            "qué tipo de gorro empacar para brisas",
+            "la cabeza es lo que más frío siente, ¿verdad?",
+            "el gorro sí abriga la cabeza?",
+            "gorro para el frío extremo en la montaña",
+            "what warm winter hat should I bring",
+            "thermal beanie covering ears for high altitude",
+            "por qué es importante abrigarse la cabeza"
+          ],
+          "hard_negatives": [
+            "son obligatorias las gafas de sol en el nevado",
+            "bloqueador solar factor cincuenta como mínimo",
+            "debo llevar sombrero o gorra al nevado",
+            "guantes impermeables para el frío extremo"
+          ],
+          "entities": {
+            "trip_duration": [
+              "pasadia",
+              "travesia"
+            ]
+          },
+          "needs": [],
+          "answer": {
+            "short": "Lleva un gorro que abrigue la cabeza: la ropa debe proteger del frío extremo la cabeza, el tórax y las extremidades (Resolución 207 de 2023).",
+            "variants": [
+              "Protege la cabeza con un gorro abrigado: la resolución pide ropa abrigada también para la cabeza."
+            ],
+            "detail": null
+          },
+          "sources": [
+            {
+              "label": "Parques Nacionales Naturales de Colombia · Resolución 207 de 2023",
+              "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2023/08/Resolucion_207_2023_ReglamentacionNevados_.pdf",
+              "retrieved_at": "2026-11-21"
+            }
+          ],
+          "last_verified": "2026-11-21",
+          "valid_until": null,
+          "related": [
+            "preparation.neck_gaiter",
+            "preparation.thermal_gloves",
+            "preparation.sun_hat"
+          ],
+          "tags": [
+            "gorro",
+            "cabeza",
+            "orejas",
+            "abrigo",
+            "frio"
+          ]
+        }
+      },
+      {
+        "op": "update",
+        "reason": "Optimizar metadatos de preparation.neck_gaiter: clarificar etiqueta para System 1 y enriquecer hard negatives contrastivos contra pares confusibles.",
+        "entry": {
+          "id": "preparation.neck_gaiter",
+          "label": "cuello térmico buff o pasa montañas",
+          "kind": "procedure",
+          "audience": "visitor",
+          "lang": "es",
+          "examples": [
+            "sirve un cuello térmico o buff en el nevado",
+            "debo llevar pasamontañas a los nevados",
+            "cuello de forro polar para el viento",
+            "para qué sirve el cuello térmico en montaña",
+            "el pasamontañas sí es obligatorio, ¿no?",
+            "el viento me pega en la cara, ¿qué uso?",
+            "buff o bufanda para caminar en el parque",
+            "es mejor bufanda o cuello térmico",
+            "cuello térmico para taparse la boca y nariz",
+            "pasa montanas para el frio en el nevado",
+            "cuello tubular para senderismo de paramo",
+            "should I bring a neck gaiter or balaclava",
+            "buff or neck warmer for cold wind in the park",
+            "con qué me cubro el cuello?"
+          ],
+          "hard_negatives": [
+            "qué buzo o forro polar llevar",
+            "qué camiseta térmica llevar al nevado",
+            "con qué abrigarme la cabeza en el nevado",
+            "preparación para trekking a borde de nieve"
+          ],
+          "entities": {
+            "trip_duration": [
+              "pasadia",
+              "travesia"
+            ]
+          },
+          "needs": [],
+          "answer": {
+            "short": "Lleva un pasamontañas o cuello térmico para cubrirte el cuello y la cara del viento: el pasa montañas va en el equipo mínimo de senderismo (Resolución 207 de 2023).",
+            "variants": [
+              "Lleva pasa montañas o cuello térmico: la resolución lo incluye en el equipo mínimo para los senderos."
+            ],
+            "detail": null
+          },
+          "sources": [
+            {
+              "label": "Parques Nacionales Naturales de Colombia · Resolución 207 de 2023",
+              "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2023/08/Resolucion_207_2023_ReglamentacionNevados_.pdf",
+              "retrieved_at": "2026-11-21"
+            }
+          ],
+          "last_verified": "2026-11-21",
+          "valid_until": null,
+          "related": [
+            "preparation.thermal_hat",
+            "preparation.thermal_gloves"
+          ],
+          "tags": [
+            "cuello",
+            "buff",
+            "pasamontanas",
+            "viento",
+            "garganta"
+          ]
+        }
+      },
+      {
+        "op": "update",
+        "reason": "Optimizar metadatos de preparation.sunglasses_uv: clarificar etiqueta para System 1 y enriquecer hard negatives contrastivos contra pares confusibles.",
+        "entry": {
+          "id": "preparation.sunglasses_uv",
+          "label": "gafas de sol con protección ultravioleta total",
+          "kind": "procedure",
+          "audience": "visitor",
+          "lang": "es",
+          "examples": [
+            "son obligatorias las gafas de sol en el nevado",
+            "qué tipo de gafas llevar al parque los nevados",
+            "las gafas con UV sirven pa' el brillo de la nieve?",
+            "sirven gafas de sol comunes para el páramo",
+            "gafas con filtro ultravioleta cien por ciento",
+            "por qué llevar gafas oscuras a la montaña",
+            "el sol pega duro, ¿qué gafas me llevo?",
+            "las gafas sí son obligatorias, ¿verdad?",
+            "lentes con filtro uv para caminar en el nevado",
+            "que gafas comprar para ir a los nevados",
+            "gafas oscuras para proteger los ojos del reflejo",
+            "are sunglasses mandatory in Los Nevados",
+            "sunglasses with UV protection for high altitude",
+            "que gafas debo llevar, con filtro de verdad contra el sol?"
+          ],
+          "hard_negatives": [
+            "debo llevar sombrero o gorra al nevado",
+            "sombrero con ala ancha para alta montaña",
+            "necesito gafas aunque haga frío",
+            "gafas oscuras con protección UV para caminar en altura"
+          ],
+          "entities": {
+            "trip_duration": [
+              "pasadia",
+              "travesia"
+            ]
+          },
+          "needs": [],
+          "answer": {
+            "short": "Lleva gafas con protección ultravioleta 100% (UV). La Resolución 207 de 2023 las exige en el equipo mínimo de senderismo.",
+            "variants": [
+              "Usa gafas UV 100% para caminar en los senderos autorizados: el parque las exige."
+            ],
+            "detail": "Ficha oficial: usa gafas con protección UV. Resolución 207 de 2023, numeral 6.1: gafas con protección ultravioleta 100% (UV)."
+          },
+          "sources": [
+            {
+              "label": "Parques Nacionales Naturales de Colombia · Resolución 207 de 2023",
+              "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2023/08/Resolucion_207_2023_ReglamentacionNevados_.pdf",
+              "retrieved_at": "2026-11-21"
+            },
+            {
+              "label": "Parques Nacionales Naturales de Colombia · Los Nevados",
+              "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+              "retrieved_at": "2026-11-21"
+            }
+          ],
+          "last_verified": "2026-11-21",
+          "valid_until": null,
+          "related": [
+            "preparation.sunscreen",
+            "preparation.sun_hat"
+          ],
+          "tags": [
+            "gafas",
+            "sol",
+            "uv",
+            "ojos",
+            "radiacion"
+          ]
+        }
+      },
+      {
+        "op": "update",
+        "reason": "Optimizar metadatos de preparation.sunscreen: clarificar etiqueta para System 1 y enriquecer hard negatives contrastivos contra pares confusibles.",
+        "entry": {
+          "id": "preparation.sunscreen",
+          "label": "bloqueador solar factor cincuenta o superior",
+          "kind": "procedure",
+          "audience": "visitor",
+          "lang": "es",
+          "examples": [
+            "qué bloqueador solar llevar al nevado",
+            "es obligatorio el bloqueador solar en el parque",
+            "bloqueador solar factor cincuenta como mínimo",
+            "cada cuánto aplicarse bloqueador en la montaña",
+            "el sol me quema rapidito, ¿qué protector uso?",
+            "sirve bloqueador normal para ir a brisas",
+            "el bloqueador es obligatorio, ¿sí o no?",
+            "por qué el sol quema tanto en el páramo",
+            "cuál protector solar empacar para el sendero",
+            "que bloqueador llevar al parque los nevados",
+            "me quemo la cara y el cuello, ¿qué hago?",
+            "what sunscreen should I use in Los Nevados",
+            "sunscreen factor 50 mandatory for high altitude",
+            "cómo proteger la piel del sol en el parque"
+          ],
+          "hard_negatives": [
+            "son obligatorias las gafas de sol en el nevado",
+            "sombrero con ala ancha para alta montaña",
+            "protección para la cara y cuello contra el sol",
+            "protector solar para alta montaña"
+          ],
+          "entities": {
+            "trip_duration": [
+              "pasadia",
+              "travesia"
+            ]
+          },
+          "needs": [],
+          "answer": {
+            "short": "Lleva bloqueador solar con factor 50 como mínimo, que pide la Resolución 207 de 2023. Aplícatelo cada dos horas, antes y durante la caminata.",
+            "variants": [
+              "Usa bloqueador factor 50 o más y reaplícalo cada dos horas: el parque lo pide para el sol de altura."
+            ],
+            "detail": "Ficha oficial: aplícate bloqueador solar cada dos horas (antes y durante)."
+          },
+          "sources": [
+            {
+              "label": "Parques Nacionales Naturales de Colombia · Resolución 207 de 2023",
+              "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2023/08/Resolucion_207_2023_ReglamentacionNevados_.pdf",
+              "retrieved_at": "2026-11-21"
+            },
+            {
+              "label": "Parques Nacionales Naturales de Colombia · Los Nevados",
+              "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+              "retrieved_at": "2026-11-21"
+            }
+          ],
+          "last_verified": "2026-11-21",
+          "valid_until": null,
+          "related": [
+            "preparation.sunglasses_uv",
+            "preparation.sun_hat"
+          ],
+          "tags": [
+            "bloqueador",
+            "protector_solar",
+            "fps50",
+            "radiacion",
+            "piel"
+          ]
+        }
+      },
+      {
+        "op": "update",
+        "reason": "Optimizar metadatos de preparation.sun_hat: clarificar etiqueta para System 1 y enriquecer hard negatives contrastivos contra pares confusibles.",
+        "entry": {
+          "id": "preparation.sun_hat",
+          "label": "sombrero de ala o gorra para sol",
+          "kind": "procedure",
+          "audience": "visitor",
+          "lang": "es",
+          "examples": [
+            "debo llevar sombrero o gorra al nevado",
+            "sirve una gorra para el sol en el páramo",
+            "sombrero con ala ancha para alta montaña",
+            "cuándo usar gorra durante la caminata",
+            "gorra para protegerse del sol en el parque",
+            "con esta cachucha me basta pa' el sol?",
+            "gorra o sombrero, ¿cuál sirve pa' el sol?",
+            "es mejor gorra deportiva o sombrero de ala",
+            "protección para la cara y cuello contra el sol",
+            "que tipo de sombrero llevar al parque",
+            "gorra con protector de cuello para el sendero",
+            "should I wear a sun hat in Los Nevados",
+            "wide brim hat for high altitude sun protection",
+            "el sol del mediodía pega fuerte, ¿qué me pongo?"
+          ],
+          "hard_negatives": [
+            "son obligatorias las gafas de sol en el nevado",
+            "gafas con filtro ultravioleta cien por ciento",
+            "gorro para no pasar frío en los nevados",
+            "que gafas debo llevar, con filtro de verdad contra el sol?"
+          ],
+          "entities": {
+            "trip_duration": [
+              "pasadia",
+              "travesia"
+            ]
+          },
+          "needs": [],
+          "answer": {
+            "short": "Usa gorra o sombrero para cubrirte la cara del sol; no reemplaza el bloqueador ni las gafas UV (Resolución 207 de 2023).",
+            "variants": [
+              "Lleva gorra o sombrero como complemento; el bloqueador y las gafas UV siguen siendo obligatorios."
+            ],
+            "detail": null
+          },
+          "sources": [
+            {
+              "label": "Parques Nacionales Naturales de Colombia · Resolución 207 de 2023",
+              "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2023/08/Resolucion_207_2023_ReglamentacionNevados_.pdf",
+              "retrieved_at": "2026-11-21"
+            }
+          ],
+          "last_verified": "2026-11-21",
+          "valid_until": null,
+          "related": [
+            "preparation.sunscreen",
+            "preparation.sunglasses_uv",
+            "preparation.thermal_hat"
+          ],
+          "tags": [
+            "sombrero",
+            "gorra",
+            "sol",
+            "visera",
+            "radiacion"
+          ]
+        }
+      },
+      {
+        "op": "update",
+        "reason": "Optimizar metadatos de preparation.daypack_size: clarificar etiqueta para System 1 y enriquecer hard negatives contrastivos contra pares confusibles.",
+        "entry": {
+          "id": "preparation.daypack_size",
+          "label": "morral pequeño cómodo para caminata pasadía",
+          "kind": "procedure",
+          "audience": "visitor",
+          "lang": "es",
+          "examples": [
+            "qué morral llevar para pasadía en los nevados",
+            "sirve un morral pequeño para ir a brisas",
+            "qué tamaño de mochila usar en una caminata de un día",
+            "el morral de ataque sirve pal nevado?",
+            "mochila pequeña para llevar agua y chaqueta",
+            "puedo llevar morral escolar al nevado",
+            "qué empacar en el morral para un solo día",
+            "mochila cómoda para caminata corta en páramo",
+            "morral para pasadía en el sector norte",
+            "qué morral me cargo pal día?",
+            "morral liviano para el sendero valle de las tumbas",
+            "what daypack should I bring for a day trip",
+            "small backpack for one day hike in Los Nevados",
+            "cómo acomodo el morral pa' un día?"
+          ],
+          "hard_negatives": [
+            "qué chaqueta impermeable llevar al parque",
+            "lista de chequeo para pasadía en brisas",
+            "qué empacar para un día en el parque los nevados",
+            "encontre un morral en el paramo, que hago"
+          ],
+          "entities": {
+            "trip_duration": [
+              "pasadia"
+            ]
+          },
+          "needs": [],
+          "answer": {
+            "short": "Lleva un morral pequeño y cómodo para tus prendas, agua y snacks: va en el equipo mínimo de los senderos autorizados (Resolución 207 de 2023).",
+            "variants": [
+              "Para el sendero, lleva un morral pequeño: es parte del equipo mínimo que pide la resolución."
+            ],
+            "detail": "Resolución 207 de 2023, numeral 6.1: morral pequeño."
+          },
+          "sources": [
+            {
+              "label": "Parques Nacionales Naturales de Colombia · Resolución 207 de 2023",
+              "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2023/08/Resolucion_207_2023_ReglamentacionNevados_.pdf",
+              "retrieved_at": "2026-11-21"
+            }
+          ],
+          "last_verified": "2026-11-21",
+          "valid_until": null,
+          "related": [
+            "preparation.reusable_bottles",
+            "preparation.trail_snacks"
+          ],
+          "tags": [
+            "morral",
+            "mochila",
+            "pasadia",
+            "pequeno",
+            "equipaje"
+          ]
+        }
+      },
+      {
+        "op": "update",
+        "reason": "Optimizar metadatos de preparation.dry_bags: clarificar etiqueta para System 1 y enriquecer hard negatives contrastivos contra pares confusibles.",
+        "entry": {
+          "id": "preparation.dry_bags",
+          "label": "bolsas secas estancas para aislar equipaje",
+          "kind": "procedure",
+          "audience": "visitor",
+          "lang": "es",
+          "examples": [
+            "sirven las bolsas secas para empacar la ropa",
+            "cómo aislar la ropa seca dentro del morral",
+            "dry bags para travesías en los nevados",
+            "bolsas herméticas para proteger el saco de dormir",
+            "cómo evitar que se moje la muda de repuesto",
+            "las bolsas pa' la ropa sirven de algo?",
+            "proteger celulares y electrónica del agua en montaña",
+            "bolsa estanca recomendada para campamento",
+            "bolsas pa' la ropa: ¿cuáles me llevo?",
+            "como empacar la ropa para que no se moje",
+            "bolsas selladas para proteger la carga en travesia",
+            "should I use dry bags inside my backpack",
+            "waterproof stuff sacks for clothes and sleeping bag",
+            "cómo hago pa' que el equipaje quede seco?"
+          ],
+          "hard_negatives": [
+            "qué camiseta térmica llevar al nevado",
+            "debo llevar ropa de repuesto al nevado",
+            "mochila pequeña para llevar agua y chaqueta",
+            "llevar muda seca en la mochila o carro"
+          ],
+          "entities": {
+            "trip_duration": [
+              "travesia",
+              "pasadia"
+            ]
+          },
+          "needs": [],
+          "answer": {
+            "short": "Usa una bolsa seca con cierre estanco para guardar lo que debe quedar totalmente seco durante la caminata.",
+            "variants": [
+              "Para que nada se moje, guarda tus objetos en una bolsa seca con cierre estanco."
+            ],
+            "detail": "Lineamientos PNN de montaña (2018), glosario: bolsa seca con cierre estanco, bolsa que permite guardar objetos que se mantendrán totalmente secos."
+          },
+          "sources": [
+            {
+              "label": "Parques Nacionales Naturales de Colombia · Lineamientos de actividades deportivas de montaña y escalada (2018, nacional, no específico de Los Nevados)",
+              "url": "https://old.parquesnacionales.gov.co/portal/wp-content/uploads/2018/08/Documento-Lineamientos-Deportes-de-Montan%CC%83a-en-PNN-2018-1.pdf",
+              "retrieved_at": "2026-11-21"
+            }
+          ],
+          "last_verified": "2026-11-21",
+          "valid_until": null,
+          "related": [
+            "preparation.what_not_to_pack"
+          ],
+          "tags": [
+            "bolsas_secas",
+            "dry_bags",
+            "impermeable",
+            "aislar",
+            "equipaje"
+          ]
+        }
+      },
+      {
+        "op": "update",
+        "reason": "Optimizar metadatos de preparation.water_quantity: clarificar etiqueta para System 1 y enriquecer hard negatives contrastivos contra pares confusibles.",
+        "entry": {
+          "id": "preparation.water_quantity",
+          "label": "cantidad de agua e hidratación en sendero",
+          "kind": "procedure",
+          "audience": "visitor",
+          "lang": "es",
+          "examples": [
+            "cuánta agua llevar a los nevados",
+            "es necesario tomar mucha agua en el parque",
+            "cuánta hidratación empacar para la caminata",
+            "por qué da tanta sed en alta montaña",
+            "tengo sed harta en la subida, ¿qué hago?",
+            "cuánta agua tomar para no deshidratarse en el frío",
+            "debo llevar agua desde la ciudad",
+            "me tomo el agua de a poquitos, ¿sí?",
+            "cuántos litros de líquido empacar para el sendero",
+            "cuanta agua llevar para subir a brisas",
+            "cuánta agua tomo pa' no sentirme mal?",
+            "how much water should I bring to Los Nevados",
+            "hydration recommendations for high altitude hike",
+            "por qué es tan importante tomar líquidos en el páramo"
+          ],
+          "hard_negatives": [
+            "qué botellas de agua están permitidas en el parque",
+            "puedo llevar botellas de plástico desechable al nevado",
+            "me siento agotado por no tomar agua",
+            "en qué recipiente llevar el agua a los nevados"
+          ],
+          "entities": {
+            "trip_duration": [
+              "pasadia",
+              "travesia"
+            ]
+          },
+          "needs": [],
+          "answer": {
+            "short": "Hidrátate antes, durante y después de la actividad, y lleva cantimplora (Resolución 207). Bebe pequeños sorbos durante todo el recorrido.",
+            "variants": [
+              "Hidrátate antes, durante y después de caminar, como indica el parque. Lleva cantimplora."
+            ],
+            "detail": "Ficha oficial: ten una buena hidratación antes, durante y después de la actividad."
+          },
+          "sources": [
+            {
+              "label": "Parques Nacionales Naturales de Colombia · Los Nevados",
+              "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+              "retrieved_at": "2026-11-21"
+            },
+            {
+              "label": "Parques Nacionales Naturales de Colombia · Resolución 207 de 2023",
+              "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2023/08/Resolucion_207_2023_ReglamentacionNevados_.pdf",
+              "retrieved_at": "2026-11-21"
+            }
+          ],
+          "last_verified": "2026-11-21",
+          "valid_until": null,
+          "related": [
+            "preparation.reusable_bottles"
+          ],
+          "tags": [
+            "agua",
+            "hidratacion",
+            "cantimplora",
+            "liquidos",
+            "altura"
+          ]
+        }
+      },
+      {
+        "op": "update",
+        "reason": "Optimizar metadatos de preparation.reusable_bottles: clarificar etiqueta para System 1 y enriquecer hard negatives contrastivos contra pares confusibles.",
+        "entry": {
+          "id": "preparation.reusable_bottles",
+          "label": "cantimploras y botellas reutilizables sin desechables",
+          "kind": "procedure",
+          "audience": "visitor",
+          "lang": "es",
+          "examples": [
+            "qué botellas de agua están permitidas en el parque",
+            "puedo llevar botellas de plástico desechable al nevado",
+            "la cantimplora es obligatoria, ¿no?",
+            "en qué recipiente llevar el agua a los nevados",
+            "puedo llevar cantimplora o en el parque no quieren botella desechable?",
+            "recipientes reutilizables para bebidas en el sendero",
+            "el termo sirve pa' caminar?",
+            "botilito de agua para ingresar a los nevados",
+            "puedo entrar con botellas plásticas comerciales",
+            "que tipo de cantimplora llevar al parque",
+            "qué botella sirve y ya?",
+            "what reusable water bottles are allowed",
+            "are single use plastic bottles banned in the park",
+            "por qué no se pueden llevar botellas plásticas comunes"
+          ],
+          "hard_negatives": [
+            "cuánta agua llevar a los nevados",
+            "cuánta hidratación empacar para la caminata",
+            "puedo llevar botellas de plástico al parque?",
+            "poncho de agua para senderismo en los nevados"
+          ],
+          "entities": {
+            "trip_duration": [
+              "pasadia",
+              "travesia"
+            ]
+          },
+          "needs": [],
+          "answer": {
+            "short": "Lleva cantimplora o botella reutilizable, que pide la Resolución 207 de 2023. Los plásticos de un solo uso no pueden ingresar al parque.",
+            "variants": [
+              "Usa cantimplora reutilizable: la resolución prohíbe ingresar plásticos de un solo uso."
+            ],
+            "detail": "Resolución 207 de 2023: no ingresar plásticos de un solo uso, prohibido de acuerdo a la Resolución 1558 de 2019."
+          },
+          "sources": [
+            {
+              "label": "Parques Nacionales Naturales de Colombia · Resolución 207 de 2023",
+              "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2023/08/Resolucion_207_2023_ReglamentacionNevados_.pdf",
+              "retrieved_at": "2026-11-21"
+            }
+          ],
+          "last_verified": "2026-11-21",
+          "valid_until": null,
+          "related": [
+            "preparation.water_quantity",
+            "preparation.what_not_to_pack"
+          ],
+          "tags": [
+            "cantimplora",
+            "reutilizable",
+            "botella",
+            "plastico",
+            "norma"
+          ]
+        }
+      },
+      {
+        "op": "update",
+        "reason": "Optimizar metadatos de preparation.trail_snacks: clarificar etiqueta para System 1 y enriquecer hard negatives contrastivos contra pares confusibles.",
+        "entry": {
+          "id": "preparation.trail_snacks",
+          "label": "snacks calóricos y alimentos ligeros de marcha",
+          "kind": "procedure",
+          "audience": "visitor",
+          "lang": "es",
+          "examples": [
+            "qué comida llevar al parque los nevados",
+            "qué bocadillo me sirve pal nevado?",
+            "qué refrigerios empacar para el sendero",
+            "alimentos energéticos para alta montaña",
+            "sirve llevar bocadillo de guayaba y frutos secos",
+            "comida de marcha ligera para no cansarse",
+            "qué pasabocas llevar para subir a brisas",
+            "qué snacks me llevo que no pesen mucho?",
+            "qué comer durante la caminata en páramo",
+            "comida ligera para el ascenso al nevado",
+            "comida sí o sí toca llevar?",
+            "what trail snacks should I pack for hiking",
+            "energy food and snacks for high altitude trek",
+            "cuáles alimentos aportan energía rápida en montaña"
+          ],
+          "hard_negatives": [
+            "qué desayunar antes de subir al nevado",
+            "víveres para travesía hacia la laguna del otún",
+            "comida recomendada antes de ir a los nevados",
+            "qué comer durante la caminata para prevenir el soroche"
+          ],
+          "entities": {
+            "trip_duration": [
+              "pasadia",
+              "travesia"
+            ]
+          },
+          "needs": [],
+          "answer": {
+            "short": "Lleva snacks energéticos, ligeros, listos para consumir y ricos en calorías (Resolución 207 de 2023).",
+            "variants": [
+              "Empaca snacks energéticos listos para comer: la resolución los incluye en el equipo mínimo para senderismo."
+            ],
+            "detail": "Resolución 207 de 2023, numeral 6.1: alimentos ligeros listos para consumir y ricos en calorías. Ficha oficial: aliméntate bien y come snacks energéticos."
+          },
+          "sources": [
+            {
+              "label": "Parques Nacionales Naturales de Colombia · Resolución 207 de 2023",
+              "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2023/08/Resolucion_207_2023_ReglamentacionNevados_.pdf",
+              "retrieved_at": "2026-11-21"
+            },
+            {
+              "label": "Parques Nacionales Naturales de Colombia · Los Nevados",
+              "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+              "retrieved_at": "2026-11-21"
+            }
+          ],
+          "last_verified": "2026-11-21",
+          "valid_until": null,
+          "related": [
+            "preparation.pre_hike_meal",
+            "preparation.water_quantity",
+            "preparation.trail_meals_multiday"
+          ],
+          "tags": [
+            "snacks",
+            "comida",
+            "calorias",
+            "bocadillo",
+            "energia"
+          ]
+        }
+      },
+      {
+        "op": "update",
+        "reason": "Optimizar metadatos de preparation.pre_hike_meal: clarificar etiqueta para System 1 y enriquecer hard negatives contrastivos contra pares confusibles.",
+        "entry": {
+          "id": "preparation.pre_hike_meal",
+          "label": "desayuno y alimentación previa al ascenso",
+          "kind": "procedure",
+          "audience": "visitor",
+          "lang": "es",
+          "examples": [
+            "qué desayunar antes de subir al nevado",
+            "comida recomendada antes de ir a los nevados",
+            "debo desayunar fuerte antes de la caminata",
+            "qué alimentos evitar antes de subir a la montaña",
+            "desayuno liviano para evitar malestares en altura",
+            "puedo comer lácteos o grasas antes de subir",
+            "¿hay que desayunar bien sí o sí?",
+            "qué comer en manizales antes de subir a brisas",
+            "¿me echo un desayuno pesado o no?",
+            "que desayunar para no marearse en el nevado",
+            "qué me como antes de salir?",
+            "what should I eat for breakfast before the hike",
+            "recommended meal before ascending to high altitude",
+            "cómo debe ser la alimentación antes de iniciar la ruta"
+          ],
+          "hard_negatives": [
+            "qué bocadillo me sirve pal nevado?",
+            "alimentos energéticos para alta montaña",
+            "comida ligera para el ascenso al nevado",
+            "qué comer durante la caminata para prevenir el soroche"
+          ],
+          "entities": {
+            "trip_duration": [
+              "pasadia",
+              "travesia"
+            ]
+          },
+          "needs": [],
+          "answer": {
+            "short": "Consume carbohidratos y líquido antes de la visita (guía de Semana Santa 2018). Durante el recorrido, come snacks energéticos.",
+            "variants": [
+              "Antes de la visita, come carbohidratos y bebe líquido: así lo recomendó el PNN en su guía de 2018."
+            ],
+            "detail": null
+          },
+          "sources": [
+            {
+              "label": "Parques Nacionales Naturales de Colombia · Recomendaciones Semana Santa 2018 (Los Nevados, dato de 2018)",
+              "url": "https://old.parquesnacionales.gov.co/portal/es/recomendaciones-para-ingresar-al-pnn-los-nevados-esta-temporada-de-semana-santa-2018/",
+              "retrieved_at": "2026-11-21"
+            },
+            {
+              "label": "Parques Nacionales Naturales de Colombia · Los Nevados",
+              "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+              "retrieved_at": "2026-11-21"
+            }
+          ],
+          "last_verified": "2026-11-21",
+          "valid_until": null,
+          "related": [
+            "preparation.trail_snacks",
+            "preparation.water_quantity",
+            "preparation.fitness_training"
+          ],
+          "tags": [
+            "desayuno",
+            "alimentacion",
+            "digestion",
+            "energia",
+            "previo"
+          ]
+        }
+      },
+      {
+        "op": "update",
+        "reason": "Optimizar metadatos de preparation.trail_meals_multiday: clarificar etiqueta para System 1 y enriquecer hard negatives contrastivos contra pares confusibles.",
+        "entry": {
+          "id": "preparation.trail_meals_multiday",
+          "label": "víveres y comida para travesía con campamento",
+          "kind": "procedure",
+          "audience": "visitor",
+          "lang": "es",
+          "examples": [
+            "qué comida empacar para travesía de varios días",
+            "alimentación para acampar en el parque los nevados",
+            "comida deshidratada o liviana para travesía",
+            "cómo planear la comida para varios días en montaña",
+            "en la travesia toca llevar comida para cocinar en el campamento?",
+            "pa' dormir en el páramo, ¿qué como?",
+            "comida nutritiva y de poco peso para acampar",
+            "víveres para travesía hacia la laguna del otún",
+            "cuántas raciones toca llevar pa' tres días?",
+            "que alimentos llevar para cocinar en la carpa",
+            "qué se come pa' acampar con frío?",
+            "what food should I pack for a multiday trek",
+            "meal planning for high altitude mountain camping",
+            "qué víveres no se dañan con el frío en travesías"
+          ],
+          "hard_negatives": [
+            "qué desayunar antes de subir al nevado",
+            "qué bocadillo me sirve pal nevado?",
+            "qué menaje llevar para comer en el campamento",
+            "comida recomendada antes de ir a los nevados"
+          ],
+          "entities": {
+            "trip_duration": [
+              "travesia"
+            ]
+          },
+          "needs": [],
+          "answer": {
+            "short": "Al acampar, lleva alimentación apropiada para bajas temperaturas y una estufa portátil de gas para preparar los alimentos.",
+            "variants": [
+              "Para dormir en el parque, lleva comida apropiada para bajas temperaturas y una estufa de gas."
+            ],
+            "detail": "Guía de Semana Santa 2018: lleve estufa portable para acampar de gas para la preparación de alimentos."
+          },
+          "sources": [
+            {
+              "label": "Parques Nacionales Naturales de Colombia · Los Nevados",
+              "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+              "retrieved_at": "2026-11-21"
+            },
+            {
+              "label": "Parques Nacionales Naturales de Colombia · Recomendaciones Semana Santa 2018 (Los Nevados, dato de 2018)",
+              "url": "https://old.parquesnacionales.gov.co/portal/es/recomendaciones-para-ingresar-al-pnn-los-nevados-esta-temporada-de-semana-santa-2018/",
+              "retrieved_at": "2026-11-21"
+            }
+          ],
+          "last_verified": "2026-11-21",
+          "valid_until": null,
+          "related": [
+            "preparation.camp_stove",
+            "preparation.cookware_utensils",
+            "preparation.trail_snacks"
+          ],
+          "tags": [
+            "comida_travesia",
+            "campamento",
+            "viveres",
+            "nutricion",
+            "calorias"
+          ]
+        }
+      },
+      {
+        "op": "update",
+        "reason": "Optimizar metadatos de preparation.mountain_tent: clarificar etiqueta para System 1 y enriquecer hard negatives contrastivos contra pares confusibles.",
+        "entry": {
+          "id": "preparation.mountain_tent",
+          "label": "carpa técnica de alta montaña tres estaciones",
+          "kind": "procedure",
+          "audience": "visitor",
+          "lang": "es",
+          "examples": [
+            "qué carpa llevar para acampar en los nevados",
+            "sirve una carpa playera común en el parque",
+            "carpa de tres o cuatro estaciones para montaña",
+            "qué carpa aguanta helada y viento en el páramo?",
+            "carpa resistente a vientos y heladas en páramo",
+            "una carpa liviana aguanta el páramo?",
+            "la carpa de la casa sirve pa' acampar?",
+            "carpa de alta montaña para acampar en otún",
+            "la carpa aguanta la helada, ¿o no?",
+            "que carpa comprar para el parque los nevados",
+            "carpa para resistir lluvia y viento en el nevado",
+            "what tent is required for camping in Los Nevados",
+            "three or four season mountain tent for freezing cold",
+            "cómo debe ser la carpa para pernoctar en el parque"
+          ],
+          "hard_negatives": [
+            "lista de equipo para travesía de varios días",
+            "qué menaje llevar para comer en el campamento",
+            "una carpa protege contra los rayos en una tormenta",
+            "qué elementos son obligatorios para pernoctar con carpa"
+          ],
+          "entities": {
+            "trip_duration": [
+              "travesia"
+            ]
+          },
+          "needs": [],
+          "answer": {
+            "short": "Si vas a acampar, lleva carpa técnica de alta montaña, de tres o cuatro estaciones, para temperaturas menores a cero grados centígrados (Resolución 207 de 2023).",
+            "variants": [
+              "Para acampar, lleva carpa de tres o cuatro estaciones: la resolución la exige para temperaturas bajo cero."
+            ],
+            "detail": null
+          },
+          "sources": [
+            {
+              "label": "Parques Nacionales Naturales de Colombia · Resolución 207 de 2023",
+              "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2023/08/Resolucion_207_2023_ReglamentacionNevados_.pdf",
+              "retrieved_at": "2026-11-21"
+            }
+          ],
+          "last_verified": "2026-11-21",
+          "valid_until": null,
+          "related": [
+            "preparation.sleeping_bag",
+            "preparation.sleeping_pad",
+            "preparation.camp_hygiene"
+          ],
+          "tags": [
+            "carpa",
+            "camping",
+            "tres_estaciones",
+            "viento",
+            "frio"
+          ]
+        }
+      },
+      {
+        "op": "update",
+        "reason": "Optimizar metadatos de preparation.sleeping_bag: clarificar etiqueta para System 1 y enriquecer hard negatives contrastivos contra pares confusibles.",
+        "entry": {
+          "id": "preparation.sleeping_bag",
+          "label": "saco de dormir sleeping para baja temperatura",
+          "kind": "procedure",
+          "audience": "visitor",
+          "lang": "es",
+          "examples": [
+            "qué saco de dormir llevar a los nevados",
+            "sirve un sleeping normal para acampar en el parque",
+            "sleeping para temperaturas bajo cero en páramo",
+            "saco de dormir de pluma o fibra sintética",
+            "sleeping térmico adecuado para la laguna del otún",
+            "qué temperatura debe soportar el sleeping bag",
+            "sleeping sí o sí toca pa' acampar?",
+            "sleeping abrigado para pernoctar en alta montaña",
+            "el sleeping sí aguanta el frío de la noche?",
+            "que sleeping comprar para acampar en el parque",
+            "me hiela la noche en el campamento, ¿qué hago?",
+            "what sleeping bag temperature rating do I need",
+            "sleeping bag for freezing temperatures in Los Nevados",
+            "cómo elegir el saco de dormir para acampar en el páramo"
+          ],
+          "hard_negatives": [
+            "qué aislante llevar para dormir en el páramo",
+            "qué equipo llevar para pernoctar en la montaña",
+            "insomnio por la altura en el refugio o campamento",
+            "es necesario colchoneta aislante para el frío"
+          ],
+          "entities": {
+            "trip_duration": [
+              "travesia"
+            ]
+          },
+          "needs": [],
+          "answer": {
+            "short": "Si vas a acampar en las zonas permitidas, lleva carpa y saco de dormir para bajas temperaturas.",
+            "variants": [
+              "Para acampar, el PNN pide llevar saco de dormir apropiado para bajas temperaturas."
+            ],
+            "detail": "Guía de Semana Santa 2018: lleve equipos, carpa y sleeping especial para alta montaña y bajas temperaturas."
+          },
+          "sources": [
+            {
+              "label": "Parques Nacionales Naturales de Colombia · Los Nevados",
+              "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+              "retrieved_at": "2026-11-21"
+            },
+            {
+              "label": "Parques Nacionales Naturales de Colombia · Recomendaciones Semana Santa 2018 (Los Nevados, dato de 2018)",
+              "url": "https://old.parquesnacionales.gov.co/portal/es/recomendaciones-para-ingresar-al-pnn-los-nevados-esta-temporada-de-semana-santa-2018/",
+              "retrieved_at": "2026-11-21"
+            }
+          ],
+          "last_verified": "2026-11-21",
+          "valid_until": null,
+          "related": [
+            "preparation.sleeping_pad",
+            "preparation.mountain_tent",
+            "preparation.dry_bags"
+          ],
+          "tags": [
+            "sleeping",
+            "saco_dormir",
+            "frio",
+            "campamento",
+            "aislamiento"
+          ]
+        }
+      },
+      {
+        "op": "update",
+        "reason": "Optimizar metadatos de preparation.sleeping_pad: clarificar etiqueta para System 1 y enriquecer hard negatives contrastivos contra pares confusibles.",
+        "entry": {
+          "id": "preparation.sleeping_pad",
+          "label": "aislante térmico y colchoneta para campamento",
+          "kind": "procedure",
+          "audience": "visitor",
+          "lang": "es",
+          "examples": [
+            "sirve un aislante térmico para acampar en el nevado",
+            "es necesario colchoneta aislante para el frío",
+            "qué aislante llevar para dormir en el páramo",
+            "por qué se siente tanto frío por el suelo en la carpa",
+            "aislante inflable o de espuma para acampar",
+            "la colchoneta es pa' el piso frío, ¿o no?",
+            "cómo evitar que el frío del piso pase al sleeping",
+            "el piso frío me roba el calor, ¿no?",
+            "qué colchoneta de camping comprar para montaña",
+            "¿la colchoneta de espuma sí me sirve?",
+            "esterilla termica para pernoctar en alta montana",
+            "do I need an insulated sleeping pad for camping",
+            "sleeping pad for freezing ground in Los Nevados",
+            "cuál colchoneta aísla mejor de la humedad de la tierra"
+          ],
+          "hard_negatives": [
+            "qué saco de dormir llevar a los nevados",
+            "sleeping para temperaturas bajo cero en páramo",
+            "debo llevar chaqueta acolchada al nevado",
+            "sleeping abrigado para pernoctar en alta montaña"
+          ],
+          "entities": {
+            "trip_duration": [
+              "travesia"
+            ]
+          },
+          "needs": [],
+          "answer": {
+            "short": "Para acampar en montaña, lleva un aislante térmico: está en el equipo mínimo de campamento.",
+            "variants": [
+              "Si acampas, empaca un aislante térmico: el PNN lo lista en el equipo mínimo de campamento para montaña."
+            ],
+            "detail": "Lineamientos PNN de montaña (2018), numeral 2.8.1, equipo mínimo para campamento: aislante térmico. Documento nacional para deportistas de montaña, no específico de Los Nevados."
+          },
+          "sources": [
+            {
+              "label": "Parques Nacionales Naturales de Colombia · Lineamientos de actividades deportivas de montaña y escalada (2018, nacional, no específico de Los Nevados)",
+              "url": "https://old.parquesnacionales.gov.co/portal/wp-content/uploads/2018/08/Documento-Lineamientos-Deportes-de-Montan%CC%83a-en-PNN-2018-1.pdf",
+              "retrieved_at": "2026-11-21"
+            }
+          ],
+          "last_verified": "2026-11-21",
+          "valid_until": null,
+          "related": [
+            "preparation.sleeping_bag",
+            "preparation.mountain_tent",
+            "preparation.camp_stove"
+          ],
+          "tags": [
+            "aislante",
+            "colchoneta",
+            "suelo",
+            "frio",
+            "campamento"
+          ]
+        }
+      },
+      {
+        "op": "update",
+        "reason": "Optimizar metadatos de preparation.camp_stove: clarificar etiqueta para System 1 y enriquecer hard negatives contrastivos contra pares confusibles.",
+        "entry": {
+          "id": "preparation.camp_stove",
+          "label": "estufa portátil de gas para cocinar acampando",
+          "kind": "procedure",
+          "audience": "visitor",
+          "lang": "es",
+          "examples": [
+            "puedo llevar estufa de camping a los nevados",
+            "qué cocineta portátil usar para acampar en el parque",
+            "estufa a gas para cocinar en el páramo",
+            "se pueden hacer fogatas para cocinar en los nevados",
+            "qué combustible usar para estufa en alta montaña",
+            "hornillo de camping para calentar comida en la carpa",
+            "puedo cocinar con gas o toca con otra cosa?",
+            "la cocineta sirve pa' tomarse el tinto del amanecer?",
+            "con qué se calienta el agua?",
+            "como cocinar en el campamento del parque los nevados",
+            "estufa de gas o gasolina para cocinar en altura",
+            "what camping stove can I use in Los Nevados",
+            "portable camp stove for high altitude cooking",
+            "cuál estufa funciona mejor con el frío del páramo"
+          ],
+          "hard_negatives": [
+            "qué menaje llevar para comer en el campamento",
+            "olla y cubiertos de aluminio para acampar en páramo",
+            "hacer una fogata para calentar comida",
+            "qué se come pa' acampar con frío?"
+          ],
+          "entities": {
+            "trip_duration": [
+              "travesia"
+            ]
+          },
+          "needs": [],
+          "answer": {
+            "short": "Para cocinar en campamento, lleva estufa portátil de gas y material de cocina. La Resolución 207 de 2023 prohíbe las fogatas en el parque.",
+            "variants": [
+              "No hagas fogatas en el parque: la Resolución 207 las prohíbe. Para cocinar, usa una estufa portátil de gas."
+            ],
+            "detail": "Ficha oficial: lleva carpa, sleeping, material de cocina y alimentación apropiada para bajas temperaturas. Guía de Semana Santa 2018: lleve estufa portable para acampar de gas."
+          },
+          "sources": [
+            {
+              "label": "Parques Nacionales Naturales de Colombia · Los Nevados",
+              "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+              "retrieved_at": "2026-11-21"
+            },
+            {
+              "label": "Parques Nacionales Naturales de Colombia · Recomendaciones Semana Santa 2018 (Los Nevados, dato de 2018)",
+              "url": "https://old.parquesnacionales.gov.co/portal/es/recomendaciones-para-ingresar-al-pnn-los-nevados-esta-temporada-de-semana-santa-2018/",
+              "retrieved_at": "2026-11-21"
+            },
+            {
+              "label": "Parques Nacionales Naturales de Colombia · Resolución 207 de 2023",
+              "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2023/08/Resolucion_207_2023_ReglamentacionNevados_.pdf",
+              "retrieved_at": "2026-11-21"
+            }
+          ],
+          "last_verified": "2026-11-21",
+          "valid_until": null,
+          "related": [
+            "preparation.cookware_utensils",
+            "preparation.trail_meals_multiday",
+            "preparation.what_not_to_pack"
+          ],
+          "tags": [
+            "estufa",
+            "cocineta",
+            "gas",
+            "cocinar",
+            "fogatas_prohibidas"
+          ]
+        }
+      },
+      {
+        "op": "update",
+        "reason": "Optimizar metadatos de preparation.cookware_utensils: clarificar etiqueta para System 1 y enriquecer hard negatives contrastivos contra pares confusibles.",
+        "entry": {
+          "id": "preparation.cookware_utensils",
+          "label": "utensilios y menaje reutilizable para cocinar acampando",
+          "kind": "procedure",
+          "audience": "visitor",
+          "lang": "es",
+          "examples": [
+            "qué menaje llevar para comer en el campamento",
+            "puedo llevar platos y cubiertos desechables al nevado",
+            "utensilios de cocina reutilizables para el parque",
+            "olla y cubiertos de aluminio para acampar en páramo",
+            "en plato de icopor, ¿puedo comer?",
+            "menaje liviano de camping para cocinar en la carpa",
+            "taza metálica y fiambrera lavable para el sendero",
+            "los cubiertos de plástico sirven pa' el parque?",
+            "la olla de la casa sirve pa' acampar?",
+            "que ollas y cucharas empacar para la travesia",
+            "recipientes lavables para comer en campamento",
+            "what reusable camp cookware and utensils to bring",
+            "cooking pot and reusable utensils for mountain camping",
+            "cómo transportar platos y cubiertos sin generar basura"
+          ],
+          "hard_negatives": [
+            "puedo llevar estufa de camping a los nevados",
+            "estufa a gas para cocinar en el páramo",
+            "mulas para llevar la comida al campamento",
+            "comida nutritiva y de poco peso para acampar"
+          ],
+          "entities": {
+            "trip_duration": [
+              "travesia"
+            ]
+          },
+          "needs": [],
+          "answer": {
+            "short": "Lleva menaje reutilizable para cocinar y comer. La Resolución 1558 de 2019 prohíbe los plásticos de un solo uso en el parque.",
+            "variants": [
+              "Usa menaje reutilizable en el campamento: los plásticos de un solo uso no pueden ingresar."
+            ],
+            "detail": null
+          },
+          "sources": [
+            {
+              "label": "Parques Nacionales Naturales de Colombia · Resolución 207 de 2023",
+              "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2023/08/Resolucion_207_2023_ReglamentacionNevados_.pdf",
+              "retrieved_at": "2026-11-21"
+            }
+          ],
+          "last_verified": "2026-11-21",
+          "valid_until": null,
+          "related": [
+            "preparation.camp_stove",
+            "preparation.trail_meals_multiday",
+            "preparation.what_not_to_pack"
+          ],
+          "tags": [
+            "menaje",
+            "olla",
+            "utensilios",
+            "reutilizable",
+            "plastico"
+          ]
+        }
+      },
+      {
+        "op": "update",
+        "reason": "Optimizar metadatos de preparation.camp_hygiene: clarificar etiqueta para System 1 y enriquecer hard negatives contrastivos contra pares confusibles.",
+        "entry": {
+          "id": "preparation.camp_hygiene",
+          "label": "manejo de excretas cacatubo e higiene acampando",
+          "kind": "procedure",
+          "audience": "visitor",
+          "lang": "es",
+          "examples": [
+            "cómo se va al baño al acampar en los nevados",
+            "qué hacer con las necesidades fisiológicas en campamento",
+            "cómo hago pa' ir al baño acampando?",
+            "se puede hacer hoyo de gato para excretas en el parque",
+            "quién lleva la pala para hacer hoyo de gato",
+            "qué se hace con el papel higiénico en la montaña",
+            "está permitido enterrar la basura en el parque",
+            "cómo manejar la higiene personal acampando en páramo",
+            "el papel del baño se entierra, ¿sí o no?",
+            "el papel toca sacarlo de vuelta?",
+            "me toca cavar pa' el baño en el campamento?",
+            "how is sanitation handled while camping in the park",
+            "how should I go to the bathroom when camping there?",
+            "cuál es la forma correcta de ir al baño en el sendero"
+          ],
+          "hard_negatives": [
+            "dónde boto la basura",
+            "me llevo los empaques de vuelta?",
+            "toca bañarse en el campamento?",
+            "recipientes lavables para comer en campamento"
+          ],
+          "entities": {
+            "trip_duration": [
+              "travesia"
+            ]
+          },
+          "needs": [],
+          "answer": {
+            "short": "En el campamento, evacúa en cacatubo o en hoyo de gato con la pala que lleva el guía. Retoma tus residuos: no está permitido enterrar basura.",
+            "variants": [
+              "En campamento, usa cacatubo o hoyo de gato con la pala del guía, y lleva de vuelta tus residuos."
+            ],
+            "detail": "Resolución 207 de 2023, numeral 6.2: cada visitante deberá retomar sus propios residuos y basuras al lugar de origen."
+          },
+          "sources": [
+            {
+              "label": "Parques Nacionales Naturales de Colombia · Resolución 207 de 2023",
+              "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2023/08/Resolucion_207_2023_ReglamentacionNevados_.pdf",
+              "retrieved_at": "2026-11-21"
+            }
+          ],
+          "last_verified": "2026-11-21",
+          "valid_until": null,
+          "related": [
+            "preparation.mountain_tent",
+            "preparation.what_not_to_pack",
+            "preparation.checklist_multiday_trek"
+          ],
+          "tags": [
+            "higiene",
+            "excretas",
+            "hoyo_gato",
+            "campamento",
+            "basura"
+          ]
+        }
+      },
+      {
+        "op": "update",
+        "reason": "Optimizar metadatos de preparation.headlamp: clarificar etiqueta para System 1 y enriquecer hard negatives contrastivos contra pares confusibles.",
+        "entry": {
+          "id": "preparation.headlamp",
+          "label": "linterna frontal de cabeza con baterías repuesto",
+          "kind": "procedure",
+          "audience": "visitor",
+          "lang": "es",
+          "examples": [
+            "es obligatoria la linterna para ir a los nevados",
+            "qué linterna frontal llevar al parque los nevados",
+            "llevo pilas de repuesto pa' la linterna, ¿sí?",
+            "puedo usar la linterna del celular en el sendero",
+            "linterna de cabeza sí o sí toca llevar?",
+            "linterna recomendada para caminatas de madrugada",
+            "pilas de repuesto para linterna en clima frío",
+            "¿con la linterna de cabeza se camina con bastones?",
+            "linterna frontal para la caminata hacia santa isabel",
+            "que tipo de linterna empacar para el nevado",
+            "linterna obligatoria para ingresar al parque",
+            "is a headlamp mandatory for Los Nevados hiking",
+            "headlamp and extra spare batteries for cold trails",
+            "por qué no basta con la linterna del teléfono móvil"
+          ],
+          "hard_negatives": [
+            "son obligatorias las gafas de sol en el nevado",
+            "qué tipo de gafas llevar al parque los nevados",
+            "lentes con filtro uv para caminar en el nevado",
+            "necesito gafas aunque haga frío"
+          ],
+          "entities": {
+            "trip_duration": [
+              "pasadia",
+              "travesia"
+            ]
+          },
+          "needs": [],
+          "answer": {
+            "short": "Lleva linterna frontal y baterías de repuesto, y revisa que funcione antes de salir (Resolución 207 de 2023).",
+            "variants": [
+              "Lleva linterna frontal con pilas de repuesto: la resolución lo exige para caminar en los senderos."
+            ],
+            "detail": "Resolución 207 de 2023, numeral 6.1: linterna frontal y baterías de repuesto."
+          },
+          "sources": [
+            {
+              "label": "Parques Nacionales Naturales de Colombia · Resolución 207 de 2023",
+              "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2023/08/Resolucion_207_2023_ReglamentacionNevados_.pdf",
+              "retrieved_at": "2026-11-21"
+            }
+          ],
+          "last_verified": "2026-11-21",
+          "valid_until": null,
+          "related": [
+            "preparation.checklist_glacier_day"
+          ],
+          "tags": [
+            "linterna",
+            "frontal",
+            "pilas",
+            "baterias",
+            "obligatorio"
+          ]
+        }
+      },
+      {
+        "op": "update",
+        "reason": "Optimizar metadatos de preparation.technical_glacier_gear: clarificar etiqueta para System 1 y enriquecer hard negatives contrastivos contra pares confusibles.",
+        "entry": {
+          "id": "preparation.technical_glacier_gear",
+          "label": "equipo técnico de montaña para borde glaciar",
+          "kind": "procedure",
+          "audience": "visitor",
+          "lang": "es",
+          "examples": [
+            "qué equipo técnico se necesita para el glaciar",
+            "debo comprar crampones y piolet para santa isabel",
+            "quién suministra el equipo técnico de alta montaña",
+            "se requiere arnés y casco para subir al nevado",
+            "me pongo crampones pa' el hielo, ¿sí?",
+            "es obligatorio ir con guía para usar equipo técnico",
+            "crampones y cuerdas para cumbre del tolima",
+            "el equipo técnico se paga aparte?",
+            "las agencias prestan los crampones y el casco",
+            "que equipo especial se usa para borde de nieve",
+            "la guía me presta el casco, ¿sí?",
+            "what technical glacier gear is needed for summit",
+            "are crampons and helmets provided by certified guides",
+            "cómo se coordina el equipo técnico para el ascenso"
+          ],
+          "hard_negatives": [
+            "qué lleva el guía para primeros auxilios",
+            "el guía carga botiquín y radio sí o sí?",
+            "qué equipo llevar para pernoctar en la montaña",
+            "para subir al glaciar qué guía necesito"
+          ],
+          "entities": {
+            "trip_duration": [
+              "travesia",
+              "pasadia"
+            ],
+            "sector": [
+              "cisne_poleka_kasue",
+              "quindio_dulima"
+            ]
+          },
+          "needs": [],
+          "answer": {
+            "short": "Para borde de glaciar, ascenso a cumbre o travesía, contrata un guía de turismo o un intérprete del patrimonio (Resolución 207 de 2023). Pregunta a tu guía qué equipo técnico lleva.",
+            "variants": [
+              "En glaciar o cumbre, el guía de turismo o intérprete es obligatorio. Pregúntale qué equipo técnico se necesita."
+            ],
+            "detail": "Resolución 098 de 2021 (evento en Santa Isabel): equipo mínimo para cada 5 personas: cuerda de mínimo 40 metros, arnés, casco."
+          },
+          "sources": [
+            {
+              "label": "Parques Nacionales Naturales de Colombia · Resolución 207 de 2023",
+              "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2023/08/Resolucion_207_2023_ReglamentacionNevados_.pdf",
+              "retrieved_at": "2026-11-21"
+            },
+            {
+              "label": "Parques Nacionales Naturales de Colombia · Resolución 098 de 2021 (evento en Santa Isabel, dato de 2021)",
+              "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2021/08/resolucion-no-098-del-10-de-agosto-de-2021.pdf",
+              "retrieved_at": "2026-11-21"
+            }
+          ],
+          "last_verified": "2026-11-21",
+          "valid_until": null,
+          "related": [
+            "preparation.hiking_boots",
+            "preparation.checklist_glacier_day"
+          ],
+          "tags": [
+            "glaciar",
+            "equipo_tecnico",
+            "guia",
+            "crampones",
+            "seguridad"
+          ]
+        }
+      },
+      {
+        "op": "update",
+        "reason": "Optimizar metadatos de preparation.fitness_training: clarificar etiqueta para System 1 y enriquecer hard negatives contrastivos contra pares confusibles.",
+        "entry": {
+          "id": "preparation.fitness_training",
+          "label": "preparación física y ritmo de caminata pausado",
+          "kind": "procedure",
+          "audience": "visitor",
+          "lang": "es",
+          "examples": [
+            "qué condición física necesito para ir a los nevados",
+            "debo entrenar antes de viajar al parque los nevados",
+            "es muy exigente la caminata en el nevado",
+            "cómo prepararme físicamente para la montaña",
+            "se cansa uno mucho caminando a cuatro mil metros",
+            "ejercicio previo recomendado para subir al parque",
+            "consejos físicos para no agotarse en el páramo",
+            "qué tan dura es la subida?",
+            "sirve caminar o trotar semanas antes del viaje",
+            "que tan en forma debo estar para ir a brisas",
+            "me canso fácil, ¿qué hago pa' subir?",
+            "what physical fitness is needed for Los Nevados",
+            "how to physically prepare for high altitude trekking",
+            "toca estar en buena forma pa' subir?"
+          ],
+          "hard_negatives": [
+            "cuánta agua llevar a los nevados",
+            "lista de chequeo para pasadía en brisas",
+            "cómo me aclimato antes de subir",
+            "exigirse mucho físicamente da más mal de montaña"
+          ],
+          "entities": {
+            "trip_duration": [
+              "pasadia",
+              "travesia"
+            ]
+          },
+          "needs": [],
+          "answer": {
+            "short": "Haz paradas periódicas de 10 minutos mientras asciendes. Camina a paso pausado y ten buena hidratación.",
+            "variants": [
+              "Sube a paso pausado y haz paradas periódicas de 10 minutos, como indica el parque."
+            ],
+            "detail": null
+          },
+          "sources": [
+            {
+              "label": "Parques Nacionales Naturales de Colombia · Los Nevados",
+              "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+              "retrieved_at": "2026-11-21"
+            }
+          ],
+          "last_verified": "2026-11-21",
+          "valid_until": null,
+          "related": [
+            "preparation.water_quantity",
+            "preparation.trail_snacks"
+          ],
+          "tags": [
+            "condicion_fisica",
+            "entrenamiento",
+            "esfuerzo",
+            "ritmo",
+            "resistencia"
+          ]
+        }
+      },
+      {
+        "op": "update",
+        "reason": "Optimizar metadatos de preparation.children_gear: clarificar etiqueta para System 1 y enriquecer hard negatives contrastivos contra pares confusibles.",
+        "entry": {
+          "id": "preparation.children_gear",
+          "label": "ropa abrigada y calzado para niños visitantes",
+          "kind": "procedure",
+          "audience": "visitor",
+          "lang": "es",
+          "examples": [
+            "que les pongo a los niños de abrigo y en los pies?",
+            "a un niño que ropa y que calzado le pongo pa esa altura?",
+            "ropa de abrigo para niños en el nevado",
+            "qué abrigo le meto al morral de mi hijo?",
+            "calzado y abrigo para niños mayores de seis años",
+            "qué cuidados de vestimenta tener con los niños",
+            "mi hijo se me moja, ¿qué le llevo?",
+            "a mi pelado, qué le pongo pa que no se moje?",
+            "cómo abrigar a mi hijo para subir a brisas",
+            "que ropa ponerle a un nino en el nevado",
+            "los pelados se congelan rapidito, ¿qué les pongo?",
+            "what clothing should children wear to Los Nevados",
+            "how to dress kids warmly for high altitude visit",
+            "qué prendas son indispensables para niños en el parque"
+          ],
+          "hard_negatives": [
+            "cómo vestir por capas en el páramo",
+            "qué me pongo para subir al nevado",
+            "qué ropa me pongo para no pasar frío",
+            "con qué abrigarme la cabeza en el nevado"
+          ],
+          "entities": {
+            "trip_duration": [
+              "pasadia"
+            ]
+          },
+          "needs": [],
+          "answer": {
+            "short": "Para el niño, empaca ropa abrigada e impermeable, calzado cómodo y ropa de repuesto. La Resolución 207 de 2023 pide esa misma ropa a los visitantes en los senderos.",
+            "variants": [
+              "Lleva al niño ropa abrigada, impermeable y una muda de repuesto, como pide la resolución para los senderos."
+            ],
+            "detail": null
+          },
+          "sources": [
+            {
+              "label": "Parques Nacionales Naturales de Colombia · Resolución 207 de 2023",
+              "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2023/08/Resolucion_207_2023_ReglamentacionNevados_.pdf",
+              "retrieved_at": "2026-11-21"
+            },
+            {
+              "label": "Parques Nacionales Naturales de Colombia · Los Nevados",
+              "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+              "retrieved_at": "2026-11-21"
+            }
+          ],
+          "last_verified": "2026-11-21",
+          "valid_until": null,
+          "related": [
+            "preparation.layering_system"
+          ],
+          "tags": [
+            "ninos",
+            "edad_minima",
+            "ropa_ninos",
+            "abrigo",
+            "familia"
+          ]
+        }
+      },
+      {
+        "op": "update",
+        "reason": "Optimizar metadatos de preparation.what_not_to_pack: clarificar etiqueta para System 1 y enriquecer hard negatives contrastivos contra pares confusibles.",
+        "entry": {
+          "id": "preparation.what_not_to_pack",
+          "label": "elementos prohibidos para empacar en la mochila",
+          "kind": "procedure",
+          "audience": "visitor",
+          "lang": "es",
+          "examples": [
+            "qué cosas no debo llevar al nevado",
+            "qué elementos están prohibidos en la mochila",
+            "puedo llevar licor o cigarrillos al parque",
+            "se pueden ingresar parlantes o bafles al nevado",
+            "puedo llevar una botella de aguardiente en el morral?",
+            "que no debo echar en la maleta, plasticos y cosas de un solo uso?",
+            "qué no empacar para visitar los nevados",
+            "puedo llevar leña en la mochila pa prender fuego?",
+            "qué cosas no dejan entrar, pues?",
+            "qué no me puedo llevar pa' no meterme en lío?",
+            "cosas que no se deben llevar a los nevados",
+            "what items should I NOT pack for Los Nevados",
+            "prohibited items you cannot bring into the park",
+            "qué cosas no puedo meter en el morral?"
+          ],
+          "hard_negatives": [
+            "sirve un poncho de plástico para la lluvia",
+            "qué menaje llevar para comer en el campamento",
+            "qué no me puede faltar para ir a los nevados",
+            "qué morral llevar para pasadía en los nevados"
+          ],
+          "entities": {
+            "trip_duration": [
+              "pasadia",
+              "travesia"
+            ]
+          },
+          "needs": [],
+          "answer": {
+            "short": "No ingreses bebidas alcohólicas, sustancias psicoactivas, plásticos de un solo uso, leña para fogatas, ni equipos de sonido que perturben el ambiente. La Resolución 207 de 2023 lo prohíbe.",
+            "variants": [
+              "Evita empacar alcohol, plásticos desechables, parlantes o leña: la resolución prohíbe esas prácticas en el parque."
+            ],
+            "detail": "Resolución 207 de 2023 prohíbe el ingreso de turistas en estado de alicoramiento o bajo sustancias psicoactivas, hacer fogatas y producir ruidos o utilizar equipos que puedan perturbar el ambiente natural."
+          },
+          "sources": [
+            {
+              "label": "Parques Nacionales Naturales de Colombia · Resolución 207 de 2023",
+              "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2023/08/Resolucion_207_2023_ReglamentacionNevados_.pdf",
+              "retrieved_at": "2026-11-21"
+            }
+          ],
+          "last_verified": "2026-11-21",
+          "valid_until": null,
+          "related": [
+            "preparation.reusable_bottles",
+            "preparation.camp_stove",
+            "preparation.checklist_brisas_day"
+          ],
+          "tags": [
+            "prohibido",
+            "que_no_llevar",
+            "alcohol",
+            "drones",
+            "parlantes"
+          ]
+        }
+      },
+      {
+        "op": "update",
+        "reason": "Optimizar metadatos de preparation.checklist_brisas_day: clarificar etiqueta para System 1 y enriquecer hard negatives contrastivos contra pares confusibles.",
+        "entry": {
+          "id": "preparation.checklist_brisas_day",
+          "label": "checklist para visita de un día en Brisas",
+          "kind": "procedure",
+          "audience": "visitor",
+          "lang": "es",
+          "examples": [
+            "lista de chequeo para pasadía en brisas",
+            "checklist para ir un día al sector norte",
+            "qué empacar para ir a brisas y valle de las tumbas",
+            "lista de cosas para pasadía en los nevados",
+            "qué empaco pa' ir un día?",
+            "checklist de equipo para el sector brisas",
+            "qué no me puede faltar para ir a los nevados",
+            "lista completa de elementos para pasadía",
+            "qué empacar para un día en el parque los nevados",
+            "lista de viaje para subir a brisas",
+            "lo que sí no puede faltar pa' un día de sendero",
+            "checklist for a day trip to Brisas sector",
+            "packing list for one day visit to Los Nevados",
+            "me alisto pa' Brisas en un día, ¿qué empaco?"
+          ],
+          "hard_negatives": [
+            "qué empacar en el morral para un solo día",
+            "lista de equipo para travesía de varios días",
+            "visitar los nevados un dia habil",
+            "qué llevar para acampar en el parque los nevados"
+          ],
+          "entities": {
+            "trip_duration": [
+              "pasadia"
+            ],
+            "sector": [
+              "brisas_kumanday"
+            ]
+          },
+          "needs": [],
+          "answer": {
+            "short": "Para un pasadía, lleva lo que pide la Resolución 207 de 2023: gafas UV 100%, bloqueador factor 50 como mínimo, linterna frontal con pilas de repuesto, cantimplora, guantes, pasa montañas y morral pequeño.",
+            "variants": [
+              "Checklist de pasadía: morral pequeño, ropa impermeable y abrigada, gafas UV 100%, bloqueador factor 50, linterna frontal, cantimplora, guantes y pasa montañas."
+            ],
+            "detail": "Resolución 207 de 2023, numeral 6.1, equipo mínimo para senderismo, también incluye ropa impermeable y ropa abrigada, y alimentos ligeros listos para consumir y ricos en calorías."
+          },
+          "sources": [
+            {
+              "label": "Parques Nacionales Naturales de Colombia · Resolución 207 de 2023",
+              "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2023/08/Resolucion_207_2023_ReglamentacionNevados_.pdf",
+              "retrieved_at": "2026-11-21"
+            },
+            {
+              "label": "Parques Nacionales Naturales de Colombia · Los Nevados",
+              "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+              "retrieved_at": "2026-11-21"
+            }
+          ],
+          "last_verified": "2026-11-21",
+          "valid_until": null,
+          "related": [
+            "preparation.layering_system",
+            "preparation.hiking_boots",
+            "preparation.what_not_to_pack"
+          ],
+          "tags": [
+            "checklist",
+            "brisas",
+            "pasadia",
+            "lista",
+            "equipaje"
+          ]
+        }
+      },
+      {
+        "op": "update",
+        "reason": "Optimizar metadatos de preparation.checklist_glacier_day: clarificar etiqueta para System 1 y enriquecer hard negatives contrastivos contra pares confusibles.",
+        "entry": {
+          "id": "preparation.checklist_glacier_day",
+          "label": "checklist para caminata al Nevado Santa Isabel",
+          "kind": "procedure",
+          "audience": "visitor",
+          "lang": "es",
+          "examples": [
+            "qué empacar para caminata al nevado santa isabel",
+            "qué me llevo pa' Conejeras?",
+            "lista de cosas para caminata a la nieve en santa isabel",
+            "qué llevar para ir al borde de glaciar santa isabel",
+            "qué me pongo pal Cisne?",
+            "lista de chequeo para subir al glaciar santa isabel",
+            "qué necesito para la caminata al nevado santa isabel",
+            "sirve la ropa de diario pa' subir al glaciar?",
+            "preparación para trekking a borde de nieve",
+            "que ropa llevar para ir al santa isabel",
+            "checklist para caminata de altura en poleka kasue",
+            "packing list for Santa Isabel glacier edge hike",
+            "gear checklist for Conejeras trail to the snow",
+            "cuál es el equipo necesario para subir a santa isabel"
+          ],
+          "hard_negatives": [
+            "lista de equipo para travesía de varios días",
+            "qué llevar para acampar en el parque los nevados",
+            "para subir al glaciar qué guía necesito",
+            "hora recomendada para subir al nevado santa isabel"
+          ],
+          "entities": {
+            "trip_duration": [
+              "pasadia"
+            ],
+            "sector": [
+              "cisne_poleka_kasue"
+            ]
+          },
+          "needs": [],
+          "answer": {
+            "short": "Para borde de glaciar, la Resolución 207 de 2023 exige guía de turismo o intérprete del patrimonio. Lleva ropa abrigada e impermeable, gafas UV, guantes, pasa montañas y calzado de buen agarre.",
+            "variants": [
+              "Antes de subir al glaciar, confirma con tu guía el equipo técnico. El guía de turismo o intérprete es obligatorio."
+            ],
+            "detail": "Resolución 098 de 2021, evento en Santa Isabel: ropa adecuada para alta montaña, preferiblemente segunda y tercera capa térmica impermeable y/o rompevientos, guantes, gafas con filtro UV, pasamontañas o gorro, calzado de buen agarre y suela gruesa."
+          },
+          "sources": [
+            {
+              "label": "Parques Nacionales Naturales de Colombia · Resolución 207 de 2023",
+              "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2023/08/Resolucion_207_2023_ReglamentacionNevados_.pdf",
+              "retrieved_at": "2026-11-21"
+            },
+            {
+              "label": "Parques Nacionales Naturales de Colombia · Resolución 098 de 2021 (evento en Santa Isabel, dato de 2021)",
+              "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2021/08/resolucion-no-098-del-10-de-agosto-de-2021.pdf",
+              "retrieved_at": "2026-11-21"
+            }
+          ],
+          "last_verified": "2026-11-21",
+          "valid_until": null,
+          "related": [
+            "preparation.technical_glacier_gear",
+            "preparation.hiking_boots",
+            "preparation.headlamp"
+          ],
+          "tags": [
+            "checklist",
+            "santa_isabel",
+            "glaciar",
+            "conejeras",
+            "montana"
+          ]
+        }
+      },
+      {
+        "op": "update",
+        "reason": "Optimizar metadatos de preparation.checklist_multiday_trek: clarificar etiqueta para System 1 y enriquecer hard negatives contrastivos contra pares confusibles.",
+        "entry": {
+          "id": "preparation.checklist_multiday_trek",
+          "label": "checklist para travesía de montaña con campamento",
+          "kind": "procedure",
+          "audience": "visitor",
+          "lang": "es",
+          "examples": [
+            "lista de equipo para travesía de varios días",
+            "qué llevar para acampar en el parque los nevados",
+            "checklist completo para trekking con carpa en páramo",
+            "qué empacar para travesía a la laguna del otún",
+            "lista de chequeo para acampar en los nevados",
+            "equipamiento completo para travesía al tolima con camping",
+            "me alisto pa' tres días de camping, ¿qué llevo?",
+            "qué equipo llevar para pernoctar en la montaña",
+            "qué toca llevar pa' acampar dos días?",
+            "lista de cosas para acampar en alta montana",
+            "toca cargar todo eso pa' dormir allá?",
+            "packing checklist for multiday camping trek in Los Nevados",
+            "complete gear list for multiday backpacking trip",
+            "qué elementos son obligatorios para pernoctar con carpa"
+          ],
+          "hard_negatives": [
+            "qué carpa llevar para acampar en los nevados",
+            "qué empacar para un día en el parque los nevados",
+            "preparación para trekking a borde de nieve",
+            "lista de chequeo para pasadía en brisas"
+          ],
+          "entities": {
+            "trip_duration": [
+              "travesia"
+            ]
+          },
+          "needs": [],
+          "answer": {
+            "short": "Para acampar varios días, lleva carpa de tres o cuatro estaciones, saco para bajas temperaturas, estufa de gas, linterna frontal, cantimplora y bolsa para retornar la basura.",
+            "variants": [
+              "Checklist de campamento: carpa de tres o cuatro estaciones, saco, estufa de gas, linterna, cantimplora y bolsa para la basura."
+            ],
+            "detail": "Guía de Semana Santa 2018: lleve equipos, carpa y sleeping especial para alta montaña y bajas temperaturas."
+          },
+          "sources": [
+            {
+              "label": "Parques Nacionales Naturales de Colombia · Resolución 207 de 2023",
+              "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2023/08/Resolucion_207_2023_ReglamentacionNevados_.pdf",
+              "retrieved_at": "2026-11-21"
+            },
+            {
+              "label": "Parques Nacionales Naturales de Colombia · Recomendaciones Semana Santa 2018 (Los Nevados, dato de 2018)",
+              "url": "https://old.parquesnacionales.gov.co/portal/es/recomendaciones-para-ingresar-al-pnn-los-nevados-esta-temporada-de-semana-santa-2018/",
+              "retrieved_at": "2026-11-21"
+            }
+          ],
+          "last_verified": "2026-11-21",
+          "valid_until": null,
+          "related": [
+            "preparation.mountain_tent",
+            "preparation.sleeping_bag",
+            "preparation.camp_hygiene"
+          ],
+          "tags": [
+            "checklist",
+            "travesia",
+            "campamento",
+            "carpa",
+            "multidia"
+          ]
+        }
+      },
+      {
+        "op": "update",
+        "reason": "Optimizar metadatos de preparation.navigation_map_gps: clarificar etiqueta para System 1 y enriquecer hard negatives contrastivos contra pares confusibles.",
+        "entry": {
+          "id": "preparation.navigation_map_gps",
+          "label": "mapa físico brújula o GPS sin señal",
+          "kind": "procedure",
+          "audience": "visitor",
+          "lang": "es",
+          "examples": [
+            "necesito mapa o gps para caminar?",
+            "toca llevar brújula al parque",
+            "qué llevo para orientarme en el páramo",
+            "hay que llevar mapa impreso o con el celular basta",
+            "se puede ir sin gps",
+            "llevo brujula o no",
+            "celular y gps para la ruta, qué me recomiendan",
+            "what do I need to navigate the trail",
+            "should I bring a compass or a map",
+            "cómo me oriento si hay niebla en el sendero",
+            "con qué me ubico en la montaña",
+            "qué tengo que empacar para no perderme",
+            "sirve la aplicación de mapas sin internet en el páramo",
+            "qué herramientas de orientación llevar si no hay cobertura"
+          ],
+          "hard_negatives": [
+            "los guías llevan radio?",
+            "comunicación por radio en la montaña",
+            "qué no me puede faltar para ir a los nevados",
+            "¿Tienes GPS para ubicarme?"
+          ],
+          "entities": {
+            "trip_duration": [
+              "pasadia",
+              "travesia"
+            ]
+          },
+          "needs": [],
+          "answer": {
+            "short": "Lleva mapa, GPS o brújula, linterna con pilas de repuesto y celular con batería suficiente (guía de Semana Santa 2018). Avisa tu ruta a un familiar antes de salir.",
+            "variants": [
+              "Para orientarte en el páramo, lleva mapa, GPS o brújula, y deja tu ruta anotada con alguien antes de salir."
+            ],
+            "detail": null
+          },
+          "sources": [
+            {
+              "label": "Parques Nacionales Naturales de Colombia · Recomendaciones Semana Santa 2018 (Los Nevados, dato de 2018)",
+              "url": "https://old.parquesnacionales.gov.co/portal/es/recomendaciones-para-ingresar-al-pnn-los-nevados-esta-temporada-de-semana-santa-2018/",
+              "retrieved_at": "2026-11-21"
+            }
+          ],
+          "last_verified": "2026-11-21",
+          "valid_until": null,
+          "related": [
+            "preparation.headlamp",
+            "preparation.daypack_size"
+          ],
+          "tags": [
+            "linterna",
+            "frontal",
+            "pilas",
+            "baterias",
+            "obligatorio"
+          ]
+        }
+      }
+    ]
+  },
+  "base": {
+    "data/knowledge/sections/health_safety.json": "d2b17101f413fa31043e3ee063aa8aaeec5e978e3707b49190e726f6e53538dc",
+    "data/knowledge/sections/rules.json": "1d7b49ca4b44292f457800250f0faa4668a27a3d28735d6bd6e8dba21c6df87b",
+    "data/knowledge/sections/actions.json": "954246420bceb8fe84c07081cdb387f4a134d78b38804f139b5ed19537f2b0f1",
+    "data/knowledge/sections/booking_fees.json": "2fbcc7b5e7cd4589898f13e5bc204ddc5f9574acb4f90151aa027e19ebccd7dc",
+    "data/knowledge/sections/conversation.json": "a8a32868eb0be2b2d1d9a1ef59670688878c1dd1a2b102de9934280ac3919763",
+    "data/knowledge/sections/activities.json": "feaf7441fc0657cc77b366d5ded2d5182d740a84bf63238acc9dbed2d9af3fac",
+    "data/knowledge/sections/geography.json": "3f3ec5f4cf66f763795fdd9f1d791fa3e1cc547707f6d4d32c09610eb53febc4",
+    "data/knowledge/sections/history_culture.json": "cc1a5e638f1fce695b21ab054cc27470f0f94630bca736b02b01e838bb41b697",
+    "data/knowledge/sections/access.json": "53e6c70dedf0a6147080a3c95f183740d0b1d86a69694699fb6a4913ceafd087",
+    "data/knowledge/sections/hours_status.json": "22ebd49371851f935c1b984c90e7332fd71b17763786dbdaaf585c3461eccbb0",
+    "data/knowledge/sections/preparation.json": "c63add03cea48ecbf82f98227fdd7d7039f29ffa6a9eb0032d004493bdc5d790",
+    "data/knowledge/sections/fauna.json": "0bc23a8f3a9874641b8fc7c2ad60dc256c5382fc94e6a4fc6d174e1283aa3211",
+    "data/knowledge/sections/flora_ecosystems.json": "735a94a89c70a8afc9b8e264573e5e6921d14ee22344139d3612eb049b010fa7",
+    "data/knowledge/sections/weather_volcano.json": "32c7b2658d3d1be895ed81a2b4f8c34f9b0b8fc454b3099aa15ab24a2fd61583",
+    "data/knowledge/sections/services.json": "34f4cf127d08fb8b89530836e12d827180e7f9f2043a320bddfb33b149a0dd82",
+    "docs/schemas/knowledge-section.schema.json": "a7b049cddf6e867cbc68c41eff6d16c9e36e4bea73897d944033340cce8161fb",
+    "research_notes/Conocimiento turístico de Los Nevados/coordination/knowledge_additions.json": null,
+    "research_notes/Conocimiento turístico de Los Nevados/preparation.research.md": "154eb6e5de54b6c81a37e63ce0d7aed0daba74015eb64bdb6e668bbf742ee792"
+  },
+  "writes": {
+    "data/knowledge/sections/preparation.json": "ee24ad272bb41cef8eee365df0ddd140b95ef72e81ab3a7ae51f5539c9e2cc89",
+    "research_notes/Conocimiento turístico de Los Nevados/coordination/knowledge_additions.json": "1aa5e5c0ffb23fabc3957df7f3c727f649b933284a9a03c10ae4f2996cdcd05f",
+    "research_notes/Conocimiento turístico de Los Nevados/preparation.research.md": "686097d5746b0d8781082fd6c8edfe0acad9c0ea241e136cc2fd2b905bcca98e"
+  }
+}

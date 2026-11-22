@@ -1,0 +1,332 @@
+{
+ "section": "conversation",
+ "reviewer": "claude-haiku-5-5 (re-revisión fresca, sesión directa)",
+ "ops": [
+  {
+   "id": "conversation.acknowledge_ok",
+   "op": "update",
+   "verdict": "approve",
+   "entailment": "n/a",
+   "label_change": "n/a",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "n/a",
+   "reason": "Editorial; etiqueta restaurada igual a la anterior; ejemplos sin cambio. Hard negative añadido sin problema.",
+   "required_change": ""
+  },
+  {
+   "id": "conversation.cancel_topic",
+   "op": "update",
+   "verdict": "approve",
+   "entailment": "n/a",
+   "label_change": "n/a",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "n/a",
+   "reason": "Editorial; etiqueta restaurada. 'No lo doy por enviado' es coherente con la app (la herramienta sólo prepara registros locales).",
+   "required_change": ""
+  },
+  {
+   "id": "conversation.capabilities_overview",
+   "op": "update",
+   "verdict": "approve",
+   "entailment": "full",
+   "label_change": "n/a",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "ok",
+   "reason": "Ya no promete transmisión ni rescate; remite a guía/personal y al 123 con señal. Temas listados corresponden a secciones existentes del corpus. Negativas verificadas en mobile/ (sin API de llamadas, mensajes, ubicación ni envío externo). Evidencia 123 refetch ok.",
+   "required_change": ""
+  },
+  {
+   "id": "conversation.compliment_reply",
+   "op": "update",
+   "verdict": "approve",
+   "entailment": "n/a",
+   "label_change": "n/a",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "n/a",
+   "reason": "Editorial; etiqueta restaurada.",
+   "required_change": ""
+  },
+  {
+   "id": "conversation.emergency_limits",
+   "op": "update",
+   "verdict": "approve",
+   "entailment": "full",
+   "label_change": "n/a",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "ok",
+   "reason": "Orden correcto: guía o personal y 123 con señal antes de cualquier oferta; no hay aclaración previa que retrase la guía. 'No llama, no envía reportes, no localiza' verificado en mobile/ (sin API de llamadas, ubicación ni transmisión; el reporte es local). El 123 como línea única de emergencias está en el extracto de la Policía (refetch ok). 'Avisa al guía o al personal' es instrucción, no dato; sin fuente de parque que la respalde. Actions.report_emergency_general también da el 123 primero.",
+   "required_change": ""
+  },
+  {
+   "id": "conversation.feedback_wrong_answer",
+   "op": "update",
+   "verdict": "approve",
+   "entailment": "n/a",
+   "label_change": "n/a",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "n/a",
+   "reason": "Editorial; etiqueta restaurada.",
+   "required_change": ""
+  },
+  {
+   "id": "conversation.first_time_help",
+   "op": "update",
+   "verdict": "approve",
+   "entailment": "n/a",
+   "label_change": "n/a",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "n/a",
+   "reason": "Editorial; etiqueta restaurada.",
+   "required_change": ""
+  },
+  {
+   "id": "conversation.free_generation_limits",
+   "op": "update",
+   "verdict": "approve",
+   "entailment": "n/a",
+   "label_change": "n/a",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "n/a",
+   "reason": "Editorial; etiqueta restaurada.",
+   "required_change": ""
+  },
+  {
+   "id": "conversation.greeting_hello",
+   "op": "update",
+   "verdict": "approve",
+   "entailment": "n/a",
+   "label_change": "n/a",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "n/a",
+   "reason": "Saludo puro; etiqueta restaurada.",
+   "required_change": ""
+  },
+  {
+   "id": "conversation.history_storage",
+   "op": "update",
+   "verdict": "approve",
+   "entailment": "full",
+   "label_change": "n/a",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "ok",
+   "reason": "Verificado en mobile/: los mensajes del chat viven en useState (se pierden al cerrar); SQLite sólo guarda la tabla history con register_visit y report_emergency. Evidencia refetch ok.",
+   "required_change": ""
+  },
+  {
+   "id": "conversation.how_are_you",
+   "op": "update",
+   "verdict": "approve",
+   "entailment": "n/a",
+   "label_change": "n/a",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "n/a",
+   "reason": "Editorial; etiqueta restaurada.",
+   "required_change": ""
+  },
+  {
+   "id": "conversation.info_source_trust",
+   "op": "update",
+   "verdict": "revise",
+   "entailment": "none",
+   "label_change": "n/a",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "n/a",
+   "reason": "Se cambió la fila a not_checked para sacarla del conteo, sin nueva evidencia ni cumplir lo pedido en ronda 1 (sustentar con un pasaje de la app o reformular). 'Cada respuesta tiene una fuente' no está en mobile/src: no hay código que muestre fuentes (grep sin resultados para source/fuente en ui y state). Sólo es verdadero para el corpus (cada entrada tiene sources).",
+   "required_change": "Sustentar 'cada respuesta tiene una fuente' con un pasaje de la app, o reformularla como 'cada entrada del corpus tiene fuentes' (el corpus lo cumple). Restaurar la fila a primary_ok o none con su excerpt real; no cambiar el estado para sacarla del conteo."
+  },
+  {
+   "id": "conversation.insults_to_assistant",
+   "op": "update",
+   "verdict": "approve",
+   "entailment": "n/a",
+   "label_change": "n/a",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "n/a",
+   "reason": "Editorial; etiqueta restaurada.",
+   "required_change": ""
+  },
+  {
+   "id": "conversation.joke_request",
+   "op": "update",
+   "verdict": "approve",
+   "entailment": "n/a",
+   "label_change": "n/a",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "n/a",
+   "reason": "Editorial; etiqueta restaurada.",
+   "required_change": ""
+  },
+  {
+   "id": "conversation.language_request",
+   "op": "update",
+   "verdict": "approve",
+   "entailment": "n/a",
+   "label_change": "n/a",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "n/a",
+   "reason": "Editorial; etiqueta restaurada. 'Respuestas en español' describe la app; no hay traducción en el código.",
+   "required_change": ""
+  },
+  {
+   "id": "conversation.more_detail_followup",
+   "op": "update",
+   "verdict": "approve",
+   "entailment": "n/a",
+   "label_change": "n/a",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "n/a",
+   "reason": "Editorial; etiqueta restaurada.",
+   "required_change": ""
+  },
+  {
+   "id": "conversation.no_outside_actions",
+   "op": "update",
+   "verdict": "approve",
+   "entailment": "full",
+   "label_change": "n/a",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "n/a",
+   "reason": "Verificado en mobile/: no hay herramientas para llamadas, mensajes ni recordatorios (grep sin resultados; sólo register_visit y get_opening_hours entre las herramientas definidas).",
+   "required_change": ""
+  },
+  {
+   "id": "conversation.off_topic_question",
+   "op": "update",
+   "verdict": "approve",
+   "entailment": "n/a",
+   "label_change": "n/a",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "n/a",
+   "reason": "Editorial; etiqueta restaurada.",
+   "required_change": ""
+  },
+  {
+   "id": "conversation.offline_operation",
+   "op": "update",
+   "verdict": "approve",
+   "entailment": "full",
+   "label_change": "n/a",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "ok",
+   "reason": "Requiere modelo local seleccionado (mobile/src/state/settings.ts, modelId) y no recibe alertas en tiempo real (no hay llamadas de red de datos). Evidencia refetch ok.",
+   "required_change": ""
+  },
+  {
+   "id": "conversation.opinion_request",
+   "op": "update",
+   "verdict": "approve",
+   "entailment": "n/a",
+   "label_change": "n/a",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "n/a",
+   "reason": "Editorial; etiqueta restaurada.",
+   "required_change": ""
+  },
+  {
+   "id": "conversation.park_complaint_channel",
+   "op": "update",
+   "verdict": "revise",
+   "entailment": "partial",
+   "label_change": "n/a",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "n/a",
+   "reason": "La fila cita ahora 'Formulario PQRSDF' (www_parquesnacionales_gov_co_.txt, líneas 34 y 137), como pedía la ronda 1. El extracto no dice que el PQRSDF sirva para quejas; la respuesta afirma 'para una queja formal', y la sigla no se desarrolla en el texto citado.",
+   "required_change": "Citar en la fila el pasaje del portal que describe lo que recibe el Formulario PQRSDF (quejas, reclamos, etc.), o quitar 'para una queja formal' y dejar 'para presentar tu PQRSDF en el formulario oficial'."
+  },
+  {
+   "id": "conversation.repeat_or_unclear",
+   "op": "update",
+   "verdict": "approve",
+   "entailment": "n/a",
+   "label_change": "n/a",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "n/a",
+   "reason": "Editorial; etiqueta restaurada.",
+   "required_change": ""
+  },
+  {
+   "id": "conversation.summary_request",
+   "op": "update",
+   "verdict": "approve",
+   "entailment": "n/a",
+   "label_change": "n/a",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "n/a",
+   "reason": "Editorial; etiqueta restaurada.",
+   "required_change": ""
+  },
+  {
+   "id": "conversation.thanks",
+   "op": "update",
+   "verdict": "approve",
+   "entailment": "n/a",
+   "label_change": "n/a",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "n/a",
+   "reason": "Editorial; etiqueta restaurada.",
+   "required_change": ""
+  },
+  {
+   "id": "conversation.voice_reading_request",
+   "op": "update",
+   "verdict": "approve",
+   "entailment": "full",
+   "label_change": "n/a",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "n/a",
+   "reason": "Verificado en mobile/: sin APIs de voz, micrófono ni lectura en voz alta (grep sin resultados).",
+   "required_change": ""
+  }
+ ],
+ "audit_rows": [
+  {
+   "id": "conversation.info_source_trust",
+   "claimed": "not_checked",
+   "support": "none",
+   "excerpt_changed": true,
+   "note": "El excerpt quedó vacío y la fila pasó de primary_ok a not_checked, lo que la saca del conteo sin nueva evidencia. 'Cada respuesta tiene una fuente' no tiene pasaje de la app (no hay código que muestre fuentes en mobile/src/ui ni state)."
+  },
+  {
+   "id": "conversation.park_complaint_channel",
+   "claimed": "primary_ok",
+   "support": "partial",
+   "excerpt_changed": true,
+   "note": "La fila cita 'Formulario PQRSDF' (www_parquesnacionales_gov_co_.txt, líneas 34 y 137). El extracto no dice que sirva para quejas; 'para una queja formal' no está respaldado."
+  }
+ ],
+ "summary": {
+  "approve": 23,
+  "revise": 2,
+  "reject": 0,
+  "audit_support": {
+   "full": 0,
+   "partial": 1,
+   "none": 1
+  }
+ }
+}

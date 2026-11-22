@@ -1,0 +1,465 @@
+{
+ "section": "history_culture",
+ "reviewer": "claude-haiku-5-5 (re-revisión fresca, sesión directa)",
+ "ops": [
+  {
+   "id": "history_culture.el_bosque",
+   "op": "update",
+   "verdict": "revise",
+   "entailment": "partial",
+   "label_change": "justified",
+   "examples": "issues",
+   "temporal": "ok",
+   "refetch": "n/a",
+   "reason": "La etiqueta ya sigue findings/labels.json. La respuesta sigue diciendo 'casas tradicionales de sus habitantes históricos', que el extracto (desde Pereira, a través de la vereda El Bosque) no dice: es el punto que la ronda 1 rechazó. Casi todos los ejemplos siguen preguntando por las casas, que la etiqueta nueva ya no describe.",
+   "required_change": "Quitar 'casas tradicionales … habitantes históricos' de short y variant. Retirar o reescribir los ejemplos sobre casas e historia de habitantes (son la mayoría)."
+  },
+  {
+   "id": "history_culture.primary_secondary_lahar",
+   "op": "update",
+   "verdict": "revise",
+   "entailment": "partial",
+   "label_change": "justified",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "n/a",
+   "reason": "La etiqueta cambiada contrasta con what_is_a_lahar, como pedía la ronda 1. La fila ya cita la nota del SGC del 28-abr-2023 para la definición primaria (deshielo). La definición secundaria (lluvia sobre material suelto) no está en la fila. Del detalle, las velocidades de 70 km/h y 40 km/h, la alerta del Ideam de abril de 2023 y 'Armero es el ejemplo de lahar primario' no están en el extracto.",
+   "required_change": "Citar en la fila la definición secundaria de la misma nota. Quitar 'Armero es el ejemplo de lahar primario de esa nota' o citarla. Quitar del detalle las velocidades y la alerta, o citarlas."
+  },
+  {
+   "id": "history_culture.prior_rights_1973",
+   "op": "update",
+   "verdict": "approve",
+   "entailment": "full",
+   "label_change": "justified",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "n/a",
+   "reason": "La fila cita ahora el texto del artículo cuarto del Acuerdo 15 de 1973 ('dejó a salvo los derechos adquiridos con anterioridad a su vigencia'), que está bajo el encabezado ARTICULO CUARTO en res-148-head.txt línea 344. La respuesta no afirma más que eso. Etiqueta justificada por el cruce con booking_fees. Pendiente menor: incluir el encabezado ARTICULO CUARTO en el extracto de la fila.",
+   "required_change": ""
+  },
+  {
+   "id": "history_culture.ruiz_other_ancestral_names",
+   "op": "update",
+   "verdict": "revise",
+   "entailment": "partial",
+   "label_change": "justified",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "n/a",
+   "reason": "La fila cita ahora la hoja SGC 2024 con Tabuchía (candela o fuego) y Tama (padre mayor o grande), como pedía la ronda 1. 'Cumanday (cerro blanco)' sí aparece en esa hoja (sgc-hoja-ruiz-2024), pero no en la fila. 'Indígenas' de la etiqueta no aparece en el extracto.",
+   "required_change": "Añadir a la fila el pasaje de 'cerro blanco' de la hoja SGC 2024 o quitar esa frase de short y variant. Citar la atribución indígena o quitar 'indígenas' de la etiqueta."
+  }
+ ],
+ "audit_rows": [
+  {
+   "id": "history_culture.acuerdo_1973_limits",
+   "claimed": "primary_ok",
+   "support": "partial",
+   "excerpt_changed": true,
+   "note": "Extracto respalda baldíos, venta de tierras, caza y pesca. Sin soporte: actividad industrial, ganadera o agrícola, la excepción del INDERENA y el artículo 13 de la Ley 2 de 1959."
+  },
+  {
+   "id": "history_culture.after_1985_until_1989",
+   "claimed": "primary_ok",
+   "support": "partial",
+   "excerpt_changed": false,
+   "note": "Extracto respalda el lahar del Azufrado que destruyó el puente Manizales–Murillo. Sin soporte: ceniza 1986–1988 y la erupción del 1-sep-1989."
+  },
+  {
+   "id": "history_culture.armero_1985",
+   "claimed": "primary_ok",
+   "support": "partial",
+   "excerpt_changed": true,
+   "note": "Extracto respalda 74 km de la cima y más de 20.000 víctimas en Armero. Sin soporte: fecha de los lahares, 23.000 y 25.000 y las cifras del detalle."
+  },
+  {
+   "id": "history_culture.armero_before_1985",
+   "claimed": "primary_ok",
+   "support": "partial",
+   "excerpt_changed": true,
+   "note": "Extracto da 1895 como año de fundación. 'En 1845 no había pueblo en ese punto' no está en la fila."
+  },
+  {
+   "id": "history_culture.armero_guayabal_name",
+   "claimed": "primary_ok",
+   "support": "partial",
+   "excerpt_changed": true,
+   "note": "Extracto respalda Armero–Guayabal en la Ley 2505 para infraestructura turística. Sin soporte: 'ninguno está en la lista de municipios del parque' y 'quedan fuera del parque'."
+  },
+  {
+   "id": "history_culture.armero_outside_park",
+   "claimed": "primary_ok",
+   "support": "partial",
+   "excerpt_changed": true,
+   "note": "Extracto respalda 74 km de la cima y el arrasamiento. 'Queda en Tolima' y 'fuera del parque' no están en la fila."
+  },
+  {
+   "id": "history_culture.bahareque",
+   "claimed": "primary_ok",
+   "support": "partial",
+   "excerpt_changed": true,
+   "note": "Extracto respalda bahareque (cañas trenzadas) en los muros. Sin soporte: colonos antioqueños, tejas de barro y 'más de la mitad de los muros'."
+  },
+  {
+   "id": "history_culture.cajiao_1977_warning",
+   "claimed": "primary_ok",
+   "support": "partial",
+   "excerpt_changed": true,
+   "note": "Extracto respalda la advertencia de Cajiao sobre lahares hacia Armero y Honda. Sin soporte: fecha del 10-nov-1977 y 'aviador'."
+  },
+  {
+   "id": "history_culture.chinchina_rioclaro_1985",
+   "claimed": "primary_ok",
+   "support": "partial",
+   "excerpt_changed": true,
+   "note": "Extracto respalda más de 25.000 muertos entre Armero y Chinchiná. Sin soporte: muertes en Rioclaro y afectaciones del 13-nov-1985 en Chinchiná."
+  },
+  {
+   "id": "history_culture.cieza_1553_first_record",
+   "claimed": "primary_ok",
+   "support": "partial",
+   "excerpt_changed": false,
+   "note": "Extracto respalda 'primer registro escrito' por Cieza de León en 1553. Sin soporte: visita a Cartago hacia 1545 y 'registro probable, no seguro'."
+  },
+  {
+   "id": "history_culture.coffee_landscape",
+   "claimed": "primary_ok",
+   "support": "partial",
+   "excerpt_changed": true,
+   "note": "Extracto respalda seis paisajes y dieciocho centros urbanos. Sin soporte: 2011, criterios (v) y (vi), el parque en el corazón de la región y las cifras del detalle."
+  },
+  {
+   "id": "history_culture.colonizacion_antioquena",
+   "claimed": "primary_ok",
+   "support": "partial",
+   "excerpt_changed": true,
+   "note": "Extracto respalda que colonos de Antioquia fueron de los primeros pobladores de Manizales. Sin soporte: la definición del proceso y la llegada en el siglo XIX."
+  },
+  {
+   "id": "history_culture.el_bosque",
+   "claimed": "primary_ok",
+   "support": "partial",
+   "excerpt_changed": false,
+   "note": "Extracto respalda acceso desde Pereira por la vereda El Bosque. Sin soporte: 'casas tradicionales de sus habitantes históricos'."
+  },
+  {
+   "id": "history_culture.eruption_1595",
+   "claimed": "primary_ok",
+   "support": "partial",
+   "excerpt_changed": true,
+   "note": "Extracto respalda lahares por los ríos Gualí y Lagunilla hasta el Magdalena. Sin soporte: 12-mar-1595, fray Pedro Simón y las cifras de muertos."
+  },
+  {
+   "id": "history_culture.eruption_1845",
+   "claimed": "primary_ok",
+   "support": "partial",
+   "excerpt_changed": true,
+   "note": "Extracto respalda el 19-feb-1845 por la mañana. Sin soporte: flujo por el Lagunilla, 1895 como fundación y las cifras de muertos."
+  },
+  {
+   "id": "history_culture.eruptions_2012_and_dome",
+   "claimed": "primary_ok",
+   "support": "partial",
+   "excerpt_changed": true,
+   "note": "Extracto respalda erupciones explosivas menores del 29-may y el 30-jun de 2012. Sin soporte: domo de lava desde 2015 y la columna de 8 km del detalle."
+  },
+  {
+   "id": "history_culture.exploraciones_siglo_xx",
+   "claimed": "primary_ok",
+   "support": "partial",
+   "excerpt_changed": true,
+   "note": "Extracto respalda las excursiones de 1936 y 1939. Sin soporte: nombres de Gansser y Cuenet, 'describieron el cráter Arenas' y el registro filmado de 1968."
+  },
+  {
+   "id": "history_culture.founding_approximate_area",
+   "claimed": "primary_ok",
+   "support": "partial",
+   "excerpt_changed": true,
+   "note": "Extracto respalda '38.000' sin unidad. 'Hectáreas' y 'aproximadas' no aparecen en el extracto."
+  },
+  {
+   "id": "history_culture.inderena_1974",
+   "claimed": "primary_ok",
+   "support": "partial",
+   "excerpt_changed": true,
+   "note": "Extracto respalda que la administración corresponde a las áreas delimitadas como PNN. Sin soporte: INDERENA y el Decreto 2420 de 1968."
+  },
+  {
+   "id": "history_culture.indigenous_peoples",
+   "claimed": "primary_ok",
+   "support": "partial",
+   "excerpt_changed": false,
+   "note": "Extracto respalda quimbayas, pijaos, pantágoras y muiscas. Sin soporte: 'Kumanday viene de los quimbaya y Dulima de los pijaos'."
+  },
+  {
+   "id": "history_culture.kumanday_name",
+   "claimed": "primary_ok",
+   "support": "partial",
+   "excerpt_changed": true,
+   "note": "Extracto respalda que los quimbaya llamaron Kumanday al Ruiz, 'cerro blanco'. Sin soporte: la grafía 'Cumanday' del SGC y que sea la misma montaña en su escritura."
+  },
+  {
+   "id": "history_culture.lahar_1995_lagunilla",
+   "claimed": "primary_ok",
+   "support": "partial",
+   "excerpt_changed": true,
+   "note": "Extracto respalda el lahar del 15-ene-1995, 6 km por el Lagunilla. Sin soporte: 'sin víctimas' y el daño al puente Manizales–Murillo."
+  },
+  {
+   "id": "history_culture.ley_2505_armero",
+   "claimed": "primary_ok",
+   "support": "partial",
+   "excerpt_changed": true,
+   "note": "Extracto respalda el objeto de la Ley 2505 (exaltar a Armero y declararlo Bien de Interés Cultural). Sin soporte: Diario Oficial 53.200 y el artículo 2 sobre el trámite."
+  },
+  {
+   "id": "history_culture.ley_2505_educacion_riesgo",
+   "claimed": "primary_ok",
+   "support": "partial",
+   "excerpt_changed": true,
+   "note": "Extracto respalda que varias entidades podrán fomentar la educación sobre riesgo y la memoria de Armero. Sin soporte: colegios y estrategias turísticas, y el artículo 4."
+  },
+  {
+   "id": "history_culture.ley_2505_guias_narrativa",
+   "claimed": "primary_ok",
+   "support": "partial",
+   "excerpt_changed": true,
+   "note": "Extracto respalda capacitar a los guías en la narrativa de la catástrofe de Armero. Sin soporte: 'turismo responsable' y el artículo 7 en el texto citado."
+  },
+  {
+   "id": "history_culture.ley_2_1959",
+   "claimed": "primary_ok",
+   "support": "partial",
+   "excerpt_changed": true,
+   "note": "Extracto respalda la Ley 2 del 17-ene-1959, artículo 13, nevados como parques. Sin soporte: índice del 16-dic-1959 y linderes de 1974."
+  },
+  {
+   "id": "history_culture.management_plan_adoptions",
+   "claimed": "primary_ok",
+   "support": "partial",
+   "excerpt_changed": true,
+   "note": "Extracto sólo respalda la Resolución 0393 de 2017. La Resolución 052 de 2007 no aparece en el extracto."
+  },
+  {
+   "id": "history_culture.memory_center",
+   "claimed": "primary_ok",
+   "support": "partial",
+   "excerpt_changed": true,
+   "note": "Extracto respalda un centro de memoria en Armero con participación de las comunidades. Sin soporte: entidades concurrentes y que la ley no fija sede."
+  },
+  {
+   "id": "history_culture.minor_19th_century",
+   "claimed": "primary_ok",
+   "support": "none",
+   "excerpt_changed": true,
+   "note": "El extracto sólo dice 'Explosión de cráter parásito'. No sostiene las fechas 1805, 1828 y 1829 ni la lectura de Boussingault."
+  },
+  {
+   "id": "history_culture.monitoring_since_1985",
+   "claimed": "primary_ok",
+   "support": "partial",
+   "excerpt_changed": true,
+   "note": "Extracto respalda monitoreo permanente desde 1985. Sin soporte en la fila: el detalle sobre el inicio formal en 1986 según la IUGS."
+  },
+  {
+   "id": "history_culture.park_creation_1974",
+   "claimed": "primary_ok",
+   "support": "partial",
+   "excerpt_changed": true,
+   "note": "Extracto respalda la declaratoria como PNN en 1974 y la conservación de flora y fauna. Sin soporte: 30-abr-1974, Resolución 148, Acuerdo 15 de 1973 y 'bellezas escénicas'."
+  },
+  {
+   "id": "history_culture.phenomena_1985",
+   "claimed": "primary_ok",
+   "support": "partial",
+   "excerpt_changed": true,
+   "note": "Extracto respalda lahares que derritieron parte del glaciar. Sin soporte: ceniza, flujos piroclásticos y colapso de la columna."
+  },
+  {
+   "id": "history_culture.plan_conjunto_2017_2022",
+   "claimed": "primary_ok",
+   "support": "partial",
+   "excerpt_changed": true,
+   "note": "Extracto respalda que el plan conjunto parte del plan 2017-2022. Sin soporte: plazos de 15 días y de un año."
+  },
+  {
+   "id": "history_culture.poleka_kasue",
+   "claimed": "primary_ok",
+   "support": "partial",
+   "excerpt_changed": true,
+   "note": "Extracto respalda Poleka Kasue como 'doncella de la montaña' para Santa Isabel. Sin soporte en la fila: que aparezca en el sector Cisne–Poleka Kasue."
+  },
+  {
+   "id": "history_culture.precursors_1984_1985",
+   "claimed": "primary_ok",
+   "support": "partial",
+   "excerpt_changed": true,
+   "note": "Extracto respalda el pequeño lahar del Azufrado. Sin soporte: ceniza hasta Manizales y Chinchiná, gases de 1984 y el mapa del 7-oct-1985."
+  },
+  {
+   "id": "history_culture.primary_secondary_lahar",
+   "claimed": "primary_ok",
+   "support": "partial",
+   "excerpt_changed": true,
+   "note": "Extracto de la nota SGC 28-abr-2023 respalda la definición primaria (deshielo). Sin soporte: la definición secundaria y las cifras del detalle."
+  },
+  {
+   "id": "history_culture.prior_rights_1973",
+   "claimed": "primary_ok",
+   "support": "full",
+   "excerpt_changed": true,
+   "note": "Extracto con el texto del artículo cuarto del Acuerdo 15 de 1973 (res-148-head.txt línea 344). Respalda la respuesta. Pendiente menor: incluir el encabezado ARTICULO CUARTO."
+  },
+  {
+   "id": "history_culture.reactivacion_1994",
+   "claimed": "primary_ok",
+   "support": "partial",
+   "excerpt_changed": true,
+   "note": "Extracto respalda 'Marzo Abril 1994 · Reactivación sísmica'. Sin soporte: enjambre a mediados de marzo y casi dos años de baja actividad."
+  },
+  {
+   "id": "history_culture.respectful_memory",
+   "claimed": "primary_ok",
+   "support": "partial",
+   "excerpt_changed": true,
+   "note": "Extracto respalda dignidad y respeto a las víctimas. Sin soporte: revictimización y sensacionalismo."
+  },
+  {
+   "id": "history_culture.risk_lessons",
+   "claimed": "primary_ok",
+   "support": "partial",
+   "excerpt_changed": true,
+   "note": "Extracto respalda el 'fortalecimiento de la gestión del riesgo'. Sin soporte: que la tragedia lo impulsó y las causas (desconocimiento, incredulidad)."
+  },
+  {
+   "id": "history_culture.rivers_1985",
+   "claimed": "primary_ok",
+   "support": "partial",
+   "excerpt_changed": true,
+   "note": "Extracto respalda Gualí, Azufrado, Lagunilla, Nereidas y Molinos. Sin soporte: que el Azufrado y el Lagunilla destruyeron Armero, la grafía del portal y las velocidades del detalle."
+  },
+  {
+   "id": "history_culture.ruiz_1990_2010_calma",
+   "claimed": "primary_ok",
+   "support": "partial",
+   "excerpt_changed": false,
+   "note": "Extracto respalda niveles bajos entre 1990 y 2010 con crisis menores. Sin soporte: la subida de actividad desde 2010."
+  },
+  {
+   "id": "history_culture.ruiz_name_origin",
+   "claimed": "primary_ok",
+   "support": "partial",
+   "excerpt_changed": false,
+   "note": "Extracto respalda 1701 y fray Alonso de Zamora. Sin soporte: obra de 1691–1696 y los nombres antiguos (cerro, volcán de Cartago, volcán de Gualí). Aprobada en ronda 1 fuera de cola: revisar."
+  },
+  {
+   "id": "history_culture.ruiz_natural_heritage",
+   "claimed": "primary_ok",
+   "support": "partial",
+   "excerpt_changed": true,
+   "note": "Extracto respalda 'reconocer al volcán Nevado del Ruiz como parte del patrimonio natural'. Sin soporte: el agua en cuatro departamentos y el parágrafo sobre postulación."
+  },
+  {
+   "id": "history_culture.ruiz_other_ancestral_names",
+   "claimed": "primary_ok",
+   "support": "partial",
+   "excerpt_changed": true,
+   "note": "Extracto de la hoja 2024 respalda Tabuchía (candela o fuego) y Tama (padre mayor o grande). Sin soporte en la fila: 'Cumanday (cerro blanco)' (está en la hoja) e 'indígenas'."
+  },
+  {
+   "id": "history_culture.santa_isabel_record",
+   "claimed": "primary_ok",
+   "support": "partial",
+   "excerpt_changed": true,
+   "note": "Extracto sólo respalda el nombre Poleka Kasue. Sin soporte: que Santa Isabel no aparezca en el portal histórico del SGC."
+  },
+  {
+   "id": "history_culture.scientific_observers",
+   "claimed": "primary_ok",
+   "support": "partial",
+   "excerpt_changed": true,
+   "note": "Extracto respalda la primera descripción geocientífica por Joaquín Acosta (1846). Sin soporte: la lista de viajeros del Tolima y el detalle."
+  },
+  {
+   "id": "history_culture.second_deadliest",
+   "claimed": "primary_ok",
+   "support": "partial",
+   "excerpt_changed": true,
+   "note": "Extracto respalda 'segunda erupción volcánica más mortífera del siglo XX'. Sin soporte en la fila: 'la memoria de 2015 dice algo parecido'."
+  },
+  {
+   "id": "history_culture.sector_indigenous_names",
+   "claimed": "primary_ok",
+   "support": "partial",
+   "excerpt_changed": true,
+   "note": "Extracto respalda los cuatro sectores. Sin soporte: que cada nombre indígena corresponda a Ruiz, Santa Isabel o Tolima."
+  },
+  {
+   "id": "history_culture.subject_of_rights",
+   "claimed": "primary_ok",
+   "support": "partial",
+   "excerpt_changed": true,
+   "note": "Extracto respalda 'DECLARAR ... ES SUJETO DE DERECHOS'. Sin soporte: fecha del 25-nov-2020, derechos a la vida y la salud, y la representación por el Presidente."
+  },
+  {
+   "id": "history_culture.termales_history",
+   "claimed": "primary_ok",
+   "support": "partial",
+   "excerpt_changed": false,
+   "note": "Extracto respalda 1793 y D'Elhuyar. Sin soporte: colonos antioqueños de 1845 y Codazzi de 1852. Aprobada en ronda 1 fuera de cola: revisar."
+  },
+  {
+   "id": "history_culture.tolima_history",
+   "claimed": "primary_ok",
+   "support": "partial",
+   "excerpt_changed": true,
+   "note": "Extracto respalda fumarolas y depósitos de azufre en 1925. Sin soporte: poca actividad explosiva, fumarolas de 1918, explosiones de 1822, 1825 y 1943."
+  },
+  {
+   "id": "history_culture.vei_1985",
+   "claimed": "primary_ok",
+   "support": "partial",
+   "excerpt_changed": true,
+   "note": "Extracto respalda índice de explosividad de 3 a 4 en escala de 0 a 8. Sin soporte: el VEI 3 de la memoria de 2015."
+  },
+  {
+   "id": "history_culture.what_is_a_lahar",
+   "claimed": "primary_ok",
+   "support": "partial",
+   "excerpt_changed": false,
+   "note": "Extracto respalda la definición como mezcla de roca, arena, limo, arcilla y agua. Sin soporte: 'se parece al concreto húmedo', 'avalancha' y el hielo del Ruiz."
+  },
+  {
+   "id": "history_culture.which_volcano_history",
+   "claimed": "primary_ok",
+   "support": "partial",
+   "excerpt_changed": true,
+   "note": "Extracto respalda el episodio del 13-nov-1985. Sin soporte: 1595 y 1845 como tragedias del Ruiz y que el Tolima no tenga un equivalente."
+  },
+  {
+   "id": "history_culture.why_1985_deadly",
+   "claimed": "primary_ok",
+   "support": "partial",
+   "excerpt_changed": true,
+   "note": "Extracto respalda 'desconocimiento del contexto volcánico'. Sin soporte: lahares hacia zonas habitadas, falta de memoria, incredulidad e institucionalidad."
+  },
+  {
+   "id": "history_culture.zero_presence_directive",
+   "claimed": "primary_ok",
+   "support": "partial",
+   "excerpt_changed": true,
+   "note": "Extracto respalda la frase de cero presencia humana, agropecuaria e industrial. Sin soporte: fecha del 13-oct-2020 y que la Corte la modificó."
+  }
+ ],
+ "summary": {
+  "approve": 1,
+  "revise": 3,
+  "reject": 0,
+  "audit_support": {
+   "full": 1,
+   "partial": 55,
+   "none": 1
+  }
+ }
+}

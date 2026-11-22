@@ -1,0 +1,948 @@
+{
+ "section": "booking_fees",
+ "reviewer": "agent 26 / claude-haiku-5-5",
+ "ops": [
+  {
+   "id": "booking_fees.under25_admission_fee",
+   "op": "update",
+   "verdict": "revise",
+   "entailment": "partial",
+   "label_change": "stylistic",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "ok",
+   "reason": "Cifra 12.500 respaldada por la fila de Brisas, Cisne y Otún de la ficha y por el anexo de la Resolución 551 (fila Nevados). Falta el alcance: Quindío-Dulima figura en $0 en la misma ficha y la respuesta dice \"en Los Nevados\". La vigencia 2026 (artículo 22, Q3) sí está en la evidencia.",
+   "required_change": "Acotar la cifra a Brisas, Cisne-Poleka Kasue y Laguna del Otún, y decir que Quindío-Dulima figura en $0. Añadir como evidencia el anexo de la Resolución 551 (fila Nevados, \"$12.500 $24.500 $68.000\"). Mantener la etiqueta anterior \"tarifa reducida para menores de 25 años\" (cambio estilístico, sin confusión documentada)."
+  },
+  {
+   "id": "booking_fees.adult_resident_admission_fee",
+   "op": "update",
+   "verdict": "revise",
+   "entailment": "partial",
+   "label_change": "justified",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "ok",
+   "reason": "Misma cifra 24.500 y mismo problema de alcance de Quindío-Dulima. La etiqueta antigua \"adultos mayores de 25\" sí induce a error (en español significa personas mayores), así que el cambio está justificado, pero la etiqueta nueva no dice el umbral de 25 años.",
+   "required_change": "Acotar a los cuatro sectores con cifra, como en la entrada anterior. Usar la etiqueta documentada \"tarifa general para mayores de 25\". Añadir la fila de la Resolución 551 como evidencia."
+  },
+  {
+   "id": "booking_fees.foreign_nonresident_admission_fee",
+   "op": "update",
+   "verdict": "revise",
+   "entailment": "partial",
+   "label_change": "stylistic",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "ok",
+   "reason": "La cifra 68.000 está en la columna \"Extranjero no residente\". La frase \"que no pertenecen a la CAN\" no está en ninguna cita: la ficha pone a los miembros de la CAN en las columnas de residente, pero no dice qué pasa con un miembro de la CAN que no reside en Colombia.",
+   "required_change": "Quitar \"que no pertenecen a la CAN\" o citar la regla que lo dice. Acotar el alcance por sector como en las entradas de menores y adultos. Mantener la etiqueta anterior \"entrada para extranjero no residente\"."
+  },
+  {
+   "id": "booking_fees.sector_entry_fee_difference",
+   "op": "update",
+   "verdict": "revise",
+   "entailment": "full",
+   "label_change": "stylistic",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "ok",
+   "reason": "Contenido correcto: Brisas, Cisne-Poleka Kasue y Laguna del Otún comparten 12.500/24.500/68.000; Quindío-Dulima figura en 0; la Resolución 551 da una sola fila para Los Nevados. La cita del protocolo de 2023 (no cobrar en la zona sur como medida transitoria) está en el extracto, y la fecha del protocolo es agosto de 2023 aunque el archivo se llame 2024.",
+   "required_change": "Mantener el contenido. Recuperar la etiqueta anterior \"tarifa según sector de Los Nevados\" (cambio estilístico sin confusión documentada)."
+  },
+  {
+   "id": "booking_fees.vehicle_entry_fee",
+   "op": "update",
+   "verdict": "revise",
+   "entailment": "full",
+   "label_change": "stylistic",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "warn",
+   "reason": "Cifras 10.000 / 27.500 / 56.000 y \"moto prohibida\" confirmadas en la ficha y en la Resolución 551 (fila Nevados, \"PROHIBIDO\" para moto). El aviso de refetch se resuelve: el PDF descargado de nuevo contiene las mismas cifras en la fila de Nevados, aunque el extractor no reproduzca el fragmento exacto. La frase \"No aplica\" en Cisne y Otún sí está en la ficha, pero no en la cita.",
+   "required_change": "Añadir la cita de \"No aplica\" (fila Cisne-Poleka Kasue y Laguna del Otún) como evidencia. Mantener la etiqueta anterior \"tarifa de ingreso en vehículo\"."
+  },
+  {
+   "id": "booking_fees.brisas_guide_price",
+   "op": "update",
+   "verdict": "revise",
+   "entailment": "full",
+   "label_change": "stylistic",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "ok",
+   "reason": "El 22.000 está en la tabla 2026 de la ficha, en la fila de guianza de Brisas, con la nota \"prestado por la Concesión UTON\". La respuesta dice que no se sabe si es por persona o por grupo: es la postura honesta. Contradicciones: no presentarlo como precio a pagar, y la respuesta lo hace.",
+   "required_change": "Mantener el contenido. Recuperar la etiqueta anterior \"precio de la guianza en Brisas\" (cambio estilístico)."
+  },
+  {
+   "id": "booking_fees.tariff_annual_update",
+   "op": "update",
+   "verdict": "revise",
+   "entailment": "partial",
+   "label_change": "stylistic",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "ok",
+   "reason": "El artículo 22 (vigencia desde el 1 de enero de 2026) y el artículo 12 (reajuste anual) están en el extracto. La afirmación de que cada año \"pueden ajustarse con la meta de inflación\" viene del artículo 12, que no se cita en la entrada.",
+   "required_change": "Citar el artículo 12 como evidencia. Mantener la etiqueta anterior \"cuándo cambian las tarifas de entrada\"."
+  },
+  {
+   "id": "booking_fees.student_admission_category",
+   "op": "update",
+   "verdict": "revise",
+   "entailment": "partial",
+   "label_change": "stylistic",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "ok",
+   "reason": "El numeral 4 del artículo 13 (estudiantes y profesores, temporada baja, aprobación del jefe) está confirmado en el PDF oficial. La respuesta dice \"No es un descuento por carné\", pero \"carné\" no aparece en ninguna fuente. \"Solo quedan exentos\" es un enunciado más fuerte que lo que dice el artículo.",
+   "required_change": "Quitar \"No es un descuento por carné\". Suavizar \"solo quedan exentos\" a \"la resolución exime a estudiantes y profesores en el programa de educación ambiental…\". Citar el artículo 13 numeral 4. Mantener la etiqueta anterior \"estudiantes y colegios: tarifa o exención\"."
+  },
+  {
+   "id": "booking_fees.entry_fee_discounts",
+   "op": "update",
+   "verdict": "revise",
+   "entailment": "full",
+   "label_change": "stylistic",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "ok",
+   "reason": "Artículo 18: descuentos por convenio fuera del régimen de excepciones. La conclusión de que el descuento no es una exención es una lectura correcta de la estructura de la resolución. No se afirma un porcentaje.",
+   "required_change": "Mantener el contenido. Recuperar la etiqueta anterior \"descuentos en la entrada del parque\" (cambio estilístico)."
+  },
+  {
+   "id": "booking_fees.exempt_promotion_programs",
+   "op": "update",
+   "verdict": "revise",
+   "entailment": "partial",
+   "label_change": "stylistic",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "ok",
+   "reason": "El Pasaporte y los programas de promoción están en el artículo 13 numeral 18. \"Cada programa define sus áreas y fechas\" viene del artículo 15, que no se cita.",
+   "required_change": "Citar el artículo 15 para la frase de áreas y fechas. Mantener la etiqueta anterior \"entrada gratis con programas de promoción\"."
+  },
+  {
+   "id": "booking_fees.exempt_government_staff",
+   "op": "update",
+   "verdict": "revise",
+   "entailment": "full",
+   "label_change": "stylistic",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "ok",
+   "reason": "Numeral 2 del artículo 13 (tres veces al año, con cónyuge y parientes). El plazo de ocho días corresponde al numeral 2 del artículo 14, que sí lo incluye (ver la entrada de exemption_proof_deadline).",
+   "required_change": "Añadir el artículo 14 como evidencia para el plazo de ocho días. Mantener la etiqueta anterior \"exentos: funcionarios y contratistas de PNN\" (la nueva omite a los contratistas)."
+  },
+  {
+   "id": "booking_fees.exempt_company_staff_inside_park",
+   "op": "update",
+   "verdict": "revise",
+   "entailment": "full",
+   "label_change": "stylistic",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "ok",
+   "reason": "Numeral 12 del artículo 13. Requiere aprobación previa y el plazo de ocho días del artículo 14 (el numeral 12 está en la lista). La cita del numeral 12 no incluye el plazo.",
+   "required_change": "Citar el artículo 14 (lista de numerales con ocho días) como evidencia. Mantener la etiqueta anterior \"exentos: personal de empresas dentro del parque\"."
+  },
+  {
+   "id": "booking_fees.exempt_official_mission",
+   "op": "update",
+   "verdict": "revise",
+   "entailment": "full",
+   "label_change": "stylistic",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "ok",
+   "reason": "Numeral 3 del artículo 13. El plazo de ocho días corresponde al numeral 3 del artículo 14. Sin cita del artículo 14 en la evidencia.",
+   "required_change": "Citar el artículo 14. Mantener la etiqueta anterior \"exentos: personal oficial en misión\"."
+  },
+  {
+   "id": "booking_fees.exempt_researchers",
+   "op": "update",
+   "verdict": "revise",
+   "entailment": "full",
+   "label_change": "stylistic",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "ok",
+   "reason": "Numeral 6 del artículo 13 y numeral 6 del artículo 14 (ocho días). Sin cita del artículo 14 en la evidencia.",
+   "required_change": "Citar el artículo 14. Mantener la etiqueta anterior \"exentos: investigadores con proyecto aprobado\"."
+  },
+  {
+   "id": "booking_fees.exempt_nearby_residents",
+   "op": "update",
+   "verdict": "revise",
+   "entailment": "full",
+   "label_change": "stylistic",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "ok",
+   "reason": "Numeral 5 del artículo 13: nativos o residentes de centros poblados menores de 10.000 habitantes, con documento o certificado. La cifra y la condición están en el PDF oficial, pero la entrada no tiene evidencia (EV NONE). El \"paso\" es el numeral 11, que también existe en el PDF.",
+   "required_change": "Añadir como evidencia el artículo 13 numerales 5 y 11 (texto oficial de la página 11 del PDF). Mantener la etiqueta anterior \"exentos: residentes de poblados cercanos\"."
+  },
+  {
+   "id": "booking_fees.exempt_property_owners",
+   "op": "update",
+   "verdict": "revise",
+   "entailment": "full",
+   "label_change": "stylistic",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "ok",
+   "reason": "Numeral 10 del artículo 13 y \"informar previamente los nombres\" del párrafo del artículo 14 (numerales 10, 14 y 17). La cita del artículo 14 no está en la evidencia.",
+   "required_change": "Añadir el párrafo del artículo 14 como evidencia. Mantener la etiqueta anterior \"exentos: dueños de predios dentro del parque\"."
+  },
+  {
+   "id": "booking_fees.exempt_indigenous_communities",
+   "op": "update",
+   "verdict": "revise",
+   "entailment": "full",
+   "label_change": "stylistic",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "ok",
+   "reason": "Numeral 8 del artículo 13. El texto oficial contiene \"pagamento\" (error de digitación), como indica la entrada. La entrada no tiene evidencia (EV NONE).",
+   "required_change": "Añadir el numeral 8 como evidencia. Mantener la etiqueta anterior \"exentos: comunidades indígenas y afrocolombianas\"."
+  },
+  {
+   "id": "booking_fees.exempt_disability_visitors",
+   "op": "update",
+   "verdict": "revise",
+   "entailment": "full",
+   "label_change": "stylistic",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "ok",
+   "reason": "Numeral 7 del artículo 13 confirmado. \"No fija un trámite previo\" es coherente: el numeral 7 no aparece en la lista de numerales con ocho días del artículo 14. La entrada no tiene evidencia (EV NONE).",
+   "required_change": "Añadir el numeral 7 y el artículo 14 como evidencia. Mantener la etiqueta anterior \"exención de pago por discapacidad\"."
+  },
+  {
+   "id": "booking_fees.exempt_young_children_and_seniors",
+   "op": "update",
+   "verdict": "revise",
+   "entailment": "partial",
+   "label_change": "stylistic",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "ok",
+   "reason": "Numeral 1 del artículo 13 (menores de 5 y mayores de 62) confirmado. Las edades mínimas de 6 y 15 años vienen de la página del parque, no de esa cita. La frase \"los menores de 5 están exentos, pero no pueden entrar\" combina las dos fuentes, y la cita de la página no está en la evidencia.",
+   "required_change": "Citar la ficha para las edades mínimas. Mantener la etiqueta anterior \"exentos: menores de 5 y mayores de 62\"."
+  },
+  {
+   "id": "booking_fees.exemption_no_insurance_waiver",
+   "op": "update",
+   "verdict": "revise",
+   "entailment": "full",
+   "label_change": "stylistic",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "ok",
+   "reason": "Parágrafo 2 del artículo 13 de la Resolución 551: la exención no incluye el seguro de accidentes de la Resolución 273 de 2024. El texto está en el PDF oficial; la entrada no tiene evidencia (EV NONE).",
+   "required_change": "Añadir el parágrafo 2 como evidencia. Mantener la etiqueta anterior \"exento de pago tampoco se libra del seguro\", que es más precisa que la nueva."
+  },
+  {
+   "id": "booking_fees.exempt_journalists",
+   "op": "update",
+   "verdict": "revise",
+   "entailment": "full",
+   "label_change": "stylistic",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "ok",
+   "reason": "Numeral 15 del artículo 13 confirmado. \"Lleva tu acreditación\" es un consejo práctico, no un dato.",
+   "required_change": "Mantener el contenido. Recuperar la etiqueta anterior \"exentos: periodistas acreditados\"."
+  },
+  {
+   "id": "booking_fees.exempt_donors",
+   "op": "update",
+   "verdict": "revise",
+   "entailment": "partial",
+   "label_change": "stylistic",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "ok",
+   "reason": "Numeral 9 del artículo 13 (representantes de organismos y ONG que donan). El plazo de ocho días corresponde al numeral 9 del artículo 14, que no está citado.",
+   "required_change": "Citar el artículo 14. Mantener la etiqueta anterior \"exentos: representantes de donantes\"."
+  },
+  {
+   "id": "booking_fees.exempt_park_volunteers",
+   "op": "update",
+   "verdict": "revise",
+   "entailment": "partial",
+   "label_change": "stylistic",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "ok",
+   "reason": "Numeral 13 del artículo 13 (voluntarios y honorarios). El plazo de ocho días corresponde al numeral 13 del artículo 14, que no está citado.",
+   "required_change": "Citar el artículo 14. Mantener la etiqueta anterior \"exentos: guardaparques voluntarios y honorarios\"."
+  },
+  {
+   "id": "booking_fees.exempt_police_family",
+   "op": "update",
+   "verdict": "revise",
+   "entailment": "partial",
+   "label_change": "stylistic",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "ok",
+   "reason": "Numeral 16 del artículo 13: cónyuge o compañero, hijos menores de 25 y padres, de miembros de la Fuerza Pública fallecidos en servicio activo. El requisito de pensión y el documento de prestaciones sociales están en la continuación del numeral 16, en la página 13 del PDF. No están en la evidencia.",
+   "required_change": "Añadir el numeral 16 completo (con la continuación de la página 13) como evidencia. Mantener la etiqueta anterior \"exentos: familiares de la fuerza pública fallecida\"."
+  },
+  {
+   "id": "booking_fees.exempt_tourist_guides_and_providers",
+   "op": "update",
+   "verdict": "revise",
+   "entailment": "full",
+   "label_change": "stylistic",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "ok",
+   "reason": "Numeral 17 (guías acreditados) y numeral 19 (prestadores inscritos en el Registro para Prestadores de Servicios Asociados al Ecoturismo). La sigla REPSE aparece en la página del parque. La frase \"tú sí pagas tu entrada\" es una inferencia correcta de que el beneficio es del guía.",
+   "required_change": "Mantener el contenido. Recuperar la etiqueta anterior \"exentos: guías de turismo y prestadores\"."
+  },
+  {
+   "id": "booking_fees.exempt_culture_agents",
+   "op": "update",
+   "verdict": "revise",
+   "entailment": "partial",
+   "label_change": "stylistic",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "ok",
+   "reason": "Numeral 20 del artículo 13 (Soy Cultura, temporada baja). El plazo de ocho días corresponde al numeral 20 del artículo 14, que no está citado.",
+   "required_change": "Citar el artículo 14. Mantener la etiqueta anterior \"exentos: agentes culturales registrados\"."
+  },
+  {
+   "id": "booking_fees.exemption_not_guaranteed",
+   "op": "update",
+   "verdict": "revise",
+   "entailment": "full",
+   "label_change": "stylistic",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "ok",
+   "reason": "Parágrafo 1 (capacidad de manejo y zonificación) y encabezado del artículo 13: la exención cubre el factor personal y el medio de transporte. El seguro sigue en el parágrafo 2. Ninguna de las tres citas está en la evidencia.",
+   "required_change": "Añadir el encabezado del artículo 13 y los parágrafos 1 y 2 como evidencia. Mantener la etiqueta anterior \"exención no garantiza entrar al parque\"."
+  },
+  {
+   "id": "booking_fees.exemption_proof_deadline",
+   "op": "update",
+   "verdict": "revise",
+   "entailment": "full",
+   "label_change": "stylistic",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "ok",
+   "reason": "Artículo 14: el plazo de ocho días aplica a los numerales 2, 3, 4, 6, 9, 12, 13, 19 y 20. Las nueve categorías de la respuesta coinciden exactamente con esa lista. La cita actual no contiene la lista de numerales.",
+   "required_change": "Citar el artículo 14 completo, con la lista de numerales. Mantener la etiqueta anterior \"plazo para acreditar la exención\"."
+  },
+  {
+   "id": "booking_fees.brisas_reservation",
+   "op": "update",
+   "verdict": "revise",
+   "entailment": "partial",
+   "label_change": "justified",
+   "examples": "ok",
+   "temporal": "issue",
+   "refetch": "warn",
+   "reason": "Fin de semana con reserva de un día: correcto según la ficha. El aviso de refetch de reservasnevados.com se resuelve: el HTML descargado de nuevo tiene los mismos bytes y la frase está en su meta description. Pero el detalle dice \"La ficha de PNN de 2026… se sirve la versión de 2026, la más reciente\". La ficha no tiene fecha editorial en la regla de reserva (así lo dice la propia decisión del curador) y no hay base para decir que es la más reciente. La Resolución 207 de 2023 dice que en Brisas no se reserva. La respuesta no nombra ese conflicto. Además, \"reservar asegura tu ingreso\" omite el aviso de cancelaciones del radicado de mayo de 2026.",
+   "required_change": "Quitar \"la más reciente\" y \"ficha de 2026\" para esta regla. Decir que la ficha no tiene fecha editorial (consultada el 21 de noviembre de 2026) y que la Resolución 207 dice lo contrario. Añadir el aviso del radicado 20266200003531 (18-05-2026) sobre cancelaciones de reservas validadas. Usar la etiqueta documentada \"con cuánta anticipación reservar Brisas\"."
+  },
+  {
+   "id": "booking_fees.brisas_booking_channel",
+   "op": "update",
+   "verdict": "revise",
+   "entailment": "partial",
+   "label_change": "justified",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "warn",
+   "reason": "La página reservasnevados.com aparece en la ficha y en la meta de la página oficial (el aviso de refetch se resuelve: el HTML descargado de nuevo tiene los mismos bytes). \"Operado por la concesión UTON\" viene de la página del parque, no de la cita. \"Esta app no realiza reservas\" es un hecho del producto, sin fuente en la evidencia. El radicado de 2026 habla de incertidumbre en la plataforma, y la respuesta no lo dice.",
+   "required_change": "Citar la página del parque sobre UTON como evidencia. Quitar \"esta app no realiza reservas\" o moverlo a una nota del producto (no es dato de fuente). Añadir el aviso del radicado de mayo de 2026. Usar la etiqueta documentada \"dónde reservar Brisas: sitio oficial\"."
+  },
+  {
+   "id": "booking_fees.other_sector_reservation",
+   "op": "update",
+   "verdict": "revise",
+   "entailment": "full",
+   "label_change": "stylistic",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "ok",
+   "reason": "La cita \"la reserva sí es obligatoria… agencia operadora\" corresponde a la sección \"Ingreso a los demás sectores\", que el extracto no muestra. La enumeración de Cisne, Otún y Quindío sale de ese encabezado.",
+   "required_change": "Añadir el encabezado \"Ingreso a los demás sectores\" a la cita. Mantener la etiqueta anterior \"reserva en otros sectores\"."
+  },
+  {
+   "id": "booking_fees.center_otun_reservation_lead",
+   "op": "update",
+   "verdict": "revise",
+   "entailment": "full",
+   "label_change": "stylistic",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "ok",
+   "reason": "Tres días hábiles para Cisne-Poleka Kasue y Otún: confirmado en la página del parque (\"Visita a los atractivos de los sectores Cisne-Poleka Kasue y Otún\") y en la Resolución 207 de 2023 §2.1 (3 días para el \"sector centro Potosí\").",
+   "required_change": "Añadir el encabezado del sector a la cita. Mantener la etiqueta anterior \"anticipación para Cisne y Otún\"."
+  },
+  {
+   "id": "booking_fees.quindio_reservation_lead",
+   "op": "update",
+   "verdict": "revise",
+   "entailment": "full",
+   "label_change": "stylistic",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "ok",
+   "reason": "Cinco días hábiles para Quindío-Dulima: confirmado en la página del parque (\"Sector Quindío-Dulima\") y en la Resolución 207 §2.1 (sur, Tolima: 5 días). El protocolo de 2023 también dice cinco días.",
+   "required_change": "Añadir el encabezado del sector como evidencia. Mantener la etiqueta anterior \"anticipación para Quindío y Dulima\"."
+  },
+  {
+   "id": "booking_fees.reservation_requirements",
+   "op": "update",
+   "verdict": "revise",
+   "entailment": "partial",
+   "label_change": "stylistic",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "ok",
+   "reason": "Brisas no obligatoria entre semana y sí en fines de semana y festivos: confirmado. \"En los demás sectores es obligatoria\": confirmado por el encabezado de la página, que el extracto no muestra. El consejo de reservar también entre semana sí es coherente con \"cupos diarios limitados\".",
+   "required_change": "Citar el encabezado \"Ingreso a los demás sectores\" y la regla de Brisas. Mantener la etiqueta anterior \"reservar para visitar el parque\"."
+  },
+  {
+   "id": "booking_fees.age_minimum_by_attraction",
+   "op": "update",
+   "verdict": "revise",
+   "entailment": "full",
+   "label_change": "stylistic",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "ok",
+   "reason": "Edad mínima de 6 años (Brisas-Kumanday, El Cisne, Laguna del Otún por cabaña Potosí) y 15 años para el resto, confirmadas en la página del parque.",
+   "required_change": "Mantener el contenido. Recuperar la etiqueta anterior \"edad mínima por atractivo\"."
+  },
+  {
+   "id": "booking_fees.maximum_entry_age",
+   "op": "update",
+   "verdict": "revise",
+   "entailment": "full",
+   "label_change": "stylistic",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "ok",
+   "reason": "Conflicto 69/70 bien presentado: la página del parque dice 69 (sin fecha editorial) y la Resolución 207 dice \"entre los 6 y los 70 años\". El detalle dice además que la 207 es del 4 de agosto de 2023 (confirmado en el protocolo del sur) y que prohíbe el ingreso a embarazadas y personas con problemas cardiovasculares. El texto de la 207 dice \"restringido\", no \"prohibido\", y esa cita no está en la evidencia.",
+   "required_change": "Cambiar \"prohíbe\" por \"restringe\" y citar el texto de la 207 (restricción de ingreso). Mantener la etiqueta anterior \"edad máxima de ingreso\", que es precisa. La etiqueta nueva \"en disputa\" no es documentada."
+  },
+  {
+   "id": "booking_fees.guide_required",
+   "op": "update",
+   "verdict": "revise",
+   "entailment": "full",
+   "label_change": "stylistic",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "ok",
+   "reason": "Acompañamiento obligatorio en todos los sectores (página del parque) y guía avalado por operadora (Resolución 207). La respuesta parafrasea bien.",
+   "required_change": "Mantener el contenido. Recuperar la etiqueta anterior \"guía obligatorio para ingresar\"."
+  },
+  {
+   "id": "booking_fees.documents_to_carry",
+   "op": "update",
+   "verdict": "revise",
+   "entailment": "partial",
+   "label_change": "stylistic",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "ok",
+   "reason": "Documentos de identidad correctos (artículo 13 de la 551 y 207). Pero \"En el control pueden pedirte… el soporte de pago, la póliza y el formato\" no tiene cita en la evidencia. Está en la Resolución 207 (control de la cima con soporte de pago y póliza).",
+   "required_change": "Citar la Resolución 207 para el control. Mantener la etiqueta anterior \"documentos para entrar al parque\"."
+  },
+  {
+   "id": "booking_fees.registration_form_required",
+   "op": "update",
+   "verdict": "revise",
+   "entailment": "full",
+   "label_change": "stylistic",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "ok",
+   "reason": "La Resolución 207 pide \"diligenciar debidamente el formato de ingreso de visitantes\". La cita está en la 207 pero la entrada no tiene evidencia (EV NONE).",
+   "required_change": "Añadir la frase de la Resolución 207 como evidencia. Mantener la etiqueta anterior \"formato de ingreso de visitantes\"."
+  },
+  {
+   "id": "booking_fees.reservation_data_required",
+   "op": "update",
+   "verdict": "revise",
+   "entailment": "partial",
+   "label_change": "justified",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "ok",
+   "reason": "Nombres, cédula y procedencia: en la Resolución 207 (cita de la auditoría). \"Las rutas\" no tiene fuente. \"En los senderos del sur, anexa póliza y recibo\" sí está en el protocolo del sur (documentos para hacer efectiva la reserva). Sin evidencia en la entrada (EV NONE).",
+   "required_change": "Quitar \"las rutas\" o citarlo. Añadir las citas de la 207 y del protocolo como evidencia. Usar la etiqueta documentada \"documentos personales para reservar\"."
+  },
+  {
+   "id": "booking_fees.south_payment_before_review",
+   "op": "update",
+   "verdict": "revise",
+   "entailment": "partial",
+   "label_change": "stylistic",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "ok",
+   "reason": "Pago hecho y verificado antes de la evaluación en el sur: confirmado en el protocolo de agosto de 2023 (sección PAGOS). La cita no está en la evidencia (EV NONE). La frase \"el soporte lo presenta tu operador\" también viene de ese párrafo.",
+   "required_change": "Añadir la sección PAGOS del protocolo como evidencia. Mantener la etiqueta anterior \"pago verificado antes de evaluar reserva\"."
+  },
+  {
+   "id": "booking_fees.platform_pays_services",
+   "op": "update",
+   "verdict": "revise",
+   "entailment": "full",
+   "label_change": "justified",
+   "examples": "ok",
+   "temporal": "issue",
+   "refetch": "ok",
+   "reason": "El radicado 20266200003531 (18-05-2026) describe \"registro de visitantes, validación de información y pago de los servicios ecoturísticos\". El cuerpo del radicado también dice que hay incertidumbre sobre la plataforma, cancelaciones de reservas ya validadas y devoluciones pendientes. La respuesta no lo menciona, y en un tema de pagos eso es una omisión grave.",
+   "required_change": "Añadir el aviso del radicado sobre cancelaciones y devoluciones pendientes. Usar la etiqueta documentada, sin cambiar la etiqueta actual por una nueva. La cita del radicado no está en la evidencia (EV NONE)."
+  },
+  {
+   "id": "booking_fees.platform_payment_methods",
+   "op": "update",
+   "verdict": "revise",
+   "entailment": "partial",
+   "label_change": "stylistic",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "warn",
+   "reason": "Los medios de pago (PSE, Daviplata, Visa, Mastercard, AmEx) son clases y logos del código JavaScript del sitio, no una pantalla verificada. \"Muestra como medios de pago\" afirma algo que no se comprobó. El aviso de refetch se refiere a la página de inicio, que es una aplicación renderizada en el cliente.",
+   "required_change": "Cambiar a \"figuran en el código público del sitio; no se probó una transacción\" o quitar la afirmación. Mantener la etiqueta anterior \"medios de pago de la plataforma\"."
+  },
+  {
+   "id": "booking_fees.vehicle_not_parking_fee",
+   "op": "update",
+   "verdict": "revise",
+   "entailment": "full",
+   "label_change": "stylistic",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "ok",
+   "reason": "Parágrafo 2 del artículo 13 de la Resolución 551: el valor por vehículo es derecho de ingreso, no parqueo. Confirmado.",
+   "required_change": "Mantener el contenido. Recuperar la etiqueta anterior \"pagar el carro no es parqueadero\"."
+  }
+ ],
+ "audit_rows": [
+  {
+   "id": "booking_fees.reservation_requirements",
+   "claimed": "primary_ok",
+   "support": "partial",
+   "note": "La regla de Brisas está en el extracto, pero \"demás sectores obligatoria\" no."
+  },
+  {
+   "id": "booking_fees.brisas_reservation",
+   "claimed": "primary_ok",
+   "support": "partial",
+   "note": "El extracto da la regla de fin de semana; la afirmación \"ficha de 2026, la más reciente\" no tiene soporte."
+  },
+  {
+   "id": "booking_fees.other_sector_reservation",
+   "claimed": "primary_ok",
+   "support": "full",
+   "note": "El extracto (\"la reserva sí es obligatoria… agencia operadora\") corresponde a la regla de los demás sectores."
+  },
+  {
+   "id": "booking_fees.brisas_booking_channel",
+   "claimed": "primary_ok",
+   "support": "partial",
+   "note": "El extracto da la página oficial; \"operado por UTON\" y \"la app no reserva\" no están en él."
+  },
+  {
+   "id": "booking_fees.student_admission_category",
+   "claimed": "primary_ok",
+   "support": "partial",
+   "note": "El extracto respalda la exención de estudiantes en programas de educación ambiental; \"carné\" no tiene fuente."
+  },
+  {
+   "id": "booking_fees.age_minimum_by_attraction",
+   "claimed": "primary_ok",
+   "support": "full",
+   "note": "Edades mínimas de 6 y 15 años en el extracto."
+  },
+  {
+   "id": "booking_fees.maximum_entry_age",
+   "claimed": "primary_ok",
+   "support": "full",
+   "note": "El extracto da 69 años; la 207 con 70 está en la entrada de edad máxima."
+  },
+  {
+   "id": "booking_fees.minor_guardian_requirement",
+   "claimed": "primary_ok",
+   "support": "partial",
+   "note": "El extracto da los 15 años y la autorización de padres. \"Adulto cuidador\" está en la página del parque, no en el extracto."
+  },
+  {
+   "id": "booking_fees.accident_insurance_requirement",
+   "claimed": "primary_ok",
+   "support": "partial",
+   "note": "El extracto respalda la obligación del seguro y el canal UTON. \"No viene incluido\" y \"estar exento no lo elimina\" no están en el extracto (sí en la 551, parágrafo 2)."
+  },
+  {
+   "id": "booking_fees.insurance_payment_channel",
+   "claimed": "primary_ok",
+   "support": "full",
+   "note": "El extracto da UTON en Brisas y la agencia en los demás sectores."
+  },
+  {
+   "id": "booking_fees.guide_required",
+   "claimed": "primary_ok",
+   "support": "full",
+   "note": "El extracto respalda el acompañamiento obligatorio en todos los sectores."
+  },
+  {
+   "id": "booking_fees.registered_operator_choice",
+   "claimed": "primary_ok",
+   "support": "partial",
+   "note": "El extracto respalda el registro REPSE; el listado público y \"no todos pueden guiarte en todos los sitios\" no están en él."
+  },
+  {
+   "id": "booking_fees.induction_requirement",
+   "claimed": "primary_ok",
+   "support": "partial",
+   "note": "El extracto respalda la charla de inducción obligatoria; \"en Brisas se hace en el centro de inducción\" no está en él."
+  },
+  {
+   "id": "booking_fees.center_otun_reservation_lead",
+   "claimed": "primary_ok",
+   "support": "full",
+   "note": "Tres días hábiles para Cisne-Poleka Kasue y Otún."
+  },
+  {
+   "id": "booking_fees.quindio_reservation_lead",
+   "claimed": "primary_ok",
+   "support": "full",
+   "note": "Cinco días hábiles para Quindío-Dulima."
+  },
+  {
+   "id": "booking_fees.under25_admission_fee",
+   "claimed": "primary_ok",
+   "support": "partial",
+   "note": "La cifra 12.500 está en la tabla y el anexo de la 551. La fecha de la 551 y el alcance por sector (Quindío = $0) no están en el extracto."
+  },
+  {
+   "id": "booking_fees.adult_resident_admission_fee",
+   "claimed": "primary_ok",
+   "support": "partial",
+   "note": "La cifra 24.500 está en la tabla. El alcance por sector (Quindío = $0) y la fecha de la 551 no están en el extracto."
+  },
+  {
+   "id": "booking_fees.foreign_nonresident_admission_fee",
+   "claimed": "primary_ok",
+   "support": "partial",
+   "note": "La cifra 68.000 está en la columna de no residente. \"Que no pertenecen a la CAN\" es una inferencia."
+  },
+  {
+   "id": "booking_fees.sector_entry_fee_difference",
+   "claimed": "primary_ok",
+   "support": "partial",
+   "note": "El extracto respalda las cifras por sector y el 0 de Quindío-Dulima; la afirmación sobre el protocolo de 2023 no está en él."
+  },
+  {
+   "id": "booking_fees.exempt_young_children_and_seniors",
+   "claimed": "primary_ok",
+   "support": "partial",
+   "note": "Numeral 1 confirmado; las edades mínimas de 6 y 15 años no están en el extracto."
+  },
+  {
+   "id": "booking_fees.exempt_disability_visitors",
+   "claimed": "primary_ok",
+   "support": "partial",
+   "note": "El extracto respalda la exención por discapacidad; \"el seguro sigue siendo obligatorio\" está en el parágrafo 2, no en el extracto."
+  },
+  {
+   "id": "booking_fees.exemption_no_insurance_waiver",
+   "claimed": "primary_ok",
+   "support": "full",
+   "note": "Parágrafo 2 del artículo 13: la exención no incluye el seguro (Resolución 273 de 2024)."
+  },
+  {
+   "id": "booking_fees.documents_to_carry",
+   "claimed": "primary_ok",
+   "support": "partial",
+   "note": "El extracto da la lista de documentos; el control (autorización, soporte de pago, póliza, formato) viene de la 207, no del extracto."
+  },
+  {
+   "id": "booking_fees.reservation_data_required",
+   "claimed": "primary_ok",
+   "support": "partial",
+   "note": "El extracto de la 207 da nombres, cédula y procedencia; \"las rutas\" no tiene fuente y el requisito del sur está en el protocolo."
+  },
+  {
+   "id": "booking_fees.insurer_names_2023",
+   "claimed": "primary_ok",
+   "support": "full",
+   "note": "Las aseguradoras de 2023 están en el extracto; la respuesta dice \"en 2023\"."
+  },
+  {
+   "id": "booking_fees.group_guide_capacity",
+   "claimed": "primary_ok",
+   "support": "full",
+   "note": "Cinco para cima, seis para travesía, ocho para senderismo y borde de glaciar: coincide con la respuesta."
+  },
+  {
+   "id": "booking_fees.alta_montana_guide_glacier",
+   "claimed": "primary_ok",
+   "support": "full",
+   "note": "Guías especializados en alta montaña para subir a un glaciar."
+  },
+  {
+   "id": "booking_fees.vehicle_entry_fee",
+   "claimed": "primary_ok",
+   "support": "partial",
+   "note": "El extracto da las tres cifras con la etiqueta de la primera tabla. \"No aplica\" en Cisne y Otún no está en él."
+  },
+  {
+   "id": "booking_fees.entry_payment_channels",
+   "claimed": "primary_ok",
+   "support": "full",
+   "note": "Artículo 5: pago presencial y en línea."
+  },
+  {
+   "id": "booking_fees.cancellation_refund_policy",
+   "claimed": "primary_ok",
+   "support": "partial",
+   "note": "El extracto respalda que PNN no tenía información para decidir en mayo de 2026; la regla de no devolución del sur (protocolo) no está en él."
+  },
+  {
+   "id": "booking_fees.reservation_validation_window",
+   "claimed": "primary_ok",
+   "support": "partial",
+   "note": "El extracto da la ventana de cinco a dos días hábiles; \"una reserva aprobada puede cancelarse\" está en el radicado, fuera del extracto."
+  },
+  {
+   "id": "booking_fees.exempt_government_staff",
+   "claimed": "primary_ok",
+   "support": "partial",
+   "note": "El extracto da las tres veces al año y el parentesco. El plazo de ocho días no está en él."
+  },
+  {
+   "id": "booking_fees.exempt_official_mission",
+   "claimed": "primary_ok",
+   "support": "partial",
+   "note": "El extracto respalda la exención en misión oficial; el plazo de ocho días no está en él."
+  },
+  {
+   "id": "booking_fees.exempt_company_staff_inside_park",
+   "claimed": "primary_ok",
+   "support": "partial",
+   "note": "El extracto respalda la exención del personal de empresas con instalaciones; el plazo de ocho días no está en él."
+  },
+  {
+   "id": "booking_fees.exempt_nearby_residents",
+   "claimed": "primary_ok",
+   "support": "partial",
+   "note": "El extracto respalda la exención de nativos y residentes de centros de menos de 10.000 habitantes; \"pobladores que pasan por actividades de paso\" está en el numeral 11, no en el extracto."
+  },
+  {
+   "id": "booking_fees.exempt_researchers",
+   "claimed": "primary_ok",
+   "support": "partial",
+   "note": "El extracto respalda la exención del investigador con proyecto aprobado; el plazo de ocho días no está en él."
+  },
+  {
+   "id": "booking_fees.exempt_indigenous_communities",
+   "claimed": "primary_ok",
+   "support": "full",
+   "note": "El extracto respalda la exención de comunidades indígenas, afro, rom y raizales, incluido \"pagamento\"."
+  },
+  {
+   "id": "booking_fees.exempt_property_owners",
+   "claimed": "primary_ok",
+   "support": "partial",
+   "note": "El extracto respalda la exención de propietarios y familiares. \"Avísalos antes de la visita\" no está en el extracto (está en el artículo 14)."
+  },
+  {
+   "id": "booking_fees.exempt_journalists",
+   "claimed": "primary_ok",
+   "support": "full",
+   "note": "Periodistas en ejercicio, debidamente acreditados."
+  },
+  {
+   "id": "booking_fees.exempt_donors",
+   "claimed": "primary_ok",
+   "support": "partial",
+   "note": "El extracto respalda la exención de representantes de donantes; el plazo de ocho días no está en él."
+  },
+  {
+   "id": "booking_fees.exempt_park_volunteers",
+   "claimed": "primary_ok",
+   "support": "partial",
+   "note": "El extracto respalda la exención de guardaparques voluntarios y honorarios; el plazo de ocho días no está en él."
+  },
+  {
+   "id": "booking_fees.exempt_police_family",
+   "claimed": "primary_ok",
+   "support": "partial",
+   "note": "El extracto da las personas beneficiarias. El requisito de pensión y el documento de prestaciones no están en él (están en la página 13 del PDF)."
+  },
+  {
+   "id": "booking_fees.exempt_tourist_guides_and_providers",
+   "claimed": "primary_ok",
+   "support": "partial",
+   "note": "El extracto respalda la exención de guías; \"inscritos en el REPSE\" de los prestadores no está en él."
+  },
+  {
+   "id": "booking_fees.exempt_culture_agents",
+   "claimed": "primary_ok",
+   "support": "partial",
+   "note": "El extracto respalda la exención de Soy Cultura en temporada baja; el plazo de ocho días no está en él."
+  },
+  {
+   "id": "booking_fees.exempt_promotion_programs",
+   "claimed": "primary_ok",
+   "support": "partial",
+   "note": "El extracto respalda el Pasaporte y la exoneración; \"cada programa define sus áreas y fechas\" viene del artículo 15, no del extracto."
+  },
+  {
+   "id": "booking_fees.exemption_not_guaranteed",
+   "claimed": "primary_ok",
+   "support": "partial",
+   "note": "El extracto respalda que la autorización depende de la capacidad de manejo. \"Cubre el vehículo\" y \"no el seguro\" no están en él."
+  },
+  {
+   "id": "booking_fees.exemption_proof_deadline",
+   "claimed": "primary_ok",
+   "support": "partial",
+   "note": "El extracto da el plazo de ocho días; la lista de categorías no está en él (está en el artículo 14)."
+  },
+  {
+   "id": "booking_fees.permanence_four_days",
+   "claimed": "primary_ok",
+   "support": "partial",
+   "note": "El extracto respalda los cuatro días de permanencia; \"paquete turístico\" no está en él."
+  },
+  {
+   "id": "booking_fees.tariff_annual_update",
+   "claimed": "primary_ok",
+   "support": "partial",
+   "note": "El artículo 22 (vigencia desde 1 de enero de 2026) está en el extracto; el reajuste anual del artículo 12 no."
+  },
+  {
+   "id": "booking_fees.foreign_resident_definition",
+   "claimed": "primary_ok",
+   "support": "partial",
+   "note": "El extracto da la visa como acreditación; la cédula de extranjería no está en él."
+  },
+  {
+   "id": "booking_fees.can_countries_fee",
+   "claimed": "primary_ok",
+   "support": "partial",
+   "note": "El extracto da los cuatro países; \"pagas la misma tarifa que un nacional\" no está en él (la ficha la pone en las columnas de residente)."
+  },
+  {
+   "id": "booking_fees.entry_fee_discounts",
+   "claimed": "primary_ok",
+   "support": "full",
+   "note": "Artículo 18: descuentos por convenio, fuera de las excepciones."
+  },
+  {
+   "id": "booking_fees.vehicle_not_parking_fee",
+   "claimed": "primary_ok",
+   "support": "full",
+   "note": "Parágrafo 2 del artículo 13."
+  },
+  {
+   "id": "booking_fees.south_reservation_order",
+   "claimed": "primary_ok",
+   "support": "partial",
+   "note": "El extracto da cinco días hábiles y el orden de solicitud; \"cumplimiento de documentos\" no está en él."
+  },
+  {
+   "id": "booking_fees.south_cancel_by_email",
+   "claimed": "primary_ok",
+   "support": "partial",
+   "note": "El extracto da el correo y la ventana de 24 a 72 horas; \"fuerza mayor\" no está en él (sí en el protocolo, línea 163)."
+  },
+  {
+   "id": "booking_fees.south_modify_members",
+   "claimed": "primary_ok",
+   "support": "partial",
+   "note": "El extracto da el 30 % y la ventana; \"PNN prepara nuevas condiciones\" no está en él. El protocolo dice que está sujeto a cambios."
+  },
+  {
+   "id": "booking_fees.south_reservation_status",
+   "claimed": "primary_ok",
+   "support": "partial",
+   "note": "El extracto da un solo estado de los cuatro; el resto y \"el cupo se libera\" no están en él (sí en el protocolo)."
+  },
+  {
+   "id": "booking_fees.south_payment_before_review",
+   "claimed": "primary_ok",
+   "support": "partial",
+   "note": "El extracto da la factura o recibo como requisito; \"verificado antes de la evaluación\" no está en él (sí en PAGOS)."
+  },
+  {
+   "id": "booking_fees.south_summit_capacity",
+   "claimed": "primary_ok",
+   "support": "partial",
+   "note": "El extracto da el nombre del sendero, sin cifra. Las 76 personas están en la tabla de capacidad del protocolo."
+  },
+  {
+   "id": "booking_fees.brisas_daily_capacity",
+   "claimed": "primary_ok",
+   "support": "full",
+   "note": "Capacidad de 2.073 personas según la Resolución 207 y el estudio de 2008."
+  },
+  {
+   "id": "booking_fees.registration_form_required",
+   "claimed": "primary_ok",
+   "support": "full",
+   "note": "La 207 pide diligenciar el formato de ingreso de visitantes."
+  },
+  {
+   "id": "booking_fees.reservation_by_operator",
+   "claimed": "primary_ok",
+   "support": "full",
+   "note": "La reserva es obligatoria con la agencia operadora en los demás sectores."
+  },
+  {
+   "id": "booking_fees.brisas_guide_price",
+   "claimed": "primary_ok",
+   "support": "partial",
+   "note": "Ver la fila anterior: el extracto no contiene la cifra 22.000."
+  },
+  {
+   "id": "booking_fees.platform_pays_services",
+   "claimed": "primary_ok",
+   "support": "full",
+   "note": "El radicado describe registro, validación y pago de servicios en la plataforma."
+  },
+  {
+   "id": "booking_fees.platform_payment_methods",
+   "claimed": "primary_ok",
+   "support": "partial",
+   "note": "El extracto es código JavaScript; \"muestra como medios de pago\" es una afirmación sobre la pantalla que no se verificó."
+  },
+  {
+   "id": "booking_fees.insurance_price_not_published",
+   "claimed": "primary_ok",
+   "support": "full",
+   "note": "Ni la ficha ni la Resolución 551 publican el precio del seguro."
+  },
+  {
+   "id": "booking_fees.guide_price_cisne_otun",
+   "claimed": "primary_ok",
+   "support": "full",
+   "note": "Cisne y Otún: \"según el guía o la agencia\" (sin cifra)."
+  }
+ ],
+ "summary": {
+  "approve": 0,
+  "revise": 44,
+  "reject": 0,
+  "audit_support": {
+   "full": 22,
+   "partial": 45,
+   "none": 0
+  }
+ }
+}

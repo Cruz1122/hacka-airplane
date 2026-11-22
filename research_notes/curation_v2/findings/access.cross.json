@@ -1,0 +1,62 @@
+[
+  {
+    "ids": [
+      "access.uton_brisas_transport",
+      "services.uton_services",
+      "booking_fees.brisas_booking_channel"
+    ],
+    "problem": "Solapamiento conceptual en el alcance de la concesión UTON. En access se consulta el transporte terrestre específico a Brisas y sus camionetas para subir al Valle de las Tumbas, en services el portafolio integral de servicios concesionados y en booking_fees el canal de reserva de cupos e inducción.",
+    "suggestion": "Delimitar access.uton_brisas_transport estrictamente al transporte vehicular hacia Brisas y recorrido interno en vehículo cubierto; mantener services.uton_services para el catálogo global y booking_fees para reservas de ingreso."
+  },
+  {
+    "ids": [
+      "access.uton_offices_manizales",
+      "hours_status.uton_concession_office_hours"
+    ],
+    "problem": "Solapamiento entre la ubicación/dirección física de las oficinas de UTON en Manizales (access) y los horarios de atención al público de dichas sedes (hours_status).",
+    "suggestion": "En access.uton_offices_manizales concentrar la respuesta en ubicación, barrios (Palermo) y teléfonos; derivar horarios específicos de atención y días festivos a hours_status.uton_concession_office_hours."
+  },
+  {
+    "ids": [
+      "access.cedral_walk_distances",
+      "activities.otun_cedral_walk"
+    ],
+    "problem": "Confusión entre la distancia del acceso pedestre desde El Cedral hasta el límite/Laguna (access) y la caminata o sendero ecoturístico como actividad recreativa e interpretativa (activities).",
+    "suggestion": "Centrar access.cedral_walk_distances en el punto de inicio, kilometraje a pie (7,5 km al límite y 18 km al Otún) y aproximación; reservar activities.otun_cedral_walk para la experiencia del sendero y avistamiento."
+  },
+  {
+    "ids": [
+      "access.otun_via_potosi",
+      "activities.potosi_laguna_road"
+    ],
+    "problem": "Solapamiento entre el acceso vehicular y punto de ingreso al sector Otún por la cabaña Potosí (access) y el sendero o recorrido recreativo hacia la Laguna del Otún (activities).",
+    "suggestion": "Delimitar access.otun_via_potosi a la ruta vial de aproximación y punto de control; remitir la descripción del paisaje y caminata hacia el cuerpo de agua a activities.potosi_laguna_road."
+  },
+  {
+    "ids": [
+      "access.confirm_road_before",
+      "services.official_sites",
+      "hours_status.road_closure_status"
+    ],
+    "problem": "Colisión entre la recomendación práctica de verificar el estado de las vías de montaña antes de viajar (access), los canales web oficiales de consulta (services) y los partes de cierres o alertas de tránsito en tiempo real (hours_status).",
+    "suggestion": "Enfocar access.confirm_road_before en la verificación previa obligatoria con el operador del sector antes del viaje; canalizar reportes de cierres viales a hours_status.road_closure_status."
+  },
+  {
+    "ids": [
+      "access.el_cisne_approach",
+      "services.cisne_visitor_center",
+      "geography.sector_cisne_poleka"
+    ],
+    "problem": "Colisión entre cómo llegar físicamente por carretera terciaria al sector/centro El Cisne (access), el centro de visitantes y su servicio de hospedaje (services) y la delimitación geográfica del sector Cisne-Poleka Kasue (geography).",
+    "suggestion": "Asegurar que access.el_cisne_approach responda exclusivamente a la aproximación terrestre y estado de vía desde Villamaría y Santa Rosa de Cabal."
+  },
+  {
+    "ids": [
+      "access.potosi_control",
+      "services.potosi_cabin",
+      "geography.laguna_otun"
+    ],
+    "problem": "Confusión entre la función de control y registro de ingreso en la cabaña Potosí (access), la infraestructura/alojamiento de la cabaña (services) y la geografía de la cuenca del Otún (geography).",
+    "suggestion": "En access.potosi_control enfatizar la función del sitio como punto de control de acceso para el sector Otún."
+  }
+]

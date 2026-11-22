@@ -1,0 +1,558 @@
+{
+ "section": "conversation",
+ "reviewer": "agent 29 / claude-haiku-5-5",
+ "ops": [
+  {
+   "id": "conversation.greeting_hello",
+   "op": "update",
+   "verdict": "revise",
+   "entailment": "n/a",
+   "label_change": "stylistic",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "n/a",
+   "reason": "\"y bienvenida\" añade palabras; el cross de findings/conversation.cross.json pide que esta entrada sea saludo puro, y la etiqueta anterior ya lo es.",
+   "required_change": "Conservar la etiqueta anterior."
+  },
+  {
+   "id": "conversation.how_are_you",
+   "op": "update",
+   "verdict": "revise",
+   "entailment": "n/a",
+   "label_change": "stylistic",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "n/a",
+   "reason": "Reescribe sin tratar el par con voice_reading_request:1.",
+   "required_change": "Conservar la etiqueta anterior."
+  },
+  {
+   "id": "conversation.thanks",
+   "op": "update",
+   "verdict": "revise",
+   "entailment": "n/a",
+   "label_change": "stylistic",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "n/a",
+   "reason": "\"atención y ayuda\" añade palabras sin par documentado.",
+   "required_change": "Conservar la etiqueta anterior."
+  },
+  {
+   "id": "conversation.goodbye",
+   "op": "update",
+   "verdict": "approve",
+   "entailment": "n/a",
+   "label_change": "n/a",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "n/a",
+   "reason": "Sólo añade un hard negative real (de otra entrada). Etiqueta sin cambio.",
+   "required_change": "Ninguno."
+  },
+  {
+   "id": "conversation.capabilities_overview",
+   "op": "update",
+   "verdict": "revise",
+   "entailment": "n/a",
+   "label_change": "stylistic",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "n/a",
+   "reason": "Reescribe sin tratar el par con language_request:1. La respuesta menciona registro y reporte; está en mobile/src/ui/strings.ts (register_visit, report_emergency).",
+   "required_change": "Conservar la etiqueta anterior."
+  },
+  {
+   "id": "conversation.first_time_help",
+   "op": "update",
+   "verdict": "revise",
+   "entailment": "n/a",
+   "label_change": "stylistic",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "n/a",
+   "reason": "Reescribe sin tratar el par con feedback_wrong_answer:1.",
+   "required_change": "Conservar la etiqueta anterior."
+  },
+  {
+   "id": "conversation.ai_identity",
+   "op": "update",
+   "verdict": "approve",
+   "entailment": "n/a",
+   "label_change": "justified",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "n/a",
+   "reason": "findings/conversation.cross.json pide separar esta entrada de human_contact_request. La etiqueta \"robot o persona\" hace esa separación.",
+   "required_change": "Ninguno."
+  },
+  {
+   "id": "conversation.language_request",
+   "op": "update",
+   "verdict": "revise",
+   "entailment": "n/a",
+   "label_change": "stylistic",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "n/a",
+   "reason": "Añade \"traducción\" sin tratar el par con capabilities_overview:1.",
+   "required_change": "Conservar la etiqueta anterior."
+  },
+  {
+   "id": "conversation.free_generation_limits",
+   "op": "update",
+   "verdict": "revise",
+   "entailment": "n/a",
+   "label_change": "stylistic",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "n/a",
+   "reason": "Reescribe sin tratar el par con no_outside_actions:3 (el mayor par del grupo).",
+   "required_change": "Conservar la etiqueta anterior."
+  },
+  {
+   "id": "conversation.feedback_wrong_answer",
+   "op": "update",
+   "verdict": "revise",
+   "entailment": "n/a",
+   "label_change": "stylistic",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "n/a",
+   "reason": "Reescribe sin tratar el par con insults_to_assistant:2.",
+   "required_change": "Conservar la etiqueta anterior."
+  },
+  {
+   "id": "conversation.insults_to_assistant",
+   "op": "update",
+   "verdict": "revise",
+   "entailment": "n/a",
+   "label_change": "stylistic",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "n/a",
+   "reason": "\"o frustración\" amplía el alcance sin tratar el par con compliment_reply:2.",
+   "required_change": "Conservar la etiqueta anterior."
+  },
+  {
+   "id": "conversation.park_complaint_channel",
+   "op": "update",
+   "verdict": "revise",
+   "entailment": "partial",
+   "label_change": "stylistic",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "n/a",
+   "reason": "\"reclamo o queja formal\" reescribe. La respuesta nombra el Formulario PQRSDF, y el extracto sólo respalda que existen canales de atención.",
+   "required_change": "Conservar la etiqueta anterior. Citar el PQRSDF en el extracto antes de publicar la respuesta."
+  },
+  {
+   "id": "conversation.human_contact_request",
+   "op": "update",
+   "verdict": "approve",
+   "entailment": "full",
+   "label_change": "justified",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "n/a",
+   "reason": "findings/conversation.cross.json pide separar esta entrada de ai_identity. La etiqueta \"contactar o hablar con personal del parque\" hace esa separación. El extracto respalda que el sitio publica canales de atención.",
+   "required_change": "Ninguno."
+  },
+  {
+   "id": "conversation.joke_request",
+   "op": "update",
+   "verdict": "revise",
+   "entailment": "n/a",
+   "label_change": "stylistic",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "n/a",
+   "reason": "\"o comentario gracioso\" amplía el alcance; el par con fauna.mountain_coati:1 no se trata.",
+   "required_change": "Conservar la etiqueta anterior."
+  },
+  {
+   "id": "conversation.off_topic_question",
+   "op": "update",
+   "verdict": "revise",
+   "entailment": "n/a",
+   "label_change": "stylistic",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "n/a",
+   "reason": "Reescribe sin cambiar los pares con time_or_date_request:2 y language_request:2. La fila LOO es 0.0: el problema está en los ejemplos, no en la etiqueta.",
+   "required_change": "Conservar la etiqueta anterior."
+  },
+  {
+   "id": "conversation.repeat_or_unclear",
+   "op": "update",
+   "verdict": "revise",
+   "entailment": "n/a",
+   "label_change": "stylistic",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "n/a",
+   "reason": "\"la respuesta\" añade palabras sin tratar el par con summary_request:2.",
+   "required_change": "Conservar la etiqueta anterior."
+  },
+  {
+   "id": "conversation.acknowledge_ok",
+   "op": "update",
+   "verdict": "revise",
+   "entailment": "n/a",
+   "label_change": "stylistic",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "n/a",
+   "reason": "\"como listo entendido o bien\" cambia la lista de ejemplos de la etiqueta; sin par documentado.",
+   "required_change": "Conservar la etiqueta anterior."
+  },
+  {
+   "id": "conversation.cancel_topic",
+   "op": "update",
+   "verdict": "revise",
+   "entailment": "n/a",
+   "label_change": "stylistic",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "n/a",
+   "reason": "Reescribe sin tratar el par con summary_request:1.",
+   "required_change": "Conservar la etiqueta anterior."
+  },
+  {
+   "id": "conversation.compliment_reply",
+   "op": "update",
+   "verdict": "revise",
+   "entailment": "n/a",
+   "label_change": "stylistic",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "n/a",
+   "reason": "Reescribe sin tratar el par con how_are_you:3 (el mayor par del grupo).",
+   "required_change": "Conservar la etiqueta anterior."
+  },
+  {
+   "id": "conversation.more_detail_followup",
+   "op": "update",
+   "verdict": "revise",
+   "entailment": "n/a",
+   "label_change": "stylistic",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "n/a",
+   "reason": "Reescribe sin tratar el par con summary_request:4.",
+   "required_change": "Conservar la etiqueta anterior."
+  },
+  {
+   "id": "conversation.info_source_trust",
+   "op": "update",
+   "verdict": "revise",
+   "entailment": "none",
+   "label_change": "stylistic",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "n/a",
+   "reason": "\"de qué fuentes proviene la información oficial\" reescribe. La respuesta dice que cada respuesta tiene fuente; la cita es un encabezado del SGC que no lo respalda.",
+   "required_change": "Conservar la etiqueta anterior. Sustentar la afirmación con un pasaje de la app (no de la página del SGC) o reformularla."
+  },
+  {
+   "id": "conversation.offline_operation",
+   "op": "update",
+   "verdict": "revise",
+   "entailment": "n/a",
+   "label_change": "stylistic",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "n/a",
+   "reason": "\"uso y funcionamiento\" añade palabras sin tratar el par con voice_reading_request:1.",
+   "required_change": "Conservar la etiqueta anterior."
+  },
+  {
+   "id": "conversation.emergency_limits",
+   "op": "update",
+   "verdict": "revise",
+   "entailment": "n/a",
+   "label_change": "stylistic",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "n/a",
+   "reason": "\"alcance y limitaciones\" reescribe lo que ya dice la etiqueta. El par con actions.report_emergency_general:2 se trata en el texto, no aquí.",
+   "required_change": "Conservar la etiqueta anterior."
+  },
+  {
+   "id": "conversation.history_storage",
+   "op": "update",
+   "verdict": "revise",
+   "entailment": "n/a",
+   "label_change": "stylistic",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "n/a",
+   "reason": "\"datos e historial\" amplía el alcance (datos) sin par documentado.",
+   "required_change": "Conservar la etiqueta anterior."
+  },
+  {
+   "id": "conversation.no_outside_actions",
+   "op": "update",
+   "verdict": "revise",
+   "entailment": "n/a",
+   "label_change": "stylistic",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "n/a",
+   "reason": "\"alarmas\" añade un término; el par con ai_identity:1 y human_contact_request:1 no se trata.",
+   "required_change": "Conservar la etiqueta anterior."
+  },
+  {
+   "id": "conversation.location_map_request",
+   "op": "update",
+   "verdict": "approve",
+   "entailment": "n/a",
+   "label_change": "justified",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "n/a",
+   "reason": "findings/conversation.cross.json pide dejar claro que la app no tiene GPS ni mapa en vivo, y separarla de preparation.navigation_map_gps. La etiqueta \"solicitar ubicación gps o mapa en vivo\" marca el tipo de pregunta. mobile/src no tiene API de geolocalización.",
+   "required_change": "Ninguno."
+  },
+  {
+   "id": "conversation.voice_reading_request",
+   "op": "update",
+   "verdict": "revise",
+   "entailment": "n/a",
+   "label_change": "stylistic",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "n/a",
+   "reason": "\"solicitar lectura de voz o usar micrófono\" reescribe; el par con language_request:2 no se trata. mobile/ no tiene API de voz (búsqueda sin resultados).",
+   "required_change": "Conservar la etiqueta anterior."
+  },
+  {
+   "id": "conversation.opinion_request",
+   "op": "update",
+   "verdict": "revise",
+   "entailment": "n/a",
+   "label_change": "stylistic",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "n/a",
+   "reason": "\"pedir una opinión o sugerencia al asistente\" amplía el alcance sin tratar el par con capabilities_overview:2.",
+   "required_change": "Conservar la etiqueta anterior."
+  },
+  {
+   "id": "conversation.time_or_date_request",
+   "op": "update",
+   "verdict": "approve",
+   "entailment": "n/a",
+   "label_change": "justified",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "n/a",
+   "reason": "findings/conversation.cross.json pide aclarar en la etiqueta que se trata de la hora actual del dispositivo. La etiqueta \"consultar la hora actual o la fecha\" lo hace.",
+   "required_change": "Ninguno."
+  },
+  {
+   "id": "conversation.summary_request",
+   "op": "update",
+   "verdict": "revise",
+   "entailment": "n/a",
+   "label_change": "stylistic",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "n/a",
+   "reason": "\"resumida y corta\" añade un término; el par con more_detail_followup:4 no se trata.",
+   "required_change": "Conservar la etiqueta anterior."
+  }
+ ],
+ "audit_rows": [
+  {
+   "id": "conversation.greeting_hello",
+   "claimed": "not_checked",
+   "support": "n/a",
+   "note": "not_checked: entrada de chat sin fuente citada; fuera del contador de auditoría."
+  },
+  {
+   "id": "conversation.how_are_you",
+   "claimed": "not_checked",
+   "support": "n/a",
+   "note": "not_checked: entrada de chat sin fuente citada; fuera del contador de auditoría."
+  },
+  {
+   "id": "conversation.thanks",
+   "claimed": "not_checked",
+   "support": "n/a",
+   "note": "not_checked: entrada de chat sin fuente citada; fuera del contador de auditoría."
+  },
+  {
+   "id": "conversation.goodbye",
+   "claimed": "not_checked",
+   "support": "n/a",
+   "note": "not_checked: entrada de chat sin fuente citada; fuera del contador de auditoría."
+  },
+  {
+   "id": "conversation.capabilities_overview",
+   "claimed": "not_checked",
+   "support": "n/a",
+   "note": "not_checked: entrada de chat sin fuente citada; fuera del contador de auditoría."
+  },
+  {
+   "id": "conversation.first_time_help",
+   "claimed": "not_checked",
+   "support": "n/a",
+   "note": "not_checked: entrada de chat sin fuente citada; fuera del contador de auditoría."
+  },
+  {
+   "id": "conversation.ai_identity",
+   "claimed": "not_checked",
+   "support": "n/a",
+   "note": "not_checked: entrada de chat sin fuente citada; fuera del contador de auditoría."
+  },
+  {
+   "id": "conversation.language_request",
+   "claimed": "not_checked",
+   "support": "n/a",
+   "note": "not_checked: entrada de chat sin fuente citada; fuera del contador de auditoría."
+  },
+  {
+   "id": "conversation.free_generation_limits",
+   "claimed": "not_checked",
+   "support": "n/a",
+   "note": "not_checked: entrada de chat sin fuente citada; fuera del contador de auditoría."
+  },
+  {
+   "id": "conversation.feedback_wrong_answer",
+   "claimed": "not_checked",
+   "support": "n/a",
+   "note": "not_checked: entrada de chat sin fuente citada; fuera del contador de auditoría."
+  },
+  {
+   "id": "conversation.insults_to_assistant",
+   "claimed": "not_checked",
+   "support": "n/a",
+   "note": "not_checked: entrada de chat sin fuente citada; fuera del contador de auditoría."
+  },
+  {
+   "id": "conversation.park_complaint_channel",
+   "claimed": "primary_ok",
+   "support": "partial",
+   "note": "El extracto respalda que existen canales de atención (Sede Central y Territoriales). El Formulario PQRSDF que nombra la respuesta no aparece en él."
+  },
+  {
+   "id": "conversation.human_contact_request",
+   "claimed": "primary_ok",
+   "support": "full",
+   "note": "El extracto respalda que el sitio publica canales físicos y electrónicos de atención. La conducta de la app (no conectar con una persona) es editorial."
+  },
+  {
+   "id": "conversation.joke_request",
+   "claimed": "not_checked",
+   "support": "n/a",
+   "note": "not_checked: entrada de chat sin fuente citada; fuera del contador de auditoría."
+  },
+  {
+   "id": "conversation.off_topic_question",
+   "claimed": "not_checked",
+   "support": "n/a",
+   "note": "not_checked: entrada de chat sin fuente citada; fuera del contador de auditoría."
+  },
+  {
+   "id": "conversation.repeat_or_unclear",
+   "claimed": "not_checked",
+   "support": "n/a",
+   "note": "not_checked: entrada de chat sin fuente citada; fuera del contador de auditoría."
+  },
+  {
+   "id": "conversation.acknowledge_ok",
+   "claimed": "not_checked",
+   "support": "n/a",
+   "note": "not_checked: entrada de chat sin fuente citada; fuera del contador de auditoría."
+  },
+  {
+   "id": "conversation.cancel_topic",
+   "claimed": "not_checked",
+   "support": "n/a",
+   "note": "not_checked: entrada de chat sin fuente citada; fuera del contador de auditoría."
+  },
+  {
+   "id": "conversation.compliment_reply",
+   "claimed": "not_checked",
+   "support": "n/a",
+   "note": "not_checked: entrada de chat sin fuente citada; fuera del contador de auditoría."
+  },
+  {
+   "id": "conversation.more_detail_followup",
+   "claimed": "not_checked",
+   "support": "n/a",
+   "note": "not_checked: entrada de chat sin fuente citada; fuera del contador de auditoría."
+  },
+  {
+   "id": "conversation.info_source_trust",
+   "claimed": "primary_ok",
+   "support": "none",
+   "note": "El extracto es un encabezado de la página del SGC (\"Investigación y monitoreo actividad volcánica\"). No respalda que cada respuesta de la app tenga fuente."
+  },
+  {
+   "id": "conversation.offline_operation",
+   "claimed": "not_checked",
+   "support": "n/a",
+   "note": "not_checked: entrada de chat sin fuente citada; fuera del contador de auditoría."
+  },
+  {
+   "id": "conversation.emergency_limits",
+   "claimed": "not_checked",
+   "support": "n/a",
+   "note": "not_checked: entrada de chat sin fuente citada; fuera del contador de auditoría."
+  },
+  {
+   "id": "conversation.history_storage",
+   "claimed": "not_checked",
+   "support": "n/a",
+   "note": "not_checked: entrada de chat sin fuente citada; fuera del contador de auditoría."
+  },
+  {
+   "id": "conversation.no_outside_actions",
+   "claimed": "not_checked",
+   "support": "n/a",
+   "note": "not_checked: entrada de chat sin fuente citada; fuera del contador de auditoría."
+  },
+  {
+   "id": "conversation.location_map_request",
+   "claimed": "not_checked",
+   "support": "n/a",
+   "note": "not_checked: entrada de chat sin fuente citada; fuera del contador de auditoría."
+  },
+  {
+   "id": "conversation.voice_reading_request",
+   "claimed": "not_checked",
+   "support": "n/a",
+   "note": "not_checked: entrada de chat sin fuente citada; fuera del contador de auditoría."
+  },
+  {
+   "id": "conversation.opinion_request",
+   "claimed": "not_checked",
+   "support": "n/a",
+   "note": "not_checked: entrada de chat sin fuente citada; fuera del contador de auditoría."
+  },
+  {
+   "id": "conversation.time_or_date_request",
+   "claimed": "not_checked",
+   "support": "n/a",
+   "note": "not_checked: entrada de chat sin fuente citada; fuera del contador de auditoría."
+  },
+  {
+   "id": "conversation.summary_request",
+   "claimed": "not_checked",
+   "support": "n/a",
+   "note": "not_checked: entrada de chat sin fuente citada; fuera del contador de auditoría."
+  }
+ ],
+ "summary": {
+  "approve": 5,
+  "revise": 25,
+  "reject": 0,
+  "audit_support": {
+   "full": 1,
+   "partial": 1,
+   "none": 1
+  }
+ }
+}

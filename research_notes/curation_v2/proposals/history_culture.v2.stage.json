@@ -1,0 +1,391 @@
+{
+  "version": 1,
+  "root": "/home/cruz1122/dev/hacka-airplane",
+  "proposal": {
+    "operations": [
+      {
+        "op": "update",
+        "reason": "Resolver confusión documentada con services.otun_lodging según findings/labels.json (El Bosque es paso de acceso a la Laguna del Otún, no alojamiento).",
+        "entry": {
+          "id": "history_culture.el_bosque",
+          "label": "El Bosque: paso de acceso al Otún",
+          "kind": "fact",
+          "audience": "visitor",
+          "lang": "es",
+          "examples": [
+            "vereda el bosque en el otun",
+            "casas tradicionales junto a la laguna",
+            "puedo ver las casas de el bosque",
+            "habitantes historicos de esa vereda",
+            "el bosque es un pueblo dentro del parque",
+            "donde quedan las casas de el bosque",
+            "casas del sector laguna del otun",
+            "¿y uno se puede meter a esas casas?",
+            "el bosque es una vereda del otun",
+            "are there traditional houses at El Bosque",
+            "can I see those El Bosque houses near the lagoon",
+            "casas de los habitantes historicos"
+          ],
+          "hard_negatives": [
+            "what is bahareque in the coffee landscape",
+            "hay comunidades campesinas en el parque",
+            "cuánto se camina hasta la Laguna del Otún"
+          ],
+          "needs": [],
+          "answer": {
+            "short": "El acceso a la Laguna del Otún pasa por la vereda El Bosque, donde hay casas tradicionales de sus habitantes históricos. Pregunta en el parque si ese paso está abierto antes de ir a verlas.",
+            "variants": [
+              "Las casas tradicionales de la vereda El Bosque están en el recorrido a la Laguna del Otún, según el parque. Pregunta si ese paso está abierto."
+            ],
+            "detail": null,
+            "reflection": null
+          },
+          "sources": [
+            {
+              "label": "Parques Nacionales Naturales, ficha Los Nevados",
+              "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+              "retrieved_at": "2026-11-21"
+            }
+          ],
+          "last_verified": "2026-11-21",
+          "valid_until": null,
+          "related": [
+            "history_culture.campesino_communities",
+            "history_culture.bahareque"
+          ],
+          "tags": [
+            "el bosque",
+            "otun"
+          ]
+        }
+      },
+      {
+        "op": "update",
+        "reason": "Actualizar etiqueta a \"diferencia entre lahar primario y secundario\" para contrastar con what_is_a_lahar, con cita verificada de la nota aclaratoria SGC de 28-abr-2023.",
+        "entry": {
+          "id": "history_culture.primary_secondary_lahar",
+          "label": "diferencia entre lahar primario y secundario",
+          "kind": "explanation",
+          "audience": "visitor",
+          "lang": "es",
+          "examples": [
+            "lahar primario o secundario",
+            "que es un lahar primario",
+            "el lodo que baja con la lluvia es otro tipo?",
+            "eso de lahar primario y secundario, ¿me lo explicas?",
+            "derretimiento del hielo o lluvia",
+            "lahar secundario por la lluvia",
+            "el de Armero cuenta como lahar primario?",
+            "el lodo de la lluvia no es igual al de la erupción?",
+            "diferencia entre los dos lahares",
+            "what is a primary lahar",
+            "how is a rain-triggered lahar different",
+            "y el lodo que cae cuando llueve, también es lahar"
+          ],
+          "hard_negatives": [
+            "qué son los lahares",
+            "qué alerta tiene hoy el Nevado del Ruiz",
+            "cánido silvestre en el páramo"
+          ],
+          "needs": [],
+          "answer": {
+            "short": "Un lahar primario nace cuando una erupción derrite rápido el hielo y la nieve; uno secundario, cuando la lluvia remueve material volcánico suelto de erupciones anteriores (SGC, 28 de abril de 2023). Armero es el ejemplo de lahar primario de esa nota.",
+            "variants": [
+              "El primario lo dispara el deshielo en la erupción, y el secundario la lluvia sobre material suelto. Armero es el caso de lahar primario."
+            ],
+            "detail": "La nota dice que los lahares primarios pueden alcanzar velocidades incluso mayores a los 70km/h como capacidad general. Responde a una alerta naranja y amarilla del IDEAM para municipios del área de influencia, que se refería a lahares secundarios. Esa alerta es de abril de 2023, no el estado de hoy. El relato histórico del 13 de noviembre de 1985 habla de lahares a más de 40 km/h. No son la misma medición y no se funden en una sola velocidad de aquella noche. El mapa de amenaza añade que los flujos pueden ser primarios, generados durante la erupción, o secundarios.",
+            "reflection": null
+          },
+          "sources": [
+            {
+              "label": "Servicio Geológico Colombiano, nota del 28 de abril de 2023",
+              "url": "https://www2.sgc.gov.co/Noticias/Paginas/Nota-aclaratoria-sobre-el-t%C3%A9rmino-%E2%80%98lahares%E2%80%99-con-relaci%C3%B3n-a-las-recientes-alertas-anunciadas-por-el-IDEAM.aspx",
+              "retrieved_at": "2026-11-21"
+            },
+            {
+              "label": "Servicio Geológico Colombiano, conceptos del mapa de amenaza del Ruiz",
+              "url": "https://www2.sgc.gov.co/sgc/volcanes/VolcanNevadoRuiz/Paginas/Mapa-amenaza.aspx",
+              "retrieved_at": "2026-11-21"
+            }
+          ],
+          "last_verified": "2026-11-21",
+          "valid_until": null,
+          "related": [
+            "history_culture.what_is_a_lahar",
+            "history_culture.armero_1985"
+          ],
+          "tags": [
+            "primario",
+            "secundario"
+          ],
+          "entities": {
+            "volcano": [
+              "ruiz"
+            ]
+          }
+        }
+      },
+      {
+        "op": "update",
+        "reason": "Actualizar etiqueta a \"derechos adquiridos anteriores a la creación del parque\" para desambiguar frente a booking_fees.exempt_property_owners, con cita verificada del artículo 4 del Acuerdo 15 de 1973.",
+        "entry": {
+          "id": "history_culture.prior_rights_1973",
+          "label": "derechos adquiridos anteriores a la creación del parque",
+          "kind": "fact",
+          "audience": "visitor",
+          "lang": "es",
+          "examples": [
+            "respetaron a los que ya tenian derechos ahi?",
+            "había dueños antes de 1973",
+            "los predios de antes quedaron respetados?",
+            "la creacion borro la propiedad anterior",
+            "y los que tenían fincas antes, qué pasó con ellos?",
+            "mi familia estaba antes del parque",
+            "y si mi finca era anterior al parque, qué pasa",
+            "el parque nacio sobre terreno de nadie?",
+            "que paso con los derechos previos",
+            "did the 1973 agreement cancel older property rights",
+            "were there already owners when the park was delimited",
+            "que paso con la gente que ya tenia tierra ahi?"
+          ],
+          "hard_negatives": [
+            "hay comunidades campesinas en el parque",
+            "qué prohibía el acuerdo de 1973",
+            "puedo tomar fotos en el parque"
+          ],
+          "needs": [],
+          "answer": {
+            "short": "El artículo cuarto del Acuerdo 15 dejó a salvo los derechos adquiridos antes de su vigencia, así que el parque no empezó en un terreno vacío. Lo que hoy puedes hacer en un predio lo define Parques Nacionales: pregunta allí.",
+            "variants": [
+              "El acuerdo respetó los derechos adquiridos antes de su vigencia, así que el área no era tierra de nadie. Para el uso actual de un predio, pregunta a Parques Nacionales."
+            ],
+            "detail": null,
+            "reflection": null
+          },
+          "sources": [
+            {
+              "label": "Resolución Ejecutiva 148 de 1974 y Acuerdo 15 de 1973",
+              "url": "https://old.parquesnacionales.gov.co/portal/wp-content/uploads/2022/01/148-de-1974.pdf",
+              "retrieved_at": "2026-11-21"
+            }
+          ],
+          "last_verified": "2026-11-21",
+          "valid_until": null,
+          "related": [
+            "history_culture.park_creation_1974",
+            "history_culture.campesino_communities"
+          ],
+          "tags": [
+            "derechos",
+            "1973"
+          ]
+        }
+      },
+      {
+        "op": "update",
+        "reason": "Clarify label to improve retrieval discrimination and prevent cross-topic confusions for history_culture.ruiz_name_origin.",
+        "entry": {
+          "id": "history_culture.ruiz_name_origin",
+          "label": "origen colonial del nombre volcán Ruiz",
+          "kind": "fact",
+          "audience": "visitor",
+          "lang": "es",
+          "examples": [
+            "desde cuándo se llama Ruiz el volcán",
+            "de dónde sale el nombre Ruiz",
+            "quién le puso Ruiz al nevado",
+            "de donde salio el apellido ruiz de ese volcan?",
+            "el nombre Ruiz es antiguo o es nuevo",
+            "primera vez que aparece el nombre del Ruiz",
+            "cómo se llamaba el volcán antes de Ruiz",
+            "el volcán de Cartago es el Ruiz?",
+            "quién escribió primero el nombre Ruiz",
+            "por qué le dicen Ruiz si hay otros nombres",
+            "where does the name Ruiz come from",
+            "volcán de Gualí es el mismo Ruiz",
+            "el páramo del Ruiz desde cuándo se menciona"
+          ],
+          "hard_negatives": [
+            "puedo subir al cráter del Ruiz",
+            "quién maneja las reservas del sector norte",
+            "qué significa alerta naranja del Ruiz"
+          ],
+          "needs": [],
+          "answer": {
+            "short": "El nombre Ruiz aparece por primera vez en la obra de fray Alonso de Zamora, escrita entre 1691 y 1696; la línea de tiempo del SGC lo fecha en 1701. Antes se le decía cerro, volcán de Cartago o volcán de Gualí. Si ves esos nombres viejos, es el mismo volcán.",
+            "variants": [
+              "El volcán se llama Ruiz desde la obra de fray Alonso de Zamora. Antes lo llamaban cerro, volcán de Cartago o volcán de Gualí, según el SGC."
+            ],
+            "detail": null,
+            "reflection": null
+          },
+          "sources": [
+            {
+              "label": "Servicio Geológico Colombiano, línea de tiempo del portal histórico del Ruiz",
+              "url": "https://historia-volcanes.sgc.gov.co/volcan-detalle?id=6",
+              "retrieved_at": "2026-11-21"
+            }
+          ],
+          "last_verified": "2026-11-21",
+          "valid_until": null,
+          "related": [
+            "history_culture.kumanday_name",
+            "history_culture.ruiz_other_ancestral_names"
+          ],
+          "tags": [
+            "ruiz",
+            "nombre",
+            "historia",
+            "origen"
+          ]
+        }
+      },
+      {
+        "op": "update",
+        "reason": "Actualizar etiqueta a \"nombres ancestrales indígenas Tama y Tabuchía\" para desambiguar frente a ruiz_name_origin, con respaldo verificado en hoja SGC 2024 para Tama y Tabuchía.",
+        "entry": {
+          "id": "history_culture.ruiz_other_ancestral_names",
+          "label": "nombres ancestrales indígenas Tama y Tabuchía",
+          "kind": "fact",
+          "audience": "visitor",
+          "lang": "es",
+          "examples": [
+            "tabuchia cuenta como nombre ancestral del ruiz, aparte de kumanday?",
+            "qué es Tabuchía",
+            "Tama tambien es un nombre del Ruiz?",
+            "cumanday, tabuchia y tama son el mismo volcan?",
+            "al ruiz le decian candela o fuego?",
+            "qué quiere decir eso de padre mayor del volcán?",
+            "y cómo más le decían al Ruiz antes?",
+            "ademas de kumanday como le decian",
+            "tabuchia es el ruiz o es otra cumbre?",
+            "which ancestral names does the Ruiz have",
+            "what do Tabuchía and Tama mean",
+            "habia mas nombres ademas de Kumanday?"
+          ],
+          "hard_negatives": [
+            "qué significa Kumanday",
+            "cuánto mide la cima del Nevado del Ruiz",
+            "puedo entrar al cráter Arenas"
+          ],
+          "needs": [],
+          "answer": {
+            "short": "Además de Kumanday, el Ruiz también se llama Cumanday (cerro blanco), Tabuchía (candela o fuego) y Tama (padre mayor o grande), según el SGC en septiembre de 2024. Si encuentras uno de esos nombres, es el mismo volcán.",
+            "variants": [
+              "Cumanday, Tabuchía y Tama son el mismo Ruiz: cerro blanco, candela o fuego, y padre mayor o grande, según el SGC de 2024."
+            ],
+            "detail": null,
+            "reflection": null
+          },
+          "sources": [
+            {
+              "label": "Servicio Geológico Colombiano, hoja del Ruiz, septiembre de 2024",
+              "url": "https://www2.sgc.gov.co/Temas-destacados/Documents/Hoja-informativa-volcan-Nevado-de-Ruiz-SGC.pdf",
+              "retrieved_at": "2026-11-21"
+            }
+          ],
+          "last_verified": "2026-11-21",
+          "valid_until": null,
+          "related": [
+            "history_culture.kumanday_name",
+            "history_culture.indigenous_peoples"
+          ],
+          "tags": [
+            "tabuchia",
+            "tama",
+            "cumanday"
+          ],
+          "entities": {
+            "volcano": [
+              "ruiz"
+            ]
+          }
+        }
+      },
+      {
+        "op": "update",
+        "reason": "Clarify label to improve retrieval discrimination and prevent cross-topic confusions for history_culture.termales_history.",
+        "entry": {
+          "id": "history_culture.termales_history",
+          "label": "descubrimiento histórico de las termales del Ruiz",
+          "kind": "fact",
+          "audience": "visitor",
+          "lang": "es",
+          "examples": [
+            "desde cuándo se conocen las termales del Ruiz",
+            "quién descubrió las aguas termales del nevado",
+            "cuándo se describieron las termales del Ruiz",
+            "historia de los termales del Ruiz",
+            "el Ruiz tiene agua caliente desde hace mucho",
+            "quién vio las termales primero",
+            "cuándo se habló de las fuentes termales del nevado",
+            "termales del Ruiz historia de exploración",
+            "hot springs of the Ruiz history",
+            "who discovered the hot springs near the volcano",
+            "las termales del Ruiz eran conocidas en el siglo XIX",
+            "los colonos vieron el agua caliente del nevado?",
+            "qué dice el SGC de las termales del Ruiz"
+          ],
+          "hard_negatives": [
+            "puedo pasar por Termales del Cañón",
+            "los termales del sur son una parada",
+            "si acampo en Arenales o Termales Cañón, ¿pego el permiso en la carpa?"
+          ],
+          "needs": [],
+          "answer": {
+            "short": "Las termales del Ruiz aparecen en los registros desde 1793, cuando D’Elhuyar las descubrió en su expedición, según el SGC. En 1845 unos colonos antioqueños las describieron, y en 1852 Codazzi observó «Termales» en el volcán.",
+            "variants": [
+              "Las termales del Ruiz se describen desde 1793 en la línea de tiempo del SGC: D’Elhuyar las descubrió en su expedición, y después colonos antioqueños y Codazzi las mencionaron."
+            ],
+            "detail": null,
+            "reflection": null
+          },
+          "sources": [
+            {
+              "label": "Servicio Geológico Colombiano, línea de tiempo del portal histórico del Ruiz",
+              "url": "https://historia-volcanes.sgc.gov.co/volcan-detalle?id=6",
+              "retrieved_at": "2026-11-21"
+            }
+          ],
+          "last_verified": "2026-11-21",
+          "valid_until": null,
+          "related": [
+            "history_culture.colonizacion_antioquena",
+            "history_culture.scientific_observers"
+          ],
+          "tags": [
+            "ruiz",
+            "termales",
+            "historia",
+            "exploración"
+          ]
+        }
+      }
+    ]
+  },
+  "base": {
+    "data/knowledge/sections/health_safety.json": "d2b17101f413fa31043e3ee063aa8aaeec5e978e3707b49190e726f6e53538dc",
+    "data/knowledge/sections/rules.json": "1d7b49ca4b44292f457800250f0faa4668a27a3d28735d6bd6e8dba21c6df87b",
+    "data/knowledge/sections/actions.json": "954246420bceb8fe84c07081cdb387f4a134d78b38804f139b5ed19537f2b0f1",
+    "data/knowledge/sections/booking_fees.json": "2fbcc7b5e7cd4589898f13e5bc204ddc5f9574acb4f90151aa027e19ebccd7dc",
+    "data/knowledge/sections/conversation.json": "a8a32868eb0be2b2d1d9a1ef59670688878c1dd1a2b102de9934280ac3919763",
+    "data/knowledge/sections/activities.json": "feaf7441fc0657cc77b366d5ded2d5182d740a84bf63238acc9dbed2d9af3fac",
+    "data/knowledge/sections/geography.json": "3f3ec5f4cf66f763795fdd9f1d791fa3e1cc547707f6d4d32c09610eb53febc4",
+    "data/knowledge/sections/history_culture.json": "cc1a5e638f1fce695b21ab054cc27470f0f94630bca736b02b01e838bb41b697",
+    "data/knowledge/sections/access.json": "53e6c70dedf0a6147080a3c95f183740d0b1d86a69694699fb6a4913ceafd087",
+    "data/knowledge/sections/hours_status.json": "22ebd49371851f935c1b984c90e7332fd71b17763786dbdaaf585c3461eccbb0",
+    "data/knowledge/sections/preparation.json": "c63add03cea48ecbf82f98227fdd7d7039f29ffa6a9eb0032d004493bdc5d790",
+    "data/knowledge/sections/fauna.json": "0bc23a8f3a9874641b8fc7c2ad60dc256c5382fc94e6a4fc6d174e1283aa3211",
+    "data/knowledge/sections/flora_ecosystems.json": "735a94a89c70a8afc9b8e264573e5e6921d14ee22344139d3612eb049b010fa7",
+    "data/knowledge/sections/weather_volcano.json": "32c7b2658d3d1be895ed81a2b4f8c34f9b0b8fc454b3099aa15ab24a2fd61583",
+    "data/knowledge/sections/services.json": "34f4cf127d08fb8b89530836e12d827180e7f9f2043a320bddfb33b149a0dd82",
+    "docs/schemas/knowledge-section.schema.json": "a7b049cddf6e867cbc68c41eff6d16c9e36e4bea73897d944033340cce8161fb",
+    "research_notes/Conocimiento turístico de Los Nevados/coordination/knowledge_additions.json": null,
+    "research_notes/Conocimiento turístico de Los Nevados/history_culture.research.md": "2b489db3503ede80ce253a52f4ed464226dceeeea82dc61bb326e63d21b1ff50"
+  },
+  "writes": {
+    "data/knowledge/sections/history_culture.json": "4f6a238b86dfbd8a1557f19e5795e2a0d4e7ad7574c41e67cc2c2bdbe441e368",
+    "research_notes/Conocimiento turístico de Los Nevados/coordination/knowledge_additions.json": "51244556d1de1f965580f3685748fe40f9e9acdf6cb96de40961f1c61dafc009",
+    "research_notes/Conocimiento turístico de Los Nevados/history_culture.research.md": "cc3cd0d5f33bd977900653b1a922c475c0d6825cef561bc1dde82b7ac0c815be"
+  }
+}

@@ -1,0 +1,1433 @@
+{
+  "contract_version": 1,
+  "id": "conversation",
+  "order": 15,
+  "title": "Conversación con el asistente",
+  "description": "Saludos, agradecimientos, despedidas, qué puede hacer el asistente, límites del asistente (sin conexión, idiomas, emergencias, acciones externas) y cómo responder a quejas, chistes y preguntas fuera del parque.",
+  "retrieval": {
+    "profile": "chat",
+    "bm25_weight": 0.3,
+    "top_k": 2,
+    "min_score": null
+  },
+  "clarification": {
+    "between_entries": "¿Te refieres a {label_a} o a {label_b}?",
+    "bank": [
+      "¿Quieres que te ayude con el parque o solo charlamos un momento?",
+      "¿Sobre qué tema del parque quieres preguntar?",
+      "¿Buscas cómo llegar, horarios, clima o qué llevar?",
+      "¿Tu duda es una queja del parque o una respuesta mía que no te sirvió?",
+      "¿Quieres seguir con el tema anterior o empezamos uno nuevo?"
+    ],
+    "fallback": "Puedo ayudarte con temas del parque: cómo llegar, horarios, clima, qué llevar o qué visitar. ¿Cuál te interesa?"
+  },
+  "featured": [
+    "conversation.capabilities_overview",
+    "conversation.greeting_hello",
+    "conversation.first_time_help",
+    "conversation.offline_operation",
+    "conversation.emergency_limits"
+  ],
+  "entries": [
+    {
+      "id": "conversation.greeting_hello",
+      "label": "saludo al iniciar la conversación",
+      "kind": "chat",
+      "audience": "visitor",
+      "examples": [
+        "hola",
+        "buenas",
+        "holaa, buenos días",
+        "quiubo qué más",
+        "buenas tardes, cómo va",
+        "hey hola parce",
+        "buenas noches",
+        "hola, ¿estás ahí?",
+        "hola que mas, como vas",
+        "oe buenas",
+        "hola de nuevo",
+        "hi there",
+        "hello, good morning!"
+      ],
+      "hard_negatives": [
+        "¿todo bien contigo?",
+        "buen trabajo",
+        "bye bye"
+      ],
+      "answer": {
+        "short": "¡Hola! Soy el asistente del Parque Nacional Natural Los Nevados. Pregúntame lo que necesites para tu visita.",
+        "variants": [
+          "¡Buenas! Estoy aquí para ayudarte con tu visita al parque. ¿Qué quieres saber?"
+        ]
+      },
+      "sources": [
+        {
+          "label": "Texto editorial del asistente; no es comunicación oficial de PNN",
+          "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "related": [
+        "conversation.capabilities_overview",
+        "conversation.first_time_help"
+      ],
+      "tags": [
+        "saludo",
+        "hola",
+        "buenas"
+      ]
+    },
+    {
+      "id": "conversation.how_are_you",
+      "label": "preguntar cómo está el asistente",
+      "kind": "chat",
+      "audience": "visitor",
+      "examples": [
+        "cómo estás",
+        "cómo vas hoy",
+        "¿todo bien contigo?",
+        "qué tal tu día",
+        "estás funcionando bien?",
+        "cómo te va, asistente",
+        "cómo amaneciste",
+        "ya estás listo para ayudar?",
+        "todo bien por ahí?",
+        "cmo estas",
+        "qué tal, todo chévere?",
+        "how are you doing?",
+        "are you doing ok today?"
+      ],
+      "hard_negatives": [
+        "hola, ¿estás ahí?",
+        "te quedó bien",
+        "tú qué harías"
+      ],
+      "answer": {
+        "short": "Funciono bien y estoy listo para ayudarte con tu visita al parque. ¿Qué necesitas saber?",
+        "variants": [
+          "Todo bien por aquí, gracias por preguntar. Dime en qué te ayudo del parque."
+        ]
+      },
+      "sources": [
+        {
+          "label": "Texto editorial del asistente; no es comunicación oficial de PNN",
+          "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "related": [
+        "conversation.greeting_hello",
+        "conversation.capabilities_overview"
+      ],
+      "tags": [
+        "estado",
+        "charla"
+      ]
+    },
+    {
+      "id": "conversation.thanks",
+      "label": "agradecer la ayuda recibida",
+      "kind": "chat",
+      "audience": "visitor",
+      "examples": [
+        "gracias",
+        "muchas gracias",
+        "mil gracias, me sirvió",
+        "gracias ql",
+        "te agradezco la ayuda",
+        "eso era lo que buscaba, gracias",
+        "gracias pues",
+        "bacano, gracias",
+        "chévere, muchas gracias por la info",
+        "thanks a lot",
+        "thank you, that helped",
+        "grax, muy útil"
+      ],
+      "hard_negatives": [
+        "respóndeme en inglés por favor",
+        "lee en voz alta por favor",
+        "nos vemos, gracias y chao"
+      ],
+      "answer": {
+        "short": "¡Con gusto! Si necesitas algo más del parque, aquí estoy.",
+        "variants": [
+          "De nada, para eso estoy. ¿Hay algo más que quieras saber del parque?"
+        ]
+      },
+      "sources": [
+        {
+          "label": "Texto editorial del asistente; no es comunicación oficial de PNN",
+          "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "related": [
+        "conversation.goodbye",
+        "conversation.more_detail_followup"
+      ],
+      "tags": [
+        "gracias",
+        "agradecimiento"
+      ]
+    },
+    {
+      "id": "conversation.goodbye",
+      "label": "despedida al terminar la conversación",
+      "kind": "chat",
+      "audience": "visitor",
+      "examples": [
+        "chao",
+        "hasta luego",
+        "nos vemos, gracias y chao",
+        "listo, me despido",
+        "ya me voy, bye",
+        "nos vemos despues",
+        "adiós",
+        "hasta la próxima",
+        "bye bye",
+        "me voy a dormir, chao",
+        "see you later",
+        "goodbye, take care",
+        "ya no necesito nada, adiós"
+      ],
+      "hard_negatives": [
+        "va, sigamos",
+        "te agradezco la ayuda",
+        "holaa, buenos días"
+      ],
+      "answer": {
+        "short": "¡Hasta luego! Que tengas una buena visita. Antes de viajar, confirma en las fuentes oficiales las condiciones del parque.",
+        "variants": [
+          "Cuídate mucho. Vuelve cuando necesites algo del parque."
+        ]
+      },
+      "sources": [
+        {
+          "label": "Texto editorial del asistente; no es comunicación oficial de PNN",
+          "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "related": [
+        "conversation.thanks",
+        "conversation.offline_operation"
+      ],
+      "tags": [
+        "despedida",
+        "adiós"
+      ]
+    },
+    {
+      "id": "conversation.capabilities_overview",
+      "label": "qué puedes hacer por el visitante",
+      "kind": "chat",
+      "audience": "visitor",
+      "examples": [
+        "qué puedes hacer",
+        "para qué sirves",
+        "en qué me puedes ayudar",
+        "qué temas manejas",
+        "qué sabes del parque",
+        "qué preguntas puedo hacerte",
+        "dime qué haces",
+        "cuáles son tus funciones",
+        "q cosas sabes hacer",
+        "qué me puedes contar",
+        "what can you do",
+        "what kind of questions can I ask?"
+      ],
+      "hard_negatives": [
+        "qué puedo visitar",
+        "tú qué harías",
+        "no tengo idea de nada, qué me recomiendas preguntar"
+      ],
+      "answer": {
+        "short": "Te ayudo con cómo llegar, reservas, horarios, clima, seguridad, actividades, reglas, fauna, flora y la historia del parque. También puedo iniciar el registro de tu visita o un reporte de emergencia, aunque sin conexión no puedo confirmar que llegue.",
+        "variants": [
+          "Puedo responder sobre el parque Los Nevados: rutas, clima, seguridad, reglas, fauna y más. Dime tu duda."
+        ]
+      },
+      "sources": [
+        {
+          "label": "Texto editorial del asistente; no es comunicación oficial de PNN",
+          "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "related": [
+        "conversation.first_time_help",
+        "conversation.emergency_limits",
+        "conversation.offline_operation"
+      ],
+      "tags": [
+        "funciones",
+        "ayuda"
+      ]
+    },
+    {
+      "id": "conversation.first_time_help",
+      "label": "primera vez y no sé qué preguntar",
+      "kind": "chat",
+      "audience": "visitor",
+      "examples": [
+        "es mi primera vez y no sé qué preguntar",
+        "nunca he venido, ¿por dónde empiezo?",
+        "no sé ni qué pedirte",
+        "primera vez en el parque",
+        "soy nuevo aquí, qué hago",
+        "por dónde arranco",
+        "ayudame a empezar",
+        "no tengo idea de nada, qué me recomiendas preguntar",
+        "first time here, where do I start?",
+        "never been here, what should I ask first?",
+        "o sea, no sé nada del parque",
+        "primer viaje al nevado, cómo empiezo?"
+      ],
+      "hard_negatives": [
+        "recomiéndame un primer recorrido",
+        "ya llegué a la entrada, quiero registrarme",
+        "no entiendo español, qué hago"
+      ],
+      "answer": {
+        "short": "Empieza por tu tema: cómo llegar, horarios, clima, qué llevar o qué visitar. Dime desde qué ciudad sales o qué te preocupa, y seguimos desde ahí.",
+        "variants": [
+          "Con gusto te oriento. Escribe la ciudad desde donde sales o el tema que te preocupa."
+        ]
+      },
+      "sources": [
+        {
+          "label": "Texto editorial del asistente; no es comunicación oficial de PNN",
+          "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "related": [
+        "conversation.capabilities_overview",
+        "conversation.greeting_hello"
+      ],
+      "tags": [
+        "empezar",
+        "primera vez"
+      ]
+    },
+    {
+      "id": "conversation.ai_identity",
+      "label": "si el asistente es un robot",
+      "kind": "chat",
+      "audience": "visitor",
+      "examples": [
+        "eres un robot?",
+        "eres una persona real?",
+        "eres una inteligencia artificial",
+        "con quién hablo",
+        "eres humano o máquina",
+        "quién eres tú",
+        "kien me esta contestando",
+        "cómo te llamas",
+        "es un bot esto?",
+        "a quién le escribo, a alguien real?",
+        "tienes nombre?",
+        "are you a real person or a bot?",
+        "are you an AI?",
+        "quién te programó"
+      ],
+      "hard_negatives": [
+        "cómo estás",
+        "hola, ¿estás ahí?",
+        "tú qué harías"
+      ],
+      "answer": {
+        "short": "Sí, soy un asistente automático, no una persona: respondo con textos preparados del parque, guardados en tu teléfono. Pregúntame lo que necesites para tu visita.",
+        "variants": [
+          "No soy una persona: soy un asistente virtual que funciona sin conexión y responde con información del parque."
+        ]
+      },
+      "sources": [
+        {
+          "label": "Texto editorial del asistente; no es comunicación oficial de PNN",
+          "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "related": [
+        "conversation.capabilities_overview",
+        "conversation.human_contact_request",
+        "conversation.offline_operation"
+      ],
+      "tags": [
+        "identidad",
+        "bot"
+      ]
+    },
+    {
+      "id": "conversation.language_request",
+      "label": "pedir respuestas en otro idioma",
+      "kind": "rule",
+      "audience": "visitor",
+      "examples": [
+        "puedes hablar en inglés",
+        "respóndeme en inglés por favor",
+        "cambia el idioma a english",
+        "habla en frances",
+        "can you answer in English?",
+        "tradúceme eso al inglés",
+        "hablas portugues?",
+        "pásalo a ingles",
+        "prefiero hablar en inglés, sí?",
+        "en qué idioma sirves",
+        "do you speak Spanish only?",
+        "cambiar idioma",
+        "no entiendo español, qué hago",
+        "traduceme la respuesta"
+      ],
+      "hard_negatives": [
+        "te agradezco la ayuda",
+        "no entendí",
+        "necesito que me lo digas con voz"
+      ],
+      "answer": {
+        "short": "Por ahora mis respuestas están en español y no puedo garantizar traducciones. Si quieres, pregúntame en español y te respondo con lo que tengo.",
+        "variants": [
+          "Solo tengo respuestas en español. Escribe tu pregunta en español y te ayudo con lo que tengo guardado."
+        ]
+      },
+      "sources": [
+        {
+          "label": "Texto editorial del asistente; no es comunicación oficial de PNN",
+          "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "related": [
+        "conversation.capabilities_overview",
+        "conversation.free_generation_limits"
+      ],
+      "tags": [
+        "idioma",
+        "traducción"
+      ]
+    },
+    {
+      "id": "conversation.free_generation_limits",
+      "label": "poemas, código o textos sin fuente",
+      "kind": "chat",
+      "audience": "visitor",
+      "examples": [
+        "escríbeme un poema",
+        "hazme un código en python",
+        "escribe un cuento sobre el páramo",
+        "redacta un correo para mi jefe",
+        "invéntame una historia",
+        "hazme una canción",
+        "escribeme una carta de amor",
+        "inventa datos del parque",
+        "write me a poem",
+        "can you write code for me?",
+        "escribe un ensayo de dos páginas",
+        "hazme una receta de sancocho",
+        "puedes hacerme un código en python?"
+      ],
+      "hard_negatives": [
+        "cuéntame un chiste",
+        "mándame un mensaje",
+        "muéstrame un mapa"
+      ],
+      "answer": {
+        "short": "Mi función es responder sobre el parque con información guardada, así que no escribo poemas ni código. Si quieres, dime qué tema del parque te interesa.",
+        "variants": [
+          "Eso queda fuera de mi función: me enfoco en datos del parque y te indico su fuente."
+        ]
+      },
+      "sources": [
+        {
+          "label": "Texto editorial del asistente; no es comunicación oficial de PNN",
+          "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "related": [
+        "conversation.language_request",
+        "conversation.capabilities_overview",
+        "conversation.info_source_trust"
+      ],
+      "tags": [
+        "límites",
+        "escritura"
+      ]
+    },
+    {
+      "id": "conversation.feedback_wrong_answer",
+      "label": "queja por una respuesta equivocada",
+      "kind": "chat",
+      "audience": "visitor",
+      "examples": [
+        "esa respuesta está mal",
+        "me diste info errada",
+        "no es lo que pregunté",
+        "eso no es cierto",
+        "estás equivocado",
+        "me respondiste otra cosa",
+        "no me sirvió lo que dijiste",
+        "esa info ya no sirve",
+        "la respuesta anterior no es correcta",
+        "that answer is wrong",
+        "you got that wrong",
+        "eso que dijiste no cuadra con lo que vi"
+      ],
+      "hard_negatives": [
+        "por qué respondes tan mal?",
+        "no sé ni qué pedirte",
+        "no me quedó claro"
+      ],
+      "answer": {
+        "short": "Lamento que la respuesta no te haya servido. Dime qué preguntaste y qué necesitabas, y confirma el dato en la fuente oficial del tema.",
+        "variants": [
+          "Gracias por avisarme. Revisa la fuente oficial que aparece en la respuesta y dime qué parte no cuadra."
+        ]
+      },
+      "sources": [
+        {
+          "label": "Texto editorial del asistente; no es comunicación oficial de PNN",
+          "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "related": [
+        "conversation.info_source_trust",
+        "conversation.repeat_or_unclear"
+      ],
+      "tags": [
+        "queja",
+        "error"
+      ]
+    },
+    {
+      "id": "conversation.insults_to_assistant",
+      "label": "insultos o groserías hacia el asistente",
+      "kind": "chat",
+      "audience": "visitor",
+      "examples": [
+        "eres un inútil",
+        "qué bobada, no sirves para nada",
+        "eres tonto",
+        "idiota, responde bien",
+        "qué mamera, no sirves",
+        "esto es una porquería",
+        "nadie te quiere",
+        "me tienes arto",
+        "por qué respondes tan mal?",
+        "you are useless",
+        "stupid bot",
+        "cállate ya"
+      ],
+      "hard_negatives": [
+        "no entendí",
+        "estás equivocado",
+        "no sé ni qué pedirte"
+      ],
+      "answer": {
+        "short": "Entiendo que estés molesto. Puedo intentar ayudarte con tu visita al parque, así que dime qué necesitas.",
+        "variants": [
+          "Lamento la frustración. Si quieres, cuéntame qué tema del parque te interesa y lo intento de nuevo."
+        ]
+      },
+      "sources": [
+        {
+          "label": "Texto editorial del asistente; no es comunicación oficial de PNN",
+          "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "related": [
+        "conversation.feedback_wrong_answer",
+        "conversation.off_topic_question"
+      ],
+      "tags": [
+        "insultos",
+        "groserías"
+      ]
+    },
+    {
+      "id": "conversation.park_complaint_channel",
+      "label": "cómo presentar una queja al parque",
+      "kind": "procedure",
+      "audience": "visitor",
+      "examples": [
+        "quiero poner una queja contra el parque",
+        "cómo pongo una queja formal",
+        "a quién le reclamo por el servicio del parque",
+        "donde reporto un mal servicio",
+        "quiero quejarme de un guarda",
+        "como dejo un reclamo formal contra el parque",
+        "donde dejo la queja por escrito del parque",
+        "pqrs del parque",
+        "me atendieron mal, a quién le escribo?",
+        "I want to file a complaint about the park",
+        "where do I send a formal complaint?",
+        "queja formal parques nacionales"
+      ],
+      "hard_negatives": [
+        "quiero entrenar en el parque, a quién escribo",
+        "necesito atención personalizada del parque",
+        "me exigen seguro para entrar al parque"
+      ],
+      "answer": {
+        "short": "Para una queja formal sobre el parque, usa el Formulario PQRSDF del portal oficial de Parques Nacionales Naturales de Colombia. Desde aquí no puedo enviarla por ti.",
+        "variants": [
+          "Puedes presentar tu queja por el Formulario PQRSDF en parquesnacionales.gov.co cuando tengas conexión."
+        ]
+      },
+      "sources": [
+        {
+          "label": "Parques Nacionales Naturales de Colombia (portal oficial, PQRSDF y canales de atención)",
+          "url": "https://www.parquesnacionales.gov.co/",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "related": [
+        "conversation.human_contact_request",
+        "conversation.feedback_wrong_answer"
+      ],
+      "tags": [
+        "queja",
+        "PQRSDF"
+      ],
+      "last_verified": "2026-11-21"
+    },
+    {
+      "id": "conversation.human_contact_request",
+      "label": "hablar con una persona del parque",
+      "kind": "procedure",
+      "audience": "visitor",
+      "examples": [
+        "quiero hablar con una persona",
+        "me comunicas con alguien del parque",
+        "pásame con un humano",
+        "quiero un asesor",
+        "cómo hablo con alguien de carne y hueso",
+        "necesito atención personalizada del parque",
+        "hay alguien que me atienda?",
+        "quiero que me pase con una persona del parque, no que me leas la ficha?",
+        "can you connect me to a real person?",
+        "how do I contact the park office?",
+        "quiero que alguien me llame",
+        "tienes contacto del parque?"
+      ],
+      "hard_negatives": [
+        "me piden asistir a una charla al llegar",
+        "quiero entrenar en el parque, a quién escribo",
+        "necesito que me lo digas con voz"
+      ],
+      "answer": {
+        "short": "No puedo conectarte con una persona desde aquí. Para hablar con el parque, revisa los canales de atención en la página oficial de Parques Nacionales Naturales y confirma los datos antes de llamar.",
+        "variants": [
+          "Para comunicarte con el parque, consulta los canales de atención del portal oficial cuando tengas conexión."
+        ]
+      },
+      "sources": [
+        {
+          "label": "Parques Nacionales Naturales de Colombia (portal oficial, PQRSDF y canales de atención)",
+          "url": "https://www.parquesnacionales.gov.co/",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "related": [
+        "conversation.park_complaint_channel",
+        "conversation.ai_identity"
+      ],
+      "tags": [
+        "contacto",
+        "persona"
+      ],
+      "last_verified": "2026-11-21"
+    },
+    {
+      "id": "conversation.joke_request",
+      "label": "pedir un chiste al asistente",
+      "kind": "chat",
+      "audience": "visitor",
+      "examples": [
+        "cuéntame un chiste",
+        "hazme reír",
+        "sabes algún chiste?",
+        "dime algo gracioso",
+        "un chistecito porfa",
+        "tienes humor?",
+        "haz un chiste del páramo",
+        "algo para reírnos un rato",
+        "tell me a joke",
+        "do you know any jokes?",
+        "chiste de montaña",
+        "me animas con un chiste?"
+      ],
+      "hard_negatives": [
+        "cuéntame más",
+        "mándame un mensaje"
+      ],
+      "answer": {
+        "short": "Los chistes no son mi fuerte, pero puedo contarte algo interesante del parque si me dices qué tema te gusta.",
+        "variants": [
+          "Mejor te ayudo con algo curioso del parque. Dime si te interesa la fauna, la flora o la historia."
+        ]
+      },
+      "sources": [
+        {
+          "label": "Texto editorial del asistente; no es comunicación oficial de PNN",
+          "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "related": [
+        "conversation.off_topic_question",
+        "conversation.capabilities_overview"
+      ],
+      "tags": [
+        "chiste",
+        "humor"
+      ]
+    },
+    {
+      "id": "conversation.off_topic_question",
+      "label": "pregunta ajena al parque",
+      "kind": "chat",
+      "audience": "visitor",
+      "examples": [
+        "quién ganó el partido de ayer",
+        "qué opinas de la política",
+        "cuánto es 45 por 12",
+        "cuál es la capital de Francia",
+        "me recomiendas una serie",
+        "cómo bajo de peso",
+        "qué carro me compro",
+        "cómo hago una arepa",
+        "dime el precio del dolar hoy",
+        "recomiéndame un restaurante en Bogotá",
+        "what's the weather in Paris?",
+        "who won the World Cup?"
+      ],
+      "hard_negatives": [
+        "respóndeme en inglés por favor",
+        "te agradezco la ayuda",
+        "no tengo idea de nada, qué me recomiendas preguntar"
+      ],
+      "answer": {
+        "short": "Eso queda fuera de lo que puedo responder. Pregúntame por el parque Los Nevados: cómo llegar, el clima o qué llevar.",
+        "variants": [
+          "No puedo ayudarte con ese tema. Si tu visita al parque tiene dudas, dime cuál y te respondo."
+        ]
+      },
+      "sources": [
+        {
+          "label": "Texto editorial del asistente; no es comunicación oficial de PNN",
+          "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "related": [
+        "conversation.capabilities_overview",
+        "conversation.joke_request"
+      ],
+      "tags": [
+        "fuera de tema"
+      ]
+    },
+    {
+      "id": "conversation.repeat_or_unclear",
+      "label": "pedir que repita o aclare",
+      "kind": "chat",
+      "audience": "visitor",
+      "examples": [
+        "repite por favor",
+        "no entendí",
+        "otra vez",
+        "perdón, no te entendí",
+        "puedes decirlo más fácil",
+        "explícamelo de nuevo",
+        "qué quisiste decir",
+        "no me quedó claro",
+        "I didn't understand that",
+        "sorry, can you rephrase?",
+        "otra forma de decirlo porfa",
+        "no te cogi la idea"
+      ],
+      "hard_negatives": [
+        "respóndeme en inglés por favor",
+        "no sé ni qué pedirte",
+        "sigue, explícame mejor"
+      ],
+      "answer": {
+        "short": "Claro. Dime el tema, como acceso, horarios o clima, y te repito el texto preparado; no tengo otra versión más sencilla.",
+        "variants": [
+          "Con gusto. Escribe otra vez la pregunta o el tema del parque y te respondo con el mismo texto preparado."
+        ]
+      },
+      "sources": [
+        {
+          "label": "Texto editorial del asistente; no es comunicación oficial de PNN",
+          "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "related": [
+        "conversation.feedback_wrong_answer",
+        "conversation.more_detail_followup"
+      ],
+      "tags": [
+        "repetir",
+        "aclarar"
+      ]
+    },
+    {
+      "id": "conversation.acknowledge_ok",
+      "label": "confirmación corta tipo listo o ok",
+      "kind": "chat",
+      "audience": "visitor",
+      "examples": [
+        "ok",
+        "listo",
+        "entendido",
+        "vale",
+        "perfecto",
+        "ya entendí",
+        "dale",
+        "bien seguimos",
+        "ok ok",
+        "got it",
+        "ok, cool",
+        "va, sigamos"
+      ],
+      "hard_negatives": [
+        "no entendí",
+        "déjalo así",
+        "gracias pues"
+      ],
+      "answer": {
+        "short": "Perfecto. Si quieres seguir con el tema o preguntar otra cosa, aquí estoy.",
+        "variants": [
+          "Entendido. Cuando quieras, seguimos con lo que necesites del parque."
+        ]
+      },
+      "sources": [
+        {
+          "label": "Texto editorial del asistente; no es comunicación oficial de PNN",
+          "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "related": [
+        "conversation.more_detail_followup",
+        "conversation.thanks"
+      ],
+      "tags": [
+        "confirmación"
+      ]
+    },
+    {
+      "id": "conversation.cancel_topic",
+      "label": "dejar el tema que estábamos viendo",
+      "kind": "chat",
+      "audience": "visitor",
+      "examples": [
+        "olvídalo",
+        "déjalo así",
+        "no, cambiemos de tema",
+        "cancela eso",
+        "mejor no",
+        "ya no quiero seguir con eso",
+        "nada, déjalo",
+        "pasemos a otra cosa",
+        "never mind",
+        "forget it, let's move on",
+        "no importa, ya no",
+        "cancelar"
+      ],
+      "hard_negatives": [
+        "no entendí",
+        "ya no necesito nada, adiós"
+      ],
+      "answer": {
+        "short": "Listo, dejamos ese tema. ¿Qué quieres consultar ahora? Si tenías un registro o un reporte en curso, revisa la pantalla antes de seguir, porque no lo doy por enviado.",
+        "variants": [
+          "Vale, cambiamos de tema. Dime qué más necesitas del parque."
+        ]
+      },
+      "sources": [
+        {
+          "label": "Texto editorial del asistente; no es comunicación oficial de PNN",
+          "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "related": [
+        "conversation.acknowledge_ok",
+        "conversation.capabilities_overview"
+      ],
+      "tags": [
+        "cancelar",
+        "cambio de tema"
+      ]
+    },
+    {
+      "id": "conversation.compliment_reply",
+      "label": "cumplido al asistente",
+      "kind": "chat",
+      "audience": "visitor",
+      "examples": [
+        "qué buen asistente",
+        "eres muy útil",
+        "te quedó bien",
+        "eres genial",
+        "buen trabajo",
+        "eres una maravilla",
+        "qué chévere cómo respondes",
+        "me caes bien",
+        "good job",
+        "you're really helpful",
+        "muy bueno esto",
+        "respondes muy rápido",
+        "q bacano este asistente"
+      ],
+      "hard_negatives": [
+        "estás funcionando bien?",
+        "bien seguimos",
+        "te agradezco la ayuda"
+      ],
+      "answer": {
+        "short": "¡Gracias, qué amable! Me alegra poder ayudarte. ¿Qué quieres saber del parque?",
+        "variants": [
+          "Qué bueno que te sirva. Si necesitas algo más del parque, dímelo."
+        ]
+      },
+      "sources": [
+        {
+          "label": "Texto editorial del asistente; no es comunicación oficial de PNN",
+          "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "related": [
+        "conversation.thanks",
+        "conversation.greeting_hello"
+      ],
+      "tags": [
+        "cumplido"
+      ]
+    },
+    {
+      "id": "conversation.more_detail_followup",
+      "label": "pedir más detalle del tema anterior",
+      "kind": "chat",
+      "audience": "visitor",
+      "examples": [
+        "cuéntame más",
+        "y eso qué más?",
+        "sigue, explícame mejor",
+        "dame más detalles",
+        "y por qué es así?",
+        "más info porfa",
+        "profundiza un poco",
+        "puedes ampliar eso?",
+        "tell me more",
+        "can you elaborate?",
+        "dime más de eso",
+        "continúa con lo anterior",
+        "explicame mas a fondo porfa"
+      ],
+      "hard_negatives": [
+        "explícamelo de nuevo",
+        "respóndeme en inglés por favor",
+        "te agradezco la ayuda"
+      ],
+      "answer": {
+        "short": "Claro, te cuento más sobre el tema anterior. Si no tengo más detalle preparado para ese punto, te digo dónde consultarlo.",
+        "variants": [
+          "Con gusto. Sigo con el tema que estábamos viendo y, si falta información, te indico la fuente oficial."
+        ]
+      },
+      "sources": [
+        {
+          "label": "Texto editorial del asistente; no es comunicación oficial de PNN",
+          "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "related": [
+        "conversation.acknowledge_ok",
+        "conversation.repeat_or_unclear"
+      ],
+      "tags": [
+        "más detalle",
+        "seguimiento"
+      ]
+    },
+    {
+      "id": "conversation.info_source_trust",
+      "label": "de dónde sale la información",
+      "kind": "explanation",
+      "audience": "visitor",
+      "examples": [
+        "de dónde sacas la info",
+        "qué fuente usas",
+        "eso sale de algún lado oficial?",
+        "tu información es confiable?",
+        "cómo sé que lo que dices es verdad",
+        "quién respalda esas respuestas",
+        "dónde verifico lo que me dices",
+        "la info está actualizada?",
+        "de qué fuente es eso?",
+        "where does your information come from?",
+        "how do I know your info is accurate?",
+        "sacas los datos de internet?",
+        "de onde sale esa informacion"
+      ],
+      "hard_negatives": [
+        "dónde consigo info confiable del parque?",
+        "se guardan mis datos aquí?",
+        "necesito datos para usarte"
+      ],
+      "answer": {
+        "short": "Cada respuesta tiene una fuente. Como los datos pueden cambiar, revisa esa fuente oficial antes de viajar y cuando tengas conexión.",
+        "variants": [
+          "Puedes confirmar cualquier dato en el portal oficial de Parques Nacionales y, para el volcán, en los boletines del Servicio Geológico Colombiano."
+        ]
+      },
+      "sources": [
+        {
+          "label": "Parques Nacionales Naturales de Colombia (portal oficial, PQRSDF y canales de atención)",
+          "url": "https://www.parquesnacionales.gov.co/",
+          "retrieved_at": "2026-11-21"
+        },
+        {
+          "label": "Servicio Geológico Colombiano (boletines semanales del Nevado del Ruiz)",
+          "url": "https://www2.sgc.gov.co/Noticias/Paginas/Boletines-semanales.aspx",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "related": [
+        "conversation.feedback_wrong_answer",
+        "conversation.offline_operation"
+      ],
+      "tags": [
+        "fuentes",
+        "confianza"
+      ],
+      "last_verified": "2026-11-21"
+    },
+    {
+      "id": "conversation.offline_operation",
+      "label": "uso del asistente sin internet",
+      "kind": "explanation",
+      "audience": "visitor",
+      "examples": [
+        "funcionas sin internet?",
+        "necesito datos para usarte",
+        "sin señal sirves?",
+        "puedo usarte en modo avión",
+        "debo tener internet para preguntarte",
+        "funciona sin wifi",
+        "sirves sin datos móviles",
+        "gastas datos del celular?",
+        "do you work offline?",
+        "does this need internet?",
+        "en modo avión sí funciona?",
+        "necesito conexión pa usarte"
+      ],
+      "hard_negatives": [
+        "estás funcionando bien?",
+        "sirves para pedir auxilio",
+        "se guardan mis datos aquí?"
+      ],
+      "answer": {
+        "short": "Sí, puedo responder sin señal porque la información está guardada en tu teléfono. Cuando tengas conexión, confirma en la página oficial los datos que cambian.",
+        "variants": [
+          "Funciono en modo avión. Antes de viajar o al recuperar señal, revisa la página oficial de Parques Nacionales para lo más reciente."
+        ]
+      },
+      "sources": [
+        {
+          "label": "Texto editorial del asistente; no es comunicación oficial de PNN",
+          "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "related": [
+        "conversation.info_source_trust",
+        "conversation.goodbye"
+      ],
+      "tags": [
+        "sin internet",
+        "modo avión"
+      ]
+    },
+    {
+      "id": "conversation.emergency_limits",
+      "label": "límites del asistente en emergencias",
+      "kind": "safety",
+      "audience": "visitor",
+      "examples": [
+        "sirves en una emergencia?",
+        "puedo confiar en ti si me pasa algo grave",
+        "si me accidento me ayudas?",
+        "es una emergencia, qué hago contigo",
+        "respondes si hay peligro?",
+        "sirves para pedir auxilio",
+        "si estoy en peligro qué hago aquí",
+        "can you help in an emergency?",
+        "is this app enough if I'm hurt?",
+        "emergencia sirves tu o llamo a alguien",
+        "te puedo escribir si hay peligro?",
+        "si me lastimo qué hago"
+      ],
+      "hard_negatives": [
+        "me pasó algo grave y necesito llamar",
+        "quiero reportar una emergencia",
+        "en qué me puedes ayudar"
+      ],
+      "answer": {
+        "short": "Si hay peligro, pide ayuda ya a quien esté contigo y revisa las indicaciones de seguridad de esta app. Puedo iniciar un reporte de emergencia, pero sin conexión no puedo confirmar que llegue, así que no dependas solo de mí.",
+        "variants": [
+          "No me uses como única ayuda en una emergencia. Pide ayuda de inmediato y, si quieres, dime qué pasa para iniciar un reporte."
+        ]
+      },
+      "sources": [
+        {
+          "label": "Texto editorial del asistente; no es comunicación oficial de PNN",
+          "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "related": [
+        "conversation.capabilities_overview",
+        "conversation.offline_operation"
+      ],
+      "tags": [
+        "emergencia",
+        "peligro"
+      ]
+    },
+    {
+      "id": "conversation.history_storage",
+      "label": "dónde se guarda el historial",
+      "kind": "explanation",
+      "audience": "visitor",
+      "examples": [
+        "guardas mi conversación?",
+        "dónde queda el historial",
+        "qué pasa con lo que escribo",
+        "se guardan mis preguntas?",
+        "se guardan mis datos aquí?",
+        "mis mensajes quedan guardados en el celular?",
+        "guardas mi nombre o mi info personal?",
+        "esto graba algo de mí?",
+        "where is my chat history stored?",
+        "do you save my conversations?",
+        "privacidad de lo que escribo",
+        "qué datos guardas de mí",
+        "alguien lee lo q te escribo"
+      ],
+      "hard_negatives": [
+        "necesito datos para usarte",
+        "toca registrarnos aquí en la entrada?",
+        "me atendieron mal, a quién le escribo?"
+      ],
+      "answer": {
+        "short": "La app guarda esta conversación en tu teléfono. Si quieres volver a leerla, ábrela ahí en la app.",
+        "variants": [
+          "Tu historial de chat queda guardado en el teléfono donde usas la app."
+        ]
+      },
+      "sources": [
+        {
+          "label": "Texto editorial del asistente; no es comunicación oficial de PNN",
+          "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "related": [
+        "conversation.offline_operation",
+        "conversation.ai_identity"
+      ],
+      "tags": [
+        "historial",
+        "privacidad"
+      ]
+    },
+    {
+      "id": "conversation.no_outside_actions",
+      "label": "llamadas, recordatorios y mensajes",
+      "kind": "chat",
+      "audience": "visitor",
+      "examples": [
+        "me llamas un taxi",
+        "puedes llamar a mi mamá",
+        "envía esto por whatsapp",
+        "pon una alarma a las 5",
+        "recuérdame mañana tomar agua",
+        "hazme una reserva en el hotel",
+        "mándame un mensaje",
+        "manda la ruta al correo",
+        "can you set a reminder for me?",
+        "can you call someone for me?",
+        "book a hotel for me",
+        "llama al guía por mí"
+      ],
+      "hard_negatives": [
+        "emergencia, mándame ayuda",
+        "escríbeme un poema",
+        "quiero que alguien me llame"
+      ],
+      "answer": {
+        "short": "No puedo hacer llamadas, enviar mensajes ni crear recordatorios por ti. Para eso usa tu teléfono, y aquí sigo disponible para preguntas del parque.",
+        "variants": [
+          "Eso lo tienes que hacer tú con tu teléfono. Desde aquí respondo sobre el parque y, si lo pides, inicio un registro de visita o un reporte de emergencia."
+        ]
+      },
+      "sources": [
+        {
+          "label": "Texto editorial del asistente; no es comunicación oficial de PNN",
+          "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "related": [
+        "conversation.capabilities_overview",
+        "conversation.location_map_request"
+      ],
+      "tags": [
+        "límites",
+        "acciones externas"
+      ]
+    },
+    {
+      "id": "conversation.location_map_request",
+      "label": "pedir tu ubicación o un mapa",
+      "kind": "chat",
+      "audience": "visitor",
+      "examples": [
+        "¿La app puede mostrar mi ubicación?",
+        "¿Tienes GPS para ubicarme?",
+        "muéstrame un mapa",
+        "me ubicas en el mapa?",
+        "¿Puedo consultar un mapa aquí?",
+        "puedes ver mi GPS?",
+        "marca mi posición",
+        "mapa en vivo del parque",
+        "la aplicacion muestra mi posicion en un mapa?",
+        "Can this app locate me on a map?",
+        "can you show me a map?",
+        "are you tracking my location?"
+      ],
+      "hard_negatives": [
+        "necesito mapa o gps para caminar?",
+        "¿me pasas el GPS del control?",
+        "si la veo en el mapa, puedo entrar por ahi"
+      ],
+      "answer": {
+        "short": "En esta versión no uso tu ubicación ni tengo un mapa en vivo. Para llegar, pregúntame la ruta desde tu ciudad, y si te perdiste, revisa las indicaciones de seguridad.",
+        "variants": [
+          "No puedo ubicarte ni mostrarte un mapa en tiempo real. Dime desde dónde sales y te explico cómo llegar."
+        ]
+      },
+      "sources": [
+        {
+          "label": "Texto editorial del asistente; no es comunicación oficial de PNN",
+          "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "related": [
+        "conversation.emergency_limits",
+        "conversation.no_outside_actions"
+      ],
+      "tags": [
+        "ubicación",
+        "mapa"
+      ]
+    },
+    {
+      "id": "conversation.voice_reading_request",
+      "label": "leer en voz alta o dictar",
+      "kind": "chat",
+      "audience": "visitor",
+      "examples": [
+        "puedes leerme la respuesta",
+        "háblame en voz alta",
+        "dictar mensaje",
+        "lee en voz alta por favor",
+        "te puedo hablar en vez de escribir?",
+        "no puedo leer, léeme",
+        "usar microfono",
+        "pon audio en la respuesta",
+        "can you read it aloud?",
+        "can I talk to you instead of typing?",
+        "voice mode please",
+        "necesito que me lo digas con voz",
+        "léeme eso pues"
+      ],
+      "hard_negatives": [
+        "respóndeme en inglés por favor",
+        "cómo se llama el cráter del Ruiz"
+      ],
+      "answer": {
+        "short": "Por ahora no puedo leerte en voz alta ni escuchar tu voz. Escribe tu pregunta y te respondo por texto.",
+        "variants": [
+          "Esta versión responde solo por texto. Escribe lo que necesitas y te contesto ahí mismo."
+        ]
+      },
+      "sources": [
+        {
+          "label": "Texto editorial del asistente; no es comunicación oficial de PNN",
+          "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "related": [
+        "conversation.capabilities_overview",
+        "conversation.language_request"
+      ],
+      "tags": [
+        "voz",
+        "audio"
+      ]
+    },
+    {
+      "id": "conversation.opinion_request",
+      "label": "opinión personal del asistente",
+      "kind": "chat",
+      "audience": "visitor",
+      "examples": [
+        "qué opinas del parque",
+        "cuál es tu lugar favorito",
+        "tú qué harías",
+        "qué piensas de los nevados",
+        "te gustó el páramo?",
+        "dame tu opinión sincera",
+        "cuál te parece más bonito",
+        "qué tan bueno es el parque según tú",
+        "what's your favorite place?",
+        "do you have an opinion on the park?",
+        "si fueras turista, a dónde irías?",
+        "tu consejo personal sobre el parque",
+        "tu opinion?"
+      ],
+      "hard_negatives": [
+        "qué opinas de la política",
+        "qué sabes del parque"
+      ],
+      "answer": {
+        "short": "No tengo opiniones personales, pero puedo darte información del parque y su fuente para que decidas tú.",
+        "variants": [
+          "Prefiero darte datos verificados a dar mi opinión. Dime qué te interesa y te explico lo que tengo."
+        ]
+      },
+      "sources": [
+        {
+          "label": "Texto editorial del asistente; no es comunicación oficial de PNN",
+          "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "related": [
+        "conversation.off_topic_question",
+        "conversation.capabilities_overview"
+      ],
+      "tags": [
+        "opinión"
+      ]
+    },
+    {
+      "id": "conversation.time_or_date_request",
+      "label": "preguntar la hora o el día",
+      "kind": "chat",
+      "audience": "visitor",
+      "examples": [
+        "qué hora es",
+        "qué día es hoy",
+        "me dices la fecha",
+        "hora actual?",
+        "son las cuántas",
+        "me regalas la hora",
+        "qué fecha es hoy",
+        "a como estamos hoy",
+        "qué día de la semana es",
+        "what time is it?",
+        "what's today's date?",
+        "hoy es martes o miércoles"
+      ],
+      "hard_negatives": [
+        "horarios",
+        "horarios de lunes a viernes",
+        "qué tal tu día"
+      ],
+      "answer": {
+        "short": "No tengo un reloj confiable sin conexión, así que mira la hora y la fecha en tu teléfono. Para saber horarios del parque, consulta la página oficial.",
+        "variants": [
+          "La hora la tomas de tu teléfono. Si preguntas por horarios del parque, dime el sector y lo revisamos."
+        ]
+      },
+      "sources": [
+        {
+          "label": "Texto editorial del asistente; no es comunicación oficial de PNN",
+          "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "related": [
+        "conversation.capabilities_overview",
+        "conversation.off_topic_question"
+      ],
+      "tags": [
+        "hora",
+        "fecha"
+      ]
+    },
+    {
+      "id": "conversation.summary_request",
+      "label": "pedir una respuesta más corta",
+      "kind": "chat",
+      "audience": "visitor",
+      "examples": [
+        "resúmelo",
+        "dime en corto",
+        "muy largo, resúmelo",
+        "sin tanto rollo, al grano",
+        "solo lo importante porfa",
+        "resumen rápido?",
+        "dime lo básico nomás",
+        "puedes ser más breve?",
+        "y en dos líneas?",
+        "no me cuentes todo, solo lo clave",
+        "can you summarize that?",
+        "make it short please",
+        "ya dime rápido lo principal",
+        "resume eso pues"
+      ],
+      "hard_negatives": [
+        "cuéntame más",
+        "explícamelo de nuevo",
+        "háblame en voz alta"
+      ],
+      "answer": {
+        "short": "Claro. Dime el tema en una palabra (acceso, horarios, clima o qué llevar) y te respondo en pocas palabras.",
+        "variants": [
+          "Con gusto. Dime sobre qué tema quieres la versión corta: acceso, horarios, clima o qué llevar."
+        ]
+      },
+      "sources": [
+        {
+          "label": "Texto editorial del asistente; no es comunicación oficial de PNN",
+          "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "related": [
+        "conversation.more_detail_followup",
+        "conversation.repeat_or_unclear"
+      ],
+      "tags": [
+        "resumen",
+        "respuesta corta"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,816 @@
+{
+ "section": "geography",
+ "reviewer": "agent 29 / claude-haiku-5-5",
+ "ops": [
+  {
+   "id": "geography.arenas_crater",
+   "op": "update",
+   "verdict": "revise",
+   "entailment": "n/a",
+   "label_change": "stylistic",
+   "examples": "issues",
+   "temporal": "ok",
+   "refetch": "n/a",
+   "reason": "Añade \"activo\" sin corregir el par documentado con activities.ruiz_summit_closed (que pide restringir esta entrada a rasgos físicos). \"Cráter activo\" sí aparece en el extracto.",
+   "required_change": "Conservar \"cráter Arenas del Ruiz\". Quitar ejemplos nuevos: \"como es el crater Arenas del volcan Ruiz\" | \"dimensiones y profundidad del crater Arenas\"."
+  },
+  {
+   "id": "geography.cordillera_central",
+   "op": "update",
+   "verdict": "revise",
+   "entailment": "n/a",
+   "label_change": "stylistic",
+   "examples": "issues",
+   "temporal": "ok",
+   "refetch": "n/a",
+   "reason": "Reetiqueta sin tratar el par con main_peaks:2 y departments:2.",
+   "required_change": "Conservar la etiqueta anterior. Quitar ejemplos nuevos: \"cordillera Central de los Andes en Los Nevados\"."
+  },
+  {
+   "id": "geography.departments",
+   "op": "update",
+   "verdict": "revise",
+   "entailment": "n/a",
+   "label_change": "stylistic",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "n/a",
+   "reason": "Añade \"cuatro\" sin tratar el par con municipalities:1. Cambio de redacción.",
+   "required_change": "Conservar la etiqueta anterior."
+  },
+  {
+   "id": "geography.four_sectors",
+   "op": "update",
+   "verdict": "revise",
+   "entailment": "n/a",
+   "label_change": "stylistic",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "n/a",
+   "reason": "\"ecoturísticos\" es redacción; no toca los pares documentados.",
+   "required_change": "Conservar la etiqueta anterior."
+  },
+  {
+   "id": "geography.geoheritage",
+   "op": "update",
+   "verdict": "revise",
+   "entailment": "none",
+   "label_change": "stylistic",
+   "examples": "issues",
+   "temporal": "ok",
+   "refetch": "n/a",
+   "reason": "La etiqueta añade \"IUGS\", que no está en la cita del audit (excerpt sobre la declaratoria nacional de 2025). El dato sí aparece en sgc_hoja_ruiz_2024.txt, línea 121, pero la fila cita otro documento.",
+   "required_change": "Conservar \"patrimonio geológico del Ruiz\". Corregir la fila de auditoría para citar sgc_hoja_ruiz_2024.txt (línea 121) antes de cualquier cambio de etiqueta. Quitar ejemplos nuevos: \"que reconocimiento IUGS tiene el Nevado del Ruiz como patrimonio\"."
+  },
+  {
+   "id": "geography.highest_in_park",
+   "op": "update",
+   "verdict": "revise",
+   "entailment": "n/a",
+   "label_change": "stylistic",
+   "examples": "issues",
+   "temporal": "ok",
+   "refetch": "n/a",
+   "reason": "\"de mayor elevación\" repite \"más alta\"; sin par documentado.",
+   "required_change": "Conservar la etiqueta anterior. Quitar ejemplos nuevos: \"cual es el punto mas alto de todo el parque Los Nevados\"."
+  },
+  {
+   "id": "geography.ibague_highlands",
+   "op": "update",
+   "verdict": "revise",
+   "entailment": "n/a",
+   "label_change": "stylistic",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "n/a",
+   "reason": "Añade \"municipio de\"; el par con tolima_volcano:3 no se trata.",
+   "required_change": "Conservar la etiqueta anterior."
+  },
+  {
+   "id": "geography.laguna_otun",
+   "op": "update",
+   "verdict": "revise",
+   "entailment": "n/a",
+   "label_change": "stylistic",
+   "examples": "issues",
+   "temporal": "ok",
+   "refetch": "n/a",
+   "reason": "Quita \"en Risaralda\" de la etiqueta; pierde el dato que la separa de otras lagunas. Sin par documentado.",
+   "required_change": "Conservar \"Laguna del Otún en Risaralda\". Quitar ejemplos nuevos: \"caracteristicas del espejo de agua de la Laguna del Otun\"."
+  },
+  {
+   "id": "geography.laguna_otun_formation",
+   "op": "update",
+   "verdict": "revise",
+   "entailment": "none",
+   "label_change": "justified",
+   "examples": "issues",
+   "temporal": "ok",
+   "refetch": "n/a",
+   "reason": "El par con flora_ecosystems.otun_wetlands_glacial_origin (findings/geography.cross.json) justifica \"origen geológico\". Pero la respuesta (valle glaciar represado por lava del Santa Isabel) no tiene soporte en la cita: el extracto habla de \"otros 17 humedales\".",
+   "required_change": "Citar el pasaje de represamiento por lava y corregir la fila de auditoría. Después aplicar \"origen geológico de la Laguna del Otún\". Quitar ejemplos nuevos: \"como nacio o se creo la Laguna del Otun\"."
+  },
+  {
+   "id": "geography.laguna_verde",
+   "op": "update",
+   "verdict": "revise",
+   "entailment": "partial",
+   "label_change": "stylistic",
+   "examples": "issues",
+   "temporal": "ok",
+   "refetch": "n/a",
+   "reason": "La etiqueta no aplica la corrección documentada en findings/labels.json (\"nombre de Laguna Verde y resto de hielo\") para separarla del sendero de activities.laguna_verde. La respuesta afirma que hay un sendero y el extracto no lo dice.",
+   "required_change": "Adoptar la etiqueta de findings/labels.json o conservar la anterior. Quitar ejemplos nuevos: \"que es la Laguna Verde en el sector del Cisne\" | \"caracteristicas de la Laguna Verde cerca de Santa Isabel\"."
+  },
+  {
+   "id": "geography.main_peaks",
+   "op": "update",
+   "verdict": "revise",
+   "entailment": "n/a",
+   "label_change": "stylistic",
+   "examples": "issues",
+   "temporal": "ok",
+   "refetch": "n/a",
+   "reason": "\"tres\" es redundante; el par con cordillera_central:2 no se trata.",
+   "required_change": "Conservar la etiqueta anterior. Quitar ejemplos nuevos: \"cuales son los tres volcanes nevados del parque\"."
+  },
+  {
+   "id": "geography.manizales_outside",
+   "op": "update",
+   "verdict": "approve",
+   "entailment": "full",
+   "label_change": "justified",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "n/a",
+   "reason": "findings/geography.cross.json documenta el choque con access.from_manizales. \"ciudad de Manizales fuera del parque\" separa la delimitación de la ruta. La lista de diez municipios de la ficha respalda que Manizales no figura.",
+   "required_change": "Ninguno."
+  },
+  {
+   "id": "geography.morro_negro",
+   "op": "update",
+   "verdict": "revise",
+   "entailment": "n/a",
+   "label_change": "stylistic",
+   "examples": "issues",
+   "temporal": "ok",
+   "refetch": "n/a",
+   "reason": "\"Quita la conjunción\"; sin par documentado.",
+   "required_change": "Conservar la etiqueta anterior. Quitar ejemplos nuevos: \"que es Morro Negro en el complejo volcanico del Cisne\" | \"cota y caracteristicas de Morro Negro en Los Nevados\"."
+  },
+  {
+   "id": "geography.municipalities",
+   "op": "update",
+   "verdict": "revise",
+   "entailment": "n/a",
+   "label_change": "stylistic",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "n/a",
+   "reason": "Añade \"oficiales\"; no trata los pares con departments:2 y tolima_municipalities:2.",
+   "required_change": "Conservar la etiqueta anterior."
+  },
+  {
+   "id": "geography.murillo_ruiz",
+   "op": "update",
+   "verdict": "revise",
+   "entailment": "n/a",
+   "label_change": "stylistic",
+   "examples": "issues",
+   "temporal": "ok",
+   "refetch": "n/a",
+   "reason": "Reescribe sin tratar el par con access.murillo_is_north_not_tolima:2.",
+   "required_change": "Conservar la etiqueta anterior. Quitar ejemplos nuevos: \"jurisdiccion de Murillo Tolima en el volcan Ruiz\"."
+  },
+  {
+   "id": "geography.olleta_pirana",
+   "op": "update",
+   "verdict": "revise",
+   "entailment": "none",
+   "label_change": "stylistic",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "n/a",
+   "reason": "\"cráteres adventicios\" introduce un término que no aparece en la respuesta ni en los extractos (búsqueda de \"adventic\" en geography/evidence sin resultados).",
+   "required_change": "Conservar \"volcanes La Olleta y La Piraña\" o usar el texto del extracto (\"cráteres La Olleta y La Piraña\")."
+  },
+  {
+   "id": "geography.paramillo_cisne",
+   "op": "update",
+   "verdict": "revise",
+   "entailment": "n/a",
+   "label_change": "n/a",
+   "examples": "issues",
+   "temporal": "ok",
+   "refetch": "n/a",
+   "reason": "Sólo cambia ejemplos y hard negatives; sin cambio de etiqueta.",
+   "required_change": "Ninguna etiqueta. Quitar ejemplos nuevos: \"a que altura esta el Paramillo del Cisne\"."
+  },
+  {
+   "id": "geography.paramillo_quindio",
+   "op": "update",
+   "verdict": "revise",
+   "entailment": "n/a",
+   "label_change": "stylistic",
+   "examples": "issues",
+   "temporal": "ok",
+   "refetch": "n/a",
+   "reason": "\"altitud y ubicación\" reescribe sin par documentado.",
+   "required_change": "Conservar \"cota del Paramillo del Quindío\". Quitar ejemplos nuevos: \"a cuantos metros esta el Paramillo del Quindio\"."
+  },
+  {
+   "id": "geography.paramillo_santa_rosa",
+   "op": "update",
+   "verdict": "approve",
+   "entailment": "n/a",
+   "label_change": "n/a",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "n/a",
+   "reason": "Sólo ejemplos nuevos, con ruteo propio correcto. La fila de auditoría es parcial (4.602 m y la laguna no están en el extracto); eso es preexistente y no lo cambia esta op.",
+   "required_change": "Ninguno."
+  },
+  {
+   "id": "geography.pereira_santa_rosa",
+   "op": "update",
+   "verdict": "revise",
+   "entailment": "n/a",
+   "label_change": "stylistic",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "n/a",
+   "reason": "Reescribe sin tratar el par con risaralda_share:2.",
+   "required_change": "Conservar la etiqueta anterior."
+  },
+  {
+   "id": "geography.rio_otun",
+   "op": "update",
+   "verdict": "revise",
+   "entailment": "none",
+   "label_change": "stylistic",
+   "examples": "issues",
+   "temporal": "ok",
+   "refetch": "n/a",
+   "reason": "\"vertiente\" añade término sin tratar el par con flora_ecosystems.otun_river_supplies_pereira:2. La respuesta dice que el río nace en la laguna y el extracto sólo menciona la laguna.",
+   "required_change": "Conservar la etiqueta anterior. Citar el origen del río o corregir la respuesta. Quitar ejemplos nuevos: \"el rio Otun nace en la Laguna del Otun verdad\"."
+  },
+  {
+   "id": "geography.ruiz_identity",
+   "op": "update",
+   "verdict": "revise",
+   "entailment": "none",
+   "label_change": "justified",
+   "examples": "issues",
+   "temporal": "ok",
+   "refetch": "n/a",
+   "reason": "Justificada por el reparto de findings/history_culture.cross.json (geografía = edificio volcánico). La respuesta (estratovolcán, límite Caldas-Tolima, casquete glaciar, cráter Arenas) no tiene soporte en la cita del audit.",
+   "required_change": "Citar el pasaje de estratovolcán del Ruiz y corregir la fila de auditoría. Después aplicar \"tipo geológico y naturaleza del Ruiz\". Quitar ejemplos nuevos: \"que clase de volcan es el nevado del ruiz\" | \"el Ruiz es un estratovolcan activo con glaciar\" | \"caracteristicas geologicas del volcan Kumanday\"."
+  },
+  {
+   "id": "geography.ruiz_versus_huila",
+   "op": "update",
+   "verdict": "approve",
+   "entailment": "partial",
+   "label_change": "justified",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "n/a",
+   "reason": "\"altura comparada\" separa esta entrada de ruiz_identity, con 4 confusiones documentadas en el inventario. La cita respalda el Huila (5.364 m), pero el 5.321 m del Ruiz viene de otra fuente.",
+   "required_change": "Ninguno para la etiqueta. Corregir la fila de auditoría para citar el 5.321 m."
+  },
+  {
+   "id": "geography.ruiz_where",
+   "op": "update",
+   "verdict": "revise",
+   "entailment": "n/a",
+   "label_change": "stylistic",
+   "examples": "issues",
+   "temporal": "ok",
+   "refetch": "n/a",
+   "reason": "\"ubicación geográfica\" añade un adjetivo; el par con summit_line:2 no se trata.",
+   "required_change": "Conservar la etiqueta anterior. Quitar ejemplos nuevos: \"en que parte del mapa esta el nevado del ruiz\" | \"coordenadas o ubicacion del volcan Ruiz en el parque\"."
+  },
+  {
+   "id": "geography.salento_quindio",
+   "op": "update",
+   "verdict": "revise",
+   "entailment": "n/a",
+   "label_change": "stylistic",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "n/a",
+   "reason": "Añade \"en el parque\"; sin par documentado.",
+   "required_change": "Conservar la etiqueta anterior."
+  },
+  {
+   "id": "geography.santa_isabel_height",
+   "op": "update",
+   "verdict": "revise",
+   "entailment": "partial",
+   "label_change": "stylistic",
+   "examples": "issues",
+   "temporal": "ok",
+   "refetch": "n/a",
+   "reason": "\"oficiales\" sugiere una sola fuente, pero la respuesta da dos (SGC y IDEAM). Las tres cotas del IDEAM no están en el extracto.",
+   "required_change": "Conservar \"cotas oficiales de Santa Isabel\". Quitar ejemplos nuevos: \"cuales son las cotas del Nevado Santa Isabel segun Ideam\"."
+  },
+  {
+   "id": "geography.sector_brisas_kumanday",
+   "op": "update",
+   "verdict": "revise",
+   "entailment": "n/a",
+   "label_change": "stylistic",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "n/a",
+   "reason": "Añade \"ecoturístico\"; el par con access.brisas_entry_altitude:2 no se trata.",
+   "required_change": "Conservar la etiqueta anterior."
+  },
+  {
+   "id": "geography.sector_cisne_poleka",
+   "op": "update",
+   "verdict": "revise",
+   "entailment": "n/a",
+   "label_change": "stylistic",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "n/a",
+   "reason": "Reescribe sin tratar el par con fauna.spotting_sector_santa_isabel:2.",
+   "required_change": "Conservar la etiqueta anterior."
+  },
+  {
+   "id": "geography.sector_quindio_dulima",
+   "op": "update",
+   "verdict": "revise",
+   "entailment": "n/a",
+   "label_change": "stylistic",
+   "examples": "issues",
+   "temporal": "ok",
+   "refetch": "n/a",
+   "reason": "findings/labels.json propone \"llegadas al sector Quindío–Dulima\" para separarla de services.quindio_dulima:3. El curador usó \"sector ecoturístico sur\", que no separa ese par.",
+   "required_change": "Aplicar la etiqueta de findings/labels.json o conservar la anterior. Quitar ejemplos nuevos: \"que comprende el sector sur Quindio Dulima\"."
+  },
+  {
+   "id": "geography.summit_line",
+   "op": "update",
+   "verdict": "revise",
+   "entailment": "n/a",
+   "label_change": "stylistic",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "n/a",
+   "reason": "Reescribe sin tratar el par con highest_in_park:2.",
+   "required_change": "Conservar la etiqueta anterior."
+  },
+  {
+   "id": "geography.tolima_municipalities",
+   "op": "update",
+   "verdict": "revise",
+   "entailment": "n/a",
+   "label_change": "stylistic",
+   "examples": "issues",
+   "temporal": "ok",
+   "refetch": "n/a",
+   "reason": "Reescribe sin cambiar el par documentado. El cross de findings/geography.cross.json omite Herveo (Tolima), que la respuesta sí cuenta.",
+   "required_change": "Conservar la etiqueta anterior. Quitar ejemplos nuevos: \"cuales son los cinco municipios del Tolima en Los Nevados\"."
+  },
+  {
+   "id": "geography.tolima_volcano",
+   "op": "update",
+   "verdict": "revise",
+   "entailment": "none",
+   "label_change": "justified",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "n/a",
+   "reason": "Justificada por el reparto de history_culture.cross.json (geografía = morfología y cráter). La morfología \"estratovolcán cónico\" está en ideam_glaciar_tolima.txt, pero la fila de auditoría cita otro extracto.",
+   "required_change": "Corregir la fila para citar \"estratovolcán de forma cónica\" y después aplicar \"morfología y cono del Nevado del Tolima\"."
+  },
+  {
+   "id": "geography.ucumari_buffer",
+   "op": "update",
+   "verdict": "revise",
+   "entailment": "n/a",
+   "label_change": "stylistic",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "n/a",
+   "reason": "Añade \"zona amortiguadora\"; el par con rio_campoalegre:3 no se trata.",
+   "required_change": "Conservar la etiqueta anterior."
+  },
+  {
+   "id": "geography.valle_tumbas",
+   "op": "update",
+   "verdict": "revise",
+   "entailment": "n/a",
+   "label_change": "stylistic",
+   "examples": "issues",
+   "temporal": "ok",
+   "refetch": "n/a",
+   "reason": "\"atractivo geográfico\" añade un adjetivo; el par con sector_brisas_kumanday:2 no se trata.",
+   "required_change": "Conservar la etiqueta anterior. Quitar ejemplos nuevos: \"paisaje lunar del Valle de las Tumbas en Brisas\"."
+  },
+  {
+   "id": "geography.villamaria_caldas",
+   "op": "update",
+   "verdict": "revise",
+   "entailment": "n/a",
+   "label_change": "stylistic",
+   "examples": "issues",
+   "temporal": "ok",
+   "refetch": "n/a",
+   "reason": "Reescribe sin tratar el par con manizales_outside:2 (ya tratado por otra vía).",
+   "required_change": "Conservar la etiqueta anterior. Quitar ejemplos nuevos: \"que veredas de Villamaria hacen parte de Los Nevados\"."
+  },
+  {
+   "id": "geography.volcanic_centers",
+   "op": "update",
+   "verdict": "revise",
+   "entailment": "n/a",
+   "label_change": "stylistic",
+   "examples": "issues",
+   "temporal": "ok",
+   "refetch": "n/a",
+   "reason": "\"activas e inactivas\" reescribe sin tratar el par con weather_volcano.current_alert:2.",
+   "required_change": "Conservar la etiqueta anterior. Quitar ejemplos nuevos: \"que estructuras volcanicas componen el complejo de Los Nevados\"."
+  }
+ ],
+ "audit_rows": [
+  {
+   "id": "geography.main_peaks",
+   "claimed": "primary_ok",
+   "support": "partial",
+   "note": "Excerpt sólo dice \"cumbres nevadas de sus tres montañas principales\". Nombres (Kumanday, Poleka Kasue, Dulima), paramillos y La Olleta/La Piraña no están en el extracto."
+  },
+  {
+   "id": "geography.ruiz_identity",
+   "claimed": "primary_ok",
+   "support": "none",
+   "note": "Excerpt es la misma frase de \"tres montañas principales\"; nada sobre estratovolcán, límite Caldas-Tolima, casquete glaciar ni cráter Arenas."
+  },
+  {
+   "id": "geography.ruiz_height",
+   "claimed": "primary_ok",
+   "support": "partial",
+   "note": "Excerpt respalda 5321 m s.n.m. Las concordancias con el boletín del 9-ago-2024 y el IDEAM no están en el extracto."
+  },
+  {
+   "id": "geography.ruiz_where",
+   "claimed": "primary_ok",
+   "support": "partial",
+   "note": "Excerpt respalda sólo la ubicación en el límite Tolima-Caldas. Coordenadas, 28 km a Manizales y 140 km a Bogotá no están en el extracto."
+  },
+  {
+   "id": "geography.arenas_crater",
+   "claimed": "primary_ok",
+   "support": "partial",
+   "note": "Excerpt sólo dice \"cráter activo llamado Arenas\". Las dimensiones 980x900 m y ~300 m (SGC 2020) y 5.321 m no están en ese extracto; la cita apunta a la hoja 2024, no al documento de 2020."
+  },
+  {
+   "id": "geography.park_area",
+   "claimed": "primary_ok",
+   "support": "partial",
+   "note": "Excerpt respalda 61.388,24 ha. Las frases \"otras publicaciones dan una cifra cercana\" y el 61.410 de la detail no están en el extracto."
+  },
+  {
+   "id": "geography.departments",
+   "claimed": "primary_ok",
+   "support": "full",
+   "note": "Excerpt lista Caldas, Quindío, Risaralda y Tolima, que es lo que afirma la respuesta."
+  },
+  {
+   "id": "geography.cordillera_central",
+   "claimed": "primary_ok",
+   "support": "none",
+   "note": "Excerpt trata de 61.410 ha y diez municipios. Cordillera Central, Eje Cafetero, entre Magdalena y Cauca y \"reserva de agua\" no aparecen."
+  },
+  {
+   "id": "geography.andes_occidentales_office",
+   "claimed": "primary_ok",
+   "support": "partial",
+   "note": "Excerpt respalda \"Región Andes Occidentales\". \"La montaña sigue en la cordillera Central, entre el Magdalena y el Cauca\" no está en el extracto."
+  },
+  {
+   "id": "geography.municipalities",
+   "claimed": "primary_ok",
+   "support": "partial",
+   "note": "Excerpt respalda la lista de diez municipios. La afirmación de que la CARDER cuenta 11 municipios y no nombra el undécimo no está en el extracto."
+  },
+  {
+   "id": "geography.manizales_outside",
+   "claimed": "primary_ok",
+   "support": "partial",
+   "note": "Excerpt (lista de diez municipios) respalda que Manizales no figura y que Villamaría sí. La distancia de 28 km al sureste no está en el extracto."
+  },
+  {
+   "id": "geography.park_versus_volcano",
+   "claimed": "primary_ok",
+   "support": "partial",
+   "note": "Excerpt sólo respalda que hay tres montañas principales nevadas. \"Cuatro departamentos\", Santa Isabel/Tolima/Cisne/La Olleta como centros del parque no están en el extracto."
+  },
+  {
+   "id": "geography.four_sectors",
+   "claimed": "primary_ok",
+   "support": "partial",
+   "note": "Excerpt respalda \"cuatro sectores ecoturísticos\" y los cuatro departamentos. Los nombres de los sectores (Brisas-Kumanday, Cisne-Poleka Kasue, Laguna del Otún, Quindío-Dulima) no están en el extracto."
+  },
+  {
+   "id": "geography.sector_brisas_kumanday",
+   "claimed": "primary_ok",
+   "support": "none",
+   "note": "Excerpt es sólo el nombre \"Nevados del Ruiz (Kumanday)\". Centro Brisas a 4.100 m y carreteable a Arenales/Valle del Silencio no aparecen."
+  },
+  {
+   "id": "geography.sector_cisne_poleka",
+   "claimed": "primary_ok",
+   "support": "none",
+   "note": "Excerpt trata de \"cuatro sectores ecoturísticos\" y departamentos. Cisne, Poleka Kasue, El Cisne a 4.100 m, cabañas y sendero no aparecen."
+  },
+  {
+   "id": "geography.sector_quindio_dulima",
+   "claimed": "primary_ok",
+   "support": "none",
+   "note": "Excerpt trata de los cuatro sectores. Nevado del Tolima, llegadas por Salento, Ibagué y Anzoátegui no aparecen."
+  },
+  {
+   "id": "geography.valle_tumbas",
+   "claimed": "primary_ok",
+   "support": "none",
+   "note": "Excerpt es \"a 4100 metros de altitud aproximadamente\" sin sujeto que nombre el valle. Atractivo de Brisas-Kumanday, carreteable y Arenales no aparecen."
+  },
+  {
+   "id": "geography.laguna_otun",
+   "claimed": "primary_ok",
+   "support": "partial",
+   "note": "Excerpt respalda que es la más grande del parque y que la rodean los paramillos del Quindío y Santa Rosa. Pereira/Santa Rosa, entre Santa Isabel y el páramo y humedales Ramsar no están en el extracto."
+  },
+  {
+   "id": "geography.laguna_otun_formation",
+   "claimed": "primary_ok",
+   "support": "none",
+   "note": "Excerpt sólo menciona \"otros 17 humedales de menor tamaño\". Origen glaciar, represamiento por lava del Santa Isabel no aparecen."
+  },
+  {
+   "id": "geography.laguna_verde",
+   "claimed": "primary_ok",
+   "support": "partial",
+   "note": "Excerpt respalda que el IDEAM describe a Laguna Verde como relicto de hielo glaciar. La afirmación de que hay un sendero a la Laguna Verde en el sector Cisne no está en el extracto."
+  },
+  {
+   "id": "geography.laguna_encanto",
+   "claimed": "primary_ok",
+   "support": "partial",
+   "note": "Excerpt respalda vereda Hoyo Frío, 4.000 msnm y base del Tolima. Anzoátegui y que nace el río Totare no están en el extracto."
+  },
+  {
+   "id": "geography.santa_isabel",
+   "claimed": "primary_ok",
+   "support": "partial",
+   "note": "Excerpt respalda que el SGC la sitúa entre Risaralda, Caldas y Tolima. Domos alineados norte-sur, cumbres Norte/Central/Sur y la distinción del IDEAM no están en el extracto."
+  },
+  {
+   "id": "geography.santa_isabel_height",
+   "claimed": "primary_ok",
+   "support": "partial",
+   "note": "Excerpt respalda sólo la cota única de 4.965 m (SGC). Las tres cotas del IDEAM (4.935, 4.923, 4.903) no están en el extracto."
+  },
+  {
+   "id": "geography.tolima_volcano",
+   "claimed": "primary_ok",
+   "support": "none",
+   "note": "Excerpt es \"atractivos ubicados en las inmediaciones del volcán Nevado del Tolima\", sólo mención. Morfología cónica, una cumbre, coordenadas y Ibagué/Anzoátegui no aparecen."
+  },
+  {
+   "id": "geography.tolima_height",
+   "claimed": "primary_ok",
+   "support": "partial",
+   "note": "Excerpt respalda 5.215 m. La concordancia con el IDEAM y el ranking del 9-ago-2024 no están en el extracto."
+  },
+  {
+   "id": "geography.paramillo_quindio",
+   "claimed": "primary_ok",
+   "support": "partial",
+   "note": "Excerpt respalda 4.700 m. La ubicación entre Tolima, Quindío y Risaralda y el rodeo de la Laguna del Otún no están en el extracto."
+  },
+  {
+   "id": "geography.paramillo_cisne",
+   "claimed": "primary_ok",
+   "support": "partial",
+   "note": "Excerpt respalda la ubicación Caldas-Tolima. La cota de 4.700 m (SGC 2024) y 4.600 m (boletín 2023) no están en el extracto."
+  },
+  {
+   "id": "geography.paramillo_santa_rosa",
+   "claimed": "primary_ok",
+   "support": "partial",
+   "note": "Excerpt respalda 4.600 m y Risaralda. El dato de 4.602 m (boletín 2023) y que está junto a la Laguna del Otún no están en el extracto."
+  },
+  {
+   "id": "geography.olleta_pirana",
+   "claimed": "primary_ok",
+   "support": "partial",
+   "note": "Excerpt respalda sólo los nombres \"cráteres La Olleta y La Piraña\". La afirmación de que son volcanes no activos del complejo del Ruiz no está en el extracto."
+  },
+  {
+   "id": "geography.highest_in_park",
+   "claimed": "primary_ok",
+   "support": "partial",
+   "note": "Excerpt respalda 5.321 m del Ruiz. Los 5.215 m del Tolima, las cotas de Santa Isabel del IDEAM y el SGC, y la comparación \"más alta dentro del parque\" no están en el extracto."
+  },
+  {
+   "id": "geography.ruiz_versus_huila",
+   "claimed": "primary_ok",
+   "support": "partial",
+   "note": "Excerpt respalda 5.364 m del Huila. Los 5.321 m del Ruiz y el ranking del 9-ago-2024 no están en ese extracto."
+  },
+  {
+   "id": "geography.watersheds",
+   "claimed": "primary_ok",
+   "support": "partial",
+   "note": "Excerpt respalda que es la reserva de agua de Tolima, Risaralda, Caldas y Quindío. Las cuencas hacia el Cauca y el Magdalena (Otún, Chinchiná, Gualí, Lagunilla, Recio) no están en el extracto."
+  },
+  {
+   "id": "geography.rio_otun",
+   "claimed": "primary_ok",
+   "support": "none",
+   "note": "Excerpt sólo menciona la Laguna del Otún como la más grande del parque. Que el río Otún nace en esa laguna, la cota de 4.000 m (Ramsar 2006) y la cuenca del Cauca no aparecen."
+  },
+  {
+   "id": "geography.rio_chinchina",
+   "claimed": "primary_ok",
+   "support": "partial",
+   "note": "Excerpt respalda que el parque protege las cuencas altas del Chinchiná y el Otún. Río Claro, Río Blanco y el drenaje del hielo del Ruiz hacia el Cauca no están en el extracto."
+  },
+  {
+   "id": "geography.ruiz_age",
+   "claimed": "primary_ok",
+   "support": "partial",
+   "note": "Excerpt respalda 1,8 millones de años para el complejo. Los unos 66 mil años del volcán actual no están en el extracto."
+  },
+  {
+   "id": "geography.volcanic_centers",
+   "claimed": "primary_ok",
+   "support": "partial",
+   "note": "Excerpt respalda que el Ruiz es estratovolcán. El cráter activo Arenas y que La Olleta, La Piraña y Nereidas son no activos no están en el extracto."
+  },
+  {
+   "id": "geography.geoheritage",
+   "claimed": "primary_ok",
+   "support": "none",
+   "note": "Excerpt dice que en 2025 el Ruiz fue declarado Patrimonio Natural de la Nación. La respuesta afirma reconocimiento IUGS desde 2022 como uno de 100 sitios, que no aparece en el extracto; es otra designación."
+  },
+  {
+   "id": "geography.ruiz_faults",
+   "claimed": "primary_ok",
+   "support": "partial",
+   "note": "Excerpt respalda que el Ruiz está en la interacción de varios sistemas de fallas. Las fallas Palestina y Termales-Villamaría no están en el extracto."
+  },
+  {
+   "id": "geography.summit_line",
+   "claimed": "primary_ok",
+   "support": "partial",
+   "note": "Excerpt sólo da las coordenadas del Ruiz (4°53'43''N, 75°19'21''W). La coordenada del Tolima (4°39') y la conclusión \"más al norte\" dependen de otra fuente."
+  },
+  {
+   "id": "geography.risaralda_share",
+   "claimed": "primary_ok",
+   "support": "partial",
+   "note": "Excerpt respalda 35,6 % para Pereira y Santa Rosa de Cabal. La fecha 14-jul-2026 de la CARDER y la Laguna del Otún/cuenca del Campoalegre en Risaralda no están en el extracto."
+  },
+  {
+   "id": "geography.salento_quindio",
+   "claimed": "primary_ok",
+   "support": "partial",
+   "note": "Excerpt (lista de diez municipios) respalda que Salento está en el parque y que Armenia no figura. Vereda Cocora y llegada al sector Quindío-Dulima no están en el extracto."
+  },
+  {
+   "id": "geography.villamaria_caldas",
+   "claimed": "primary_ok",
+   "support": "partial",
+   "note": "Excerpt (lista de diez municipios) respalda Villamaría. Jurisdicción IDEAM del glaciar y veredas El Páramo y Potosí no están en el extracto."
+  },
+  {
+   "id": "geography.tolima_municipalities",
+   "claimed": "primary_ok",
+   "support": "partial",
+   "note": "Excerpt (lista) respalda los municipios. La pertenencia de seis municipios al Tolima no está en el extracto (la lista no tiene departamentos)."
+  },
+  {
+   "id": "geography.pereira_santa_rosa",
+   "claimed": "primary_ok",
+   "support": "partial",
+   "note": "Excerpt (lista) respalda Pereira y Santa Rosa de Cabal. \"Dos municipios de Risaralda\", la Laguna del Otún en la parte alta y el 35,6 % de la CARDER no están en el extracto."
+  },
+  {
+   "id": "geography.ibague_highlands",
+   "claimed": "primary_ok",
+   "support": "partial",
+   "note": "Excerpt (lista) respalda que Ibagué está en el parque. La jurisdicción del IDEAM sobre el glaciar del Tolima, Anzoátegui y la vereda Juntas no están en el extracto."
+  },
+  {
+   "id": "geography.murillo_ruiz",
+   "claimed": "primary_ok",
+   "support": "partial",
+   "note": "Excerpt (lista) respalda que Murillo está en el parque. \"En el Tolima\", la jurisdicción IDEAM del glaciar del Ruiz y la posición en el límite Caldas-Tolima no están en el extracto."
+  },
+  {
+   "id": "geography.ucumari_buffer",
+   "claimed": "primary_ok",
+   "support": "partial",
+   "note": "Excerpt respalda que nombra el PRN Ucumarí y el DCS Campoalegre. Que son zona amortiguadora que conecta con el parque no está en el extracto."
+  },
+  {
+   "id": "geography.tolima_crater",
+   "claimed": "primary_ok",
+   "support": "partial",
+   "note": "Excerpt respalda sólo \"estratovolcán de forma cónica\". Que el Tolima tiene cráter propio, las fumarolas de El Oído y que no es Arenas no están en el extracto."
+  },
+  {
+   "id": "geography.rio_totare",
+   "claimed": "primary_ok",
+   "support": "partial",
+   "note": "Excerpt respalda que la Laguna El Encanto está en la vereda Hoyo Frío a 4.000 msnm. Que el río Totare nace allí y que es de Anzoátegui no están en el extracto."
+  },
+  {
+   "id": "geography.rio_coello",
+   "claimed": "primary_ok",
+   "support": "full",
+   "note": "Excerpt \"Río Coello Coello 0.39 Alto Magdalena\" respalda la zona Alto Magdalena en la tabla del IDEAM para el Tolima."
+  },
+  {
+   "id": "geography.rio_azufrado",
+   "claimed": "primary_ok",
+   "support": "partial",
+   "note": "Excerpt respalda \"la cabecera del río Azufrado\". Que está en la cima del Ruiz, junto al cráter Arenas, y la zona Medio Magdalena no están en el extracto."
+  },
+  {
+   "id": "geography.rio_guali",
+   "claimed": "primary_ok",
+   "support": "full",
+   "note": "Excerpt \"Río Gualí 1.75 Medio Magdalena\" respalda la zona Medio Magdalena en la tabla del IDEAM para el Ruiz."
+  },
+  {
+   "id": "geography.rios_lagunilla_recio",
+   "claimed": "primary_ok",
+   "support": "partial",
+   "note": "Excerpt respalda sólo el río Lagunilla en Alto Magdalena. El río Recio no aparece en el extracto."
+  },
+  {
+   "id": "geography.rio_campoalegre",
+   "claimed": "primary_ok",
+   "support": "partial",
+   "note": "Excerpt respalda que nacen las cuencas altas de Otún y Campoalegre. \"Fuentes de abastecimiento para Risaralda\" y la zona amortiguadora del distrito no están en el extracto."
+  },
+  {
+   "id": "geography.rios_quindio_combeima",
+   "claimed": "primary_ok",
+   "support": "full",
+   "note": "Excerpt respalda que el parque protege las cuencas altas de Otún, Chinchiná, Quindío y Combeima."
+  },
+  {
+   "id": "geography.laguna_corazon",
+   "claimed": "primary_ok",
+   "support": "partial",
+   "note": "Excerpt respalda 3.700 msnm en el camino a Hoyo Frío. \"Predio privado\" y \"no dice que esté dentro del parque\" no están en el extracto."
+  },
+  {
+   "id": "geography.laguna_bombona",
+   "claimed": "primary_ok",
+   "support": "partial",
+   "note": "Excerpt respalda 3.600 msnm en la vereda La Cascada. \"Predio privado\" no está en el extracto."
+  },
+  {
+   "id": "geography.laguna_mellizas",
+   "claimed": "primary_ok",
+   "support": "partial",
+   "note": "Excerpt respalda 3.450 msnm y páramo bajo. \"Complejo de tres lagunas\" y la Laguna Negra no están en el extracto."
+  },
+  {
+   "id": "geography.morro_negro",
+   "claimed": "primary_ok",
+   "support": "partial",
+   "note": "Excerpt respalda que el Volcán Paramillo del Cisne-Morro Negro está entre Caldas y Tolima. La cota de 4.700 m (ranking 2024) y 4.600 m (boletín 2023) no están en el extracto."
+  },
+  {
+   "id": "geography.nereidas",
+   "claimed": "primary_ok",
+   "support": "full",
+   "note": "Excerpt lista La Olleta, La Piraña y Nereidas como volcanes que no están activos. La afirmación \"no hay altura publicada\" no está en el extracto."
+  },
+  {
+   "id": "geography.cerros_monitored",
+   "claimed": "primary_ok",
+   "support": "full",
+   "note": "Excerpt lista Cerro Bravo, Cerro España y Cerro Machín en el segmento norte del SGC. Que el parque no los nombra entre sus cumbres no está en el extracto."
+  }
+ ],
+ "summary": {
+  "approve": 3,
+  "revise": 33,
+  "reject": 0,
+  "audit_support": {
+   "full": 6,
+   "partial": 45,
+   "none": 10
+  }
+ }
+}

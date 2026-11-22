@@ -1,0 +1,720 @@
+{
+  "section": "flora_ecosystems",
+  "reviewer": "agent 28 / claude-haiku-5-5",
+  "ops": [
+    {
+      "id": "flora_ecosystems.superparamo_ecosystem",
+      "op": "update",
+      "verdict": "revise",
+      "entailment": "partial",
+      "label_change": "n/a",
+      "examples": "ok",
+      "temporal": "n/a",
+      "refetch": "ok",
+      "reason": "Cita sustenta solo 'condiciones ambientales extremas'. 'Rocas y cenizas', 'paisaje lunar' y 'organismos adaptados' vienen de la cita de arenales, no de esta.",
+      "required_change": "Quitar esas tres afirmaciones de la respuesta, o añadir a esta op la cita de arenales. last_verified: ver nota común de fecha."
+    },
+    {
+      "id": "flora_ecosystems.high_andean_forest",
+      "op": "update",
+      "verdict": "revise",
+      "entailment": "partial",
+      "label_change": "stylistic",
+      "examples": "ok",
+      "temporal": "n/a",
+      "refetch": "ok",
+      "reason": "'del parque' en la etiqueta es relleno. 'Árbol nacional de Colombia' no está en la cita de high_andean (sí en la de wax_palm).",
+      "required_change": "Conservar 'bosque altoandino y selva de niebla'. Añadir la cita de wax_palm para 'árbol nacional', o quitarlo."
+    },
+    {
+      "id": "flora_ecosystems.arenales_volcanicos_ecosystem",
+      "op": "update",
+      "verdict": "revise",
+      "entailment": "partial",
+      "label_change": "stylistic",
+      "examples": "ok",
+      "temporal": "n/a",
+      "refetch": "ok",
+      "reason": "La etiqueta quita 'superpáramo', que la respuesta sí menciona. 'Recorrido norte, antes del Valle de las Tumbas' no está en la cita.",
+      "required_change": "Conservar 'arenales volcánicos y paisaje lunar superpáramo'. Citar o quitar la ruta."
+    },
+    {
+      "id": "flora_ecosystems.frailejones_overview",
+      "op": "update",
+      "verdict": "approve",
+      "entailment": "full",
+      "label_change": "n/a",
+      "examples": "ok",
+      "temporal": "n/a",
+      "refetch": "ok",
+      "reason": "La cita sustenta que Espeletia hartwegiana es la única especie de frailejón y que está en la mayoría de páramos. El negativo 'subespecie Otún' es coherente.",
+      "required_change": "Ninguno."
+    },
+    {
+      "id": "flora_ecosystems.wax_palm_quindio",
+      "op": "update",
+      "verdict": "revise",
+      "entailment": "partial",
+      "label_change": "n/a",
+      "examples": "ok",
+      "temporal": "n/a",
+      "refetch": "ok",
+      "reason": "La cita sustenta especie y 'árbol nacional'. 'Bosques altoandinos o nublados' no está en esta cita, sí en high_andean_forest.",
+      "required_change": "Añadir la cita de high_andean_forest a este item, o quitar la ubicación."
+    },
+    {
+      "id": "flora_ecosystems.chite_hypericum",
+      "op": "update",
+      "verdict": "revise",
+      "entailment": "full",
+      "label_change": "stylistic",
+      "examples": "ok",
+      "temporal": "n/a",
+      "refetch": "ok",
+      "reason": "'Velillos del género Hypericum' sí está citado. 'Chite' no aparece en la cita ni en el pasaje revisado; la etiqueta nueva lo mantiene y la anterior también lo tiene.",
+      "required_change": "Quitar 'chite' de la etiqueta, o citar una fuente que lo sustente. Sin eso, conservar 'arbustos chite y velillos de montaña' no sostiene el término."
+    },
+    {
+      "id": "flora_ecosystems.romeros_diplostephium",
+      "op": "update",
+      "verdict": "revise",
+      "entailment": "full",
+      "label_change": "stylistic",
+      "examples": "ok",
+      "temporal": "n/a",
+      "refetch": "ok",
+      "reason": "Añade géneros a la etiqueta. La respuesta ya los tiene, y no hay confusión documentada que lo justifique.",
+      "required_change": "Conservar 'romeros de páramo y herbáceas senecio'."
+    },
+    {
+      "id": "flora_ecosystems.cacho_de_venado_loricaria",
+      "op": "update",
+      "verdict": "approve",
+      "entailment": "full",
+      "label_change": "n/a",
+      "examples": "ok",
+      "temporal": "n/a",
+      "refetch": "ok",
+      "reason": "La cita sustenta superpáramo y endemismo colombiano del cacho de venado. El id usa el género antiguo 'loricaria' (la especie es Andicolea colombiana): no afecta el contenido.",
+      "required_change": "Ninguno en la op."
+    },
+    {
+      "id": "flora_ecosystems.pajonales_calamagrostis",
+      "op": "update",
+      "verdict": "revise",
+      "entailment": "full",
+      "label_change": "stylistic",
+      "examples": "ok",
+      "temporal": "n/a",
+      "refetch": "ok",
+      "reason": "La etiqueta añade 'de Calamagrostis', término que la respuesta no usa. Es el caso señalado por el revisor: término ausente de la respuesta.",
+      "required_change": "Conservar 'pajonales y pastizales del páramo'."
+    },
+    {
+      "id": "flora_ecosystems.cojines_plantago_rigida",
+      "op": "update",
+      "verdict": "approve",
+      "entailment": "full",
+      "label_change": "n/a",
+      "examples": "ok",
+      "temporal": "n/a",
+      "refetch": "ok",
+      "reason": "La cita sustenta colchones de agua formados por varias especies y Plantago rigida como la más común.",
+      "required_change": "Ninguno en la op."
+    },
+    {
+      "id": "flora_ecosystems.high_andean_wetlands",
+      "op": "update",
+      "verdict": "revise",
+      "entailment": "partial",
+      "label_change": "stylistic",
+      "examples": "ok",
+      "temporal": "n/a",
+      "refetch": "ok",
+      "reason": "'Del parque' es relleno. La cita sustenta la lista de ecosistemas, pero no 'gran variedad de vida silvestre' ni el complejo del Otún con musgos. labels.json señala la colisión de 'lagunas y turberas' con el mosaico del Otún.",
+      "required_change": "Quitar 'gran variedad de vida silvestre' y la frase del Otún, o citarlas. Conservar la etiqueta anterior."
+    },
+    {
+      "id": "flora_ecosystems.ramsar_otun_wetland_complex",
+      "op": "update",
+      "verdict": "revise",
+      "entailment": "partial",
+      "label_change": "n/a",
+      "examples": "ok",
+      "temporal": "n/a",
+      "refetch": "warn",
+      "reason": "Refetch: la descarga de rsis.ramsar.org/ris/1781 devuelve una página anti-bot ('Checking you are not a bot'), no el texto; el warn queda sin resolver. La cita ramsar-otun-1781.txt no aparece en raw/ramsar-co1781-ris.txt, y el .txt es un extracto escrito a mano de 1,4 KB que dice citar textualmente. 'Vulnerables; conservarlos es prioritario' no tiene cita.",
+      "required_change": "Quitar la cita ramsar-otun-1781.txt del item y mantener la de PNN. Quitar 'son vulnerables: conservarlos es prioritario' o citar el criterio 2 de la RIS sin extrapolarlo. Reintentar el refetch con descarga no bloqueada."
+    },
+    {
+      "id": "flora_ecosystems.cattle_grazing_impact",
+      "op": "update",
+      "verdict": "approve",
+      "entailment": "full",
+      "label_change": "n/a",
+      "examples": "ok",
+      "temporal": "n/a",
+      "refetch": "ok",
+      "reason": "La cita sustenta la amenaza de agricultura y ganadería y la prioridad de conservación de Polylepis sericea (sujeto del párrafo previo).",
+      "required_change": "Ninguno en la op."
+    },
+    {
+      "id": "flora_ecosystems.ecological_restoration_programs",
+      "op": "update",
+      "verdict": "revise",
+      "entailment": "partial",
+      "label_change": "n/a",
+      "examples": "ok",
+      "temporal": "n/a",
+      "refetch": "ok",
+      "reason": "La cita sustenta la declaratoria para conservación, mantenimiento y restauración. 'Planes estratégicos, alianzas institucionales y acuerdos con comunidades' no está en ella.",
+      "required_change": "Quitar esas tres figuras de la respuesta, o citarlas."
+    },
+    {
+      "id": "flora_ecosystems.glaciers_share_of_park",
+      "op": "update",
+      "verdict": "revise",
+      "entailment": "partial",
+      "label_change": "n/a",
+      "examples": "ok",
+      "temporal": "issue",
+      "refetch": "ok",
+      "reason": "La cita sustenta 1,82 % y los tres nevados. 'Su superficie cambia con el deshielo' no está en la cita. La cifra no tiene fecha, aunque el motivo del cambio pide calificarla. Atribuir a la ficha oficial es correcto: la cita es la ficha de PNN.",
+      "required_change": "Quitar 'cambia con el deshielo' o citarlo. Añadir la fecha de la cifra si la ficha la da; si no, escribir 'según la ficha oficial, sin fecha'."
+    },
+    {
+      "id": "flora_ecosystems.espeletia_centroandina_otun",
+      "op": "update",
+      "verdict": "revise",
+      "entailment": "n/a",
+      "label_change": "stylistic",
+      "examples": "ok",
+      "temporal": "n/a",
+      "refetch": "n/a",
+      "reason": "La etiqueta nueva habla de la subespecie centroandina, pero la respuesta trata de la especie Espeletia hartwegiana. La subespecie y su categoría de 2006 sí aparecen en ramsar-co1781-ris.txt, sin citar aquí.",
+      "required_change": "Conservar 'frailejón hartwegiana del páramo', o usar la propuesta de labels.json ('características y categoría del frailejón') y citar la RIS para la subespecie."
+    },
+    {
+      "id": "flora_ecosystems.complex_flora_1036",
+      "op": "update",
+      "verdict": "revise",
+      "entailment": "n/a",
+      "label_change": "stylistic",
+      "examples": "ok",
+      "temporal": "n/a",
+      "refetch": "n/a",
+      "reason": "'Vascular' contradice el dato: la respuesta de briofitos del mismo complejo suma espermatofitos, briofitos y líquenes hasta 100 %. La etiqueta da un dato incorrecto.",
+      "required_change": "Usar 'número de especies de flora del complejo' (labels.json)."
+    },
+    {
+      "id": "flora_ecosystems.complex_endemic_plants",
+      "op": "update",
+      "verdict": "revise",
+      "entailment": "n/a",
+      "label_change": "stylistic",
+      "examples": "ok",
+      "temporal": "n/a",
+      "refetch": "n/a",
+      "reason": "'Exclusivas del complejo' no está en la cita, que dice endémicas (51, de las cuales nueve de Colombia). Añade un alcance sin fuente.",
+      "required_change": "Conservar 'plantas endémicas del complejo'."
+    },
+    {
+      "id": "flora_ecosystems.otun_wetland_mosaic",
+      "op": "update",
+      "verdict": "revise",
+      "entailment": "n/a",
+      "label_change": "stylistic",
+      "examples": "ok",
+      "temporal": "n/a",
+      "refetch": "n/a",
+      "reason": "La colisión con el humedal principal es real (labels.json). 'Altoandinos' solapa con high_andean_wetlands, así que el curador empeora ese cruce. La respuesta además tiene detalles sin cita (ver audit).",
+      "required_change": "Adoptar 'lagunas y pantanos que rodean el Otún' (labels.json)."
+    },
+    {
+      "id": "flora_ecosystems.otun_main_wetland",
+      "op": "update",
+      "verdict": "approve",
+      "entailment": "n/a",
+      "label_change": "justified",
+      "examples": "ok",
+      "temporal": "n/a",
+      "refetch": "n/a",
+      "reason": "La etiqueta nueva separa la laguna del mosaico de humedales. La colisión está en labels.json y en confused_with. La cita sustenta 'humedal más importante'.",
+      "required_change": "Ninguno en esta op. Pendiente en la respuesta: 'el resto son lagunas, pantanos y turberas' sin cita (ver audit)."
+    },
+    {
+      "id": "flora_ecosystems.otun_peatland_plants",
+      "op": "update",
+      "verdict": "revise",
+      "entailment": "n/a",
+      "label_change": "stylistic",
+      "examples": "ok",
+      "temporal": "n/a",
+      "refetch": "n/a",
+      "reason": "'Vegetación vascular' excluye Sphagnum, que la respuesta nombra dentro de las turberas. La etiqueta contradice la respuesta.",
+      "required_change": "Conservar 'turberas vegetales de la laguna Otún'."
+    },
+    {
+      "id": "flora_ecosystems.santa_isabel_projection_three_years",
+      "op": "update",
+      "verdict": "approve",
+      "entailment": "n/a",
+      "label_change": "justified",
+      "examples": "ok",
+      "temporal": "n/a",
+      "refetch": "n/a",
+      "reason": "'Proyección de extinción del glaciar Santa Isabel' describe lo que dice la respuesta y reemplaza 'reciente', término vago que labels.json señala. Separa esta entrada de las demás del Santa Isabel.",
+      "required_change": "Ninguno en la op. En la respuesta, citar 0,16 ± 0,01 km², −44,8 % y 0,29 km² (2022) de la tabla IDEAM; '2028' sin cita (ver audit)."
+    },
+    {
+      "id": "flora_ecosystems.santa_isabel_five_relicts",
+      "op": "update",
+      "verdict": "revise",
+      "entailment": "n/a",
+      "label_change": "stylistic",
+      "examples": "ok",
+      "temporal": "n/a",
+      "refetch": "n/a",
+      "reason": "La etiqueta anterior ya dice lo mismo. 'Fragmentación' es un término nuevo sin cita.",
+      "required_change": "Conservar 'cinco relictos de hielo del Santa Isabel'."
+    },
+    {
+      "id": "flora_ecosystems.santa_isabel_low_altitude_cause",
+      "op": "update",
+      "verdict": "revise",
+      "entailment": "n/a",
+      "label_change": "stylistic",
+      "examples": "ok",
+      "temporal": "n/a",
+      "refetch": "n/a",
+      "reason": "'Causa altimétrica' es jerga y la respuesta no la usa. La causa sí tiene cita en ideam-nevado-santa-isabel.html ('baja altitud... desfavorable', 'escasa precipitación sólida'), que el item no cita.",
+      "required_change": "Conservar 'causa del retroceso rápido del Santa Isabel'. Cambiar la cita del item a ideam-nevado-santa-isabel.html."
+    },
+    {
+      "id": "flora_ecosystems.santa_isabel_retreat_below_4900",
+      "op": "update",
+      "verdict": "revise",
+      "entailment": "n/a",
+      "label_change": "stylistic",
+      "examples": "ok",
+      "temporal": "n/a",
+      "refetch": "n/a",
+      "reason": "'Concentrado' cambia la forma sin cambiar el contenido. La cifra 89,6 % bajo 4.900 m sí está citada.",
+      "required_change": "Conservar 'retroceso del hielo bajo 4900 metros'."
+    },
+    {
+      "id": "flora_ecosystems.glaciers_snow_presence",
+      "op": "update",
+      "verdict": "approve",
+      "entailment": "n/a",
+      "label_change": "n/a",
+      "examples": "ok",
+      "temporal": "n/a",
+      "refetch": "n/a",
+      "reason": "Hard negative 'dónde puedo ver nieve' coherente con la respuesta. labels.json propone 'dónde hay glaciares en el parque': no aplicado y no bloquea esta op.",
+      "required_change": "Ninguno en la op. Corregir la cita del item (audit none): la presencia de glaciares está en la cita de glaciers_share_of_park."
+    }
+  ],
+  "audit_rows": [
+    {
+      "id": "flora_ecosystems.park_ecosystems_overview",
+      "claimed": "primary_ok",
+      "support": "partial",
+      "note": "Excerpt sustenta solo que el páramo es el ecosistema más representativo. La lista de ecosistemas protegidos está en pnn-los-nevados.txt, no en el excerpt."
+    },
+    {
+      "id": "flora_ecosystems.paramo_ecosystem",
+      "claimed": "primary_ok",
+      "support": "partial",
+      "note": "84 % sí. 'Pajonales, turberas, arbustales, pantanos y lagunas' está en la frase siguiente del mismo texto, fuera del excerpt."
+    },
+    {
+      "id": "flora_ecosystems.superparamo_ecosystem",
+      "claimed": "primary_ok",
+      "support": "partial",
+      "note": "Condiciones extremas sí. 'Rocas y cenizas', 'paisaje lunar' y 'organismos adaptados' no están en el excerpt (aparecen en la cita de arenales)."
+    },
+    {
+      "id": "flora_ecosystems.high_andean_forest",
+      "claimed": "primary_ok",
+      "support": "partial",
+      "note": "Palmas de cera y Ceroxylon sí. 'Árbol nacional de Colombia' está en la cita de wax_palm, no aquí."
+    },
+    {
+      "id": "flora_ecosystems.arenales_volcanicos_ecosystem",
+      "claimed": "primary_ok",
+      "support": "partial",
+      "note": "Paisaje lunar, extremófilos, rocas y cenizas sí. 'Recorrido norte antes del Valle de las Tumbas' no está en el excerpt."
+    },
+    {
+      "id": "flora_ecosystems.frailejones_overview",
+      "claimed": "primary_ok",
+      "support": "full",
+      "note": "Única especie de frailejón, presente en la mayoría de páramos."
+    },
+    {
+      "id": "flora_ecosystems.polylepis_sericea_colorado",
+      "claimed": "primary_ok",
+      "support": "partial",
+      "note": "Amenaza y prioridad de conservación sí. 'Crece por encima de 3.000 m' y 'regula el agua' están en el mismo texto, fuera del excerpt."
+    },
+    {
+      "id": "flora_ecosystems.wax_palm_quindio",
+      "claimed": "primary_ok",
+      "support": "partial",
+      "note": "Especie y 'árbol nacional' sí. 'Bosques altoandinos' no está en esta cita (sí en high_andean_forest)."
+    },
+    {
+      "id": "flora_ecosystems.chite_hypericum",
+      "claimed": "primary_ok",
+      "support": "full",
+      "note": "Velillos del género Hypericum sí. 'Chite' no aparece en el pasaje citado (solo en evidence_mapping.md)."
+    },
+    {
+      "id": "flora_ecosystems.romeros_diplostephium",
+      "claimed": "primary_ok",
+      "support": "full",
+      "note": "Romeros (Diplostephium) y herbáceas (Senecio) sí."
+    },
+    {
+      "id": "flora_ecosystems.cacho_de_venado_loricaria",
+      "claimed": "primary_ok",
+      "support": "full",
+      "note": "Superpáramo y endemismo colombiano sí."
+    },
+    {
+      "id": "flora_ecosystems.pajonales_calamagrostis",
+      "claimed": "primary_ok",
+      "support": "full",
+      "note": "Componentes del páramo sí. El género Calamagrostis no aparece en la cita."
+    },
+    {
+      "id": "flora_ecosystems.cojines_plantago_rigida",
+      "claimed": "primary_ok",
+      "support": "full",
+      "note": "Colchones de agua y Plantago rigida sí."
+    },
+    {
+      "id": "flora_ecosystems.high_andean_wetlands",
+      "claimed": "primary_ok",
+      "support": "partial",
+      "note": "Lista de ecosistemas sí. 'Gran variedad de vida silvestre' y el complejo del Otún con musgos no están en el excerpt."
+    },
+    {
+      "id": "flora_ecosystems.ramsar_otun_wetland_complex",
+      "claimed": "primary_ok",
+      "support": "partial",
+      "note": "Designación Ramsar sí. 'Vulnerables' y 'conservar es prioritario' no. La cita ramsar-otun-1781.txt no se encuentra en los bytes RIS (ver refetch)."
+    },
+    {
+      "id": "flora_ecosystems.laguna_del_otun_ecosystem",
+      "claimed": "primary_ok",
+      "support": "none",
+      "note": "La cita trata de cuencas altas y de glaciares. No dice que la laguna esté rodeada de páramo ni de musgos."
+    },
+    {
+      "id": "flora_ecosystems.glaciers_snow_presence",
+      "claimed": "primary_ok",
+      "support": "none",
+      "note": "La cita trata de la reserva hídrica. No sustenta que haya glaciares en Ruiz, Santa Isabel y Tolima; ese dato sí está en la cita del 1,82 % (glaciers_share_of_park)."
+    },
+    {
+      "id": "flora_ecosystems.glacier_retreat_climate_change",
+      "claimed": "primary_ok",
+      "support": "partial",
+      "note": "El Niño extremo en los primeros cuatro meses sí. 'Derretimiento intenso en partes bajas por falta de nieve' no está en el excerpt."
+    },
+    {
+      "id": "flora_ecosystems.cattle_grazing_impact",
+      "claimed": "primary_ok",
+      "support": "full",
+      "note": "Amenaza y prioridad sí; el sujeto sale del párrafo previo."
+    },
+    {
+      "id": "flora_ecosystems.ecological_restoration_programs",
+      "claimed": "primary_ok",
+      "support": "partial",
+      "note": "Conservación, mantenimiento y restauración sí. Planes estratégicos, alianzas y acuerdos con comunidades no."
+    },
+    {
+      "id": "flora_ecosystems.subparamo_ruta_dulima",
+      "claimed": "primary_ok",
+      "support": "partial",
+      "note": "Secuencia subpáramo, páramo y superpáramo sí. 'Desde el bosque altoandino hasta el glaciar' no."
+    },
+    {
+      "id": "flora_ecosystems.ruiz_glacier_measured_2024",
+      "claimed": "primary_ok",
+      "support": "partial",
+      "note": "7,17 ± 0,30 km² y 20 feb 2024 sí. 'Segunda masa glaciar' está en ideam-nevado-ruiz.html, no en la cita."
+    },
+    {
+      "id": "flora_ecosystems.tolima_glacier_measured_2024",
+      "claimed": "primary_ok",
+      "support": "none",
+      "note": "La cita habla del Ruiz (7,17 km²), no del Tolima. La cifra correcta (0,45 ± 0,04 km²; 8,2 %) está en ideam-glaciares-2024.txt. ideam-nevado-tolima.html dice 8,9 %: discrepancia no declarada."
+    },
+    {
+      "id": "flora_ecosystems.conejeras_extinct_march_2024",
+      "claimed": "primary_ok",
+      "support": "none",
+      "note": "La cita da el Santa Isabel (0,16 km²; −44,8 %), no la extinción de Conejeras. El pasaje correcto está en ideam-nevado-santa-isabel.html ('se extinguió por completo entre diciembre de 2023 y febrero de 2024'); la respuesta dice 'a comienzos de 2024'."
+    },
+    {
+      "id": "flora_ecosystems.santa_isabel_projection_three_years",
+      "claimed": "primary_ok",
+      "support": "partial",
+      "note": "Proyección de 3 a 5 años sí. 0,16 ± 0,01 km², −44,8 % y 0,29 km² de 2022 están en la tabla IDEAM, no en la cita. '2028' de la ficha no está verificado."
+    },
+    {
+      "id": "flora_ecosystems.ruiz_ash_insulates_ice",
+      "claimed": "primary_ok",
+      "support": "partial",
+      "note": "88 % de ceniza sí. La capa de más de 5 cm como aislante está en ideam-glaciares-2024.txt, no en la cita."
+    },
+    {
+      "id": "flora_ecosystems.colombia_glacier_area_2024",
+      "claimed": "primary_ok",
+      "support": "none",
+      "note": "La cita es sobre el Ruiz (7,17 km²). 30,83 km² y −6,84 % sí están en ideam-glaciares-2024.txt, no en la cita."
+    },
+    {
+      "id": "flora_ecosystems.romerales_fire_october_2024",
+      "claimed": "primary_ok",
+      "support": "partial",
+      "note": "Fecha y sector sí. Daño a frailejones, siete cueros y romeros no están en la cita."
+    },
+    {
+      "id": "flora_ecosystems.africa_paramo_fire_2026",
+      "claimed": "primary_ok",
+      "support": "none",
+      "note": "La cita es la fecha de publicación (21 sept 2026), no el periodo de 19 y 20 de septiembre. Esos datos sí están en pnn-incendio-africa-2026.html (labores del 19 al 20, más de 20 ha preliminar, 4.200 m). Cambiar la cita."
+    },
+    {
+      "id": "flora_ecosystems.native_species_nurseries",
+      "claimed": "primary_ok",
+      "support": "partial",
+      "note": "Viveros en Torrecitas, Potosí, Laguna del Otún y Brisas sí. 3.850 m y frailejón de crecimiento lento no."
+    },
+    {
+      "id": "flora_ecosystems.otun_peatland_plants",
+      "claimed": "primary_ok",
+      "support": "partial",
+      "note": "Plantago rigida, Distichia y Sphagnum sí. 'Regulan el ciclo del agua' no está en la cita."
+    },
+    {
+      "id": "flora_ecosystems.otun_mosses_and_lichens",
+      "claimed": "primary_ok",
+      "support": "full",
+      "note": "Retención de agua y control del flujo de la cuenca sí."
+    },
+    {
+      "id": "flora_ecosystems.otun_river_supplies_pereira",
+      "claimed": "primary_ok",
+      "support": "partial",
+      "note": "Nacimiento a 4.000 m sí. 'Más de 500 mil personas' está en ramsar-co1781-ris.txt, y la fecha de 17 jul 2006 no está en la cita."
+    },
+    {
+      "id": "flora_ecosystems.coffee_region_water_reserve",
+      "claimed": "primary_ok",
+      "support": "partial",
+      "note": "Reserva de agua de los cuatro departamentos sí. 'Millones de habitantes' y agroindustrias de Magdalena y Cauca no."
+    },
+    {
+      "id": "flora_ecosystems.conservation_target_values",
+      "claimed": "primary_ok",
+      "support": "partial",
+      "note": "Cuencas del Chinchiná y del Otún y glaciares de tres nevados sí. Páramos, humedales y bosques no están en la cita."
+    },
+    {
+      "id": "flora_ecosystems.glacier_melt_feeds_rivers",
+      "claimed": "primary_ok",
+      "support": "partial",
+      "note": "Deshielo que aporta a ríos del área sí. Cauca y Magdalena, y el 84 %, no."
+    },
+    {
+      "id": "flora_ecosystems.glaciers_share_of_park",
+      "claimed": "primary_ok",
+      "support": "full",
+      "note": "1,82 % y los tres nevados-volcanes sí. Refetch de la cita PNN sin aviso."
+    },
+    {
+      "id": "flora_ecosystems.santa_isabel_five_relicts",
+      "claimed": "primary_ok",
+      "support": "partial",
+      "note": "Cinco relictos sí. La fecha 29 feb 2024 no está en la cita."
+    },
+    {
+      "id": "flora_ecosystems.hongo_glacier_split",
+      "claimed": "primary_ok",
+      "support": "partial",
+      "note": "Cambio de rutas a la cima norte sí. La división de El Hongo en feb 2024 y los 5.638 mm no."
+    },
+    {
+      "id": "flora_ecosystems.cuadrado_glacier_extinct",
+      "claimed": "primary_ok",
+      "support": "partial",
+      "note": "Extinción en el primer semestre de 2024 sí. 0,7 ha y 0,2 ha no."
+    },
+    {
+      "id": "flora_ecosystems.santa_isabel_retreat_below_4900",
+      "claimed": "primary_ok",
+      "support": "full",
+      "note": "89,6 % bajo 4.900 m sí (ideam-glaciares-2024.txt)."
+    },
+    {
+      "id": "flora_ecosystems.santa_isabel_low_altitude_cause",
+      "claimed": "primary_ok",
+      "support": "none",
+      "note": "La cita da la localización del retroceso, no la causa. La causa (baja altitud, poca nieve) sí está en ideam-nevado-santa-isabel.html: volver a citar."
+    },
+    {
+      "id": "flora_ecosystems.tolima_front_retreat_67m",
+      "claimed": "primary_ok",
+      "support": "partial",
+      "note": "67 m y Shimmer y Combeima sí. 63 m en Kraus, Totare y Pijao y 4.012 mm no."
+    },
+    {
+      "id": "flora_ecosystems.otun_wetland_mosaic",
+      "claimed": "primary_ok",
+      "support": "partial",
+      "note": "Complejos El Mosquito, Silencio, Leona, Alsacia y Bosque sí. Hypericum lancioides, Pentacalia, Baccharis, Gynoxis y la turbera de la colina no."
+    },
+    {
+      "id": "flora_ecosystems.otun_main_wetland",
+      "claimed": "primary_ok",
+      "support": "partial",
+      "note": "Laguna como humedal más importante sí. 'El resto son lagunas, pantanos y turberas ligados a ella' no."
+    },
+    {
+      "id": "flora_ecosystems.otun_wetlands_glacial_origin",
+      "claimed": "primary_ok",
+      "support": "partial",
+      "note": "Origen glaciar anterior al Holoceno sí. El sistema volcánico Ruiz-Tolima no."
+    },
+    {
+      "id": "flora_ecosystems.otun_pajonal_espeletia",
+      "claimed": "primary_ok",
+      "support": "full",
+      "note": "Comunidad de Calamagrostis efusa, C. recta y Espeletia sí."
+    },
+    {
+      "id": "flora_ecosystems.otun_grazing_fire_degrades",
+      "claimed": "primary_ok",
+      "support": "partial",
+      "note": "La Leona como sector más pastoreado sí. 'Pastoreo y fuego degradan el pajonal' y el daño a las lagunillas no."
+    },
+    {
+      "id": "flora_ecosystems.otun_149_plants",
+      "claimed": "primary_ok",
+      "support": "partial",
+      "note": "149 especies sí. El año 2006 no está en la cita."
+    },
+    {
+      "id": "flora_ecosystems.otun_water_functions",
+      "claimed": "primary_ok",
+      "support": "full",
+      "note": "Captación, retención, recarga y calidad del agua sí."
+    },
+    {
+      "id": "flora_ecosystems.otun_cattle_and_2006_fire",
+      "claimed": "primary_ok",
+      "support": "partial",
+      "note": "3.000 ha del complejo sí. Ganadería extensiva como mayor presión y 'primera semana de julio' no."
+    },
+    {
+      "id": "flora_ecosystems.espeletia_centroandina_otun",
+      "claimed": "primary_ok",
+      "support": "partial",
+      "note": "La especie del parque sí. La subespecie centroandina con preocupación menor (2006) está en ramsar-co1781-ris.txt, no en la cita. La altitud de 2.370–4.500 m no está verificada."
+    },
+    {
+      "id": "flora_ecosystems.otun_paramo_globally_rare",
+      "claimed": "primary_ok",
+      "support": "partial",
+      "note": "Únicos a nivel mundial sí. 'Por eso el humedal se designó' no."
+    },
+    {
+      "id": "flora_ecosystems.paramo_complex_area",
+      "claimed": "primary_ok",
+      "support": "partial",
+      "note": "133.666 ha y 17 municipios sí. Los cuatro departamentos no están en el excerpt."
+    },
+    {
+      "id": "flora_ecosystems.paramo_delimitation_2016",
+      "claimed": "primary_ok",
+      "support": "partial",
+      "note": "133.666,25 ha sí. Fecha del 14 dic 2016, 1.758.665 habitantes y el redondeo de CARDER no."
+    },
+    {
+      "id": "flora_ecosystems.complex_flora_1036",
+      "claimed": "primary_ok",
+      "support": "partial",
+      "note": "1.036 especies, 463 géneros y 197 familias sí. '18 %' y las 321 vasculares de Corpocaldas no."
+    },
+    {
+      "id": "flora_ecosystems.complex_bryophytes_lichens",
+      "claimed": "primary_ok",
+      "support": "partial",
+      "note": "Hepáticas y helechos (8 y 7 %) sí. Espermatofitos 58 %, briofitos 14 % y líquenes 13 % no."
+    },
+    {
+      "id": "flora_ecosystems.complex_endemic_plants",
+      "claimed": "primary_ok",
+      "support": "partial",
+      "note": "51 endémicas y nueve de Colombia sí. La atribución 'Humboldt, 2017' no está en la cita."
+    },
+    {
+      "id": "flora_ecosystems.complex_threatened_plant_count",
+      "claimed": "primary_ok",
+      "support": "partial",
+      "note": "Greigia nubigena en CR sí. Las 19 especies, Diplostephium EN, Podocarpus y las 22 orquídeas CITES no."
+    },
+    {
+      "id": "flora_ecosystems.puya_ochroleuca_endangered",
+      "claimed": "primary_ok",
+      "support": "full",
+      "note": "Puya ochroleuca EN y nombre común bromelia sí."
+    },
+    {
+      "id": "flora_ecosystems.wax_palm_threat_table",
+      "claimed": "primary_ok",
+      "support": "partial",
+      "note": "Categorías EN, VU y EN sí. La atribución (libros rojos, UICN, resolución de 2017) no está en la cita."
+    },
+    {
+      "id": "flora_ecosystems.forest_subparamo_transition",
+      "claimed": "primary_ok",
+      "support": "partial",
+      "note": "Hypericum lancioides y laricifolium sí. Arbustos de menos de 5 m, árboles de 5 a 10 m y 'subida al Tolima' no."
+    },
+    {
+      "id": "flora_ecosystems.forest_paramo_water_link",
+      "claimed": "primary_ok",
+      "support": "partial",
+      "note": "Relación estrecha entre páramo y bosque sí. 'La regulación hídrica depende de la conexión' no."
+    },
+    {
+      "id": "flora_ecosystems.sparse_plants_near_snow",
+      "claimed": "primary_ok",
+      "support": "full",
+      "note": "Frailejones aislados, pajonales, musgos y arbustos cerca de 4.200 m sí."
+    },
+    {
+      "id": "flora_ecosystems.glacial_hollow_lagoons",
+      "claimed": "primary_ok",
+      "support": "partial",
+      "note": "Origen glaciar, materia orgánica y lagunas sí. 'Al noroccidente del Tolima' no está en la cita."
+    }
+  ],
+  "summary": {
+    "approve": 7,
+    "revise": 19,
+    "reject": 0,
+    "audit_support": {
+      "full": 14,
+      "partial": 44,
+      "none": 7
+    }
+  }
+}

@@ -1,0 +1,2822 @@
+{
+ "proposal": "research_notes/curation_v2/proposals/access.v2.json",
+ "ops": {
+  "add": 0,
+  "update": 32,
+  "delete": 0
+ },
+ "touched_examples": 498,
+ "touched_loo_top1": 0.2952,
+ "touched_confusions": [
+  {
+   "id": "access.cedral_walk_distances",
+   "example": "cuántos km a pie desde el cedral",
+   "rank": 2,
+   "top1": "hours_status.cedral_otun_hiking_schedule",
+   "top1_cos": 0.9263,
+   "own_cos": 0.9255
+  },
+  {
+   "id": "access.cedral_walk_distances",
+   "example": "7,5 km hasta el límite",
+   "rank": 12,
+   "top1": "access.from_salento_cocora",
+   "top1_cos": 0.9316,
+   "own_cos": 0.8884
+  },
+  {
+   "id": "access.cedral_walk_distances",
+   "example": "18 km a la laguna del otun",
+   "rank": 25,
+   "top1": "activities.sector_laguna_otun",
+   "top1_cos": 0.9319,
+   "own_cos": 0.8927
+  },
+  {
+   "id": "access.cedral_walk_distances",
+   "example": "la caminata sale de pereira o del cedral",
+   "rank": 7,
+   "top1": "access.otun_via_potosi",
+   "top1_cos": 0.909,
+   "own_cos": 0.8908
+  },
+  {
+   "id": "access.cedral_walk_distances",
+   "example": "how many kilometers is the footpath from El Cedral to Laguna del Otún",
+   "rank": 2,
+   "top1": "activities.otun_cedral_walk",
+   "top1_cos": 0.9041,
+   "own_cos": 0.8983
+  },
+  {
+   "id": "access.cedral_walk_distances",
+   "example": "is 7.5 km the whole way to Otún",
+   "rank": 7,
+   "top1": "access.otun_via_potosi",
+   "top1_cos": 0.9019,
+   "own_cos": 0.8765
+  },
+  {
+   "id": "access.cedral_walk_distances",
+   "example": "del cedral al limite y de ahi a la laguna",
+   "rank": 19,
+   "top1": "activities.otun_cedral_walk",
+   "top1_cos": 0.9159,
+   "own_cos": 0.8927
+  },
+  {
+   "id": "access.cedral_walk_distances",
+   "example": "esos kilometros se hacen caminando o en carro",
+   "rank": 23,
+   "top1": "activities.vehicle_or_on_foot",
+   "top1_cos": 0.9109,
+   "own_cos": 0.8693
+  },
+  {
+   "id": "access.cedral_walk_distances",
+   "example": "¿esas distancias son aproximadas o exactas?",
+   "rank": 75,
+   "top1": "history_culture.founding_approximate_area",
+   "top1_cos": 0.8969,
+   "own_cos": 0.8615
+  },
+  {
+   "id": "access.cedral_walk_distances",
+   "example": "¿los 18 km son desde El Cedral o desde Pereira?",
+   "rank": 2,
+   "top1": "access.from_pereira_cedral",
+   "top1_cos": 0.9294,
+   "own_cos": 0.8816
+  },
+  {
+   "id": "access.cedral_walk_distances",
+   "example": "cuanto me demoro a pie del cedral a la laguna",
+   "rank": 2,
+   "top1": "access.no_official_travel_time",
+   "top1_cos": 0.9091,
+   "own_cos": 0.9084
+  },
+  {
+   "id": "access.cedral_walk_distances",
+   "example": "distancia exacta a pie hasta la laguna del otun",
+   "rank": 3,
+   "top1": "flora_ecosystems.laguna_del_otun_ecosystem",
+   "top1_cos": 0.9475,
+   "own_cos": 0.9405
+  },
+  {
+   "id": "access.cedral_walk_distances",
+   "example": "hiking distance in kilometers from El Cedral trailhead",
+   "rank": 2,
+   "top1": "activities.otun_cedral_walk",
+   "top1_cos": 0.9231,
+   "own_cos": 0.8983
+  },
+  {
+   "id": "access.operator_transport_other",
+   "example": "fuera de brisas quien consigue el carro, el operador de ese sector?",
+   "rank": 4,
+   "top1": "activities.north_route_stops",
+   "top1_cos": 0.8789,
+   "own_cos": 0.8674
+  },
+  {
+   "id": "access.operator_transport_other",
+   "example": "cocora no es uton",
+   "rank": 5,
+   "top1": "access.road_visit_or_trail",
+   "top1_cos": 0.9198,
+   "own_cos": 0.8783
+  },
+  {
+   "id": "access.operator_transport_other",
+   "example": "operador registrado del sector",
+   "rank": 2,
+   "top1": "booking_fees.registered_operator_choice",
+   "top1_cos": 0.9181,
+   "own_cos": 0.8972
+  },
+  {
+   "id": "access.operator_transport_other",
+   "example": "el cedral con que agencia",
+   "rank": 15,
+   "top1": "access.cedral_and_bosque_names",
+   "top1_cos": 0.8832,
+   "own_cos": 0.8456
+  },
+  {
+   "id": "access.operator_transport_other",
+   "example": "¿con quién toca coordinar Juntas o Palomar?",
+   "rank": 3,
+   "top1": "access.from_ibague_choose",
+   "top1_cos": 0.896,
+   "own_cos": 0.8759
+  },
+  {
+   "id": "access.operator_transport_other",
+   "example": "who arranges transport outside Brisas",
+   "rank": 50,
+   "top1": "access.uton_brisas_transport",
+   "top1_cos": 0.9418,
+   "own_cos": 0.8436
+  },
+  {
+   "id": "access.operator_transport_other",
+   "example": "is UTON the operator for Cocora",
+   "rank": 3,
+   "top1": "access.uton_brisas_transport",
+   "top1_cos": 0.905,
+   "own_cos": 0.8783
+  },
+  {
+   "id": "access.operator_transport_other",
+   "example": "en el cisne la uton no cubre el transporte",
+   "rank": 11,
+   "top1": "access.el_cisne_approach",
+   "top1_cos": 0.8907,
+   "own_cos": 0.8765
+  },
+  {
+   "id": "access.operator_transport_other",
+   "example": "lo gestiono yo o con un operador de ese ingreso",
+   "rank": 67,
+   "top1": "booking_fees.reservation_by_operator",
+   "top1_cos": 0.9218,
+   "own_cos": 0.8715
+  },
+  {
+   "id": "access.operator_transport_other",
+   "example": "cada sector tiene su gente",
+   "rank": 17,
+   "top1": "access.santa_isabel_town_vs_sector",
+   "top1_cos": 0.8881,
+   "own_cos": 0.8626
+  },
+  {
+   "id": "access.operator_transport_other",
+   "example": "¿el carro de Brisas me sirve pa' el sur?",
+   "rank": 49,
+   "top1": "activities.north_route_stops",
+   "top1_cos": 0.9219,
+   "own_cos": 0.8655
+  },
+  {
+   "id": "access.operator_transport_other",
+   "example": "cada puerta tiene su propia agencia de transporte",
+   "rank": 2,
+   "top1": "access.how_to_choose_sector",
+   "top1_cos": 0.863,
+   "own_cos": 0.8626
+  },
+  {
+   "id": "access.operator_transport_other",
+   "example": "cómo contrato transporte si voy a entrar por Cocora",
+   "rank": 23,
+   "top1": "activities.sector_tolima",
+   "top1_cos": 0.9013,
+   "own_cos": 0.8526
+  },
+  {
+   "id": "access.operator_transport_other",
+   "example": "agencia para transporte hacia Potosí o El Cisne",
+   "rank": 48,
+   "top1": "access.choose_otun_trailhead",
+   "top1_cos": 0.916,
+   "own_cos": 0.8765
+  },
+  {
+   "id": "access.operator_transport_other",
+   "example": "quien me lleva a juntas o palomar en carro",
+   "rank": 3,
+   "top1": "access.three_south_paths",
+   "top1_cos": 0.8976,
+   "own_cos": 0.8759
+  },
+  {
+   "id": "access.operator_transport_other",
+   "example": "transportation operator for southern park sectors",
+   "rank": 3,
+   "top1": "access.no_park_shuttle",
+   "top1_cos": 0.851,
+   "own_cos": 0.8333
+  },
+  {
+   "id": "access.control_coordinates",
+   "example": "¿me pasas el GPS del control?",
+   "rank": 5,
+   "top1": "conversation.location_map_request",
+   "top1_cos": 0.9266,
+   "own_cos": 0.8904
+  },
+  {
+   "id": "access.control_coordinates",
+   "example": "latitud de brisas",
+   "rank": 64,
+   "top1": "access.brisas_entry_altitude",
+   "top1_cos": 0.9392,
+   "own_cos": 0.8605
+  },
+  {
+   "id": "access.control_coordinates",
+   "example": "¿coordenadas de Potosí pa' meter en el GPS?",
+   "rank": 5,
+   "top1": "access.potosi_control",
+   "top1_cos": 0.9001,
+   "own_cos": 0.8904
+  },
+  {
+   "id": "access.control_coordinates",
+   "example": "¿en grados, dónde queda el punto de Cocora?",
+   "rank": 26,
+   "top1": "services.quindio_dulima",
+   "top1_cos": 0.8989,
+   "own_cos": 0.8185
+  },
+  {
+   "id": "access.control_coordinates",
+   "example": "are the 2023 coordinates still the gate",
+   "rank": 2,
+   "top1": "access.cocora_registration",
+   "top1_cos": 0.8792,
+   "own_cos": 0.8614
+  },
+  {
+   "id": "access.control_coordinates",
+   "example": "¿La Punta tiene coordenada?",
+   "rank": 2,
+   "top1": "access.la_punta_control",
+   "top1_cos": 0.8932,
+   "own_cos": 0.8473
+  },
+  {
+   "id": "access.control_coordinates",
+   "example": "esas coordenadas de diciembre de 2023 todavia sirven",
+   "rank": 9,
+   "top1": "geography.arenas_crater",
+   "top1_cos": 0.8776,
+   "own_cos": 0.8614
+  },
+  {
+   "id": "access.control_coordinates",
+   "example": "dime brisas potosi cocora o la punta",
+   "rank": 534,
+   "top1": "access.from_pereira_choose",
+   "top1_cos": 0.9004,
+   "own_cos": 0.8353
+  },
+  {
+   "id": "access.control_coordinates",
+   "example": "el punto viejo de registro todavia me sirve",
+   "rank": 22,
+   "top1": "weather_volcano.bulletin_kinds",
+   "top1_cos": 0.8918,
+   "own_cos": 0.8564
+  },
+  {
+   "id": "access.control_coordinates",
+   "example": "no las uses como el mostrador de hoy",
+   "rank": 273,
+   "top1": "weather_volcano.ovsm_role",
+   "top1_cos": 0.9026,
+   "own_cos": 0.8411
+  },
+  {
+   "id": "access.departments_of_access",
+   "example": "el parque se entra por caldas",
+   "rank": 15,
+   "top1": "geography.salento_quindio",
+   "top1_cos": 0.9002,
+   "own_cos": 0.8876
+  },
+  {
+   "id": "access.departments_of_access",
+   "example": "en Risaralda sí se puede entrar por algún lado?",
+   "rank": 9,
+   "top1": "access.santa_rosa_vs_cedral",
+   "top1_cos": 0.9156,
+   "own_cos": 0.8466
+  },
+  {
+   "id": "access.departments_of_access",
+   "example": "por cual departamento se entra a brisas, al cisne, al otun y al sur?",
+   "rank": 9,
+   "top1": "hours_status.general_opening_schedule",
+   "top1_cos": 0.8856,
+   "own_cos": 0.8626
+  },
+  {
+   "id": "access.departments_of_access",
+   "example": "desde el tolima por donde subo",
+   "rank": 16,
+   "top1": "activities.tolima_closed_routes",
+   "top1_cos": 0.9241,
+   "own_cos": 0.8906
+  },
+  {
+   "id": "access.departments_of_access",
+   "example": "can I enter from Quindío and from Tolima",
+   "rank": 5,
+   "top1": "access.gateway_towns",
+   "top1_cos": 0.8877,
+   "own_cos": 0.865
+  },
+  {
+   "id": "access.departments_of_access",
+   "example": "caldas y tolima tienen entradas distintas",
+   "rank": 6,
+   "top1": "weather_volcano.rain_by_department",
+   "top1_cos": 0.9203,
+   "own_cos": 0.8681
+  },
+  {
+   "id": "access.departments_of_access",
+   "example": "santa rosa es risaralda, esa vía sirve",
+   "rank": 107,
+   "top1": "activities.paramillo_trails_announced",
+   "top1_cos": 0.8908,
+   "own_cos": 0.848
+  },
+  {
+   "id": "access.departments_of_access",
+   "example": "salento queda en el quindio, ahi empiezo",
+   "rank": 201,
+   "top1": "geography.salento_quindio",
+   "top1_cos": 0.9079,
+   "own_cos": 0.8424
+  },
+  {
+   "id": "access.departments_of_access",
+   "example": "murillo es tolima pero no se si es el sur",
+   "rank": 38,
+   "top1": "access.murillo_is_north_not_tolima",
+   "top1_cos": 0.9276,
+   "own_cos": 0.858
+  },
+  {
+   "id": "access.departments_of_access",
+   "example": "pa' salir desde el Tolima, ¿qué puerta me toca?",
+   "rank": 13,
+   "top1": "access.from_pereira_choose",
+   "top1_cos": 0.9214,
+   "own_cos": 0.8959
+  },
+  {
+   "id": "access.departments_of_access",
+   "example": "por cuáles cuatro departamentos se entra a Los Nevados",
+   "rank": 2,
+   "top1": "geography.departments",
+   "top1_cos": 0.9171,
+   "own_cos": 0.9128
+  },
+  {
+   "id": "access.departments_of_access",
+   "example": "entradas al parque por Caldas Risaralda Quindío o Tolima",
+   "rank": 31,
+   "top1": "geography.departments",
+   "top1_cos": 0.9502,
+   "own_cos": 0.8876
+  },
+  {
+   "id": "access.departments_of_access",
+   "example": "cuales departamentos tienen carretera al nevado",
+   "rank": 3,
+   "top1": "flora_ecosystems.coffee_region_water_reserve",
+   "top1_cos": 0.9228,
+   "own_cos": 0.8942
+  },
+  {
+   "id": "access.always_by_land",
+   "example": "se puede volar hasta cerca del nevado?",
+   "rank": 18,
+   "top1": "hours_status.park_open_today",
+   "top1_cos": 0.918,
+   "own_cos": 0.8829
+  },
+  {
+   "id": "access.always_by_land",
+   "example": "hay vuelo hasta la portería",
+   "rank": 11,
+   "top1": "access.taxi_not_published",
+   "top1_cos": 0.9309,
+   "own_cos": 0.8773
+  },
+  {
+   "id": "access.always_by_land",
+   "example": "hay pista en brisas",
+   "rank": 103,
+   "top1": "services.brisas_lodging",
+   "top1_cos": 0.9111,
+   "own_cos": 0.8538
+  },
+  {
+   "id": "access.always_by_land",
+   "example": "¿hay helicóptero pa' subir al valle?",
+   "rank": 11,
+   "top1": "access.no_motorcycles",
+   "top1_cos": 0.9087,
+   "own_cos": 0.8737
+  },
+  {
+   "id": "access.always_by_land",
+   "example": "can I fly directly to the gate",
+   "rank": 13,
+   "top1": "access.no_official_travel_time",
+   "top1_cos": 0.8957,
+   "own_cos": 0.8299
+  },
+  {
+   "id": "access.always_by_land",
+   "example": "is there an airstrip at Los Nevados",
+   "rank": 161,
+   "top1": "weather_volcano.snow_and_hail",
+   "top1_cos": 0.8935,
+   "own_cos": 0.8174
+  },
+  {
+   "id": "access.always_by_land",
+   "example": "dejo el avión en manizales y sigo por carretera",
+   "rank": 18,
+   "top1": "access.from_bogota",
+   "top1_cos": 0.9217,
+   "own_cos": 0.8823
+  },
+  {
+   "id": "access.always_by_land",
+   "example": "como se llega si no hay aeropuerto adentro",
+   "rank": 14,
+   "top1": "access.how_to_choose_sector",
+   "top1_cos": 0.8814,
+   "own_cos": 0.8665
+  },
+  {
+   "id": "access.always_by_land",
+   "example": "avioneta pa' entrar al nevado, ¿sirve?",
+   "rank": 29,
+   "top1": "preparation.technical_glacier_gear",
+   "top1_cos": 0.914,
+   "own_cos": 0.8827
+  },
+  {
+   "id": "access.esperanza_murillo_corridor",
+   "example": "qué es el corredor la esperanza murillo",
+   "rank": 3,
+   "top1": "access.from_murillo",
+   "top1_cos": 0.943,
+   "own_cos": 0.9169
+  },
+  {
+   "id": "access.esperanza_murillo_corridor",
+   "example": "la esperanza es la portería o solo el parador",
+   "rank": 24,
+   "top1": "access.bus_to_letras",
+   "top1_cos": 0.8934,
+   "own_cos": 0.8479
+  },
+  {
+   "id": "access.esperanza_murillo_corridor",
+   "example": "el ocho queda sobre la vía a bogotá",
+   "rank": 34,
+   "top1": "access.ignore_single_kilometer",
+   "top1_cos": 0.9206,
+   "own_cos": 0.8448
+  },
+  {
+   "id": "access.esperanza_murillo_corridor",
+   "example": "por ese corredor se llega a brisas",
+   "rank": 14,
+   "top1": "access.bus_or_van_entry",
+   "top1_cos": 0.9222,
+   "own_cos": 0.9035
+  },
+  {
+   "id": "access.esperanza_murillo_corridor",
+   "example": "sirve viniendo de manizales y tambien de murillo",
+   "rank": 17,
+   "top1": "access.gateway_towns",
+   "top1_cos": 0.9115,
+   "own_cos": 0.8692
+  },
+  {
+   "id": "access.esperanza_murillo_corridor",
+   "example": "do I enter the park at the La Esperanza stop",
+   "rank": 17,
+   "top1": "geography.laguna_corazon",
+   "top1_cos": 0.8726,
+   "own_cos": 0.8493
+  },
+  {
+   "id": "access.esperanza_murillo_corridor",
+   "example": "¿después del parador pa' dónde sigo?",
+   "rank": 288,
+   "top1": "activities.published_trails",
+   "top1_cos": 0.8912,
+   "own_cos": 0.8441
+  },
+  {
+   "id": "access.esperanza_murillo_corridor",
+   "example": "cómo se llama la vía pa' Brisas?",
+   "rank": 20,
+   "top1": "hours_status.road_closure_status",
+   "top1_cos": 0.9339,
+   "own_cos": 0.8755
+  },
+  {
+   "id": "access.esperanza_murillo_corridor",
+   "example": "no me quiero bajar en el restaurante de la esperanza",
+   "rank": 8,
+   "top1": "access.la_enea_alternate",
+   "top1_cos": 0.8745,
+   "own_cos": 0.8524
+  },
+  {
+   "id": "access.esperanza_murillo_corridor",
+   "example": "via esperanza murillo hasta el centro de visitantes",
+   "rank": 3,
+   "top1": "access.from_murillo",
+   "top1_cos": 0.9186,
+   "own_cos": 0.9075
+  },
+  {
+   "id": "access.esperanza_murillo_corridor",
+   "example": "El Ocho y La Esperanza son el mismo sitio o no?",
+   "rank": 4,
+   "top1": "access.ignore_single_kilometer",
+   "top1_cos": 0.8785,
+   "own_cos": 0.835
+  },
+  {
+   "id": "access.esperanza_murillo_corridor",
+   "example": "carretera entre La Esperanza y Murillo para entrar a Brisas",
+   "rank": 2,
+   "top1": "access.from_murillo",
+   "top1_cos": 0.9418,
+   "own_cos": 0.9163
+  },
+  {
+   "id": "access.esperanza_murillo_corridor",
+   "example": "ese corredor conecta caldas con tolima",
+   "rank": 9,
+   "top1": "flora_ecosystems.forest_subparamo_transition",
+   "top1_cos": 0.9129,
+   "own_cos": 0.8934
+  },
+  {
+   "id": "access.brisas_visitor_center",
+   "example": "centro de inducción y centro de visitantes es el mismo",
+   "rank": 7,
+   "top1": "booking_fees.induction_requirement",
+   "top1_cos": 0.9151,
+   "own_cos": 0.876
+  },
+  {
+   "id": "access.brisas_visitor_center",
+   "example": "pa' Kumanday también es Brisas, ¿no?",
+   "rank": 176,
+   "top1": "access.from_salento_cocora",
+   "top1_cos": 0.9337,
+   "own_cos": 0.8543
+  },
+  {
+   "id": "access.brisas_visitor_center",
+   "example": "¿cómo le dicen a la caseta del norte?",
+   "rank": 15,
+   "top1": "activities.conejeras_hut",
+   "top1_cos": 0.866,
+   "own_cos": 0.8268
+  },
+  {
+   "id": "access.brisas_visitor_center",
+   "example": "where is the Brisas visitor center",
+   "rank": 2,
+   "top1": "services.brisas_visitor_center",
+   "top1_cos": 0.9247,
+   "own_cos": 0.9147
+  },
+  {
+   "id": "access.brisas_visitor_center",
+   "example": "is Brisas the north gate",
+   "rank": 2,
+   "top1": "access.brisas_entry_altitude",
+   "top1_cos": 0.9213,
+   "own_cos": 0.8956
+  },
+  {
+   "id": "access.brisas_visitor_center",
+   "example": "¿de Brisas sale el carro pal valle?",
+   "rank": 81,
+   "top1": "access.brisas_tumbas_drive",
+   "top1_cos": 0.9241,
+   "own_cos": 0.839
+  },
+  {
+   "id": "access.brisas_visitor_center",
+   "example": "no queda en letras ni en murillo",
+   "rank": 410,
+   "top1": "weather_volcano.do_not_approach",
+   "top1_cos": 0.917,
+   "own_cos": 0.8516
+  },
+  {
+   "id": "access.brisas_visitor_center",
+   "example": "brisas sobre el corredor esperanza murillo",
+   "rank": 57,
+   "top1": "access.esperanza_murillo_corridor",
+   "top1_cos": 0.9311,
+   "own_cos": 0.8505
+  },
+  {
+   "id": "access.brisas_visitor_center",
+   "example": "registro del norte en que centro",
+   "rank": 86,
+   "top1": "booking_fees.brisas_booking_channel",
+   "top1_cos": 0.8935,
+   "own_cos": 0.8312
+  },
+  {
+   "id": "access.brisas_visitor_center",
+   "example": "valle del silencio sale de ese centro",
+   "rank": 91,
+   "top1": "geography.valle_tumbas",
+   "top1_cos": 0.9031,
+   "own_cos": 0.845
+  },
+  {
+   "id": "access.brisas_visitor_center",
+   "example": "llegada al centro de inducción brisas en carro",
+   "rank": 11,
+   "top1": "access.own_car_brisas",
+   "top1_cos": 0.9449,
+   "own_cos": 0.8828
+  },
+  {
+   "id": "access.tumbas_end_altitude",
+   "example": "a qué altura termina el carro",
+   "rank": 2,
+   "top1": "access.where_road_ends",
+   "top1_cos": 0.9204,
+   "own_cos": 0.9085
+  },
+  {
+   "id": "access.tumbas_end_altitude",
+   "example": "cota del valle de las tumbas",
+   "rank": 3,
+   "top1": "geography.valle_tumbas",
+   "top1_cos": 0.923,
+   "own_cos": 0.9114
+  },
+  {
+   "id": "access.tumbas_end_altitude",
+   "example": "¿el carro sube hasta la cima del valle?",
+   "rank": 12,
+   "top1": "access.parking_at_brisas",
+   "top1_cos": 0.9142,
+   "own_cos": 0.8766
+  },
+  {
+   "id": "access.tumbas_end_altitude",
+   "example": "cuantos metros hay en tumbas",
+   "rank": 2,
+   "top1": "booking_fees.brisas_daily_capacity",
+   "top1_cos": 0.8981,
+   "own_cos": 0.877
+  },
+  {
+   "id": "access.tumbas_end_altitude",
+   "example": "la nieve empieza donde para el vehículo",
+   "rank": 59,
+   "top1": "activities.snow_and_glacier_access",
+   "top1_cos": 0.9032,
+   "own_cos": 0.8615
+  },
+  {
+   "id": "access.tumbas_end_altitude",
+   "example": "how high is the end of the Brisas road",
+   "rank": 25,
+   "top1": "access.tumbas_and_silencio_same_road",
+   "top1_cos": 0.9499,
+   "own_cos": 0.8563
+  },
+  {
+   "id": "access.tumbas_end_altitude",
+   "example": "does the car reach the snow line",
+   "rank": 2,
+   "top1": "access.where_road_ends",
+   "top1_cos": 0.8654,
+   "own_cos": 0.8566
+  },
+  {
+   "id": "access.tumbas_end_altitude",
+   "example": "altura del valle, no de brisas",
+   "rank": 2,
+   "top1": "access.brisas_entry_altitude",
+   "top1_cos": 0.9369,
+   "own_cos": 0.8912
+  },
+  {
+   "id": "access.tumbas_end_altitude",
+   "example": "me dieron dos cotas distintas del valle",
+   "rank": 267,
+   "top1": "activities.horseback_not_allowed",
+   "top1_cos": 0.9187,
+   "own_cos": 0.8595
+  },
+  {
+   "id": "access.tumbas_end_altitude",
+   "example": "4.400 o 4.450, cual uso",
+   "rank": 315,
+   "top1": "geography.santa_isabel_height",
+   "top1_cos": 0.9089,
+   "own_cos": 0.8341
+  },
+  {
+   "id": "access.tumbas_end_altitude",
+   "example": "no quiero confundir la porteria con el final",
+   "rank": 159,
+   "top1": "access.how_to_choose_sector",
+   "top1_cos": 0.9049,
+   "own_cos": 0.8342
+  },
+  {
+   "id": "access.tumbas_end_altitude",
+   "example": "cota máxima del carreteable vehicular en Brisas",
+   "rank": 63,
+   "top1": "booking_fees.vehicle_entry_fee",
+   "top1_cos": 0.9162,
+   "own_cos": 0.8583
+  },
+  {
+   "id": "access.tumbas_end_altitude",
+   "example": "altura sobre el nivel del mar en valle de las tumbas",
+   "rank": 2,
+   "top1": "booking_fees.brisas_daily_capacity",
+   "top1_cos": 0.9117,
+   "own_cos": 0.9114
+  },
+  {
+   "id": "access.hire_vehicle_brisas",
+   "example": "¿en la portería consigo carro pal valle?",
+   "rank": 4,
+   "top1": "access.brisas_visitor_center",
+   "top1_cos": 0.8914,
+   "own_cos": 0.8776
+  },
+  {
+   "id": "access.hire_vehicle_brisas",
+   "example": "lo puedo reservar antes de subir",
+   "rank": 136,
+   "top1": "booking_fees.registration_form_required",
+   "top1_cos": 0.9153,
+   "own_cos": 0.8498
+  },
+  {
+   "id": "access.hire_vehicle_brisas",
+   "example": "uton alquila el recorrido",
+   "rank": 27,
+   "top1": "access.uton_brisas_transport",
+   "top1_cos": 0.9126,
+   "own_cos": 0.8491
+  },
+  {
+   "id": "access.hire_vehicle_brisas",
+   "example": "propio o contratado allí mismo",
+   "rank": 47,
+   "top1": "access.covered_vehicle_required",
+   "top1_cos": 0.9303,
+   "own_cos": 0.8639
+  },
+  {
+   "id": "access.hire_vehicle_brisas",
+   "example": "should I book the car before I arrive",
+   "rank": 10,
+   "top1": "booking_fees.reservation_requirements",
+   "top1_cos": 0.8916,
+   "own_cos": 0.8481
+  },
+  {
+   "id": "access.hire_vehicle_brisas",
+   "example": "no llevo carro, ¿allá arriba se consigue uno?",
+   "rank": 356,
+   "top1": "access.from_bogota",
+   "top1_cos": 0.8964,
+   "own_cos": 0.8498
+  },
+  {
+   "id": "access.hire_vehicle_brisas",
+   "example": "el transporte del norte lo gestiona la concesion",
+   "rank": 78,
+   "top1": "access.taxi_not_published",
+   "top1_cos": 0.8941,
+   "own_cos": 0.8463
+  },
+  {
+   "id": "access.hire_vehicle_brisas",
+   "example": "quiero el carro del valle con la uton",
+   "rank": 7,
+   "top1": "access.covered_vehicle_required",
+   "top1_cos": 0.9036,
+   "own_cos": 0.8776
+  },
+  {
+   "id": "access.hire_vehicle_brisas",
+   "example": "¿lo contrato antes o ya en la caseta?",
+   "rank": 10,
+   "top1": "access.letras_not_the_gate",
+   "top1_cos": 0.8912,
+   "own_cos": 0.8587
+  },
+  {
+   "id": "access.hire_vehicle_brisas",
+   "example": "¿es bus público o el carro del recorrido?",
+   "rank": 89,
+   "top1": "access.no_public_bus",
+   "top1_cos": 0.8997,
+   "own_cos": 0.8148
+  },
+  {
+   "id": "access.hire_vehicle_brisas",
+   "example": "puedo alquilar camioneta en Brisas para subir al valle",
+   "rank": 4,
+   "top1": "activities.vehicle_or_on_foot",
+   "top1_cos": 0.9237,
+   "own_cos": 0.9009
+  },
+  {
+   "id": "access.bus_or_van_entry",
+   "example": "puedo entrar en bus",
+   "rank": 2,
+   "top1": "access.own_car_brisas",
+   "top1_cos": 0.9171,
+   "own_cos": 0.9137
+  },
+  {
+   "id": "access.bus_or_van_entry",
+   "example": "¿una buseta sí sube hasta Brisas?",
+   "rank": 2,
+   "top1": "access.own_car_brisas",
+   "top1_cos": 0.9297,
+   "own_cos": 0.924
+  },
+  {
+   "id": "access.bus_or_van_entry",
+   "example": "un microbus entra al valle",
+   "rank": 7,
+   "top1": "access.parking_at_brisas",
+   "top1_cos": 0.8944,
+   "own_cos": 0.8812
+  },
+  {
+   "id": "access.bus_or_van_entry",
+   "example": "¿el colectivo me deja en la portería?",
+   "rank": 85,
+   "top1": "access.organized_tour_transport",
+   "top1_cos": 0.9357,
+   "own_cos": 0.8242
+  },
+  {
+   "id": "access.bus_or_van_entry",
+   "example": "¿pagando la tarifa del bus ya me dejan subir?",
+   "rank": 2,
+   "top1": "access.termales_ruiz_not_gate",
+   "top1_cos": 0.9027,
+   "own_cos": 0.9014
+  },
+  {
+   "id": "access.bus_or_van_entry",
+   "example": "does a fee category mean my bus can enter",
+   "rank": 3,
+   "top1": "booking_fees.vehicle_entry_fee",
+   "top1_cos": 0.8671,
+   "own_cos": 0.8568
+  },
+  {
+   "id": "access.bus_or_van_entry",
+   "example": "is a van allowed on the Brisas road today",
+   "rank": 2,
+   "top1": "access.no_motorcycles",
+   "top1_cos": 0.9096,
+   "own_cos": 0.9048
+  },
+  {
+   "id": "access.bus_or_van_entry",
+   "example": "quiero subir un bus de 30 y no se si cabe",
+   "rank": 5,
+   "top1": "rules.confession_fine_reduction",
+   "top1_cos": 0.8891,
+   "own_cos": 0.8779
+  },
+  {
+   "id": "access.bus_or_van_entry",
+   "example": "la moto no, pero el bus si o no",
+   "rank": 2,
+   "top1": "access.own_car_brisas",
+   "top1_cos": 0.9412,
+   "own_cos": 0.9102
+  },
+  {
+   "id": "access.bus_or_van_entry",
+   "example": "¿Pagar la tarifa del bus garantiza que lo dejen entrar?",
+   "rank": 2,
+   "top1": "booking_fees.vehicle_entry_fee",
+   "top1_cos": 0.9076,
+   "own_cos": 0.9014
+  },
+  {
+   "id": "access.bus_or_van_entry",
+   "example": "¿Qué debo confirmar antes de subir una buseta?",
+   "rank": 7,
+   "top1": "health_safety.diabetes_at_high_altitude",
+   "top1_cos": 0.8881,
+   "own_cos": 0.8703
+  },
+  {
+   "id": "access.bus_or_van_entry",
+   "example": "una van de pasajeros puede entrar al parque",
+   "rank": 50,
+   "top1": "access.no_park_shuttle",
+   "top1_cos": 0.8993,
+   "own_cos": 0.869
+  },
+  {
+   "id": "access.bus_or_van_entry",
+   "example": "can a minibus or tour bus enter through Brisas",
+   "rank": 5,
+   "top1": "access.taxi_not_published",
+   "top1_cos": 0.9221,
+   "own_cos": 0.9097
+  },
+  {
+   "id": "access.uton_brisas_transport",
+   "example": "en brisas el transporte lo maneja uton o lo pone el parque?",
+   "rank": 3,
+   "top1": "access.no_park_shuttle",
+   "top1_cos": 0.8994,
+   "own_cos": 0.8965
+  },
+  {
+   "id": "access.uton_brisas_transport",
+   "example": "uton es la concesión del norte",
+   "rank": 3,
+   "top1": "services.uton_services",
+   "top1_cos": 0.9077,
+   "own_cos": 0.8883
+  },
+  {
+   "id": "access.uton_brisas_transport",
+   "example": "operacion nevados organiza el carro",
+   "rank": 162,
+   "top1": "access.organized_tour_transport",
+   "top1_cos": 0.8966,
+   "own_cos": 0.8391
+  },
+  {
+   "id": "access.uton_brisas_transport",
+   "example": "la uton gestiona transporte y guianza allá",
+   "rank": 6,
+   "top1": "access.hire_vehicle_brisas",
+   "top1_cos": 0.9126,
+   "own_cos": 0.8767
+  },
+  {
+   "id": "access.uton_brisas_transport",
+   "example": "pa' Brisas, ¿UTON es la que me lleva?",
+   "rank": 2,
+   "top1": "services.uton_services",
+   "top1_cos": 0.937,
+   "own_cos": 0.9116
+  },
+  {
+   "id": "access.uton_brisas_transport",
+   "example": "who runs transport at Brisas",
+   "rank": 14,
+   "top1": "services.uton_services",
+   "top1_cos": 0.9461,
+   "own_cos": 0.8736
+  },
+  {
+   "id": "access.uton_brisas_transport",
+   "example": "is UTON the north operator",
+   "rank": 3,
+   "top1": "access.operator_transport_other",
+   "top1_cos": 0.905,
+   "own_cos": 0.8843
+  },
+  {
+   "id": "access.uton_brisas_transport",
+   "example": "reservas ingreso y transporte van con la concesion",
+   "rank": 40,
+   "top1": "access.park_or_concession_contact",
+   "top1_cos": 0.8954,
+   "own_cos": 0.8554
+  },
+  {
+   "id": "access.uton_brisas_transport",
+   "example": "¿quién mueve la gente en Brisas, la UTON?",
+   "rank": 2,
+   "top1": "access.park_or_concession_contact",
+   "top1_cos": 0.9069,
+   "own_cos": 0.8944
+  },
+  {
+   "id": "access.uton_brisas_transport",
+   "example": "¿en el Cisne también me sirve UTON?",
+   "rank": 2,
+   "top1": "services.uton_services",
+   "top1_cos": 0.9022,
+   "own_cos": 0.8957
+  },
+  {
+   "id": "access.uton_brisas_transport",
+   "example": "brisa kumanday se coordina con uton",
+   "rank": 9,
+   "top1": "access.organized_tour_transport",
+   "top1_cos": 0.9194,
+   "own_cos": 0.889
+  },
+  {
+   "id": "access.uton_brisas_transport",
+   "example": "cómo reservo el transporte oficial de UTON en Brisas",
+   "rank": 2,
+   "top1": "services.brisas_lodging",
+   "top1_cos": 0.9115,
+   "own_cos": 0.9063
+  },
+  {
+   "id": "access.uton_brisas_transport",
+   "example": "camionetas de la concesión UTON para subir al valle",
+   "rank": 22,
+   "top1": "access.hire_vehicle_brisas",
+   "top1_cos": 0.8985,
+   "own_cos": 0.8623
+  },
+  {
+   "id": "access.uton_brisas_transport",
+   "example": "tarifa del transporte de la uton dentro de brisas",
+   "rank": 4,
+   "top1": "access.organized_tour_transport",
+   "top1_cos": 0.9123,
+   "own_cos": 0.9063
+  },
+  {
+   "id": "access.park_or_concession_contact",
+   "example": "¿con quién hablo pa' Brisas, UTON o el parque?",
+   "rank": 5,
+   "top1": "access.uton_brisas_transport",
+   "top1_cos": 0.9069,
+   "own_cos": 0.8821
+  },
+  {
+   "id": "access.park_or_concession_contact",
+   "example": "los otros sectores no son uton",
+   "rank": 33,
+   "top1": "booking_fees.other_sector_reservation",
+   "top1_cos": 0.8971,
+   "own_cos": 0.8511
+  },
+  {
+   "id": "access.park_or_concession_contact",
+   "example": "a quien le pido el transporte del norte",
+   "rank": 3,
+   "top1": "services.uton_services",
+   "top1_cos": 0.9171,
+   "own_cos": 0.8818
+  },
+  {
+   "id": "access.park_or_concession_contact",
+   "example": "who do I contact for Brisas versus another sector",
+   "rank": 46,
+   "top1": "geography.sector_brisas_kumanday",
+   "top1_cos": 0.9161,
+   "own_cos": 0.842
+  },
+  {
+   "id": "access.park_or_concession_contact",
+   "example": "is the park email the same as UTON",
+   "rank": 8,
+   "top1": "services.uton_services",
+   "top1_cos": 0.9108,
+   "own_cos": 0.8342
+  },
+  {
+   "id": "access.park_or_concession_contact",
+   "example": "concesion para brisas, agencia para el resto",
+   "rank": 90,
+   "top1": "booking_fees.brisas_booking_channel",
+   "top1_cos": 0.8987,
+   "own_cos": 0.8673
+  },
+  {
+   "id": "access.park_or_concession_contact",
+   "example": "¿el correo del parque sirve pa' reservar?",
+   "rank": 2,
+   "top1": "access.park_email_routes",
+   "top1_cos": 0.9236,
+   "own_cos": 0.9203
+  },
+  {
+   "id": "access.park_or_concession_contact",
+   "example": "pa' el Cisne, ¿también le pido el carro a UTON?",
+   "rank": 67,
+   "top1": "access.from_salento_cocora",
+   "top1_cos": 0.9154,
+   "own_cos": 0.8638
+  },
+  {
+   "id": "access.park_or_concession_contact",
+   "example": "dos contactos distintos segun el sector",
+   "rank": 40,
+   "top1": "access.circuit_not_scenic_loop",
+   "top1_cos": 0.9198,
+   "own_cos": 0.8632
+  },
+  {
+   "id": "access.park_or_concession_contact",
+   "example": "uton en brisas y operador registrado en los demas",
+   "rank": 32,
+   "top1": "access.no_park_shuttle",
+   "top1_cos": 0.9478,
+   "own_cos": 0.8539
+  },
+  {
+   "id": "access.park_or_concession_contact",
+   "example": "a quien pregunto por reservas de transporte o por permisos",
+   "rank": 10,
+   "top1": "booking_fees.south_payment_before_review",
+   "top1_cos": 0.8968,
+   "own_cos": 0.8818
+  },
+  {
+   "id": "access.park_or_concession_contact",
+   "example": "who to contact for access queries, PNN or concession",
+   "rank": 3,
+   "top1": "access.road_visit_or_trail",
+   "top1_cos": 0.8508,
+   "own_cos": 0.8378
+  },
+  {
+   "id": "access.ignore_single_kilometer",
+   "example": "en qué kilómetro me desvío",
+   "rank": 2,
+   "top1": "access.no_official_travel_time",
+   "top1_cos": 0.8876,
+   "own_cos": 0.8837
+  },
+  {
+   "id": "access.ignore_single_kilometer",
+   "example": "cuantos kilometros hay antes de brisas",
+   "rank": 4,
+   "top1": "geography.sector_brisas_kumanday",
+   "top1_cos": 0.9258,
+   "own_cos": 0.8985
+  },
+  {
+   "id": "access.ignore_single_kilometer",
+   "example": "el ocho queda en el km 45",
+   "rank": 5,
+   "top1": "access.esperanza_murillo_corridor",
+   "top1_cos": 0.9206,
+   "own_cos": 0.8828
+  },
+  {
+   "id": "access.ignore_single_kilometer",
+   "example": "which kilometer marker is the turnoff",
+   "rank": 2,
+   "top1": "access.armenia_salento_road",
+   "top1_cos": 0.8755,
+   "own_cos": 0.8534
+  },
+  {
+   "id": "access.ignore_single_kilometer",
+   "example": "why do the official kilometer posts disagree",
+   "rank": 2,
+   "top1": "access.armenia_salento_road",
+   "top1_cos": 0.875,
+   "own_cos": 0.8534
+  },
+  {
+   "id": "access.ignore_single_kilometer",
+   "example": "18 km y luego el desvio, es el de ahora",
+   "rank": 10,
+   "top1": "activities.otun_cedral_walk",
+   "top1_cos": 0.8866,
+   "own_cos": 0.8726
+  },
+  {
+   "id": "access.ignore_single_kilometer",
+   "example": "los postes no cuadran, ¿y ahí qué hago?",
+   "rank": 19,
+   "top1": "access.gateway_towns",
+   "top1_cos": 0.8977,
+   "own_cos": 0.8744
+  },
+  {
+   "id": "access.ignore_single_kilometer",
+   "example": "sigo los nombres y no el numero",
+   "rank": 65,
+   "top1": "access.brisas_visitor_center",
+   "top1_cos": 0.9006,
+   "own_cos": 0.8729
+  },
+  {
+   "id": "access.ignore_single_kilometer",
+   "example": "la esperanza el ocho murillo y brisas",
+   "rank": 10,
+   "top1": "access.brisas_visitor_center",
+   "top1_cos": 0.9088,
+   "own_cos": 0.8525
+  },
+  {
+   "id": "access.ignore_single_kilometer",
+   "example": "un solo km me puede dejar mal",
+   "rank": 2,
+   "top1": "health_safety.tell_guide_about_health_change",
+   "top1_cos": 0.8884,
+   "own_cos": 0.882
+  },
+  {
+   "id": "access.ignore_single_kilometer",
+   "example": "cuál es el kilómetro exacto del desvío a Brisas",
+   "rank": 4,
+   "top1": "geography.sector_brisas_kumanday",
+   "top1_cos": 0.9156,
+   "own_cos": 0.8985
+  },
+  {
+   "id": "access.ignore_single_kilometer",
+   "example": "en unos lados dice km 23 y en otros km 45, cuál es",
+   "rank": 2,
+   "top1": "access.armenia_salento_road",
+   "top1_cos": 0.905,
+   "own_cos": 0.889
+  },
+  {
+   "id": "access.ignore_single_kilometer",
+   "example": "por que no cuadran los kilometros a la entrada",
+   "rank": 3,
+   "top1": "hours_status.night_entry_prohibition",
+   "top1_cos": 0.8892,
+   "own_cos": 0.8744
+  },
+  {
+   "id": "access.ignore_single_kilometer",
+   "example": "mileage marker discrepancies for Brisas entrance",
+   "rank": 14,
+   "top1": "access.bus_or_van_entry",
+   "top1_cos": 0.8753,
+   "own_cos": 0.8573
+  },
+  {
+   "id": "access.dirt_roads_cisne",
+   "example": "carretera terciaria hasta potosi",
+   "rank": 8,
+   "top1": "hours_status.road_closure_status",
+   "top1_cos": 0.9215,
+   "own_cos": 0.8799
+  },
+  {
+   "id": "access.dirt_roads_cisne",
+   "example": "¿pa' el Cisne sí me piden 4x4?",
+   "rank": 106,
+   "top1": "geography.sector_cisne_poleka",
+   "top1_cos": 0.9188,
+   "own_cos": 0.8558
+  },
+  {
+   "id": "access.dirt_roads_cisne",
+   "example": "tres trochas al sector",
+   "rank": 124,
+   "top1": "access.from_villamaria",
+   "top1_cos": 0.9254,
+   "own_cos": 0.8631
+  },
+  {
+   "id": "access.dirt_roads_cisne",
+   "example": "se puede ir en carro bajo",
+   "rank": 119,
+   "top1": "access.own_car_brisas",
+   "top1_cos": 0.9168,
+   "own_cos": 0.825
+  },
+  {
+   "id": "access.dirt_roads_cisne",
+   "example": "are the Cisne roads paved",
+   "rank": 3,
+   "top1": "access.el_cisne_approach",
+   "top1_cos": 0.9011,
+   "own_cos": 0.8849
+  },
+  {
+   "id": "access.dirt_roads_cisne",
+   "example": "do I need a 4x4 for those dirt roads",
+   "rank": 3,
+   "top1": "rules.pick_up_trail_litter",
+   "top1_cos": 0.84,
+   "own_cos": 0.8371
+  },
+  {
+   "id": "access.dirt_roads_cisne",
+   "example": "destapada desde villamaria y desde santa rosa",
+   "rank": 31,
+   "top1": "access.from_santa_rosa",
+   "top1_cos": 0.9364,
+   "own_cos": 0.8521
+  },
+  {
+   "id": "access.dirt_roads_cisne",
+   "example": "con quien planeo la trocha del cisne",
+   "rank": 4,
+   "top1": "preparation.checklist_glacier_day",
+   "top1_cos": 0.8655,
+   "own_cos": 0.8632
+  },
+  {
+   "id": "access.dirt_roads_cisne",
+   "example": "no es pavimento hasta la cabaña",
+   "rank": 3,
+   "top1": "access.otun_via_potosi",
+   "top1_cos": 0.9012,
+   "own_cos": 0.884
+  },
+  {
+   "id": "access.dirt_roads_cisne",
+   "example": "¿importa la marca del carro pa' esas trochas?",
+   "rank": 2,
+   "top1": "access.own_car_brisas",
+   "top1_cos": 0.8589,
+   "own_cos": 0.8572
+  },
+  {
+   "id": "access.dirt_roads_cisne",
+   "example": "cómo es la carretera destapada hacia Potosí y El Cisne",
+   "rank": 2,
+   "top1": "access.where_road_ends",
+   "top1_cos": 0.9115,
+   "own_cos": 0.909
+  },
+  {
+   "id": "access.choose_otun_trailhead",
+   "example": "dos formas de llegar a la laguna",
+   "rank": 2,
+   "top1": "access.santa_rosa_vs_cedral",
+   "top1_cos": 0.9233,
+   "own_cos": 0.92
+  },
+  {
+   "id": "access.choose_otun_trailhead",
+   "example": "potosi o el cedral, cual escojo",
+   "rank": 2,
+   "top1": "access.from_pereira_choose",
+   "top1_cos": 0.9385,
+   "own_cos": 0.9163
+  },
+  {
+   "id": "access.choose_otun_trailhead",
+   "example": "inicio de la caminata al otun",
+   "rank": 3,
+   "top1": "access.cedral_walk_distances",
+   "top1_cos": 0.9396,
+   "own_cos": 0.9171
+  },
+  {
+   "id": "access.choose_otun_trailhead",
+   "example": "desde que ciudad salgo a la laguna",
+   "rank": 6,
+   "top1": "access.santa_rosa_vs_cedral",
+   "top1_cos": 0.9139,
+   "own_cos": 0.8922
+  },
+  {
+   "id": "access.choose_otun_trailhead",
+   "example": "which trailhead should I use for the lake",
+   "rank": 13,
+   "top1": "preparation.navigation_map_gps",
+   "top1_cos": 0.8553,
+   "own_cos": 0.8315
+  },
+  {
+   "id": "access.choose_otun_trailhead",
+   "example": "villamaria santa rosa o pereira",
+   "rank": 382,
+   "top1": "access.from_villamaria",
+   "top1_cos": 0.9204,
+   "own_cos": 0.8215
+  },
+  {
+   "id": "access.choose_otun_trailhead",
+   "example": "¿las dos llegan a la laguna por el mismo camino?",
+   "rank": 2,
+   "top1": "access.santa_rosa_vs_cedral",
+   "top1_cos": 0.9297,
+   "own_cos": 0.92
+  },
+  {
+   "id": "access.choose_otun_trailhead",
+   "example": "elijo una antes de salir",
+   "rank": 181,
+   "top1": "access.from_ibague_choose",
+   "top1_cos": 0.9284,
+   "own_cos": 0.8398
+  },
+  {
+   "id": "access.choose_otun_trailhead",
+   "example": "potosi y el cedral son dos comienzos distintos hacia la laguna?",
+   "rank": 12,
+   "top1": "access.otun_via_potosi",
+   "top1_cos": 0.9021,
+   "own_cos": 0.8606
+  },
+  {
+   "id": "access.choose_otun_trailhead",
+   "example": "laguna del otun por donde empiezo",
+   "rank": 6,
+   "top1": "geography.laguna_otun_formation",
+   "top1_cos": 0.9384,
+   "own_cos": 0.9264
+  },
+  {
+   "id": "access.choose_otun_trailhead",
+   "example": "por dónde es mejor empezar para ir a la Laguna del Otún",
+   "rank": 2,
+   "top1": "geography.rio_otun",
+   "top1_cos": 0.9284,
+   "own_cos": 0.9264
+  },
+  {
+   "id": "access.choose_otun_trailhead",
+   "example": "subir al Otún por Potosí o por El Cedral",
+   "rank": 5,
+   "top1": "activities.otun_cocora_traverse",
+   "top1_cos": 0.9343,
+   "own_cos": 0.9163
+  },
+  {
+   "id": "access.choose_otun_trailhead",
+   "example": "cual entrada me conviene mas para ir a la laguna",
+   "rank": 2,
+   "top1": "access.santa_rosa_vs_cedral",
+   "top1_cos": 0.9088,
+   "own_cos": 0.9045
+  },
+  {
+   "id": "access.road_visit_or_trail",
+   "example": "brisas es la visita corta",
+   "rank": 2,
+   "top1": "activities.short_walks_brisas",
+   "top1_cos": 0.9318,
+   "own_cos": 0.9154
+  },
+  {
+   "id": "access.road_visit_or_trail",
+   "example": "¿los demás son pa' travesía de varios días?",
+   "rank": 3,
+   "top1": "preparation.checklist_multiday_trek",
+   "top1_cos": 0.9283,
+   "own_cos": 0.9174
+  },
+  {
+   "id": "access.road_visit_or_trail",
+   "example": "quiero ir en vehículo, cuál puerta",
+   "rank": 16,
+   "top1": "access.own_car_brisas",
+   "top1_cos": 0.9168,
+   "own_cos": 0.8835
+  },
+  {
+   "id": "access.road_visit_or_trail",
+   "example": "¿cuál sector pa' una caminata larga?",
+   "rank": 2,
+   "top1": "activities.recreation_zone_trails",
+   "top1_cos": 0.8813,
+   "own_cos": 0.8732
+  },
+  {
+   "id": "access.road_visit_or_trail",
+   "example": "which sector is the drive-up visit",
+   "rank": 18,
+   "top1": "geography.four_sectors",
+   "top1_cos": 0.8762,
+   "own_cos": 0.8211
+  },
+  {
+   "id": "access.road_visit_or_trail",
+   "example": "where do I go if I need a vehicle access",
+   "rank": 5,
+   "top1": "access.confirm_road_before",
+   "top1_cos": 0.8746,
+   "own_cos": 0.8657
+  },
+  {
+   "id": "access.road_visit_or_trail",
+   "example": "el carreteable es el del norte",
+   "rank": 56,
+   "top1": "activities.north_route_stops",
+   "top1_cos": 0.9351,
+   "own_cos": 0.8309
+  },
+  {
+   "id": "access.road_visit_or_trail",
+   "example": "cocora y juntas no son un paseo en carro",
+   "rank": 73,
+   "top1": "access.operator_transport_other",
+   "top1_cos": 0.9198,
+   "own_cos": 0.8372
+  },
+  {
+   "id": "access.road_visit_or_trail",
+   "example": "visita esporadica en brisas",
+   "rank": 10,
+   "top1": "access.brisas_visitor_center",
+   "top1_cos": 0.9413,
+   "own_cos": 0.9154
+  },
+  {
+   "id": "access.road_visit_or_trail",
+   "example": "varios dias, los otros sectores",
+   "rank": 2,
+   "top1": "activities.day_or_multiday",
+   "top1_cos": 0.9378,
+   "own_cos": 0.9174
+  },
+  {
+   "id": "access.road_visit_or_trail",
+   "example": "elijo segun si voy en carro o a pie",
+   "rank": 2,
+   "top1": "access.armenia_salento_road",
+   "top1_cos": 0.9089,
+   "own_cos": 0.9046
+  },
+  {
+   "id": "access.road_visit_or_trail",
+   "example": "cuáles sectores se recorren en carro y cuáles a pie",
+   "rank": 6,
+   "top1": "activities.vehicle_or_on_foot",
+   "top1_cos": 0.9467,
+   "own_cos": 0.891
+  },
+  {
+   "id": "access.road_visit_or_trail",
+   "example": "diferencia entre ir en vehículo a Brisas o caminar al sur",
+   "rank": 54,
+   "top1": "access.operator_transport_other",
+   "top1_cos": 0.9063,
+   "own_cos": 0.8659
+  },
+  {
+   "id": "access.road_visit_or_trail",
+   "example": "cuales entradas son de trekking y cuales en camioneta",
+   "rank": 2,
+   "top1": "activities.vehicle_or_on_foot",
+   "top1_cos": 0.8927,
+   "own_cos": 0.8835
+  },
+  {
+   "id": "access.road_visit_or_trail",
+   "example": "difference between vehicle access and hiking routes",
+   "rank": 2,
+   "top1": "activities.vehicle_or_on_foot",
+   "top1_cos": 0.8939,
+   "own_cos": 0.8657
+  },
+  {
+   "id": "access.organized_tour_transport",
+   "example": "un tour me lleva al parque",
+   "rank": 3,
+   "top1": "activities.children_visit_style",
+   "top1_cos": 0.9079,
+   "own_cos": 0.9022
+  },
+  {
+   "id": "access.organized_tour_transport",
+   "example": "¿la agencia sí me pone el carro pa' la portería?",
+   "rank": 6,
+   "top1": "access.own_car_brisas",
+   "top1_cos": 0.9214,
+   "own_cos": 0.8836
+  },
+  {
+   "id": "access.organized_tour_transport",
+   "example": "salgo con operador pa' el sector, ¿verdad?",
+   "rank": 278,
+   "top1": "preparation.headlamp",
+   "top1_cos": 0.9134,
+   "own_cos": 0.8399
+  },
+  {
+   "id": "access.organized_tour_transport",
+   "example": "brisas con uton dentro del plan",
+   "rank": 401,
+   "top1": "services.brisas_lodging",
+   "top1_cos": 0.9227,
+   "own_cos": 0.8335
+  },
+  {
+   "id": "access.organized_tour_transport",
+   "example": "does a tour create a new gate",
+   "rank": 2,
+   "top1": "booking_fees.exempt_tourist_guides_and_providers",
+   "top1_cos": 0.8596,
+   "own_cos": 0.8459
+  },
+  {
+   "id": "access.organized_tour_transport",
+   "example": "can an agency drive me to a different entrance",
+   "rank": 4,
+   "top1": "rules.preventive_measures",
+   "top1_cos": 0.8461,
+   "own_cos": 0.8433
+  },
+  {
+   "id": "access.organized_tour_transport",
+   "example": "el norte sigue siendo brisas",
+   "rank": 179,
+   "top1": "access.olleta_not_a_gate",
+   "top1_cos": 0.9217,
+   "own_cos": 0.834
+  },
+  {
+   "id": "access.organized_tour_transport",
+   "example": "cocora sigue siendo cocora aunque vaya en tour",
+   "rank": 53,
+   "top1": "access.cocora_before_park",
+   "top1_cos": 0.909,
+   "own_cos": 0.8532
+  },
+  {
+   "id": "access.organized_tour_transport",
+   "example": "el vehiculo lo organiza la agencia registrada",
+   "rank": 3,
+   "top1": "access.uton_brisas_transport",
+   "top1_cos": 0.8966,
+   "own_cos": 0.8788
+  },
+  {
+   "id": "access.organized_tour_transport",
+   "example": "¿en grupo me dejan saltar la portería?",
+   "rank": 5,
+   "top1": "access.bus_or_van_entry",
+   "top1_cos": 0.9357,
+   "own_cos": 0.8836
+  },
+  {
+   "id": "access.organized_tour_transport",
+   "example": "tour al cisne por villamaria o santa rosa",
+   "rank": 55,
+   "top1": "access.el_cisne_approach",
+   "top1_cos": 0.925,
+   "own_cos": 0.8677
+  },
+  {
+   "id": "access.organized_tour_transport",
+   "example": "paquete turistico con traslado desde manizales o pereira",
+   "rank": 64,
+   "top1": "access.bus_to_letras",
+   "top1_cos": 0.91,
+   "own_cos": 0.8677
+  },
+  {
+   "id": "access.organized_tour_transport",
+   "example": "visiting Los Nevados with an organized tour operator",
+   "rank": 15,
+   "top1": "preparation.checklist_brisas_day",
+   "top1_cos": 0.8941,
+   "own_cos": 0.8533
+  },
+  {
+   "id": "access.from_murillo",
+   "example": "de la cabecera de Murillo a Brisas",
+   "rank": 5,
+   "top1": "activities.brisas_valle_tumbas",
+   "top1_cos": 0.9244,
+   "own_cos": 0.9177
+  },
+  {
+   "id": "access.from_murillo",
+   "example": "¿Murillo me queda antes de Brisas o después?",
+   "rank": 9,
+   "top1": "access.from_ibague_choose",
+   "top1_cos": 0.8986,
+   "own_cos": 0.8612
+  },
+  {
+   "id": "access.from_murillo",
+   "example": "corredor esperanza murillo saliendo del pueblo",
+   "rank": 3,
+   "top1": "access.esperanza_murillo_corridor",
+   "top1_cos": 0.943,
+   "own_cos": 0.8874
+  },
+  {
+   "id": "access.from_murillo",
+   "example": "entro por murillo al sector norte",
+   "rank": 20,
+   "top1": "preparation.daypack_size",
+   "top1_cos": 0.925,
+   "own_cos": 0.887
+  },
+  {
+   "id": "access.from_murillo",
+   "example": "is the town of Murillo the gate",
+   "rank": 4,
+   "top1": "access.bus_to_murillo",
+   "top1_cos": 0.9039,
+   "own_cos": 0.8854
+  },
+  {
+   "id": "access.from_murillo",
+   "example": "pa' Brisas desde Murillo, ¿cuál vía cojo?",
+   "rank": 4,
+   "top1": "access.from_manizales",
+   "top1_cos": 0.9342,
+   "own_cos": 0.9089
+  },
+  {
+   "id": "access.from_murillo",
+   "example": "el mismo corredor que viene de manizales, lo tomo al revés",
+   "rank": 80,
+   "top1": "access.from_manizales",
+   "top1_cos": 0.9021,
+   "own_cos": 0.8574
+  },
+  {
+   "id": "access.from_murillo",
+   "example": "no es el nevado del tolima, busco brisas",
+   "rank": 125,
+   "top1": "access.bus_labeled_nevado",
+   "top1_cos": 0.9101,
+   "own_cos": 0.8704
+  },
+  {
+   "id": "access.from_murillo",
+   "example": "ruta en carro saliendo de Murillo hacia Brisas",
+   "rank": 6,
+   "top1": "access.esperanza_murillo_corridor",
+   "top1_cos": 0.9418,
+   "own_cos": 0.9177
+  },
+  {
+   "id": "access.from_murillo",
+   "example": "cuanto gasto en carro de murillo al centro brisas",
+   "rank": 7,
+   "top1": "booking_fees.vehicle_entry_fee",
+   "top1_cos": 0.9199,
+   "own_cos": 0.8775
+  },
+  {
+   "id": "access.stay_on_official_gate",
+   "example": "¿me puedo meter por un hueco que vi en el mapa?",
+   "rank": 5,
+   "top1": "access.olleta_not_a_gate",
+   "top1_cos": 0.9092,
+   "own_cos": 0.8754
+  },
+  {
+   "id": "access.stay_on_official_gate",
+   "example": "¿hay atajo sin caseta pa' subir más rápido?",
+   "rank": 2,
+   "top1": "rules.stay_on_routes",
+   "top1_cos": 0.8681,
+   "own_cos": 0.86
+  },
+  {
+   "id": "access.stay_on_official_gate",
+   "example": "entro por donde salen los de la vereda",
+   "rank": 54,
+   "top1": "activities.sector_laguna_otun",
+   "top1_cos": 0.897,
+   "own_cos": 0.8482
+  },
+  {
+   "id": "access.stay_on_official_gate",
+   "example": "¿me puedo colar sin registrarme?",
+   "rank": 31,
+   "top1": "actions.register_arrival_today",
+   "top1_cos": 0.8945,
+   "own_cos": 0.8446
+  },
+  {
+   "id": "access.stay_on_official_gate",
+   "example": "una trocha mas corta que la porteria",
+   "rank": 40,
+   "top1": "access.dirt_roads_cisne",
+   "top1_cos": 0.9017,
+   "own_cos": 0.8785
+  },
+  {
+   "id": "access.stay_on_official_gate",
+   "example": "can I skip the official gate",
+   "rank": 3,
+   "top1": "access.always_by_land",
+   "top1_cos": 0.8879,
+   "own_cos": 0.8636
+  },
+  {
+   "id": "access.stay_on_official_gate",
+   "example": "is an unmarked track an entrance",
+   "rank": 5,
+   "top1": "access.letras_not_the_gate",
+   "top1_cos": 0.8484,
+   "own_cos": 0.8404
+  },
+  {
+   "id": "access.stay_on_official_gate",
+   "example": "no mezclo brisas con cocora en el mismo ingreso",
+   "rank": 174,
+   "top1": "access.circuit_not_scenic_loop",
+   "top1_cos": 0.9052,
+   "own_cos": 0.8422
+  },
+  {
+   "id": "access.stay_on_official_gate",
+   "example": "el mapa muestra una linea, esa cuenta",
+   "rank": 52,
+   "top1": "access.olleta_not_a_gate",
+   "top1_cos": 0.8927,
+   "own_cos": 0.8548
+  },
+  {
+   "id": "access.stay_on_official_gate",
+   "example": "atajo de moto o de a pie por fuera",
+   "rank": 14,
+   "top1": "access.road_visit_or_trail",
+   "top1_cos": 0.9084,
+   "own_cos": 0.8785
+  },
+  {
+   "id": "access.stay_on_official_gate",
+   "example": "se puede entrar al parque por caminos no oficiales",
+   "rank": 18,
+   "top1": "rules.stay_on_routes",
+   "top1_cos": 0.9138,
+   "own_cos": 0.8843
+  },
+  {
+   "id": "access.stay_on_official_gate",
+   "example": "por qué es obligatorio entrar por las porterías autorizadas",
+   "rank": 46,
+   "top1": "booking_fees.guide_required",
+   "top1_cos": 0.8915,
+   "own_cos": 0.8501
+  },
+  {
+   "id": "access.stay_on_official_gate",
+   "example": "puedo meterme por un sendero sin pasar por la caseta",
+   "rank": 22,
+   "top1": "booking_fees.guide_required",
+   "top1_cos": 0.9062,
+   "own_cos": 0.8754
+  },
+  {
+   "id": "access.el_cisne_approach",
+   "example": "centro de visitantes el cisne por donde",
+   "rank": 2,
+   "top1": "services.cisne_visitor_center",
+   "top1_cos": 0.9585,
+   "own_cos": 0.9288
+  },
+  {
+   "id": "access.el_cisne_approach",
+   "example": "¿pa' Poleka Kasue por qué vía me meto?",
+   "rank": 428,
+   "top1": "access.from_salento_cocora",
+   "top1_cos": 0.9064,
+   "own_cos": 0.8285
+  },
+  {
+   "id": "access.el_cisne_approach",
+   "example": "¿paramillo del Cisne es la misma carretera?",
+   "rank": 3,
+   "top1": "geography.paramillo_cisne",
+   "top1_cos": 0.9195,
+   "own_cos": 0.8748
+  },
+  {
+   "id": "access.el_cisne_approach",
+   "example": "de villamaria o de santa rosa al centro",
+   "rank": 26,
+   "top1": "access.organized_tour_transport",
+   "top1_cos": 0.925,
+   "own_cos": 0.8847
+  },
+  {
+   "id": "access.el_cisne_approach",
+   "example": "which road leads to the Cisne visitor center",
+   "rank": 2,
+   "top1": "access.dirt_roads_cisne",
+   "top1_cos": 0.9011,
+   "own_cos": 0.896
+  },
+  {
+   "id": "access.el_cisne_approach",
+   "example": "el cisne no es brisas",
+   "rank": 17,
+   "top1": "access.from_villamaria",
+   "top1_cos": 0.9138,
+   "own_cos": 0.8873
+  },
+  {
+   "id": "access.el_cisne_approach",
+   "example": "¿llego por Potosí, La Cueva o Santa Bárbara, cuál?",
+   "rank": 59,
+   "top1": "access.la_cueva_on_the_road",
+   "top1_cos": 0.8962,
+   "own_cos": 0.8284
+  },
+  {
+   "id": "access.el_cisne_approach",
+   "example": "tres destapadas hasta los controles",
+   "rank": 195,
+   "top1": "access.from_santa_rosa",
+   "top1_cos": 0.9135,
+   "own_cos": 0.85
+  },
+  {
+   "id": "access.el_cisne_approach",
+   "example": "¿pa' Santa Isabel por qué vía se llega?",
+   "rank": 76,
+   "top1": "geography.sector_cisne_poleka",
+   "top1_cos": 0.9077,
+   "own_cos": 0.8088
+  },
+  {
+   "id": "access.el_cisne_approach",
+   "example": "el centro queda en ese sector, no en el norte",
+   "rank": 46,
+   "top1": "flora_ecosystems.puya_ochroleuca_endangered",
+   "top1_cos": 0.9118,
+   "own_cos": 0.8847
+  },
+  {
+   "id": "access.from_pereira_cedral",
+   "example": "cómo llego desde pereira",
+   "rank": 6,
+   "top1": "access.from_pereira_choose",
+   "top1_cos": 0.9305,
+   "own_cos": 0.8852
+  },
+  {
+   "id": "access.from_pereira_cedral",
+   "example": "pa' la laguna del Otún, ¿salgo de Pereira?",
+   "rank": 41,
+   "top1": "geography.rio_otun",
+   "top1_cos": 0.9367,
+   "own_cos": 0.8854
+  },
+  {
+   "id": "access.from_pereira_cedral",
+   "example": "¿hasta El Cedral sí cabe el carro?",
+   "rank": 2,
+   "top1": "access.cedral_walk_distances",
+   "top1_cos": 0.8977,
+   "own_cos": 0.8949
+  },
+  {
+   "id": "access.from_pereira_cedral",
+   "example": "corregimiento la florida y despues a pie",
+   "rank": 3,
+   "top1": "access.otun_via_potosi",
+   "top1_cos": 0.8734,
+   "own_cos": 0.8631
+  },
+  {
+   "id": "access.from_pereira_cedral",
+   "example": "where does the drive from Pereira end",
+   "rank": 2,
+   "top1": "access.from_pereira_choose",
+   "top1_cos": 0.8751,
+   "own_cos": 0.8666
+  },
+  {
+   "id": "access.from_pereira_cedral",
+   "example": "¿pa' El Bosque o El Cedral, por dónde me meto?",
+   "rank": 6,
+   "top1": "access.cedral_and_bosque_names",
+   "top1_cos": 0.9314,
+   "own_cos": 0.8819
+  },
+  {
+   "id": "access.from_pereira_cedral",
+   "example": "salgo de pereira al sector otun",
+   "rank": 31,
+   "top1": "access.from_pereira_choose",
+   "top1_cos": 0.9295,
+   "own_cos": 0.8854
+  },
+  {
+   "id": "access.from_pereira_cedral",
+   "example": "no es la destapada de santa rosa",
+   "rank": 381,
+   "top1": "access.santa_rosa_vs_cedral",
+   "top1_cos": 0.9155,
+   "own_cos": 0.8137
+  },
+  {
+   "id": "access.from_pereira_cedral",
+   "example": "camino de herradura despues del cedral",
+   "rank": 44,
+   "top1": "history_culture.after_1985_until_1989",
+   "top1_cos": 0.8943,
+   "own_cos": 0.8575
+  },
+  {
+   "id": "access.from_pereira_cedral",
+   "example": "desde pereira bajo a la florida y al cedral, y de ahi camino a la laguna?",
+   "rank": 4,
+   "top1": "activities.otun_cedral_walk",
+   "top1_cos": 0.9096,
+   "own_cos": 0.8857
+  },
+  {
+   "id": "access.from_pereira_cedral",
+   "example": "en chiva o carro de pereira al cedral",
+   "rank": 4,
+   "top1": "access.from_pereira_choose",
+   "top1_cos": 0.9082,
+   "own_cos": 0.8725
+  },
+  {
+   "id": "access.cocora_before_park",
+   "example": "¿las palmas ya son la portería?",
+   "rank": 6,
+   "top1": "access.choose_otun_trailhead",
+   "top1_cos": 0.8783,
+   "own_cos": 0.8688
+  },
+  {
+   "id": "access.cocora_before_park",
+   "example": "entre las palmas ya entré",
+   "rank": 32,
+   "top1": "access.departments_of_access",
+   "top1_cos": 0.8959,
+   "own_cos": 0.876
+  },
+  {
+   "id": "access.cocora_before_park",
+   "example": "14 km hasta donde empieza el area",
+   "rank": 167,
+   "top1": "access.from_salento_cocora",
+   "top1_cos": 0.9239,
+   "own_cos": 0.8507
+  },
+  {
+   "id": "access.cocora_before_park",
+   "example": "do the palm trees mark the gate",
+   "rank": 27,
+   "top1": "access.control_coordinates",
+   "top1_cos": 0.8454,
+   "own_cos": 0.8179
+  },
+  {
+   "id": "access.cocora_before_park",
+   "example": "puedo estar en cocora y seguir fuera",
+   "rank": 8,
+   "top1": "activities.sector_tolima",
+   "top1_cos": 0.9241,
+   "own_cos": 0.8835
+  },
+  {
+   "id": "access.cocora_before_park",
+   "example": "el limite queda despues de la vereda",
+   "rank": 2,
+   "top1": "weather_volcano.ash_resuspends",
+   "top1_cos": 0.903,
+   "own_cos": 0.8988
+  },
+  {
+   "id": "access.cocora_before_park",
+   "example": "no doy la vuelta en las palmas",
+   "rank": 28,
+   "top1": "health_safety.no_published_wildlife_protocol",
+   "top1_cos": 0.9058,
+   "own_cos": 0.876
+  },
+  {
+   "id": "access.cocora_before_park",
+   "example": "el punto de atencion no es el aviso de que ya pase",
+   "rank": 106,
+   "top1": "history_culture.monitoring_since_1985",
+   "top1_cos": 0.9229,
+   "own_cos": 0.8626
+  },
+  {
+   "id": "access.cocora_before_park",
+   "example": "cuántos kilómetros hay desde Cocora hasta la entrada del parque",
+   "rank": 2,
+   "top1": "activities.sector_tolima",
+   "top1_cos": 0.9005,
+   "own_cos": 0.8961
+  },
+  {
+   "id": "access.from_anzoategui_palomar",
+   "example": "cómo llego desde anzoategui",
+   "rank": 2,
+   "top1": "access.gateway_towns",
+   "top1_cos": 0.916,
+   "own_cos": 0.8962
+  },
+  {
+   "id": "access.from_anzoategui_palomar",
+   "example": "vereda palomar 11 km",
+   "rank": 4,
+   "top1": "access.from_ibague_juntas",
+   "top1_cos": 0.9215,
+   "own_cos": 0.8858
+  },
+  {
+   "id": "access.from_anzoategui_palomar",
+   "example": "¿de Anzoátegui pa' el sur, cómo voy?",
+   "rank": 28,
+   "top1": "access.from_manizales",
+   "top1_cos": 0.9241,
+   "own_cos": 0.8766
+  },
+  {
+   "id": "access.from_anzoategui_palomar",
+   "example": "palomar es una de las tres entradas",
+   "rank": 6,
+   "top1": "access.three_south_paths",
+   "top1_cos": 0.9126,
+   "own_cos": 0.8664
+  },
+  {
+   "id": "access.from_anzoategui_palomar",
+   "example": "32 o 85 km cual uso",
+   "rank": 51,
+   "top1": "access.armenia_salento_road",
+   "top1_cos": 0.9318,
+   "own_cos": 0.8657
+  },
+  {
+   "id": "access.from_anzoategui_palomar",
+   "example": "is 11 km the current figure",
+   "rank": 3,
+   "top1": "access.la_punta_control",
+   "top1_cos": 0.8666,
+   "own_cos": 0.853
+  },
+  {
+   "id": "access.from_anzoategui_palomar",
+   "example": "no uses la distancia vieja de ibague",
+   "rank": 79,
+   "top1": "weather_volcano.rain_by_department",
+   "top1_cos": 0.9229,
+   "own_cos": 0.8657
+  },
+  {
+   "id": "access.from_anzoategui_palomar",
+   "example": "la punta era el control de 2023",
+   "rank": 308,
+   "top1": "access.la_punta_control",
+   "top1_cos": 0.8882,
+   "own_cos": 0.806
+  },
+  {
+   "id": "access.from_anzoategui_palomar",
+   "example": "entro por anzoategui al tolima",
+   "rank": 15,
+   "top1": "booking_fees.quindio_reservation_lead",
+   "top1_cos": 0.9241,
+   "own_cos": 0.8874
+  },
+  {
+   "id": "access.three_south_paths",
+   "example": "cocora juntas y palomar",
+   "rank": 3,
+   "top1": "access.murillo_is_north_not_tolima",
+   "top1_cos": 0.9205,
+   "own_cos": 0.9008
+  },
+  {
+   "id": "access.three_south_paths",
+   "example": "¿los 14, 15 y 11 km llegan todos al límite?",
+   "rank": 47,
+   "top1": "access.from_ibague_juntas",
+   "top1_cos": 0.9346,
+   "own_cos": 0.8212
+  },
+  {
+   "id": "access.three_south_paths",
+   "example": "el sur se recorre en carro hasta la cumbre",
+   "rank": 50,
+   "top1": "activities.cloudy_visit_landscape",
+   "top1_cos": 0.8987,
+   "own_cos": 0.8501
+  },
+  {
+   "id": "access.three_south_paths",
+   "example": "cual de las tres entradas",
+   "rank": 6,
+   "top1": "access.four_sector_gates",
+   "top1_cos": 0.914,
+   "own_cos": 0.8795
+  },
+  {
+   "id": "access.three_south_paths",
+   "example": "do all three distances reach the boundary",
+   "rank": 2,
+   "top1": "access.from_ibague_juntas",
+   "top1_cos": 0.8643,
+   "own_cos": 0.858
+  },
+  {
+   "id": "access.three_south_paths",
+   "example": "quindio dulima tiene tres puertas",
+   "rank": 4,
+   "top1": "geography.salento_quindio",
+   "top1_cos": 0.8964,
+   "own_cos": 0.8777
+  },
+  {
+   "id": "access.three_south_paths",
+   "example": "de los tres caminos del sur, cual si llega al limite del parque?",
+   "rank": 15,
+   "top1": "activities.chilcos_trail",
+   "top1_cos": 0.9055,
+   "own_cos": 0.8477
+  },
+  {
+   "id": "access.three_south_paths",
+   "example": "no hay circuito en carro entre las tres",
+   "rank": 81,
+   "top1": "access.no_park_shuttle",
+   "top1_cos": 0.9169,
+   "own_cos": 0.8532
+  },
+  {
+   "id": "access.three_south_paths",
+   "example": "¿Salento, Ibagué o Anzoátegui, cuál me toca?",
+   "rank": 56,
+   "top1": "access.from_ibague_choose",
+   "top1_cos": 0.9089,
+   "own_cos": 0.8526
+  },
+  {
+   "id": "access.three_south_paths",
+   "example": "¿cuál de las tres me conviene más?",
+   "rank": 2,
+   "top1": "conversation.opinion_request",
+   "top1_cos": 0.8879,
+   "own_cos": 0.8795
+  },
+  {
+   "id": "access.three_south_paths",
+   "example": "senderos del sur Cocora Juntas y Palomar",
+   "rank": 4,
+   "top1": "activities.combeima_cocora_traverse",
+   "top1_cos": 0.9305,
+   "own_cos": 0.9008
+  },
+  {
+   "id": "access.mountain_road_conditions",
+   "example": "se pasa hoy al cisne",
+   "rank": 11,
+   "top1": "activities.cisne_viewpoints",
+   "top1_cos": 0.9059,
+   "own_cos": 0.8915
+  },
+  {
+   "id": "access.mountain_road_conditions",
+   "example": "carretera de montaña, quien avisa",
+   "rank": 14,
+   "top1": "health_safety.national_emergency_number_123",
+   "top1_cos": 0.8813,
+   "own_cos": 0.8706
+  },
+  {
+   "id": "access.mountain_road_conditions",
+   "example": "does the park page post today's road report",
+   "rank": 33,
+   "top1": "hours_status.park_open_today",
+   "top1_cos": 0.8661,
+   "own_cos": 0.8232
+  },
+  {
+   "id": "access.mountain_road_conditions",
+   "example": "is the dirt road open this morning",
+   "rank": 8,
+   "top1": "hours_status.road_closure_status",
+   "top1_cos": 0.8376,
+   "own_cos": 0.8232
+  },
+  {
+   "id": "access.mountain_road_conditions",
+   "example": "con niebla, ¿se puede pasar al Cisne?",
+   "rank": 10,
+   "top1": "booking_fees.other_sector_reservation",
+   "top1_cos": 0.9192,
+   "own_cos": 0.8915
+  },
+  {
+   "id": "access.mountain_road_conditions",
+   "example": "planeo con el prestador del sector",
+   "rank": 282,
+   "top1": "access.organized_tour_transport",
+   "top1_cos": 0.8947,
+   "own_cos": 0.8461
+  },
+  {
+   "id": "access.mountain_road_conditions",
+   "example": "no hay un mapa de vias abiertas en la visita",
+   "rank": 29,
+   "top1": "activities.recreation_zone_trails",
+   "top1_cos": 0.9011,
+   "own_cos": 0.8641
+  },
+  {
+   "id": "access.mountain_road_conditions",
+   "example": "antes de salir pregunto si se pasa",
+   "rank": 336,
+   "top1": "access.choose_otun_trailhead",
+   "top1_cos": 0.9264,
+   "own_cos": 0.8461
+  },
+  {
+   "id": "access.mountain_road_conditions",
+   "example": "la terciaria puede cambiar",
+   "rank": 14,
+   "top1": "access.confirm_road_before",
+   "top1_cos": 0.8838,
+   "own_cos": 0.8415
+  },
+  {
+   "id": "access.mountain_road_conditions",
+   "example": "cómo está el estado del camino hacia Potosí hoy",
+   "rank": 2,
+   "top1": "access.where_road_ends",
+   "top1_cos": 0.9202,
+   "own_cos": 0.9162
+  },
+  {
+   "id": "access.mountain_road_conditions",
+   "example": "hay derrumbes o paso difícil en las carreteras destapadas",
+   "rank": 2,
+   "top1": "hours_status.road_closure_status",
+   "top1_cos": 0.8952,
+   "own_cos": 0.8815
+  },
+  {
+   "id": "access.mountain_road_conditions",
+   "example": "condiciones del carreteable terciario con lluvias",
+   "rank": 24,
+   "top1": "access.brisas_tumbas_drive",
+   "top1_cos": 0.8709,
+   "own_cos": 0.8415
+  },
+  {
+   "id": "access.mountain_road_conditions",
+   "example": "unpaved mountain road driving conditions and warnings",
+   "rank": 3,
+   "top1": "access.dirt_roads_cisne",
+   "top1_cos": 0.8805,
+   "own_cos": 0.8532
+  },
+  {
+   "id": "access.santa_rosa_vs_cedral",
+   "example": "santa rosa y pereira entran por el mismo sitio",
+   "rank": 5,
+   "top1": "geography.pereira_santa_rosa",
+   "top1_cos": 0.9031,
+   "own_cos": 0.8749
+  },
+  {
+   "id": "access.santa_rosa_vs_cedral",
+   "example": "paramo de santa rosa es el cedral",
+   "rank": 2,
+   "top1": "access.from_santa_rosa",
+   "top1_cos": 0.909,
+   "own_cos": 0.8945
+  },
+  {
+   "id": "access.santa_rosa_vs_cedral",
+   "example": "me enredo entre Potosí y El Cedral",
+   "rank": 23,
+   "top1": "access.choose_otun_trailhead",
+   "top1_cos": 0.9246,
+   "own_cos": 0.885
+  },
+  {
+   "id": "access.santa_rosa_vs_cedral",
+   "example": "una es destapada a potosi y la otra es pereira",
+   "rank": 5,
+   "top1": "access.from_pereira_choose",
+   "top1_cos": 0.8983,
+   "own_cos": 0.8844
+  },
+  {
+   "id": "access.santa_rosa_vs_cedral",
+   "example": "¿en Risaralda hay dos entradas distintas?",
+   "rank": 24,
+   "top1": "access.departments_of_access",
+   "top1_cos": 0.9156,
+   "own_cos": 0.8169
+  },
+  {
+   "id": "access.santa_rosa_vs_cedral",
+   "example": "cual de las dos va a la laguna",
+   "rank": 2,
+   "top1": "access.choose_otun_trailhead",
+   "top1_cos": 0.9297,
+   "own_cos": 0.9148
+  },
+  {
+   "id": "access.own_car_brisas",
+   "example": "¿mi carro sí alcanza a pasar la portería?",
+   "rank": 2,
+   "top1": "access.organized_tour_transport",
+   "top1_cos": 0.9214,
+   "own_cos": 0.8975
+  },
+  {
+   "id": "access.own_car_brisas",
+   "example": "can I drive my own car to Brisas",
+   "rank": 2,
+   "top1": "access.taxi_not_published",
+   "top1_cos": 0.9417,
+   "own_cos": 0.9261
+  },
+  {
+   "id": "access.own_car_brisas",
+   "example": "is a private car allowed at the north gate",
+   "rank": 17,
+   "top1": "access.no_public_bus",
+   "top1_cos": 0.8822,
+   "own_cos": 0.8167
+  },
+  {
+   "id": "access.own_car_brisas",
+   "example": "voy en carro de la casa hasta el centro",
+   "rank": 4,
+   "top1": "access.parking_at_brisas",
+   "top1_cos": 0.9193,
+   "own_cos": 0.9045
+  },
+  {
+   "id": "access.own_car_brisas",
+   "example": "pa' llegar a Brisas en carro, ¿qué necesito?",
+   "rank": 2,
+   "top1": "geography.sector_brisas_kumanday",
+   "top1_cos": 0.9381,
+   "own_cos": 0.9334
+  },
+  {
+   "id": "access.own_car_brisas",
+   "example": "carro propio si, moto no",
+   "rank": 15,
+   "top1": "access.bus_or_van_entry",
+   "top1_cos": 0.9412,
+   "own_cos": 0.8936
+  },
+  {
+   "id": "access.own_car_brisas",
+   "example": "subo en el mío o me toca dejarlo abajo",
+   "rank": 50,
+   "top1": "access.covered_vehicle_required",
+   "top1_cos": 0.9049,
+   "own_cos": 0.8711
+  },
+  {
+   "id": "access.own_car_brisas",
+   "example": "llegar en carro particular hasta el centro de inducción",
+   "rank": 2,
+   "top1": "access.brisas_visitor_center",
+   "top1_cos": 0.9449,
+   "own_cos": 0.9175
+  },
+  {
+   "id": "access.from_pereira_choose",
+   "example": "desde pereira cuál entrada",
+   "rank": 4,
+   "top1": "access.from_pereira_cedral",
+   "top1_cos": 0.9305,
+   "own_cos": 0.8861
+  },
+  {
+   "id": "access.from_pereira_choose",
+   "example": "pereira brisas o pereira cedral",
+   "rank": 3,
+   "top1": "access.from_pereira_cedral",
+   "top1_cos": 0.9082,
+   "own_cos": 0.8966
+  },
+  {
+   "id": "access.from_pereira_choose",
+   "example": "salgo de pereira al parque",
+   "rank": 12,
+   "top1": "access.from_pereira_cedral",
+   "top1_cos": 0.9295,
+   "own_cos": 0.8962
+  },
+  {
+   "id": "access.from_pereira_choose",
+   "example": "from Pereira, is Brisas the published road",
+   "rank": 42,
+   "top1": "access.tumbas_and_silencio_same_road",
+   "top1_cos": 0.8957,
+   "own_cos": 0.8478
+  },
+  {
+   "id": "access.from_pereira_choose",
+   "example": "potosi no sale como carretera directa de pereira",
+   "rank": 2,
+   "top1": "access.potosi_control",
+   "top1_cos": 0.9161,
+   "own_cos": 0.9136
+  },
+  {
+   "id": "access.from_pereira_choose",
+   "example": "¿desde Pereira me sirve pa' Brisas o no?",
+   "rank": 23,
+   "top1": "access.conejeras_not_brisas",
+   "top1_cos": 0.9468,
+   "own_cos": 0.8909
+  },
+  {
+   "id": "access.from_pereira_choose",
+   "example": "pereira hacia los nevados por donde",
+   "rank": 5,
+   "top1": "geography.pereira_santa_rosa",
+   "top1_cos": 0.9419,
+   "own_cos": 0.8805
+  },
+  {
+   "id": "access.from_pereira_choose",
+   "example": "si salgo de Pereira, por cuál puerta me voy",
+   "rank": 3,
+   "top1": "access.departments_of_access",
+   "top1_cos": 0.9214,
+   "own_cos": 0.9061
+  },
+  {
+   "id": "access.from_pereira_choose",
+   "example": "opciones de entrada al parque saliendo desde Pereira",
+   "rank": 3,
+   "top1": "booking_fees.entry_fee_discounts",
+   "top1_cos": 0.9041,
+   "own_cos": 0.8945
+  },
+  {
+   "id": "access.from_pereira_choose",
+   "example": "saliendo de pereira me conviene mas cedral o potosi",
+   "rank": 6,
+   "top1": "access.choose_otun_trailhead",
+   "top1_cos": 0.9385,
+   "own_cos": 0.8966
+  },
+  {
+   "id": "access.bus_to_letras",
+   "example": "arauca por maltería llega al parque",
+   "rank": 8,
+   "top1": "geography.salento_quindio",
+   "top1_cos": 0.8695,
+   "own_cos": 0.8636
+  },
+  {
+   "id": "access.bus_to_letras",
+   "example": "el destino letras es la portería",
+   "rank": 10,
+   "top1": "access.letras_not_the_gate",
+   "top1_cos": 0.9193,
+   "own_cos": 0.8706
+  },
+  {
+   "id": "access.bus_to_letras",
+   "example": "desde manizales, bus a letras",
+   "rank": 3,
+   "top1": "access.letras_highway",
+   "top1_cos": 0.9245,
+   "own_cos": 0.913
+  },
+  {
+   "id": "access.bus_to_letras",
+   "example": "me sirve el arauca para entrar a brisas",
+   "rank": 43,
+   "top1": "hours_status.brisas_hours",
+   "top1_cos": 0.8866,
+   "own_cos": 0.8636
+  },
+  {
+   "id": "access.bus_to_letras",
+   "example": "is there a bus to Letras from Manizales",
+   "rank": 3,
+   "top1": "access.letras_highway",
+   "top1_cos": 0.9274,
+   "own_cos": 0.9067
+  },
+  {
+   "id": "access.bus_to_letras",
+   "example": "does Empresa Arauca stop at the gate",
+   "rank": 9,
+   "top1": "access.letras_highway",
+   "top1_cos": 0.8481,
+   "own_cos": 0.8382
+  },
+  {
+   "id": "access.bus_to_letras",
+   "example": "la ruta maltería letras sigue al nevado",
+   "rank": 36,
+   "top1": "access.letras_highway",
+   "top1_cos": 0.8977,
+   "own_cos": 0.8608
+  },
+  {
+   "id": "access.letras_highway",
+   "example": "por letras se sale hacia el parque",
+   "rank": 22,
+   "top1": "access.letras_not_the_gate",
+   "top1_cos": 0.9397,
+   "own_cos": 0.8714
+  },
+  {
+   "id": "access.letras_highway",
+   "example": "¿la vía a Bogotá es la de Letras, sí o no?",
+   "rank": 2,
+   "top1": "access.from_bogota",
+   "top1_cos": 0.9444,
+   "own_cos": 0.922
+  },
+  {
+   "id": "access.letras_highway",
+   "example": "letras queda antes de brisas",
+   "rank": 4,
+   "top1": "geography.valle_tumbas",
+   "top1_cos": 0.9119,
+   "own_cos": 0.8914
+  },
+  {
+   "id": "access.letras_highway",
+   "example": "cojo la via a bogota y despues el corredor",
+   "rank": 19,
+   "top1": "access.from_salento_cocora",
+   "top1_cos": 0.9033,
+   "own_cos": 0.8773
+  },
+  {
+   "id": "access.letras_highway",
+   "example": "do I stay on the Letras highway until the gate",
+   "rank": 3,
+   "top1": "access.letras_not_the_gate",
+   "top1_cos": 0.8847,
+   "own_cos": 0.8633
+  },
+  {
+   "id": "access.letras_highway",
+   "example": "despues de letras falta el desvio",
+   "rank": 8,
+   "top1": "access.brisas_visitor_center",
+   "top1_cos": 0.9081,
+   "own_cos": 0.8852
+  },
+  {
+   "id": "access.letras_highway",
+   "example": "pa' Brisas, ¿me sirve la vía a Bogotá por Letras?",
+   "rank": 13,
+   "top1": "access.from_pereira_choose",
+   "top1_cos": 0.9291,
+   "own_cos": 0.9051
+  },
+  {
+   "id": "access.letras_highway",
+   "example": "salgo por letras rumbo al nevado",
+   "rank": 6,
+   "top1": "access.always_by_land",
+   "top1_cos": 0.9145,
+   "own_cos": 0.9034
+  },
+  {
+   "id": "access.letras_highway",
+   "example": "cómo es la carretera Manizales Bogotá vía Letras",
+   "rank": 2,
+   "top1": "access.from_bogota",
+   "top1_cos": 0.9487,
+   "own_cos": 0.9404
+  },
+  {
+   "id": "access.letras_highway",
+   "example": "tramo nacional por Letras para desviar a Brisas",
+   "rank": 9,
+   "top1": "booking_fees.brisas_booking_channel",
+   "top1_cos": 0.9342,
+   "own_cos": 0.9051
+  },
+  {
+   "id": "access.letras_not_the_gate",
+   "example": "la portería queda en letras",
+   "rank": 2,
+   "top1": "access.bus_to_letras",
+   "top1_cos": 0.9193,
+   "own_cos": 0.9098
+  },
+  {
+   "id": "access.letras_not_the_gate",
+   "example": "vi el letrero de letras, es la caseta",
+   "rank": 4,
+   "top1": "access.la_cueva_on_the_road",
+   "top1_cos": 0.9117,
+   "own_cos": 0.9019
+  },
+  {
+   "id": "access.letras_not_the_gate",
+   "example": "llego a Letras y ya estoy en Brisas, ¿no?",
+   "rank": 9,
+   "top1": "access.termales_ruiz_not_gate",
+   "top1_cos": 0.9255,
+   "own_cos": 0.9124
+  },
+  {
+   "id": "access.letras_not_the_gate",
+   "example": "no quiero registrarme en el punto equivocado",
+   "rank": 18,
+   "top1": "access.tumbas_and_silencio_same_road",
+   "top1_cos": 0.9328,
+   "own_cos": 0.8794
+  },
+  {
+   "id": "access.manizales_brisas_distance",
+   "example": "¿los 28 km al volcán son la carretera a Brisas?",
+   "rank": 12,
+   "top1": "hours_status.road_closure_status",
+   "top1_cos": 0.9005,
+   "own_cos": 0.8716
+  },
+  {
+   "id": "access.manizales_brisas_distance",
+   "example": "is 28 km the road distance",
+   "rank": 8,
+   "top1": "access.from_anzoategui_palomar",
+   "top1_cos": 0.8388,
+   "own_cos": 0.8217
+  },
+  {
+   "id": "access.manizales_brisas_distance",
+   "example": "no quiero la distancia en linea recta",
+   "rank": 17,
+   "top1": "access.letras_not_the_gate",
+   "top1_cos": 0.9205,
+   "own_cos": 0.878
+  },
+  {
+   "id": "access.manizales_brisas_distance",
+   "example": "me dijeron que eran unos 40 km, sera",
+   "rank": 609,
+   "top1": "history_culture.armero_outside_park",
+   "top1_cos": 0.9232,
+   "own_cos": 0.8309
+  },
+  {
+   "id": "access.manizales_brisas_distance",
+   "example": "la distancia del volcan no es el recorrido en carro",
+   "rank": 7,
+   "top1": "activities.cloudy_visit_landscape",
+   "top1_cos": 0.9057,
+   "own_cos": 0.878
+  },
+  {
+   "id": "access.manizales_brisas_distance",
+   "example": "cuanto falta por carretera de verdad",
+   "rank": 18,
+   "top1": "access.no_official_travel_time",
+   "top1_cos": 0.8721,
+   "own_cos": 0.845
+  }
+ ],
+ "removed_examples": 0,
+ "removed_not_routing": []
+}

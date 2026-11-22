@@ -1,0 +1,28 @@
+[
+  {
+    "ids": [
+      "hours_status.volcanic_alert_closures",
+      "weather_volcano.volcanic_closures",
+      "weather_volcano.yellow_upper_access",
+      "weather_volcano.alert_yellow_meaning"
+    ],
+    "problem": "hours_status.volcanic_alert_closures dice que con alerta amarilla siguen abiertos los sectores autorizados y que naranja o roja suspenden el ingreso. El esquema del SGC del 14 de septiembre de 2023 recomienda restringir la parte alta en amarilla, según el volcán. La Resolución 268 del 22 de octubre de 2024 lista la cumbre y el ciclomontañismo Brisas–Arenales–Valle de las Tumbas como restringidos y escribe alerta amarilla como dato de ese acto.",
+    "suggestion": "El curator de hours_status debe fechar esa regla, no presentar la amarilla como apertura de hoy y dejar el cierre general del parque en hours. La restricción de cumbre queda en weather_volcano.volcanic_closures."
+  },
+  {
+    "ids": [
+      "activities.cloudy_visit_landscape",
+      "weather_volcano.summit_visibility"
+    ],
+    "problem": "cloudy_visit_landscape responde si el paseo vale cuando el Ruiz está nublado. summit_visibility responde que nadie garantiza la cumbre despejada, con la nevada del 10 de octubre de 2025, y pide no salir del sendero a buscar la foto.",
+    "suggestion": "Dejar en activities las preguntas de si el recorrido vale con nubes. «qué significa alerta amarilla del Ruiz» en activities es hard negative, no ejemplo: debe seguir en weather_volcano.alert_yellow_meaning."
+  },
+  {
+    "ids": [
+      "weather_volcano.separate_volcano_alerts",
+      "weather_volcano.tolima_lahars"
+    ],
+    "problem": "No existe weather_volcano.tolima_bulletin. En la fase 2 el índice de boletines del Tolima respondió 404. La ficha de generalidades documenta lahares por ser un volcán nevado y no trae el color de hoy.",
+    "suggestion": "No crear la entrada hasta tener una URL de boletines que descargue. La pregunta de qué página abrir sigue en separate_volcano_alerts."
+  }
+]

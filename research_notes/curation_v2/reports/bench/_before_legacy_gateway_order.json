@@ -1,0 +1,303 @@
+{
+  "label": "LEGACY_NOT_BLIND_OPTION_ORDER_SAMPLE",
+  "sections_dir": "research_notes/curation_v2/snapshots/sections_before",
+  "retrieval_mode": "gateway",
+  "k": 5,
+  "laya": "int8_gather",
+  "n": 200,
+  "metrics": {
+    "recall@1": {
+      "k": 24,
+      "n": 40,
+      "rate": 0.6,
+      "lo": 0.446,
+      "hi": 0.7365
+    },
+    "recall@3": {
+      "k": 29,
+      "n": 40,
+      "rate": 0.725,
+      "lo": 0.5716,
+      "hi": 0.8389
+    },
+    "recall@5": {
+      "k": 30,
+      "n": 40,
+      "rate": 0.75,
+      "lo": 0.5981,
+      "hi": 0.8581
+    },
+    "e5_global_recall@1": {
+      "k": 24,
+      "n": 40,
+      "rate": 0.6,
+      "lo": 0.446,
+      "hi": 0.7365
+    },
+    "e5_global_recall@3": {
+      "k": 29,
+      "n": 40,
+      "rate": 0.725,
+      "lo": 0.5716,
+      "hi": 0.8389
+    },
+    "e5_global_recall@5": {
+      "k": 34,
+      "n": 40,
+      "rate": 0.85,
+      "lo": 0.7093,
+      "hi": 0.9294
+    },
+    "gateway_section_recall": {
+      "k": 40,
+      "n": 40,
+      "rate": 1.0,
+      "lo": 0.9124,
+      "hi": 1.0
+    },
+    "e5_only_accuracy": {
+      "k": 24,
+      "n": 40,
+      "rate": 0.6,
+      "lo": 0.446,
+      "hi": 0.7365
+    },
+    "selected_accuracy": {
+      "k": 27,
+      "n": 40,
+      "rate": 0.675,
+      "lo": 0.5202,
+      "hi": 0.7992
+    },
+    "rerank_accuracy_when_valid_in_pool": {
+      "k": 27,
+      "n": 30,
+      "rate": 0.9,
+      "lo": 0.7438,
+      "hi": 0.9654
+    },
+    "none_rejection_rate": {
+      "k": 91,
+      "n": 160,
+      "rate": 0.5687,
+      "lo": 0.4913,
+      "hi": 0.643
+    },
+    "false_rejections": 9,
+    "false_rejection_rate": {
+      "k": 9,
+      "n": 40,
+      "rate": 0.225,
+      "lo": 0.1232,
+      "hi": 0.375
+    },
+    "accepted_answer_precision": {
+      "k": 24,
+      "n": 100,
+      "rate": 0.24,
+      "lo": 0.1669,
+      "hi": 0.3323
+    },
+    "coverage": {
+      "k": 100,
+      "n": 200,
+      "rate": 0.5,
+      "lo": 0.4314,
+      "hi": 0.5686
+    }
+  },
+  "breakdown": {
+    "scenario": {
+      "near_miss": {
+        "n": 0,
+        "accuracy": {
+          "k": 0,
+          "n": 0,
+          "rate": null,
+          "lo": null,
+          "hi": null
+        }
+      },
+      "out_of_scope": {
+        "n": 0,
+        "accuracy": {
+          "k": 0,
+          "n": 0,
+          "rate": null,
+          "lo": null,
+          "hi": null
+        }
+      },
+      "paraphrase": {
+        "n": 40,
+        "accuracy": {
+          "k": 27,
+          "n": 40,
+          "rate": 0.675,
+          "lo": 0.5202,
+          "hi": 0.7992
+        }
+      }
+    },
+    "section": {
+      "access": {
+        "n": 40,
+        "accuracy": {
+          "k": 27,
+          "n": 40,
+          "rate": 0.675,
+          "lo": 0.5202,
+          "hi": 0.7992
+        }
+      },
+      "geography": {
+        "n": 0,
+        "accuracy": {
+          "k": 0,
+          "n": 0,
+          "rate": null,
+          "lo": null,
+          "hi": null
+        }
+      },
+      "health_safety": {
+        "n": 0,
+        "accuracy": {
+          "k": 0,
+          "n": 0,
+          "rate": null,
+          "lo": null,
+          "hi": null
+        }
+      },
+      "unknown": {
+        "n": 0,
+        "accuracy": {
+          "k": 0,
+          "n": 0,
+          "rate": null,
+          "lo": null,
+          "hi": null
+        }
+      }
+    }
+  },
+  "option_order_robustness": {
+    "sampled_rows": 200,
+    "result": {
+      "k": 37,
+      "n": 40,
+      "rate": 0.925,
+      "lo": 0.8014,
+      "hi": 0.9742
+    }
+  },
+  "unseen_topic": {
+    "recall@1": {
+      "k": 0,
+      "n": 1,
+      "rate": 0.0,
+      "lo": 0.0,
+      "hi": 0.7935
+    },
+    "recall@3": {
+      "k": 0,
+      "n": 1,
+      "rate": 0.0,
+      "lo": 0.0,
+      "hi": 0.7935
+    },
+    "recall@5": {
+      "k": 0,
+      "n": 1,
+      "rate": 0.0,
+      "lo": 0.0,
+      "hi": 0.7935
+    },
+    "e5_global_recall@1": {
+      "k": 0,
+      "n": 1,
+      "rate": 0.0,
+      "lo": 0.0,
+      "hi": 0.7935
+    },
+    "e5_global_recall@3": {
+      "k": 0,
+      "n": 1,
+      "rate": 0.0,
+      "lo": 0.0,
+      "hi": 0.7935
+    },
+    "e5_global_recall@5": {
+      "k": 1,
+      "n": 1,
+      "rate": 1.0,
+      "lo": 0.2065,
+      "hi": 1.0
+    },
+    "gateway_section_recall": {
+      "k": 1,
+      "n": 1,
+      "rate": 1.0,
+      "lo": 0.2065,
+      "hi": 1.0
+    },
+    "e5_only_accuracy": {
+      "k": 0,
+      "n": 1,
+      "rate": 0.0,
+      "lo": 0.0,
+      "hi": 0.7935
+    },
+    "selected_accuracy": {
+      "k": 0,
+      "n": 1,
+      "rate": 0.0,
+      "lo": 0.0,
+      "hi": 0.7935
+    },
+    "rerank_accuracy_when_valid_in_pool": {
+      "k": 0,
+      "n": 0,
+      "rate": null,
+      "lo": null,
+      "hi": null
+    },
+    "none_rejection_rate": {
+      "k": 0,
+      "n": 0,
+      "rate": null,
+      "lo": null,
+      "hi": null
+    },
+    "false_rejections": 0,
+    "false_rejection_rate": {
+      "k": 0,
+      "n": 1,
+      "rate": 0.0,
+      "lo": 0.0,
+      "hi": 0.7935
+    },
+    "accepted_answer_precision": {
+      "k": 0,
+      "n": 1,
+      "rate": 0.0,
+      "lo": 0.0,
+      "hi": 0.7935
+    },
+    "coverage": {
+      "k": 1,
+      "n": 1,
+      "rate": 1.0,
+      "lo": 0.2065,
+      "hi": 1.0
+    }
+  },
+  "laptop_latency_ms": {
+    "label": "LAPTOP",
+    "p50": 235.0,
+    "p95": 352.8,
+    "n": 200,
+    "scope": "Laya ONNX inference only; retrieval/embed excluded"
+  }
+}

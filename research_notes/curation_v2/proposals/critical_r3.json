@@ -1,0 +1,519 @@
+{
+ "operations": [
+  {
+   "op": "update",
+   "reason": "Keep the MedlinePlus definition below 35 °C and remove the 32 °C and 28 °C bands from the hospital guide. Round 3 (orchestrator, per re-review required_change): quotes trimmed to the cited sentences, confusion symptom quoted, corpus label restored.",
+   "entry": {
+    "id": "health_safety.hypothermia_body_temperature",
+    "label": "desde qué temperatura hay hipotermia",
+    "kind": "safety",
+    "audience": "visitor",
+    "lang": "es",
+    "examples": [
+     "a partir de qué temperatura corporal hay hipotermia",
+     "bajo cuántos grados es hipotermia leve o severa",
+     "si el cuerpo llega a 35 grados, ya es hipotermia?",
+     "qué es hipotermia moderada entre 32 y 28 grados",
+     "cuándo la hipotermia ya es severa por la temperatura",
+     "diferencia entre hipotermia leve moderada y grave",
+     "at what body temperature does hypothermia start?",
+     "si el cuerpo baja de 35 grados qué hago",
+     "a cuántos grados el frío del cuerpo ya es grave?",
+     "menos de 28 grados de temperatura ya es hipotermia grave?",
+     "cómo saber si el enfriamiento ya es grave por los grados",
+     "umbral de 35 grados para hipotermia en la montaña",
+     "bajo 35 grados ya cuenta como hipotermia o solo si baja de 28"
+    ],
+    "hard_negatives": [
+     "cómo reconocer hipotermia",
+     "temblar mucho en el frío es peligroso",
+     "está confundido y tiene frío"
+    ],
+    "answer": {
+     "short": "MedlinePlus define la hipotermia como una temperatura corporal por debajo de 35 °C (95 °F). Si tiemblas sin control, te confundes o dejas de temblar, abrígate y avisa al guía.",
+     "variants": [
+      "Por debajo de 35 °C, MedlinePlus ya habla de hipotermia. Si tiemblas sin parar, te confundes o dejas de temblar, abrígate y avisa al guía."
+     ],
+     "reflection": null
+    },
+    "sources": [
+     {
+      "label": "MedlinePlus, Hypothermia",
+      "url": "https://medlineplus.gov/ency/article/000038.htm",
+      "retrieved_at": "2026-11-21"
+     }
+    ],
+    "last_verified": "2026-11-22",
+    "related": [
+     "health_safety.hypothermia_warning_signs",
+     "health_safety.severe_hypothermia_signs_and_care"
+    ],
+    "tags": [
+     "35 °C",
+     "hipotermia",
+     "temperatura"
+    ]
+   },
+   "evidence": [
+    {
+     "url": "https://medlineplus.gov/ency/article/000038.htm",
+     "path": "research_notes/Conocimiento turístico de Los Nevados/health_safety/evidence/raw/medlineplus_ency_hypothermia.html",
+     "quote": "Hypothermia is a dangerously low body temperature, below 95°F (35°C).",
+     "checked_on": "2026-11-22"
+    },
+    {
+     "url": "https://medlineplus.gov/ency/article/000038.htm",
+     "path": "research_notes/Conocimiento turístico de Los Nevados/health_safety/evidence/raw/medlineplus_ency_hypothermia.html",
+     "quote": "Shivering that cannot be controlled (although at extremely low body temperatures, shivering may stop)",
+     "checked_on": "2026-11-22"
+    },
+    {
+     "url": "https://medlineplus.gov/ency/article/000038.htm",
+     "path": "research_notes/Conocimiento turístico de Los Nevados/health_safety/evidence/raw/medlineplus_ency_hypothermia.html",
+     "quote": "If the person has any symptoms of hypothermia that are present, especially confusion or problems thinking, call 911 or the local emergency number right away.",
+     "checked_on": "2026-11-22"
+    }
+   ]
+  },
+  {
+   "op": "update",
+   "reason": "Keep the MedlinePlus instruction to cover the person and move them as little as possible, and drop the 32 °C threshold. Round 3 (orchestrator, per re-review required_change): quotes cut before list markup; shivering-may-stop quoted.",
+   "entry": {
+    "id": "health_safety.severe_hypothermia_signs_and_care",
+    "label": "hipotermia severa y poco movimiento",
+    "kind": "safety",
+    "audience": "visitor",
+    "lang": "es",
+    "examples": [
+     "qué pasa cuando alguien con hipotermia deja de temblar",
+     "por qué es peligroso que desaparezca el escalofrío en el frío",
+     "por qué no se debe mover bruscamente a alguien con hipotermia",
+     "señales de hipotermia severa bajo 32 grados",
+     "rigidez muscular y estupor por frío extremo",
+     "riesgo de arritmia cardíaca al mover a un hipotérmico",
+     "what happens in severe hypothermia when shivering stops?",
+     "mi compañero tiene mucho frío pero ya no tiembla y está letárgico",
+     "cómo manejar con suavidad a una persona con hipotermia grave",
+     "manta térmica y evitar movimientos bruscos en hipotermia",
+     "cuándo la hipotermia se vuelve una emergencia crítica",
+     "temperatura menor de 32 grados y pérdida de conciencia por frío",
+     "dejo de temblar y esta frio, lo muevo rapido o lo dejo quieto"
+    ],
+    "hard_negatives": [
+     "cómo reconocer hipotermia",
+     "temblar mucho en el frío es peligroso",
+     "está confundido y tiene frío"
+    ],
+    "answer": {
+     "short": "Si alguien está muy frío, MedlinePlus pide sacarlo del frío moviéndolo lo menos posible y cubrirlo. El temblor puede cesar cuando la temperatura está muy baja. Avísale al guía; esta app no promete una evacuación.",
+     "variants": [
+      "Cubre a la persona muy fría y muévela lo menos posible, como pide MedlinePlus. Avisa al guía; la app no promete evacuación."
+     ],
+     "reflection": null
+    },
+    "sources": [
+     {
+      "label": "MedlinePlus, Hypothermia",
+      "url": "https://medlineplus.gov/ency/article/000038.htm",
+      "retrieved_at": "2026-11-21"
+     }
+    ],
+    "last_verified": "2026-11-22",
+    "related": [
+     "health_safety.hypothermia_warning_signs",
+     "health_safety.hypothermia_first_response",
+     "health_safety.unresponsive_cpr"
+    ],
+    "tags": [
+     "hipotermia severa",
+     "movimientos bruscos"
+    ]
+   },
+   "evidence": [
+    {
+     "url": "https://medlineplus.gov/ency/article/000038.htm",
+     "path": "research_notes/Conocimiento turístico de Los Nevados/health_safety/evidence/raw/medlineplus_ency_hypothermia.html",
+     "quote": "Victims of severe hypothermia should be removed from the cold environment with as little exertion as possible.",
+     "checked_on": "2026-11-22"
+    },
+    {
+     "url": "https://medlineplus.gov/ency/article/000038.htm",
+     "path": "research_notes/Conocimiento turístico de Los Nevados/health_safety/evidence/raw/medlineplus_ency_hypothermia.html",
+     "quote": "Cover the person with warm blankets if available.",
+     "checked_on": "2026-11-22"
+    },
+    {
+     "url": "https://medlineplus.gov/ency/article/000038.htm",
+     "path": "research_notes/Conocimiento turístico de Los Nevados/health_safety/evidence/raw/medlineplus_ency_hypothermia.html",
+     "quote": "Shivering that cannot be controlled (although at extremely low body temperatures, shivering may stop)",
+     "checked_on": "2026-11-22"
+    }
+   ]
+  },
+  {
+   "op": "update",
+   "reason": "One instruction: do not soak the roof, do not climb it, tell park staff. Both sources are quoted and are not offered as equivalent do-it-yourself steps. Round 3 (orchestrator, per re-review required_change): SGC roof/stairs precaution quoted; single instruction unchanged.",
+   "entry": {
+    "id": "weather_volcano.ash_roofs",
+    "label": "ceniza acumulada en los techos",
+    "kind": "safety",
+    "audience": "visitor",
+    "lang": "es",
+    "examples": [
+     "cómo quito la ceniza del techo",
+     "le echo agua a la ceniza del techo",
+     "el techo se puede caer con ceniza mojada",
+     "limpio la ceniza del techo con agua o en seco?",
+     "puedo subirme al techo del refugio",
+     "limpiar ceniza sin empapar el techo",
+     "quién limpia el techo en el parque",
+     "ceniza húmeda pesa más",
+     "no subo a limpiar el techo solo",
+     "hay dos instrucciones para la ceniza del techo",
+     "should I wash volcanic ash off a roof",
+     "can I climb the shelter roof to remove ash"
+    ],
+    "hard_negatives": [
+     "está abierto hoy",
+     "hay cierres"
+    ],
+    "needs": [],
+    "answer": {
+     "short": "No empapés el techo ni te subas a quitar la ceniza: avisa al personal del parque. La guía del SGC advierte que la ceniza demasiado húmeda puede colapsar el techo, y la UNGRD pide retirarla sin utilizar agua; no hagas ninguna de las dos por tu cuenta.",
+     "variants": [
+      "En el refugio no limpies el techo ni le eches agua. Avísale al personal y no elijas tú entre mojarlo o barrerlo en seco."
+     ]
+    },
+    "sources": [
+     {
+      "label": "UNGRD, comunidades preparadas ante erupciones",
+      "url": "http://repositorio.gestiondelriesgo.gov.co/bitstream/handle/20.500.11762/19985/Comunidades_preparadas_ante_erupciones_volcanicas.pdf?sequence=1",
+      "retrieved_at": "2026-11-22"
+     },
+     {
+      "label": "SGC, guía de preparación ante lluvia de cenizas",
+      "url": "https://www2.sgc.gov.co/Direcciones-Tecnicas/Geoamenazas/Documents/Guia_preparacion_lluvia_cenizas.pdf",
+      "retrieved_at": "2026-11-22"
+     }
+    ],
+    "last_verified": "2026-11-22",
+    "related": [
+     "weather_volcano.ash_actions",
+     "weather_volcano.ash_resuspends",
+     "weather_volcano.stay_safe_zone"
+    ],
+    "tags": [
+     "techo",
+     "ceniza",
+     "agua"
+    ]
+   },
+   "evidence": [
+    {
+     "url": "http://repositorio.gestiondelriesgo.gov.co/bitstream/handle/20.500.11762/19985/Comunidades_preparadas_ante_erupciones_volcanicas.pdf?sequence=1",
+     "path": "research_notes/Conocimiento turístico de Los Nevados/weather_volcano/evidence/raw/ungrd-comunidades-erupciones.txt",
+     "quote": "Retire la ceniza de los techos, sin utilizar\nagua.",
+     "checked_on": "2026-11-22"
+    },
+    {
+     "url": "https://www2.sgc.gov.co/Direcciones-Tecnicas/Geoamenazas/Documents/Guia_preparacion_lluvia_cenizas.pdf",
+     "path": "research_notes/Conocimiento turístico de Los Nevados/weather_volcano/evidence/raw/sgc-guia-ceniza.txt",
+     "quote": "Se deben rociar con\nagua los depósitos de cenizas antes de utilizar las palas para quitarlas, cuidando\nde que no se humedezcan demasiado cuando cubren los techos, ya que eso\naumentaría el peso de la carga y habría peligro de que colapsen los techos.",
+     "checked_on": "2026-11-22"
+    },
+    {
+     "url": "https://www2.sgc.gov.co/Direcciones-Tecnicas/Geoamenazas/Documents/Guia_preparacion_lluvia_cenizas.pdf",
+     "path": "research_notes/Conocimiento turístico de Los Nevados/weather_volcano/evidence/raw/sgc-guia-ceniza.txt",
+     "quote": "Deben extremarse las precauciones en escaleras y techos. Las cenizas hacen el\npiso muy resbaloso, y como consecuencia muchas personas mueres al caer\ncuando están limpiando cenizas de los techos.",
+     "checked_on": "2026-11-22"
+    },
+    {
+     "url": "https://www2.sgc.gov.co/Direcciones-Tecnicas/Geoamenazas/Documents/Guia_preparacion_lluvia_cenizas.pdf",
+     "path": "research_notes/Conocimiento turístico de Los Nevados/weather_volcano/evidence/raw/sgc-guia-ceniza.txt",
+     "quote": "Tome precaución con respecto al\nsobrepeso al subirse a una superficie de por si sobrecargada por las cenizas",
+     "checked_on": "2026-11-22"
+    }
+   ]
+  },
+  {
+   "op": "update",
+   "reason": "Disambiguate the Tolima Arenales from the Brisas camping. Round 3 (orchestrator): critical camping contradiction (findings/contradictions.json) — Res. 207/2023 names two different Arenales: the Brisas (north) camping, restricted, and a point near the Nevado del Tolima, enabled transitionally.",
+   "entry": {
+    "id": "activities.camping_tolima",
+    "label": "pernocte transitorio del Tolima",
+    "kind": "fact",
+    "audience": "visitor",
+    "lang": "es",
+    "examples": [
+     "dónde se duerme en la travesía del Tolima",
+     "puedo acampar en Termales del Cañón",
+     "toca armar carpa en Calvito?",
+     "Arenales del sur deja pasar la noche",
+     "campamentos transitorios del Tolima",
+     "la carpa en la ruta de la cumbre",
+     "pernocte en el sur del parque",
+     "dónde me toca dormir en el sur, parce?",
+     "el canon tiene camping transitorio",
+     "donde armo la carpa en el tolima",
+     "where can I camp on the Tolima trek",
+     "are Calvito and Arenales overnight stops"
+    ],
+    "hard_negatives": [
+     "pernoctar en el sector de las tumbas",
+     "Calvito es un camping del Tolima",
+     "senderismo cerca del Tolima"
+    ],
+    "needs": [],
+    "answer": {
+     "short": "La norma del 4 de agosto de 2023 habilitó de forma transitoria el pernocte en Termales del Cañón, Arenales y Calvito, puntos cercanos al Nevado del Tolima, con carpa de tres o cuatro estaciones para temperaturas bajo cero y sin fogata. Este Arenales no es el camping del sector Brisas. El porteo de maletas a Calvito y Arenales está prohibido. Confirma con Parques Nacionales si siguen habilitados para tu fecha.",
+     "variants": [
+      "Según la norma de agosto de 2023, cerca del Nevado del Tolima se podía pernoctar de forma transitoria en Termales del Cañón, Arenales y Calvito, con carpa de alta montaña y sin fogata; a Calvito y Arenales no se permite porteo de maletas. No es el Arenales del sector Brisas. Confirma con el parque antes de ir."
+     ]
+    },
+    "sources": [
+     {
+      "label": "Parques Nacionales Naturales, Resolución 207 del 4 de agosto de 2023",
+      "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2023/08/Resolucion_207_2023_ReglamentacionNevados.pdf",
+      "retrieved_at": "2026-11-21"
+     }
+    ],
+    "last_verified": "2026-11-22",
+    "related": [
+     "activities.camping_where",
+     "activities.termales_canon",
+     "activities.tolima_summit_schimmer"
+    ],
+    "tags": [
+     "calvito",
+     "arenales",
+     "pernocte"
+    ],
+    "entities": {
+     "sector": [
+      "tolima"
+     ]
+    }
+   },
+   "evidence": [
+    {
+     "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2023/08/Resolucion_207_2023_ReglamentacionNevados.pdf",
+     "path": "research_notes/Conocimiento turístico de Los Nevados/activities/evidence/raw/resolucion-207-2023.txt",
+     "quote": "No obstante, en este reglamento temporal transitorio, se habilitan los puntos en inmediaciones al nevado del\n Tolima, conocidos como:",
+     "checked_on": "2026-11-22"
+    },
+    {
+     "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2023/08/Resolucion_207_2023_ReglamentacionNevados.pdf",
+     "path": "research_notes/Conocimiento turístico de Los Nevados/activities/evidence/raw/resolucion-207-2023.txt",
+     "quote": "Estos sitios se habilitan para el pernocte, como una medida transitoria de manejo mediada por un seguimiento y\nmonitoreo, que genere insumos para la reglamentación del camping.",
+     "checked_on": "2026-11-22"
+    },
+    {
+     "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2023/08/Resolucion_207_2023_ReglamentacionNevados.pdf",
+     "path": "research_notes/Conocimiento turístico de Los Nevados/activities/evidence/raw/resolucion-207-2023.txt",
+     "quote": "Las carpas utilizadas deben tener las especificaciones técnicas para alta montaña; conocidas como carpas de tres\ny cuatro estaciones para temperaturas menores a cero grados centígrados.",
+     "checked_on": "2026-11-22"
+    },
+    {
+     "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2023/08/Resolucion_207_2023_ReglamentacionNevados.pdf",
+     "path": "research_notes/Conocimiento turístico de Los Nevados/activities/evidence/raw/resolucion-207-2023.txt",
+     "quote": "Hacer fogatas, estas pueden ocasionar incendios forestales deben portar el camping gas.",
+     "checked_on": "2026-11-22"
+    },
+    {
+     "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2023/08/Resolucion_207_2023_ReglamentacionNevados.pdf",
+     "path": "research_notes/Conocimiento turístico de Los Nevados/activities/evidence/raw/resolucion-207-2023.txt",
+     "quote": "queda prohibido el uso del porteo de maletas para las zonas de camping temporales\n      correspondientes al Calvito y Arenales.",
+     "checked_on": "2026-11-22"
+    }
+   ]
+  },
+  {
+   "op": "update",
+   "reason": "Name the Brisas (north) Arenales explicitly. Round 3 (orchestrator): critical camping contradiction (findings/contradictions.json) — Res. 207/2023 names two different Arenales: the Brisas (north) camping, restricted, and a point near the Nevado del Tolima, enabled transitionally.",
+   "entry": {
+    "id": "activities.camping_brisas_restricted",
+    "label": "camping Arenales restringido",
+    "kind": "rule",
+    "audience": "visitor",
+    "lang": "es",
+    "examples": [
+     "puedo acampar en Arenales de Brisas",
+     "hay camping en el norte",
+     "dormir en carpa camino al valle",
+     "hay dónde dormir en Arenales de Brisas?",
+     "el camping del carreteable está restringido",
+     "zona de carpas entre Brisas y el valle",
+     "parce, en Arenales de Brisas sí se puede dormir?",
+     "camping arenales de brisas esta cerrado",
+     "por el volcan no dejan acampar en el norte",
+     "pernoctar en el sector de las tumbas",
+     "can I camp at Arenales on the Brisas road",
+     "is the northern Arenales campsite restricted"
+    ],
+    "hard_negatives": [
+     "el camino Brisas Arenales está restringido",
+     "camas en Brisas para pasar la noche",
+     "el camping Arenales es el del carreteable"
+    ],
+    "needs": [],
+    "answer": {
+     "short": "El camping de Arenales del sector Brisas, en la zona norte, figura restringido por la actividad volcánica en la norma del 4 de agosto de 2023, y el informe de 2024 lo reporta no habilitado. No lo cuentes como sitio disponible. El Arenales cercano al Nevado del Tolima es otro punto. Confirma con Parques Nacionales cualquier lugar de camping para tu fecha.",
+     "variants": [
+      "Arenales del sector Brisas (zona norte) estaba restringido en 2023 y no habilitado en el informe de 2024 por la actividad volcánica. No es el Arenales del Tolima. Confirma con el parque antes de planear la noche."
+     ]
+    },
+    "sources": [
+     {
+      "label": "Informe de necesidades de asistencia, PNN Los Nevados, 2024",
+      "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2024/12/Informe-de-necesidades-de-asistencia-PNN-Los-Nevados-2024.docx",
+      "retrieved_at": "2026-11-21"
+     },
+     {
+      "label": "Resolución 207 del 4 de agosto de 2023, reglamentación del ecoturismo",
+      "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2023/08/Resolucion_207_2023_ReglamentacionNevados.pdf",
+      "retrieved_at": "2026-11-21"
+     }
+    ],
+    "last_verified": "2026-11-22",
+    "related": [
+     "activities.camping_where",
+     "activities.arenales_two_places",
+     "activities.brisas_valle_tumbas"
+    ],
+    "tags": [
+     "arenales",
+     "brisas",
+     "restringido"
+    ],
+    "entities": {
+     "sector": [
+      "brisas"
+     ]
+    }
+   },
+   "evidence": [
+    {
+     "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2023/08/Resolucion_207_2023_ReglamentacionNevados.pdf",
+     "path": "research_notes/Conocimiento turístico de Los Nevados/activities/evidence/raw/resolucion-207-2023.txt",
+     "quote": "Camping Arenales - Sector Brisas (restringido por actividad volcánica).",
+     "checked_on": "2026-11-22"
+    },
+    {
+     "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2024/12/Informe-de-necesidades-de-asistencia-PNN-Los-Nevados-2024.docx",
+     "path": "research_notes/Conocimiento turístico de Los Nevados/activities/evidence/raw/pnn_informe_necesidades_2024.txt",
+     "quote": "3. Arenales – camping\nZona de camping no se encuentra habilitada debido a la actividad volcánica.",
+     "checked_on": "2026-11-22"
+    },
+    {
+     "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2024/12/Informe-de-necesidades-de-asistencia-PNN-Los-Nevados-2024.docx",
+     "path": "research_notes/Conocimiento turístico de Los Nevados/activities/evidence/raw/pnn_informe_necesidades_2024.txt",
+     "quote": "2. Brisas\nTaquilla, Centro de Inducción y Cabaña\nVillamaría, Caldas",
+     "checked_on": "2026-11-22"
+    }
+   ]
+  },
+  {
+   "op": "update",
+   "reason": "Separate the two Arenales; date each statement. Round 3 (orchestrator): critical camping contradiction (findings/contradictions.json) — Res. 207/2023 names two different Arenales: the Brisas (north) camping, restricted, and a point near the Nevado del Tolima, enabled transitionally.",
+   "entry": {
+    "id": "activities.camping_where",
+    "label": "dónde acampar en el parque",
+    "kind": "procedure",
+    "audience": "visitor",
+    "lang": "es",
+    "examples": [
+     "se puede acampar en el parque",
+     "puedo llevar carpa",
+     "dónde hay camping autorizado",
+     "pasar la noche en Los Nevados",
+     "zonas para dormir con carpa",
+     "toca confirmar el camping pa' la fecha?",
+     "dónde me dejan dormir en el parque?",
+     "¿Hay zonas de acampada junto a los senderos?",
+     "camping en los nevados si o no",
+     "donde dejan pernoctar con carpa",
+     "where am I allowed to camp",
+     "can I bring a tent and stay overnight"
+    ],
+    "hard_negatives": [
+     "acampar en un sitio que no tiene zona marcada",
+     "qué carpa llevar para acampar en los nevados",
+     "límite de hora para llegar a acampar"
+    ],
+    "needs": [],
+    "answer": {
+     "short": "Acampa solo donde Parques Nacionales te confirme para tu fecha. Según el informe de 2024, el camping de Arenales del sector Brisas no estaba habilitado por la actividad volcánica. La norma de 2023 habilitó de forma transitoria Termales del Cañón, Arenales y Calvito, cerca del Nevado del Tolima, pero no garantiza que sigan abiertos. Confirma el lugar con el parque y tu operador antes de viajar.",
+     "variants": [
+      "Ningún punto de camping queda garantizado: Arenales del sector Brisas figuraba no habilitado en 2024, y los puntos transitorios de 2023 cerca del Nevado del Tolima (Termales del Cañón, Arenales, Calvito) hay que confirmarlos. Pregunta al parque antes de cargar la carpa."
+     ],
+     "steps": [
+      [
+       "Pide al parque o al operador si tu fecha tiene una zona habilitada. La reglamentación del 4 de agosto de 2023 no deja un camping prometido como abierto."
+      ],
+      [
+       "Si te autorizan la noche, lleva carpa de tres o cuatro estaciones para temperaturas bajo cero y cocina sin fogata."
+      ]
+     ],
+     "detail": "Un apartado de esa resolución lista Laguna del Otún, camping del Cisne condicionado por actividad volcánica u operación, y Arenales de Brisas restringido por actividad volcánica. El listado de prohibiciones, en el mismo documento, prohíbe acampar salvo Termales del Cañón, Arenales y Calvito como medida transitoria. La Laguna del Otún además figura en proceso de acondicionamiento."
+    },
+    "sources": [
+     {
+      "label": "Resolución 207 del 4 de agosto de 2023, reglamentación del ecoturismo",
+      "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2023/08/Resolucion_207_2023_ReglamentacionNevados.pdf",
+      "retrieved_at": "2026-11-21"
+     },
+     {
+      "label": "Informe de necesidades de asistencia, PNN Los Nevados, 2024",
+      "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2024/12/Informe-de-necesidades-de-asistencia-PNN-Los-Nevados-2024.docx",
+      "retrieved_at": "2026-11-21"
+     }
+    ],
+    "last_verified": "2026-11-22",
+    "related": [
+     "activities.camping_otun",
+     "activities.camping_tolima",
+     "activities.camping_brisas_restricted"
+    ],
+    "tags": [
+     "camping",
+     "carpa",
+     "pernocte"
+    ],
+    "entities": {
+     "sector": [
+      "brisas",
+      "santa_isabel",
+      "otun",
+      "tolima"
+     ]
+    }
+   },
+   "evidence": [
+    {
+     "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2023/08/Resolucion_207_2023_ReglamentacionNevados.pdf",
+     "path": "research_notes/Conocimiento turístico de Los Nevados/activities/evidence/raw/resolucion-207-2023.txt",
+     "quote": "Camping Arenales - Sector Brisas (restringido por actividad volcánica).",
+     "checked_on": "2026-11-22"
+    },
+    {
+     "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2024/12/Informe-de-necesidades-de-asistencia-PNN-Los-Nevados-2024.docx",
+     "path": "research_notes/Conocimiento turístico de Los Nevados/activities/evidence/raw/pnn_informe_necesidades_2024.txt",
+     "quote": "3. Arenales – camping\nZona de camping no se encuentra habilitada debido a la actividad volcánica.",
+     "checked_on": "2026-11-22"
+    },
+    {
+     "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2023/08/Resolucion_207_2023_ReglamentacionNevados.pdf",
+     "path": "research_notes/Conocimiento turístico de Los Nevados/activities/evidence/raw/resolucion-207-2023.txt",
+     "quote": "No obstante, en este reglamento temporal transitorio, se habilitan los puntos en inmediaciones al nevado del\n Tolima, conocidos como:",
+     "checked_on": "2026-11-22"
+    },
+    {
+     "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2023/08/Resolucion_207_2023_ReglamentacionNevados.pdf",
+     "path": "research_notes/Conocimiento turístico de Los Nevados/activities/evidence/raw/resolucion-207-2023.txt",
+     "quote": "Estos sitios se habilitan para el pernocte, como una medida transitoria de manejo mediada por un seguimiento y\nmonitoreo, que genere insumos para la reglamentación del camping.",
+     "checked_on": "2026-11-22"
+    }
+   ]
+  }
+ ]
+}

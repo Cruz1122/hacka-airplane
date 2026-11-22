@@ -1,0 +1,573 @@
+{
+ "section": "fauna",
+ "reviewer": "rereview wave 4 / claude-haiku-5-5 (fresh, did not write these proposals)",
+ "ops": [
+  {
+   "id": "fauna.birds_overview",
+   "op": "update",
+   "verdict": "revise",
+   "entailment": "n/a",
+   "label_change": "n/a",
+   "examples": "issues",
+   "temporal": "n/a",
+   "refetch": "n/a",
+   "reason": "Etiqueta restaurada a \"las aves del parque Los Nevados\", como pidió la revisión 1. La revisión 1 ya anotó que el negativo \"especies en peligro de extinción en Los Nevados\" se quitó sin razón escrita, pero su required_change solo pidió la etiqueta. Lo exijo ahora porque el curador lo conservó (\"conservadas mejoras de hard negatives\"); esa consulta pertenece a fauna.threatened_species.",
+   "required_change": "Restaurar el negativo \"especies en peligro de extinción en Los Nevados\"."
+  },
+  {
+   "id": "fauna.mammals_overview",
+   "op": "update",
+   "verdict": "revise",
+   "entailment": "n/a",
+   "label_change": "n/a",
+   "examples": "issues",
+   "temporal": "n/a",
+   "refetch": "n/a",
+   "reason": "Etiqueta restaurada a \"los mamíferos del parque Los Nevados\". Quita el negativo \"especies en peligro de extinción en Los Nevados\" sin razón escrita, el mismo caso que birds_overview.",
+   "required_change": "Restaurar el negativo \"especies en peligro de extinción en Los Nevados\" o documentar la retirada."
+  },
+  {
+   "id": "fauna.threatened_species",
+   "op": "update",
+   "verdict": "approve",
+   "entailment": "n/a",
+   "label_change": "justified",
+   "examples": "ok",
+   "temporal": "n/a",
+   "refetch": "n/a",
+   "reason": "Etiqueta \"especies vulnerables o indicadoras\" de labels.json. Corrige el solapamiento de \"amenazadas\" con fauna.conservation_target_species_voc y \"en peligro\" con las fichas nacionales.",
+   "required_change": "Ninguno."
+  },
+  {
+   "id": "fauna.andean_condor",
+   "op": "update",
+   "verdict": "approve",
+   "entailment": "n/a",
+   "label_change": "n/a",
+   "examples": "ok",
+   "temporal": "n/a",
+   "refetch": "n/a",
+   "reason": "Etiqueta restaurada a \"cóndor andino en Los Nevados\". Un negativo nuevo dirigido a fauna.condor_national_status.",
+   "required_change": "Ninguno."
+  },
+  {
+   "id": "fauna.brown_banded_antpitta",
+   "op": "update",
+   "verdict": "revise",
+   "entailment": "n/a",
+   "label_change": "n/a",
+   "examples": "issues",
+   "temporal": "n/a",
+   "refetch": "n/a",
+   "reason": "Etiqueta restaurada a \"tororoi de Miller en el sotobosque\". Tres negativos nuevos útiles (tororoi nuchicastaño, tororoi leonado, consultas de estado de Miller), pero retira tres negativos de aves (\"pato andino\", \"periquito de los nevados\", \"águila crestada\") sin razón escrita. La revisión 1 ya lo anotó, pero su required_change solo pidió la etiqueta; lo exijo ahora porque el curador lo conservó.",
+   "required_change": "Restaurar esos tres negativos o documentar por qué sobran."
+  },
+  {
+   "id": "fauna.andean_duck",
+   "op": "update",
+   "verdict": "approve",
+   "entailment": "n/a",
+   "label_change": "n/a",
+   "examples": "ok",
+   "temporal": "n/a",
+   "refetch": "n/a",
+   "reason": "Etiqueta restaurada a \"pato andino o pato turrio\". Un negativo nuevo (\"pato de torrente\") sin cambio de respuesta.",
+   "required_change": "Ninguno."
+  },
+  {
+   "id": "fauna.black_and_chestnut_eagle",
+   "op": "update",
+   "verdict": "approve",
+   "entailment": "n/a",
+   "label_change": "n/a",
+   "examples": "ok",
+   "temporal": "n/a",
+   "refetch": "n/a",
+   "reason": "Etiqueta restaurada a \"águila crestada en Los Nevados\". Un negativo nuevo sin cambio de respuesta.",
+   "required_change": "Ninguno."
+  },
+  {
+   "id": "fauna.black_chested_buzzard_eagle",
+   "op": "update",
+   "verdict": "approve",
+   "entailment": "n/a",
+   "label_change": "n/a",
+   "examples": "ok",
+   "temporal": "n/a",
+   "refetch": "n/a",
+   "reason": "Etiqueta restaurada a \"águila de páramo en Los Nevados\". Un negativo nuevo. La doble grafía de la respuesta está en la auditoría, no en esta op.",
+   "required_change": "Ninguno en esta op. La grafía \"Geranoaetus\" queda pendiente en la fila de auditoría."
+  },
+  {
+   "id": "fauna.spectacled_bear",
+   "op": "update",
+   "verdict": "approve",
+   "entailment": "n/a",
+   "label_change": "n/a",
+   "examples": "ok",
+   "temporal": "n/a",
+   "refetch": "n/a",
+   "reason": "Etiqueta restaurada a \"oso de anteojos u oso andino\". Un negativo nuevo (\"el oso de anteojos esta amenazado?\") dirigido a bear_national_status.",
+   "required_change": "Ninguno."
+  },
+  {
+   "id": "fauna.northern_pudu",
+   "op": "update",
+   "verdict": "approve",
+   "entailment": "n/a",
+   "label_change": "n/a",
+   "examples": "ok",
+   "temporal": "n/a",
+   "refetch": "n/a",
+   "reason": "Etiqueta restaurada a \"venado conejo estudiado en el parque\". Un negativo nuevo sin cambio de respuesta.",
+   "required_change": "Ninguno."
+  },
+  {
+   "id": "fauna.spotting_sector_santa_isabel",
+   "op": "update",
+   "verdict": "approve",
+   "entailment": "n/a",
+   "label_change": "n/a",
+   "examples": "ok",
+   "temporal": "n/a",
+   "refetch": "n/a",
+   "reason": "Etiqueta restaurada a \"avistamiento de fauna en Santa Isabel\". Dos ejemplos nuevos sobre la ruta a Santa Isabel, coherentes con el tema de la entrada.",
+   "required_change": "Ninguno."
+  },
+  {
+   "id": "fauna.fuertes_parrot",
+   "op": "update",
+   "verdict": "approve",
+   "entailment": "n/a",
+   "label_change": "n/a",
+   "examples": "ok",
+   "temporal": "n/a",
+   "refetch": "n/a",
+   "reason": "Etiqueta restaurada a \"cotorra de Fuertes en el listado\". Un negativo nuevo.",
+   "required_change": "Ninguno."
+  },
+  {
+   "id": "fauna.golden_plumed_parakeet",
+   "op": "update",
+   "verdict": "approve",
+   "entailment": "n/a",
+   "label_change": "n/a",
+   "examples": "ok",
+   "temporal": "n/a",
+   "refetch": "n/a",
+   "reason": "Etiqueta restaurada a \"perico paramuno en Los Nevados\". Un negativo nuevo.",
+   "required_change": "Ninguno."
+  },
+  {
+   "id": "fauna.tawny_antpitta",
+   "op": "update",
+   "verdict": "approve",
+   "entailment": "n/a",
+   "label_change": "n/a",
+   "examples": "ok",
+   "temporal": "n/a",
+   "refetch": "n/a",
+   "reason": "Etiqueta restaurada a \"tororoi leonado en Los Nevados\". Un negativo nuevo (\"tororoi de Miller\").",
+   "required_change": "Ninguno."
+  },
+  {
+   "id": "fauna.chestnut_naped_antpitta",
+   "op": "update",
+   "verdict": "revise",
+   "entailment": "n/a",
+   "label_change": "n/a",
+   "examples": "issues",
+   "temporal": "n/a",
+   "refetch": "n/a",
+   "reason": "Etiqueta restaurada a \"tororoi nuchicastaño en Los Nevados\". Añade dos negativos útiles, pero retira \"colibrí piquiespada\" y \"rayito de sol andino\" sin razón escrita. La revisión 1 ya lo anotó sin exigirlo; lo exijo ahora porque el curador lo conservó.",
+   "required_change": "Restaurar esos dos negativos o documentar por qué sobran."
+  },
+  {
+   "id": "fauna.torrent_duck",
+   "op": "update",
+   "verdict": "approve",
+   "entailment": "n/a",
+   "label_change": "n/a",
+   "examples": "ok",
+   "temporal": "n/a",
+   "refetch": "n/a",
+   "reason": "Etiqueta restaurada a \"pato de torrente en Los Nevados\". Un negativo nuevo (\"pato andino\").",
+   "required_change": "Ninguno."
+  },
+  {
+   "id": "fauna.hooded_mountain_toucan",
+   "op": "update",
+   "verdict": "approve",
+   "entailment": "n/a",
+   "label_change": "n/a",
+   "examples": "ok",
+   "temporal": "n/a",
+   "refetch": "n/a",
+   "reason": "Etiqueta restaurada a \"terlaque andino en el listado del parque\". Un negativo nuevo.",
+   "required_change": "Ninguno."
+  },
+  {
+   "id": "fauna.northern_tiger_cat",
+   "op": "update",
+   "verdict": "approve",
+   "entailment": "n/a",
+   "label_change": "n/a",
+   "examples": "ok",
+   "temporal": "n/a",
+   "refetch": "n/a",
+   "reason": "Etiqueta restaurada a \"tigrillo lanudo en el listado del parque\". Un negativo nuevo.",
+   "required_change": "Ninguno."
+  },
+  {
+   "id": "fauna.little_red_brocket",
+   "op": "update",
+   "verdict": "approve",
+   "entailment": "n/a",
+   "label_change": "n/a",
+   "examples": "ok",
+   "temporal": "n/a",
+   "refetch": "n/a",
+   "reason": "Etiqueta restaurada a \"venado soche en el listado del parque\". Un negativo nuevo.",
+   "required_change": "Ninguno."
+  },
+  {
+   "id": "fauna.condor_national_status",
+   "op": "update",
+   "verdict": "approve",
+   "entailment": "n/a",
+   "label_change": "n/a",
+   "examples": "ok",
+   "temporal": "n/a",
+   "refetch": "n/a",
+   "reason": "Etiqueta restaurada \"cóndor andino en peligro crítico\" y un negativo nuevo. La op no cambia la respuesta; la categoría sigue sin cita adecuada (fila de auditoría partial: la fila GBIF no nombra la resolución).",
+   "required_change": "Ninguno en esta op. Citar resolucion-0126-2024.txt en la op factual correspondiente."
+  },
+  {
+   "id": "fauna.bear_national_status",
+   "op": "update",
+   "verdict": "approve",
+   "entailment": "n/a",
+   "label_change": "n/a",
+   "examples": "ok",
+   "temporal": "n/a",
+   "refetch": "n/a",
+   "reason": "Etiqueta restaurada \"oso de anteojos vulnerable en Colombia\" y un negativo nuevo. Sin cambio de respuesta.",
+   "required_change": "Ninguno en esta op. Fila de auditoría partial (ver audit)."
+  },
+  {
+   "id": "fauna.tapir_national_status",
+   "op": "update",
+   "verdict": "approve",
+   "entailment": "n/a",
+   "label_change": "n/a",
+   "examples": "ok",
+   "temporal": "n/a",
+   "refetch": "n/a",
+   "reason": "Etiqueta restaurada \"danta de páramo catalogada en peligro\" y un negativo nuevo.",
+   "required_change": "Ninguno en esta op. Fila de auditoría partial."
+  },
+  {
+   "id": "fauna.helmetcrest_national_status",
+   "op": "update",
+   "verdict": "approve",
+   "entailment": "n/a",
+   "label_change": "n/a",
+   "examples": "ok",
+   "temporal": "n/a",
+   "refetch": "n/a",
+   "reason": "Etiqueta restaurada \"chivito de páramo en la lista nacional\" y un negativo nuevo.",
+   "required_change": "Ninguno en esta op. Fila de auditoría partial."
+  },
+  {
+   "id": "fauna.eagle_national_status",
+   "op": "update",
+   "verdict": "approve",
+   "entailment": "n/a",
+   "label_change": "n/a",
+   "examples": "ok",
+   "temporal": "n/a",
+   "refetch": "n/a",
+   "reason": "Etiqueta restaurada \"águila crestada catalogada en peligro\" y un negativo nuevo.",
+   "required_change": "Ninguno en esta op. Fila de auditoría partial."
+  },
+  {
+   "id": "fauna.fuertes_national_status",
+   "op": "update",
+   "verdict": "approve",
+   "entailment": "n/a",
+   "label_change": "n/a",
+   "examples": "ok",
+   "temporal": "n/a",
+   "refetch": "n/a",
+   "reason": "Etiqueta restaurada \"cotorra de Fuertes en peligro crítico\" y un negativo nuevo.",
+   "required_change": "Ninguno en esta op. Fila de auditoría partial."
+  },
+  {
+   "id": "fauna.miller_national_status",
+   "op": "update",
+   "verdict": "approve",
+   "entailment": "n/a",
+   "label_change": "n/a",
+   "examples": "ok",
+   "temporal": "n/a",
+   "refetch": "n/a",
+   "reason": "Etiqueta restaurada \"tororoi de Miller catalogado en peligro\" y un negativo nuevo.",
+   "required_change": "Ninguno en esta op. Fila de auditoría partial."
+  },
+  {
+   "id": "fauna.pudu_national_status",
+   "op": "update",
+   "verdict": "approve",
+   "entailment": "n/a",
+   "label_change": "n/a",
+   "examples": "ok",
+   "temporal": "n/a",
+   "refetch": "n/a",
+   "reason": "Etiqueta restaurada \"venado conejo en la lista de amenaza\" y un negativo nuevo.",
+   "required_change": "Ninguno en esta op. Fila de auditoría partial."
+  },
+  {
+   "id": "fauna.guagua_national_status",
+   "op": "update",
+   "verdict": "approve",
+   "entailment": "n/a",
+   "label_change": "n/a",
+   "examples": "ok",
+   "temporal": "n/a",
+   "refetch": "n/a",
+   "reason": "Etiqueta restaurada \"guagua loba vulnerable en Colombia\" y un negativo nuevo.",
+   "required_change": "Ninguno en esta op. Fila de auditoría partial."
+  },
+  {
+   "id": "fauna.oncilla_national_status",
+   "op": "update",
+   "verdict": "approve",
+   "entailment": "n/a",
+   "label_change": "n/a",
+   "examples": "ok",
+   "temporal": "n/a",
+   "refetch": "n/a",
+   "reason": "Etiqueta restaurada \"tigrillo lanudo en la lista nacional\" y un negativo nuevo.",
+   "required_change": "Ninguno en esta op. Fila de auditoría partial."
+  },
+  {
+   "id": "fauna.brocket_national_status",
+   "op": "update",
+   "verdict": "approve",
+   "entailment": "n/a",
+   "label_change": "n/a",
+   "examples": "ok",
+   "temporal": "n/a",
+   "refetch": "n/a",
+   "reason": "Etiqueta restaurada \"venado colorado vulnerable en Colombia\" y un negativo nuevo.",
+   "required_change": "Ninguno en esta op. Fila de auditoría partial."
+  },
+  {
+   "id": "fauna.paramo_parakeet_national_status",
+   "op": "update",
+   "verdict": "approve",
+   "entailment": "n/a",
+   "label_change": "n/a",
+   "examples": "ok",
+   "temporal": "n/a",
+   "refetch": "n/a",
+   "reason": "Etiqueta restaurada \"perico paramuno vulnerable en Colombia\" y un negativo nuevo.",
+   "required_change": "Ninguno en esta op. Fila de auditoría partial."
+  },
+  {
+   "id": "fauna.toucan_national_status",
+   "op": "update",
+   "verdict": "approve",
+   "entailment": "n/a",
+   "label_change": "n/a",
+   "examples": "ok",
+   "temporal": "n/a",
+   "refetch": "n/a",
+   "reason": "Etiqueta restaurada \"terlaque andino vulnerable en Colombia\" y un negativo nuevo.",
+   "required_change": "Ninguno en esta op. Fila de auditoría partial."
+  },
+  {
+   "id": "fauna.conservation_target_species_voc",
+   "op": "update",
+   "verdict": "approve",
+   "entailment": "n/a",
+   "label_change": "justified",
+   "examples": "ok",
+   "temporal": "n/a",
+   "refetch": "n/a",
+   "reason": "Etiqueta \"fauna objeto de conservación del parque\" de labels.json: quita la jerga \"valores objeto de conservación\" y la paraleliza con flora.",
+   "required_change": "Ninguno."
+  },
+  {
+   "id": "fauna.fauna_overview",
+   "op": "update",
+   "verdict": "revise",
+   "entailment": "n/a",
+   "label_change": "stylistic",
+   "examples": "ok",
+   "temporal": "n/a",
+   "refetch": "n/a",
+   "reason": "labels.json da como razón que la etiqueta actual es genérica; no documenta una confusión, así que el cambio no cumple la regla de etiquetas. Además \"y dónde verla\" promete sitios de observación (Brisas, Cisne-Poleka Kasue, Otún) que la respuesta nombra y que su fila de auditoría no sustenta (quote_missing: sin evidencia citada).",
+   "required_change": "Mantener la etiqueta anterior \"fauna silvestre presente en Los Nevados\", salvo que se documente una confusión concreta; y citar la fuente de los sitios de observación antes de anunciarlos en la etiqueta."
+  }
+ ],
+ "audit_rows": [
+  {
+   "id": "fauna.birds_overview",
+   "claimed": "primary_ok",
+   "support": "full",
+   "excerpt_changed": true,
+   "note": "El excerpt ya es el párrafo completo: chivito, tororoi de Miller, águila crestada, cóndor, pato andino, periquito y águila de páramo."
+  },
+  {
+   "id": "fauna.ruiz_parakeet",
+   "claimed": "primary_ok",
+   "support": "partial",
+   "excerpt_changed": true,
+   "note": "Bandadas de 10–15 y de 30–40 y parejas cerca de la laguna del Otún sí (plan 2017). \"Más abundante en el subpáramo\" y \"Resolución 0126 de 2024: Vulnerable\" no están en el excerpt."
+  },
+  {
+   "id": "fauna.black_chested_buzzard_eagle",
+   "claimed": "primary_ok",
+   "support": "partial",
+   "excerpt_changed": true,
+   "note": "Águila de páramo con \"Geranoetus melanoleucus\" sí. La respuesta usa \"Geranoaetus\" como nombre principal y dice que también aparece escrita \"Geranoetus\"; el excerpt solo tiene la segunda grafía."
+  },
+  {
+   "id": "fauna.white_tailed_deer",
+   "claimed": "primary_ok",
+   "support": "partial",
+   "excerpt_changed": false,
+   "note": "El plan 2017 dice que el venado \"ha desaparecido de muchos páramos… como es el caso… en el PNN Los Nevados (Botero y Lotero 2004)\". \"En 2017\" y \"sigue en un listado de la CARDER\" no están; la fecha de la afirmación es 2004."
+  },
+  {
+   "id": "fauna.condor_national_status",
+   "claimed": "primary_ok",
+   "support": "partial",
+   "excerpt_changed": true,
+   "note": "Excerpt = fila GBIF (clave, país, código) sin nombre ni resolución. Unión distribution.txt + taxon.txt: Vultur gryphus, CR, coincide con \"En Peligro Crítico\"; eml.xml dice Resolución 0126 de 2024. Comparación \"en peligro a nivel nacional\" del plan 2017: sí está en plan-manejo-2017.txt, pero no citada."
+  },
+  {
+   "id": "fauna.bear_national_status",
+   "claimed": "primary_ok",
+   "support": "partial",
+   "excerpt_changed": true,
+   "note": "Excerpt = fila GBIF sin nombre. Unión: Tremarctos ornatus, VU, coincide con \"Vulnerable\". Citar la fila unida y eml.xml (Resolución 0126)."
+  },
+  {
+   "id": "fauna.tapir_national_status",
+   "claimed": "primary_ok",
+   "support": "partial",
+   "excerpt_changed": true,
+   "note": "Excerpt = fila GBIF sin nombre. Unión: Tapirus pinchaque, EN, coincide con la categoría nacional. La frase \"el plan de manejo catalogan… En Peligro\" no está en plan-manejo-2017.txt: solo aparece en la lista EPI, sin categoría. Sin soporte."
+  },
+  {
+   "id": "fauna.helmetcrest_national_status",
+   "claimed": "primary_ok",
+   "support": "partial",
+   "excerpt_changed": true,
+   "note": "Excerpt = fila GBIF sin nombre. Unión: Oxypogon stubelii, EN, coincide. Citar la fila unida y eml.xml."
+  },
+  {
+   "id": "fauna.eagle_national_status",
+   "claimed": "primary_ok",
+   "support": "partial",
+   "excerpt_changed": true,
+   "note": "Excerpt = fila GBIF sin nombre. Unión: Spizaetus isidori, EN, coincide. Citar la fila unida y eml.xml."
+  },
+  {
+   "id": "fauna.fuertes_national_status",
+   "claimed": "primary_ok",
+   "support": "partial",
+   "excerpt_changed": true,
+   "note": "Excerpt = fila GBIF sin nombre. Unión: Hapalopsittaca fuertesi, CR, coincide. Citar la fila unida y eml.xml."
+  },
+  {
+   "id": "fauna.yellow_eared_national_status",
+   "claimed": "primary_ok",
+   "support": "partial",
+   "excerpt_changed": true,
+   "note": "Excerpt = fila GBIF sin nombre. Unión: Ognorhynchus icterotis, EN, coincide. Citar la fila unida y eml.xml."
+  },
+  {
+   "id": "fauna.miller_national_status",
+   "claimed": "primary_ok",
+   "support": "partial",
+   "excerpt_changed": true,
+   "note": "Excerpt = fila GBIF sin nombre. Unión: Grallaria milleri, EN, coincide. Citar la fila unida y eml.xml."
+  },
+  {
+   "id": "fauna.pudu_national_status",
+   "claimed": "primary_ok",
+   "support": "partial",
+   "excerpt_changed": true,
+   "note": "Excerpt = fila GBIF sin nombre. Unión: Pudu mephistophiles, EN, coincide con \"En Peligro\". \"Casi amenazado\" en el plan 2017: no lo encuentro en plan-manejo-2017.txt (busqué la especie y la categoría). Sin soporte."
+  },
+  {
+   "id": "fauna.guagua_national_status",
+   "claimed": "primary_ok",
+   "support": "partial",
+   "excerpt_changed": true,
+   "note": "Excerpt = fila GBIF sin nombre. Unión: Dinomys branickii, VU, coincide con \"Vulnerable\". Citar la fila unida y eml.xml."
+  },
+  {
+   "id": "fauna.oncilla_national_status",
+   "claimed": "primary_ok",
+   "support": "partial",
+   "excerpt_changed": true,
+   "note": "Excerpt = fila GBIF sin nombre. Unión: Leopardus tigrinus, VU, coincide. Citar la fila unida y eml.xml."
+  },
+  {
+   "id": "fauna.brocket_national_status",
+   "claimed": "primary_ok",
+   "support": "partial",
+   "excerpt_changed": true,
+   "note": "Excerpt = fila GBIF sin nombre. Unión: Mazama rufina, VU, coincide. Citar la fila unida y eml.xml."
+  },
+  {
+   "id": "fauna.paramo_parakeet_national_status",
+   "claimed": "primary_ok",
+   "support": "partial",
+   "excerpt_changed": true,
+   "note": "Excerpt = fila GBIF sin nombre. Unión: Leptosittaca branickii, VU, coincide con la categoría nacional. \"Igual que el plan de manejo\": no verificado en plan-manejo-2017.txt."
+  },
+  {
+   "id": "fauna.toucan_national_status",
+   "claimed": "primary_ok",
+   "support": "partial",
+   "excerpt_changed": true,
+   "note": "Excerpt = fila GBIF sin nombre. Unión: Andigena hypoglauca, VU, coincide. La comparación \"vulnerable a nivel nacional\" del plan 2017 sí está en plan-manejo-2017.txt, pero no citada."
+  },
+  {
+   "id": "fauna.epigeal_beetles_spiders",
+   "claimed": "primary_ok",
+   "support": "none",
+   "excerpt_changed": true,
+   "note": "eml.xml solo nombra coleópteros y arañas como grupo muestreado. Las familias Staphylinidae, Carabidae y Linyphiidae y \"mesofauna desconocida\" no aparecen."
+  },
+  {
+   "id": "fauna.priority_research_fauna",
+   "claimed": "primary_ok",
+   "support": "partial",
+   "excerpt_changed": true,
+   "note": "La lista EPI del plan (13 nombres) cubre las 11 especies de la respuesta. \"Aparte de los valores objeto de conservación\", en la variante, no está en el excerpt."
+  },
+  {
+   "id": "fauna.mammals_plan_says_visible",
+   "claimed": "primary_ok",
+   "support": "full",
+   "excerpt_changed": true,
+   "note": "El excerpt ya trae danta, venado colorado, conejo, boruga, venado conejo, puma y tigrillo."
+  }
+ ],
+ "summary": {
+  "approve": 29,
+  "revise": 5,
+  "reject": 0,
+  "audit_support": {
+   "full": 2,
+   "partial": 18,
+   "none": 1
+  }
+ }
+}

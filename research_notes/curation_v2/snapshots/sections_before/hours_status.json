@@ -1,0 +1,2816 @@
+{
+  "contract_version": 1,
+  "id": "hours_status",
+  "order": 6,
+  "title": "Horarios y estado del parque",
+  "description": "Horarios de ingreso y atención por sector, días de apertura, cierres por conservación o alertas y temporadas de visita.",
+  "retrieval": {
+    "profile": "lookup",
+    "bm25_weight": 0.3,
+    "top_k": 2,
+    "min_score": null,
+    "entity_filters": [
+      "sector",
+      "closure_type"
+    ]
+  },
+  "clarification": {
+    "between_entries": "¿Te refieres a {label_a} o a {label_b}?",
+    "bank": [
+      "¿A qué sector del parque planeas ir: Brisas, Cisne, Otún o Quindío-Dulima?",
+      "¿Deseas conocer los horarios regulares de entrada o los horarios límite de salida?",
+      "¿Buscas información sobre cierres ambientales programados o alertas de emergencia?",
+      "¿Tu visita está prevista para fin de semana, puente festivo o día hábil entre semana?",
+      "¿Quieres consultar las fechas de las temporadas altas o los beneficios de la temporada baja?",
+      "¿Necesitas saber cómo comprobar si el parque está abierto antes de viajar sin señal?"
+    ],
+    "slot_questions": {
+      "sector": "¿A cuál de los sectores del parque te diriges?",
+      "closure_type": "¿Preguntas por un cierre programado por conservación o por una alerta preventiva?"
+    },
+    "fallback": "No encontré ese horario específico, pero puedo indicarte los horarios de ingreso de Brisas o las fechas de los cierres por conservación."
+  },
+  "featured": [
+    "hours_status.general_opening_schedule",
+    "hours_status.park_open_today",
+    "hours_status.conservation_closures",
+    "hours_status.brisas_hours",
+    "hours_status.pico_y_placa_hours_murillo"
+  ],
+  "entries": [
+    {
+      "id": "hours_status.general_opening_schedule",
+      "label": "horarios generales de ingreso al parque",
+      "kind": "fact",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "horarios",
+        "cuándo abre",
+        "a qué hora abren",
+        "a qué hora cierran",
+        "la hora limite para entrar es igual en todos los sectores?",
+        "a qué hora puedo entrar",
+        "a qué horas atienden",
+        "a que hora abre cada sector, brisas, cisne, otun y cocora?",
+        "qué horas tiene el parque pa entrar",
+        "a que hora abren el parque",
+        "toca madrugar pa entrar al parque?",
+        "what are the park opening hours",
+        "opening and closing times for los nevados"
+      ],
+      "hard_negatives": [
+        "la entrada cobra lo mismo en cada sector?",
+        "a qué hora abren en juntas",
+        "qué hora es"
+      ],
+      "entities": {},
+      "needs": [],
+      "answer": {
+        "short": "Cada sector tiene su horario: Brisas de 8:00 a. m. a 2:00 p. m. (última charla 1:30 p. m.), registro en Cisne–Potosí de 7:30 a. m. a 10:00 a. m., Otún de 7:00 a. m. a 12:00 m. y Cocora de 6:00 a. m. a 10:00 a. m. Confirma con Parques Nacionales: pueden cambiar por clima o alertas.",
+        "variants": [
+          "Brisas atiende de 8:00 a. m. a 2:00 p. m., Cisne–Potosí registra de 7:30 a. m. a 10:00 a. m., Otún de 7:00 a. m. a 12:00 m. y Cocora de 6:00 a. m. a 10:00 a. m. Confirma con Parques Nacionales si hay cambios."
+        ],
+        "steps": [
+          [
+            "Sector Brisas–Kumanday: ingreso de 8:00 a. m. a 2:00 p. m., con última inducción a la 1:30 p. m.",
+            "Sector Cisne–Poleka Kasue: registro en Cabaña Potosí y Alto de Santa Bárbara de 7:30 a. m. a 10:00 a. m."
+          ],
+          [
+            "Sector Otún: registro en Cabaña Potosí de 7:00 a. m. a 12:00 m.",
+            "Sector Quindío–Dulima: punto Cocora de 6:00 a. m. a 10:00 a. m., y Juntas/Anzoátegui de 6:00 a. m. a 11:00 a. m."
+          ]
+        ],
+        "detail": "Los horarios corresponden a las franjas de registro diurno fijadas en la reglamentación oficial. Fuera de esos horarios los puestos de control cierran el acceso al público.",
+        "reflection": "Planear tu llegada temprano te permite cumplir con la inducción y disfrutar el recorrido con luz natural."
+      },
+      "sources": [
+        {
+          "label": "Parques Nacionales Naturales de Colombia · PNN Los Nevados",
+          "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+          "retrieved_at": "2026-11-21"
+        },
+        {
+          "label": "Parques Nacionales Naturales de Colombia · Resolución 207 de 2023 (Reglamentación transitoria PNN Los Nevados)",
+          "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2023/08/Resolucion_207_2023_ReglamentacionNevados_.pdf",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "last_verified": "2026-11-21",
+      "valid_until": null,
+      "related": [
+        "hours_status.brisas_hours",
+        "hours_status.cisne_potan_hours",
+        "hours_status.otun_sector_hours"
+      ],
+      "tags": [
+        "horario",
+        "ingreso",
+        "apertura",
+        "sectores",
+        "atención"
+      ]
+    },
+    {
+      "id": "hours_status.park_open_today",
+      "label": "verificar si el parque está abierto hoy",
+      "kind": "fact",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "está abierto hoy",
+        "está cerrado hoy",
+        "puedo entrar mañana",
+        "hay cierres",
+        "hoy hay acceso",
+        "está habilitado el recorrido",
+        "puedo visitar el parque hoy",
+        "el parque abre hoy o no?",
+        "el nevado está cerrado",
+        "hoy sí se puede subir al nevado?",
+        "hoy si dejan subir turistas?",
+        "is the national park open today",
+        "can I visit the park right now"
+      ],
+      "hard_negatives": [
+        "el parque entero está abierto para recorrer",
+        "dónde confirmo si abren hoy",
+        "¿hoy sí está habilitada la vía?"
+      ],
+      "entities": {},
+      "needs": [],
+      "answer": {
+        "short": "No puedo confirmar desde aquí si el parque abre hoy, porque funciono sin internet. Confirma con Parques Nacionales para tu fecha y sector: el acceso puede suspenderse por alertas del Ruiz, lluvias intensas o descansos ambientales.",
+        "variants": [
+          "Para saber si el parque abre hoy, revisa los canales oficiales de Parques Nacionales antes de salir hacia la montaña. Esta guía offline no se actualiza en vivo; el estado puede cambiar por clima, conservación o alertas."
+        ],
+        "steps": [
+          [
+            "Consulta el portal www.parquesnacionales.gov.co o las redes @ParquesColombia mientras tengas señal en la ciudad.",
+            "Confirma con tu operador o guía registrado que el sector que vas a visitar se encuentre habilitado."
+          ]
+        ],
+        "detail": "En la alta montaña la señal celular es inexistente en la mayoría de los tramos, por lo que debes verificar antes de ascender.",
+        "reflection": null
+      },
+      "sources": [
+        {
+          "label": "Parques Nacionales Naturales de Colombia · PNN Los Nevados",
+          "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+          "retrieved_at": "2026-11-21"
+        },
+        {
+          "label": "Servicio Geológico Colombiano · Monitoreo Volcánico y Boletines",
+          "url": "https://www2.sgc.gov.co/Noticias/Paginas/Boletines-semanales.aspx",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "last_verified": "2026-11-21",
+      "valid_until": null,
+      "related": [
+        "hours_status.official_channels_to_check_status",
+        "hours_status.volcanic_alert_closures",
+        "hours_status.general_opening_schedule"
+      ],
+      "tags": [
+        "apertura",
+        "estado",
+        "abierto",
+        "cerrado",
+        "hoy",
+        "operación"
+      ]
+    },
+    {
+      "id": "hours_status.conservation_closures",
+      "label": "cierres programados por conservación y descanso",
+      "kind": "fact",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "cuando son esas tandas de cierre ambiental, varios dias seguidos?",
+        "cierres programados",
+        "en que fechas del año el parque cierra varios dias por descanso?",
+        "toca planear sin que cierren el parque?",
+        "cuándo cierran por descanso ecológico",
+        "cuáles son los cierres del año",
+        "fechas de cierre ambiental",
+        "cuándo descansa el parque",
+        "temporadas de cierre ecológico",
+        "conservation closure dates",
+        "when is the park closed for environmental rest",
+        "cuándo son los tres cierres del año",
+        "fechas de los 3 cierres programados",
+        "en qué meses hay cierres por conservación",
+        "en que fechas del ano cierran por el descanso del paramo",
+        "qué semanas cierran por descanso ecológico",
+        "cuándo cae el cierre de septiembre y noviembre",
+        "fechas exactas de cierre ecológico en los nevados",
+        "cuándo es el cierre después de semana santa",
+        "y en septiembre cierran, o q?",
+        "cuándo cierran el parque en noviembre, más o menos?",
+        "exact dates for annual conservation closures",
+        "which weeks is the park shut"
+      ],
+      "hard_negatives": [
+        "cuándo cierran el parque por erupción",
+        "a qué hora cierran",
+        "dónde queda la Laguna del Otún"
+      ],
+      "entities": {
+        "closure_type": [
+          "conservacion"
+        ]
+      },
+      "needs": [],
+      "answer": {
+        "short": "El parque cierra tres veces al año, cinco días cada vez, para que los ecosistemas descansen: del lunes después de Semana Santa al viernes, y del cuarto lunes de septiembre y del cuarto lunes de noviembre hasta el viernes. Confirma las fechas con Parques Nacionales antes de viajar.",
+        "variants": [
+          "Hay tres cierres de cinco días al año: la semana después de Semana Santa y desde el cuarto lunes de septiembre y de noviembre hasta el viernes. Revisa los comunicados de Parques Nacionales antes de tu viaje."
+        ],
+        "steps": [
+          [
+            "Primer descanso ambiental: semana siguiente a Semana Santa (lunes a viernes).",
+            "Segundo descanso ambiental: cuarta semana de septiembre (lunes a viernes).",
+            "Tercer descanso ambiental: cuarta semana de noviembre (lunes a viernes)."
+          ]
+        ],
+        "detail": "Durante estos periodos se restringe el acceso a senderos de montaña para disminuir la presión turística y adelantar labores técnicas de conservación.",
+        "reflection": "Respetar estos descansos ayuda a que el páramo y sus fuentes de agua se conserven para el futuro."
+      },
+      "sources": [
+        {
+          "label": "Parques Nacionales Naturales de Colombia · PNN Los Nevados",
+          "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "last_verified": "2026-11-21",
+      "valid_until": null,
+      "related": [
+        "hours_status.why_conservation_closures_exist",
+        "hours_status.open_sectors_during_conservation_closures"
+      ],
+      "tags": [
+        "cierre",
+        "conservación",
+        "descanso",
+        "ambiental",
+        "fechas"
+      ]
+    },
+    {
+      "id": "hours_status.brisas_hours",
+      "label": "horario de ingreso del sector Brisas",
+      "kind": "fact",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "horario brisas",
+        "desde que hora de la mañana dejan entrar por brisas?",
+        "horario entrada brisas nevado del ruiz",
+        "hasta qué hora dejan entrar en brisas",
+        "a qué hora puedo llegar al sector brisas",
+        "brisas abre a qué horas, temprano o tarde?",
+        "horario de acceso por brisas",
+        "a qué hora atienden en brisas",
+        "toca madrugar pa brisas?",
+        "hasta cuándo puedo ingresar por brisas",
+        "what time does brisas entrance open",
+        "what is the entry window at brisas?"
+      ],
+      "hard_negatives": [
+        "hora de salida de brisas",
+        "días de atención en brisas",
+        "qué pasa si no llego a la hora en brisas"
+      ],
+      "entities": {
+        "sector": [
+          "brisas"
+        ]
+      },
+      "needs": [],
+      "answer": {
+        "short": "El horario de taquilla e ingreso por el sector Brisas–Kumanday es de 8:00 a. m. a 2:00 p. m., con la última charla obligatoria de inducción a la 1:30 p. m. Este horario puede variar por alertas del volcán o condiciones climáticas; confirma la apertura con Parques Nacionales antes de viajar.",
+        "variants": [
+          "Para visitar Brisas y el Valle de las Tumbas, el ingreso está habilitado entre las 8:00 a. m. y las 2:00 p. m., debiendo tomar la inducción antes de la 1:30 p. m. Consulta con Parques Nacionales el estado del acceso antes de salir hacia la cordillera."
+        ],
+        "steps": [
+          [
+            "Llega al centro de visitantes Brisas dentro de la franja de 8:00 a. m. a 2:00 p. m.",
+            "Toma la charla de inducción obligatoria a más tardar a la 1:30 p. m."
+          ]
+        ],
+        "detail": null,
+        "reflection": null
+      },
+      "sources": [
+        {
+          "label": "Parques Nacionales Naturales de Colombia · PNN Los Nevados",
+          "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "last_verified": "2026-11-21",
+      "valid_until": null,
+      "related": [
+        "hours_status.brisas_induction_talk_schedule",
+        "hours_status.brisas_exit_time",
+        "hours_status.brisas_open_days"
+      ],
+      "tags": [
+        "brisas",
+        "horario",
+        "ingreso",
+        "ruiz",
+        "valle de las tumbas"
+      ]
+    },
+    {
+      "id": "hours_status.brisas_induction_talk_schedule",
+      "label": "horario de la última charla obligatoria",
+      "kind": "procedure",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "a qué hora es la charla en brisas",
+        "charla obligatoria horario",
+        "hasta qué hora dictan la inducción",
+        "horario charla de inducción",
+        "cuándo es la última inducción en brisas",
+        "a qué horas hacen la charla ambiental",
+        "si no alcanzo la charla puedo entrar",
+        "hora límite para la charla obligatoria",
+        "toca madrugar pa la charla?",
+        "cuándo dan la charla en el centro brisas",
+        "what time is the briefing in brisas",
+        "what time is the last safety talk"
+      ],
+      "hard_negatives": [
+        "charla obligatoria para visitar Brisas",
+        "a qué hora puedo entrar",
+        "hasta qué hora dejan entrar en brisas"
+      ],
+      "entities": {
+        "sector": [
+          "brisas"
+        ]
+      },
+      "needs": [],
+      "answer": {
+        "short": "La última charla de inducción obligatoria en el centro de visitantes Brisas se realiza a la 1:30 p. m. Si llegas después de esa hora no se permite iniciar el recorrido hacia el atractivo, aunque la taquilla cierre a las 2:00 p. m. Confirma horarios y estado con Parques Nacionales antes de partir.",
+        "variants": [
+          "Para entrar por Brisas debes participar en la inducción antes de la 1:30 p. m., hora fijada por Parques Nacionales para la última sesión del día. Te recomendamos madrugar y verificar el estado del sector en los canales oficiales antes de tu viaje."
+        ],
+        "steps": [
+          [
+            "Las charlas de inducción se realizan de manera continua en la mañana para los grupos que van llegando.",
+            "A la 1:30 p. m. inicia la última sesión programada del día."
+          ]
+        ],
+        "detail": null,
+        "reflection": "La charla de inducción te entrega pautas esenciales para cuidar tu salud en alta montaña."
+      },
+      "sources": [
+        {
+          "label": "Parques Nacionales Naturales de Colombia · PNN Los Nevados",
+          "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "last_verified": "2026-11-21",
+      "valid_until": null,
+      "related": [
+        "hours_status.brisas_hours",
+        "hours_status.brisas_exit_time",
+        "hours_status.late_arrival_policy"
+      ],
+      "tags": [
+        "charla",
+        "inducción",
+        "obligatoria",
+        "brisas",
+        "seguridad"
+      ]
+    },
+    {
+      "id": "hours_status.brisas_exit_time",
+      "label": "hora de salida del sector Brisas",
+      "kind": "rule",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "si no hay hora fija de salida en brisas, cuando debo estar de vuelta abajo?",
+        "hora de salida de brisas",
+        "hasta qué hora puedo quedarme en valle de las tumbas",
+        "cuándo desalojan el sector brisas",
+        "hora máxima para bajar de brisas",
+        "a qué hora cierran el circuito brisas",
+        "y si me toca bajarme rapidito de Brisas?",
+        "hasta qué horas puedo estar arriba",
+        "cuándo termina el recorrido en brisas",
+        "toca bajar antes de que oscurezca en brisas?",
+        "by what time should I be leaving brisas?",
+        "when do I need to head down from brisas"
+      ],
+      "hard_negatives": [
+        "qué pasa si no llego a la hora en brisas",
+        "cuánto antes separo para Brisas",
+        "hasta qué hora dejan entrar en brisas"
+      ],
+      "entities": {
+        "sector": [
+          "brisas"
+        ]
+      },
+      "needs": [],
+      "answer": {
+        "short": "Para Brisas no hay una hora de salida fija: el ingreso termina a las 2:00 p. m. y el recorrido acaba por la tarde, para que salgas con luz de día. Sigue las indicaciones de tu guía autorizado y confirma los horarios con Parques Nacionales.",
+        "variants": [
+          "En Brisas las actividades son de día, para bajar antes del anochecer con tu guía. Pregunta a Parques Nacionales o a tu operador la hora de retorno de tu fecha."
+        ],
+        "steps": [
+          [
+            "El ingreso al sector finaliza a las 2:00 p. m. en el centro de visitantes.",
+            "El recorrido guiado por el carreteable concluye en la tarde para descender antes de la caída del sol."
+          ]
+        ],
+        "detail": "En la alta montaña las temperaturas caen bruscamente al atardecer y la niebla reduce la visibilidad vial, por lo que no se permite la permanencia nocturna en el circuito.",
+        "reflection": null
+      },
+      "sources": [
+        {
+          "label": "Parques Nacionales Naturales de Colombia · PNN Los Nevados",
+          "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "last_verified": "2026-11-21",
+      "valid_until": null,
+      "related": [
+        "hours_status.brisas_hours",
+        "hours_status.brisas_induction_talk_schedule",
+        "hours_status.night_entry_prohibition"
+      ],
+      "tags": [
+        "salida",
+        "evacuación",
+        "límite",
+        "brisas",
+        "desalojo"
+      ]
+    },
+    {
+      "id": "hours_status.brisas_open_days",
+      "label": "días de apertura del sector Brisas",
+      "kind": "fact",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "brisas abre todos los dias de la semana o hay dias sin ingreso?",
+        "abren brisas los lunes",
+        "sector brisas abre todos los días",
+        "está abierto brisas en festivos",
+        "días de atención en brisas",
+        "abren los domingos en brisas",
+        "brisas abre festivos, o q?",
+        "puedo ir a brisas cualquier día",
+        "brisas abre en semana santa",
+        "toca ir entre semana o sirve el finde?",
+        "is brisas sector open every day",
+        "which days is brisas open"
+      ],
+      "hard_negatives": [
+        "brisas abre a qué horas, temprano o tarde?",
+        "brisas abre durante los cierres por conservación",
+        "horario festivo sector brisas"
+      ],
+      "entities": {
+        "sector": [
+          "brisas"
+        ]
+      },
+      "needs": [],
+      "answer": {
+        "short": "Brisas suele abrir todos los días del año, de 8:00 a. m. a 2:00 p. m., pero el acceso puede cambiar por alertas volcánicas, mal tiempo, mantenimiento vial o cierres por conservación. Verifica el estado del día con Parques Nacionales antes de viajar.",
+        "variants": [
+          "Brisas suele atender todos los días, festivos incluidos, de 8:00 a. m. a 2:00 p. m., pero puede suspenderse por el volcán, la lluvia o medidas ambientales. Confirma con Parques Nacionales antes de subir."
+        ],
+        "steps": [
+          [
+            "El sector programa atención habitual de lunes a domingo, incluyendo días festivos.",
+            "Consulta los canales oficiales antes de tu viaje para confirmar que no existan cierres temporales vigentes."
+          ]
+        ],
+        "detail": null,
+        "reflection": null
+      },
+      "sources": [
+        {
+          "label": "Parques Nacionales Naturales de Colombia · PNN Los Nevados",
+          "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "last_verified": "2026-11-21",
+      "valid_until": null,
+      "related": [
+        "hours_status.brisas_hours",
+        "hours_status.weekend_and_holiday_opening",
+        "hours_status.weekday_opening"
+      ],
+      "tags": [
+        "días",
+        "apertura",
+        "brisas",
+        "festivos",
+        "operación"
+      ]
+    },
+    {
+      "id": "hours_status.cisne_potan_hours",
+      "label": "horario de registro en cabaña Potosí",
+      "kind": "fact",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "horario cabaña potosí",
+        "a qué hora abren en potosí",
+        "horario registro potosí santa bárbara",
+        "horario sector cisne",
+        "hasta qué hora dejan pasar en potosí",
+        "a q hora abren en el alto de santa barbara",
+        "a qué hora atienden en el control de potosí",
+        "horario de entrada a cisne poleka kasue",
+        "toca madrugar pa Potosí?",
+        "cuándo abre el puesto de potosí",
+        "potosi cabin check in hours",
+        "what time is registration at potosi"
+      ],
+      "hard_negatives": [
+        "a qué horas se sale de potosí a conejeras",
+        "hasta qué horas atienden en potosí para el otún",
+        "horario potosí la asomadera"
+      ],
+      "entities": {
+        "sector": [
+          "cisne"
+        ]
+      },
+      "needs": [],
+      "answer": {
+        "short": "En el sector Cisne–Poleka Kasue, los puestos de control de Cabaña Potosí y Alto de Santa Bárbara atienden registro de 7:30 a. m. a 10:00 a. m. Debes presentarte dentro de esa franja con reserva previa y guía autorizado, confirmando siempre posibles variaciones con Parques Nacionales.",
+        "variants": [
+          "El registro para ingresar hacia los atractivos del sector Cisne opera entre las 7:30 a. m. y las 10:00 a. m. en Potosí y Alto de Santa Bárbara. Recuerda verificar con Parques Nacionales el estado de las vías y la apertura antes de desplazarte."
+        ],
+        "steps": [
+          [
+            "Llega al puesto de control entre las 7:30 a. m. y las 10:00 a. m.",
+            "Presenta tu soporte de reserva, póliza de accidentes y documento de identidad."
+          ]
+        ],
+        "detail": null,
+        "reflection": null
+      },
+      "sources": [
+        {
+          "label": "Parques Nacionales Naturales de Colombia · PNN Los Nevados",
+          "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+          "retrieved_at": "2026-11-21"
+        },
+        {
+          "label": "Parques Nacionales Naturales de Colombia · Resolución 207 de 2023 (Reglamentación transitoria PNN Los Nevados)",
+          "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2023/08/Resolucion_207_2023_ReglamentacionNevados_.pdf",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "last_verified": "2026-11-21",
+      "valid_until": null,
+      "related": [
+        "hours_status.santa_isabel_conejeras_prior_day_checkin",
+        "hours_status.laguna_verde_trail_hours",
+        "hours_status.general_opening_schedule"
+      ],
+      "tags": [
+        "potosí",
+        "cisne",
+        "santa bárbara",
+        "horario",
+        "registro"
+      ]
+    },
+    {
+      "id": "hours_status.laguna_verde_trail_hours",
+      "label": "horario de ingreso al sendero Laguna Verde",
+      "kind": "procedure",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "horario sendero laguna verde",
+        "a qué hora abre laguna verde",
+        "horario de visita laguna verde encantada",
+        "hasta qué hora dejan entrar a laguna verde",
+        "a qué horas se camina a laguna verde",
+        "a q hora me toca salir pa la laguna verde?",
+        "cuándo se puede visitar laguna verde",
+        "toca madrugar pa la laguna verde?",
+        "a qué hora cierran el sendero de laguna verde",
+        "horario de caminata laguna verde",
+        "what time can I hike to laguna verde",
+        "what time does laguna verde trail open"
+      ],
+      "hard_negatives": [
+        "laguna verde, ¿se puede llegar a pie?",
+        "dónde queda la Laguna Verde",
+        "puedo ir a la Laguna Verde"
+      ],
+      "entities": {
+        "sector": [
+          "cisne"
+        ]
+      },
+      "needs": [],
+      "answer": {
+        "short": "El sendero hacia la Laguna Verde, en el sector Cisne, tiene un horario oficial de 8:00 a. m. a 2:00 p. m. Es obligatorio ingresar con guía autorizado y reserva confirmada. Consulta con Parques Nacionales antes de tu visita para confirmar que el sendero se encuentre habilitado.",
+        "variants": [
+          "Para visitar la Laguna Verde el horario autorizado por Parques Nacionales es de 8:00 a. m. a 2:00 p. m. Como las condiciones del páramo pueden obligar a cierres preventivos, verifica el estado del sendero con la autoridad ambiental antes de salir."
+        ],
+        "steps": [
+          [
+            "El ingreso al sendero Laguna Verde está permitido de 8:00 a. m. a 2:00 p. m.",
+            "Realiza la caminata siempre por la ruta señalizada y en compañía de tu guía."
+          ]
+        ],
+        "detail": null,
+        "reflection": null
+      },
+      "sources": [
+        {
+          "label": "Parques Nacionales Naturales de Colombia · PNN Los Nevados",
+          "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "last_verified": "2026-11-21",
+      "valid_until": null,
+      "related": [
+        "hours_status.cisne_potan_hours",
+        "hours_status.santa_isabel_conejeras_prior_day_checkin",
+        "hours_status.general_opening_schedule"
+      ],
+      "tags": [
+        "laguna verde",
+        "sendero",
+        "cisne",
+        "horario",
+        "caminata"
+      ]
+    },
+    {
+      "id": "hours_status.santa_isabel_conejeras_prior_day_checkin",
+      "label": "registro el día previo para Santa Isabel",
+      "kind": "procedure",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "registro sendero conejeras día anterior",
+        "hay que registrarse un día antes para santa isabel",
+        "me toca ir un dia antes a registrarme pa conejeras",
+        "control previo para subir a santa isabel",
+        "a qué hora registrarse para conejeras",
+        "el registro se hace el día antes?",
+        "pa santa isabel me registro antes del dia de subida",
+        "cuándo me registro para el nevado santa isabel",
+        "cuánto antes toca registrarme pa conejeras",
+        "puedo registrarme el mismo día para conejeras",
+        "prior day check in for santa isabel",
+        "do I have to check in the day before Conejeras"
+      ],
+      "hard_negatives": [
+        "cuántos días antes debo reservar",
+        "registro el dia antes de la cima",
+        "llegué hoy sin reservar, ¿me puedo registrar?"
+      ],
+      "entities": {
+        "sector": [
+          "cisne"
+        ]
+      },
+      "needs": [],
+      "answer": {
+        "short": "Para subir a Santa Isabel por el sendero Conejeras, el registro y control es obligatorio el día anterior a la fecha del ascenso. Confirma este trámite y los cupos con tu operador registrado y con Parques Nacionales antes de viajar.",
+        "variants": [
+          "Si vas al Santa Isabel por Conejeras, debes pasar por el control el día previo al ascenso. Coordina este registro obligatorio a tiempo con tu agencia autorizada o con Parques Nacionales."
+        ],
+        "steps": [
+          [
+            "Pasa por el sitio de control (Cabaña Potosí o Alto de Santa Bárbara) el día previo a la fecha de cumbre.",
+            "Presenta la autorización de ingreso, soporte de pago, seguro obligatorio y chequeo de equipo ante guardaparques."
+          ]
+        ],
+        "detail": null,
+        "reflection": null
+      },
+      "sources": [
+        {
+          "label": "Parques Nacionales Naturales de Colombia · PNN Los Nevados",
+          "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+          "retrieved_at": "2026-11-21"
+        },
+        {
+          "label": "Parques Nacionales Naturales de Colombia · Resolución 207 de 2023 (Reglamentación transitoria PNN Los Nevados)",
+          "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2023/08/Resolucion_207_2023_ReglamentacionNevados_.pdf",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "last_verified": "2026-11-21",
+      "valid_until": null,
+      "related": [
+        "hours_status.santa_isabel_summit_start_hour",
+        "hours_status.cisne_potan_hours",
+        "hours_status.late_arrival_policy"
+      ],
+      "tags": [
+        "conejeras",
+        "santa isabel",
+        "registro",
+        "día anterior",
+        "cumbre"
+      ]
+    },
+    {
+      "id": "hours_status.santa_isabel_summit_start_hour",
+      "label": "hora de inicio para subir a Santa Isabel",
+      "kind": "procedure",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "a qué hora se empieza a subir santa isabel",
+        "a qué hora salir a cumbre santa isabel",
+        "hora de salida para el glaciar santa isabel",
+        "cuándo madrugar para santa isabel",
+        "horario de ascenso a santa isabel conejeras",
+        "a qué horas se sale de potosí a conejeras",
+        "hora recomendada para subir al nevado santa isabel",
+        "a qué hora inician las caminatas a la nieve de santa isabel",
+        "a qué hora hay que arrancar pa subir?",
+        "a q hora toca salir pa la cumbre de santa isabel",
+        "what time to start summit hike santa isabel",
+        "when should we leave for santa isabel"
+      ],
+      "hard_negatives": [
+        "cuando se acaba la nieve del santa isabel",
+        "cuándo me registro para el nevado santa isabel",
+        "fechas eruptivas de santa isabel"
+      ],
+      "entities": {
+        "sector": [
+          "cisne"
+        ]
+      },
+      "needs": [],
+      "answer": {
+        "short": "No hay una hora oficial única para salir a la cumbre: regístrate el día previo y ve con guía autorizado. Las cordadas suelen salir de madrugada, según coordine tu guía, para aprovechar el clima. Confirma el itinerario con tu operador y con Parques Nacionales.",
+        "variants": [
+          "La hora de salida hacia Santa Isabel la define tu guía en la madrugada, según el tiempo y las normas del parque. El registro es el día previo; confirma con Parques Nacionales antes de subir."
+        ],
+        "steps": [
+          [
+            "Efectúa el control y verificación de equipo ante guardaparques el día anterior.",
+            "Inicia la aproximación en la madrugada bajo la dirección de tu guía de montaña."
+          ]
+        ],
+        "detail": "Las salidas de madrugada buscan evitar la densa nubosidad y el riesgo de tormentas eléctricas que se presentan habitualmente después del mediodía en la alta montaña.",
+        "reflection": null
+      },
+      "sources": [
+        {
+          "label": "Parques Nacionales Naturales de Colombia · PNN Los Nevados",
+          "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+          "retrieved_at": "2026-11-21"
+        },
+        {
+          "label": "Parques Nacionales Naturales de Colombia · Resolución 207 de 2023 (Reglamentación transitoria PNN Los Nevados)",
+          "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2023/08/Resolucion_207_2023_ReglamentacionNevados_.pdf",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "last_verified": "2026-11-21",
+      "valid_until": null,
+      "related": [
+        "hours_status.santa_isabel_conejeras_prior_day_checkin",
+        "hours_status.cisne_potan_hours",
+        "hours_status.night_entry_prohibition"
+      ],
+      "tags": [
+        "santa isabel",
+        "cumbre",
+        "madrugada",
+        "horario",
+        "ascenso"
+      ]
+    },
+    {
+      "id": "hours_status.otun_sector_hours",
+      "label": "horario de atencion para el sector Otun",
+      "kind": "fact",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "horario laguna del otún",
+        "a qué hora abren laguna del otun",
+        "horario de ingreso laguna del otún",
+        "hasta qué hora dejan entrar al otún",
+        "a qué hora atienden en la cabaña del otún",
+        "toca madrugar pa la laguna del otún?",
+        "a qué horas puedo llegar a la laguna del otún",
+        "cuándo abre el sector otún",
+        "a q hora registran pal Otún",
+        "hasta qué horas atienden en potosí para el otún",
+        "what time can I get to laguna del otun",
+        "what time does laguna del otun entrance open"
+      ],
+      "hard_negatives": [
+        "horario caminata el cedral laguna del otun",
+        "que se hace en la visita a la laguna del otun",
+        "plazo para agendar Laguna del Otún"
+      ],
+      "entities": {
+        "sector": [
+          "otun"
+        ]
+      },
+      "needs": [],
+      "answer": {
+        "short": "Para el sector de la Laguna del Otún, el horario oficial de atención en la cabaña Potosí es de 7:00 a. m. a 12:00 m. Debes realizar tu registro dentro de esta franja con reserva previa y guía autorizado, verificando posibles ajustes operativos con Parques Nacionales antes de desplazarte.",
+        "variants": [
+          "El punto de control de Cabaña Potosí para el sector Otún funciona de 7:00 a. m. a 12:00 m. Te recomendamos coordinar tu llegada dentro de esta franja matutina y confirmar el estado de apertura con Parques Nacionales o tu operador registrado."
+        ],
+        "steps": [
+          [
+            "Preséntate en el puesto de registro de Cabaña Potosí entre las 7:00 a. m. y las 12:00 m.",
+            "Presenta la reserva y la póliza obligatoria tramitadas con tu operador autorizado."
+          ]
+        ],
+        "detail": "La reglamentación de Parques Nacionales fija la franja de 7:00 a. m. a 12:00 m. en Potosí para el control de ingreso al sector Otún. El tiempo posterior de caminata varía según la ruta elegida y el clima.",
+        "reflection": null
+      },
+      "sources": [
+        {
+          "label": "Parques Nacionales Naturales de Colombia · PNN Los Nevados",
+          "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+          "retrieved_at": "2026-11-21"
+        },
+        {
+          "label": "Parques Nacionales Naturales de Colombia · Resolución 207 de 2023 (Reglamentación transitoria PNN Los Nevados)",
+          "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2023/08/Resolucion_207_2023_ReglamentacionNevados_.pdf",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "last_verified": "2026-11-21",
+      "valid_until": null,
+      "related": [
+        "hours_status.cedral_otun_hiking_schedule",
+        "hours_status.cisne_potan_hours",
+        "hours_status.general_opening_schedule"
+      ],
+      "tags": [
+        "otún",
+        "laguna",
+        "potosí",
+        "horario",
+        "registro"
+      ]
+    },
+    {
+      "id": "hours_status.cedral_otun_hiking_schedule",
+      "label": "horario de caminata desde El Cedral",
+      "kind": "procedure",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "a qué hora salir de el cedral hacia el otún",
+        "horario caminata el cedral laguna del otun",
+        "a qué horas empezar a caminar desde el cedral",
+        "cuándo iniciar la ruta desde el cedral",
+        "toca salir de madrugada desde El Cedral?",
+        "horario recomendado subiendo por el cedral",
+        "a qué hora salir a pie desde el cedral",
+        "a q hora arranco caminando pa el otún?",
+        "cuándo madrugar en el cedral",
+        "hora para empezar el ascenso desde el cedral",
+        "start time for hiking from el cedral to otun",
+        "what time should I leave el cedral for the otun"
+      ],
+      "hard_negatives": [
+        "la subida desde El Cedral",
+        "a qué horas puedo llegar a la laguna del otún",
+        "cuántos km a pie desde el cedral"
+      ],
+      "entities": {
+        "sector": [
+          "otun"
+        ]
+      },
+      "needs": [],
+      "answer": {
+        "short": "Desde El Cedral a la Laguna del Otún hay 18 km, y 7,5 km llegan hasta el límite del parque. No hay horario de taquilla fijado en El Cedral: sal muy temprano con tu guía para llegar a los sitios autorizados antes de la noche. Confirma la ruta con Parques Nacionales antes de partir.",
+        "variants": [
+          "Para subir de El Cedral al Otún, sal en las primeras horas de la mañana: son 18 km entre bosque y páramo. Confirma el estado del sendero con Parques Nacionales o tu operador."
+        ],
+        "steps": [
+          [
+            "Inicia la travesía a pie a primera hora de la mañana con tu guía registrado.",
+            "Camina 7,5 km hasta el límite del parque y continúa hacia los puntos autorizados de pernocte."
+          ]
+        ],
+        "detail": "Transitar de noche en el área protegida está prohibido por seguridad y conservación ambiental.",
+        "reflection": null
+      },
+      "sources": [
+        {
+          "label": "Parques Nacionales Naturales de Colombia · PNN Los Nevados",
+          "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+          "retrieved_at": "2026-11-21"
+        },
+        {
+          "label": "Parques Nacionales Naturales de Colombia · Resolución 207 de 2023 (Reglamentación transitoria PNN Los Nevados)",
+          "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2023/08/Resolucion_207_2023_ReglamentacionNevados_.pdf",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "last_verified": "2026-11-21",
+      "valid_until": null,
+      "related": [
+        "hours_status.otun_sector_hours",
+        "hours_status.night_entry_prohibition",
+        "hours_status.camping_arrival_cutoff"
+      ],
+      "tags": [
+        "el cedral",
+        "otún",
+        "caminata",
+        "horario",
+        "travesía"
+      ]
+    },
+    {
+      "id": "hours_status.quindio_dulima_cocora_hours",
+      "label": "horario de ingreso por Valle del Cocora",
+      "kind": "fact",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "horario cocora tolima",
+        "a qué hora abren el punto de cocora",
+        "horario de atención puesto valle del cocora",
+        "hasta qué hora dejan registrarse en el cocora",
+        "horario de ingreso por salento al nevado",
+        "a qué horas atienden en el cocora para los nevados",
+        "a q hora abren en Cocora pal Tolima",
+        "cuándo puedo entrar por el valle de cocora",
+        "toca madrugar pa cocora?",
+        "horario de acceso hacia el nevado del tolima por salento",
+        "what time can I enter from cocora",
+        "what time does cocora check point open"
+      ],
+      "hard_negatives": [
+        "puedo entrar por el Cocora a caminar",
+        "dónde me registro en cocora",
+        "qué atienden en el punto del Cocora"
+      ],
+      "entities": {
+        "sector": [
+          "quindio_dulima"
+        ]
+      },
+      "needs": [],
+      "answer": {
+        "short": "En Quindío–Dulima, el punto de Parques Nacionales en el Valle del Cocora atiende de 6:00 a. m. a 10:00 a. m. Debes ingresar con reserva previa tramitada con al menos cinco días hábiles de antelación y guía registrado. Confirma con Parques Nacionales antes de viajar.",
+        "variants": [
+          "El control de ingreso en el Valle del Cocora hacia el Nevado del Tolima opera de 6:00 a. m. a 10:00 a. m. Es obligatorio contar con reserva previa aprobada y guía de montaña. Verifica posibles cambios de horario con Parques Nacionales antes de salir."
+        ],
+        "steps": [
+          [
+            "Preséntate en el puesto de registro de Cocora entre las 6:00 a. m. y las 10:00 a. m.",
+            "Acredita la reserva previa gestionada con al menos 5 días hábiles de antelación y tu póliza vigente."
+          ]
+        ],
+        "detail": null,
+        "reflection": null
+      },
+      "sources": [
+        {
+          "label": "Parques Nacionales Naturales de Colombia · PNN Los Nevados",
+          "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+          "retrieved_at": "2026-11-21"
+        },
+        {
+          "label": "Parques Nacionales Naturales de Colombia · Resolución 207 de 2023 (Reglamentación transitoria PNN Los Nevados)",
+          "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2023/08/Resolucion_207_2023_ReglamentacionNevados_.pdf",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "last_verified": "2026-11-21",
+      "valid_until": null,
+      "related": [
+        "hours_status.quindio_dulima_juntas_anzoategui_hours",
+        "hours_status.tolima_summit_push_hours",
+        "hours_status.general_opening_schedule"
+      ],
+      "tags": [
+        "cocora",
+        "salento",
+        "tolima",
+        "horario",
+        "registro"
+      ]
+    },
+    {
+      "id": "hours_status.quindio_dulima_juntas_anzoategui_hours",
+      "label": "horarios de ingreso por Juntas y Anzoátegui",
+      "kind": "fact",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "horario juntas ibagué nevado del tolima",
+        "a qué hora abren en juntas",
+        "horario puesto de control anzoátegui",
+        "hasta qué hora dejan entrar por juntas tolima",
+        "horario de ingreso por el cañón del combeima",
+        "a qué horas atienden en anzoátegui para el parque",
+        "toca madrugar pa ir a Juntas?",
+        "a q hora cierran en anzoátegui?",
+        "horario de acceso por la vereda palomar",
+        "hasta cuándo atienden en el control de juntas",
+        "juntas and anzoategui check points schedule",
+        "what time do they open in juntas"
+      ],
+      "hard_negatives": [
+        "a q hora abren el punto de informacion de anzoategui en el centro",
+        "a qué hora dejan entrar hacia la asomadera",
+        "a qué hora abren"
+      ],
+      "entities": {
+        "sector": [
+          "quindio_dulima"
+        ]
+      },
+      "needs": [],
+      "answer": {
+        "short": "Los puntos de registro en Juntas (Ibagué) y Anzoátegui atienden de 6:00 a. m. a 11:00 a. m., con reserva previa obligatoria tramitada con al menos cinco días hábiles de antelación. Debes presentarte con tu guía autorizado y verificar el acceso con Parques Nacionales antes de salir.",
+        "variants": [
+          "Para entrar por Juntas o Anzoátegui hacia el Tolima, el control atiende de 6:00 a. m. a 11:00 a. m. con reserva confirmada y guía registrado. Confirma las condiciones con Parques Nacionales antes de viajar."
+        ],
+        "steps": [
+          [
+            "Llega al punto de registro en Juntas o Anzoátegui dentro de la franja de 6:00 a. m. a 11:00 a. m.",
+            "Verifica con los guardaparques la reserva previa y las condiciones del sendero."
+          ]
+        ],
+        "detail": "En la ficha web vigente de Parques Nacionales el horario de registro para Juntas y Anzoátegui figura de 6:00 a. m. a 11:00 a. m. (bajo reserva previa), mientras que la Resolución 207 de 2023 fijaba Juntas de 6:00 a. m. a 10:00 a. m. y Anzoátegui de 6:00 a. m. a 11:00 a. m.",
+        "reflection": null
+      },
+      "sources": [
+        {
+          "label": "Parques Nacionales Naturales de Colombia · PNN Los Nevados",
+          "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+          "retrieved_at": "2026-11-21"
+        },
+        {
+          "label": "Parques Nacionales Naturales de Colombia · Resolución 207 de 2023 (Reglamentación transitoria PNN Los Nevados)",
+          "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2023/08/Resolucion_207_2023_ReglamentacionNevados_.pdf",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "last_verified": "2026-11-21",
+      "valid_until": null,
+      "related": [
+        "hours_status.quindio_dulima_cocora_hours",
+        "hours_status.tolima_summit_push_hours",
+        "hours_status.late_arrival_policy"
+      ],
+      "tags": [
+        "juntas",
+        "anzoátegui",
+        "combeima",
+        "horario",
+        "tolima"
+      ]
+    },
+    {
+      "id": "hours_status.tolima_summit_push_hours",
+      "label": "hora de ataque a cumbre Nevado Tolima",
+      "kind": "safety",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "a qué hora se sale a cumbre del tolima",
+        "toca madrugar pa la cumbre del tolima?",
+        "a qué horas madrugar para el tolima",
+        "cuándo empezar a subir al cráter del tolima",
+        "horario para subir al glaciar del tolima",
+        "a qué hora salir desde el campamento arenares",
+        "a q hora arrancamos pa la cumbre",
+        "a qué horas se hace cumbre en el tolima",
+        "horario de ascenso final al nevado del tolima",
+        "cuándo partir hacia la cumbre del tolima",
+        "what time do people start climbing the tolima",
+        "what time to start summit push on tolima"
+      ],
+      "hard_negatives": [
+        "puedo subir a la cumbre del Tolima",
+        "hasta qué hora dejan entrar por juntas tolima",
+        "el cráter del Tolima está en la cumbre"
+      ],
+      "entities": {
+        "sector": [
+          "quindio_dulima"
+        ]
+      },
+      "needs": [],
+      "answer": {
+        "short": "No hay hora oficial de ataque a la cumbre del Nevado del Tolima; rigen los horarios de registro en la base. Las cordadas suelen salir de madrugada desde campamentos autorizados, según el plan de seguridad de tu guía certificado. Confirma las condiciones con Parques Nacionales.",
+        "variants": [
+          "La hora de salida hacia el glaciar del Tolima la decide tu guía de alta montaña de madrugada, según clima y terreno. Antes de viajar, confirma con Parques Nacionales el registro en los puntos de control."
+        ],
+        "steps": [
+          [
+            "Regístrate en los horarios de control matutino en el acceso al parque.",
+            "Inicia la jornada de cumbre en la madrugada según las directrices de seguridad de tu guía."
+          ]
+        ],
+        "detail": "Madrugar permite avanzar sobre terreno firme y emprender el descenso antes de las tormentas habituales de la tarde en la cumbre.",
+        "reflection": null
+      },
+      "sources": [
+        {
+          "label": "Parques Nacionales Naturales de Colombia · PNN Los Nevados",
+          "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+          "retrieved_at": "2026-11-21"
+        },
+        {
+          "label": "Parques Nacionales Naturales de Colombia · Resolución 207 de 2023 (Reglamentación transitoria PNN Los Nevados)",
+          "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2023/08/Resolucion_207_2023_ReglamentacionNevados_.pdf",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "last_verified": "2026-11-21",
+      "valid_until": null,
+      "related": [
+        "hours_status.quindio_dulima_cocora_hours",
+        "hours_status.quindio_dulima_juntas_anzoategui_hours",
+        "hours_status.night_entry_prohibition"
+      ],
+      "tags": [
+        "tolima",
+        "cumbre",
+        "ataque",
+        "madrugada",
+        "seguridad"
+      ]
+    },
+    {
+      "id": "hours_status.night_entry_prohibition",
+      "label": "prohibición de ingreso nocturno al parque",
+      "kind": "rule",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "se puede entrar de noche al parque",
+        "puedo ingresar en la noche",
+        "está permitido entrar de noche",
+        "si llego de noche, ¿igual me dejan pasar?",
+        "si llego de madrugada antes de que abran, me dejan pasar?",
+        "puedo llegar de madrugada al parque",
+        "dejan pasar carros de noche en brisas",
+        "se puede caminar de noche por los senderos",
+        "de noche no dejan entrar al parque, cierto",
+        "por qué no dejan entrar de noche",
+        "is night entry allowed in the park",
+        "can I enter los nevados at night"
+      ],
+      "hard_negatives": [
+        "¿y si ya es tarde, me dejan entrar?",
+        "a qué hora puedo entrar",
+        "de noche sí dejan caminar?"
+      ],
+      "entities": {},
+      "needs": [],
+      "answer": {
+        "short": "El ingreso nocturno al Parque Nacional Natural Los Nevados está prohibido en todos los sectores. Los puntos de control operan solo en franjas diurnas matutinas y no se autoriza el paso fuera de esos horarios. Confirma los horarios con Parques Nacionales antes de viajar.",
+        "variants": [
+          "Por normas de seguridad y protección ambiental, está prohibido ingresar al parque de noche o circular sin autorización fuera de los horarios oficiales de los puestos de control. Planifica tu itinerario de día y verifica siempre con Parques Nacionales."
+        ],
+        "steps": [
+          [
+            "Ingresa únicamente en las franjas horarias diurnas autorizadas para cada sector.",
+            "No circules por senderos o carreteras del parque en horas de la noche."
+          ]
+        ],
+        "detail": null,
+        "reflection": null
+      },
+      "sources": [
+        {
+          "label": "Parques Nacionales Naturales de Colombia · PNN Los Nevados",
+          "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+          "retrieved_at": "2026-11-21"
+        },
+        {
+          "label": "Parques Nacionales Naturales de Colombia · Resolución 207 de 2023 (Reglamentación transitoria PNN Los Nevados)",
+          "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2023/08/Resolucion_207_2023_ReglamentacionNevados_.pdf",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "last_verified": "2026-11-21",
+      "valid_until": null,
+      "related": [
+        "hours_status.late_arrival_policy",
+        "hours_status.camping_arrival_cutoff",
+        "hours_status.general_opening_schedule"
+      ],
+      "tags": [
+        "nocturno",
+        "prohibición",
+        "seguridad",
+        "noche",
+        "regla"
+      ]
+    },
+    {
+      "id": "hours_status.camping_arrival_cutoff",
+      "label": "hora de llegada a zonas de campamento",
+      "kind": "rule",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "a qué hora debo llegar al campamento",
+        "hora límite para llegar a la zona de camping",
+        "hasta qué hora puedo llegar al refugio",
+        "a qué horas se debe llegar a armar carpa",
+        "hora máxima de llegada a cabañas",
+        "cuándo debo estar en el campamento",
+        "límite de hora para llegar a acampar",
+        "hora máxima para montar carpas en el parque",
+        "toca estar aquí antes de que oscurezca?",
+        "cuándo llegar a la zona de camping autorizada",
+        "is there a late arrival limit for camping",
+        "what time should I arrive at the campsite"
+      ],
+      "hard_negatives": [
+        "a qué hora puedo entrar",
+        "hasta qué horas puedo estar arriba",
+        "a qué hora salir desde el campamento arenares"
+      ],
+      "entities": {},
+      "needs": [],
+      "answer": {
+        "short": "Sin hora límite fija de llegada al campamento ni búsqueda automática a una hora fija. Debes entrar con equipo en el registro matutino (en Potosí, de 7:00 a. m. a 12:00 m.), acampar solo en Termales Cañón, Arenales o Calvito y llegar antes del anochecer con tu guía. Confirma con Parques Nacionales.",
+        "variants": [
+          "En el parque no hay una hora límite oficial para llegar a las carpas. Debes entrar temprano en el registro, acampar solo en sitios autorizados y llegar de día con tu guía."
+        ],
+        "steps": [
+          [
+            "Ingresa en los horarios oficiales matutinos de control con equipo de montaña permitido.",
+            "Pernocta únicamente en los sitios habilitados por la reglamentación transitoria o refugios autorizados.",
+            "Organiza el avance de la caminata con tu guía para llegar al campamento antes del anochecer."
+          ]
+        ],
+        "detail": "La Resolución 207 de 2023 prohíbe el camping general en el área protegida, salvo en puntos transitorios autorizados bajo monitoreo. Está prohibido transitar de noche por senderos.",
+        "reflection": null
+      },
+      "sources": [
+        {
+          "label": "Parques Nacionales Naturales de Colombia · PNN Los Nevados",
+          "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+          "retrieved_at": "2026-11-21"
+        },
+        {
+          "label": "Parques Nacionales Naturales de Colombia · Resolución 207 de 2023 (Reglamentación transitoria PNN Los Nevados)",
+          "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2023/08/Resolucion_207_2023_ReglamentacionNevados_.pdf",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "last_verified": "2026-11-21",
+      "valid_until": null,
+      "related": [
+        "hours_status.night_entry_prohibition",
+        "hours_status.cedral_otun_hiking_schedule",
+        "hours_status.late_arrival_policy"
+      ],
+      "tags": [
+        "campamento",
+        "camping",
+        "llegada",
+        "hora límite",
+        "refugio"
+      ]
+    },
+    {
+      "id": "hours_status.late_arrival_policy",
+      "label": "política si llegas tarde a la entrada",
+      "kind": "rule",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "qué pasa si llego tarde al parque",
+        "si llego después de las 2 me dejan entrar",
+        "si me retraso puedo ingresar",
+        "qué pasa si no llego a la hora en brisas",
+        "si llego tarde a potosí me atienden",
+        "¿y si ya es tarde, me dejan entrar?",
+        "hay un rato de tolerancia si llego tarde a la entrada",
+        "si llego tarde pierdo la reserva",
+        "hay plazo si me coge la tarde para entrar",
+        "qué pasa si llego tarde a la inducción",
+        "what happens if I arrive late to the park",
+        "can I still get in if I'm late"
+      ],
+      "hard_negatives": [
+        "a qué hora puedo entrar",
+        "cupos del sur, que pasa si me llegan tarde",
+        "si llego de madrugada antes de que abran, me dejan pasar?"
+      ],
+      "entities": {},
+      "needs": [],
+      "answer": {
+        "short": "Si llegas al puesto de control después del cierre de registro (por ejemplo, después de las 2:00 p. m. en Brisas o de las 10:00 a. m. en Cocora y Cisne), no te dejan entrar. Los límites buscan garantizar la seguridad en la montaña, así que verifica los horarios con Parques Nacionales antes de salir.",
+        "variants": [
+          "Si te presentas fuera del horario de registro, los guardaparques no te dejan entrar, aunque tengas reserva. Madrugar y revisar las vías con Parques Nacionales evita contratiempos."
+        ],
+        "steps": [
+          [
+            "Verifica con antelación la hora límite de registro del sector que elegiste.",
+            "Planea tu transporte con margen de tiempo ante posibles demoras en la carretera."
+          ]
+        ],
+        "detail": null,
+        "reflection": null
+      },
+      "sources": [
+        {
+          "label": "Parques Nacionales Naturales de Colombia · PNN Los Nevados",
+          "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+          "retrieved_at": "2026-11-21"
+        },
+        {
+          "label": "Parques Nacionales Naturales de Colombia · Resolución 207 de 2023 (Reglamentación transitoria PNN Los Nevados)",
+          "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2023/08/Resolucion_207_2023_ReglamentacionNevados_.pdf",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "last_verified": "2026-11-21",
+      "valid_until": null,
+      "related": [
+        "hours_status.general_opening_schedule",
+        "hours_status.brisas_hours",
+        "hours_status.night_entry_prohibition"
+      ],
+      "tags": [
+        "retraso",
+        "tarde",
+        "llegada",
+        "regla",
+        "puntualidad"
+      ]
+    },
+    {
+      "id": "hours_status.weekend_and_holiday_opening",
+      "label": "horarios de atención en fines de semana",
+      "kind": "fact",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "horarios fines de semana",
+        "a qué hora abren los festivos",
+        "sabado y domingo el parque abre con el horario de finde?",
+        "el parque abre los puentes festivos",
+        "el domingo toca madrugar pa los nevados?",
+        "a qué hora atienden los domingos",
+        "horario festivo sector brisas",
+        "cómo opera el parque los fines de semana",
+        "el domingo abren temprano en el cisne?",
+        "horario de entrada en puente festivo",
+        "weekend opening hours los nevados",
+        "is the park open on public holidays"
+      ],
+      "hard_negatives": [
+        "a que hora abren el parque",
+        "los fines de semana a que hora restringen las placas",
+        "abren entre semana el parque"
+      ],
+      "entities": {},
+      "needs": [],
+      "answer": {
+        "short": "En fines de semana y festivos el parque atiende en horario habitual: Brisas de 8:00 a. m. a 2:00 p. m., y los sectores de montaña desde las 6:00 o 7:30 a. m. Como hay más gente, reserva con antelación para Brisas en reservasnevados.com. Confirma disponibilidad y cambios con Parques Nacionales.",
+        "variants": [
+          "Los fines de semana y festivos los horarios se mantienen, pero los cupos diarios se agotan rápido y en la vía Murillo–La Esperanza aplica Pico y Placa Ambiental. Reserva con tiempo y consulta con Parques Nacionales antes de viajar."
+        ],
+        "steps": [
+          [
+            "Reserva tu cupo con anticipación en reservasnevados.com si visitas Brisas en fin de semana.",
+            "Consulta si tu vehículo tiene restricción de Pico y Placa Ambiental en la vía Murillo–La Esperanza."
+          ]
+        ],
+        "detail": null,
+        "reflection": null
+      },
+      "sources": [
+        {
+          "label": "Parques Nacionales Naturales de Colombia · PNN Los Nevados",
+          "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "last_verified": "2026-11-21",
+      "valid_until": null,
+      "related": [
+        "hours_status.pico_y_placa_hours_murillo",
+        "hours_status.weekday_opening",
+        "hours_status.high_season_operating_changes"
+      ],
+      "tags": [
+        "fin de semana",
+        "festivo",
+        "horario",
+        "sábado",
+        "domingo"
+      ]
+    },
+    {
+      "id": "hours_status.weekday_opening",
+      "label": "visitar el parque entre semana días hábiles",
+      "kind": "fact",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "horarios de lunes a viernes",
+        "abren entre semana el parque",
+        "horario del parque en dias habiles",
+        "se puede visitar un martes o miercoles",
+        "cómo funciona el parque de lunes a viernes",
+        "horario de atencion en semana",
+        "entre semana sí hay cupo pa subir?",
+        "visitar los nevados un dia habil",
+        "horario entre semana sector brisas",
+        "toca ir entre semana pa no pelear el cupo",
+        "which weekdays is the park open",
+        "is the park open on weekdays"
+      ],
+      "hard_negatives": [
+        "atienden lunes a viernes mañana y tarde",
+        "toca ir entre semana o sirve el finde?",
+        "sabado y domingo el parque abre con el horario de finde?"
+      ],
+      "entities": {},
+      "needs": [],
+      "answer": {
+        "short": "De lunes a viernes el parque opera en sus horarios regulares: Brisas de 8:00 a. m. a 2:00 p. m., y los puntos de montaña en su horario de la mañana. Entre semana es más fácil conseguir cupo y no aplica el pico y placa de fin de semana. Confirma con Parques Nacionales antes de salir.",
+        "variants": [
+          "De lunes a viernes los accesos funcionan en su horario habitual, con menos visitantes y sin restricción de placas en la vía Murillo–La Esperanza. Verifica con Parques Nacionales que tu fecha no coincida con un cierre por conservación."
+        ],
+        "steps": [
+          [
+            "El parque opera de lunes a viernes en los horarios estándar de cada sector.",
+            "Verifica previamente que la fecha no corresponda a una de las tres semanas de cierre ambiental."
+          ]
+        ],
+        "detail": null,
+        "reflection": null
+      },
+      "sources": [
+        {
+          "label": "Parques Nacionales Naturales de Colombia · PNN Los Nevados",
+          "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "last_verified": "2026-11-21",
+      "valid_until": null,
+      "related": [
+        "hours_status.weekend_and_holiday_opening",
+        "hours_status.brisas_hours",
+        "hours_status.low_season_advantages"
+      ],
+      "tags": [
+        "entre semana",
+        "días hábiles",
+        "lunes a viernes",
+        "horario",
+        "tranquilidad"
+      ]
+    },
+    {
+      "id": "hours_status.pico_y_placa_hours_murillo",
+      "label": "horarios del pico y placa ambiental Murillo",
+      "kind": "rule",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "horario pico y placa ambiental",
+        "a qué hora empieza el pico y placa en murillo",
+        "puedo subir en carro un sábado a brisas?",
+        "hasta qué hora es el pico y placa en el nevado",
+        "qué días aplica el pico y placa en los nevados",
+        "a q hora aplica el pico y placa pa subir?",
+        "a qué horas restringen carros en murillo la esperanza",
+        "horario de pico y placa para subir a brisas",
+        "cuándo hay pico y placa en la vía al nevado",
+        "los fines de semana a que hora restringen las placas",
+        "do I get restricted on the road to brisas",
+        "murillo road pico y placa hours",
+        "hay pico y placa para subir a brisas",
+        "restriccion de placas en noviembre",
+        "¿los fines de semana no puedo subir con cualquier carro, verdad?",
+        "¿el pico y placa del Tolima aplica pa' Brisas?",
+        "¿a qué horas es el pico y placa pa' subir a Brisas?",
+        "is there a plate restriction on the north access",
+        "does the November rule apply on weekdays",
+        "puentes festivos en el acceso al valle",
+        "pico y placa ambiental del tolima",
+        "cuando reserve, me toca mirar la placa del carro",
+        "brisas valle de las tumbas, cuales carros circulan",
+        "no es el pico y placa de manizales ciudad"
+      ],
+      "hard_negatives": [
+        "hasta qué hora dejan entrar en brisas",
+        "hora máxima para bajar de brisas",
+        "revisar brisas ademas del pico y placa"
+      ],
+      "entities": {
+        "sector": [
+          "brisas"
+        ]
+      },
+      "needs": [],
+      "answer": {
+        "short": "En noviembre rige el Pico y Placa Ambiental para ir a Brisas–Valle de las Tumbas, los fines de semana y festivos de 5:00 a. m. a 4:00 p. m. (Resolución 1815 de 2026 de Tránsito del Tolima). Solo aplica a ese acceso, no a las otras porterías. Revisa qué placas pueden circular cuando hagas la reserva.",
+        "variants": [
+          "Los fines de semana y festivos de noviembre hay restricción de placas hacia Brisas de 5:00 a. m. a 4:00 p. m. Consulta el cronograma de placas al reservar."
+        ],
+        "steps": [
+          [
+            "Días de aplicación: sábados, domingos y festivos oficiales.",
+            "Horario de restricción: de 5:00 a. m. a 4:00 p. m.",
+            "Consulta el último dígito de placa autorizado antes de tomar la vía Murillo–La Esperanza."
+          ]
+        ],
+        "detail": "Según la Resolución 1815 del 24 de julio de 2026, la medida rige del 25 de julio de 2026 al 20 de julio de 2027 los sábados, domingos y festivos de 5:00 a. m. a 4:00 p. m. entre Murillo (PR43+500) y Cerro Gualí (PR0+000) para automóviles, camperos, camionetas y motocicletas.",
+        "reflection": null
+      },
+      "sources": [
+        {
+          "label": "Parques Nacionales Naturales de Colombia · PNN Los Nevados",
+          "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+          "retrieved_at": "2026-11-21"
+        },
+        {
+          "label": "Ministerio de Transporte · Resolución 1815 del 24 de julio de 2026 (Pico y Placa Ambiental Murillo–Cerro Gualí)",
+          "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2026/08/RESOLUCION-1815-2026.pdf",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "last_verified": "2026-11-21",
+      "valid_until": "2027-07-20",
+      "related": [
+        "hours_status.brisas_hours",
+        "hours_status.weekend_and_holiday_opening",
+        "hours_status.road_closure_status"
+      ],
+      "tags": [
+        "pico y placa",
+        "murillo",
+        "resolución 1815",
+        "horario",
+        "vehículos"
+      ]
+    },
+    {
+      "id": "hours_status.high_season_calendar",
+      "label": "temporadas altas y afluencia en el parque",
+      "kind": "fact",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "cuándo es temporada alta en los nevados",
+        "fechas de temporada alta",
+        "cuáles son los meses de temporada alta",
+        "cuándo se llena el nevado?",
+        "cuándo viaja más gente al nevado",
+        "épocas de mayor afluencia de turistas",
+        "en vacaciones se llena el nevado, o q?",
+        "es temporada alta en diciembre y enero",
+        "cuándo hay más visitantes en el parque",
+        "meses pico de turismo en los nevados",
+        "when is the park packed with people",
+        "when is peak tourist season in the park"
+      ],
+      "hard_negatives": [
+        "cuándo cae nieve en la alta montaña",
+        "cuándo es temporada baja en los nevados",
+        "hay verano e invierno en los nevados"
+      ],
+      "entities": {},
+      "needs": [],
+      "answer": {
+        "short": "Sin fechas fijas de temporada alta, hay más gente a fin de año, en enero, Semana Santa, a mitad de año y puentes festivos. Para Brisas se pide reservar en reservasnevados.com en fines de semana y festivos, y se recomienda en temporadas de alto tráfico como noviembre. Confirma con Parques Nacionales.",
+        "variants": [
+          "El parque no tiene un calendario oficial de temporada alta, pero la mayor afluencia coincide con vacaciones y festivos. Asegura tu cupo con antelación y confirma con Parques Nacionales o tu operador."
+        ],
+        "steps": [
+          [
+            "En Brisas–Valle de las Tumbas, reserva con antelación en reservasnevados.com para fines de semana y festivos.",
+            "Para sectores de travesía (Cisne, Otún y Tolima), coordina tu cupo con la agencia u operador registrado con anticipación."
+          ]
+        ],
+        "detail": "Durante épocas de alto turismo la capacidad de carga de los senderos se completa rápidamente, por lo que no es prudente viajar sin reserva confirmada.",
+        "reflection": null
+      },
+      "sources": [
+        {
+          "label": "Parques Nacionales Naturales de Colombia · PNN Los Nevados",
+          "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "last_verified": "2026-11-21",
+      "valid_until": null,
+      "related": [
+        "hours_status.high_season_operating_changes",
+        "hours_status.low_season_advantages",
+        "booking_fees.reservation_requirements"
+      ],
+      "tags": [
+        "temporada alta",
+        "calendario",
+        "fechas",
+        "vacaciones",
+        "afluencia"
+      ]
+    },
+    {
+      "id": "hours_status.low_season_advantages",
+      "label": "visitar Los Nevados en temporada baja",
+      "kind": "fact",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "cuándo es temporada baja en los nevados",
+        "ventajas de ir en temporada baja",
+        "meses de temporada baja en el parque",
+        "conviene ir en temporada baja",
+        "cómo es el parque en temporada baja",
+        "cuándo hay menos gente pa subir?",
+        "toca ir en temporada baja pa evitar la bulla?",
+        "cuándo hay menos gente en el nevado",
+        "meses tranquilos para visitar los nevados",
+        "es mejor ir en temporada baja",
+        "is it worth going in the quiet months",
+        "when is off peak season in the park"
+      ],
+      "hard_negatives": [
+        "cuáles son los meses de temporada alta",
+        "temporada baja y soy agente cultural, entrada gratis",
+        "cuándo son las épocas secas"
+      ],
+      "entities": {},
+      "needs": [],
+      "answer": {
+        "short": "Fuera de puentes y vacaciones escolares, los senderos suelen tener menos gente, más cupos y una atención más pausada. Eso sí, verifica que tu viaje no coincida con los tres cierres anuales de cinco días por conservación. Confirma el estado del parque con Parques Nacionales.",
+        "variants": [
+          "Fuera de puentes y vacaciones escolares el parque suele tener menos gente y más cupos. Antes de viajar, revisa con Parques Nacionales si tu fecha cae en los cierres ambientales."
+        ],
+        "steps": [
+          [
+            "Planifica tu visita en días hábiles fuera de semanas vacacionales para evitar aglomeraciones.",
+            "Revisa las fechas de los descansos de conservación (post-Semana Santa, septiembre y noviembre) para no encontrar accesos cerrados."
+          ]
+        ],
+        "detail": null,
+        "reflection": null
+      },
+      "sources": [
+        {
+          "label": "Parques Nacionales Naturales de Colombia · PNN Los Nevados",
+          "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "last_verified": "2026-11-21",
+      "valid_until": null,
+      "related": [
+        "hours_status.high_season_calendar",
+        "hours_status.conservation_closures",
+        "hours_status.weekday_opening"
+      ],
+      "tags": [
+        "temporada baja",
+        "beneficios",
+        "meses",
+        "tranquilidad",
+        "aforo"
+      ]
+    },
+    {
+      "id": "hours_status.high_season_operating_changes",
+      "label": "cambios de operación durante temporada alta",
+      "kind": "procedure",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "cambian los horarios en temporada alta",
+        "cómo opera el parque en vacaciones",
+        "hay cambios de horario en temporada alta",
+        "en diciembre sí cambian los horarios?",
+        "qué cambia en el parque durante temporada alta",
+        "en temporada alta ponen mas reglas pa entrar",
+        "en puente festivo cambian las reglas para entrar",
+        "en vacaciones controlan mas el cupo de gente",
+        "en vacaciones toca llegar más temprano?",
+        "como funciona el parque cuando se llena de gente",
+        "what changes at the park when it is crowded",
+        "do they limit visitors in holiday season"
+      ],
+      "hard_negatives": [
+        "épocas de mayor afluencia de turistas",
+        "horario de entrada en puente festivo",
+        "qué pasa si llego tarde al parque"
+      ],
+      "entities": {},
+      "needs": [],
+      "answer": {
+        "short": "En temporada alta los horarios de ingreso no se amplían, pero los cupos diarios por capacidad de carga se agotan rápido. Reserva con suficiente anticipación y llega temprano al puesto de control. Confirma requisitos y estado del sector con Parques Nacionales antes de viajar.",
+        "variants": [
+          "Durante la temporada alta los puestos de registro mantienen sus horarios, pero cierran el paso cuando se completa la capacidad. Reserva con tiempo y consulta con Parques Nacionales antes de subir."
+        ],
+        "steps": [
+          [
+            "Reserva con tiempo en reservasnevados.com o a través de tu agencia autorizada.",
+            "Llega puntualmente en la primera franja de atención del puesto de registro correspondiente."
+          ]
+        ],
+        "detail": "El aforo diario busca que no se supere la capacidad de carga fijada para la conservación de los senderos.",
+        "reflection": null
+      },
+      "sources": [
+        {
+          "label": "Parques Nacionales Naturales de Colombia · PNN Los Nevados",
+          "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "last_verified": "2026-11-21",
+      "valid_until": null,
+      "related": [
+        "hours_status.high_season_calendar",
+        "hours_status.pico_y_placa_hours_murillo",
+        "hours_status.late_arrival_policy"
+      ],
+      "tags": [
+        "operación",
+        "temporada alta",
+        "aforo",
+        "control",
+        "cambios"
+      ]
+    },
+    {
+      "id": "hours_status.volcanic_alert_closures",
+      "label": "cierres por alerta volcánica del Ruiz",
+      "kind": "safety",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "cierres por volcán",
+        "cierre por alerta del nevado del ruiz",
+        "si el volcán está activo cierran el parque",
+        "si el volcán anda raro, cierran el parque?",
+        "si suben el ruiz a naranja, el parque cierra la entrada?",
+        "cuándo cierran el parque por erupción",
+        "cierre por actividad volcánica",
+        "cierran brisas si el volcán emite gases",
+        "por qué cerraron por el volcán nevado del ruiz",
+        "cómo saber si el parque cerró por el volcán",
+        "will they close the park if the volcano wakes up",
+        "is the park closed due to volcanic activity"
+      ],
+      "hard_negatives": [
+        "cierre del parque por el volcán",
+        "cierre repentino por tormenta o volcán",
+        "cierran quebradas si el volcán está en rojo"
+      ],
+      "entities": {
+        "closure_type": [
+          "volcanica"
+        ]
+      },
+      "needs": [],
+      "answer": {
+        "short": "Si el Servicio Geológico Colombiano sube la alerta del Nevado del Ruiz a naranja o roja, Parques Nacionales suspende el ingreso de inmediato, en zonas de amenaza o en todo el parque. Con alerta amarilla siguen abiertos los sectores autorizados. Confirma con Parques Nacionales y el boletín del SGC.",
+        "variants": [
+          "Cuando el volcán Ruiz sube a alerta naranja o roja, el parque activa cierres preventivos. Con alerta amarilla, las visitas a los atractivos autorizados siguen bajo monitoreo continuo. Verifica el estado y los reportes oficiales antes de viajar."
+        ],
+        "steps": [
+          [
+            "El SGC emite boletines técnicos periódicos sobre la actividad del volcán.",
+            "Parques Nacionales determina la suspensión de actividades si el nivel de alerta volcánica se eleva a naranja o rojo.",
+            "El ingreso se reactiva cuando la autoridad ambiental levanta formalmente la medida preventiva."
+          ]
+        ],
+        "detail": "La articulación entre el SGC y Parques Nacionales busca proteger la vida ante posibles erupciones o emisiones graves de ceniza.",
+        "reflection": null
+      },
+      "sources": [
+        {
+          "label": "Parques Nacionales Naturales de Colombia · PNN Los Nevados",
+          "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+          "retrieved_at": "2026-11-21"
+        },
+        {
+          "label": "Servicio Geológico Colombiano · Monitoreo Volcánico y Boletines",
+          "url": "https://www2.sgc.gov.co/Noticias/Paginas/Boletines-semanales.aspx",
+          "retrieved_at": "2026-11-21"
+        },
+        {
+          "label": "Parques Nacionales Naturales de Colombia · Resolución 207 de 2023 (Reglamentación transitoria PNN Los Nevados)",
+          "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2023/08/Resolucion_207_2023_ReglamentacionNevados_.pdf",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "last_verified": "2026-11-21",
+      "valid_until": null,
+      "related": [
+        "hours_status.park_open_today",
+        "hours_status.reopening_protocol_after_emergencies",
+        "hours_status.official_channels_to_check_status"
+      ],
+      "tags": [
+        "alerta",
+        "volcán",
+        "ruiz",
+        "cierre",
+        "seguridad"
+      ]
+    },
+    {
+      "id": "hours_status.weather_emergency_closures",
+      "label": "cierres por mal tiempo y lluvias",
+      "kind": "safety",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "cierres por lluvia en el nevado",
+        "si llueve mucho cierran el parque",
+        "cierre por tormenta o vendaval",
+        "cierran senderos por mal clima",
+        "y si hay tormenta eléctrica, cierran?",
+        "qué pasa si hay temporal en los nevados",
+        "cierre de senderos por crecientes o barro",
+        "suspenden visitas por mal tiempo",
+        "si está brava la lluvia, cierran el sendero?",
+        "por qué cerraron por lluvias en los nevados",
+        "what if it rains too hard, do they close",
+        "trail closures due to severe weather"
+      ],
+      "hard_negatives": [
+        "cierres viales hacia los nevados",
+        "cierres por volcán",
+        "cierre repentino por tormenta o volcán"
+      ],
+      "entities": {
+        "closure_type": [
+          "climatica"
+        ]
+      },
+      "needs": [],
+      "answer": {
+        "short": "Por lluvias torrenciales, granizadas, tormentas eléctricas o derrumbes en las vías, el parque puede suspender el ingreso o evacuar senderos. Son medidas preventivas en el puesto de control para proteger la vida. Confirma el pronóstico y los sectores con Parques Nacionales antes de salir.",
+        "variants": [
+          "Ante lluvias fuertes o riesgo de deslizamiento, los guardaparques pueden cerrar senderos o restringir el acceso por un tiempo. Consulta el clima y la apertura del parque con las autoridades ambientales antes de viajar."
+        ],
+        "steps": [
+          [
+            "Los guardaparques monitorean las condiciones del clima en los accesos de montaña.",
+            "Ante tormentas eléctricas o crecientes súbitas se suspende el paso de visitantes por seguridad."
+          ]
+        ],
+        "detail": null,
+        "reflection": null
+      },
+      "sources": [
+        {
+          "label": "Parques Nacionales Naturales de Colombia · PNN Los Nevados",
+          "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+          "retrieved_at": "2026-11-21"
+        },
+        {
+          "label": "Parques Nacionales Naturales de Colombia · Resolución 207 de 2023 (Reglamentación transitoria PNN Los Nevados)",
+          "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2023/08/Resolucion_207_2023_ReglamentacionNevados_.pdf",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "last_verified": "2026-11-21",
+      "valid_until": null,
+      "related": [
+        "hours_status.unplanned_midday_closures",
+        "hours_status.road_closure_status",
+        "hours_status.reopening_protocol_after_emergencies"
+      ],
+      "tags": [
+        "clima",
+        "lluvia",
+        "tormenta",
+        "cierre",
+        "emergencia"
+      ]
+    },
+    {
+      "id": "hours_status.road_closure_status",
+      "label": "estado de las vías y cierres carreteros",
+      "kind": "fact",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "está abierta la vía manizales murillo",
+        "cómo anda la vía pa Murillo?",
+        "cierres viales hacia los nevados",
+        "estado de la carretera hacia brisas",
+        "está cerrada la vía al nevado",
+        "hay derrumbes en la vía a brisas",
+        "cómo saber si hay paso en la carretera",
+        "cierran la carretera a murillo por derrumbe",
+        "la vía pa Brisas está cerrada?",
+        "estado de vías terciarias a potosí",
+        "is the road up there in bad shape",
+        "is the road to brisas open"
+      ],
+      "hard_negatives": [
+        "el camino Brisas Arenales está restringido",
+        "¿hoy sí está habilitada la vía?",
+        "por ese corredor se llega a brisas"
+      ],
+      "entities": {},
+      "needs": [],
+      "answer": {
+        "short": "Las vías hacia Los Nevados, como la carretera Manizales–Murillo o los accesos rurales a Potosí y Juntas, pueden tener cierres o pasos restringidos por derrumbes, clima o mantenimiento. Antes de salir, consulta el estado vial con Invías, la Policía Nacional de Tránsito o Parques Nacionales.",
+        "variants": [
+          "El tránsito hacia las entradas del parque puede verse afectado por deslizamientos o reparaciones en carreteras de montaña. Antes de iniciar el recorrido, verifica el estado de las vías con Invías, la Secretaría de Tránsito del Tolima o Parques Nacionales."
+        ],
+        "steps": [
+          [
+            "Consulta el estado del corredor vial con Invías, la Policía Nacional de Tránsito o la Secretaría de Tránsito y Transporte del Tolima.",
+            "Pregunta a tu operador autorizado o a Parques Nacionales sobre el estado de los carreteables rurales de acceso."
+          ]
+        ],
+        "detail": "Las vías terciarias hacia Potosí y Juntas son destapadas y en temporadas de lluvias pueden requerir vehículos camperos 4x4.",
+        "reflection": null
+      },
+      "sources": [
+        {
+          "label": "Parques Nacionales Naturales de Colombia · PNN Los Nevados",
+          "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+          "retrieved_at": "2026-11-21"
+        },
+        {
+          "label": "Ministerio de Transporte · Resolución 1815 del 24 de julio de 2026 (Pico y Placa Ambiental Murillo–Cerro Gualí)",
+          "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2026/08/RESOLUCION-1815-2026.pdf",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "last_verified": "2026-11-21",
+      "valid_until": null,
+      "related": [
+        "hours_status.pico_y_placa_hours_murillo",
+        "hours_status.weather_emergency_closures",
+        "hours_status.official_channels_to_check_status"
+      ],
+      "tags": [
+        "vías",
+        "carretera",
+        "derrumbes",
+        "invías",
+        "paso"
+      ]
+    },
+    {
+      "id": "hours_status.official_channels_to_check_status",
+      "label": "canales oficiales para consultar la apertura",
+      "kind": "procedure",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "dónde consultar si el parque está abierto",
+        "canales oficiales para saber si hay paso",
+        "dónde confirmo si abren hoy",
+        "teléfono de parques nacionales para consultar estado",
+        "página oficial para ver si el nevado está abierto",
+        "redes sociales de parques nacionales nevados",
+        "¿cómo sé si hoy hay paso libre al nevado?",
+        "dónde consigo info confiable del parque?",
+        "dónde avisan los cierres del parque",
+        "a quién le pregunto si el nevado está abierto?",
+        "official channels to check park status",
+        "who do I call to ask if the park is open"
+      ],
+      "hard_negatives": [
+        "el parque abre hoy o no?",
+        "donde avisan que el parque ya volvio a abrir",
+        "cómo saber si el parque cerró por el volcán"
+      ],
+      "entities": {},
+      "needs": [],
+      "answer": {
+        "short": "Para saber si el parque está abierto o hay alertas, visita www.parquesnacionales.gov.co o las redes @ParquesColombia. También puedes usar reservasnevados.com, escribir a nevados@parquesnacionales.gov.co o llamar al +57 3229471031. Confirma siempre en fuentes oficiales antes de viajar.",
+        "variants": [
+          "Los medios oficiales son el portal de Parques Nacionales, las cuentas @ParquesColombia, el correo nevados@parquesnacionales.gov.co y el celular +57 3229471031."
+        ],
+        "steps": [
+          [
+            "Portal web institucional: https://www.parquesnacionales.gov.co/",
+            "Plataforma de reservas: https://www.reservasnevados.com/",
+            "Redes sociales oficiales: @ParquesColombia",
+            "Línea de atención telefónica: +57 3229471031 y conmutador +57 (601) 353 2400"
+          ]
+        ],
+        "detail": null,
+        "reflection": null
+      },
+      "sources": [
+        {
+          "label": "Parques Nacionales Naturales de Colombia · PNN Los Nevados",
+          "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "last_verified": "2026-11-21",
+      "valid_until": null,
+      "related": [
+        "hours_status.park_open_today",
+        "hours_status.offline_status_verification_advice",
+        "hours_status.volcanic_alert_closures"
+      ],
+      "tags": [
+        "canales",
+        "oficiales",
+        "contacto",
+        "teléfono",
+        "verificación"
+      ]
+    },
+    {
+      "id": "hours_status.offline_status_verification_advice",
+      "label": "verificar estado antes de perder señal",
+      "kind": "procedure",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "cómo saber si está abierto sin internet",
+        "esta aplicación me dice si está abierto hoy",
+        "la app funciona offline para ver el estado",
+        "puedo consultar el estado del parque sin señal",
+        "el asistente offline actualiza los cierres",
+        "cómo verifico la apertura si no tengo datos",
+        "antes de subir, ¿qué reviso pa saber si abre?",
+        "qué hacer si en la montaña no hay señal para consultar",
+        "esto sirve pa ver si cerraron algo?",
+        "cómo consultar si no tengo conexión a internet",
+        "how to check park status offline",
+        "can this offline app tell me if the park is open"
+      ],
+      "hard_negatives": [
+        "le pregunto al operador si la via de hoy sigue abierta",
+        "verifico en internet antes de salir",
+        "dónde consultar si el parque está abierto"
+      ],
+      "entities": {},
+      "needs": [],
+      "answer": {
+        "short": "Este asistente funciona 100 % fuera de línea y no se conecta a internet para ver el estado de hoy. Antes de subir, confirma la apertura, el clima y las alertas volcánicas en páginas oficiales mientras tengas señal en la ciudad de origen.",
+        "variants": [
+          "Ten presente que esta guía offline no recibe actualizaciones en vivo en tu teléfono. Te recomendamos consultar el estado de los sectores y las vías en los canales de Parques Nacionales antes de salir de Manizales, Pereira, Armenia o Ibagué, donde aún cuentas con cobertura celular."
+        ],
+        "steps": [
+          [
+            "Revisa los boletines y el estado del parque antes de abandonar la zona urbana con señal.",
+            "Descarga o guarda tus comprobantes de reserva y póliza en tu dispositivo."
+          ]
+        ],
+        "detail": null,
+        "reflection": null
+      },
+      "sources": [
+        {
+          "label": "Parques Nacionales Naturales de Colombia · PNN Los Nevados",
+          "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "last_verified": "2026-11-21",
+      "valid_until": null,
+      "related": [
+        "hours_status.official_channels_to_check_status",
+        "hours_status.park_open_today",
+        "hours_status.volcanic_alert_closures"
+      ],
+      "tags": [
+        "offline",
+        "modo avión",
+        "sin señal",
+        "verificación",
+        "consejo"
+      ]
+    },
+    {
+      "id": "hours_status.why_conservation_closures_exist",
+      "label": "motivos de los cierres por conservación",
+      "kind": "fact",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "por qué hacen cierres por conservación",
+        "cuál es el motivo del descanso ecológico",
+        "por qué descansan los senderos del parque",
+        "para qué sirven los cierres programados",
+        "por que hacen esos cierres ambientales, es para que el paramo descanse?",
+        "por qué se cierran los nevados en ciertas fechas",
+        "por qué cierran el parque por conservación?",
+        "qué ganan con cerrar el parque unos días?",
+        "por qué no dejan entrar en los descansos ambientales",
+        "motivo ambiental para cerrar los senderos",
+        "why are there conservation closures",
+        "why does the park shut down for a few days"
+      ],
+      "hard_negatives": [
+        "por qué cierran un sendero por mantenimiento",
+        "todo el parque cierra en el descanso ecológico",
+        "cuándo cierran por descanso ecológico"
+      ],
+      "entities": {
+        "closure_type": [
+          "conservacion"
+        ]
+      },
+      "needs": [],
+      "answer": {
+        "short": "Son una estrategia ambiental para quitar presión turística a los ecosistemas sensibles de páramo y humedales: así se recuperan y se puede hacer monitoreo e investigación. Confirma las fechas de estos descansos con Parques Nacionales al planear tu viaje.",
+        "variants": [
+          "Estas pausas buscan reducir la presión del turismo sobre el páramo, las fuentes de agua y la fauna, y permiten evaluar los senderos. Consulta el calendario oficial con Parques Nacionales antes de planear tu visita."
+        ],
+        "steps": [
+          [
+            "Permitir la autorregulación natural del ecosistema tras temporadas de alto flujo de visitantes.",
+            "Facilitar a los guardaparques y biólogos realizar monitoreo de fauna, flora y estado de senderos."
+          ]
+        ],
+        "detail": null,
+        "reflection": null
+      },
+      "sources": [
+        {
+          "label": "Parques Nacionales Naturales de Colombia · PNN Los Nevados",
+          "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "last_verified": "2026-11-21",
+      "valid_until": null,
+      "related": [
+        "hours_status.conservation_closures",
+        "hours_status.open_sectors_during_conservation_closures"
+      ],
+      "tags": [
+        "conservación",
+        "motivo",
+        "descanso",
+        "ecosistema",
+        "monitoreo"
+      ]
+    },
+    {
+      "id": "hours_status.open_sectors_during_conservation_closures",
+      "label": "sectores durante descansos ambientales",
+      "kind": "fact",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "qué sectores quedan abiertos en el cierre ambiental",
+        "brisas abre durante los cierres por conservación",
+        "puedo ir a brisas cuando el parque está cerrado por descanso",
+        "todo el parque cierra en el descanso ecológico",
+        "¿queda algo abierto en el cierre?",
+        "está abierto el ruiz durante el cierre de conservación",
+        "qué recorridos funcionan en los cierres de septiembre y noviembre",
+        "se puede entrar a brisas en semana de cierre ambiental",
+        "el cierre también afecta a brisas o no?",
+        "y en el cierre igual se puede ir a Brisas?",
+        "which sectors remain open during conservation closures",
+        "is brisas open during environmental rest week"
+      ],
+      "hard_negatives": [
+        "la vía pa Brisas está cerrada?",
+        "a qué hora cierran el circuito brisas",
+        "cuándo cierran por descanso ecológico"
+      ],
+      "entities": {
+        "closure_type": [
+          "conservacion"
+        ]
+      },
+      "needs": [],
+      "answer": {
+        "short": "En los cierres por conservación, las rutas de senderismo y alta montaña en Cisne, Otún y Tolima quedan cerradas. Brisas–Valle de las Tumbas depende de la circular que Parques Nacionales publique para cada periodo. Consulta el comunicado oficial antes de ir.",
+        "variants": [
+          "Los descansos ambientales cierran los senderos de montaña, mientras que el acceso por Brisas depende del aviso operativo de Parques Nacionales. Consulta el comunicado oficial antes de ir."
+        ],
+        "steps": [
+          [
+            "Los senderos de trekking y cumbres en Cisne, Otún y Tolima cierran totalmente durante los descansos ambientales.",
+            "Verifica en la circular emitida por Parques Nacionales si el circuito vehicular de Brisas cuenta con autorización de pasadía."
+          ]
+        ],
+        "detail": null,
+        "reflection": null
+      },
+      "sources": [
+        {
+          "label": "Parques Nacionales Naturales de Colombia · PNN Los Nevados",
+          "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "last_verified": "2026-11-21",
+      "valid_until": null,
+      "related": [
+        "hours_status.conservation_closures",
+        "hours_status.brisas_hours",
+        "hours_status.brisas_open_days"
+      ],
+      "tags": [
+        "sectores",
+        "habilitados",
+        "descanso ambiental",
+        "brisas",
+        "excepción"
+      ]
+    },
+    {
+      "id": "hours_status.reopening_protocol_after_emergencies",
+      "label": "protocolo de reapertura tras una emergencia",
+      "kind": "procedure",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "cuándo reabren el parque después de una alerta",
+        "cuándo vuelve a abrir el nevado?",
+        "cómo avisan cuando vuelven a abrir el parque",
+        "cuánto tarda en reabrir tras un cierre volcánico",
+        "despues de una emergencia, como vuelven a abrir",
+        "reapertura del parque después de mal tiempo",
+        "quién autoriza la reapertura de los nevados",
+        "cuándo se puede volver a entrar tras un cierre",
+        "ya se puede volver a subir, o q?",
+        "donde avisan que el parque ya volvio a abrir",
+        "how do I know when they reopen after an emergency",
+        "when will the park reopen after volcanic alert"
+      ],
+      "hard_negatives": [
+        "dónde consultar si el parque está abierto",
+        "cuándo dejan volver a acercarse al volcán",
+        "a que hora abren el parque"
+      ],
+      "entities": {},
+      "needs": [],
+      "answer": {
+        "short": "El parque reabre cuando la autoridad ambiental levanta la medida preventiva, y lo comunica en sus canales oficiales (www.parquesnacionales.gov.co o @ParquesColombia). Reabrir permite el ingreso, pero no quita los riesgos naturales de la alta montaña. Consulta esos canales antes de subir.",
+        "variants": [
+          "La reapertura de sectores cerrados se anuncia en comunicados de Parques Nacionales. Antes de viajar, confirma que el levantamiento de la restricción ya fue publicado, porque las condiciones de montaña cambian."
+        ],
+        "steps": [
+          [
+            "Consulta www.parquesnacionales.gov.co y @ParquesColombia para confirmar el comunicado formal de reapertura.",
+            "Verifica con tu operador o guía registrado si tu sendero cuenta con acceso habilitado.",
+            "Recuerda que la reapertura administrativa no elimina los riesgos naturales inherentes a la alta montaña."
+          ]
+        ],
+        "detail": "El cese de un cierre preventivo habilita nuevamente el acceso regulado, pero no garantiza la ausencia total de eventos climáticos o geológicos propios de la cordillera. Siempre acata las recomendaciones de seguridad de los guardaparques.",
+        "reflection": null
+      },
+      "sources": [
+        {
+          "label": "Parques Nacionales Naturales de Colombia · PNN Los Nevados",
+          "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+          "retrieved_at": "2026-11-21"
+        },
+        {
+          "label": "Servicio Geológico Colombiano · Monitoreo Volcánico y Boletines",
+          "url": "https://www2.sgc.gov.co/Noticias/Paginas/Boletines-semanales.aspx",
+          "retrieved_at": "2026-11-21"
+        },
+        {
+          "label": "Parques Nacionales Naturales de Colombia · Resolución 207 de 2023 (Reglamentación transitoria PNN Los Nevados)",
+          "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2023/08/Resolucion_207_2023_ReglamentacionNevados_.pdf",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "last_verified": "2026-11-21",
+      "valid_until": null,
+      "related": [
+        "hours_status.volcanic_alert_closures",
+        "hours_status.weather_emergency_closures",
+        "hours_status.park_open_today"
+      ],
+      "tags": [
+        "reapertura",
+        "protocolo",
+        "resolución",
+        "emergencia",
+        "seguridad"
+      ]
+    },
+    {
+      "id": "hours_status.pnn_administrative_office_hours",
+      "label": "horarios de atención de Parques Nacionales",
+      "kind": "fact",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "horario de atención oficinas parques nacionales",
+        "a q hora contestan el teléfono del parque?",
+        "a qué hora atienden en parques nacionales",
+        "el conmutador de parques atiende en un horario distinto al de la porteria?",
+        "cuándo responden llamadas en parques nacionales",
+        "a que hora atienden al publico en parques nacionales",
+        "a qué horas puedo llamar a parques",
+        "toca llamar entre semana o sirve el sábado?",
+        "horario conmutador parques nacionales naturales",
+        "en que horario contestan en la oficina de parques",
+        "what time does the national parks office answer",
+        "what time does customer service answer at national parks"
+      ],
+      "hard_negatives": [
+        "a qué hora atienden en la calle 13 de anzoátegui parques nacionales",
+        "puedo hacer una investigación en Los Nevados",
+        "qué horas tiene el parque pa entrar"
+      ],
+      "entities": {},
+      "needs": [],
+      "answer": {
+        "short": "La atención telefónica y administrativa de Parques Nacionales es de lunes a viernes, de 8:00 a. m. a 4:30 p. m., en jornada continua. Llama en ese horario al conmutador +57 (601) 353 2400 (extensiones 3011 y 3012) o al celular +57 3229471031. Confirma antes de ir a las sedes.",
+        "variants": [
+          "Para trámites, radicación de consultas y atención al ciudadano, las oficinas de Parques Nacionales atienden en días hábiles de 8:00 a. m. a 4:30 p. m. Los puestos de control en la montaña manejan horarios propios de registro matutino que debes consultar por separado."
+        ],
+        "steps": [
+          [
+            "Horario de atención institucional: lunes a viernes de 8:00 a. m. a 4:30 p. m. en jornada continua.",
+            "Canales telefónicos: conmutador +57 (601) 353 2400 (ext. 3011-3012) y celular +57 3229471031."
+          ]
+        ],
+        "detail": null,
+        "reflection": null
+      },
+      "sources": [
+        {
+          "label": "Parques Nacionales Naturales de Colombia · Canales de Atención",
+          "url": "https://www.parquesnacionales.gov.co/atencion-al-ciudadano/",
+          "retrieved_at": "2026-11-21"
+        },
+        {
+          "label": "Parques Nacionales Naturales de Colombia · PNN Los Nevados",
+          "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "last_verified": "2026-11-21",
+      "valid_until": null,
+      "related": [
+        "hours_status.general_opening_schedule",
+        "hours_status.official_channels_to_check_status",
+        "hours_status.uton_concession_office_hours"
+      ],
+      "tags": [
+        "oficina",
+        "atención",
+        "horario",
+        "teléfono",
+        "parques"
+      ]
+    },
+    {
+      "id": "hours_status.uton_concession_office_hours",
+      "label": "horario de oficinas de concesión UTON",
+      "kind": "fact",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "horario oficina uton manizales",
+        "a qué hora abre la oficina de uton",
+        "horario concesión operación nevados",
+        "cuándo atienden en la oficina de brisas en manizales",
+        "horario de atención unión temporal operación nevados",
+        "a qué horas puedo ir a la oficina de uton",
+        "teléfono y horario de uton en manizales",
+        "a q hora abre la UTON por Palermo?",
+        "toca ir de mañana a la UTON?",
+        "la uton atiende sábados en manizales?",
+        "uton concession office hours manizales",
+        "what time is uton office open in manizales"
+      ],
+      "hard_negatives": [
+        "hasta qué hora dejan entrar al otún",
+        "a qué horas atienden",
+        "¿hasta qué hora atienden en las oficinas de UTON?"
+      ],
+      "entities": {
+        "sector": [
+          "brisas"
+        ]
+      },
+      "needs": [],
+      "answer": {
+        "short": "Las oficinas de la Unión Temporal Operación Nevados (UTON) en Manizales (barrio Palermo y calle 70) atienden de lunes a viernes de 8:00 a. m. a 12:00 m. y de 2:00 p. m. a 5:00 p. m. Para coordinar servicios en Brisas, llama a 321 506 6031 o 322 360 3637. Confirma antes de ir.",
+        "variants": [
+          "Para contactar a UTON en Manizales, sus oficinas atienden de lunes a viernes de 8:00 a. m. a 12:00 m. y de 2:00 p. m. a 5:00 p. m. Llama antes a 321 506 6031 o 322 360 3637 para asegurar tu trámite."
+        ],
+        "steps": [
+          [
+            "Atención en oficinas de Manizales: lunes a viernes de 8:00 a. m. a 12:00 m. y de 2:00 p. m. a 5:00 p. m.",
+            "Teléfonos de contacto: 321 506 6031 y 322 360 3637."
+          ]
+        ],
+        "detail": "Parques Nacionales publica en su portal oficial la información de contacto de la concesión UTON como operador de servicios ecoturísticos para el sector Brisas.",
+        "reflection": null
+      },
+      "sources": [
+        {
+          "label": "Parques Nacionales Naturales de Colombia · PNN Los Nevados",
+          "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "last_verified": "2026-11-21",
+      "valid_until": null,
+      "related": [
+        "hours_status.brisas_hours",
+        "hours_status.pnn_administrative_office_hours",
+        "hours_status.official_channels_to_check_status"
+      ],
+      "tags": [
+        "uton",
+        "concesión",
+        "manizales",
+        "horario",
+        "oficina"
+      ]
+    },
+    {
+      "id": "hours_status.morning_birdwatching_hours",
+      "label": "horario para avistamiento temprano de aves",
+      "kind": "procedure",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "horario para avistamiento de aves en los nevados",
+        "a qué hora entrar para ver pájaros",
+        "se puede entrar más temprano para pajarear",
+        "toca madrugar pa ver pajaritos?",
+        "a qué hora salen los colibríes y el chivito",
+        "fotografiar aves en el páramo, toca madrugar?",
+        "me dejan entrar mas temprano si voy a pajarear",
+        "a qué horas empezar el tour de aves en los nevados",
+        "horario de ingreso para pajareo en el páramo",
+        "cuándo madrugar para aviturismo en los nevados",
+        "early morning birdwatching entrance hours",
+        "what time do I need to be at the gate for birds"
+      ],
+      "hard_negatives": [
+        "a qué hora puedo entrar",
+        "horario de ingreso por salento al nevado",
+        "a qué hora dejan entrar hacia la asomadera"
+      ],
+      "entities": {},
+      "needs": [],
+      "answer": {
+        "short": "No hay horario especial de madrugada para aves: se observa en los horarios de cada sector, desde las 6:00 a. m. en Cocora, 7:00 a. m. en Otún, 7:30 a. m. en Potosí y 8:00 a. m. en Brisas. Ve con guía autorizado, por senderos permitidos y sin playbacks. Confirma con Parques Nacionales.",
+        "variants": [
+          "El aviturismo en Los Nevados se hace en los horarios de los puestos de control y con un guía registrado. Consulta con Parques Nacionales o con tu operador el sector y turno más conveniente."
+        ],
+        "steps": [
+          [
+            "Ingresa en el primer turno oficial de atención matutino del sector elegido.",
+            "Realiza la actividad con guía acreditado, sin salir de senderos y sin usar reproducciones sonoras de aves."
+          ]
+        ],
+        "detail": null,
+        "reflection": null
+      },
+      "sources": [
+        {
+          "label": "Parques Nacionales Naturales de Colombia · PNN Los Nevados",
+          "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "last_verified": "2026-11-21",
+      "valid_until": null,
+      "related": [
+        "hours_status.general_opening_schedule",
+        "hours_status.cisne_potan_hours",
+        "hours_status.cedral_otun_hiking_schedule"
+      ],
+      "tags": [
+        "aves",
+        "aviturismo",
+        "madrugada",
+        "fotografía",
+        "horario"
+      ]
+    },
+    {
+      "id": "hours_status.unplanned_midday_closures",
+      "label": "cierres imprevistos a mitad del día",
+      "kind": "safety",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "y si me botan del parque a mitad de día?",
+        "pueden cerrar el parque mientras estoy adentro",
+        "qué pasa si cierran el parque a mediodía",
+        "nos pueden sacar del nevado de un momento a otro",
+        "por qué pueden desalojar el parque a mediodía",
+        "cierre repentino por tormenta o volcán",
+        "si empieza a tronar, ¿toca bajar?",
+        "qué hacer si ordenan evacuar antes de la hora",
+        "pueden cerrar el recorrido cuando ya vamos adentro",
+        "pueden cancelar la visita una vez ingresé",
+        "can they kick me out in the middle of the day",
+        "what happens if the park closes suddenly during a visit"
+      ],
+      "hard_negatives": [
+        "si llego de madrugada antes de que abran, me dejan pasar?",
+        "tengo que salir del parque dentro del tiempo que me aprobaron?",
+        "qué pasa si llego tarde al parque"
+      ],
+      "entities": {},
+      "needs": [],
+      "answer": {
+        "short": "Sí: si hay tormentas eléctricas, emisión de cenizas o riesgo de derrumbes, guardaparques y autoridades pueden suspender actividades y evacuar senderos a cualquier hora. Sigue con calma las instrucciones de tu guía para bajar y confirma las condiciones con Parques Nacionales antes de subir.",
+        "variants": [
+          "Si el clima cambia de golpe o la actividad volcánica se vuelve inesperada, el parque puede cerrar a mitad de jornada y pedir que los visitantes salgan. Acata siempre al personal oficial y consulta el estado del día."
+        ],
+        "steps": [
+          [
+            "Sigue de inmediato las indicaciones de evacuación impartidas por tu guía y los guardaparques.",
+            "Desciende con precaución por la ruta autorizada sin apartarte del grupo."
+          ]
+        ],
+        "detail": null,
+        "reflection": null
+      },
+      "sources": [
+        {
+          "label": "Parques Nacionales Naturales de Colombia · PNN Los Nevados",
+          "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+          "retrieved_at": "2026-11-21"
+        },
+        {
+          "label": "Servicio Geológico Colombiano · Monitoreo Volcánico y Boletines",
+          "url": "https://www2.sgc.gov.co/Noticias/Paginas/Boletines-semanales.aspx",
+          "retrieved_at": "2026-11-21"
+        },
+        {
+          "label": "Parques Nacionales Naturales de Colombia · Resolución 207 de 2023 (Reglamentación transitoria PNN Los Nevados)",
+          "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2023/08/Resolucion_207_2023_ReglamentacionNevados_.pdf",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "last_verified": "2026-11-21",
+      "valid_until": null,
+      "related": [
+        "hours_status.weather_emergency_closures",
+        "hours_status.volcanic_alert_closures",
+        "hours_status.reopening_protocol_after_emergencies"
+      ],
+      "tags": [
+        "evacuación",
+        "emergencia",
+        "imprevisto",
+        "seguridad",
+        "cierre"
+      ]
+    },
+    {
+      "id": "hours_status.trail_maintenance_temporary_closures",
+      "label": "cierres por mantenimiento de senderos",
+      "kind": "fact",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "cierres por mantenimiento de senderos",
+        "cierre temporal por arreglo de puentes o cabañas",
+        "está cerrado algún sendero por obras",
+        "toca rodear si cierran un sendero por arreglos?",
+        "por qué cierran un sendero por mantenimiento",
+        "hay sendero tapado por obras, o q?",
+        "donde avisan si un sendero esta cerrado por obras",
+        "cierran el sendero si estan haciendo arreglos",
+        "senderos inhabilitados por mantenimiento en los nevados",
+        "cuándo abren los senderos en mantenimiento",
+        "are any trails closed because they are fixing them",
+        "is any trail closed for repairs right now"
+      ],
+      "hard_negatives": [
+        "las caminatas están limitadas a unos senderos",
+        "motivo ambiental para cerrar los senderos",
+        "cierre de senderos por crecientes o barro"
+      ],
+      "entities": {},
+      "needs": [],
+      "answer": {
+        "short": "El parque puede restringir temporalmente senderos específicos por mantenimiento, adecuación de puentes o recuperación de vegetación. Estos cierres se avisan en los canales oficiales de Parques y a través de los operadores registrados. Consulta el estado de las rutas antes de viajar.",
+        "variants": [
+          "Por obras técnicas o protección ecológica, algunos senderos pueden inhabilitarse temporalmente mientras otros siguen abiertos. Verifica con Parques Nacionales qué recorridos están habilitados para tu fecha."
+        ],
+        "steps": [
+          [
+            "Consulta en www.parquesnacionales.gov.co los avisos de senderos inhabilitados por adecuación.",
+            "Verifica con tu agencia qué senderos alternos autorizados están operando."
+          ]
+        ],
+        "detail": null,
+        "reflection": null
+      },
+      "sources": [
+        {
+          "label": "Parques Nacionales Naturales de Colombia · PNN Los Nevados",
+          "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+          "retrieved_at": "2026-11-21"
+        },
+        {
+          "label": "Parques Nacionales Naturales de Colombia · Resolución 207 de 2023 (Reglamentación transitoria PNN Los Nevados)",
+          "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2023/08/Resolucion_207_2023_ReglamentacionNevados_.pdf",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "last_verified": "2026-11-21",
+      "valid_until": null,
+      "related": [
+        "hours_status.conservation_closures",
+        "hours_status.park_open_today",
+        "hours_status.general_opening_schedule"
+      ],
+      "tags": [
+        "mantenimiento",
+        "obras",
+        "senderos",
+        "adecuación",
+        "cierre"
+      ]
+    },
+    {
+      "id": "hours_status.asomadera_potosi_entry_hours",
+      "label": "horario de ingreso hacia La Asomadera",
+      "kind": "fact",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "horario potosí la asomadera",
+        "a qué hora dejan entrar hacia la asomadera",
+        "hasta qué hora puedo subir a la asomadera desde potosí",
+        "¿Cuál es el horario de ingreso para el recorrido Potosí - La Asomadera?",
+        "horario caminata a la asomadera sin equipamiento",
+        "a q hora cierran el paso de potosi a la asomadera",
+        "puedo entrar a la 1 pm para ir solo a la asomadera?",
+        "horario límite en potosí para pasadía a la asomadera",
+        "hasta las 2 pm dejan subir a la asomadera sin equipo?",
+        "a qué hora abren el sendero potosí la asomadera porfa",
+        "what are the entry hours for the Potosi to La Asomadera trail?",
+        "schedule for hiking to La Asomadera from Potosi"
+      ],
+      "hard_negatives": [
+        "puedo ir y volver a la Asomadera",
+        "horario cabaña potosí",
+        "horario laguna del otún"
+      ],
+      "entities": {
+        "sector": [
+          "otun"
+        ]
+      },
+      "needs": [],
+      "answer": {
+        "short": "El ingreso al recorrido Potosí–La Asomadera es de 7:30 a. m. a 12:00 m.; sin equipamiento, la caminata se amplía hasta las 2:00 p. m. (Resolución 207 de 2023). Puede cambiar por clima o alertas: confirma con Parques Nacionales antes de viajar.",
+        "variants": [
+          "Para el tramo Potosí–La Asomadera, la Resolución 207 de 2023 fija ingreso de 7:30 a. m. a 12:00 m., ampliado hasta las 2:00 p. m. en caminatas sin equipamiento. Verifica con Parques Nacionales que el sendero esté abierto antes de subir."
+        ],
+        "steps": [
+          [
+            "Regístrate en el puesto de control de Cabaña Potosí desde las 7:30 a. m. hasta las 12:00 m.",
+            "Si realizas solo la caminata a La Asomadera sin equipamiento de acampada, el ingreso se permite hasta las 2:00 p. m."
+          ]
+        ],
+        "detail": "La ampliación hasta las 2:00 p. m. aplica exclusivamente para caminatas de pasadía hasta el mirador de La Asomadera sin equipamiento de pernocta.",
+        "reflection": null
+      },
+      "sources": [
+        {
+          "label": "Parques Nacionales Naturales de Colombia · Resolución 207 de 2023 (Reglamentación transitoria PNN Los Nevados)",
+          "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2023/08/Resolucion_207_2023_ReglamentacionNevados_.pdf",
+          "retrieved_at": "2026-11-21"
+        },
+        {
+          "label": "Parques Nacionales Naturales de Colombia · PNN Los Nevados",
+          "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "last_verified": "2026-11-21",
+      "valid_until": null,
+      "related": [
+        "hours_status.otun_sector_hours",
+        "hours_status.cisne_potan_hours",
+        "activities.asomadera_day"
+      ],
+      "tags": [
+        "horario",
+        "asomadera",
+        "potosí",
+        "pasadía",
+        "otún"
+      ]
+    },
+    {
+      "id": "hours_status.anzoategui_pit_la_punta_hours",
+      "label": "horario de atención en PIT Anzoátegui",
+      "kind": "fact",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "horario pit anzoátegui",
+        "qué días atiende el punto de información turística de anzoátegui",
+        "horario del punto de control flotante la punta en anzoátegui",
+        "¿Qué días y en qué horario funciona el PIT de Anzoátegui y el control de La Punta?",
+        "a q hora abren el punto de informacion de anzoategui en el centro",
+        "los lunes atiende el pit de anzoategui?",
+        "horario jueves a sábado control la punta vereda la cascada",
+        "a qué hora atienden en la calle 13 de anzoátegui parques nacionales",
+        "dias de atencion en la punta anzoategui tolima porfa",
+        "horario de oficina o pit de parques en el casco urbano de anzoátegui",
+        "what are the opening days and hours for the Anzoategui PIT and La Punta checkpoint?",
+        "operating hours of La Punta floating control point in Anzoategui"
+      ],
+      "hard_negatives": [
+        "horario puesto de control anzoátegui",
+        "¿La Punta es el control que queda en Anzoátegui?",
+        "horario de atención oficinas parques nacionales"
+      ],
+      "entities": {
+        "sector": [
+          "quindio_dulima"
+        ]
+      },
+      "needs": [],
+      "answer": {
+        "short": "En Anzoátegui, el PIT (Calle 13, entre carreras 2 y 3) atiende de martes a sábado de 8:00 a. m. a 5:00 p. m., y La Punta (control flotante, vereda La Cascada) de jueves a sábado de 8:00 a. m. a 5:00 p. m. Confirma con Parques Nacionales: el ingreso al sendero es de 6:00 a 11:00 a. m. (Resolución 207 de 2023).",
+        "variants": [
+          "En Anzoátegui (Tolima), la Resolución 207 de 2023 fija atención en el PIT del barrio Centro de martes a sábado (8:00 a. m. a 5:00 p. m.) y en el punto flotante La Punta de jueves a sábado (8:00 a. m. a 5:00 p. m.), mientras que la franja de ingreso al parque es de 6:00 a. m. a 11:00 a. m. Verifica con Parques Nacionales antes de ir."
+        ],
+        "steps": [
+          [
+            "Punto de Información Turística (PIT) en el casco urbano de Anzoátegui (Calle 13 entre Carrera 2 y 3): martes a sábado de 8:00 a. m. a 5:00 p. m.",
+            "Punto de control flotante La Punta (vereda La Cascada): jueves a sábado de 8:00 a. m. a 5:00 p. m.",
+            "Horario de ingreso de visitantes con reserva previa por Anzoátegui: 6:00 a. m. a 11:00 a. m."
+          ]
+        ],
+        "detail": "La Resolución 207 de 2023 distingue el horario de atención de los puntos de información y control flotante (8:00 a. m. a 5:00 p. m.) de la ventana matutina de ingreso a los senderos del sector Cuencas Quindío y Dulima (6:00 a. m. a 11:00 a. m.).",
+        "reflection": null
+      },
+      "sources": [
+        {
+          "label": "Parques Nacionales Naturales de Colombia · Resolución 207 de 2023 (Reglamentación transitoria PNN Los Nevados)",
+          "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2023/08/Resolucion_207_2023_ReglamentacionNevados_.pdf",
+          "retrieved_at": "2026-11-21"
+        },
+        {
+          "label": "Parques Nacionales Naturales de Colombia · PNN Los Nevados",
+          "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "last_verified": "2026-11-21",
+      "valid_until": null,
+      "related": [
+        "hours_status.quindio_dulima_juntas_anzoategui_hours",
+        "access.la_punta_control",
+        "hours_status.pnn_administrative_office_hours"
+      ],
+      "tags": [
+        "horario",
+        "anzoátegui",
+        "pit",
+        "la punta",
+        "tolima"
+      ]
+    }
+  ]
+}

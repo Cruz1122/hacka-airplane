@@ -1,0 +1,984 @@
+{
+  "section": "fauna",
+  "reviewer": "agent 28 / claude-haiku-5-5",
+  "ops": [
+    {
+      "id": "fauna.birds_overview",
+      "op": "update",
+      "verdict": "revise",
+      "entailment": "n/a",
+      "label_change": "stylistic",
+      "examples": "ok",
+      "temporal": "n/a",
+      "refetch": "n/a",
+      "reason": "'observación' convierte la etiqueta en una actividad; la respuesta trata de qué aves hay. Quitó 'especies en peligro' de negativos sin razón escrita.",
+      "required_change": "Conservar la etiqueta anterior 'las aves del parque Los Nevados'."
+    },
+    {
+      "id": "fauna.mammals_overview",
+      "op": "update",
+      "verdict": "revise",
+      "entailment": "n/a",
+      "label_change": "stylistic",
+      "examples": "ok",
+      "temporal": "n/a",
+      "refetch": "n/a",
+      "reason": "'silvestres' es relleno. Quitó un negativo ('especies en peligro') sin razón escrita.",
+      "required_change": "Conservar la etiqueta anterior 'los mamíferos del parque Los Nevados'."
+    },
+    {
+      "id": "fauna.endemic_species",
+      "op": "update",
+      "verdict": "revise",
+      "entailment": "n/a",
+      "label_change": "stylistic",
+      "examples": "ok",
+      "temporal": "n/a",
+      "refetch": "n/a",
+      "reason": "'exclusivas' repite 'endémicas' y no hay confusión documentada que lo justifique.",
+      "required_change": "Conservar la etiqueta anterior 'especies de fauna endémicas del parque'."
+    },
+    {
+      "id": "fauna.threatened_species",
+      "op": "update",
+      "verdict": "revise",
+      "entailment": "n/a",
+      "label_change": "stylistic",
+      "examples": "ok",
+      "temporal": "n/a",
+      "refetch": "n/a",
+      "reason": "La etiqueta vieja ('en peligro') no coincide con la respuesta, que habla de especies vulnerables o indicadoras, así que sí hay una razón para cambiarla. La nueva conserva 'amenazadas', que taxonomy.json señala como solapamiento con conservation_target_species_voc. labels.json propone 'especies vulnerables o indicadoras'.",
+      "required_change": "Usar 'especies vulnerables o indicadoras' (labels.json) en lugar de la propuesta del curador."
+    },
+    {
+      "id": "fauna.andean_condor",
+      "op": "update",
+      "verdict": "revise",
+      "entailment": "n/a",
+      "label_change": "stylistic",
+      "examples": "ok",
+      "temporal": "n/a",
+      "refetch": "n/a",
+      "reason": "'avistamiento y presencia' describe una actividad; la respuesta trata del ave nacional y su envergadura.",
+      "required_change": "Conservar la etiqueta anterior 'cóndor andino en Los Nevados'."
+    },
+    {
+      "id": "fauna.buffy_helmetcrest",
+      "op": "update",
+      "verdict": "approve",
+      "entailment": "n/a",
+      "label_change": "justified",
+      "examples": "ok",
+      "temporal": "n/a",
+      "refetch": "n/a",
+      "reason": "'colibrí' nombra la clase de la especie que describe la respuesta y la separa del tororoi y de la entrada de categoría. Negativo 'el chivito de paramo esta amenazado?' añadido.",
+      "required_change": "Ninguno en la op."
+    },
+    {
+      "id": "fauna.brown_banded_antpitta",
+      "op": "update",
+      "verdict": "revise",
+      "entailment": "n/a",
+      "label_change": "stylistic",
+      "examples": "ok",
+      "temporal": "n/a",
+      "refetch": "n/a",
+      "reason": "'endémico' añade un atributo que no separa esta entrada de chestnut_naped_antpitta. Además quitó tres negativos de aves (pato andino, periquito, águila crestada) sin razón escrita.",
+      "required_change": "Conservar la etiqueta anterior 'tororoi de Miller en el sotobosque'."
+    },
+    {
+      "id": "fauna.andean_duck",
+      "op": "update",
+      "verdict": "revise",
+      "entailment": "n/a",
+      "label_change": "stylistic",
+      "examples": "ok",
+      "temporal": "n/a",
+      "refetch": "n/a",
+      "reason": "'en humedales' añade un lugar sin confusión documentada.",
+      "required_change": "Conservar la etiqueta anterior 'pato andino o pato turrio'."
+    },
+    {
+      "id": "fauna.ruiz_parakeet",
+      "op": "update",
+      "verdict": "approve",
+      "entailment": "n/a",
+      "label_change": "n/a",
+      "examples": "ok",
+      "temporal": "n/a",
+      "refetch": "n/a",
+      "reason": "Sin cambio de etiqueta. Ejemplo 'periquito de la alta montaña' y negativo 'perico paramuno' aceptables, no son casi copias.",
+      "required_change": "Ninguno en la op. La fila de auditoría cita el chivito; corregir cita (ver audit)."
+    },
+    {
+      "id": "fauna.black_and_chestnut_eagle",
+      "op": "update",
+      "verdict": "revise",
+      "entailment": "n/a",
+      "label_change": "stylistic",
+      "examples": "ok",
+      "temporal": "n/a",
+      "refetch": "n/a",
+      "reason": "El nombre científico añadido repite el de la respuesta; no hay confusión documentada que lo justifique.",
+      "required_change": "Conservar la etiqueta anterior 'águila crestada en Los Nevados'."
+    },
+    {
+      "id": "fauna.black_chested_buzzard_eagle",
+      "op": "update",
+      "verdict": "revise",
+      "entailment": "n/a",
+      "label_change": "stylistic",
+      "examples": "ok",
+      "temporal": "n/a",
+      "refetch": "n/a",
+      "reason": "El nombre científico añadido repite el de la respuesta; no hay confusión documentada que lo justifique.",
+      "required_change": "Conservar la etiqueta anterior 'águila de páramo en Los Nevados'."
+    },
+    {
+      "id": "fauna.spectacled_bear",
+      "op": "update",
+      "verdict": "revise",
+      "entailment": "n/a",
+      "label_change": "stylistic",
+      "examples": "ok",
+      "temporal": "n/a",
+      "refetch": "n/a",
+      "reason": "Solo cambia el orden de las palabras. El motivo escrito ('prevent retrieval confusion') no corresponde al cambio.",
+      "required_change": "Conservar la etiqueta anterior 'oso de anteojos u oso andino'."
+    },
+    {
+      "id": "fauna.northern_pudu",
+      "op": "update",
+      "verdict": "revise",
+      "entailment": "n/a",
+      "label_change": "stylistic",
+      "examples": "ok",
+      "temporal": "n/a",
+      "refetch": "n/a",
+      "reason": "'o pudú' es un alias que la respuesta usa, pero 'en Los Nevados' es relleno; no hay confusión documentada que lo resuelva.",
+      "required_change": "Conservar la etiqueta anterior 'venado conejo estudiado en el parque'."
+    },
+    {
+      "id": "fauna.spotting_sector_santa_isabel",
+      "op": "update",
+      "verdict": "revise",
+      "entailment": "n/a",
+      "label_change": "stylistic",
+      "examples": "ok",
+      "temporal": "n/a",
+      "refetch": "n/a",
+      "reason": "'sector' es relleno; la respuesta ya trata del sector Cisne-Poleka Kasue.",
+      "required_change": "Conservar la etiqueta anterior 'avistamiento de fauna en Santa Isabel'."
+    },
+    {
+      "id": "fauna.injured_wildlife_protocol",
+      "op": "update",
+      "verdict": "revise",
+      "entailment": "n/a",
+      "label_change": "stylistic",
+      "examples": "ok",
+      "temporal": "n/a",
+      "refetch": "n/a",
+      "reason": "La etiqueta nueva es formal y menos natural para una consulta. El cross de health_safety pide conservar la consulta específica de animales lastimados.",
+      "required_change": "Conservar la etiqueta anterior 'qué hacer si hallas fauna herida'."
+    },
+    {
+      "id": "fauna.fuertes_parrot",
+      "op": "update",
+      "verdict": "revise",
+      "entailment": "n/a",
+      "label_change": "stylistic",
+      "examples": "ok",
+      "temporal": "n/a",
+      "refetch": "n/a",
+      "reason": "'o coroniazul' es un alias que la respuesta no usa; la etiqueta vieja ya es correcta.",
+      "required_change": "Conservar la etiqueta anterior 'cotorra de Fuertes en el listado'."
+    },
+    {
+      "id": "fauna.golden_plumed_parakeet",
+      "op": "update",
+      "verdict": "revise",
+      "entailment": "n/a",
+      "label_change": "stylistic",
+      "examples": "ok",
+      "temporal": "n/a",
+      "refetch": "n/a",
+      "reason": "'de penacho dorado' es un alias que la respuesta no usa.",
+      "required_change": "Conservar la etiqueta anterior 'perico paramuno en Los Nevados'."
+    },
+    {
+      "id": "fauna.tawny_antpitta",
+      "op": "update",
+      "verdict": "revise",
+      "entailment": "n/a",
+      "label_change": "stylistic",
+      "examples": "ok",
+      "temporal": "n/a",
+      "refetch": "n/a",
+      "reason": "El nombre científico añadido no resuelve la confusión con brown_banded_antpitta.",
+      "required_change": "Conservar la etiqueta anterior 'tororoi leonado en Los Nevados'."
+    },
+    {
+      "id": "fauna.chestnut_naped_antpitta",
+      "op": "update",
+      "verdict": "revise",
+      "entailment": "n/a",
+      "label_change": "stylistic",
+      "examples": "ok",
+      "temporal": "n/a",
+      "refetch": "n/a",
+      "reason": "El nombre científico añadido no resuelve la confusión. Además quitó dos negativos de aves (colibrí piquiespada, rayito de sol) sin razón escrita.",
+      "required_change": "Conservar la etiqueta anterior 'tororoi nuchicastaño en Los Nevados'."
+    },
+    {
+      "id": "fauna.torrent_duck",
+      "op": "update",
+      "verdict": "revise",
+      "entailment": "n/a",
+      "label_change": "stylistic",
+      "examples": "ok",
+      "temporal": "n/a",
+      "refetch": "n/a",
+      "reason": "'en ríos de montaña' es un atributo sin cita y no resuelve una confusión documentada.",
+      "required_change": "Conservar la etiqueta anterior 'pato de torrente en Los Nevados'."
+    },
+    {
+      "id": "fauna.hooded_mountain_toucan",
+      "op": "update",
+      "verdict": "revise",
+      "entailment": "n/a",
+      "label_change": "stylistic",
+      "examples": "ok",
+      "temporal": "n/a",
+      "refetch": "n/a",
+      "reason": "'tucán de montaña' añade un alias que solapa con toucan_national_status (terlaque andino).",
+      "required_change": "Conservar la etiqueta anterior 'terlaque andino en el listado del parque'."
+    },
+    {
+      "id": "fauna.noble_snipe",
+      "op": "update",
+      "verdict": "revise",
+      "entailment": "n/a",
+      "label_change": "stylistic",
+      "examples": "ok",
+      "temporal": "n/a",
+      "refetch": "n/a",
+      "reason": "El nombre científico añadido repite el de la respuesta; no hay confusión documentada que lo justifique.",
+      "required_change": "Conservar la etiqueta anterior 'agachadiza noble en el listado'."
+    },
+    {
+      "id": "fauna.northern_tiger_cat",
+      "op": "update",
+      "verdict": "revise",
+      "entailment": "n/a",
+      "label_change": "stylistic",
+      "examples": "ok",
+      "temporal": "n/a",
+      "refetch": "n/a",
+      "reason": "'u oncilla' lleva al mismo término que oncilla_national_status, y aumenta la confusión en vez de reducirla.",
+      "required_change": "Conservar la etiqueta anterior 'tigrillo lanudo en el listado del parque'."
+    },
+    {
+      "id": "fauna.mountain_paca",
+      "op": "update",
+      "verdict": "revise",
+      "entailment": "n/a",
+      "label_change": "stylistic",
+      "examples": "ok",
+      "temporal": "n/a",
+      "refetch": "n/a",
+      "reason": "El nombre científico añadido repite el de la respuesta; no hay confusión documentada que lo justifique.",
+      "required_change": "Conservar la etiqueta anterior 'guagua de páramo en el listado'."
+    },
+    {
+      "id": "fauna.little_red_brocket",
+      "op": "update",
+      "verdict": "revise",
+      "entailment": "n/a",
+      "label_change": "stylistic",
+      "examples": "ok",
+      "temporal": "n/a",
+      "refetch": "n/a",
+      "reason": "'o venado colorado' usa el nombre de brocket_national_status: añade solapamiento.",
+      "required_change": "Conservar la etiqueta anterior 'venado soche en el listado del parque'."
+    },
+    {
+      "id": "fauna.white_tailed_deer",
+      "op": "update",
+      "verdict": "revise",
+      "entailment": "n/a",
+      "label_change": "stylistic",
+      "examples": "ok",
+      "temporal": "n/a",
+      "refetch": "n/a",
+      "reason": "'en el parque' contradice la respuesta, que dice que el venado de cola blanca había desaparecido del parque en 2017. La etiqueta vieja ('en el listado') no afirma presencia.",
+      "required_change": "Conservar 'venado cola blanca en el listado'."
+    },
+    {
+      "id": "fauna.mountain_coati",
+      "op": "update",
+      "verdict": "revise",
+      "entailment": "n/a",
+      "label_change": "stylistic",
+      "examples": "ok",
+      "temporal": "n/a",
+      "refetch": "n/a",
+      "reason": "El nombre científico añadido repite el de la respuesta; no hay confusión documentada que lo justifique.",
+      "required_change": "Conservar la etiqueta anterior 'cusumbo andino en el listado del parque'."
+    },
+    {
+      "id": "fauna.long_tailed_weasel",
+      "op": "update",
+      "verdict": "revise",
+      "entailment": "n/a",
+      "label_change": "stylistic",
+      "examples": "ok",
+      "temporal": "n/a",
+      "refetch": "n/a",
+      "reason": "'en el parque' es relleno y no resuelve una confusión documentada.",
+      "required_change": "Conservar la etiqueta anterior 'comadreja de cola larga en el listado'."
+    },
+    {
+      "id": "fauna.paramo_rabbit",
+      "op": "update",
+      "verdict": "revise",
+      "entailment": "n/a",
+      "label_change": "stylistic",
+      "examples": "ok",
+      "temporal": "n/a",
+      "refetch": "n/a",
+      "reason": "El nombre científico añadido repite el de la respuesta; no hay confusión documentada que lo justifique.",
+      "required_change": "Conservar la etiqueta anterior 'conejo de páramo en el listado'."
+    },
+    {
+      "id": "fauna.crab_eating_fox",
+      "op": "update",
+      "verdict": "revise",
+      "entailment": "n/a",
+      "label_change": "stylistic",
+      "examples": "ok",
+      "temporal": "n/a",
+      "refetch": "n/a",
+      "reason": "El nombre científico añadido repite el de la respuesta; no hay confusión documentada que lo justifique.",
+      "required_change": "Conservar la etiqueta anterior 'zorro perruno en el listado del parque'."
+    },
+    {
+      "id": "fauna.mountain_tanagers",
+      "op": "update",
+      "verdict": "revise",
+      "entailment": "n/a",
+      "label_change": "stylistic",
+      "examples": "ok",
+      "temporal": "n/a",
+      "refetch": "n/a",
+      "reason": "'y aves de bandada' no aparece en la respuesta: atributo sin cita.",
+      "required_change": "Conservar la etiqueta anterior 'tangaras de montaña en el listado'."
+    },
+    {
+      "id": "fauna.paramo_rodents_shrews",
+      "op": "update",
+      "verdict": "revise",
+      "entailment": "n/a",
+      "label_change": "stylistic",
+      "examples": "ok",
+      "temporal": "n/a",
+      "refetch": "n/a",
+      "reason": "'ratones de monte' cambia el término; la respuesta dice ratones y musarañas, sin confusión documentada que lo justifique.",
+      "required_change": "Conservar la etiqueta anterior 'ratones y musarañas del listado'."
+    },
+    {
+      "id": "fauna.condor_national_status",
+      "op": "update",
+      "verdict": "revise",
+      "entailment": "n/a",
+      "label_change": "stylistic",
+      "examples": "ok",
+      "temporal": "n/a",
+      "refetch": "n/a",
+      "reason": "La etiqueta anterior ya contiene la categoría que da la respuesta. El prefijo nuevo 'categoría de amenaza del' se repite en 14 etiquetas y no resuelve las confusiones documentadas entre entradas de estado (confused_with).",
+      "required_change": "Conservar la etiqueta anterior 'cóndor andino en peligro crítico'."
+    },
+    {
+      "id": "fauna.bear_national_status",
+      "op": "update",
+      "verdict": "revise",
+      "entailment": "n/a",
+      "label_change": "stylistic",
+      "examples": "ok",
+      "temporal": "n/a",
+      "refetch": "n/a",
+      "reason": "La etiqueta anterior ya contiene la categoría que da la respuesta. El prefijo nuevo 'categoría de amenaza del' se repite en 14 etiquetas y no resuelve las confusiones documentadas entre entradas de estado (confused_with).",
+      "required_change": "Conservar la etiqueta anterior 'oso de anteojos vulnerable en Colombia'."
+    },
+    {
+      "id": "fauna.tapir_national_status",
+      "op": "update",
+      "verdict": "revise",
+      "entailment": "n/a",
+      "label_change": "stylistic",
+      "examples": "ok",
+      "temporal": "n/a",
+      "refetch": "n/a",
+      "reason": "La etiqueta anterior ya contiene la categoría que da la respuesta. El prefijo nuevo 'categoría de amenaza del' se repite en 14 etiquetas y no resuelve las confusiones documentadas entre entradas de estado (confused_with).",
+      "required_change": "Conservar la etiqueta anterior 'danta de páramo catalogada en peligro'."
+    },
+    {
+      "id": "fauna.helmetcrest_national_status",
+      "op": "update",
+      "verdict": "revise",
+      "entailment": "n/a",
+      "label_change": "stylistic",
+      "examples": "ok",
+      "temporal": "n/a",
+      "refetch": "n/a",
+      "reason": "La etiqueta anterior ya contiene la categoría que da la respuesta. El prefijo nuevo 'categoría de amenaza del' se repite en 14 etiquetas y no resuelve las confusiones documentadas entre entradas de estado (confused_with).",
+      "required_change": "Conservar la etiqueta anterior 'chivito de páramo en la lista nacional'."
+    },
+    {
+      "id": "fauna.eagle_national_status",
+      "op": "update",
+      "verdict": "revise",
+      "entailment": "n/a",
+      "label_change": "stylistic",
+      "examples": "ok",
+      "temporal": "n/a",
+      "refetch": "n/a",
+      "reason": "La etiqueta anterior ya contiene la categoría que da la respuesta. El prefijo nuevo 'categoría de amenaza del' se repite en 14 etiquetas y no resuelve las confusiones documentadas entre entradas de estado (confused_with).",
+      "required_change": "Conservar la etiqueta anterior 'águila crestada catalogada en peligro'."
+    },
+    {
+      "id": "fauna.fuertes_national_status",
+      "op": "update",
+      "verdict": "revise",
+      "entailment": "n/a",
+      "label_change": "stylistic",
+      "examples": "ok",
+      "temporal": "n/a",
+      "refetch": "n/a",
+      "reason": "La etiqueta anterior ya contiene la categoría que da la respuesta. El prefijo nuevo 'categoría de amenaza del' se repite en 14 etiquetas y no resuelve las confusiones documentadas entre entradas de estado (confused_with).",
+      "required_change": "Conservar la etiqueta anterior 'cotorra de Fuertes en peligro crítico'."
+    },
+    {
+      "id": "fauna.yellow_eared_national_status",
+      "op": "update",
+      "verdict": "revise",
+      "entailment": "n/a",
+      "label_change": "stylistic",
+      "examples": "ok",
+      "temporal": "n/a",
+      "refetch": "n/a",
+      "reason": "La etiqueta anterior ya contiene la categoría que da la respuesta. El prefijo nuevo 'categoría de amenaza del' se repite en 14 etiquetas y no resuelve las confusiones documentadas entre entradas de estado (confused_with).",
+      "required_change": "Conservar la etiqueta anterior 'loro orejiamarillo en la lista nacional'."
+    },
+    {
+      "id": "fauna.miller_national_status",
+      "op": "update",
+      "verdict": "revise",
+      "entailment": "n/a",
+      "label_change": "stylistic",
+      "examples": "ok",
+      "temporal": "n/a",
+      "refetch": "n/a",
+      "reason": "La etiqueta anterior ya contiene la categoría que da la respuesta. El prefijo nuevo 'categoría de amenaza del' se repite en 14 etiquetas y no resuelve las confusiones documentadas entre entradas de estado (confused_with).",
+      "required_change": "Conservar la etiqueta anterior 'tororoi de Miller catalogado en peligro'."
+    },
+    {
+      "id": "fauna.pudu_national_status",
+      "op": "update",
+      "verdict": "revise",
+      "entailment": "n/a",
+      "label_change": "stylistic",
+      "examples": "ok",
+      "temporal": "n/a",
+      "refetch": "n/a",
+      "reason": "La etiqueta anterior ya contiene la categoría que da la respuesta. El prefijo nuevo 'categoría de amenaza del' se repite en 14 etiquetas y no resuelve las confusiones documentadas entre entradas de estado (confused_with).",
+      "required_change": "Conservar la etiqueta anterior 'venado conejo en la lista de amenaza'."
+    },
+    {
+      "id": "fauna.guagua_national_status",
+      "op": "update",
+      "verdict": "revise",
+      "entailment": "n/a",
+      "label_change": "stylistic",
+      "examples": "ok",
+      "temporal": "n/a",
+      "refetch": "n/a",
+      "reason": "La etiqueta anterior ya contiene la categoría que da la respuesta. El prefijo nuevo 'categoría de amenaza del' se repite en 14 etiquetas y no resuelve las confusiones documentadas entre entradas de estado (confused_with).",
+      "required_change": "Conservar la etiqueta anterior 'guagua loba vulnerable en Colombia'."
+    },
+    {
+      "id": "fauna.oncilla_national_status",
+      "op": "update",
+      "verdict": "revise",
+      "entailment": "n/a",
+      "label_change": "stylistic",
+      "examples": "ok",
+      "temporal": "n/a",
+      "refetch": "n/a",
+      "reason": "La etiqueta anterior ya contiene la categoría que da la respuesta. El prefijo nuevo 'categoría de amenaza del' se repite en 14 etiquetas y no resuelve las confusiones documentadas entre entradas de estado (confused_with).",
+      "required_change": "Conservar la etiqueta anterior 'tigrillo lanudo en la lista nacional'."
+    },
+    {
+      "id": "fauna.brocket_national_status",
+      "op": "update",
+      "verdict": "revise",
+      "entailment": "n/a",
+      "label_change": "stylistic",
+      "examples": "ok",
+      "temporal": "n/a",
+      "refetch": "n/a",
+      "reason": "La etiqueta anterior ya contiene la categoría que da la respuesta. El prefijo nuevo 'categoría de amenaza del' se repite en 14 etiquetas y no resuelve las confusiones documentadas entre entradas de estado (confused_with).",
+      "required_change": "Conservar la etiqueta anterior 'venado colorado vulnerable en Colombia'."
+    },
+    {
+      "id": "fauna.paramo_parakeet_national_status",
+      "op": "update",
+      "verdict": "revise",
+      "entailment": "n/a",
+      "label_change": "stylistic",
+      "examples": "ok",
+      "temporal": "n/a",
+      "refetch": "n/a",
+      "reason": "La etiqueta anterior ya contiene la categoría que da la respuesta. El prefijo nuevo 'categoría de amenaza del' se repite en 14 etiquetas y no resuelve las confusiones documentadas entre entradas de estado (confused_with).",
+      "required_change": "Conservar la etiqueta anterior 'perico paramuno vulnerable en Colombia'."
+    },
+    {
+      "id": "fauna.toucan_national_status",
+      "op": "update",
+      "verdict": "revise",
+      "entailment": "n/a",
+      "label_change": "stylistic",
+      "examples": "ok",
+      "temporal": "n/a",
+      "refetch": "n/a",
+      "reason": "La etiqueta anterior ya contiene la categoría que da la respuesta. El prefijo nuevo 'categoría de amenaza del' se repite en 14 etiquetas y no resuelve las confusiones documentadas entre entradas de estado (confused_with).",
+      "required_change": "Conservar la etiqueta anterior 'terlaque andino vulnerable en Colombia'."
+    }
+  ],
+  "audit_rows": [
+    {
+      "id": "fauna.fauna_overview",
+      "claimed": "primary_ok",
+      "support": "partial",
+      "note": "Danta, guagua loba, puma y murciélagos sí. 'Aves abundantes' (pnn_nevados.txt) y 'observar en Brisas, Cisne-Poleka Kasue y Otún' no están en el excerpt."
+    },
+    {
+      "id": "fauna.birds_overview",
+      "claimed": "primary_ok",
+      "support": "partial",
+      "note": "Chivito, tororoi de Miller, águila crestada y cóndor sí, en el excerpt cortado. Pato andino, periquito y águila de páramo están en la misma frase de pnn_nevados.txt, fuera del excerpt. Corregir el excerpt."
+    },
+    {
+      "id": "fauna.mammals_overview",
+      "claimed": "primary_ok",
+      "support": "partial",
+      "note": "Danta, guagua loba, puma y 20 murciélagos sí. 'Se estudian oso de anteojos, venado conejo y danta de páramo' no está en el excerpt."
+    },
+    {
+      "id": "fauna.endemic_species",
+      "claimed": "primary_ok",
+      "support": "full",
+      "note": "Excerpt sustenta la respuesta. Nombre o dato presente en la fuente citada."
+    },
+    {
+      "id": "fauna.threatened_species",
+      "claimed": "primary_ok",
+      "support": "full",
+      "note": "Excerpt sustenta la respuesta. Nombre o dato presente en la fuente citada."
+    },
+    {
+      "id": "fauna.conservation_target_species_voc",
+      "claimed": "primary_ok",
+      "support": "partial",
+      "note": "Chivito como especie amenazada o endémica sí. 'Geranoaetus melanoleucus también aparece' no está en el excerpt."
+    },
+    {
+      "id": "fauna.andean_condor",
+      "claimed": "primary_ok",
+      "support": "full",
+      "note": "Excerpt sustenta la respuesta. Nombre o dato presente en la fuente citada."
+    },
+    {
+      "id": "fauna.buffy_helmetcrest",
+      "claimed": "primary_ok",
+      "support": "full",
+      "note": "Excerpt sustenta la respuesta. Nombre o dato presente en la fuente citada."
+    },
+    {
+      "id": "fauna.brown_banded_antpitta",
+      "claimed": "primary_ok",
+      "support": "full",
+      "note": "Excerpt sustenta la respuesta. Nombre o dato presente en la fuente citada."
+    },
+    {
+      "id": "fauna.andean_duck",
+      "claimed": "primary_ok",
+      "support": "partial",
+      "note": "'Oxyura ferruginea' sí aparece en la frase de pnn_nevados.txt, fuera del excerpt. 'En peligro a nivel nacional' de Oxyura jamaicensis está en distribution.txt (EN), no en la cita. 'Se mueve entre la Laguna del Otún' no está verificado."
+    },
+    {
+      "id": "fauna.ruiz_parakeet",
+      "claimed": "primary_ok",
+      "support": "none",
+      "note": "La cita trata del chivito. Los datos sí existen: bandadas de 10–15 y de 30–40 (plan-manejo-2017.txt) y VU (distribution.txt). Cambiar la cita."
+    },
+    {
+      "id": "fauna.black_and_chestnut_eagle",
+      "claimed": "primary_ok",
+      "support": "full",
+      "note": "Excerpt sustenta la respuesta. Nombre o dato presente en la fuente citada."
+    },
+    {
+      "id": "fauna.black_chested_buzzard_eagle",
+      "claimed": "primary_ok",
+      "support": "partial",
+      "note": "Águila de páramo y Geranoetus están en pnn_nevados.txt, fuera del excerpt cortado."
+    },
+    {
+      "id": "fauna.spectacled_bear",
+      "claimed": "primary_ok",
+      "support": "full",
+      "note": "Excerpt sustenta la respuesta. Nombre o dato presente en la fuente citada."
+    },
+    {
+      "id": "fauna.mountain_tapir",
+      "claimed": "primary_ok",
+      "support": "partial",
+      "note": "Danta de montaña icónica sí. 'Danta de páramo se estudia como vulnerable' no está en esta cita. Además usa el mismo binomio Tapirus pinchaque que tapir_national_status ('danta de páramo'): inconsistencia de nombre común."
+    },
+    {
+      "id": "fauna.cougar_puma",
+      "claimed": "primary_ok",
+      "support": "full",
+      "note": "Excerpt sustenta la respuesta. Nombre o dato presente en la fuente citada."
+    },
+    {
+      "id": "fauna.pacarana_guagua_loba",
+      "claimed": "primary_ok",
+      "support": "full",
+      "note": "Excerpt sustenta la respuesta. Nombre o dato presente en la fuente citada."
+    },
+    {
+      "id": "fauna.highland_bats",
+      "claimed": "primary_ok",
+      "support": "full",
+      "note": "Excerpt sustenta la respuesta. Nombre o dato presente en la fuente citada."
+    },
+    {
+      "id": "fauna.northern_pudu",
+      "claimed": "primary_ok",
+      "support": "full",
+      "note": "Excerpt sustenta la respuesta. Nombre o dato presente en la fuente citada."
+    },
+    {
+      "id": "fauna.spotting_sector_brisas",
+      "claimed": "primary_ok",
+      "support": "full",
+      "note": "Excerpt sustenta la respuesta. Nombre o dato presente en la fuente citada."
+    },
+    {
+      "id": "fauna.spotting_sector_otun",
+      "claimed": "primary_ok",
+      "support": "partial",
+      "note": "Observación de aves, fauna y flora en Otún y Cisne sí. 'La Laguna del Otún es la más grande del parque' está en pnn_nevados.txt, no en el excerpt."
+    },
+    {
+      "id": "fauna.spotting_sector_santa_isabel",
+      "claimed": "primary_ok",
+      "support": "partial",
+      "note": "Vista de Santa Isabel desde el sector sí. 'Observación de aves y fauna' allí no está en el excerpt."
+    },
+    {
+      "id": "fauna.injured_wildlife_protocol",
+      "claimed": "primary_ok",
+      "support": "partial",
+      "note": "La Resolución 207 pide no coger, alimentar ni desplazar fauna: sí. No hay protocolo para animal herido en el texto citado; la respuesta lo extrapola."
+    },
+    {
+      "id": "fauna.fuertes_parrot",
+      "claimed": "primary_ok",
+      "support": "full",
+      "note": "Excerpt sustenta la respuesta. Nombre o dato presente en la fuente citada."
+    },
+    {
+      "id": "fauna.golden_plumed_parakeet",
+      "claimed": "primary_ok",
+      "support": "full",
+      "note": "Excerpt sustenta la respuesta. Nombre o dato presente en la fuente citada."
+    },
+    {
+      "id": "fauna.tawny_antpitta",
+      "claimed": "primary_ok",
+      "support": "full",
+      "note": "Excerpt sustenta la respuesta. Nombre o dato presente en la fuente citada."
+    },
+    {
+      "id": "fauna.chestnut_naped_antpitta",
+      "claimed": "primary_ok",
+      "support": "full",
+      "note": "Excerpt sustenta la respuesta. Nombre o dato presente en la fuente citada."
+    },
+    {
+      "id": "fauna.torrent_duck",
+      "claimed": "primary_ok",
+      "support": "full",
+      "note": "Excerpt sustenta la respuesta. Nombre o dato presente en la fuente citada."
+    },
+    {
+      "id": "fauna.sword_billed_hummingbird",
+      "claimed": "primary_ok",
+      "support": "full",
+      "note": "Excerpt sustenta la respuesta. Nombre o dato presente en la fuente citada."
+    },
+    {
+      "id": "fauna.shining_sunbeam",
+      "claimed": "primary_ok",
+      "support": "full",
+      "note": "Excerpt sustenta la respuesta. Nombre o dato presente en la fuente citada."
+    },
+    {
+      "id": "fauna.tyrian_metaltail",
+      "claimed": "primary_ok",
+      "support": "full",
+      "note": "Excerpt sustenta la respuesta. Nombre o dato presente en la fuente citada."
+    },
+    {
+      "id": "fauna.white_capped_dipper",
+      "claimed": "primary_ok",
+      "support": "full",
+      "note": "Excerpt sustenta la respuesta. Nombre o dato presente en la fuente citada."
+    },
+    {
+      "id": "fauna.great_thrush",
+      "claimed": "primary_ok",
+      "support": "full",
+      "note": "Excerpt sustenta la respuesta. Nombre o dato presente en la fuente citada."
+    },
+    {
+      "id": "fauna.hooded_mountain_toucan",
+      "claimed": "primary_ok",
+      "support": "full",
+      "note": "Excerpt sustenta la respuesta. Nombre o dato presente en la fuente citada."
+    },
+    {
+      "id": "fauna.rufous_collared_sparrow",
+      "claimed": "primary_ok",
+      "support": "full",
+      "note": "Excerpt sustenta la respuesta. Nombre o dato presente en la fuente citada."
+    },
+    {
+      "id": "fauna.short_eared_owl_paramo",
+      "claimed": "primary_ok",
+      "support": "full",
+      "note": "Excerpt sustenta la respuesta. Nombre o dato presente en la fuente citada."
+    },
+    {
+      "id": "fauna.noble_snipe",
+      "claimed": "primary_ok",
+      "support": "full",
+      "note": "Excerpt sustenta la respuesta. Nombre o dato presente en la fuente citada."
+    },
+    {
+      "id": "fauna.northern_tiger_cat",
+      "claimed": "primary_ok",
+      "support": "full",
+      "note": "Excerpt sustenta la respuesta. Nombre o dato presente en la fuente citada."
+    },
+    {
+      "id": "fauna.mountain_paca",
+      "claimed": "primary_ok",
+      "support": "full",
+      "note": "Excerpt sustenta la respuesta. Nombre o dato presente en la fuente citada."
+    },
+    {
+      "id": "fauna.little_red_brocket",
+      "claimed": "primary_ok",
+      "support": "full",
+      "note": "Excerpt sustenta la respuesta. Nombre o dato presente en la fuente citada."
+    },
+    {
+      "id": "fauna.white_tailed_deer",
+      "claimed": "primary_ok",
+      "support": "partial",
+      "note": "El nombre científico sí está en la lista dwca. 'Había desaparecido del parque en 2017' está en plan-manejo-2017.txt (cita a 2004), no en el excerpt."
+    },
+    {
+      "id": "fauna.mountain_coati",
+      "claimed": "primary_ok",
+      "support": "full",
+      "note": "Excerpt sustenta la respuesta. Nombre o dato presente en la fuente citada."
+    },
+    {
+      "id": "fauna.long_tailed_weasel",
+      "claimed": "primary_ok",
+      "support": "full",
+      "note": "Excerpt sustenta la respuesta. Nombre o dato presente en la fuente citada."
+    },
+    {
+      "id": "fauna.paramo_rabbit",
+      "claimed": "primary_ok",
+      "support": "full",
+      "note": "Excerpt sustenta la respuesta. Nombre o dato presente en la fuente citada."
+    },
+    {
+      "id": "fauna.crab_eating_fox",
+      "claimed": "primary_ok",
+      "support": "full",
+      "note": "Excerpt sustenta la respuesta. Nombre o dato presente en la fuente citada."
+    },
+    {
+      "id": "fauna.mountain_tanagers",
+      "claimed": "primary_ok",
+      "support": "partial",
+      "note": "El excerpt nombra solo Anisognathus igniventris; la respuesta lista cuatro especies."
+    },
+    {
+      "id": "fauna.paramo_rodents_shrews",
+      "claimed": "primary_ok",
+      "support": "partial",
+      "note": "El excerpt nombra solo Thomasomys cinereiventer; la respuesta lista tres especies."
+    },
+    {
+      "id": "fauna.condor_national_status",
+      "claimed": "primary_ok",
+      "support": "partial",
+      "note": "El excerpt es la fila GBIF con el nombre en la lista MADS (Resolución 0126), sin categoría. La categoría sí está en mads-amenazadas/distribution.txt (threatStatus CR) y coincide con la respuesta. Citar distribution.txt, no taxon.txt."
+    },
+    {
+      "id": "fauna.bear_national_status",
+      "claimed": "primary_ok",
+      "support": "partial",
+      "note": "El excerpt es la fila GBIF con el nombre en la lista MADS (Resolución 0126), sin categoría. La categoría sí está en mads-amenazadas/distribution.txt (threatStatus VU) y coincide con la respuesta. Citar distribution.txt, no taxon.txt."
+    },
+    {
+      "id": "fauna.tapir_national_status",
+      "claimed": "primary_ok",
+      "support": "partial",
+      "note": "El excerpt es la fila GBIF con el nombre en la lista MADS (Resolución 0126), sin categoría. La categoría sí está en mads-amenazadas/distribution.txt (threatStatus EN) y coincide con la respuesta. Citar distribution.txt, no taxon.txt."
+    },
+    {
+      "id": "fauna.helmetcrest_national_status",
+      "claimed": "primary_ok",
+      "support": "partial",
+      "note": "El excerpt es la fila GBIF con el nombre en la lista MADS (Resolución 0126), sin categoría. La categoría sí está en mads-amenazadas/distribution.txt (threatStatus EN) y coincide con la respuesta. Citar distribution.txt, no taxon.txt."
+    },
+    {
+      "id": "fauna.eagle_national_status",
+      "claimed": "primary_ok",
+      "support": "partial",
+      "note": "El excerpt es la fila GBIF con el nombre en la lista MADS (Resolución 0126), sin categoría. La categoría sí está en mads-amenazadas/distribution.txt (threatStatus EN) y coincide con la respuesta. Citar distribution.txt, no taxon.txt."
+    },
+    {
+      "id": "fauna.fuertes_national_status",
+      "claimed": "primary_ok",
+      "support": "partial",
+      "note": "El excerpt es la fila GBIF con el nombre en la lista MADS (Resolución 0126), sin categoría. La categoría sí está en mads-amenazadas/distribution.txt (threatStatus CR) y coincide con la respuesta. Citar distribution.txt, no taxon.txt."
+    },
+    {
+      "id": "fauna.yellow_eared_national_status",
+      "claimed": "primary_ok",
+      "support": "partial",
+      "note": "El excerpt es la fila GBIF con el nombre en la lista MADS (Resolución 0126), sin categoría. La categoría sí está en mads-amenazadas/distribution.txt (threatStatus EN) y coincide con la respuesta. Citar distribution.txt, no taxon.txt."
+    },
+    {
+      "id": "fauna.miller_national_status",
+      "claimed": "primary_ok",
+      "support": "partial",
+      "note": "El excerpt es la fila GBIF con el nombre en la lista MADS (Resolución 0126), sin categoría. La categoría sí está en mads-amenazadas/distribution.txt (threatStatus EN) y coincide con la respuesta. Citar distribution.txt, no taxon.txt."
+    },
+    {
+      "id": "fauna.pudu_national_status",
+      "claimed": "primary_ok",
+      "support": "partial",
+      "note": "El excerpt es la fila GBIF con el nombre en la lista MADS (Resolución 0126), sin categoría. La categoría sí está en mads-amenazadas/distribution.txt (threatStatus EN) y coincide con la respuesta. Citar distribution.txt, no taxon.txt."
+    },
+    {
+      "id": "fauna.guagua_national_status",
+      "claimed": "primary_ok",
+      "support": "partial",
+      "note": "El excerpt es la fila GBIF con el nombre en la lista MADS (Resolución 0126), sin categoría. La categoría sí está en mads-amenazadas/distribution.txt (threatStatus VU) y coincide con la respuesta. Citar distribution.txt, no taxon.txt."
+    },
+    {
+      "id": "fauna.oncilla_national_status",
+      "claimed": "primary_ok",
+      "support": "partial",
+      "note": "El excerpt es la fila GBIF con el nombre en la lista MADS (Resolución 0126), sin categoría. La categoría sí está en mads-amenazadas/distribution.txt (threatStatus VU) y coincide con la respuesta. Citar distribution.txt, no taxon.txt."
+    },
+    {
+      "id": "fauna.brocket_national_status",
+      "claimed": "primary_ok",
+      "support": "partial",
+      "note": "El excerpt es la fila GBIF con el nombre en la lista MADS (Resolución 0126), sin categoría. La categoría sí está en mads-amenazadas/distribution.txt (threatStatus VU) y coincide con la respuesta. Citar distribution.txt, no taxon.txt."
+    },
+    {
+      "id": "fauna.paramo_parakeet_national_status",
+      "claimed": "primary_ok",
+      "support": "partial",
+      "note": "El excerpt es la fila GBIF con el nombre en la lista MADS (Resolución 0126), sin categoría. La categoría sí está en mads-amenazadas/distribution.txt (threatStatus VU) y coincide con la respuesta. Citar distribution.txt, no taxon.txt."
+    },
+    {
+      "id": "fauna.toucan_national_status",
+      "claimed": "primary_ok",
+      "support": "partial",
+      "note": "El excerpt es la fila GBIF con el nombre en la lista MADS (Resolución 0126), sin categoría. La categoría sí está en mads-amenazadas/distribution.txt (threatStatus VU) y coincide con la respuesta. Citar distribution.txt, no taxon.txt."
+    },
+    {
+      "id": "fauna.paramo_amphibians",
+      "claimed": "primary_ok",
+      "support": "partial",
+      "note": "'6 especies' sí. Los nombres de las seis y 'vulnerables en 2024' (dos) no están en el excerpt."
+    },
+    {
+      "id": "fauna.amphibian_survey_sites",
+      "claimed": "primary_ok",
+      "support": "partial",
+      "note": "Reserva Río Blanco, Santa Rosa de Cabal, Anzoátegui y Murillo sí. 'Entre marzo y julio de 2014' y 'se conoce poco de la herpetofauna' no."
+    },
+    {
+      "id": "fauna.reptiles_paramo_buffer",
+      "claimed": "primary_ok",
+      "support": "partial",
+      "note": "Reptiles con la menor riqueza de vertebrados en el páramo sí. '9 reptiles para el parque y zona amortiguadora' no."
+    },
+    {
+      "id": "fauna.epigeal_beetles_spiders",
+      "claimed": "primary_ok",
+      "support": "none",
+      "note": "La cita es una lista de vertebrados. Nada sobre coleópteros, arañas ni las familias Staphylinidae, Carabidae y Linyphiidae."
+    },
+    {
+      "id": "fauna.priority_research_fauna",
+      "claimed": "primary_ok",
+      "support": "none",
+      "note": "La cita solo dice la categoría nacional del cóndor (en peligro) y del terlaque (vulnerable). La lista de prioridades no está en la cita."
+    },
+    {
+      "id": "fauna.mammals_plan_says_visible",
+      "claimed": "primary_ok",
+      "support": "partial",
+      "note": "Danta de páramo, venado colorado, conejo y venado conejo sí. Boruga, puma y tigrillo no aparecen en la cita cortada."
+    },
+    {
+      "id": "fauna.birders_target_species",
+      "claimed": "primary_ok",
+      "support": "full",
+      "note": "Excerpt sustenta la respuesta. Nombre o dato presente en la fuente citada."
+    },
+    {
+      "id": "fauna.endemic_birds_plan_count",
+      "claimed": "primary_ok",
+      "support": "partial",
+      "note": "30 endémicas o casi endémicas y 8 de Colombia sí. '22 compartidas' y 'la ficha vigente llama endémicos solo al chivito y al tororoi' no están en el excerpt."
+    }
+  ],
+  "summary": {
+    "approve": 2,
+    "revise": 44,
+    "reject": 0,
+    "audit_support": {
+      "full": 34,
+      "partial": 32,
+      "none": 3
+    }
+  }
+}

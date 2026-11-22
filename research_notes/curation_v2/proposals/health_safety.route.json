@@ -1,0 +1,3766 @@
+{
+ "proposal": "research_notes/curation_v2/proposals/health_safety.json",
+ "ops": {
+  "add": 0,
+  "update": 62,
+  "delete": 0
+ },
+ "touched_examples": 806,
+ "touched_loo_top1": 0.4181,
+ "touched_confusions": [
+  {
+   "id": "health_safety.high_altitude_health_risk",
+   "example": "salud en altura",
+   "rank": 2,
+   "top1": "health_safety.older_adults_altitude_health",
+   "top1_cos": 0.934,
+   "own_cos": 0.9294
+  },
+  {
+   "id": "health_safety.high_altitude_health_risk",
+   "example": "qué riesgo tiene la altura",
+   "rank": 5,
+   "top1": "health_safety.pregnancy_altitude",
+   "top1_cos": 0.9485,
+   "own_cos": 0.9061
+  },
+  {
+   "id": "health_safety.high_altitude_health_risk",
+   "example": "me puede afectar la altura en Los Nevados",
+   "rank": 18,
+   "top1": "health_safety.pregnancy_altitude",
+   "top1_cos": 0.9131,
+   "own_cos": 0.8843
+  },
+  {
+   "id": "health_safety.high_altitude_health_risk",
+   "example": "me da algo por falta de oxígeno",
+   "rank": 305,
+   "top1": "health_safety.chronic_condition_altitude",
+   "top1_cos": 0.9044,
+   "own_cos": 0.8373
+  },
+  {
+   "id": "health_safety.high_altitude_health_risk",
+   "example": "uno se puede enfermar por subir",
+   "rank": 31,
+   "top1": "health_safety.altitude_sickness_symptoms",
+   "top1_cos": 0.9042,
+   "own_cos": 0.8696
+  },
+  {
+   "id": "health_safety.high_altitude_health_risk",
+   "example": "qué debo saber de salud antes de ir",
+   "rank": 33,
+   "top1": "health_safety.pretrip_medical_advice",
+   "top1_cos": 0.9495,
+   "own_cos": 0.8646
+  },
+  {
+   "id": "health_safety.high_altitude_health_risk",
+   "example": "la altura afecta a cualquiera?",
+   "rank": 3,
+   "top1": "health_safety.children_altitude_signs",
+   "top1_cos": 0.9252,
+   "own_cos": 0.9061
+  },
+  {
+   "id": "health_safety.high_altitude_health_risk",
+   "example": "is high altitude risky for visitors?",
+   "rank": 30,
+   "top1": "health_safety.severe_altitude_warning_signs",
+   "top1_cos": 0.9106,
+   "own_cos": 0.8544
+  },
+  {
+   "id": "health_safety.high_altitude_health_risk",
+   "example": "me preocupa la altura del parque",
+   "rank": 10,
+   "top1": "health_safety.chronic_condition_altitude",
+   "top1_cos": 0.908,
+   "own_cos": 0.8812
+  },
+  {
+   "id": "health_safety.high_altitude_health_risk",
+   "example": "el frio y la presion de los nevados me pueden afectar la salud",
+   "rank": 12,
+   "top1": "flora_ecosystems.glacier_retreat_climate_change",
+   "top1_cos": 0.9075,
+   "own_cos": 0.8869
+  },
+  {
+   "id": "health_safety.altitude_sickness_symptoms",
+   "example": "cómo sé si me dio mal de altura",
+   "rank": 7,
+   "top1": "health_safety.children_altitude_signs",
+   "top1_cos": 0.938,
+   "own_cos": 0.9016
+  },
+  {
+   "id": "health_safety.altitude_sickness_symptoms",
+   "example": "qué señales da la altura",
+   "rank": 3,
+   "top1": "health_safety.severe_altitude_warning_signs",
+   "top1_cos": 0.9192,
+   "own_cos": 0.9016
+  },
+  {
+   "id": "health_safety.altitude_sickness_symptoms",
+   "example": "me siento como enguayabado en la montaña",
+   "rank": 11,
+   "top1": "health_safety.descent_for_worsening_altitude",
+   "top1_cos": 0.9276,
+   "own_cos": 0.8897
+  },
+  {
+   "id": "health_safety.altitude_sickness_symptoms",
+   "example": "la altura puede dar vómito?",
+   "rank": 3,
+   "top1": "actions.report_altitude_sickness",
+   "top1_cos": 0.8986,
+   "own_cos": 0.8983
+  },
+  {
+   "id": "health_safety.altitude_sickness_symptoms",
+   "example": "how do I recognize altitude sickness?",
+   "rank": 26,
+   "top1": "health_safety.severe_altitude_warning_signs",
+   "top1_cos": 0.9332,
+   "own_cos": 0.8643
+  },
+  {
+   "id": "health_safety.altitude_sickness_symptoms",
+   "example": "que sintomas vigilo en altura",
+   "rank": 5,
+   "top1": "health_safety.altitude_classification_levels",
+   "top1_cos": 0.9016,
+   "own_cos": 0.887
+  },
+  {
+   "id": "health_safety.severe_altitude_warning_signs",
+   "example": "confusión en altura",
+   "rank": 5,
+   "top1": "health_safety.high_altitude_health_risk",
+   "top1_cos": 0.8911,
+   "own_cos": 0.8859
+  },
+  {
+   "id": "health_safety.severe_altitude_warning_signs",
+   "example": "me cuesta coordinar al caminar arriba",
+   "rank": 3,
+   "top1": "health_safety.altitude_sickness_symptoms",
+   "top1_cos": 0.9136,
+   "own_cos": 0.8982
+  },
+  {
+   "id": "health_safety.severe_altitude_warning_signs",
+   "example": "falta de aire en reposo en la montaña",
+   "rank": 3,
+   "top1": "health_safety.high_altitude_pulmonary_edema_hape",
+   "top1_cos": 0.9354,
+   "own_cos": 0.9016
+  },
+  {
+   "id": "health_safety.severe_altitude_warning_signs",
+   "example": "cuándo el soroche es grave",
+   "rank": 58,
+   "top1": "actions.report_altitude_sickness",
+   "top1_cos": 0.925,
+   "own_cos": 0.8246
+  },
+  {
+   "id": "health_safety.severe_altitude_warning_signs",
+   "example": "somnolencia y desorientación en altura",
+   "rank": 4,
+   "top1": "health_safety.altitude_sleep_disturbance",
+   "top1_cos": 0.9338,
+   "own_cos": 0.9163
+  },
+  {
+   "id": "health_safety.severe_altitude_warning_signs",
+   "example": "no puedo respirar bien en altura",
+   "rank": 5,
+   "top1": "health_safety.chronic_condition_altitude",
+   "top1_cos": 0.9243,
+   "own_cos": 0.9163
+  },
+  {
+   "id": "health_safety.severe_altitude_warning_signs",
+   "example": "mi compañero está confundido en el páramo",
+   "rank": 61,
+   "top1": "health_safety.unresponsive_cpr",
+   "top1_cos": 0.9115,
+   "own_cos": 0.8648
+  },
+  {
+   "id": "health_safety.severe_altitude_warning_signs",
+   "example": "what are danger signs of altitude illness?",
+   "rank": 35,
+   "top1": "health_safety.altitude_sickness_symptoms",
+   "top1_cos": 0.9332,
+   "own_cos": 0.859
+  },
+  {
+   "id": "health_safety.severe_altitude_warning_signs",
+   "example": "señales de emergencia por mal de altura",
+   "rank": 15,
+   "top1": "health_safety.altitude_sickness_symptoms",
+   "top1_cos": 0.9192,
+   "own_cos": 0.8874
+  },
+  {
+   "id": "health_safety.severe_altitude_warning_signs",
+   "example": "se puso torpe y confundido al subir",
+   "rank": 3,
+   "top1": "health_safety.fainting_response",
+   "top1_cos": 0.901,
+   "own_cos": 0.8995
+  },
+  {
+   "id": "health_safety.severe_altitude_warning_signs",
+   "example": "hay confusion y falta de aire en reposo, no es solo el dolor de cabeza",
+   "rank": 3,
+   "top1": "health_safety.high_altitude_pulmonary_edema_hape",
+   "top1_cos": 0.9304,
+   "own_cos": 0.9016
+  },
+  {
+   "id": "health_safety.no_ascend_while_symptomatic",
+   "example": "puedo seguir subiendo con dolor de cabeza",
+   "rank": 2,
+   "top1": "health_safety.altitude_sickness_symptoms",
+   "top1_cos": 0.9219,
+   "own_cos": 0.9162
+  },
+  {
+   "id": "health_safety.no_ascend_while_symptomatic",
+   "example": "me siento mal pero sigo al mirador",
+   "rank": 58,
+   "top1": "health_safety.lightning_storm_safety",
+   "top1_cos": 0.9096,
+   "own_cos": 0.8727
+  },
+  {
+   "id": "health_safety.no_ascend_while_symptomatic",
+   "example": "si tengo soroche puedo subir más",
+   "rank": 8,
+   "top1": "health_safety.ams_how_long_it_lasts",
+   "top1_cos": 0.9301,
+   "own_cos": 0.8907
+  },
+  {
+   "id": "health_safety.no_ascend_while_symptomatic",
+   "example": "toca parar si me mareo",
+   "rank": 2,
+   "top1": "health_safety.descent_for_worsening_altitude",
+   "top1_cos": 0.9238,
+   "own_cos": 0.9027
+  },
+  {
+   "id": "health_safety.no_ascend_while_symptomatic",
+   "example": "es normal seguir caminando con malestar",
+   "rank": 5,
+   "top1": "health_safety.tell_guide_about_health_change",
+   "top1_cos": 0.9091,
+   "own_cos": 0.8793
+  },
+  {
+   "id": "health_safety.no_ascend_while_symptomatic",
+   "example": "me dio soroche pero quiero llegar",
+   "rank": 6,
+   "top1": "actions.report_altitude_sickness",
+   "top1_cos": 0.9125,
+   "own_cos": 0.8907
+  },
+  {
+   "id": "health_safety.no_ascend_while_symptomatic",
+   "example": "subir más ayuda a aclimatar",
+   "rank": 17,
+   "top1": "health_safety.acclimatization_plan",
+   "top1_cos": 0.913,
+   "own_cos": 0.8714
+  },
+  {
+   "id": "health_safety.no_ascend_while_symptomatic",
+   "example": "should I keep climbing with symptoms?",
+   "rank": 2,
+   "top1": "health_safety.descent_for_worsening_altitude",
+   "top1_cos": 0.9111,
+   "own_cos": 0.8722
+  },
+  {
+   "id": "health_safety.no_ascend_while_symptomatic",
+   "example": "puedo avanzar aunque me sienta raro",
+   "rank": 4,
+   "top1": "health_safety.tell_guide_about_health_change",
+   "top1_cos": 0.9035,
+   "own_cos": 0.8765
+  },
+  {
+   "id": "health_safety.no_ascend_while_symptomatic",
+   "example": "con dolor de cabeza leve puedo dormir en una cabaña mas alta",
+   "rank": 2,
+   "top1": "services.refugio_cabin",
+   "top1_cos": 0.9076,
+   "own_cos": 0.8949
+  },
+  {
+   "id": "health_safety.descent_for_worsening_altitude",
+   "example": "qué hago si el soroche se pone peor",
+   "rank": 6,
+   "top1": "health_safety.no_ascend_while_symptomatic",
+   "top1_cos": 0.9286,
+   "own_cos": 0.9023
+  },
+  {
+   "id": "health_safety.descent_for_worsening_altitude",
+   "example": "debo bajar si sigo con síntomas",
+   "rank": 9,
+   "top1": "health_safety.lost_person_protocol",
+   "top1_cos": 0.9025,
+   "own_cos": 0.8864
+  },
+  {
+   "id": "health_safety.descent_for_worsening_altitude",
+   "example": "cuándo hay que descender por soroche",
+   "rank": 5,
+   "top1": "health_safety.altitude_classification_levels",
+   "top1_cos": 0.9198,
+   "own_cos": 0.9023
+  },
+  {
+   "id": "health_safety.descent_for_worsening_altitude",
+   "example": "bajar de altura por malestar",
+   "rank": 4,
+   "top1": "health_safety.high_altitude_cerebral_edema_hace",
+   "top1_cos": 0.9131,
+   "own_cos": 0.9092
+  },
+  {
+   "id": "health_safety.descent_for_worsening_altitude",
+   "example": "mi dolor de cabeza empeora en la montaña",
+   "rank": 25,
+   "top1": "health_safety.nosebleed_altitude",
+   "top1_cos": 0.9318,
+   "own_cos": 0.886
+  },
+  {
+   "id": "health_safety.descent_for_worsening_altitude",
+   "example": "should I descend if symptoms get worse?",
+   "rank": 2,
+   "top1": "health_safety.no_ascend_while_symptomatic",
+   "top1_cos": 0.9111,
+   "own_cos": 0.885
+  },
+  {
+   "id": "health_safety.descent_for_worsening_altitude",
+   "example": "empeora el mareo aunque pare",
+   "rank": 4,
+   "top1": "health_safety.no_ascend_while_symptomatic",
+   "top1_cos": 0.9238,
+   "own_cos": 0.8752
+  },
+  {
+   "id": "health_safety.descent_for_worsening_altitude",
+   "example": "me puse peor mientras descansaba",
+   "rank": 2,
+   "top1": "health_safety.fainting_response",
+   "top1_cos": 0.9139,
+   "own_cos": 0.9128
+  },
+  {
+   "id": "health_safety.pretrip_medical_advice",
+   "example": "debo preguntarle al médico antes de ir",
+   "rank": 2,
+   "top1": "health_safety.high_altitude_health_risk",
+   "top1_cos": 0.9495,
+   "own_cos": 0.9463
+  },
+  {
+   "id": "health_safety.pretrip_medical_advice",
+   "example": "tengo una condición de salud y quiero subir",
+   "rank": 2,
+   "top1": "health_safety.chronic_condition_altitude",
+   "top1_cos": 0.9341,
+   "own_cos": 0.9169
+  },
+  {
+   "id": "health_safety.pretrip_medical_advice",
+   "example": "consulta médica para viajar a Los Nevados",
+   "rank": 33,
+   "top1": "booking_fees.reservation_requirements",
+   "top1_cos": 0.9221,
+   "own_cos": 0.8944
+  },
+  {
+   "id": "health_safety.pretrip_medical_advice",
+   "example": "es prudente ir con enfermedad previa",
+   "rank": 2,
+   "top1": "health_safety.high_altitude_health_risk",
+   "top1_cos": 0.8938,
+   "own_cos": 0.8892
+  },
+  {
+   "id": "health_safety.pretrip_medical_advice",
+   "example": "llevo mis medicamentos formulados al parque",
+   "rank": 3,
+   "top1": "health_safety.diabetes_at_high_altitude",
+   "top1_cos": 0.9534,
+   "own_cos": 0.9126
+  },
+  {
+   "id": "health_safety.pretrip_medical_advice",
+   "example": "should I ask my doctor before a high-altitude trip?",
+   "rank": 3,
+   "top1": "health_safety.altitude_preventive_medication_doctor",
+   "top1_cos": 0.9134,
+   "own_cos": 0.901
+  },
+  {
+   "id": "health_safety.pretrip_medical_advice",
+   "example": "tengo una enfermedad crónica y voy al parque",
+   "rank": 2,
+   "top1": "health_safety.recent_heart_attack_or_stroke_altitude",
+   "top1_cos": 0.9153,
+   "own_cos": 0.9126
+  },
+  {
+   "id": "health_safety.children_altitude_signs",
+   "example": "cómo afecta la altura a los niños",
+   "rank": 2,
+   "top1": "health_safety.pregnancy_altitude",
+   "top1_cos": 0.9479,
+   "own_cos": 0.9269
+  },
+  {
+   "id": "health_safety.children_altitude_signs",
+   "example": "niños también sufren soroche",
+   "rank": 10,
+   "top1": "health_safety.altitude_sickness_symptoms",
+   "top1_cos": 0.9178,
+   "own_cos": 0.8762
+  },
+  {
+   "id": "health_safety.children_altitude_signs",
+   "example": "qué señales mirar en niños pequeños",
+   "rank": 7,
+   "top1": "preparation.children_gear",
+   "top1_cos": 0.9027,
+   "own_cos": 0.8701
+  },
+  {
+   "id": "health_safety.children_altitude_signs",
+   "example": "cambió el sueño de mi niño en la montaña",
+   "rank": 6,
+   "top1": "actions.report_lost_person",
+   "top1_cos": 0.891,
+   "own_cos": 0.8767
+  },
+  {
+   "id": "health_safety.children_altitude_signs",
+   "example": "cómo noto mal de altura si no habla",
+   "rank": 19,
+   "top1": "health_safety.altitude_sickness_symptoms",
+   "top1_cos": 0.938,
+   "own_cos": 0.8718
+  },
+  {
+   "id": "health_safety.children_altitude_signs",
+   "example": "can children get altitude sickness?",
+   "rank": 16,
+   "top1": "health_safety.altitude_classification_levels",
+   "top1_cos": 0.929,
+   "own_cos": 0.8641
+  },
+  {
+   "id": "health_safety.tell_guide_about_health_change",
+   "example": "me dio mareo con quién hablo",
+   "rank": 8,
+   "top1": "conversation.ai_identity",
+   "top1_cos": 0.9186,
+   "own_cos": 0.8713
+  },
+  {
+   "id": "health_safety.tell_guide_about_health_change",
+   "example": "aviso al guardaparque si me duele la cabeza",
+   "rank": 6,
+   "top1": "weather_volcano.alert_yellow_meaning",
+   "top1_cos": 0.885,
+   "own_cos": 0.8782
+  },
+  {
+   "id": "health_safety.tell_guide_about_health_change",
+   "example": "qué hago si me siento raro durante el recorrido",
+   "rank": 9,
+   "top1": "health_safety.no_ascend_while_symptomatic",
+   "top1_cos": 0.9035,
+   "own_cos": 0.8815
+  },
+  {
+   "id": "health_safety.tell_guide_about_health_change",
+   "example": "a quién notifico una anomalía de salud",
+   "rank": 3,
+   "top1": "health_safety.pre_hike_health_disclosure_and_induction",
+   "top1_cos": 0.8791,
+   "own_cos": 0.8681
+  },
+  {
+   "id": "health_safety.tell_guide_about_health_change",
+   "example": "me da pena avisar que estoy mal",
+   "rank": 2,
+   "top1": "health_safety.descent_for_worsening_altitude",
+   "top1_cos": 0.9146,
+   "own_cos": 0.9038
+  },
+  {
+   "id": "health_safety.tell_guide_about_health_change",
+   "example": "me empezó un malestar caminando",
+   "rank": 15,
+   "top1": "health_safety.sprain_first_aid",
+   "top1_cos": 0.9259,
+   "own_cos": 0.8956
+  },
+  {
+   "id": "health_safety.tell_guide_about_health_change",
+   "example": "como le aviso al personal del parque",
+   "rank": 30,
+   "top1": "rules.follow_park_staff",
+   "top1_cos": 0.9308,
+   "own_cos": 0.8782
+  },
+  {
+   "id": "health_safety.hypothermia_warning_signs",
+   "example": "temblar mucho en el frío es peligroso",
+   "rank": 11,
+   "top1": "health_safety.severe_hypothermia_signs_and_care",
+   "top1_cos": 0.8987,
+   "own_cos": 0.8717
+  },
+  {
+   "id": "health_safety.hypothermia_warning_signs",
+   "example": "está confundido y tiene frío",
+   "rank": 2,
+   "top1": "health_safety.hypothermia_first_response",
+   "top1_cos": 0.9286,
+   "own_cos": 0.9185
+  },
+  {
+   "id": "health_safety.hypothermia_warning_signs",
+   "example": "torpeza después de mojarse en la montaña",
+   "rank": 125,
+   "top1": "health_safety.lost_person_protocol",
+   "top1_cos": 0.8725,
+   "own_cos": 0.8308
+  },
+  {
+   "id": "health_safety.hypothermia_warning_signs",
+   "example": "cuáles son las señales de enfriamiento",
+   "rank": 4,
+   "top1": "health_safety.frostbite_warning_signs",
+   "top1_cos": 0.9503,
+   "own_cos": 0.9164
+  },
+  {
+   "id": "health_safety.hypothermia_warning_signs",
+   "example": "dejar de temblar es mala señal",
+   "rank": 4,
+   "top1": "health_safety.severe_hypothermia_signs_and_care",
+   "top1_cos": 0.8886,
+   "own_cos": 0.8716
+  },
+  {
+   "id": "health_safety.hypothermia_warning_signs",
+   "example": "se le puso azul la piel por el frío",
+   "rank": 4,
+   "top1": "health_safety.frostbite_warning_signs",
+   "top1_cos": 0.8984,
+   "own_cos": 0.8847
+  },
+  {
+   "id": "health_safety.hypothermia_warning_signs",
+   "example": "hipotermia por lluvia y viento",
+   "rank": 5,
+   "top1": "health_safety.wind_and_wetness_heat_loss",
+   "top1_cos": 0.9339,
+   "own_cos": 0.8871
+  },
+  {
+   "id": "health_safety.hypothermia_warning_signs",
+   "example": "what are signs of hypothermia?",
+   "rank": 6,
+   "top1": "health_safety.hypothermia_body_temperature",
+   "top1_cos": 0.9278,
+   "own_cos": 0.8947
+  },
+  {
+   "id": "health_safety.hypothermia_warning_signs",
+   "example": "me mojé y no paro de temblar",
+   "rank": 152,
+   "top1": "weather_volcano.felt_quakes",
+   "top1_cos": 0.9168,
+   "own_cos": 0.8486
+  },
+  {
+   "id": "health_safety.hypothermia_warning_signs",
+   "example": "tengo frío y me siento desorientado",
+   "rank": 5,
+   "top1": "health_safety.lost_person_protocol",
+   "top1_cos": 0.9248,
+   "own_cos": 0.9185
+  },
+  {
+   "id": "health_safety.hypothermia_warning_signs",
+   "example": "tiembla sin parar por el frio, ya es la hipotermia severa o no",
+   "rank": 4,
+   "top1": "health_safety.hypothermia_body_temperature",
+   "top1_cos": 0.9094,
+   "own_cos": 0.8956
+  },
+  {
+   "id": "health_safety.frostbite_warning_signs",
+   "example": "dedos entumecidos por el frío",
+   "rank": 6,
+   "top1": "health_safety.chilblains_cold_skin_itching",
+   "top1_cos": 0.9208,
+   "own_cos": 0.9056
+  },
+  {
+   "id": "health_safety.frostbite_warning_signs",
+   "example": "nariz dormida en la montaña",
+   "rank": 13,
+   "top1": "health_safety.nosebleed_altitude",
+   "top1_cos": 0.9276,
+   "own_cos": 0.8758
+  },
+  {
+   "id": "health_safety.frostbite_warning_signs",
+   "example": "piel pálida y cerosa por frío",
+   "rank": 3,
+   "top1": "health_safety.frostbite_first_aid",
+   "top1_cos": 0.9251,
+   "own_cos": 0.9241
+  },
+  {
+   "id": "health_safety.frostbite_warning_signs",
+   "example": "qué señales da la congelación",
+   "rank": 2,
+   "top1": "health_safety.hypothermia_warning_signs",
+   "top1_cos": 0.9503,
+   "own_cos": 0.9428
+  },
+  {
+   "id": "health_safety.frostbite_warning_signs",
+   "example": "se me entumecieron las orejas en la nieve",
+   "rank": 5,
+   "top1": "health_safety.sun_eye_pain_photophobia",
+   "top1_cos": 0.9009,
+   "own_cos": 0.8965
+  },
+  {
+   "id": "health_safety.frostbite_warning_signs",
+   "example": "frostbite en los pies qué es",
+   "rank": 3,
+   "top1": "health_safety.trench_foot_wet_cold_feet",
+   "top1_cos": 0.9176,
+   "own_cos": 0.8946
+  },
+  {
+   "id": "health_safety.frostbite_warning_signs",
+   "example": "how do I spot frostbite?",
+   "rank": 5,
+   "top1": "health_safety.frostbite_first_aid",
+   "top1_cos": 0.9092,
+   "own_cos": 0.8732
+  },
+  {
+   "id": "health_safety.sun_uv_protection",
+   "example": "el sol pega más en la montaña",
+   "rank": 10,
+   "top1": "weather_volcano.park_weather",
+   "top1_cos": 0.9008,
+   "own_cos": 0.872
+  },
+  {
+   "id": "health_safety.sun_uv_protection",
+   "example": "cómo evitar quemarme en Los Nevados",
+   "rank": 27,
+   "top1": "rules.open_fires",
+   "top1_cos": 0.9141,
+   "own_cos": 0.8806
+  },
+  {
+   "id": "health_safety.sun_uv_protection",
+   "example": "protector solar para alta montaña",
+   "rank": 21,
+   "top1": "preparation.thermal_hat",
+   "top1_cos": 0.9387,
+   "own_cos": 0.8878
+  },
+  {
+   "id": "health_safety.sun_uv_protection",
+   "example": "la nieve refleja los rayos del sol",
+   "rank": 36,
+   "top1": "health_safety.sun_eye_pain_photophobia",
+   "top1_cos": 0.9314,
+   "own_cos": 0.872
+  },
+  {
+   "id": "health_safety.sun_uv_protection",
+   "example": "necesito gafas aunque haga frío",
+   "rank": 7,
+   "top1": "preparation.sunglasses_uv",
+   "top1_cos": 0.9227,
+   "own_cos": 0.8878
+  },
+  {
+   "id": "health_safety.sun_uv_protection",
+   "example": "el clima frío protege de la radiación",
+   "rank": 16,
+   "top1": "weather_volcano.helada_night",
+   "top1_cos": 0.8891,
+   "own_cos": 0.8677
+  },
+  {
+   "id": "health_safety.sun_uv_protection",
+   "example": "se puede quemar uno en el páramo",
+   "rank": 33,
+   "top1": "rules.open_fires",
+   "top1_cos": 0.955,
+   "own_cos": 0.869
+  },
+  {
+   "id": "health_safety.sun_uv_protection",
+   "example": "how do I protect myself from UV at altitude?",
+   "rank": 13,
+   "top1": "health_safety.acclimatization_plan",
+   "top1_cos": 0.9225,
+   "own_cos": 0.8753
+  },
+  {
+   "id": "health_safety.dehydration_warning_signs",
+   "example": "cómo noto que estoy deshidratado",
+   "rank": 2,
+   "top1": "health_safety.dehydration_response",
+   "top1_cos": 0.9357,
+   "own_cos": 0.9315
+  },
+  {
+   "id": "health_safety.dehydration_warning_signs",
+   "example": "me siento agotado por no tomar agua",
+   "rank": 2,
+   "top1": "health_safety.dehydration_response",
+   "top1_cos": 0.9232,
+   "own_cos": 0.9159
+  },
+  {
+   "id": "health_safety.dehydration_warning_signs",
+   "example": "tengo la boca seca y casi no orino",
+   "rank": 6,
+   "top1": "health_safety.dehydration_response",
+   "top1_cos": 0.9441,
+   "own_cos": 0.8958
+  },
+  {
+   "id": "health_safety.dehydration_warning_signs",
+   "example": "deshidratación en caminata de montaña",
+   "rank": 4,
+   "top1": "preparation.water_quantity",
+   "top1_cos": 0.9284,
+   "own_cos": 0.902
+  },
+  {
+   "id": "health_safety.dehydration_warning_signs",
+   "example": "what are dehydration warning signs?",
+   "rank": 2,
+   "top1": "health_safety.hypothermia_warning_signs",
+   "top1_cos": 0.9247,
+   "own_cos": 0.8889
+  },
+  {
+   "id": "health_safety.dehydration_warning_signs",
+   "example": "mi hijo está muy dormido y no toma agua",
+   "rank": 2,
+   "top1": "health_safety.children_altitude_signs",
+   "top1_cos": 0.9162,
+   "own_cos": 0.9119
+  },
+  {
+   "id": "health_safety.dehydration_warning_signs",
+   "example": "me mareo y tengo sed en el recorrido",
+   "rank": 7,
+   "top1": "health_safety.dehydration_response",
+   "top1_cos": 0.9169,
+   "own_cos": 0.8957
+  },
+  {
+   "id": "health_safety.national_emergency_number_123",
+   "example": "cual es la linea nacional si me pasa algo en la montaña?",
+   "rank": 2,
+   "top1": "health_safety.lost_person_protocol",
+   "top1_cos": 0.8931,
+   "own_cos": 0.8907
+  },
+  {
+   "id": "health_safety.national_emergency_number_123",
+   "example": "cuál es el número de emergencias",
+   "rank": 2,
+   "top1": "health_safety.firefighters_line_119",
+   "top1_cos": 0.95,
+   "own_cos": 0.9498
+  },
+  {
+   "id": "health_safety.national_emergency_number_123",
+   "example": "what number do I call for an emergency in Colombia?",
+   "rank": 4,
+   "top1": "health_safety.firefighters_line_119",
+   "top1_cos": 0.9534,
+   "own_cos": 0.9168
+  },
+  {
+   "id": "health_safety.national_emergency_number_123",
+   "example": "me pasó algo grave y necesito llamar",
+   "rank": 5,
+   "top1": "actions.report_emergency_general",
+   "top1_cos": 0.9312,
+   "own_cos": 0.8969
+  },
+  {
+   "id": "health_safety.national_emergency_number_123",
+   "example": "como contacto emergencias si tengo señal",
+   "rank": 5,
+   "top1": "actions.report_offline_emergency",
+   "top1_cos": 0.9222,
+   "own_cos": 0.912
+  },
+  {
+   "id": "health_safety.national_emergency_number_123",
+   "example": "marco el 123 sin senal y la app avisa sola",
+   "rank": 156,
+   "top1": "health_safety.firefighters_line_119",
+   "top1_cos": 0.9313,
+   "own_cos": 0.8463
+  },
+  {
+   "id": "health_safety.acclimatization_plan",
+   "example": "subir rápido a Los Nevados es peligroso",
+   "rank": 29,
+   "top1": "booking_fees.accident_insurance_requirement",
+   "top1_cos": 0.9325,
+   "own_cos": 0.8879
+  },
+  {
+   "id": "health_safety.acclimatization_plan",
+   "example": "cómo evitar el mal de altura desde el primer día",
+   "rank": 5,
+   "top1": "health_safety.altitude_carbohydrates_and_exertion",
+   "top1_cos": 0.9174,
+   "own_cos": 0.8966
+  },
+  {
+   "id": "health_safety.acclimatization_plan",
+   "example": "debo dormir en altura antes del ascenso",
+   "rank": 2,
+   "top1": "health_safety.altitude_sleep_disturbance",
+   "top1_cos": 0.9162,
+   "own_cos": 0.9118
+  },
+  {
+   "id": "health_safety.acclimatization_plan",
+   "example": "es mejor subir despacio la primera vez",
+   "rank": 3,
+   "top1": "health_safety.altitude_carbohydrates_and_exertion",
+   "top1_cos": 0.8835,
+   "own_cos": 0.8754
+  },
+  {
+   "id": "health_safety.acclimatization_plan",
+   "example": "llegué a Manizales y quiero subir mañana",
+   "rank": 20,
+   "top1": "access.from_manizales",
+   "top1_cos": 0.9198,
+   "own_cos": 0.8754
+  },
+  {
+   "id": "health_safety.acclimatization_plan",
+   "example": "how do I acclimatize for high altitude?",
+   "rank": 25,
+   "top1": "health_safety.sun_uv_protection",
+   "top1_cos": 0.9225,
+   "own_cos": 0.8713
+  },
+  {
+   "id": "health_safety.acclimatization_plan",
+   "example": "mejor subir en dos etapas al nevado",
+   "rank": 5,
+   "top1": "preparation.layering_system",
+   "top1_cos": 0.9096,
+   "own_cos": 0.8879
+  },
+  {
+   "id": "health_safety.acclimatization_plan",
+   "example": "hago paradas de 10 minutos y duermo mas abajo para aclimatarme",
+   "rank": 2,
+   "top1": "health_safety.nosebleed_altitude",
+   "top1_cos": 0.9173,
+   "own_cos": 0.9007
+  },
+  {
+   "id": "health_safety.chronic_condition_altitude",
+   "example": "tengo una enfermedad del corazón puedo subir",
+   "rank": 2,
+   "top1": "health_safety.pretrip_medical_advice",
+   "top1_cos": 0.9341,
+   "own_cos": 0.9204
+  },
+  {
+   "id": "health_safety.chronic_condition_altitude",
+   "example": "soy hipertenso y quiero ir al nevado",
+   "rank": 15,
+   "top1": "health_safety.recent_heart_attack_or_stroke_altitude",
+   "top1_cos": 0.9332,
+   "own_cos": 0.8941
+  },
+  {
+   "id": "health_safety.chronic_condition_altitude",
+   "example": "tengo problemas pulmonares y me falta el aire",
+   "rank": 4,
+   "top1": "health_safety.severe_altitude_warning_signs",
+   "top1_cos": 0.9243,
+   "own_cos": 0.9102
+  },
+  {
+   "id": "health_safety.chronic_condition_altitude",
+   "example": "mi médico me dijo que tengo arritmia",
+   "rank": 4,
+   "top1": "health_safety.anemia_and_sickle_cell_altitude",
+   "top1_cos": 0.9007,
+   "own_cos": 0.8909
+  },
+  {
+   "id": "health_safety.chronic_condition_altitude",
+   "example": "puedo visitar la montaña si tengo asma",
+   "rank": 21,
+   "top1": "health_safety.anemia_and_sickle_cell_altitude",
+   "top1_cos": 0.9112,
+   "own_cos": 0.8687
+  },
+  {
+   "id": "health_safety.chronic_condition_altitude",
+   "example": "is altitude safe with a heart condition?",
+   "rank": 27,
+   "top1": "health_safety.recent_heart_attack_or_stroke_altitude",
+   "top1_cos": 0.9092,
+   "own_cos": 0.851
+  },
+  {
+   "id": "health_safety.chronic_condition_altitude",
+   "example": "tengo una condición cardíaca y me preocupa la altura",
+   "rank": 4,
+   "top1": "health_safety.pregnancy_altitude",
+   "top1_cos": 0.942,
+   "own_cos": 0.9165
+  },
+  {
+   "id": "health_safety.chronic_condition_altitude",
+   "example": "mi presión alta me impide subir",
+   "rank": 14,
+   "top1": "health_safety.severe_altitude_warning_signs",
+   "top1_cos": 0.9108,
+   "own_cos": 0.8861
+  },
+  {
+   "id": "health_safety.chronic_condition_altitude",
+   "example": "tengo enfisema puedo caminar en altura",
+   "rank": 5,
+   "top1": "health_safety.pregnancy_altitude",
+   "top1_cos": 0.9148,
+   "own_cos": 0.8974
+  },
+  {
+   "id": "health_safety.chronic_condition_altitude",
+   "example": "viajo con marcapasos al páramo",
+   "rank": 173,
+   "top1": "activities.paramo_walk",
+   "top1_cos": 0.9281,
+   "own_cos": 0.8668
+  },
+  {
+   "id": "health_safety.chronic_condition_altitude",
+   "example": "tengo un soplo cardíaco y quiero subir al páramo",
+   "rank": 3,
+   "top1": "health_safety.pretrip_medical_advice",
+   "top1_cos": 0.921,
+   "own_cos": 0.9077
+  },
+  {
+   "id": "health_safety.chronic_condition_altitude",
+   "example": "tengo una enfermedad pulmonar, la resolucion 207 me restringe el ingreso",
+   "rank": 2,
+   "top1": "health_safety.pregnancy_altitude",
+   "top1_cos": 0.9302,
+   "own_cos": 0.9022
+  },
+  {
+   "id": "health_safety.pregnancy_altitude",
+   "example": "estoy embarazada puedo subir a Los Nevados",
+   "rank": 7,
+   "top1": "rules.intoxication",
+   "top1_cos": 0.9273,
+   "own_cos": 0.9061
+  },
+  {
+   "id": "health_safety.pregnancy_altitude",
+   "example": "viajar al páramo en embarazo es seguro",
+   "rank": 11,
+   "top1": "activities.paramo_walk",
+   "top1_cos": 0.8841,
+   "own_cos": 0.8705
+  },
+  {
+   "id": "health_safety.pregnancy_altitude",
+   "example": "qué riesgo tiene la altura para el bebé",
+   "rank": 3,
+   "top1": "health_safety.high_altitude_health_risk",
+   "top1_cos": 0.9485,
+   "own_cos": 0.9444
+  },
+  {
+   "id": "health_safety.pregnancy_altitude",
+   "example": "puedo caminar en altura si estoy gestando",
+   "rank": 2,
+   "top1": "health_safety.chronic_condition_altitude",
+   "top1_cos": 0.9148,
+   "own_cos": 0.9052
+  },
+  {
+   "id": "health_safety.pregnancy_altitude",
+   "example": "mi esposa está embarazada y quiere ir",
+   "rank": 2,
+   "top1": "actions.report_lost_person",
+   "top1_cos": 0.907,
+   "own_cos": 0.9019
+  },
+  {
+   "id": "health_safety.pregnancy_altitude",
+   "example": "is high altitude safe during pregnancy?",
+   "rank": 23,
+   "top1": "health_safety.high_altitude_health_risk",
+   "top1_cos": 0.909,
+   "own_cos": 0.8613
+  },
+  {
+   "id": "health_safety.pregnancy_altitude",
+   "example": "embarazo de pocas semanas y viaje a la montaña",
+   "rank": 2,
+   "top1": "health_safety.hace_may_appear_days_later",
+   "top1_cos": 0.8907,
+   "own_cos": 0.8871
+  },
+  {
+   "id": "health_safety.pregnancy_altitude",
+   "example": "debo consultar al médico si estoy embarazada",
+   "rank": 3,
+   "top1": "health_safety.pretrip_medical_advice",
+   "top1_cos": 0.9217,
+   "own_cos": 0.9019
+  },
+  {
+   "id": "health_safety.pregnancy_altitude",
+   "example": "tengo embarazo y me da miedo la altura",
+   "rank": 2,
+   "top1": "health_safety.chronic_condition_altitude",
+   "top1_cos": 0.942,
+   "own_cos": 0.9345
+  },
+  {
+   "id": "health_safety.pregnancy_altitude",
+   "example": "recomendaciones para gestantes en el parque",
+   "rank": 130,
+   "top1": "conversation.opinion_request",
+   "top1_cos": 0.9016,
+   "own_cos": 0.8564
+  },
+  {
+   "id": "health_safety.pregnancy_altitude",
+   "example": "estoy embarazada, la resolucion 207 me deja entrar a los nevados",
+   "rank": 2,
+   "top1": "health_safety.chronic_condition_altitude",
+   "top1_cos": 0.9302,
+   "own_cos": 0.9061
+  },
+  {
+   "id": "health_safety.older_adults_altitude_health",
+   "example": "cuidados de salud para adultos mayores en altura",
+   "rank": 2,
+   "top1": "health_safety.high_altitude_health_risk",
+   "top1_cos": 0.934,
+   "own_cos": 0.9136
+  },
+  {
+   "id": "health_safety.older_adults_altitude_health",
+   "example": "mi papá es adulto mayor y quiere ir a la montaña",
+   "rank": 11,
+   "top1": "booking_fees.maximum_entry_age",
+   "top1_cos": 0.8936,
+   "own_cos": 0.8743
+  },
+  {
+   "id": "health_safety.older_adults_altitude_health",
+   "example": "is high altitude harder on older adults?",
+   "rank": 28,
+   "top1": "health_safety.altitude_sleep_disturbance",
+   "top1_cos": 0.8933,
+   "own_cos": 0.8465
+  },
+  {
+   "id": "health_safety.older_adults_altitude_health",
+   "example": "salud de mis abuelos si subimos al páramo",
+   "rank": 10,
+   "top1": "health_safety.anemia_and_sickle_cell_altitude",
+   "top1_cos": 0.9007,
+   "own_cos": 0.8745
+  },
+  {
+   "id": "health_safety.older_adults_altitude_health",
+   "example": "recomendaciones de salud para viajeros mayores",
+   "rank": 2,
+   "top1": "health_safety.diabetes_at_high_altitude",
+   "top1_cos": 0.9301,
+   "own_cos": 0.9206
+  },
+  {
+   "id": "health_safety.older_adults_altitude_health",
+   "example": "mi papa tiene 69, la ficha y la resolucion dicen lo mismo",
+   "rank": 6,
+   "top1": "booking_fees.maximum_entry_age",
+   "top1_cos": 0.8929,
+   "own_cos": 0.8743
+  },
+  {
+   "id": "health_safety.dehydration_response",
+   "example": "bebo agua a sorbos si tengo sed fuerte",
+   "rank": 2,
+   "top1": "health_safety.dehydration_warning_signs",
+   "top1_cos": 0.8855,
+   "own_cos": 0.8835
+  },
+  {
+   "id": "health_safety.dehydration_response",
+   "example": "me mareé y creo que es por falta de agua",
+   "rank": 21,
+   "top1": "health_safety.dehydration_warning_signs",
+   "top1_cos": 0.9232,
+   "own_cos": 0.8881
+  },
+  {
+   "id": "health_safety.dehydration_response",
+   "example": "rehidratar a alguien que camina en altura",
+   "rank": 4,
+   "top1": "preparation.water_quantity",
+   "top1_cos": 0.9045,
+   "own_cos": 0.8933
+  },
+  {
+   "id": "health_safety.dehydration_response",
+   "example": "how do I treat dehydration on a hike?",
+   "rank": 9,
+   "top1": "health_safety.blister_care",
+   "top1_cos": 0.9333,
+   "own_cos": 0.8751
+  },
+  {
+   "id": "health_safety.dehydration_response",
+   "example": "tengo la boca seca y quiero mejorar",
+   "rank": 9,
+   "top1": "health_safety.dehydration_warning_signs",
+   "top1_cos": 0.9441,
+   "own_cos": 0.8821
+  },
+  {
+   "id": "health_safety.dehydration_response",
+   "example": "sirve una bebida con electrolitos",
+   "rank": 2,
+   "top1": "preparation.reusable_bottles",
+   "top1_cos": 0.8628,
+   "own_cos": 0.8581
+  },
+  {
+   "id": "health_safety.dehydration_response",
+   "example": "me siento débil por el calor y el esfuerzo",
+   "rank": 8,
+   "top1": "health_safety.hypothermia_warning_signs",
+   "top1_cos": 0.9223,
+   "own_cos": 0.8881
+  },
+  {
+   "id": "health_safety.dehydration_response",
+   "example": "cómo repongo líquidos después del ascenso",
+   "rank": 4,
+   "top1": "preparation.pre_hike_meal",
+   "top1_cos": 0.8814,
+   "own_cos": 0.8739
+  },
+  {
+   "id": "health_safety.frostbite_first_aid",
+   "example": "qué hago con un dedo congelado",
+   "rank": 2,
+   "top1": "health_safety.frostbite_no_refreeze_or_walk",
+   "top1_cos": 0.9244,
+   "own_cos": 0.9233
+  },
+  {
+   "id": "health_safety.frostbite_first_aid",
+   "example": "cómo caliento una zona congelada",
+   "rank": 3,
+   "top1": "health_safety.frostbite_no_direct_dry_heat",
+   "top1_cos": 0.9295,
+   "own_cos": 0.8963
+  },
+  {
+   "id": "health_safety.frostbite_first_aid",
+   "example": "me puedo frotar los dedos si están entumecidos",
+   "rank": 5,
+   "top1": "health_safety.frostbite_warning_signs",
+   "top1_cos": 0.8758,
+   "own_cos": 0.8652
+  },
+  {
+   "id": "health_safety.frostbite_first_aid",
+   "example": "tratar la piel blanca y dura por frío",
+   "rank": 3,
+   "top1": "health_safety.frostbite_warning_signs",
+   "top1_cos": 0.9251,
+   "own_cos": 0.9042
+  },
+  {
+   "id": "health_safety.frostbite_first_aid",
+   "example": "first aid for frostbite",
+   "rank": 16,
+   "top1": "health_safety.sprain_first_aid",
+   "top1_cos": 0.9149,
+   "own_cos": 0.8544
+  },
+  {
+   "id": "health_safety.frostbite_first_aid",
+   "example": "mi nariz se congeló qué hago",
+   "rank": 48,
+   "top1": "health_safety.nosebleed_altitude",
+   "top1_cos": 0.9075,
+   "own_cos": 0.8596
+  },
+  {
+   "id": "health_safety.frostbite_first_aid",
+   "example": "debo usar nieve para calentar la piel",
+   "rank": 4,
+   "top1": "health_safety.sun_eye_pain_photophobia",
+   "top1_cos": 0.9185,
+   "own_cos": 0.8983
+  },
+  {
+   "id": "health_safety.frostbite_first_aid",
+   "example": "la piel se puso cerosa y sin sensibilidad",
+   "rank": 27,
+   "top1": "health_safety.frostbite_warning_signs",
+   "top1_cos": 0.9121,
+   "own_cos": 0.8638
+  },
+  {
+   "id": "health_safety.frostbite_first_aid",
+   "example": "cómo ayudar a alguien con los pies congelados",
+   "rank": 7,
+   "top1": "health_safety.hypothermia_first_response",
+   "top1_cos": 0.9479,
+   "own_cos": 0.8989
+  },
+  {
+   "id": "health_safety.frostbite_first_aid",
+   "example": "la piel congelada se frota o se calienta sin masajearla?",
+   "rank": 5,
+   "top1": "health_safety.frostbite_warning_signs",
+   "top1_cos": 0.9018,
+   "own_cos": 0.8943
+  },
+  {
+   "id": "health_safety.frostbite_first_aid",
+   "example": "qué no hacer con una ampolla por congelación",
+   "rank": 2,
+   "top1": "health_safety.frostbite_no_direct_dry_heat",
+   "top1_cos": 0.9125,
+   "own_cos": 0.9067
+  },
+  {
+   "id": "health_safety.lightning_storm_safety",
+   "example": "qué hago si hay rayos durante la caminata",
+   "rank": 20,
+   "top1": "weather_volcano.red_crater_storms",
+   "top1_cos": 0.9302,
+   "own_cos": 0.8795
+  },
+  {
+   "id": "health_safety.lightning_storm_safety",
+   "example": "me sorprendió una tormenta eléctrica",
+   "rank": 6,
+   "top1": "actions.report_storm",
+   "top1_cos": 0.9205,
+   "own_cos": 0.873
+  },
+  {
+   "id": "health_safety.lightning_storm_safety",
+   "example": "es seguro quedarme en un claro",
+   "rank": 20,
+   "top1": "rules.camping",
+   "top1_cos": 0.874,
+   "own_cos": 0.844
+  },
+  {
+   "id": "health_safety.lightning_storm_safety",
+   "example": "hay relámpagos cerca qué hago",
+   "rank": 3,
+   "top1": "weather_volcano.red_crater_storms",
+   "top1_cos": 0.8967,
+   "own_cos": 0.8679
+  },
+  {
+   "id": "health_safety.lightning_storm_safety",
+   "example": "what to do in a thunderstorm on a hike?",
+   "rank": 8,
+   "top1": "health_safety.lost_person_protocol",
+   "top1_cos": 0.9115,
+   "own_cos": 0.8548
+  },
+  {
+   "id": "health_safety.lightning_storm_safety",
+   "example": "me refugio debajo de un árbol si llueve",
+   "rank": 9,
+   "top1": "health_safety.lightning_caught_in_open_paramo",
+   "top1_cos": 0.9078,
+   "own_cos": 0.873
+  },
+  {
+   "id": "health_safety.lightning_storm_safety",
+   "example": "los rayos pueden caer en el páramo",
+   "rank": 45,
+   "top1": "health_safety.sun_uv_protection",
+   "top1_cos": 0.9009,
+   "own_cos": 0.8602
+  },
+  {
+   "id": "health_safety.lightning_storm_safety",
+   "example": "tormenta con viento y granizo en el recorrido",
+   "rank": 17,
+   "top1": "actions.report_storm",
+   "top1_cos": 0.9327,
+   "own_cos": 0.8628
+  },
+  {
+   "id": "health_safety.lightning_storm_safety",
+   "example": "debo soltar objetos metálicos si hay rayos",
+   "rank": 2,
+   "top1": "weather_volcano.red_crater_storms",
+   "top1_cos": 0.8849,
+   "own_cos": 0.8795
+  },
+  {
+   "id": "health_safety.lightning_storm_safety",
+   "example": "cómo protegerme de una descarga eléctrica",
+   "rank": 12,
+   "top1": "health_safety.lightning_wait_30_minutes_and_shelters",
+   "top1_cos": 0.9144,
+   "own_cos": 0.873
+  },
+  {
+   "id": "health_safety.lightning_storm_safety",
+   "example": "se oyen truenos y estamos lejos del refugio",
+   "rank": 2,
+   "top1": "health_safety.lightning_wait_30_minutes_and_shelters",
+   "top1_cos": 0.9089,
+   "own_cos": 0.9018
+  },
+  {
+   "id": "health_safety.lightning_storm_safety",
+   "example": "oi truenos en el paramo, me alejo o sigo al mirador",
+   "rank": 61,
+   "top1": "health_safety.severe_hypothermia_signs_and_care",
+   "top1_cos": 0.9145,
+   "own_cos": 0.8707
+  },
+  {
+   "id": "health_safety.lost_person_protocol",
+   "example": "me separé del grupo y no encuentro el sendero",
+   "rank": 4,
+   "top1": "health_safety.no_published_wildlife_protocol",
+   "top1_cos": 0.9186,
+   "own_cos": 0.9103
+  },
+  {
+   "id": "health_safety.lost_person_protocol",
+   "example": "qué hago si me pierdo en la montaña",
+   "rank": 4,
+   "top1": "preparation.navigation_map_gps",
+   "top1_cos": 0.9163,
+   "own_cos": 0.9088
+  },
+  {
+   "id": "health_safety.lost_person_protocol",
+   "example": "cómo evitar perderme en la niebla",
+   "rank": 3,
+   "top1": "preparation.navigation_map_gps",
+   "top1_cos": 0.9153,
+   "own_cos": 0.9088
+  },
+  {
+   "id": "health_safety.lost_person_protocol",
+   "example": "me desorienté y no veo a nadie",
+   "rank": 4,
+   "top1": "health_safety.hypothermia_warning_signs",
+   "top1_cos": 0.9248,
+   "own_cos": 0.9103
+  },
+  {
+   "id": "health_safety.lost_person_protocol",
+   "example": "what should I do if I get lost on a hike?",
+   "rank": 4,
+   "top1": "health_safety.lightning_storm_safety",
+   "top1_cos": 0.9115,
+   "own_cos": 0.886
+  },
+  {
+   "id": "health_safety.lost_person_protocol",
+   "example": "debo seguir caminando si me pierdo",
+   "rank": 9,
+   "top1": "weather_volcano.ash_actions",
+   "top1_cos": 0.9526,
+   "own_cos": 0.8916
+  },
+  {
+   "id": "health_safety.lost_person_protocol",
+   "example": "cómo actuar si alguien se rezaga en la ruta",
+   "rank": 8,
+   "top1": "health_safety.choking_first_aid_heimlich",
+   "top1_cos": 0.9132,
+   "own_cos": 0.8767
+  },
+  {
+   "id": "health_safety.lost_person_protocol",
+   "example": "me alejé del sendero permitido",
+   "rank": 4,
+   "top1": "rules.stay_on_routes",
+   "top1_cos": 0.9186,
+   "own_cos": 0.9076
+  },
+  {
+   "id": "health_safety.lost_person_protocol",
+   "example": "estamos desorientados y baja la neblina",
+   "rank": 2,
+   "top1": "health_safety.hypothermia_warning_signs",
+   "top1_cos": 0.9168,
+   "own_cos": 0.8983
+  },
+  {
+   "id": "health_safety.bleeding_control",
+   "example": "sangrado que no se detiene qué hago",
+   "rank": 3,
+   "top1": "health_safety.nosebleed_altitude",
+   "top1_cos": 0.9142,
+   "own_cos": 0.895
+  },
+  {
+   "id": "health_safety.bleeding_control",
+   "example": "how do I stop severe bleeding?",
+   "rank": 4,
+   "top1": "health_safety.severe_hypothermia_signs_and_care",
+   "top1_cos": 0.8809,
+   "own_cos": 0.8631
+  },
+  {
+   "id": "health_safety.bleeding_control",
+   "example": "mi compañero se hirió con una piedra",
+   "rank": 17,
+   "top1": "actions.report_injury",
+   "top1_cos": 0.919,
+   "own_cos": 0.8676
+  },
+  {
+   "id": "health_safety.bleeding_control",
+   "example": "cómo vendar una herida que sangra",
+   "rank": 3,
+   "top1": "health_safety.sprain_first_aid",
+   "top1_cos": 0.926,
+   "own_cos": 0.8917
+  },
+  {
+   "id": "health_safety.bleeding_control",
+   "example": "sangra la cabeza después de una caída",
+   "rank": 15,
+   "top1": "health_safety.suspected_fracture_first_aid",
+   "top1_cos": 0.9162,
+   "own_cos": 0.8677
+  },
+  {
+   "id": "health_safety.bleeding_control",
+   "example": "hemorragia en la pierna durante la caminata",
+   "rank": 24,
+   "top1": "health_safety.blister_care",
+   "top1_cos": 0.8959,
+   "own_cos": 0.8638
+  },
+  {
+   "id": "health_safety.bleeding_control",
+   "example": "qué hago si la sangre empapa la gasa",
+   "rank": 2,
+   "top1": "health_safety.nosebleed_altitude",
+   "top1_cos": 0.8964,
+   "own_cos": 0.895
+  },
+  {
+   "id": "health_safety.bleeding_control",
+   "example": "sangra una herida grande, presiono y no le quito el paño",
+   "rank": 2,
+   "top1": "health_safety.sprain_first_aid",
+   "top1_cos": 0.9171,
+   "own_cos": 0.9109
+  },
+  {
+   "id": "health_safety.unresponsive_cpr",
+   "example": "cómo hacer reanimación en la montaña",
+   "rank": 3,
+   "top1": "health_safety.suspected_fracture_first_aid",
+   "top1_cos": 0.9129,
+   "own_cos": 0.8967
+  },
+  {
+   "id": "health_safety.unresponsive_cpr",
+   "example": "mi compañero se desmayó y no despierta",
+   "rank": 10,
+   "top1": "health_safety.fainting_response",
+   "top1_cos": 0.9449,
+   "own_cos": 0.9115
+  },
+  {
+   "id": "health_safety.unresponsive_cpr",
+   "example": "how to do CPR if someone collapses?",
+   "rank": 9,
+   "top1": "health_safety.fainting_response",
+   "top1_cos": 0.8919,
+   "own_cos": 0.8421
+  },
+  {
+   "id": "health_safety.unresponsive_cpr",
+   "example": "empezar compresiones en el pecho",
+   "rank": 2,
+   "top1": "health_safety.choking_first_aid_heimlich",
+   "top1_cos": 0.8999,
+   "own_cos": 0.8977
+  },
+  {
+   "id": "health_safety.unresponsive_cpr",
+   "example": "cómo pedir ayuda mientras hago RCP",
+   "rank": 5,
+   "top1": "health_safety.red_cross_emergency_line_132",
+   "top1_cos": 0.893,
+   "own_cos": 0.8668
+  },
+  {
+   "id": "health_safety.unresponsive_cpr",
+   "example": "se desplomó y no responde al llamarlo",
+   "rank": 2,
+   "top1": "health_safety.fainting_response",
+   "top1_cos": 0.922,
+   "own_cos": 0.9115
+  },
+  {
+   "id": "health_safety.unresponsive_cpr",
+   "example": "qué hago primero si alguien deja de respirar",
+   "rank": 2,
+   "top1": "health_safety.fainting_response",
+   "top1_cos": 0.9135,
+   "own_cos": 0.913
+  },
+  {
+   "id": "health_safety.sprain_first_aid",
+   "example": "se me hinchó el tobillo después de caer",
+   "rank": 3,
+   "top1": "actions.report_injury",
+   "top1_cos": 0.9191,
+   "own_cos": 0.8972
+  },
+  {
+   "id": "health_safety.sprain_first_aid",
+   "example": "puedo seguir caminando con el tobillo torcido",
+   "rank": 4,
+   "top1": "health_safety.frostbite_no_refreeze_or_walk",
+   "top1_cos": 0.9036,
+   "own_cos": 0.8851
+  },
+  {
+   "id": "health_safety.sprain_first_aid",
+   "example": "first aid for a sprained ankle",
+   "rank": 21,
+   "top1": "health_safety.frostbite_first_aid",
+   "top1_cos": 0.9149,
+   "own_cos": 0.8351
+  },
+  {
+   "id": "health_safety.sprain_first_aid",
+   "example": "me duele la rodilla después de un mal paso",
+   "rank": 3,
+   "top1": "actions.report_injury",
+   "top1_cos": 0.9316,
+   "own_cos": 0.8902
+  },
+  {
+   "id": "health_safety.sprain_first_aid",
+   "example": "cómo vendar un tobillo lesionado",
+   "rank": 3,
+   "top1": "health_safety.bleeding_control",
+   "top1_cos": 0.926,
+   "own_cos": 0.8872
+  },
+  {
+   "id": "health_safety.sprain_first_aid",
+   "example": "qué hacer con una articulación inflamada",
+   "rank": 3,
+   "top1": "health_safety.suspected_fracture_first_aid",
+   "top1_cos": 0.8946,
+   "own_cos": 0.8873
+  },
+  {
+   "id": "health_safety.nosebleed_altitude",
+   "example": "me sangra la nariz en la montaña",
+   "rank": 3,
+   "top1": "health_safety.descent_for_worsening_altitude",
+   "top1_cos": 0.9318,
+   "own_cos": 0.9246
+  },
+  {
+   "id": "health_safety.nosebleed_altitude",
+   "example": "nosebleed at high altitude what to do",
+   "rank": 29,
+   "top1": "health_safety.acclimatization_plan",
+   "top1_cos": 0.9123,
+   "own_cos": 0.8685
+  },
+  {
+   "id": "health_safety.nosebleed_altitude",
+   "example": "debo inclinar la cabeza hacia atrás",
+   "rank": 11,
+   "top1": "health_safety.altitude_sickness_symptoms",
+   "top1_cos": 0.8879,
+   "own_cos": 0.8675
+  },
+  {
+   "id": "health_safety.fainting_response",
+   "example": "alguien se desmayó en el sendero",
+   "rank": 5,
+   "top1": "actions.report_hypothermia",
+   "top1_cos": 0.905,
+   "own_cos": 0.8898
+  },
+  {
+   "id": "health_safety.fainting_response",
+   "example": "what to do when someone faints?",
+   "rank": 5,
+   "top1": "health_safety.hypothermia_first_response",
+   "top1_cos": 0.8982,
+   "own_cos": 0.8732
+  },
+  {
+   "id": "health_safety.fainting_response",
+   "example": "se cayó y quedó inconsciente un momento",
+   "rank": 5,
+   "top1": "actions.report_injury",
+   "top1_cos": 0.9164,
+   "own_cos": 0.8979
+  },
+  {
+   "id": "health_safety.fainting_response",
+   "example": "se puso pálido y se desplomó",
+   "rank": 4,
+   "top1": "health_safety.unresponsive_cpr",
+   "top1_cos": 0.922,
+   "own_cos": 0.8979
+  },
+  {
+   "id": "health_safety.fainting_response",
+   "example": "desmayo durante la caminata en altura",
+   "rank": 5,
+   "top1": "actions.report_altitude_sickness",
+   "top1_cos": 0.9196,
+   "own_cos": 0.8933
+  },
+  {
+   "id": "health_safety.fainting_response",
+   "example": "volvió en sí después del desmayo",
+   "rank": 4,
+   "top1": "actions.report_altitude_sickness",
+   "top1_cos": 0.8771,
+   "own_cos": 0.8646
+  },
+  {
+   "id": "health_safety.fainting_response",
+   "example": "mi compañera se sintió mareada y se desmayó",
+   "rank": 2,
+   "top1": "health_safety.unresponsive_cpr",
+   "top1_cos": 0.9449,
+   "own_cos": 0.923
+  },
+  {
+   "id": "health_safety.fainting_response",
+   "example": "se desmayo pero sigue respirando, lo dejo acostado",
+   "rank": 16,
+   "top1": "health_safety.unresponsive_cpr",
+   "top1_cos": 0.9134,
+   "own_cos": 0.889
+  },
+  {
+   "id": "health_safety.no_published_wildlife_protocol",
+   "example": "qué hago si veo fauna silvestre en el sendero del parque",
+   "rank": 4,
+   "top1": "fauna.injured_wildlife_protocol",
+   "top1_cos": 0.9152,
+   "own_cos": 0.9037
+  },
+  {
+   "id": "health_safety.no_published_wildlife_protocol",
+   "example": "puedo acercarme a un animal silvestre en el nevado",
+   "rank": 9,
+   "top1": "fauna.fauna_overview",
+   "top1_cos": 0.9124,
+   "own_cos": 0.8846
+  },
+  {
+   "id": "health_safety.no_published_wildlife_protocol",
+   "example": "se me cruzó un animal, lo muevo del camino?",
+   "rank": 2,
+   "top1": "rules.wildlife_contact_displacement",
+   "top1_cos": 0.9407,
+   "own_cos": 0.93
+  },
+  {
+   "id": "health_safety.no_published_wildlife_protocol",
+   "example": "me puedo llevar o mover un animal del camino",
+   "rank": 2,
+   "top1": "rules.wildlife_contact_displacement",
+   "top1_cos": 0.9468,
+   "own_cos": 0.93
+  },
+  {
+   "id": "health_safety.no_published_wildlife_protocol",
+   "example": "is there an official wildlife encounter protocol in the park?",
+   "rank": 7,
+   "top1": "fauna.fauna_overview",
+   "top1_cos": 0.8862,
+   "own_cos": 0.8602
+  },
+  {
+   "id": "health_safety.no_published_wildlife_protocol",
+   "example": "no tocar ni correr animales del páramo",
+   "rank": 22,
+   "top1": "rules.no_introduce_species",
+   "top1_cos": 0.9264,
+   "own_cos": 0.8904
+  },
+  {
+   "id": "health_safety.no_published_wildlife_protocol",
+   "example": "qué está prohibido hacer con la fauna del parque",
+   "rank": 4,
+   "top1": "flora_ecosystems.cattle_grazing_impact",
+   "top1_cos": 0.9203,
+   "own_cos": 0.9037
+  },
+  {
+   "id": "health_safety.no_published_wildlife_protocol",
+   "example": "debo coger un animal herido o dejarlo quieto",
+   "rank": 5,
+   "top1": "fauna.injured_wildlife_protocol",
+   "top1_cos": 0.8959,
+   "own_cos": 0.8782
+  },
+  {
+   "id": "health_safety.ams_how_long_it_lasts",
+   "example": "cuánto dura el mal de altura",
+   "rank": 2,
+   "top1": "health_safety.altitude_classification_levels",
+   "top1_cos": 0.9376,
+   "own_cos": 0.9168
+  },
+  {
+   "id": "health_safety.ams_how_long_it_lasts",
+   "example": "el soroche se quita solo o hay que bajar",
+   "rank": 2,
+   "top1": "health_safety.descent_for_worsening_altitude",
+   "top1_cos": 0.9158,
+   "own_cos": 0.9156
+  },
+  {
+   "id": "health_safety.ams_how_long_it_lasts",
+   "example": "cuándo el mal de montaña se considera moderado",
+   "rank": 3,
+   "top1": "health_safety.altitude_classification_levels",
+   "top1_cos": 0.8974,
+   "own_cos": 0.8826
+  },
+  {
+   "id": "health_safety.ams_how_long_it_lasts",
+   "example": "el mal de altura pasa en dos días de aclimatación",
+   "rank": 2,
+   "top1": "health_safety.altitude_classification_levels",
+   "top1_cos": 0.9178,
+   "own_cos": 0.9168
+  },
+  {
+   "id": "health_safety.ams_how_long_it_lasts",
+   "example": "diferencia entre soroche leve y moderado por el tiempo",
+   "rank": 3,
+   "top1": "health_safety.high_altitude_cerebral_edema_hace",
+   "top1_cos": 0.912,
+   "own_cos": 0.8828
+  },
+  {
+   "id": "health_safety.ams_how_long_it_lasts",
+   "example": "how long does acute mountain sickness last?",
+   "rank": 3,
+   "top1": "health_safety.altitude_classification_levels",
+   "top1_cos": 0.9,
+   "own_cos": 0.8722
+  },
+  {
+   "id": "health_safety.ams_how_long_it_lasts",
+   "example": "llevo un día con náuseas en el refugio",
+   "rank": 125,
+   "top1": "health_safety.altitude_sickness_symptoms",
+   "top1_cos": 0.9075,
+   "own_cos": 0.8642
+  },
+  {
+   "id": "health_safety.ams_how_long_it_lasts",
+   "example": "cuánto tarda en mejorar el soroche si no subo más",
+   "rank": 3,
+   "top1": "health_safety.altitude_classification_levels",
+   "top1_cos": 0.9337,
+   "own_cos": 0.9264
+  },
+  {
+   "id": "health_safety.ams_how_long_it_lasts",
+   "example": "el soroche empezo a las dos horas y lleva un dia sin subir mas",
+   "rank": 7,
+   "top1": "health_safety.hace_may_appear_days_later",
+   "top1_cos": 0.9179,
+   "own_cos": 0.8794
+  },
+  {
+   "id": "health_safety.hypothermia_body_temperature",
+   "example": "bajo cuántos grados es hipotermia leve o severa",
+   "rank": 2,
+   "top1": "health_safety.severe_hypothermia_signs_and_care",
+   "top1_cos": 0.9328,
+   "own_cos": 0.9313
+  },
+  {
+   "id": "health_safety.hypothermia_body_temperature",
+   "example": "qué es hipotermia moderada entre 32 y 28 grados",
+   "rank": 2,
+   "top1": "health_safety.severe_hypothermia_signs_and_care",
+   "top1_cos": 0.9418,
+   "own_cos": 0.9311
+  },
+  {
+   "id": "health_safety.hypothermia_body_temperature",
+   "example": "cuándo la hipotermia ya es severa por la temperatura",
+   "rank": 2,
+   "top1": "health_safety.severe_hypothermia_signs_and_care",
+   "top1_cos": 0.9321,
+   "own_cos": 0.9294
+  },
+  {
+   "id": "health_safety.hypothermia_body_temperature",
+   "example": "at what body temperature does hypothermia start?",
+   "rank": 3,
+   "top1": "health_safety.hypothermia_warning_signs",
+   "top1_cos": 0.9278,
+   "own_cos": 0.9058
+  },
+  {
+   "id": "health_safety.glucometer_at_high_altitude",
+   "example": "la altura altera la lectura de glucosa",
+   "rank": 2,
+   "top1": "health_safety.diabetes_at_high_altitude",
+   "top1_cos": 0.9317,
+   "own_cos": 0.9307
+  },
+  {
+   "id": "health_safety.glucometer_at_high_altitude",
+   "example": "does a glucometer work at high altitude?",
+   "rank": 7,
+   "top1": "health_safety.diabetes_at_high_altitude",
+   "top1_cos": 0.9199,
+   "own_cos": 0.8774
+  },
+  {
+   "id": "health_safety.glucometer_at_high_altitude",
+   "example": "llevar tiras de repuesto para la glucosa en el sendero",
+   "rank": 5,
+   "top1": "health_safety.diabetes_at_high_altitude",
+   "top1_cos": 0.9201,
+   "own_cos": 0.8813
+  },
+  {
+   "id": "health_safety.glucometer_at_high_altitude",
+   "example": "el mal de altura puede disparar una cetoacidosis",
+   "rank": 15,
+   "top1": "health_safety.diabetes_at_high_altitude",
+   "top1_cos": 0.9406,
+   "own_cos": 0.8686
+  },
+  {
+   "id": "health_safety.glucometer_at_high_altitude",
+   "example": "cómo vigilar el azúcar si subo al nevado",
+   "rank": 2,
+   "top1": "preparation.layering_system",
+   "top1_cos": 0.8947,
+   "own_cos": 0.8943
+  },
+  {
+   "id": "health_safety.glucometer_at_high_altitude",
+   "example": "debo avisar al guía que mido el azúcar en ruta",
+   "rank": 4,
+   "top1": "health_safety.tell_guide_about_health_change",
+   "top1_cos": 0.9198,
+   "own_cos": 0.8943
+  },
+  {
+   "id": "health_safety.hape_first_72_hours",
+   "example": "por qué el edema pulmonar pesa tanto en escaladores novatos",
+   "rank": 3,
+   "top1": "health_safety.recent_heart_attack_or_stroke_altitude",
+   "top1_cos": 0.9013,
+   "own_cos": 0.894
+  },
+  {
+   "id": "health_safety.hape_first_72_hours",
+   "example": "when does high altitude pulmonary edema usually start?",
+   "rank": 6,
+   "top1": "health_safety.high_altitude_pulmonary_edema_hape",
+   "top1_cos": 0.932,
+   "own_cos": 0.8903
+  },
+  {
+   "id": "health_safety.hape_first_72_hours",
+   "example": "riesgo de mortalidad por edema pulmonar en montañistas",
+   "rank": 4,
+   "top1": "rules.sport_mountaineers_advance_request",
+   "top1_cos": 0.913,
+   "own_cos": 0.894
+  },
+  {
+   "id": "health_safety.hape_first_72_hours",
+   "example": "las primeras 72 horas después de llegar arriba",
+   "rank": 18,
+   "top1": "hours_status.brisas_exit_time",
+   "top1_cos": 0.9193,
+   "own_cos": 0.8758
+  },
+  {
+   "id": "health_safety.hape_first_72_hours",
+   "example": "el ahogo y la tos despues de subir, en que plazo los debo vigilar?",
+   "rank": 2,
+   "top1": "health_safety.severe_altitude_warning_signs",
+   "top1_cos": 0.9217,
+   "own_cos": 0.9086
+  },
+  {
+   "id": "health_safety.hape_first_72_hours",
+   "example": "llevo tos desde ayer, el ahogo de pulmon tarda uno o dos dias",
+   "rank": 2,
+   "top1": "health_safety.high_altitude_pulmonary_edema_hape",
+   "top1_cos": 0.9141,
+   "own_cos": 0.9086
+  },
+  {
+   "id": "health_safety.hace_may_appear_days_later",
+   "example": "ya bajó el soroche y días después me confundo",
+   "rank": 5,
+   "top1": "actions.report_altitude_sickness",
+   "top1_cos": 0.9226,
+   "own_cos": 0.8955
+  },
+  {
+   "id": "health_safety.hace_may_appear_days_later",
+   "example": "can high altitude cerebral edema start days later?",
+   "rank": 2,
+   "top1": "health_safety.hape_first_72_hours",
+   "top1_cos": 0.923,
+   "own_cos": 0.907
+  },
+  {
+   "id": "health_safety.hace_may_appear_days_later",
+   "example": "cinco a siete días después del mal de montaña",
+   "rank": 4,
+   "top1": "health_safety.altitude_classification_levels",
+   "top1_cos": 0.9084,
+   "own_cos": 0.8947
+  },
+  {
+   "id": "health_safety.hace_may_appear_days_later",
+   "example": "síntomas neurológicos tardíos después de subir",
+   "rank": 8,
+   "top1": "health_safety.altitude_sickness_symptoms",
+   "top1_cos": 0.9198,
+   "own_cos": 0.8909
+  },
+  {
+   "id": "health_safety.hace_may_appear_days_later",
+   "example": "me sentí bien y al quinto día camino mal",
+   "rank": 3,
+   "top1": "health_safety.altitude_sickness_symptoms",
+   "top1_cos": 0.9069,
+   "own_cos": 0.8982
+  },
+  {
+   "id": "health_safety.hace_may_appear_days_later",
+   "example": "el edema cerebral es tardío en la alta montaña",
+   "rank": 3,
+   "top1": "health_safety.high_altitude_cerebral_edema_hace",
+   "top1_cos": 0.914,
+   "own_cos": 0.9015
+  },
+  {
+   "id": "health_safety.hace_may_appear_days_later",
+   "example": "camino como borracho, espero unos dias o bajo ahora",
+   "rank": 2,
+   "top1": "health_safety.lightning_wait_30_minutes_and_shelters",
+   "top1_cos": 0.9027,
+   "own_cos": 0.8982
+  },
+  {
+   "id": "health_safety.red_cross_emergency_line_132",
+   "example": "para qué sirve la línea 132",
+   "rank": 2,
+   "top1": "health_safety.firefighters_line_119",
+   "top1_cos": 0.904,
+   "own_cos": 0.898
+  },
+  {
+   "id": "health_safety.red_cross_emergency_line_132",
+   "example": "Red Cross emergency number in Colombia",
+   "rank": 4,
+   "top1": "health_safety.civil_defense_line_144",
+   "top1_cos": 0.947,
+   "own_cos": 0.9127
+  },
+  {
+   "id": "health_safety.red_cross_emergency_line_132",
+   "example": "la cruz roja tiene linea propia, distinta de la emergencia general?",
+   "rank": 2,
+   "top1": "health_safety.national_emergency_number_123",
+   "top1_cos": 0.8906,
+   "own_cos": 0.8633
+  },
+  {
+   "id": "health_safety.red_cross_emergency_line_132",
+   "example": "marcar 132 o 123 por accidente en montaña",
+   "rank": 4,
+   "top1": "health_safety.firefighters_line_119",
+   "top1_cos": 0.9173,
+   "own_cos": 0.8944
+  },
+  {
+   "id": "health_safety.red_cross_emergency_line_132",
+   "example": "cómo pedir apoyo a la Cruz Roja en ruta",
+   "rank": 4,
+   "top1": "health_safety.unresponsive_cpr",
+   "top1_cos": 0.893,
+   "own_cos": 0.8767
+  },
+  {
+   "id": "health_safety.red_cross_emergency_line_132",
+   "example": "teléfono corto de la Cruz Roja",
+   "rank": 3,
+   "top1": "health_safety.firefighters_line_119",
+   "top1_cos": 0.9125,
+   "own_cos": 0.9028
+  },
+  {
+   "id": "health_safety.civil_defense_line_144",
+   "example": "Civil Defense emergency number in Colombia",
+   "rank": 4,
+   "top1": "health_safety.red_cross_emergency_line_132",
+   "top1_cos": 0.947,
+   "own_cos": 0.8953
+  },
+  {
+   "id": "health_safety.firefighters_line_119",
+   "example": "para qué sirve la línea 119",
+   "rank": 2,
+   "top1": "health_safety.red_cross_emergency_line_132",
+   "top1_cos": 0.904,
+   "own_cos": 0.8898
+  },
+  {
+   "id": "health_safety.firefighters_line_119",
+   "example": "firefighters emergency number in Colombia",
+   "rank": 4,
+   "top1": "health_safety.national_emergency_number_123",
+   "top1_cos": 0.9534,
+   "own_cos": 0.8893
+  },
+  {
+   "id": "health_safety.firefighters_line_119",
+   "example": "cómo reportar un conato de incendio en la montaña",
+   "rank": 11,
+   "top1": "actions.report_emergency_general",
+   "top1_cos": 0.9315,
+   "own_cos": 0.8672
+  },
+  {
+   "id": "health_safety.firefighters_line_119",
+   "example": "a quién llamo si veo fuego en el sendero",
+   "rank": 3,
+   "top1": "flora_ecosystems.otun_cattle_and_2006_fire",
+   "top1_cos": 0.9039,
+   "own_cos": 0.8907
+  },
+  {
+   "id": "health_safety.firefighters_line_119",
+   "example": "veo humo, marco el 119 solo si tengo senal o la app llama",
+   "rank": 3,
+   "top1": "health_safety.national_emergency_number_123",
+   "top1_cos": 0.9313,
+   "own_cos": 0.8961
+  },
+  {
+   "id": "health_safety.evacuation_and_rescue_reality",
+   "example": "cómo me sacan del parque si me enfermo o me fracturo",
+   "rank": 64,
+   "top1": "booking_fees.accident_insurance_requirement",
+   "top1_cos": 0.8977,
+   "own_cos": 0.8628
+  },
+  {
+   "id": "health_safety.evacuation_and_rescue_reality",
+   "example": "cuánto demora un rescate en Los Nevados",
+   "rank": 144,
+   "top1": "booking_fees.insurer_names_2023",
+   "top1_cos": 0.9183,
+   "own_cos": 0.8473
+  },
+  {
+   "id": "health_safety.evacuation_and_rescue_reality",
+   "example": "hay helicóptero o ambulancia dentro del sendero",
+   "rank": 28,
+   "top1": "actions.report_emergency_general",
+   "top1_cos": 0.9079,
+   "own_cos": 0.8644
+  },
+  {
+   "id": "health_safety.evacuation_and_rescue_reality",
+   "example": "cómo evacúan a un herido en la alta montaña",
+   "rank": 21,
+   "top1": "health_safety.minor_cuts_and_punctures_care",
+   "top1_cos": 0.9,
+   "own_cos": 0.8707
+  },
+  {
+   "id": "health_safety.evacuation_and_rescue_reality",
+   "example": "se pueden usar mulas para sacar a un enfermo",
+   "rank": 5,
+   "top1": "services.mule_luggage_registered_only",
+   "top1_cos": 0.8777,
+   "own_cos": 0.8486
+  },
+  {
+   "id": "health_safety.evacuation_and_rescue_reality",
+   "example": "por qué es obligatorio el seguro de accidentes y rescate",
+   "rank": 19,
+   "top1": "booking_fees.accident_insurance_requirement",
+   "top1_cos": 0.9366,
+   "own_cos": 0.8458
+  },
+  {
+   "id": "health_safety.evacuation_and_rescue_reality",
+   "example": "how does medical evacuation work in the park?",
+   "rank": 3,
+   "top1": "preparation.camp_hygiene",
+   "top1_cos": 0.8779,
+   "own_cos": 0.8625
+  },
+  {
+   "id": "health_safety.evacuation_and_rescue_reality",
+   "example": "evacuación en camilla por sendero de montaña",
+   "rank": 26,
+   "top1": "actions.report_emergency_general",
+   "top1_cos": 0.8927,
+   "own_cos": 0.8646
+  },
+  {
+   "id": "health_safety.evacuation_and_rescue_reality",
+   "example": "qué pasa si no puedo seguir caminando en el páramo",
+   "rank": 132,
+   "top1": "activities.paramo_walk",
+   "top1_cos": 0.9304,
+   "own_cos": 0.8516
+  },
+  {
+   "id": "health_safety.evacuation_and_rescue_reality",
+   "example": "dificultad de evacuación médica en zonas remotas",
+   "rank": 15,
+   "top1": "weather_volcano.evacuation_route",
+   "top1_cos": 0.874,
+   "own_cos": 0.8616
+  },
+  {
+   "id": "health_safety.evacuation_and_rescue_reality",
+   "example": "traslado de emergencia cuando no entra carro",
+   "rank": 13,
+   "top1": "actions.report_offline_emergency",
+   "top1_cos": 0.8828,
+   "own_cos": 0.8667
+  },
+  {
+   "id": "health_safety.evacuation_and_rescue_reality",
+   "example": "cómo es el rescate de un visitante lesionado",
+   "rank": 7,
+   "top1": "health_safety.medical_shock_signs_and_response",
+   "top1_cos": 0.9037,
+   "own_cos": 0.8707
+  },
+  {
+   "id": "health_safety.evacuation_and_rescue_reality",
+   "example": "si me fracture, esta app manda helicoptero o camilla",
+   "rank": 44,
+   "top1": "health_safety.lost_person_protocol",
+   "top1_cos": 0.8909,
+   "own_cos": 0.8628
+  },
+  {
+   "id": "health_safety.altitude_classification_levels",
+   "example": "desde cuántos metros empieza el mal de altura",
+   "rank": 2,
+   "top1": "health_safety.ams_how_long_it_lasts",
+   "top1_cos": 0.9264,
+   "own_cos": 0.9241
+  },
+  {
+   "id": "health_safety.altitude_classification_levels",
+   "example": "cuándo se considera alta o muy alta montaña",
+   "rank": 2,
+   "top1": "weather_volcano.park_weather",
+   "top1_cos": 0.9254,
+   "own_cos": 0.9195
+  },
+  {
+   "id": "health_safety.altitude_classification_levels",
+   "example": "a las cuántas horas de subir da mal de altura",
+   "rank": 2,
+   "top1": "health_safety.ams_how_long_it_lasts",
+   "top1_cos": 0.9376,
+   "own_cos": 0.9241
+  },
+  {
+   "id": "health_safety.altitude_classification_levels",
+   "example": "entre 2500 y 5800 metros qué riesgo de altura hay",
+   "rank": 2,
+   "top1": "health_safety.high_altitude_health_risk",
+   "top1_cos": 0.9318,
+   "own_cos": 0.9031
+  },
+  {
+   "id": "health_safety.altitude_classification_levels",
+   "example": "at what elevation does altitude sickness start?",
+   "rank": 10,
+   "top1": "health_safety.altitude_sickness_symptoms",
+   "top1_cos": 0.9306,
+   "own_cos": 0.8892
+  },
+  {
+   "id": "health_safety.altitude_classification_levels",
+   "example": "cuánto tarda en aparecer el mal agudo de montaña",
+   "rank": 3,
+   "top1": "health_safety.hace_may_appear_days_later",
+   "top1_cos": 0.9084,
+   "own_cos": 0.8951
+  },
+  {
+   "id": "health_safety.altitude_classification_levels",
+   "example": "desde qué cota debo cuidar la aclimatación",
+   "rank": 51,
+   "top1": "health_safety.ams_how_long_it_lasts",
+   "top1_cos": 0.8765,
+   "own_cos": 0.8394
+  },
+  {
+   "id": "health_safety.altitude_classification_levels",
+   "example": "en cuánto tiempo se siente el soroche al subir",
+   "rank": 4,
+   "top1": "health_safety.ams_how_long_it_lasts",
+   "top1_cos": 0.9337,
+   "own_cos": 0.9084
+  },
+  {
+   "id": "health_safety.altitude_classification_levels",
+   "example": "brisas queda cerca de 4100, desde que metros hay riesgo de soroche",
+   "rank": 2,
+   "top1": "geography.sector_brisas_kumanday",
+   "top1_cos": 0.9055,
+   "own_cos": 0.9036
+  },
+  {
+   "id": "health_safety.high_altitude_cerebral_edema_hace",
+   "example": "qué es el edema cerebral de altura",
+   "rank": 3,
+   "top1": "health_safety.high_altitude_pulmonary_edema_hape",
+   "top1_cos": 0.9461,
+   "own_cos": 0.9164
+  },
+  {
+   "id": "health_safety.high_altitude_cerebral_edema_hace",
+   "example": "alucinaciones y desorientación en la montaña",
+   "rank": 7,
+   "top1": "health_safety.severe_altitude_warning_signs",
+   "top1_cos": 0.9261,
+   "own_cos": 0.8985
+  },
+  {
+   "id": "health_safety.high_altitude_cerebral_edema_hace",
+   "example": "qué significa ataxia o caminar tambaleando en altura",
+   "rank": 9,
+   "top1": "health_safety.altitude_carbohydrates_and_exertion",
+   "top1_cos": 0.8893,
+   "own_cos": 0.8688
+  },
+  {
+   "id": "health_safety.high_altitude_cerebral_edema_hace",
+   "example": "complicación neurológica del mal de montaña",
+   "rank": 2,
+   "top1": "health_safety.altitude_preventive_medication_doctor",
+   "top1_cos": 0.8904,
+   "own_cos": 0.8891
+  },
+  {
+   "id": "health_safety.high_altitude_cerebral_edema_hace",
+   "example": "what is high altitude cerebral edema HACE?",
+   "rank": 4,
+   "top1": "health_safety.high_altitude_pulmonary_edema_hape",
+   "top1_cos": 0.9537,
+   "own_cos": 0.8854
+  },
+  {
+   "id": "health_safety.high_altitude_cerebral_edema_hace",
+   "example": "mi compañero dice incoherencias y camina como borracho",
+   "rank": 33,
+   "top1": "health_safety.unresponsive_cpr",
+   "top1_cos": 0.9182,
+   "own_cos": 0.864
+  },
+  {
+   "id": "health_safety.high_altitude_cerebral_edema_hace",
+   "example": "somnolencia extrema y confusión arriba de 3500 metros",
+   "rank": 4,
+   "top1": "health_safety.severe_altitude_warning_signs",
+   "top1_cos": 0.9231,
+   "own_cos": 0.8985
+  },
+  {
+   "id": "health_safety.high_altitude_cerebral_edema_hace",
+   "example": "cómo reconocer un edema cerebral en el páramo",
+   "rank": 2,
+   "top1": "health_safety.hape_first_72_hours",
+   "top1_cos": 0.9159,
+   "own_cos": 0.9095
+  },
+  {
+   "id": "health_safety.high_altitude_cerebral_edema_hace",
+   "example": "peligro de coma por mal de altura",
+   "rank": 11,
+   "top1": "health_safety.diabetes_at_high_altitude",
+   "top1_cos": 0.9316,
+   "own_cos": 0.8984
+  },
+  {
+   "id": "health_safety.high_altitude_cerebral_edema_hace",
+   "example": "diferencia entre soroche leve y edema cerebral",
+   "rank": 5,
+   "top1": "health_safety.ams_how_long_it_lasts",
+   "top1_cos": 0.912,
+   "own_cos": 0.886
+  },
+  {
+   "id": "health_safety.high_altitude_cerebral_edema_hace",
+   "example": "que es el edema cerebral: confusion y caminar como ebrio",
+   "rank": 2,
+   "top1": "health_safety.high_altitude_pulmonary_edema_hape",
+   "top1_cos": 0.9087,
+   "own_cos": 0.908
+  },
+  {
+   "id": "health_safety.high_altitude_pulmonary_edema_hape",
+   "example": "qué es el edema pulmonar de altura",
+   "rank": 2,
+   "top1": "health_safety.high_altitude_cerebral_edema_hace",
+   "top1_cos": 0.9461,
+   "own_cos": 0.9335
+  },
+  {
+   "id": "health_safety.high_altitude_pulmonary_edema_hape",
+   "example": "líquido en los pulmones por subir a la montaña",
+   "rank": 3,
+   "top1": "health_safety.nosebleed_altitude",
+   "top1_cos": 0.9014,
+   "own_cos": 0.8996
+  },
+  {
+   "id": "health_safety.high_altitude_pulmonary_edema_hape",
+   "example": "tos húmeda y labios morados en altura",
+   "rank": 5,
+   "top1": "actions.report_hypothermia",
+   "top1_cos": 0.9062,
+   "own_cos": 0.9006
+  },
+  {
+   "id": "health_safety.high_altitude_pulmonary_edema_hape",
+   "example": "cuál es la principal causa de muerte por mal de altura",
+   "rank": 16,
+   "top1": "health_safety.high_altitude_cerebral_edema_hace",
+   "top1_cos": 0.9156,
+   "own_cos": 0.8839
+  },
+  {
+   "id": "health_safety.high_altitude_pulmonary_edema_hape",
+   "example": "what is high altitude pulmonary edema HAPE?",
+   "rank": 3,
+   "top1": "health_safety.high_altitude_cerebral_edema_hace",
+   "top1_cos": 0.9537,
+   "own_cos": 0.8935
+  },
+  {
+   "id": "health_safety.high_altitude_pulmonary_edema_hape",
+   "example": "labios azules y falta de aire sentado en la montaña",
+   "rank": 3,
+   "top1": "health_safety.severe_altitude_warning_signs",
+   "top1_cos": 0.9168,
+   "own_cos": 0.9006
+  },
+  {
+   "id": "health_safety.high_altitude_pulmonary_edema_hape",
+   "example": "ahogo progresivo y debilidad extrema al subir",
+   "rank": 3,
+   "top1": "health_safety.severe_altitude_warning_signs",
+   "top1_cos": 0.9148,
+   "own_cos": 0.89
+  },
+  {
+   "id": "health_safety.alcohol_and_altitude_hypothermia",
+   "example": "un trago de aguardiente sirve para el frío del páramo",
+   "rank": 89,
+   "top1": "preparation.camp_stove",
+   "top1_cos": 0.8948,
+   "own_cos": 0.8437
+  },
+  {
+   "id": "health_safety.alcohol_and_altitude_hypothermia",
+   "example": "puedo tomar cerveza o licor antes de subir",
+   "rank": 4,
+   "top1": "preparation.pre_hike_meal",
+   "top1_cos": 0.9329,
+   "own_cos": 0.8919
+  },
+  {
+   "id": "health_safety.alcohol_and_altitude_hypothermia",
+   "example": "cuántas horas debo evitar el alcohol en altura",
+   "rank": 6,
+   "top1": "health_safety.altitude_classification_levels",
+   "top1_cos": 0.9135,
+   "own_cos": 0.8923
+  },
+  {
+   "id": "health_safety.alcohol_and_altitude_hypothermia",
+   "example": "qué efecto tiene el alcohol en el soroche y la hipotermia",
+   "rank": 6,
+   "top1": "health_safety.diabetes_at_high_altitude",
+   "top1_cos": 0.9022,
+   "own_cos": 0.8789
+  },
+  {
+   "id": "health_safety.alcohol_and_altitude_hypothermia",
+   "example": "should I avoid alcohol at high altitude and cold?",
+   "rank": 19,
+   "top1": "health_safety.pretrip_medical_advice",
+   "top1_cos": 0.8993,
+   "own_cos": 0.8729
+  },
+  {
+   "id": "health_safety.alcohol_and_altitude_hypothermia",
+   "example": "darle licor a alguien que tiene mucho frío",
+   "rank": 2,
+   "top1": "health_safety.hypothermia_first_response",
+   "top1_cos": 0.9113,
+   "own_cos": 0.9092
+  },
+  {
+   "id": "health_safety.alcohol_and_altitude_hypothermia",
+   "example": "el alcohol empeora la aclimatación",
+   "rank": 2,
+   "top1": "health_safety.ams_how_long_it_lasts",
+   "top1_cos": 0.899,
+   "own_cos": 0.8789
+  },
+  {
+   "id": "health_safety.alcohol_and_altitude_hypothermia",
+   "example": "tomar alcohol la noche anterior a la caminata",
+   "rank": 6,
+   "top1": "preparation.pre_hike_meal",
+   "top1_cos": 0.9104,
+   "own_cos": 0.8871
+  },
+  {
+   "id": "health_safety.alcohol_and_altitude_hypothermia",
+   "example": "un trago calienta o la resolucion 207 lo prohibe en el parque",
+   "rank": 408,
+   "top1": "health_safety.pre_hike_health_disclosure_and_induction",
+   "top1_cos": 0.9032,
+   "own_cos": 0.8417
+  },
+  {
+   "id": "health_safety.diabetes_at_high_altitude",
+   "example": "puedo ir a Los Nevados si tengo diabetes",
+   "rank": 5,
+   "top1": "health_safety.pretrip_medical_advice",
+   "top1_cos": 0.9179,
+   "own_cos": 0.8983
+  },
+  {
+   "id": "health_safety.diabetes_at_high_altitude",
+   "example": "la altura descontrola el azúcar o la diabetes",
+   "rank": 2,
+   "top1": "health_safety.glucometer_at_high_altitude",
+   "top1_cos": 0.9317,
+   "own_cos": 0.9105
+  },
+  {
+   "id": "health_safety.diabetes_at_high_altitude",
+   "example": "riesgo de cetoacidosis diabética por mal de altura",
+   "rank": 3,
+   "top1": "health_safety.glucometer_at_high_altitude",
+   "top1_cos": 0.9406,
+   "own_cos": 0.9183
+  },
+  {
+   "id": "health_safety.diabetes_at_high_altitude",
+   "example": "soy diabético qué debo consultar antes de subir",
+   "rank": 5,
+   "top1": "health_safety.pretrip_medical_advice",
+   "top1_cos": 0.9107,
+   "own_cos": 0.898
+  },
+  {
+   "id": "health_safety.diabetes_at_high_altitude",
+   "example": "can people with diabetes travel to high altitude?",
+   "rank": 4,
+   "top1": "health_safety.glucometer_at_high_altitude",
+   "top1_cos": 0.9199,
+   "own_cos": 0.9041
+  },
+  {
+   "id": "health_safety.diabetes_at_high_altitude",
+   "example": "control de glucosa en caminatas de páramo",
+   "rank": 12,
+   "top1": "health_safety.altitude_carbohydrates_and_exertion",
+   "top1_cos": 0.9046,
+   "own_cos": 0.8774
+  },
+  {
+   "id": "health_safety.diabetes_at_high_altitude",
+   "example": "recomendaciones médicas para visitantes con diabetes",
+   "rank": 3,
+   "top1": "health_safety.older_adults_altitude_health",
+   "top1_cos": 0.9301,
+   "own_cos": 0.9019
+  },
+  {
+   "id": "health_safety.diabetes_at_high_altitude",
+   "example": "llevar insulina y medicamentos formulados al parque",
+   "rank": 11,
+   "top1": "health_safety.pretrip_medical_advice",
+   "top1_cos": 0.9534,
+   "own_cos": 0.8783
+  },
+  {
+   "id": "health_safety.diabetes_at_high_altitude",
+   "example": "cómo afecta el soroche a una persona con diabetes",
+   "rank": 14,
+   "top1": "health_safety.altitude_sickness_symptoms",
+   "top1_cos": 0.918,
+   "own_cos": 0.8608
+  },
+  {
+   "id": "health_safety.diabetes_at_high_altitude",
+   "example": "soy diabetico, puedo hacer el recorrido de brisas",
+   "rank": 4,
+   "top1": "activities.short_walks_brisas",
+   "top1_cos": 0.9125,
+   "own_cos": 0.8946
+  },
+  {
+   "id": "health_safety.anemia_and_sickle_cell_altitude",
+   "example": "tengo anemia puedo subir a la montaña",
+   "rank": 2,
+   "top1": "health_safety.diabetes_at_high_altitude",
+   "top1_cos": 0.927,
+   "own_cos": 0.9241
+  },
+  {
+   "id": "health_safety.anemia_and_sickle_cell_altitude",
+   "example": "por qué la anemia aumenta el riesgo de soroche",
+   "rank": 2,
+   "top1": "health_safety.diabetes_at_high_altitude",
+   "top1_cos": 0.91,
+   "own_cos": 0.9077
+  },
+  {
+   "id": "health_safety.anemia_and_sickle_cell_altitude",
+   "example": "hemoglobina baja y caminata en alta montaña",
+   "rank": 2,
+   "top1": "health_safety.high_altitude_health_risk",
+   "top1_cos": 0.9107,
+   "own_cos": 0.9036
+  },
+  {
+   "id": "health_safety.anemia_and_sickle_cell_altitude",
+   "example": "falta de glóbulos rojos y mal de altura",
+   "rank": 12,
+   "top1": "health_safety.high_altitude_pulmonary_edema_hape",
+   "top1_cos": 0.9052,
+   "own_cos": 0.8878
+  },
+  {
+   "id": "health_safety.anemia_and_sickle_cell_altitude",
+   "example": "can I visit high altitude with anemia or sickle cell?",
+   "rank": 6,
+   "top1": "health_safety.diabetes_at_high_altitude",
+   "top1_cos": 0.9138,
+   "own_cos": 0.8894
+  },
+  {
+   "id": "health_safety.recent_heart_attack_or_stroke_altitude",
+   "example": "cuántos días después de un infarto o derrame no se debe subir",
+   "rank": 2,
+   "top1": "health_safety.hace_may_appear_days_later",
+   "top1_cos": 0.9198,
+   "own_cos": 0.9106
+  },
+  {
+   "id": "health_safety.recent_heart_attack_or_stroke_altitude",
+   "example": "hipertensión pulmonar severa en alta montaña",
+   "rank": 3,
+   "top1": "health_safety.high_altitude_pulmonary_edema_hape",
+   "top1_cos": 0.9202,
+   "own_cos": 0.9108
+  },
+  {
+   "id": "health_safety.recent_heart_attack_or_stroke_altitude",
+   "example": "riesgo de subir con angina o EPOC a Los Nevados",
+   "rank": 6,
+   "top1": "health_safety.acclimatization_plan",
+   "top1_cos": 0.92,
+   "own_cos": 0.8983
+  },
+  {
+   "id": "health_safety.recent_heart_attack_or_stroke_altitude",
+   "example": "can I go to high altitude after a recent heart attack or stroke?",
+   "rank": 25,
+   "top1": "health_safety.chronic_condition_altitude",
+   "top1_cos": 0.9092,
+   "own_cos": 0.8615
+  },
+  {
+   "id": "health_safety.recent_heart_attack_or_stroke_altitude",
+   "example": "quiénes tienen prohibido o contraindicado el ascenso por corazón",
+   "rank": 6,
+   "top1": "health_safety.chronic_condition_altitude",
+   "top1_cos": 0.8872,
+   "own_cos": 0.8521
+  },
+  {
+   "id": "health_safety.recent_heart_attack_or_stroke_altitude",
+   "example": "problemas cardíacos o pulmonares severos en el páramo",
+   "rank": 3,
+   "top1": "health_safety.chronic_condition_altitude",
+   "top1_cos": 0.9118,
+   "own_cos": 0.9002
+  },
+  {
+   "id": "health_safety.recent_heart_attack_or_stroke_altitude",
+   "example": "por qué la hipertensión pulmonar impide subir a gran altura",
+   "rank": 2,
+   "top1": "health_safety.severe_altitude_warning_signs",
+   "top1_cos": 0.924,
+   "own_cos": 0.9108
+  },
+  {
+   "id": "health_safety.recent_heart_attack_or_stroke_altitude",
+   "example": "hace poco tuve un infarto, me puedo ir al nevado?",
+   "rank": 2,
+   "top1": "health_safety.chronic_condition_altitude",
+   "top1_cos": 0.9332,
+   "own_cos": 0.9215
+  },
+  {
+   "id": "health_safety.altitude_carbohydrates_and_exertion",
+   "example": "qué comer durante la caminata para prevenir el soroche",
+   "rank": 6,
+   "top1": "preparation.trail_snacks",
+   "top1_cos": 0.9175,
+   "own_cos": 0.8858
+  },
+  {
+   "id": "health_safety.altitude_carbohydrates_and_exertion",
+   "example": "por qué recomiendan carbohidratos en alta montaña",
+   "rank": 24,
+   "top1": "preparation.trail_snacks",
+   "top1_cos": 0.915,
+   "own_cos": 0.8712
+  },
+  {
+   "id": "health_safety.altitude_carbohydrates_and_exertion",
+   "example": "qué tan rápido o fuerte puedo caminar en altura",
+   "rank": 8,
+   "top1": "health_safety.chronic_condition_altitude",
+   "top1_cos": 0.9077,
+   "own_cos": 0.8863
+  },
+  {
+   "id": "health_safety.altitude_carbohydrates_and_exertion",
+   "example": "exigirse mucho físicamente da más mal de montaña",
+   "rank": 5,
+   "top1": "preparation.fitness_training",
+   "top1_cos": 0.9038,
+   "own_cos": 0.8879
+  },
+  {
+   "id": "health_safety.altitude_carbohydrates_and_exertion",
+   "example": "debo hacer ejercicio suave los primeros días en altura",
+   "rank": 3,
+   "top1": "health_safety.acclimatization_plan",
+   "top1_cos": 0.9174,
+   "own_cos": 0.8847
+  },
+  {
+   "id": "health_safety.altitude_carbohydrates_and_exertion",
+   "example": "alimentación rica en carbohidratos e hidratación al subir",
+   "rank": 59,
+   "top1": "preparation.trail_meals_multiday",
+   "top1_cos": 0.9109,
+   "own_cos": 0.8737
+  },
+  {
+   "id": "health_safety.altitude_carbohydrates_and_exertion",
+   "example": "what food and pace help prevent altitude sickness?",
+   "rank": 25,
+   "top1": "preparation.pre_hike_meal",
+   "top1_cos": 0.9129,
+   "own_cos": 0.8633
+  },
+  {
+   "id": "health_safety.altitude_carbohydrates_and_exertion",
+   "example": "no esperar rendir igual que a nivel del mar",
+   "rank": 75,
+   "top1": "weather_volcano.do_not_approach",
+   "top1_cos": 0.9231,
+   "own_cos": 0.8737
+  },
+  {
+   "id": "health_safety.altitude_carbohydrates_and_exertion",
+   "example": "cómo influye el esfuerzo físico en el mal de altura",
+   "rank": 5,
+   "top1": "preparation.fitness_training",
+   "top1_cos": 0.9024,
+   "own_cos": 0.8879
+  },
+  {
+   "id": "health_safety.altitude_carbohydrates_and_exertion",
+   "example": "caminar despacio y comer carbohidratos en el páramo",
+   "rank": 9,
+   "top1": "preparation.trail_snacks",
+   "top1_cos": 0.9227,
+   "own_cos": 0.8858
+  },
+  {
+   "id": "health_safety.altitude_carbohydrates_and_exertion",
+   "example": "por qué me canso más rápido subiendo en Los Nevados",
+   "rank": 16,
+   "top1": "health_safety.acclimatization_plan",
+   "top1_cos": 0.9173,
+   "own_cos": 0.8709
+  },
+  {
+   "id": "health_safety.altitude_temperature_drop_rate",
+   "example": "por qué las tormentas empeoran la falta de oxígeno arriba",
+   "rank": 7,
+   "top1": "health_safety.altitude_classification_levels",
+   "top1_cos": 0.885,
+   "own_cos": 0.8741
+  },
+  {
+   "id": "health_safety.altitude_temperature_drop_rate",
+   "example": "how much does temperature drop as you gain altitude?",
+   "rank": 3,
+   "top1": "health_safety.altitude_classification_levels",
+   "top1_cos": 0.8957,
+   "own_cos": 0.8816
+  },
+  {
+   "id": "health_safety.altitude_temperature_drop_rate",
+   "example": "por qué se enfría tan rápido el ambiente al ascender",
+   "rank": 2,
+   "top1": "weather_volcano.weather_by_elevation",
+   "top1_cos": 0.9185,
+   "own_cos": 0.9157
+  },
+  {
+   "id": "health_safety.altitude_temperature_drop_rate",
+   "example": "prepararse para la caída de temperatura en cotas altas",
+   "rank": 9,
+   "top1": "flora_ecosystems.forest_subparamo_transition",
+   "top1_cos": 0.8814,
+   "own_cos": 0.8688
+  },
+  {
+   "id": "health_safety.wind_and_wetness_heat_loss",
+   "example": "por qué el viento y la ropa mojada dan hipotermia",
+   "rank": 2,
+   "top1": "health_safety.hypothermia_warning_signs",
+   "top1_cos": 0.9271,
+   "own_cos": 0.9218
+  },
+  {
+   "id": "health_safety.wind_and_wetness_heat_loss",
+   "example": "qué pasa si camino con la ropa sudada o mojada por lluvia",
+   "rank": 3,
+   "top1": "health_safety.trench_foot_wet_cold_feet",
+   "top1_cos": 0.9316,
+   "own_cos": 0.902
+  },
+  {
+   "id": "health_safety.wind_and_wetness_heat_loss",
+   "example": "cuánto más rápido se enfría el cuerpo mojado",
+   "rank": 2,
+   "top1": "health_safety.trench_foot_wet_cold_feet",
+   "top1_cos": 0.9386,
+   "own_cos": 0.9144
+  },
+  {
+   "id": "health_safety.wind_and_wetness_heat_loss",
+   "example": "peligro de mojarse con lluvia y viento en el páramo",
+   "rank": 6,
+   "top1": "health_safety.trench_foot_wet_cold_feet",
+   "top1_cos": 0.8922,
+   "own_cos": 0.8858
+  },
+  {
+   "id": "health_safety.wind_and_wetness_heat_loss",
+   "example": "por qué debo cambiarme la ropa húmeda de inmediato",
+   "rank": 2,
+   "top1": "preparation.first_layer_thermal",
+   "top1_cos": 0.8984,
+   "own_cos": 0.8907
+  },
+  {
+   "id": "health_safety.wind_and_wetness_heat_loss",
+   "example": "how fast do wind and wet clothes cause hypothermia?",
+   "rank": 3,
+   "top1": "health_safety.hypothermia_body_temperature",
+   "top1_cos": 0.9121,
+   "own_cos": 0.8727
+  },
+  {
+   "id": "health_safety.wind_and_wetness_heat_loss",
+   "example": "protegerse del viento y la humedad para no sufrir hipotermia",
+   "rank": 3,
+   "top1": "health_safety.hypothermia_warning_signs",
+   "top1_cos": 0.9339,
+   "own_cos": 0.9218
+  },
+  {
+   "id": "health_safety.wind_and_wetness_heat_loss",
+   "example": "por qué la llovizna con viento enfría tanto en altura",
+   "rank": 4,
+   "top1": "weather_volcano.weather_by_elevation",
+   "top1_cos": 0.9043,
+   "own_cos": 0.8809
+  },
+  {
+   "id": "health_safety.severe_hypothermia_signs_and_care",
+   "example": "qué pasa cuando alguien con hipotermia deja de temblar",
+   "rank": 2,
+   "top1": "health_safety.hypothermia_first_response",
+   "top1_cos": 0.9301,
+   "own_cos": 0.8968
+  },
+  {
+   "id": "health_safety.severe_hypothermia_signs_and_care",
+   "example": "por qué es peligroso que desaparezca el escalofrío en el frío",
+   "rank": 27,
+   "top1": "health_safety.frostbite_no_refreeze_or_walk",
+   "top1_cos": 0.9021,
+   "own_cos": 0.8599
+  },
+  {
+   "id": "health_safety.severe_hypothermia_signs_and_care",
+   "example": "señales de hipotermia severa bajo 32 grados",
+   "rank": 3,
+   "top1": "health_safety.hypothermia_body_temperature",
+   "top1_cos": 0.9418,
+   "own_cos": 0.9221
+  },
+  {
+   "id": "health_safety.severe_hypothermia_signs_and_care",
+   "example": "rigidez muscular y estupor por frío extremo",
+   "rank": 7,
+   "top1": "health_safety.high_altitude_health_risk",
+   "top1_cos": 0.903,
+   "own_cos": 0.8938
+  },
+  {
+   "id": "health_safety.severe_hypothermia_signs_and_care",
+   "example": "what happens in severe hypothermia when shivering stops?",
+   "rank": 5,
+   "top1": "health_safety.hypothermia_warning_signs",
+   "top1_cos": 0.8949,
+   "own_cos": 0.8643
+  },
+  {
+   "id": "health_safety.severe_hypothermia_signs_and_care",
+   "example": "mi compañero tiene mucho frío pero ya no tiembla y está letárgico",
+   "rank": 19,
+   "top1": "actions.report_hypothermia",
+   "top1_cos": 0.9416,
+   "own_cos": 0.8856
+  },
+  {
+   "id": "health_safety.severe_hypothermia_signs_and_care",
+   "example": "cómo manejar con suavidad a una persona con hipotermia grave",
+   "rank": 2,
+   "top1": "health_safety.hypothermia_first_response",
+   "top1_cos": 0.9214,
+   "own_cos": 0.9133
+  },
+  {
+   "id": "health_safety.severe_hypothermia_signs_and_care",
+   "example": "manta térmica y evitar movimientos bruscos en hipotermia",
+   "rank": 2,
+   "top1": "health_safety.wind_and_wetness_heat_loss",
+   "top1_cos": 0.9224,
+   "own_cos": 0.9095
+  },
+  {
+   "id": "health_safety.severe_hypothermia_signs_and_care",
+   "example": "cuándo la hipotermia se vuelve una emergencia crítica",
+   "rank": 5,
+   "top1": "health_safety.hypothermia_body_temperature",
+   "top1_cos": 0.9321,
+   "own_cos": 0.8853
+  },
+  {
+   "id": "health_safety.severe_hypothermia_signs_and_care",
+   "example": "dejo de temblar y esta frio, lo muevo rapido o lo dejo quieto",
+   "rank": 124,
+   "top1": "health_safety.suspected_fracture_first_aid",
+   "top1_cos": 0.9238,
+   "own_cos": 0.8477
+  },
+  {
+   "id": "health_safety.frostbite_no_refreeze_or_walk",
+   "example": "por qué es peligroso descongelar si aún falta caminar en el frío",
+   "rank": 2,
+   "top1": "health_safety.severe_hypothermia_signs_and_care",
+   "top1_cos": 0.9021,
+   "own_cos": 0.8995
+  },
+  {
+   "id": "health_safety.frostbite_no_refreeze_or_walk",
+   "example": "qué hacer si se me congelan los dedos de los pies en la ruta",
+   "rank": 3,
+   "top1": "health_safety.frostbite_first_aid",
+   "top1_cos": 0.9317,
+   "own_cos": 0.9269
+  },
+  {
+   "id": "health_safety.frostbite_no_refreeze_or_walk",
+   "example": "cuándo recalentar una extremidad congelada en montaña",
+   "rank": 2,
+   "top1": "health_safety.frostbite_no_direct_dry_heat",
+   "top1_cos": 0.9096,
+   "own_cos": 0.9019
+  },
+  {
+   "id": "health_safety.frostbite_no_direct_dry_heat",
+   "example": "cómo recalentar dedos entumidos sin quemarlos",
+   "rank": 2,
+   "top1": "health_safety.frostbite_first_aid",
+   "top1_cos": 0.9079,
+   "own_cos": 0.8985
+  },
+  {
+   "id": "health_safety.frostbite_no_direct_dry_heat",
+   "example": "agua tibia o calor corporal para dedos congelados",
+   "rank": 3,
+   "top1": "health_safety.frostbite_first_aid",
+   "top1_cos": 0.9289,
+   "own_cos": 0.9046
+  },
+  {
+   "id": "health_safety.frostbite_no_direct_dry_heat",
+   "example": "why shouldn't I warm frostbite with a stove or fire?",
+   "rank": 7,
+   "top1": "health_safety.frostbite_warning_signs",
+   "top1_cos": 0.8846,
+   "own_cos": 0.8635
+  },
+  {
+   "id": "health_safety.frostbite_no_direct_dry_heat",
+   "example": "recalentar dedos en la axila o con agua tibia",
+   "rank": 2,
+   "top1": "health_safety.frostbite_first_aid",
+   "top1_cos": 0.9077,
+   "own_cos": 0.9032
+  },
+  {
+   "id": "health_safety.frostbite_no_direct_dry_heat",
+   "example": "errores al tratar manos o pies congelados en campamento",
+   "rank": 3,
+   "top1": "health_safety.frostbite_no_refreeze_or_walk",
+   "top1_cos": 0.9207,
+   "own_cos": 0.9046
+  },
+  {
+   "id": "health_safety.frostbite_no_direct_dry_heat",
+   "example": "temperatura segura para recalentar una zona congelada",
+   "rank": 3,
+   "top1": "health_safety.frostbite_first_aid",
+   "top1_cos": 0.9295,
+   "own_cos": 0.8903
+  },
+  {
+   "id": "health_safety.trench_foot_wet_cold_feet",
+   "example": "qué pasa si camino horas con las botas y medias mojadas",
+   "rank": 2,
+   "top1": "health_safety.wind_and_wetness_heat_loss",
+   "top1_cos": 0.9316,
+   "own_cos": 0.9112
+  },
+  {
+   "id": "health_safety.trench_foot_wet_cold_feet",
+   "example": "cuánto más rápido pierden calor los pies mojados",
+   "rank": 2,
+   "top1": "health_safety.wind_and_wetness_heat_loss",
+   "top1_cos": 0.9386,
+   "own_cos": 0.9068
+  },
+  {
+   "id": "health_safety.trench_foot_wet_cold_feet",
+   "example": "what is trench foot from wet cold boots?",
+   "rank": 3,
+   "top1": "health_safety.frostbite_no_refreeze_or_walk",
+   "top1_cos": 0.8489,
+   "own_cos": 0.8345
+  },
+  {
+   "id": "health_safety.trench_foot_wet_cold_feet",
+   "example": "primeros auxilios si tengo los pies helados y húmedos",
+   "rank": 3,
+   "top1": "health_safety.hypothermia_first_response",
+   "top1_cos": 0.9309,
+   "own_cos": 0.9201
+  },
+  {
+   "id": "health_safety.trench_foot_wet_cold_feet",
+   "example": "por qué llevar medias secas de cambio previene lesiones por frío",
+   "rank": 5,
+   "top1": "preparation.layering_system",
+   "top1_cos": 0.8892,
+   "own_cos": 0.8829
+  },
+  {
+   "id": "health_safety.trench_foot_wet_cold_feet",
+   "example": "lleve las botas mojadas todo el dia, es congelacion o pie de trinchera",
+   "rank": 2,
+   "top1": "health_safety.frostbite_warning_signs",
+   "top1_cos": 0.9026,
+   "own_cos": 0.8946
+  },
+  {
+   "id": "health_safety.sunburn_first_aid_mountain",
+   "example": "me quemé la cara con el sol del páramo qué me pongo",
+   "rank": 3,
+   "top1": "preparation.sunscreen",
+   "top1_cos": 0.9283,
+   "own_cos": 0.9071
+  },
+  {
+   "id": "health_safety.sunburn_first_aid_mountain",
+   "example": "puedo echarme vaselina o mantequilla en una quemadura solar",
+   "rank": 2,
+   "top1": "health_safety.thermal_burn_first_aid_camp",
+   "top1_cos": 0.9147,
+   "own_cos": 0.8924
+  },
+  {
+   "id": "health_safety.sunburn_first_aid_mountain",
+   "example": "me salieron ampollas por el sol en la montaña",
+   "rank": 8,
+   "top1": "health_safety.blister_care",
+   "top1_cos": 0.9332,
+   "own_cos": 0.8916
+  },
+  {
+   "id": "health_safety.sunburn_first_aid_mountain",
+   "example": "cuándo ir al médico por una quemadura solar fuerte",
+   "rank": 3,
+   "top1": "health_safety.sun_eye_pain_photophobia",
+   "top1_cos": 0.9396,
+   "own_cos": 0.9017
+  },
+  {
+   "id": "health_safety.sunburn_first_aid_mountain",
+   "example": "first aid and home care for sunburn at high altitude",
+   "rank": 16,
+   "top1": "health_safety.sun_eye_pain_photophobia",
+   "top1_cos": 0.9061,
+   "own_cos": 0.8697
+  },
+  {
+   "id": "health_safety.sunburn_first_aid_mountain",
+   "example": "paños frescos y tomar agua para insolación o quemadura solar",
+   "rank": 2,
+   "top1": "health_safety.thermal_burn_first_aid_camp",
+   "top1_cos": 0.913,
+   "own_cos": 0.9051
+  },
+  {
+   "id": "health_safety.sunburn_first_aid_mountain",
+   "example": "debo reventar o pelar las ampollas del sol",
+   "rank": 4,
+   "top1": "health_safety.blister_care",
+   "top1_cos": 0.9441,
+   "own_cos": 0.8955
+  },
+  {
+   "id": "health_safety.sunburn_first_aid_mountain",
+   "example": "cuidados para la piel quemada por radiación UV en altura",
+   "rank": 2,
+   "top1": "health_safety.sun_uv_protection",
+   "top1_cos": 0.9112,
+   "own_cos": 0.9091
+  },
+  {
+   "id": "health_safety.sunburn_first_aid_mountain",
+   "example": "me queme la cara en el glaciar, echo crema o mantequilla",
+   "rank": 3,
+   "top1": "health_safety.sun_eye_pain_photophobia",
+   "top1_cos": 0.9049,
+   "own_cos": 0.8955
+  },
+  {
+   "id": "health_safety.sun_eye_pain_photophobia",
+   "example": "tengo los ojos irritados y me molesta la luz tras la caminata",
+   "rank": 2,
+   "top1": "health_safety.tell_guide_about_health_change",
+   "top1_cos": 0.9059,
+   "own_cos": 0.904
+  },
+  {
+   "id": "health_safety.sun_eye_pain_photophobia",
+   "example": "cómo proteger los ojos del sol en alta montaña",
+   "rank": 10,
+   "top1": "health_safety.sun_uv_protection",
+   "top1_cos": 0.9415,
+   "own_cos": 0.8904
+  },
+  {
+   "id": "health_safety.sun_eye_pain_photophobia",
+   "example": "eye pain and light sensitivity from high altitude sun",
+   "rank": 10,
+   "top1": "health_safety.sunburn_first_aid_mountain",
+   "top1_cos": 0.9061,
+   "own_cos": 0.8713
+  },
+  {
+   "id": "health_safety.sun_eye_pain_photophobia",
+   "example": "riesgo en los ojos por no usar gafas de sol en el páramo",
+   "rank": 6,
+   "top1": "preparation.sunglasses_uv",
+   "top1_cos": 0.9148,
+   "own_cos": 0.8804
+  },
+  {
+   "id": "health_safety.sun_eye_pain_photophobia",
+   "example": "fotofobia y ardor en los ojos después de subir",
+   "rank": 4,
+   "top1": "health_safety.severe_altitude_warning_signs",
+   "top1_cos": 0.9272,
+   "own_cos": 0.8982
+  },
+  {
+   "id": "health_safety.sun_eye_pain_photophobia",
+   "example": "cuándo consultar al médico por dolor en los ojos tras el sol",
+   "rank": 2,
+   "top1": "health_safety.sunburn_first_aid_mountain",
+   "top1_cos": 0.9396,
+   "own_cos": 0.9248
+  },
+  {
+   "id": "health_safety.sun_eye_pain_photophobia",
+   "example": "gafas oscuras con protección UV para caminar en altura",
+   "rank": 7,
+   "top1": "preparation.sunglasses_uv",
+   "top1_cos": 0.9462,
+   "own_cos": 0.8904
+  },
+  {
+   "id": "health_safety.thermal_burn_first_aid_camp",
+   "example": "me quemé con la estufa o agua hirviendo en el campamento",
+   "rank": 2,
+   "top1": "preparation.sleeping_bag",
+   "top1_cos": 0.9207,
+   "own_cos": 0.9194
+  },
+  {
+   "id": "health_safety.thermal_burn_first_aid_camp",
+   "example": "se puede poner hielo aceite o mantequilla en una quemadura",
+   "rank": 2,
+   "top1": "health_safety.sunburn_first_aid_mountain",
+   "top1_cos": 0.9147,
+   "own_cos": 0.8988
+  },
+  {
+   "id": "health_safety.thermal_burn_first_aid_camp",
+   "example": "cómo cubrir una quemadura para que no se infecte",
+   "rank": 2,
+   "top1": "health_safety.minor_cuts_and_punctures_care",
+   "top1_cos": 0.9082,
+   "own_cos": 0.9064
+  },
+  {
+   "id": "health_safety.thermal_burn_first_aid_camp",
+   "example": "first aid for a stove or hot water burn on a trip",
+   "rank": 4,
+   "top1": "health_safety.sunburn_first_aid_mountain",
+   "top1_cos": 0.89,
+   "own_cos": 0.8688
+  },
+  {
+   "id": "health_safety.thermal_burn_first_aid_camp",
+   "example": "qué hacer si alguien se quema cocinando en la montaña",
+   "rank": 10,
+   "top1": "health_safety.lost_person_protocol",
+   "top1_cos": 0.8945,
+   "own_cos": 0.8764
+  },
+  {
+   "id": "health_safety.thermal_burn_first_aid_camp",
+   "example": "no reventar las ampollas de una quemadura térmica",
+   "rank": 3,
+   "top1": "health_safety.blister_care",
+   "top1_cos": 0.9059,
+   "own_cos": 0.9017
+  },
+  {
+   "id": "health_safety.thermal_burn_first_aid_camp",
+   "example": "cuándo una quemadura requiere atención médica urgente",
+   "rank": 2,
+   "top1": "health_safety.sunburn_first_aid_mountain",
+   "top1_cos": 0.927,
+   "own_cos": 0.9184
+  },
+  {
+   "id": "health_safety.lightning_wait_30_minutes_and_shelters",
+   "example": "una carpa protege contra los rayos en una tormenta",
+   "rank": 6,
+   "top1": "preparation.mountain_tent",
+   "top1_cos": 0.9325,
+   "own_cos": 0.8677
+  },
+  {
+   "id": "health_safety.lightning_wait_30_minutes_and_shelters",
+   "example": "dónde refugiarse de una tormenta eléctrica en la montaña",
+   "rank": 2,
+   "top1": "health_safety.lightning_caught_in_open_paramo",
+   "top1_cos": 0.9168,
+   "own_cos": 0.9134
+  },
+  {
+   "id": "health_safety.lightning_wait_30_minutes_and_shelters",
+   "example": "sirve un kiosco o cobertizo abierto para protegerse de rayos",
+   "rank": 2,
+   "top1": "health_safety.lightning_caught_in_open_paramo",
+   "top1_cos": 0.872,
+   "own_cos": 0.8677
+  },
+  {
+   "id": "health_safety.lightning_wait_30_minutes_and_shelters",
+   "example": "es seguro meterse en un carro de techo duro durante rayos",
+   "rank": 5,
+   "top1": "health_safety.lightning_caught_in_open_paramo",
+   "top1_cos": 0.8666,
+   "own_cos": 0.8588
+  },
+  {
+   "id": "health_safety.lightning_wait_30_minutes_and_shelters",
+   "example": "regla de los 30 minutos después de una tormenta eléctrica",
+   "rank": 3,
+   "top1": "health_safety.lightning_caught_in_open_paramo",
+   "top1_cos": 0.8952,
+   "own_cos": 0.8763
+  },
+  {
+   "id": "health_safety.lightning_wait_30_minutes_and_shelters",
+   "example": "are tents safe from lightning and how long should I wait?",
+   "rank": 42,
+   "top1": "health_safety.lightning_strike_victim_first_aid",
+   "top1_cos": 0.8898,
+   "own_cos": 0.8207
+  },
+  {
+   "id": "health_safety.lightning_wait_30_minutes_and_shelters",
+   "example": "por qué el final de la tormenta eléctrica sigue siendo peligroso",
+   "rank": 5,
+   "top1": "actions.report_storm",
+   "top1_cos": 0.8938,
+   "own_cos": 0.8716
+  },
+  {
+   "id": "health_safety.lightning_wait_30_minutes_and_shelters",
+   "example": "qué refugios sí protegen de una descarga eléctrica",
+   "rank": 2,
+   "top1": "health_safety.lightning_storm_safety",
+   "top1_cos": 0.9144,
+   "own_cos": 0.9134
+  },
+  {
+   "id": "health_safety.lightning_wait_30_minutes_and_shelters",
+   "example": "cerrar las ventanas del vehículo durante tormenta eléctrica",
+   "rank": 4,
+   "top1": "hours_status.weather_emergency_closures",
+   "top1_cos": 0.9122,
+   "own_cos": 0.8763
+  },
+  {
+   "id": "health_safety.lightning_caught_in_open_paramo",
+   "example": "qué hago si me agarra una tormenta de rayos en campo abierto",
+   "rank": 2,
+   "top1": "health_safety.lightning_storm_safety",
+   "top1_cos": 0.9061,
+   "own_cos": 0.8977
+  },
+  {
+   "id": "health_safety.lightning_caught_in_open_paramo",
+   "example": "cómo actuar en el páramo si hay rayos y no hay refugio",
+   "rank": 5,
+   "top1": "weather_volcano.felt_quakes",
+   "top1_cos": 0.8979,
+   "own_cos": 0.8907
+  },
+  {
+   "id": "health_safety.lightning_caught_in_open_paramo",
+   "example": "debo acostarme en el suelo durante una tormenta eléctrica",
+   "rank": 4,
+   "top1": "health_safety.lightning_wait_30_minutes_and_shelters",
+   "top1_cos": 0.9168,
+   "own_cos": 0.8856
+  },
+  {
+   "id": "health_safety.lightning_caught_in_open_paramo",
+   "example": "por qué el grupo debe separarse si caen rayos en el sendero",
+   "rank": 16,
+   "top1": "health_safety.stay_together_prevent_separation",
+   "top1_cos": 0.9066,
+   "own_cos": 0.8681
+  },
+  {
+   "id": "health_safety.lightning_caught_in_open_paramo",
+   "example": "alejarse de lagunas cumbres y cercas de alambre en tormenta",
+   "rank": 2,
+   "top1": "health_safety.lightning_wait_30_minutes_and_shelters",
+   "top1_cos": 0.8836,
+   "own_cos": 0.8817
+  },
+  {
+   "id": "health_safety.lightning_caught_in_open_paramo",
+   "example": "what to do if caught in the open during a lightning storm?",
+   "rank": 2,
+   "top1": "health_safety.lightning_storm_safety",
+   "top1_cos": 0.9046,
+   "own_cos": 0.8807
+  },
+  {
+   "id": "health_safety.lightning_caught_in_open_paramo",
+   "example": "bajar de los filos y cumbres cuando empieza a tronar",
+   "rank": 2,
+   "top1": "hours_status.unplanned_midday_closures",
+   "top1_cos": 0.9298,
+   "own_cos": 0.8817
+  },
+  {
+   "id": "health_safety.lightning_caught_in_open_paramo",
+   "example": "por qué no ponerse bajo un árbol solitario en tormenta",
+   "rank": 2,
+   "top1": "health_safety.lightning_storm_safety",
+   "top1_cos": 0.9078,
+   "own_cos": 0.8856
+  },
+  {
+   "id": "health_safety.lightning_caught_in_open_paramo",
+   "example": "distancia entre compañeros durante tormenta eléctrica en ruta",
+   "rank": 2,
+   "top1": "health_safety.lightning_wait_30_minutes_and_shelters",
+   "top1_cos": 0.8889,
+   "own_cos": 0.8853
+  },
+  {
+   "id": "health_safety.lightning_caught_in_open_paramo",
+   "example": "medidas de emergencia a cielo abierto con truenos",
+   "rank": 9,
+   "top1": "health_safety.lightning_storm_safety",
+   "top1_cos": 0.8825,
+   "own_cos": 0.8613
+  },
+  {
+   "id": "health_safety.lightning_strike_victim_first_aid",
+   "example": "qué hacer si un rayo golpea a un compañero en la montaña",
+   "rank": 2,
+   "top1": "health_safety.stay_together_prevent_separation",
+   "top1_cos": 0.9114,
+   "own_cos": 0.9037
+  },
+  {
+   "id": "health_safety.lightning_strike_victim_first_aid",
+   "example": "is it safe to touch a lightning strike victim and give first aid?",
+   "rank": 9,
+   "top1": "health_safety.lightning_wait_30_minutes_and_shelters",
+   "top1_cos": 0.8898,
+   "own_cos": 0.8464
+  },
+  {
+   "id": "health_safety.suspected_fracture_first_aid",
+   "example": "qué hago si alguien se fractura una pierna o brazo en el sendero",
+   "rank": 9,
+   "top1": "fauna.injured_wildlife_protocol",
+   "top1_cos": 0.9238,
+   "own_cos": 0.8936
+  },
+  {
+   "id": "health_safety.suspected_fracture_first_aid",
+   "example": "primeros auxilios para hueso roto o fractura abierta",
+   "rank": 5,
+   "top1": "health_safety.head_or_spine_injury_fall",
+   "top1_cos": 0.9348,
+   "own_cos": 0.9053
+  },
+  {
+   "id": "health_safety.suspected_fracture_first_aid",
+   "example": "qué hacer si el hueso asoma por la herida tras una caída",
+   "rank": 4,
+   "top1": "health_safety.head_or_spine_injury_fall",
+   "top1_cos": 0.9165,
+   "own_cos": 0.9025
+  },
+  {
+   "id": "health_safety.suspected_fracture_first_aid",
+   "example": "first aid for a suspected broken bone on a trail",
+   "rank": 15,
+   "top1": "health_safety.head_or_spine_injury_fall",
+   "top1_cos": 0.9089,
+   "own_cos": 0.8551
+  },
+  {
+   "id": "health_safety.suspected_fracture_first_aid",
+   "example": "revisar circulación en los dedos después de entablillar",
+   "rank": 8,
+   "top1": "health_safety.blister_care",
+   "top1_cos": 0.8807,
+   "own_cos": 0.8615
+  },
+  {
+   "id": "health_safety.suspected_fracture_first_aid",
+   "example": "no apoyar ni mover una extremidad fracturada",
+   "rank": 4,
+   "top1": "actions.report_injury",
+   "top1_cos": 0.9212,
+   "own_cos": 0.9034
+  },
+  {
+   "id": "health_safety.suspected_fracture_first_aid",
+   "example": "creo que se partio el brazo, lo enderezo o lo dejo quieto",
+   "rank": 259,
+   "top1": "health_safety.severe_hypothermia_signs_and_care",
+   "top1_cos": 0.9238,
+   "own_cos": 0.8474
+  },
+  {
+   "id": "health_safety.head_or_spine_injury_fall",
+   "example": "primeros auxilios por trauma en la cabeza o columna",
+   "rank": 6,
+   "top1": "health_safety.suspected_fracture_first_aid",
+   "top1_cos": 0.9348,
+   "own_cos": 0.9104
+  },
+  {
+   "id": "health_safety.head_or_spine_injury_fall",
+   "example": "first aid for a head or spinal injury after a fall",
+   "rank": 4,
+   "top1": "health_safety.suspected_fracture_first_aid",
+   "top1_cos": 0.9089,
+   "own_cos": 0.896
+  },
+  {
+   "id": "health_safety.head_or_spine_injury_fall",
+   "example": "no mover a un herido con posible lesión de columna",
+   "rank": 11,
+   "top1": "health_safety.suspected_fracture_first_aid",
+   "top1_cos": 0.9181,
+   "own_cos": 0.8929
+  },
+  {
+   "id": "health_safety.head_or_spine_injury_fall",
+   "example": "sostener la cabeza alineada con el cuello tras una caída",
+   "rank": 2,
+   "top1": "health_safety.bleeding_control",
+   "top1_cos": 0.9128,
+   "own_cos": 0.9091
+  },
+  {
+   "id": "health_safety.head_or_spine_injury_fall",
+   "example": "vómito somnolencia o pupilas desiguales tras golpe craneal",
+   "rank": 11,
+   "top1": "health_safety.sun_eye_pain_photophobia",
+   "top1_cos": 0.8844,
+   "own_cos": 0.8764
+  },
+  {
+   "id": "health_safety.head_or_spine_injury_fall",
+   "example": "por qué toda caída fuerte puede tener trauma cervical",
+   "rank": 2,
+   "top1": "health_safety.suspected_fracture_first_aid",
+   "top1_cos": 0.8817,
+   "own_cos": 0.8744
+  },
+  {
+   "id": "health_safety.guide_first_aid_kit_and_certification",
+   "example": "qué certificación médica o de rescate tienen los guías avalados",
+   "rank": 2,
+   "top1": "services.guide_radios",
+   "top1_cos": 0.8995,
+   "own_cos": 0.8902
+  },
+  {
+   "id": "health_safety.guide_first_aid_kit_and_certification",
+   "example": "requisitos de primeros auxilios para guías en Los Nevados",
+   "rank": 4,
+   "top1": "booking_fees.guide_required",
+   "top1_cos": 0.9167,
+   "own_cos": 0.901
+  },
+  {
+   "id": "health_safety.guide_first_aid_kit_and_certification",
+   "example": "equipo médico y radio de comunicación del guía registrado",
+   "rank": 2,
+   "top1": "services.guide_radios",
+   "top1_cos": 0.9178,
+   "own_cos": 0.9077
+  },
+  {
+   "id": "health_safety.pre_hike_health_disclosure_and_induction",
+   "example": "es obligatorio recibir la charla de inducción al entrar al parque",
+   "rank": 8,
+   "top1": "booking_fees.induction_requirement",
+   "top1_cos": 0.9304,
+   "own_cos": 0.8821
+  },
+  {
+   "id": "health_safety.pre_hike_health_disclosure_and_induction",
+   "example": "debo avisar antes del recorrido si tengo una lesión o alergia",
+   "rank": 2,
+   "top1": "health_safety.pretrip_medical_advice",
+   "top1_cos": 0.9088,
+   "own_cos": 0.9083
+  },
+  {
+   "id": "health_safety.pre_hike_health_disclosure_and_induction",
+   "example": "qué explican en la charla de inducción de seguridad",
+   "rank": 3,
+   "top1": "hours_status.brisas_induction_talk_schedule",
+   "top1_cos": 0.9002,
+   "own_cos": 0.8821
+  },
+  {
+   "id": "health_safety.pre_hike_health_disclosure_and_induction",
+   "example": "por qué prestar atención a la inducción de Parques Nacionales",
+   "rank": 4,
+   "top1": "booking_fees.induction_requirement",
+   "top1_cos": 0.8931,
+   "own_cos": 0.88
+  },
+  {
+   "id": "health_safety.pre_hike_health_disclosure_and_induction",
+   "example": "llevar medicamentos formulados si sufro de una alergia",
+   "rank": 4,
+   "top1": "health_safety.pretrip_medical_advice",
+   "top1_cos": 0.8986,
+   "own_cos": 0.8753
+  },
+  {
+   "id": "health_safety.pre_hike_health_disclosure_and_induction",
+   "example": "is the safety induction talk mandatory before entering?",
+   "rank": 3,
+   "top1": "booking_fees.induction_requirement",
+   "top1_cos": 0.9367,
+   "own_cos": 0.8616
+  },
+  {
+   "id": "health_safety.pre_hike_health_disclosure_and_induction",
+   "example": "informar con anterioridad lesiones o discapacidad al operador",
+   "rank": 2,
+   "top1": "actions.report_injury",
+   "top1_cos": 0.9171,
+   "own_cos": 0.9057
+  },
+  {
+   "id": "health_safety.pre_hike_health_disclosure_and_induction",
+   "example": "qué recomendaciones de emergencia dan en el punto de ingreso",
+   "rank": 56,
+   "top1": "actions.register_arrival_today",
+   "top1_cos": 0.8949,
+   "own_cos": 0.8531
+  },
+  {
+   "id": "health_safety.pre_hike_health_disclosure_and_induction",
+   "example": "declarar condiciones médicas antes de empezar la caminata",
+   "rank": 2,
+   "top1": "health_safety.high_altitude_health_risk",
+   "top1_cos": 0.8968,
+   "own_cos": 0.89
+  },
+  {
+   "id": "health_safety.pre_hike_health_disclosure_and_induction",
+   "example": "importancia de la charla preventiva antes de subir al páramo",
+   "rank": 15,
+   "top1": "booking_fees.induction_requirement",
+   "top1_cos": 0.8895,
+   "own_cos": 0.8567
+  },
+  {
+   "id": "health_safety.pre_hike_health_disclosure_and_induction",
+   "example": "la charla de induccion es obligatoria segun la resolucion 207",
+   "rank": 181,
+   "top1": "booking_fees.induction_requirement",
+   "top1_cos": 0.9157,
+   "own_cos": 0.8547
+  },
+  {
+   "id": "health_safety.stay_together_prevent_separation",
+   "example": "por qué no debo adelantarme ni separarme del guía en el sendero",
+   "rank": 4,
+   "top1": "activities.recreation_zone_trails",
+   "top1_cos": 0.9149,
+   "own_cos": 0.8955
+  },
+  {
+   "id": "health_safety.stay_together_prevent_separation",
+   "example": "es peligroso quedarse rezagado tomando fotos en la niebla",
+   "rank": 50,
+   "top1": "health_safety.hypothermia_warning_signs",
+   "top1_cos": 0.8843,
+   "own_cos": 0.8504
+  },
+  {
+   "id": "health_safety.stay_together_prevent_separation",
+   "example": "nos podemos separar un rato o toca ir juntos?",
+   "rank": 58,
+   "top1": "hours_status.unplanned_midday_closures",
+   "top1_cos": 0.8788,
+   "own_cos": 0.8456
+  },
+  {
+   "id": "health_safety.stay_together_prevent_separation",
+   "example": "how to prevent getting separated from the hiking group?",
+   "rank": 6,
+   "top1": "health_safety.lost_person_protocol",
+   "top1_cos": 0.9035,
+   "own_cos": 0.8649
+  },
+  {
+   "id": "health_safety.stay_together_prevent_separation",
+   "example": "no dejar a ningún compañero solo o rezagado en la montaña",
+   "rank": 2,
+   "top1": "health_safety.lightning_strike_victim_first_aid",
+   "top1_cos": 0.9114,
+   "own_cos": 0.9016
+  },
+  {
+   "id": "health_safety.stay_together_prevent_separation",
+   "example": "por qué el grupo no debe dividirse en el páramo",
+   "rank": 2,
+   "top1": "health_safety.lightning_caught_in_open_paramo",
+   "top1_cos": 0.8954,
+   "own_cos": 0.8856
+  },
+  {
+   "id": "health_safety.stay_together_prevent_separation",
+   "example": "riesgo de fragmentar el grupo en senderos de alta montaña",
+   "rank": 4,
+   "top1": "rules.respect_carrying_capacity_limits",
+   "top1_cos": 0.9075,
+   "own_cos": 0.8893
+  },
+  {
+   "id": "health_safety.stay_together_prevent_separation",
+   "example": "me puedo adelantar al grupo si veo el guia mas arriba",
+   "rank": 68,
+   "top1": "booking_fees.south_reservation_order",
+   "top1_cos": 0.908,
+   "own_cos": 0.8605
+  },
+  {
+   "id": "health_safety.mountaineer_contingency_and_first_aid",
+   "example": "qué requisitos de seguridad médica piden para montañismo deportivo",
+   "rank": 3,
+   "top1": "activities.sport_mountaineering",
+   "top1_cos": 0.9184,
+   "own_cos": 0.9046
+  },
+  {
+   "id": "health_safety.mountaineer_contingency_and_first_aid",
+   "example": "qué documento de riesgos presentan los deportistas de montaña",
+   "rank": 2,
+   "top1": "rules.sport_mountaineers_advance_request",
+   "top1_cos": 0.9195,
+   "own_cos": 0.9046
+  },
+  {
+   "id": "health_safety.mountaineer_contingency_and_first_aid",
+   "example": "what contingency plan is required for sport mountaineers?",
+   "rank": 3,
+   "top1": "rules.sport_mountaineers_advance_request",
+   "top1_cos": 0.8827,
+   "own_cos": 0.8744
+  },
+  {
+   "id": "health_safety.mountaineer_contingency_and_first_aid",
+   "example": "datos de contacto en caso de emergencia para el itinerario",
+   "rank": 4,
+   "top1": "health_safety.national_emergency_number_123",
+   "top1_cos": 0.9108,
+   "own_cos": 0.9025
+  },
+  {
+   "id": "health_safety.mountaineer_contingency_and_first_aid",
+   "example": "presentar plan de riesgos en la reserva y en la inducción",
+   "rank": 2,
+   "top1": "rules.sport_mountaineers_advance_request",
+   "top1_cos": 0.8936,
+   "own_cos": 0.8915
+  }
+ ],
+ "removed_examples": 0,
+ "removed_not_routing": []
+}

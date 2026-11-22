@@ -1,0 +1,51 @@
+[
+  {
+    "ids": [
+      "services.uton_services",
+      "access.uton_brisas_transport",
+      "booking_fees.brisas_booking_channel"
+    ],
+    "problem": "Solapamiento conceptual en el alcance de la concesión UTON. En access se consulta el transporte específico a Brisas y en booking_fees el canal de reserva de ingreso, mientras en services se describe la totalidad de servicios concesionados.",
+    "suggestion": "Mantener services.uton_services como panorama general de servicios de la concesión y diferenciarlo con hard_negatives hacia el transporte vial (access) y la pasarela de pago de entradas (booking_fees)."
+  },
+  {
+    "ids": [
+      "services.cisne_visitor_center",
+      "activities.camping_cisne"
+    ],
+    "problem": "Confusión entre hospedaje en camas dentro del centro de visitantes El Cisne y la zona externa de camping El Cisne (actividad de acampada).",
+    "suggestion": "Clarificar en labels y hard_negatives que services.cisne_visitor_center corresponde a camas/cabaña y activities.camping_cisne a acampada con carpa."
+  },
+  {
+    "ids": [
+      "services.mule_luggage_registered_only",
+      "activities.horseback_not_allowed"
+    ],
+    "problem": "Tensión entre la prohibición total de cabalgatas recreativas turísticas (activities/rules) y la excepción reglamentaria de transporte de equipaje en mulas con arrieros locales acreditados (services).",
+    "suggestion": "Asegurar que las preguntas de paseo/cabalgata deriven a activities.horseback_not_allowed y las de porteo de carga a lomo de mula a services.mule_luggage_registered_only."
+  },
+  {
+    "ids": [
+      "services.lost_items",
+      "actions.report_lost_person"
+    ],
+    "problem": "Riesgo de confusión semántica ante 'perdí algo / se me perdió': objetos personales extraviados (servicio sin custodia oficial) frente a extravío de personas (emergencia de rescate vital).",
+    "suggestion": "services.lost_items debe tener hard_negative explícito para personas extraviadas y derivar de inmediato a actions.report_lost_person en emergencias."
+  },
+  {
+    "ids": [
+      "services.camp_showers",
+      "preparation.camp_hygiene"
+    ],
+    "problem": "Preguntas sobre aseo e higiene en campamento enrutadas hacia duchas de Arenales (cerradas por vulcanismo) en lugar de pautas de aseo ecológico sin contaminar fuentes hídricas.",
+    "suggestion": "Diferenciar la infraestructura física de servicios (duchas Arenales en services) de las pautas de equipo/higiene en preparación (preparation.camp_hygiene)."
+  },
+  {
+    "ids": [
+      "services.toilets",
+      "activities.therapeutic_baths_banned"
+    ],
+    "problem": "La consulta 'baños' es una búsqueda frecuente de sanitarios que podría solapar léxicamente con baños termales en activities.",
+    "suggestion": "Conservar 'baños' en services.toilets como consulta corta real de turistas, diferenciando el label ('servicios sanitarios y baños para visitantes') y usando hard negatives para redirigir intenciones de termales a activities.therapeutic_baths_banned."
+  }
+]

@@ -1,0 +1,198 @@
+{
+ "section": "actions",
+ "reviewer": "agent 25 / claude-haiku-5-5",
+ "ops": [
+  {
+   "id": "actions.register_planned_visit",
+   "op": "update",
+   "verdict": "revise",
+   "entailment": "partial",
+   "label_change": "n/a",
+   "examples": "issues",
+   "temporal": "issue",
+   "refetch": "ok",
+   "reason": "Reservas por tramo (Brisas-Valle, Brisas-Kumanday, demás sectores) y la Resolución 1815 están en la ficha. Dos frases no. (a) «El ingreso se completa en los puntos de registro e ingreso del parque» no está en la cita: la ficha solo dice que los horarios dependen de esos puntos. (b) «En noviembre, ese recorrido ... queda bajo el pico y placa» afirma un estado vigente en presente, sin fecha de consulta. El ejemplo nuevo «quiero registrar el grupo para otro dia, no es una pregunta de horario» lleva una aclaración de contraste escrita para el clasificador, no lenguaje de turista.",
+   "required_change": "1) Sustituir «El ingreso se completa en los puntos de registro e ingreso del parque» por «Los horarios dependen de los puntos de registro e ingreso del parque». 2) Fechar el pico y placa: «La ficha consultada el 22 de noviembre de 2026 dice que la Resolución 1815 (24 de julio de 2026) aplica en noviembre a fines de semana y puentes». 3) Quitar «, no es una pregunta de horario» del ejemplo."
+  },
+  {
+   "id": "actions.register_arrival_today",
+   "op": "update",
+   "verdict": "revise",
+   "entailment": "n/a",
+   "label_change": "n/a",
+   "examples": "issues",
+   "temporal": "ok",
+   "refetch": "n/a",
+   "reason": "Solo cambia metadatos (un ejemplo y dos hard negatives; se quita «a qué hora abren»). La respuesta no cambia. El ejemplo nuevo «ya estoy en la porteria, abre el registro de hoy y no la reserva de otro dia» lleva una cláusula de contraste escrita para el clasificador. Además, la respuesta vigente dice «El ingreso oficial se completa en los puntos de registro» con la misma cita parcial que el op de visita planificada (pre-existente, no introducida aquí).",
+   "required_change": "Quitar «y no la reserva de otro dia» del ejemplo nuevo; dejar «ya estoy en la porteria, abre el registro de hoy». Tomar nota de que la frase «El ingreso oficial se completa en los puntos de registro» necesita la misma corrección que en register_planned_visit."
+  },
+  {
+   "id": "actions.report_emergency_general",
+   "op": "update",
+   "verdict": "revise",
+   "entailment": "full",
+   "label_change": "justified",
+   "examples": "issues",
+   "temporal": "ok",
+   "refetch": "ok",
+   "reason": "El 123 como línea única, gratuita y 24 h está en la nota de la Policía (12 mar 2023, cita literal); la fecha se declara en la respuesta. needs vacío: correcto. La etiqueta pasa de «reportar» a «preparar el reporte»: «reportar» sugería transmisión, y la respuesta dice que la app no avisa a rescate. El ejemplo «abre el reporte de emergencia y dime el 123, no me mandes ayuda» es artificial y contiene «no me mandes ayuda», una frase que no debe entrenar ni enrutar una emergencia real.",
+   "required_change": "Quitar «, no me mandes ayuda» del ejemplo nuevo. Aceptar el resto."
+  },
+  {
+   "id": "actions.report_injury",
+   "op": "update",
+   "verdict": "approve",
+   "entailment": "full",
+   "label_change": "justified",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "ok",
+   "reason": "Mismo respaldo del 123 que el op anterior, con la fecha declarada. La etiqueta nueva separa el reporte de la lesión de los primeros auxilios. Los dos ejemplos retirados («se cortó feo con una piedra», «se pegó una caída feísima») son síntomas, y actions.cross.json manda la atención de primeros auxilios a health_safety. La retirada es coherente con el hallazgo; el destino de esas frases debe comprobarse en health_safety (bleeding_control, sprain, fracture).",
+   "required_change": "Ninguno en este op. Verificar en la revisión de health_safety que «se cortó feo con una piedra» y «se pegó una caída feísima» llegan a una entrada de primeros auxilios."
+  },
+  {
+   "id": "actions.report_lost_person",
+   "op": "update",
+   "verdict": "revise",
+   "entailment": "full",
+   "label_change": "justified",
+   "examples": "issues",
+   "temporal": "ok",
+   "refetch": "ok",
+   "reason": "El 123 y la fecha están respaldados por la nota de la Policía. «La app no avisa a rescate» coincide con actions.cross.json. Retirar «no me sale señal y se perdió alguien del grupo» de los hard negatives es correcto, porque es un caso de persona perdida. El ejemplo «falta una persona del grupo, abre el reporte, no se me perdio un objeto» lleva «no se me perdio un objeto», una aclaración de contraste para el clasificador.",
+   "required_change": "Quitar «, no se me perdio un objeto» del ejemplo nuevo."
+  },
+  {
+   "id": "actions.report_altitude_sickness",
+   "op": "update",
+   "verdict": "approve",
+   "entailment": "full",
+   "label_change": "justified",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "ok",
+   "reason": "«Si la persona empeora o no responde bien, marca el 123» se apoya en la línea 123 general y en la fecha declarada. La etiqueta pasa de «reportar» a «preparar reporte», sin implicar transmisión. El ejemplo nuevo es natural. La instrucción de descenso vive en health_safety, no aquí, y no hay contradicción.",
+   "required_change": "Ninguno."
+  },
+  {
+   "id": "actions.report_hypothermia",
+   "op": "update",
+   "verdict": "approve",
+   "entailment": "full",
+   "label_change": "justified",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "ok",
+   "reason": "El 123 y la fecha están respaldados. Los dos ejemplos retirados («alguien tirita sin parar», «tiene los labios morados y tirita sin parar») son síntomas graves. actions.cross.json los asigna a health_safety (severe_hypothermia_signs_and_care, hypothermia_first_response), así que la retirada es coherente con el hallazgo. Su destino debe comprobarse en health_safety.",
+   "required_change": "Ninguno en este op. Verificar en la revisión de health_safety que esas dos frases llegan a severe_hypothermia_signs_and_care."
+  },
+  {
+   "id": "actions.report_storm",
+   "op": "update",
+   "verdict": "approve",
+   "entailment": "full",
+   "label_change": "justified",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "ok",
+   "reason": "El 123 y la fecha están respaldados. La respuesta no da primeros auxilios por rayo, lo cual es correcto (health_safety.lightning_storm_safety). El ejemplo nuevo es natural. Los hard negatives nuevos (nieve en Los Nevados) separan bien de clima.",
+   "required_change": "Ninguno."
+  },
+  {
+   "id": "actions.report_fire",
+   "op": "update",
+   "verdict": "revise",
+   "entailment": "full",
+   "label_change": "justified",
+   "examples": "issues",
+   "temporal": "ok",
+   "refetch": "ok",
+   "reason": "El 123 y la fecha están respaldados. La etiqueta pasa a «abrir el reporte» para no sugerir transmisión. Pero se retira «veo llamas en la montaña», el caso de un incendio visto ahora. actions.cross.json dice expresamente que actions debe conservar «el handoff para un fuego que el visitante está viendo ahora». Ninguna otra fuente justifica la retirada. Además, se retira el hard negative «llamar al 119 o al 123 por fuego en el páramo», una pregunta de número real que debía ir a health_safety (firefighters_line_119).",
+   "required_change": "1) Reinstaurar «veo llamas en la montaña» como ejemplo. 2) Reinstaurar «llamar al 119 o al 123 por fuego en el páramo» como hard negative, o justificar su retirada con un enrutamiento comprobado hacia health_safety.firefighters_line_119."
+  },
+  {
+   "id": "actions.report_offline_emergency",
+   "op": "update",
+   "verdict": "revise",
+   "entailment": "full",
+   "label_change": "justified",
+   "examples": "issues",
+   "temporal": "ok",
+   "refetch": "ok",
+   "reason": "«Avisa a tu guía registrado ... debe contar con radios» se sostiene con la ficha (guías registrados con radios y equipo médico). El 123 y la fecha están respaldados. La etiqueta pasa a «preparar reporte» sin implicar transmisión. Pero se retira «estoy sin señal y hay gente tirada en la montaña», la frase central de esta entrada, sin ninguna justificación en los hallazgos. Eso empeora el enrutamiento de la emergencia sin cobertura. El hard negative nuevo «la persona no responde qué hago» es correcto.",
+   "required_change": "Reinstaurar «estoy sin señal y hay gente tirada en la montaña» como ejemplo."
+  }
+ ],
+ "audit_rows": [
+  {
+   "id": "actions.register_planned_visit",
+   "claimed": "primary_ok",
+   "support": "partial",
+   "note": "La cita de la ficha sostiene la regla de Brisas-Valle (reserva un día antes en fines de semana y puentes). No sostiene por sí sola la regla de Kumanday, la de los demás sectores ni la afirmación de que el ingreso se completa en los puntos de registro. Fuente oficial, fechada en la respuesta."
+  },
+  {
+   "id": "actions.register_arrival_today",
+   "claimed": "primary_ok",
+   "support": "partial",
+   "note": "La cita dice que los horarios dependen de los puntos de registro e ingreso. No dice que el ingreso se complete ahí. La frase de la respuesta va más allá de la cita."
+  },
+  {
+   "id": "actions.report_emergency_general",
+   "claimed": "primary_ok",
+   "support": "full",
+   "note": "La cita de la Policía (12 mar 2023) dice que el 123 es la línea única, gratuita y de 24 h. La respuesta lo fecha. Fuente oficial."
+  },
+  {
+   "id": "actions.report_injury",
+   "claimed": "primary_ok",
+   "support": "full",
+   "note": "Mismo respaldo del 123 que el op general. La cita es genérica y la respuesta la fecha."
+  },
+  {
+   "id": "actions.report_lost_person",
+   "claimed": "primary_ok",
+   "support": "full",
+   "note": "El 123 general cubre la búsqueda de una persona. La cita no menciona personas perdidas; el alcance es general pero no contradice."
+  },
+  {
+   "id": "actions.report_altitude_sickness",
+   "claimed": "primary_ok",
+   "support": "full",
+   "note": "El 123 general cubre el caso. La cita no menciona el mal de altura; el alcance es general."
+  },
+  {
+   "id": "actions.report_hypothermia",
+   "claimed": "primary_ok",
+   "support": "full",
+   "note": "El 123 general cubre el caso. La cita no menciona la hipotermia; el alcance es general."
+  },
+  {
+   "id": "actions.report_storm",
+   "claimed": "primary_ok",
+   "support": "full",
+   "note": "El 123 general cubre el caso. La cita no menciona tormentas."
+  },
+  {
+   "id": "actions.report_fire",
+   "claimed": "primary_ok",
+   "support": "full",
+   "note": "El 123 general cubre el caso. La cita no menciona incendios; el 119 de bomberos aparece en health_safety, no aquí."
+  },
+  {
+   "id": "actions.report_offline_emergency",
+   "claimed": "primary_ok",
+   "support": "partial",
+   "note": "La cita de la Policía sostiene el 123 (si hay señal). La instrucción de avisar al guía registrado y la de radios vienen de la ficha, no de esta cita. La cita del audit no cubre ese paso, que es el principal sin señal."
+  }
+ ],
+ "summary": {
+  "approve": 4,
+  "revise": 6,
+  "reject": 0,
+  "audit_support": {
+   "full": 7,
+   "partial": 3,
+   "none": 0
+  }
+ }
+}

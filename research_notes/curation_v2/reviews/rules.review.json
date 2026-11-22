@@ -1,0 +1,1332 @@
+{
+ "section": "rules",
+ "reviewer": "agent 27 / claude-haiku-5-5",
+ "ops": [
+  {
+   "id": "rules.pets",
+   "op": "update",
+   "verdict": "revise",
+   "entailment": "full",
+   "label_change": "stylistic",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "ok",
+   "reason": "Cita res207 (\"Ingresar animales domésticos o mascotas\") y FAQ (\"no está permitido el ingreso de mascotas\"). Respaldado.",
+   "required_change": "Conservar la etiqueta anterior \"ingreso de mascotas\"; la etiqueta nueva sólo reescribe."
+  },
+  {
+   "id": "rules.stay_on_routes",
+   "op": "update",
+   "verdict": "revise",
+   "entailment": "partial",
+   "label_change": "stylistic",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "ok",
+   "reason": "Res207: \"Solo se permite el uso de los senderos ... en el mapa\". \"Recorre el sendero a pie\" no aparece en la cita.",
+   "required_change": "Quitar \"Recorre el sendero a pie y sin salirte de él\" o citar su fuente. Conservar la etiqueta anterior."
+  },
+  {
+   "id": "rules.leave_no_waste",
+   "op": "update",
+   "verdict": "revise",
+   "entailment": "partial",
+   "label_change": "justified",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "ok",
+   "reason": "La cita cubre llevarse los residuos. \"No los entierres ni los escondas bajo rocas\" sí está en res207 (\"entierro u ocultamiento de residuos bajo rocas o en el suelo\") pero no en esta op. Etiqueta nueva justificada por confusión con pick_up_trail_litter.",
+   "required_change": "Añadir la cita de res207 sobre entierro u ocultamiento de residuos bajo rocas."
+  },
+  {
+   "id": "rules.leave_natural_objects",
+   "op": "update",
+   "verdict": "revise",
+   "entailment": "full",
+   "label_change": "stylistic",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "warn",
+   "reason": "res207 \"Extraer material del suelo, vegetal y/o animal: Fauna, flora, rocas.\" Respaldado. Refetch bloqueado por decreto (TLS).",
+   "required_change": "Conservar la etiqueta anterior. Resolver el refetch del decreto 1076 antes de aprobar."
+  },
+  {
+   "id": "rules.no_introduce_species",
+   "op": "update",
+   "verdict": "revise",
+   "entailment": "full",
+   "label_change": "stylistic",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "warn",
+   "reason": "res207 \"Introducir ... animales, semillas, flores, propágulos\". Respaldado.",
+   "required_change": "Conservar la etiqueta anterior. Resolver refetch del decreto."
+  },
+  {
+   "id": "rules.avoid_pollutants",
+   "op": "update",
+   "verdict": "revise",
+   "entailment": "full",
+   "label_change": "stylistic",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "warn",
+   "reason": "res207 sobre productos químicos en aerosoles y contaminación de suelo, aire o agua. Respaldado.",
+   "required_change": "Conservar la etiqueta anterior. Resolver refetch del decreto."
+  },
+  {
+   "id": "rules.avoid_chemicals",
+   "op": "update",
+   "verdict": "revise",
+   "entailment": "partial",
+   "label_change": "stylistic",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "warn",
+   "reason": "Decreto 1076 ítem 13 de la lista de prohibiciones prohíbe \"juegos pirotécnicos ... y sustancias explosivas\"; no está citado. La cita usada cubre explosivos y químicos de efectos residuales.",
+   "required_change": "Añadir la cita del ítem 13 (pirotécnicos). Conservar la etiqueta anterior."
+  },
+  {
+   "id": "rules.commercial_photography",
+   "op": "update",
+   "verdict": "revise",
+   "entailment": "partial",
+   "label_change": "stylistic",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "warn",
+   "reason": "Autorización para fines comerciales: respaldado (res207 \"Realizar videos o fotografías con fines comerciales ... sin previa autorización\"). \"Las fotos y videos aficionados sí están permitidos\" está en res207 (\"Fotografía y video no comercial ... aficionado\") pero no citado.",
+   "required_change": "Citar la frase de res207 sobre fotografía no comercial/aficionada. Conservar la etiqueta anterior."
+  },
+  {
+   "id": "rules.audiovisual_permits",
+   "op": "update",
+   "verdict": "revise",
+   "entailment": "partial",
+   "label_change": "stylistic",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "ok",
+   "reason": "res207 sobre luces, pantallas y telones sin permisos; pnn ficha sobre tomas audiovisuales. \"Aplica a todos los sectores del parque\" no está en las citas.",
+   "required_change": "Quitar \"y el requisito aplica a todos los sectores del parque\" o citarlo. Conservar la etiqueta anterior."
+  },
+  {
+   "id": "rules.event_permits",
+   "op": "update",
+   "verdict": "revise",
+   "entailment": "partial",
+   "label_change": "stylistic",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "warn",
+   "reason": "Decreto: reuniones no autorizadas; pnn ficha: eventos requieren autorización. \"En todos los sectores\" no está citado.",
+   "required_change": "Quitar \"en todos los sectores\" o citarlo. Conservar la etiqueta anterior. Resolver refetch del decreto."
+  },
+  {
+   "id": "rules.organized_sports",
+   "op": "update",
+   "verdict": "revise",
+   "entailment": "partial",
+   "label_change": "misstates",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "ok",
+   "reason": "La cita res207 está cortada antes del texto de los clubes de montañismo; la Resolución 474 de 2018 sí aparece en res207 pero no en la cita. La etiqueta nueva (\"competencias y carreras\") deja fuera el montañismo de clubes que describe la respuesta.",
+   "required_change": "Citar res207 completa sobre montañistas de clubes y Resolución 474 de 2018. Conservar la etiqueta anterior."
+  },
+  {
+   "id": "rules.research_permissions",
+   "op": "update",
+   "verdict": "revise",
+   "entailment": "full",
+   "label_change": "stylistic",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "warn",
+   "reason": "res207 \"solo se permite la colecta de especímenes con fines científicos y autorizados\"; pnn ficha sobre investigación. Respaldado. Refetch bloqueado por decreto (TLS).",
+   "required_change": "Conservar la etiqueta anterior. Resolver refetch del decreto."
+  },
+  {
+   "id": "rules.drones",
+   "op": "update",
+   "verdict": "revise",
+   "entailment": "partial",
+   "label_change": "stylistic",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "ok",
+   "reason": "La cita del op (\"Está prohibido el entierro ... de residuos\") no dice nada de drones: cita equivocada. res207 sí dice \"No utilizar drones conforme la resolución No. 0543 del 27 de diciembre de 2018\", que respalda la prohibición. \"Deja el dron guardado durante toda la visita\" no tiene fuente.",
+   "required_change": "Reemplazar la cita por \"No utilizar drones conforme la resolución No. 0543 del 27 de diciembre de 2018.\" y quitar \"Deja el dron guardado durante toda la visita\". Conservar la etiqueta anterior."
+  },
+  {
+   "id": "rules.open_fires",
+   "op": "update",
+   "verdict": "revise",
+   "entailment": "full",
+   "label_change": "stylistic",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "warn",
+   "reason": "res207 \"Hacer fogatas, estas pueden ocasionar incendios forestales ... camping gas\". Respaldado. Refetch bloqueado por decreto.",
+   "required_change": "Conservar la etiqueta anterior. Resolver refetch del decreto."
+  },
+  {
+   "id": "rules.noise",
+   "op": "update",
+   "verdict": "revise",
+   "entailment": "full",
+   "label_change": "stylistic",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "warn",
+   "reason": "res207 y decreto sobre ruidos y equipos sonoros. Respaldado.",
+   "required_change": "Conservar la etiqueta anterior. Resolver refetch del decreto."
+  },
+  {
+   "id": "rules.feed_wildlife",
+   "op": "update",
+   "verdict": "revise",
+   "entailment": "full",
+   "label_change": "stylistic",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "warn",
+   "reason": "res207 sobre alimentación de fauna para atraerla o capturarla; decreto \"Suministrar alimentos a los animales\". Respaldado.",
+   "required_change": "Conservar la etiqueta anterior. Resolver refetch del decreto."
+  },
+  {
+   "id": "rules.playback",
+   "op": "update",
+   "verdict": "revise",
+   "entailment": "partial",
+   "label_change": "stylistic",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "ok",
+   "reason": "res207 prohíbe el play-back en el área protegida. \"Incluso para observar aves\" y \"durante la observación de aves\" no están en la norma citada.",
+   "required_change": "Quitar \"incluso para observar aves\" y la variante correspondiente, o citar fuente. Conservar la etiqueta anterior."
+  },
+  {
+   "id": "rules.camping",
+   "op": "update",
+   "verdict": "approve",
+   "entailment": "full",
+   "label_change": "justified",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "ok",
+   "reason": "res207 \"Realizar camping en zonas no permitidas\" respalda la regla. Etiqueta nueva justificada por confusión documentada con activities.camping_where. La regla no nombra sectores, así que no entra en el conflicto crítico de Arenales; ese conflicto se resuelve en activities.camping_*.",
+   "required_change": "Ninguno para esta op. Seguimiento: resolver el conflicto crítico de Arenales en activities (ver findings/contradictions.json)."
+  },
+  {
+   "id": "rules.fishing",
+   "op": "update",
+   "verdict": "revise",
+   "entailment": "full",
+   "label_change": "misstates",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "ok",
+   "reason": "res207 \"Realizar actividades de pesca, salvo ... científicos\". Respaldado. La etiqueta nueva (\"pesca recreativa\") restringe lo que la respuesta prohíbe (toda pesca).",
+   "required_change": "Conservar la etiqueta anterior \"pesca en el parque\"."
+  },
+  {
+   "id": "rules.intoxication",
+   "op": "update",
+   "verdict": "revise",
+   "entailment": "full",
+   "label_change": "stylistic",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "warn",
+   "reason": "res207 \"Ingresar y/o consumir bebidas alcohólicas, sustancias psicoactivas\". La segunda cita (decreto) es sobre asumir riesgos y no respalda la regla.",
+   "required_change": "Reemplazar la segunda cita por el decreto sobre \"Embriagarse o provocar ... escándalos\". Conservar la etiqueta anterior. Resolver refetch del decreto."
+  },
+  {
+   "id": "rules.weapons",
+   "op": "update",
+   "verdict": "revise",
+   "entailment": "full",
+   "label_change": "stylistic",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "warn",
+   "reason": "Decreto \"Portar armas de fuego ... actos de caza\" y res207 lista de controles que buscan armas y cortopunzantes. Respaldado.",
+   "required_change": "Conservar la etiqueta anterior. Resolver refetch del decreto."
+  },
+  {
+   "id": "rules.entry_bag_checks",
+   "op": "update",
+   "verdict": "revise",
+   "entailment": "full",
+   "label_change": "stylistic",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "ok",
+   "reason": "res207 controles de ingreso y salida con búsqueda de sustancias, armas, cortopunzantes y equipos de pesca. Respaldado.",
+   "required_change": "Conservar la etiqueta anterior."
+  },
+  {
+   "id": "rules.minors_protection",
+   "op": "update",
+   "verdict": "revise",
+   "entailment": "full",
+   "label_change": "stylistic",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "ok",
+   "reason": "res207 \"prohíbe y penaliza la explotación sexual de niños, niñas y adolescentes\". Respaldado.",
+   "required_change": "Conservar la etiqueta anterior."
+  },
+  {
+   "id": "rules.follow_park_staff",
+   "op": "update",
+   "verdict": "revise",
+   "entailment": "full",
+   "label_change": "stylistic",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "warn",
+   "reason": "res207 \"Acatar las recomendaciones de los funcionarios\" y decreto sobre funciones policivas. Respaldado. Refetch bloqueado por decreto.",
+   "required_change": "Conservar la etiqueta anterior. Resolver refetch del decreto."
+  },
+  {
+   "id": "rules.sell_advertise",
+   "op": "update",
+   "verdict": "revise",
+   "entailment": "partial",
+   "label_change": "stylistic",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "warn",
+   "reason": "Decreto \"Vender, comerciar o distribuir productos\" respalda la venta. \"Propaganda\" y \"avisos publicitarios\" no están citados.",
+   "required_change": "Citar la parte del decreto sobre publicidad o quitar esa frase. Conservar la etiqueta anterior. Resolver refetch del decreto."
+  },
+  {
+   "id": "rules.single_use_plastics",
+   "op": "update",
+   "verdict": "revise",
+   "entailment": "full",
+   "label_change": "stylistic",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "ok",
+   "reason": "res207 \"No ingresar plásticos de un solo uso ... Resolución 1558 de 2019\". Respaldado.",
+   "required_change": "Conservar la etiqueta anterior."
+  },
+  {
+   "id": "rules.graffiti_signage",
+   "op": "update",
+   "verdict": "revise",
+   "entailment": "full",
+   "label_change": "misstates",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "warn",
+   "reason": "res207 \"Rayar o pintar sobre rocas, árboles o estructuras\" y decreto \"Alterar, modificar, o remover señales\". Respaldado. La etiqueta nueva (\"dañar señales\") omite quitar o mover señales, que la respuesta sí cubre.",
+   "required_change": "Conservar la etiqueta anterior. Resolver refetch del decreto."
+  },
+  {
+   "id": "rules.respect_communities",
+   "op": "update",
+   "verdict": "revise",
+   "entailment": "full",
+   "label_change": "stylistic",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "warn",
+   "reason": "res207 \"Respetar la cultura y costumbres de los habitantes\" y decreto \"Hacer discriminaciones de cualquier índole\". Respaldado.",
+   "required_change": "Conservar la etiqueta anterior. Resolver refetch del decreto."
+  },
+  {
+   "id": "rules.sanctions_penalties",
+   "op": "update",
+   "verdict": "revise",
+   "entailment": "partial",
+   "label_change": "stylistic",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "warn",
+   "reason": "La cifra de 100.000 SMMLV está en ley_2387 y ley_1333 (\"Multas hasta por cien mil salarios mínimos\") pero no en las citas del op; las citas son el cierre de atractivos, el servicio comunitario y el RUIA.",
+   "required_change": "Citar la frase de ley_2387 sobre multas hasta 100.000 SMMLV. Conservar la etiqueta anterior. Resolver refetch de ley_1333 (TLS)."
+  },
+  {
+   "id": "rules.preventive_measures",
+   "op": "update",
+   "verdict": "revise",
+   "entailment": "partial",
+   "label_change": "stylistic",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "ok",
+   "reason": "ley_2387: costos de medidas preventivas a cargo del infractor, respaldado. \"Te lo pueden quitar hasta que decidan el caso\" no está citado.",
+   "required_change": "Citar la disposición de medida preventiva o decomiso preventivo. Conservar la etiqueta anterior."
+  },
+  {
+   "id": "rules.excavations_prohibited",
+   "op": "update",
+   "verdict": "revise",
+   "entailment": "partial",
+   "label_change": "stylistic",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "warn",
+   "reason": "res207 y decreto sobre excavaciones y hoyo de gato. \"Ni hagas calicatas\" no aparece en las normas consultadas.",
+   "required_change": "Quitar \"ni hagas calicatas\" o citar fuente. Conservar la etiqueta anterior. Resolver refetch del decreto."
+  },
+  {
+   "id": "rules.rock_bolting_prohibited",
+   "op": "update",
+   "verdict": "revise",
+   "entailment": "partial",
+   "label_change": "stylistic",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "ok",
+   "reason": "res207 \"Instalación de chapas de seguridad en la roca\" respalda la prohibición. \"Ni perfores las paredes\" no está citado.",
+   "required_change": "Quitar \"ni perfores las paredes\" o citarlo. Conservar la etiqueta anterior."
+  },
+  {
+   "id": "rules.geological_soil_samples",
+   "op": "update",
+   "verdict": "revise",
+   "entailment": "partial",
+   "label_change": "misstates",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "ok",
+   "reason": "res207 dice \"Por ningún motivo está permitida la toma de muestras geológicas y edafológicas\", que respalda \"no tomes muestras de roca ni de suelo\", pero la cita del op es el permiso de investigación. \"Ni piques o fractures la piedra\" no tiene fuente. La etiqueta nueva omite suelo (edafológicas) que la respuesta cubre.",
+   "required_change": "Citar la frase de res207 sobre muestras geológicas y edafológicas; quitar \"ni piques o fractures la piedra\"; conservar la etiqueta anterior con \"edafológicas\"."
+  },
+  {
+   "id": "rules.wildlife_traps_prohibited",
+   "op": "update",
+   "verdict": "approve",
+   "entailment": "full",
+   "label_change": "n/a",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "ok",
+   "reason": "res207 \"No se permite la instalación de trampas o conductores de fauna\". Respaldado. El único cambio es mayúscula inicial, sin efecto.",
+   "required_change": "Ninguno."
+  },
+  {
+   "id": "rules.wildlife_contact_displacement",
+   "op": "update",
+   "verdict": "revise",
+   "entailment": "full",
+   "label_change": "stylistic",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "ok",
+   "reason": "res207 \"Evitar el contacto ... No intente coger, ni alimentar ni desplazar especies de fauna\". Respaldado.",
+   "required_change": "Conservar la etiqueta anterior (la nueva sólo añade \"coger\", que sí está en la norma; no corrige la confusión con health_safety)."
+  },
+  {
+   "id": "rules.earth_tone_clothing_wildlife",
+   "op": "update",
+   "verdict": "revise",
+   "entailment": "full",
+   "label_change": "stylistic",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "ok",
+   "reason": "res207 \"vestir con colores tierra o evitando colores muy vivos ... no perturbar la fauna\". Respaldado.",
+   "required_change": "Conservar la etiqueta anterior (\"observar fauna\"); el cambio a \"avistar\" es sinónimo."
+  },
+  {
+   "id": "rules.aerosols_sprays_prohibited",
+   "op": "update",
+   "verdict": "revise",
+   "entailment": "partial",
+   "label_change": "stylistic",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "ok",
+   "reason": "La cita del op (\"entierro u ocultamiento de residuos bajo rocas\") no trata de aerosoles: cita equivocada. res207 sí dice \"productos químicos en aerosoles ... contaminación en el suelo, el aire o el agua\". \"Desodorante en crema o barra\" es consejo sin fuente.",
+   "required_change": "Reemplazar la cita por la frase de res207 sobre productos químicos en aerosoles. Quitar o justificar el consejo del desodorante. Conservar la etiqueta anterior."
+  },
+  {
+   "id": "rules.burning_trash_prohibited",
+   "op": "update",
+   "verdict": "revise",
+   "entailment": "full",
+   "label_change": "n/a",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "warn",
+   "reason": "Decreto \"Arrojar o depositar basuras ... o incinerarlos\" respalda la prohibición. Sólo mayúscula inicial. Refetch bloqueado por decreto (TLS).",
+   "required_change": "Resolver refetch del decreto 1076 (TLS). Después puede aprobarse."
+  },
+  {
+   "id": "rules.pick_up_trail_litter",
+   "op": "update",
+   "verdict": "approve",
+   "entailment": "full",
+   "label_change": "justified",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "ok",
+   "reason": "res207 \"en caso de observar residuos durante el recorrido recogerlos\". Respaldado. La etiqueta \"basura ajena\" separa esta regla de leave_no_waste (confusión documentada en confused_with del inventario).",
+   "required_change": "Ninguno."
+  },
+  {
+   "id": "rules.biodegradable_packaging_food",
+   "op": "update",
+   "verdict": "revise",
+   "entailment": "full",
+   "label_change": "stylistic",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "ok",
+   "reason": "res207 \"Se deberá utilizar materiales biodegradables\". La cita no tiene contexto de alimentos; la etiqueta nueva lo restringe a empaques de comida.",
+   "required_change": "Conservar la etiqueta anterior. Si quiere limitarse a alimentos, citar el contexto de res207."
+  },
+  {
+   "id": "rules.logging_clearing_vegetation",
+   "op": "update",
+   "verdict": "revise",
+   "entailment": "partial",
+   "label_change": "stylistic",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "warn",
+   "reason": "Decreto \"Talar, socolar, entresacar o efectuar rocerías\" respalda la prohibición. \"Tampoco lleves herramientas para talar\" no aparece en las normas. La segunda cita (plásticos de un solo uso) no sirve para esta regla.",
+   "required_change": "Quitar \"tampoco lleves herramientas para talar\" y reemplazar la segunda cita. Conservar la etiqueta anterior. Resolver refetch del decreto."
+  },
+  {
+   "id": "rules.abandoning_gear_objects",
+   "op": "update",
+   "verdict": "revise",
+   "entailment": "full",
+   "label_change": "stylistic",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "warn",
+   "reason": "Decreto \"Abandonar objetos, vehículos o equipos de cualquier clase\" y res207 sobre remoción de carpas. Respaldado. \"Aunque se hayan dañado\" es una extensión razonable. Refetch bloqueado por decreto.",
+   "required_change": "Conservar la etiqueta anterior. Resolver refetch del decreto."
+  },
+  {
+   "id": "rules.damage_park_infrastructure",
+   "op": "update",
+   "verdict": "revise",
+   "entailment": "full",
+   "label_change": "stylistic",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "warn",
+   "reason": "res207 \"Causar daño a las instalaciones, alterar ... señalización y vallas\". Respaldado.",
+   "required_change": "Conservar la etiqueta anterior. Resolver refetch del decreto."
+  },
+  {
+   "id": "rules.agro_industrial_mining_ban",
+   "op": "update",
+   "verdict": "revise",
+   "entailment": "partial",
+   "label_change": "misstates",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "warn",
+   "reason": "La cita del op (informe de investigación) no trata de esta prohibición: cita equivocada. El decreto ítem 3 dice \"Desarrollar actividades agropecuarias o industriales incluidas las hoteleras, mineras y petroleras\", que sí respalda la respuesta. La etiqueta nueva omite \"hoteleras\", que la respuesta menciona.",
+   "required_change": "Reemplazar la cita por el ítem 3 del decreto. Conservar la etiqueta anterior con \"hoteleras\"."
+  },
+  {
+   "id": "rules.authorized_stay_duration",
+   "op": "update",
+   "verdict": "revise",
+   "entailment": "full",
+   "label_change": "n/a",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "warn",
+   "reason": "res207 \"Solamente podrá permanecer ... durante el tiempo autorizado por el Parque\". Respaldado. Sólo mayúscula inicial. Refetch bloqueado por decreto.",
+   "required_change": "Resolver refetch del decreto 1076 (TLS). Después puede aprobarse."
+  },
+  {
+   "id": "rules.show_entry_permit_on_request",
+   "op": "update",
+   "verdict": "revise",
+   "entailment": "full",
+   "label_change": "n/a",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "warn",
+   "reason": "res207 \"Portar el documento que acredita el derecho de ingreso\"; decreto \"Exhibir ... la autorización\". Respaldado. Sólo mayúscula inicial. Refetch bloqueado por decreto.",
+   "required_change": "Resolver refetch del decreto 1076 (TLS). Después puede aprobarse."
+  },
+  {
+   "id": "rules.tent_permit_display",
+   "op": "update",
+   "verdict": "revise",
+   "entailment": "full",
+   "label_change": "stylistic",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "ok",
+   "reason": "res207 \"adherir una copia del derecho de ingreso en un lugar visible a la carpa\". Respaldado. \"Fijar\" añade una acción no citada.",
+   "required_change": "Conservar la etiqueta anterior \"copia del permiso visible en la carpa\"."
+  },
+  {
+   "id": "rules.respect_carrying_capacity_limits",
+   "op": "update",
+   "verdict": "revise",
+   "entailment": "full",
+   "label_change": "stylistic",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "ok",
+   "reason": "res207 \"Respetar la capacidad de carga establecida ... número máximo de personas por grupo\". Respaldado. La segunda cita (sanciones de la POE) no sirve a esta regla.",
+   "required_change": "Conservar la etiqueta anterior. Reemplazar la segunda cita por una que sostenga la regla."
+  },
+  {
+   "id": "rules.visitor_risk_assumption",
+   "op": "update",
+   "verdict": "revise",
+   "entailment": "partial",
+   "label_change": "stylistic",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "warn",
+   "reason": "res207 \"Cada persona será responsable de sus objetos personales\" respalda la parte de objetos. El riesgo lo asume el visitante está en decreto (\"los visitantes ... asumen los riesgos\"), pero la cita del op es sobre el tiempo de permanencia.",
+   "required_change": "Reemplazar la segunda cita por el decreto: \"ni implican ... ninguna responsabilidad, por tanto, los visitantes ... asumen los riesgos\". Conservar la etiqueta anterior."
+  },
+  {
+   "id": "rules.report_environmental_infractions",
+   "op": "update",
+   "verdict": "revise",
+   "entailment": "full",
+   "label_change": "stylistic",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "warn",
+   "reason": "res207 \"Denunciar delitos o penalidades ante los funcionarios\" y decreto sobre denunciar infracciones. Respaldado.",
+   "required_change": "Conservar la etiqueta anterior. Resolver refetch del decreto."
+  },
+  {
+   "id": "rules.ecological_customs_checkpoints",
+   "op": "update",
+   "verdict": "revise",
+   "entailment": "partial",
+   "label_change": "stylistic",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "ok",
+   "reason": "res207 \"Someterse a aduanas ecológicas\" respalda la regla. \"Quita antes los plásticos de un solo uso\" depende de un ítem vecino de la lista de res207 que no está citado.",
+   "required_change": "Citar el ítem de plásticos de un solo uso junto a aduanas, o quitar la frase. Conservar la etiqueta anterior."
+  },
+  {
+   "id": "rules.no_discrimination_scandals",
+   "op": "update",
+   "verdict": "revise",
+   "entailment": "partial",
+   "label_change": "misstates",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "warn",
+   "reason": "Decreto \"Embriagarse o provocar y participar en escándalos\" respalda el escándalo. \"Peleas\" no aparece. La etiqueta habla de discriminación pero la respuesta no la trata; la segunda cita (plásticos) es irrelevante.",
+   "required_change": "Reemplazar la segunda cita por \"Hacer discriminaciones de cualquier índole\" y añadir una frase de discriminación en la respuesta, o quitar la palabra de la etiqueta. Quitar \"peleas\" o citarla. Resolver refetch del decreto."
+  },
+  {
+   "id": "rules.park_closure_no_compensation",
+   "op": "update",
+   "verdict": "revise",
+   "entailment": "partial",
+   "label_change": "stylistic",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "ok",
+   "reason": "res207 sobre cierre de atractivos respalda el cierre. La frase \"no compromete a la entidad a indemnizar\" sí está en res207 pero no citada.",
+   "required_change": "Citar la frase de indemnización de res207. Conservar la etiqueta anterior."
+  },
+  {
+   "id": "rules.pack_animals_weight_overnight",
+   "op": "update",
+   "verdict": "revise",
+   "entailment": "partial",
+   "label_change": "misstates",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "ok",
+   "reason": "res207 respalda 80 kg, 5 animales por arriero y \"por ningún motivo ... pernoctar\" pero sólo está citado el de 80 kg. \"Sin atajos\" no aparece. La etiqueta nueva (\"descanso\") no describe la regla de no pernoctar.",
+   "required_change": "Citar las frases de cinco animales y de no pernoctar; quitar \"sin atajos\" o citarlo. Conservar la etiqueta anterior \"Límite de peso y pernocta de mulas\"."
+  },
+  {
+   "id": "rules.no_mules_arenales_calvito",
+   "op": "update",
+   "verdict": "revise",
+   "entailment": "partial",
+   "label_change": "stylistic",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "ok",
+   "reason": "res207 prohíbe las mulas a Arenales y Calvito y exige ir a pie desde Termales, La Primavera o La Playa. La respuesta dice \"solo pueden entrar mulas si hay un rescate o una emergencia\", pero la lista de excepciones de res207 es más amplia (investigación, vigilancia, apoyo, emergencias). La variante del sur está en res207 para Berlín, La Argentina/Buenos Aires y La Primavera/La Playa.",
+   "required_change": "Copiar del texto exacto la excepción que aplica a Arenales y Calvito y ajustar \"solo\" a esa lista. Conservar la etiqueta anterior."
+  },
+  {
+   "id": "rules.commercial_sound_recording",
+   "op": "update",
+   "verdict": "revise",
+   "entailment": "full",
+   "label_change": "stylistic",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "warn",
+   "reason": "Decreto \"Tomar fotografías, películas o grabaciones de sonido ... con fines comerciales, sin aprobación previa\". Respaldado.",
+   "required_change": "Conservar la etiqueta anterior. Resolver refetch del decreto."
+  },
+  {
+   "id": "rules.researcher_deliverables_obligation",
+   "op": "update",
+   "verdict": "revise",
+   "entailment": "full",
+   "label_change": "stylistic",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "warn",
+   "reason": "Decreto a/b/c: informe, copias de publicaciones y \"duplicados o por lo menos un ejemplar de cada ... muestras\". Respaldado (la cita está cortada en \"b\"). La segunda cita (permiso de investigación) no es la obligación de entrega.",
+   "required_change": "Conservar la etiqueta anterior. Citar el literal c. Resolver refetch del decreto."
+  },
+  {
+   "id": "rules.sport_mountaineers_advance_request",
+   "op": "update",
+   "verdict": "revise",
+   "entailment": "partial",
+   "label_change": "stylistic",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "ok",
+   "reason": "res207 sobre el plan de riesgos y contingencias respalda esa parte. Las coordenadas del campamento avanzado también están en res207 (\"días de ocupación de los campamentos con coordenadas\") pero no citadas.",
+   "required_change": "Citar la frase sobre coordenadas de campamentos avanzados. Conservar la etiqueta anterior."
+  },
+  {
+   "id": "rules.sport_mountaineers_schedule_exit_report",
+   "op": "update",
+   "verdict": "revise",
+   "entailment": "partial",
+   "label_change": "misstates",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "ok",
+   "reason": "res207 sobre informar 24 horas antes y perder el derecho de ingreso respalda la primera parte. El reporte de salida \"el mismo día o máximo un día después\" está en res207 pero no citado. La etiqueta nueva omite el aviso de cambios.",
+   "required_change": "Citar el ítem de reporte de salida. Conservar la etiqueta anterior \"Aviso de cambios y salida de montañistas\"."
+  },
+  {
+   "id": "rules.guide_operator_misconduct_ban",
+   "op": "update",
+   "verdict": "revise",
+   "entailment": "partial",
+   "label_change": "misstates",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "ok",
+   "reason": "La cita del op (mulas a Arenales) no habla de guías ni de alcohol: cita equivocada. res207 sí dice \"No consumir bebidas embriagantes 24 horas antes de realizar la labor\" y que el prestador \"perderá el aval\". La etiqueta nueva (\"expulsión\") excede lo que dice la respuesta y deja fuera a los guías.",
+   "required_change": "Reemplazar la primera cita por la frase de 24 horas y la de pérdida del aval de res207. Conservar la etiqueta anterior."
+  },
+  {
+   "id": "rules.social_media_unauthorized_routes",
+   "op": "update",
+   "verdict": "revise",
+   "entailment": "partial",
+   "label_change": "stylistic",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "ok",
+   "reason": "La carta de PNN del 11 de mayo de 2026 describe una presunta incursión divulgada en Instagram, pero es un caso concreto. La respuesta generaliza que \"si publicas ... PNN puede abrir un proceso\" sin norma que lo diga.",
+   "required_change": "Limitar la respuesta al caso de la carta, o citar la norma sancionatoria que cubre divulgación. Conservar la etiqueta anterior."
+  },
+  {
+   "id": "rules.written_reprimand_mandatory_course",
+   "op": "update",
+   "verdict": "revise",
+   "entailment": "partial",
+   "label_change": "misstates",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "ok",
+   "reason": "La cita de multa de 5 SMMLV es correcta. \"Se publica en la web de la autoridad y en la alcaldía\" y \"curso ambiental\" están en ley_2387 pero no citados. La etiqueta nueva omite \"pública\", que la respuesta sustenta.",
+   "required_change": "Citar la frase de publicación en web y alcaldía. Conservar la etiqueta anterior con \"pública\"."
+  },
+  {
+   "id": "rules.community_service_sanction",
+   "op": "update",
+   "verdict": "revise",
+   "entailment": "partial",
+   "label_change": "stylistic",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "ok",
+   "reason": "La cita es el incumplimiento del servicio comunitario (multa). La regla de reemplazo (\"sólo cuando la capacidad socioeconómica del infractor sea insuficiente\") está en ley_2387 art. 21 pero no citada.",
+   "required_change": "Citar art. 21 de ley_2387 sobre reemplazo de la multa. Conservar la etiqueta anterior."
+  },
+  {
+   "id": "rules.confiscation_restitution_specimens",
+   "op": "update",
+   "verdict": "revise",
+   "entailment": "full",
+   "label_change": "stylistic",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "warn",
+   "reason": "ley_2387 \"Decomiso definitivo de especímenes ... utilizados para cometer la infracción\" respalda la respuesta. La segunda cita no trata de decomiso.",
+   "required_change": "Conservar la etiqueta anterior (\"restitución\" no aparece en la respuesta). Resolver refetch de ley_1333 (TLS)."
+  },
+  {
+   "id": "rules.presumption_of_fault_burden_proof",
+   "op": "update",
+   "verdict": "revise",
+   "entailment": "full",
+   "label_change": "stylistic",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "ok",
+   "reason": "ley_2387 \"se presume la culpa o dolo del infractor, quien tendrá a su cargo desvirtuarla\". Respaldado.",
+   "required_change": "Conservar la etiqueta anterior."
+  },
+  {
+   "id": "rules.confession_fine_reduction",
+   "op": "update",
+   "verdict": "revise",
+   "entailment": "partial",
+   "label_change": "stylistic",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "ok",
+   "reason": "ley_2387 30% y 15% respaldado. La regla \"si te pillan en el acto no aplica\" está en el parágrafo de flagrancia de ley_2387 pero no citado.",
+   "required_change": "Citar el parágrafo de flagrancia de ley_2387. Conservar la etiqueta anterior."
+  },
+  {
+   "id": "rules.early_termination_correction_plan",
+   "op": "update",
+   "verdict": "revise",
+   "entailment": "partial",
+   "label_change": "misstates",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "ok",
+   "reason": "ley_2387 sobre suspensión a petición del presunto infractor respalda la primera parte. \"No queda como antecedente\" está en ley_2387 pero no citado. La etiqueta nueva elimina \"suspensión\", que es el primer paso de la respuesta.",
+   "required_change": "Citar la frase de no antecedente. Conservar la etiqueta anterior \"Suspensión y terminación anticipada por corrección ambiental\"."
+  },
+  {
+   "id": "rules.ruia_offender_registry",
+   "op": "update",
+   "verdict": "revise",
+   "entailment": "partial",
+   "label_change": "stylistic",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "warn",
+   "reason": "ley_1333 crea el RUIA (respaldado). Que es público y \"prueba suficiente para demostrar la reincidencia\" está en ley_1333 pero no citado. La segunda cita (servicio comunitario) es irrelevante.",
+   "required_change": "Citar la frase de publicidad y reincidencia del RUIA. Reemplazar la segunda cita. Conservar la etiqueta anterior. Resolver refetch de ley_1333 (TLS)."
+  },
+  {
+   "id": "rules.aggravating_factors_protected_area",
+   "op": "update",
+   "verdict": "revise",
+   "entailment": "partial",
+   "label_change": "stylistic",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "warn",
+   "reason": "ley_1333 art. 7 numerales 6 y 7 están citados. Los numerales 9 (obstaculizar a la autoridad) y 10 (incumplir medida preventiva) respaldan el resto de la respuesta, pero no están citados.",
+   "required_change": "Citar los numerales 9 y 10 del art. 7. Conservar la etiqueta anterior. Resolver refetch de ley_1333 (TLS)."
+  },
+  {
+   "id": "rules.liability_exemptions_force_majeure",
+   "op": "update",
+   "verdict": "revise",
+   "entailment": "full",
+   "label_change": "misstates",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "warn",
+   "reason": "ley_1333 eximentes: fuerza mayor, caso fortuito, hecho de un tercero, sabotaje, acto terrorista. Respaldado. La etiqueta nueva (\"por fuerza mayor\") deja fuera los demás eximentes.",
+   "required_change": "Conservar la etiqueta anterior. Resolver refetch de ley_1333 (TLS)."
+  },
+  {
+   "id": "rules.restoration_duty_civil_criminal",
+   "op": "update",
+   "verdict": "revise",
+   "entailment": "partial",
+   "label_change": "stylistic",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "ok",
+   "reason": "ley_2387 \"no exime al infractor de ejecutar las obras ... de restaurar\" respalda la respuesta. \"Puede haber un proceso civil o penal\" no está citado; la segunda cita (cacería) es irrelevante.",
+   "required_change": "Citar la disposición de responsabilidad civil o penal, o quitar la frase. Reemplazar la segunda cita. Conservar la etiqueta anterior."
+  },
+  {
+   "id": "rules.flagrancy_foreign_tourists_procedure",
+   "op": "update",
+   "verdict": "revise",
+   "entailment": "partial",
+   "label_change": "stylistic",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "warn",
+   "reason": "ley_1333 sobre extranjeros y Cancillería respalda la respuesta. \"Levantan un acta en el sitio\" y \"firma un testigo\" están en ley_1333 pero no citados. Refetch bloqueado por ley_1333 (TLS).",
+   "required_change": "Citar la frase de acta y testigo. Conservar la etiqueta anterior. Resolver refetch de ley_1333 (TLS)."
+  },
+  {
+   "id": "rules.no_hunting",
+   "op": "update",
+   "verdict": "revise",
+   "entailment": "partial",
+   "label_change": "stylistic",
+   "examples": "issues",
+   "temporal": "ok",
+   "refetch": "ok",
+   "reason": "res207 \"Por ningún motivo está permitida ... la caza o captura de ejemplares de fauna\" y \"La cacería\" respaldan la regla, pero la cita del op es \"Evitar el contacto\". \"Plumas o nidos\" no tiene fuente. Ejemplos: se quitó \"pongo una trampa para ver qué animales hay\", una consulta real, sin razón escrita, y se añadió una pregunta con presuposición (\"está permitida la cacería\").",
+   "required_change": "Citar la frase de caza o captura de fauna de res207. Quitar \"plumas o nidos\" o citarlo. Restaurar el ejemplo quitado o justificar su eliminación en la razón. Conservar la etiqueta anterior."
+  }
+ ],
+ "audit_rows": [
+  {
+   "id": "rules.pets",
+   "claimed": "primary_ok",
+   "support": "full",
+   "note": "La excerpt sostiene la afirmación central de la respuesta."
+  },
+  {
+   "id": "rules.stay_on_routes",
+   "claimed": "primary_ok",
+   "support": "partial",
+   "note": "La excerpt sostiene una parte; una afirmación material (cifra, condición, excepción o ruta) no aparece en ella."
+  },
+  {
+   "id": "rules.leave_no_waste",
+   "claimed": "primary_ok",
+   "support": "partial",
+   "note": "La excerpt sostiene una parte; una afirmación material (cifra, condición, excepción o ruta) no aparece en ella."
+  },
+  {
+   "id": "rules.leave_natural_objects",
+   "claimed": "primary_ok",
+   "support": "full",
+   "note": "La excerpt sostiene la afirmación central de la respuesta."
+  },
+  {
+   "id": "rules.no_introduce_species",
+   "claimed": "primary_ok",
+   "support": "full",
+   "note": "La excerpt sostiene la afirmación central de la respuesta."
+  },
+  {
+   "id": "rules.avoid_pollutants",
+   "claimed": "primary_ok",
+   "support": "full",
+   "note": "La excerpt sostiene la afirmación central de la respuesta."
+  },
+  {
+   "id": "rules.avoid_chemicals",
+   "claimed": "primary_ok",
+   "support": "partial",
+   "note": "La excerpt sostiene una parte; una afirmación material (cifra, condición, excepción o ruta) no aparece en ella."
+  },
+  {
+   "id": "rules.commercial_photography",
+   "claimed": "primary_ok",
+   "support": "partial",
+   "note": "La excerpt sostiene una parte; una afirmación material (cifra, condición, excepción o ruta) no aparece en ella."
+  },
+  {
+   "id": "rules.audiovisual_permits",
+   "claimed": "primary_ok",
+   "support": "full",
+   "note": "La excerpt sostiene la afirmación central de la respuesta."
+  },
+  {
+   "id": "rules.event_permits",
+   "claimed": "primary_ok",
+   "support": "full",
+   "note": "La excerpt sostiene la afirmación central de la respuesta."
+  },
+  {
+   "id": "rules.organized_sports",
+   "claimed": "primary_ok",
+   "support": "partial",
+   "note": "La excerpt sostiene una parte; una afirmación material (cifra, condición, excepción o ruta) no aparece en ella."
+  },
+  {
+   "id": "rules.research_permissions",
+   "claimed": "primary_ok",
+   "support": "full",
+   "note": "La excerpt sostiene la afirmación central de la respuesta."
+  },
+  {
+   "id": "rules.drones",
+   "claimed": "primary_ok",
+   "support": "none",
+   "note": "La evidence_excerpt no sostiene la afirmación central de la respuesta."
+  },
+  {
+   "id": "rules.open_fires",
+   "claimed": "primary_ok",
+   "support": "full",
+   "note": "La excerpt sostiene la afirmación central de la respuesta."
+  },
+  {
+   "id": "rules.noise",
+   "claimed": "primary_ok",
+   "support": "full",
+   "note": "La excerpt sostiene la afirmación central de la respuesta."
+  },
+  {
+   "id": "rules.feed_wildlife",
+   "claimed": "primary_ok",
+   "support": "full",
+   "note": "La excerpt sostiene la afirmación central de la respuesta."
+  },
+  {
+   "id": "rules.playback",
+   "claimed": "primary_ok",
+   "support": "partial",
+   "note": "La excerpt sostiene una parte; una afirmación material (cifra, condición, excepción o ruta) no aparece en ella."
+  },
+  {
+   "id": "rules.camping",
+   "claimed": "primary_ok",
+   "support": "full",
+   "note": "La excerpt sostiene la afirmación central de la respuesta."
+  },
+  {
+   "id": "rules.fishing",
+   "claimed": "primary_ok",
+   "support": "full",
+   "note": "La excerpt sostiene la afirmación central de la respuesta."
+  },
+  {
+   "id": "rules.intoxication",
+   "claimed": "primary_ok",
+   "support": "full",
+   "note": "La excerpt sostiene la afirmación central de la respuesta."
+  },
+  {
+   "id": "rules.weapons",
+   "claimed": "primary_ok",
+   "support": "partial",
+   "note": "La excerpt sostiene una parte; una afirmación material (cifra, condición, excepción o ruta) no aparece en ella."
+  },
+  {
+   "id": "rules.entry_bag_checks",
+   "claimed": "primary_ok",
+   "support": "full",
+   "note": "La excerpt sostiene la afirmación central de la respuesta."
+  },
+  {
+   "id": "rules.minors_protection",
+   "claimed": "primary_ok",
+   "support": "full",
+   "note": "La excerpt sostiene la afirmación central de la respuesta."
+  },
+  {
+   "id": "rules.follow_park_staff",
+   "claimed": "primary_ok",
+   "support": "full",
+   "note": "La excerpt sostiene la afirmación central de la respuesta."
+  },
+  {
+   "id": "rules.sell_advertise",
+   "claimed": "primary_ok",
+   "support": "partial",
+   "note": "La excerpt sostiene una parte; una afirmación material (cifra, condición, excepción o ruta) no aparece en ella."
+  },
+  {
+   "id": "rules.single_use_plastics",
+   "claimed": "primary_ok",
+   "support": "full",
+   "note": "La excerpt sostiene la afirmación central de la respuesta."
+  },
+  {
+   "id": "rules.graffiti_signage",
+   "claimed": "primary_ok",
+   "support": "full",
+   "note": "La excerpt sostiene la afirmación central de la respuesta."
+  },
+  {
+   "id": "rules.respect_communities",
+   "claimed": "primary_ok",
+   "support": "full",
+   "note": "La excerpt sostiene la afirmación central de la respuesta."
+  },
+  {
+   "id": "rules.sanctions_penalties",
+   "claimed": "primary_ok",
+   "support": "partial",
+   "note": "La excerpt sostiene una parte; una afirmación material (cifra, condición, excepción o ruta) no aparece en ella."
+  },
+  {
+   "id": "rules.preventive_measures",
+   "claimed": "primary_ok",
+   "support": "partial",
+   "note": "La excerpt sostiene una parte; una afirmación material (cifra, condición, excepción o ruta) no aparece en ella."
+  },
+  {
+   "id": "rules.excavations_prohibited",
+   "claimed": "primary_ok",
+   "support": "full",
+   "note": "La excerpt sostiene la afirmación central de la respuesta."
+  },
+  {
+   "id": "rules.rock_bolting_prohibited",
+   "claimed": "primary_ok",
+   "support": "full",
+   "note": "La excerpt sostiene la afirmación central de la respuesta."
+  },
+  {
+   "id": "rules.geological_soil_samples",
+   "claimed": "primary_ok",
+   "support": "partial",
+   "note": "La excerpt sostiene una parte; una afirmación material (cifra, condición, excepción o ruta) no aparece en ella."
+  },
+  {
+   "id": "rules.wildlife_traps_prohibited",
+   "claimed": "primary_ok",
+   "support": "full",
+   "note": "La excerpt sostiene la afirmación central de la respuesta."
+  },
+  {
+   "id": "rules.wildlife_contact_displacement",
+   "claimed": "primary_ok",
+   "support": "full",
+   "note": "La excerpt sostiene la afirmación central de la respuesta."
+  },
+  {
+   "id": "rules.earth_tone_clothing_wildlife",
+   "claimed": "primary_ok",
+   "support": "full",
+   "note": "La excerpt sostiene la afirmación central de la respuesta."
+  },
+  {
+   "id": "rules.aerosols_sprays_prohibited",
+   "claimed": "primary_ok",
+   "support": "none",
+   "note": "La evidence_excerpt no sostiene la afirmación central de la respuesta."
+  },
+  {
+   "id": "rules.burning_trash_prohibited",
+   "claimed": "primary_ok",
+   "support": "full",
+   "note": "La excerpt sostiene la afirmación central de la respuesta."
+  },
+  {
+   "id": "rules.pick_up_trail_litter",
+   "claimed": "primary_ok",
+   "support": "full",
+   "note": "La excerpt sostiene la afirmación central de la respuesta."
+  },
+  {
+   "id": "rules.biodegradable_packaging_food",
+   "claimed": "primary_ok",
+   "support": "full",
+   "note": "La excerpt sostiene la afirmación central de la respuesta."
+  },
+  {
+   "id": "rules.logging_clearing_vegetation",
+   "claimed": "primary_ok",
+   "support": "full",
+   "note": "La excerpt sostiene la afirmación central de la respuesta."
+  },
+  {
+   "id": "rules.abandoning_gear_objects",
+   "claimed": "primary_ok",
+   "support": "full",
+   "note": "La excerpt sostiene la afirmación central de la respuesta."
+  },
+  {
+   "id": "rules.damage_park_infrastructure",
+   "claimed": "primary_ok",
+   "support": "full",
+   "note": "La excerpt sostiene la afirmación central de la respuesta."
+  },
+  {
+   "id": "rules.agro_industrial_mining_ban",
+   "claimed": "primary_ok",
+   "support": "none",
+   "note": "La evidence_excerpt no sostiene la afirmación central de la respuesta."
+  },
+  {
+   "id": "rules.authorized_stay_duration",
+   "claimed": "primary_ok",
+   "support": "full",
+   "note": "La excerpt sostiene la afirmación central de la respuesta."
+  },
+  {
+   "id": "rules.show_entry_permit_on_request",
+   "claimed": "primary_ok",
+   "support": "full",
+   "note": "La excerpt sostiene la afirmación central de la respuesta."
+  },
+  {
+   "id": "rules.tent_permit_display",
+   "claimed": "primary_ok",
+   "support": "full",
+   "note": "La excerpt sostiene la afirmación central de la respuesta."
+  },
+  {
+   "id": "rules.respect_carrying_capacity_limits",
+   "claimed": "primary_ok",
+   "support": "full",
+   "note": "La excerpt sostiene la afirmación central de la respuesta."
+  },
+  {
+   "id": "rules.visitor_risk_assumption",
+   "claimed": "primary_ok",
+   "support": "partial",
+   "note": "La excerpt sostiene una parte; una afirmación material (cifra, condición, excepción o ruta) no aparece en ella."
+  },
+  {
+   "id": "rules.report_environmental_infractions",
+   "claimed": "primary_ok",
+   "support": "full",
+   "note": "La excerpt sostiene la afirmación central de la respuesta."
+  },
+  {
+   "id": "rules.ecological_customs_checkpoints",
+   "claimed": "primary_ok",
+   "support": "full",
+   "note": "La excerpt sostiene la afirmación central de la respuesta."
+  },
+  {
+   "id": "rules.no_discrimination_scandals",
+   "claimed": "primary_ok",
+   "support": "partial",
+   "note": "La excerpt sostiene una parte; una afirmación material (cifra, condición, excepción o ruta) no aparece en ella."
+  },
+  {
+   "id": "rules.park_closure_no_compensation",
+   "claimed": "primary_ok",
+   "support": "partial",
+   "note": "La excerpt sostiene una parte; una afirmación material (cifra, condición, excepción o ruta) no aparece en ella."
+  },
+  {
+   "id": "rules.pack_animals_weight_overnight",
+   "claimed": "primary_ok",
+   "support": "partial",
+   "note": "La excerpt sostiene una parte; una afirmación material (cifra, condición, excepción o ruta) no aparece en ella."
+  },
+  {
+   "id": "rules.no_mules_arenales_calvito",
+   "claimed": "primary_ok",
+   "support": "partial",
+   "note": "La excerpt sostiene una parte; una afirmación material (cifra, condición, excepción o ruta) no aparece en ella."
+  },
+  {
+   "id": "rules.commercial_sound_recording",
+   "claimed": "primary_ok",
+   "support": "full",
+   "note": "La excerpt sostiene la afirmación central de la respuesta."
+  },
+  {
+   "id": "rules.researcher_deliverables_obligation",
+   "claimed": "primary_ok",
+   "support": "full",
+   "note": "La excerpt sostiene la afirmación central de la respuesta."
+  },
+  {
+   "id": "rules.sport_mountaineers_advance_request",
+   "claimed": "primary_ok",
+   "support": "partial",
+   "note": "La excerpt sostiene una parte; una afirmación material (cifra, condición, excepción o ruta) no aparece en ella."
+  },
+  {
+   "id": "rules.sport_mountaineers_schedule_exit_report",
+   "claimed": "primary_ok",
+   "support": "partial",
+   "note": "La excerpt sostiene una parte; una afirmación material (cifra, condición, excepción o ruta) no aparece en ella."
+  },
+  {
+   "id": "rules.guide_operator_misconduct_ban",
+   "claimed": "primary_ok",
+   "support": "none",
+   "note": "La evidence_excerpt no sostiene la afirmación central de la respuesta."
+  },
+  {
+   "id": "rules.social_media_unauthorized_routes",
+   "claimed": "primary_ok",
+   "support": "partial",
+   "note": "La excerpt sostiene una parte; una afirmación material (cifra, condición, excepción o ruta) no aparece en ella."
+  },
+  {
+   "id": "rules.written_reprimand_mandatory_course",
+   "claimed": "primary_ok",
+   "support": "partial",
+   "note": "La excerpt sostiene una parte; una afirmación material (cifra, condición, excepción o ruta) no aparece en ella."
+  },
+  {
+   "id": "rules.community_service_sanction",
+   "claimed": "primary_ok",
+   "support": "partial",
+   "note": "La excerpt sostiene una parte; una afirmación material (cifra, condición, excepción o ruta) no aparece en ella."
+  },
+  {
+   "id": "rules.confiscation_restitution_specimens",
+   "claimed": "primary_ok",
+   "support": "full",
+   "note": "La excerpt sostiene la afirmación central de la respuesta."
+  },
+  {
+   "id": "rules.presumption_of_fault_burden_proof",
+   "claimed": "primary_ok",
+   "support": "full",
+   "note": "La excerpt sostiene la afirmación central de la respuesta."
+  },
+  {
+   "id": "rules.confession_fine_reduction",
+   "claimed": "primary_ok",
+   "support": "full",
+   "note": "La excerpt sostiene la afirmación central de la respuesta."
+  },
+  {
+   "id": "rules.early_termination_correction_plan",
+   "claimed": "primary_ok",
+   "support": "partial",
+   "note": "La excerpt sostiene una parte; una afirmación material (cifra, condición, excepción o ruta) no aparece en ella."
+  },
+  {
+   "id": "rules.ruia_offender_registry",
+   "claimed": "primary_ok",
+   "support": "partial",
+   "note": "La excerpt sostiene una parte; una afirmación material (cifra, condición, excepción o ruta) no aparece en ella."
+  },
+  {
+   "id": "rules.aggravating_factors_protected_area",
+   "claimed": "primary_ok",
+   "support": "partial",
+   "note": "La excerpt sostiene una parte; una afirmación material (cifra, condición, excepción o ruta) no aparece en ella."
+  },
+  {
+   "id": "rules.liability_exemptions_force_majeure",
+   "claimed": "primary_ok",
+   "support": "full",
+   "note": "La excerpt sostiene la afirmación central de la respuesta."
+  },
+  {
+   "id": "rules.restoration_duty_civil_criminal",
+   "claimed": "primary_ok",
+   "support": "partial",
+   "note": "La excerpt sostiene una parte; una afirmación material (cifra, condición, excepción o ruta) no aparece en ella."
+  },
+  {
+   "id": "rules.flagrancy_foreign_tourists_procedure",
+   "claimed": "primary_ok",
+   "support": "partial",
+   "note": "La excerpt sostiene una parte; una afirmación material (cifra, condición, excepción o ruta) no aparece en ella."
+  },
+  {
+   "id": "rules.no_hunting",
+   "claimed": "primary_ok",
+   "support": "partial",
+   "note": "La excerpt sostiene una parte; una afirmación material (cifra, condición, excepción o ruta) no aparece en ella."
+  }
+ ],
+ "summary": {
+  "approve": 3,
+  "revise": 70,
+  "reject": 0,
+  "audit_support": {
+   "full": 42,
+   "partial": 27,
+   "none": 4
+  }
+ }
+}

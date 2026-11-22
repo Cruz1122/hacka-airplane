@@ -1,0 +1,28 @@
+# actions fix round
+
+- actions.register_planned_visit (revise): done. Se quitó el ejemplo de contraste. La respuesta separa Brisas–Valle de las Tumbas (reserva indispensable en fines de semana y puentes, reservasnevados.com) de Brisas-Kumanday (reserva no obligatoria; un día solo recomendado por cupos) y de los demás sectores (obligatoria con la agencia). No copia los 3 ni los 5 días ni el horario del pico y placa. La Resolución 1815 queda fechada a la ficha del 22 de noviembre de 2026. El short dice que la pantalla es un registro local y no reserva ni registra el ingreso ante Parques Nacionales.
+- actions.register_arrival_today (revise): done. Se eliminó el ejemplo entero del drop (orden más contraste), no solo la cola. Se sustituyó «el ingreso oficial se completa…» por «Los horarios dependen de los puntos de registro e ingreso del parque» y se aclara el registro local.
+- actions.report_emergency_general (revise): done. Se eliminó el ejemplo del drop. El resto de la respuesta, ya fechada al 12 de marzo de 2023, se dejó igual.
+- actions.report_injury (approve): done. Copiada byte a byte. No se restauraron «se cortó feo con una piedra» ni «se pegó una caída feísima»: el revisor las aprobó fuera y review_gate falla si la op cambia.
+- actions.report_lost_person (revise): done. Se eliminó el ejemplo del drop. Los hard negatives de objeto perdido ya cubren el contraste.
+- actions.report_altitude_sickness (approve): done. Copiada. El ejemplo de síntoma que flora usa como hard negative sigue.
+- actions.report_hypothermia (approve): done. Copiada. No se restauraron «alguien tirita sin parar» ni «tiene los labios morados y tirita sin parar» por la misma razón que report_injury.
+- actions.report_storm (approve): done. Copiada.
+- actions.report_fire (revise): done. Volvió «veo llamas en la montaña». Volvió el hard negative «llamar al 119 o al 123 por fuego en el páramo» (ejemplo de health_safety.firefighters_line_119); salió «hay una emergencia» para no pasar de 4.
+- actions.report_offline_emergency (revise): done. Volvió «estoy sin señal y hay gente tirada en la montaña».
+- critical actions.register_planned_visit: done. Código leído: executeTool genera un código REG local (mobile/src/core/tools.ts) y recordEffect lo inserta en sqlite (mobile/src/state/history.ts). No hay envío a Parques Nacionales.
+- critical actions.report_emergency_general, report_injury, report_lost_person, report_altitude_sickness, report_hypothermia, report_storm, report_fire, report_offline_emergency: done. El texto del fix ya estaba en la propuesta aprobada o revisada; el 123 queda fechado y la app no avisa a rescate.
+- actions.cross.json (primeros auxilios / denuncia): done. Actions solo prepara el reporte local. Los cuatro ejemplos de síntoma no vuelven porque sus ops están aprobadas.
+- actions.cross.json (fuego histórico): done. Flora se queda el incendio fechado; aquí vuelve el fuego que el visitante ve ahora.
+- actions.cross.json (Brisas / 3 y 5 días / pico y placa): done. No se copian los plazos de Cisne-Otún ni Quindío ni el horario de la Resolución 1815.
+- actions.cross.json (conversation.emergency_limits): done. Actions ya dice que la app no avisa a rescate; el texto de conversation no es de esta sección.
+- actions.cross.json (glaciers hard negative): done. El ejemplo de mal de altura se conserva en la op aprobada.
+- booking_fees.cross.json: done. El formulario no es la reserva por sector; la reserva se señala a reservasnevados.com o a la agencia, sin fusionar horarios.
+- health_safety.cross.json: done. El reporte sin señal no promete despacho de búsqueda.
+- flora_ecosystems.cross.json: done. El handoff de fuego actual queda en actions.
+- conversation.cross.json: declined: el dueño es conversation; aquí no se mueve emergency_limits.
+- services.cross.json: declined: el hard negative de persona perdida en services.lost_items lo escribe el dueño de services. Actions ya tiene hard negatives de objeto perdido.
+- labels.json, taxonomy.json, contradictions.json, arbiter.json: declined: no hay hallazgos con id actions.
+- reviews/_examples.json drop (4): done. Esos cuatro ejemplos no están en v2. route_check: n_removed_not_routing 0.
+- reviews/_examples.json notas (4 síntomas): declined: restaurarlos cambia ops con veredicto approve y review_gate lo rechaza. El revisor los asignó a health_safety.
+- verify flag actions.register_planned_visit number '22': el 22 es el día de consulta que pidió el revisor (22 de noviembre de 2026), no una cifra de la ficha. En la ficha «22.000» normaliza a 22000, así que el chequeo no lo cuenta. warn: vacío. fail: vacío.

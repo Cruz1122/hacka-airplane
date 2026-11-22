@@ -1,0 +1,72 @@
+{
+  "section": "critical",
+  "reviewer": "agent 4 / GPT-6 Luna",
+  "ops": [
+    {
+      "id": "health_safety.lost_person_protocol",
+      "op": "update",
+      "verdict": "approve",
+      "entailment": "full",
+      "label_change": "justified",
+      "examples": "ok",
+      "temporal": "ok",
+      "refetch": "n/a",
+      "reason": "La Resolución 207 respalda caminar unidos, permanecer en los senderos y dar aviso a las autoridades. La Policía identifica el 123 como línea nacional de emergencias; recomendarlo solo si hay señal no promete cobertura ni despacho de rescate. La app tampoco afirma localizar ni avisar por su cuenta. La etiqueta ahora describe extravío de una persona, acorde con la respuesta.",
+      "required_change": ""
+    },
+    {
+      "id": "health_safety.unresponsive_cpr",
+      "op": "update",
+      "verdict": "approve",
+      "entailment": "full",
+      "label_change": "justified",
+      "examples": "ok",
+      "temporal": "n/a",
+      "refetch": "warn",
+      "reason": "Las tres advertencias de refetch son por diferencias de marcado HTML. Revisé el texto de la descarga fresca de MedlinePlus: indica comprobar respuesta y respiración normal, llamar a emergencias y, si hay otra persona, pedirle que llame mientras se inicia RCP; luego comienza las compresiones. La respuesta mantiene ese orden y adapta 911 a la línea colombiana 123, condicionada a tener señal; no retrasa la atención tras una pregunta adicional.",
+      "required_change": ""
+    },
+    {
+      "id": "hours_status.volcanic_alert_closures",
+      "op": "update",
+      "verdict": "approve",
+      "entailment": "full",
+      "label_change": "justified",
+      "examples": "ok",
+      "temporal": "ok",
+      "refetch": "n/a",
+      "reason": "La Resolución 207 respalda que la Resolución 068 ordenó el cierre total hasta el informe de riesgo y que el boletín del 27 de junio de 2023 cambió el Ruiz de naranja a amarillo. La respuesta fecha ambos antecedentes, no deduce de ellos el nivel ni el acceso de hoy, y remite a los canales oficiales de SGC y Parques. El dato del índice dinámico de boletines se quitó sin reemplazarlo por otra afirmación de estado actual.",
+      "required_change": ""
+    }
+  ],
+  "audit_rows": [
+    {
+      "id": "health_safety.lost_person_protocol",
+      "claimed": "critical",
+      "support": "partial",
+      "note": "El excerpt de la Resolución 207 respalda permanecer unidos, pero por sí solo no sustenta llamar al 123; esa recomendación sí tiene evidencia policial independiente en la propuesta."
+    },
+    {
+      "id": "health_safety.unresponsive_cpr",
+      "claimed": "critical",
+      "support": "partial",
+      "note": "El excerpt de MedlinePlus respalda evaluar respuesta y respiración; no cubre por sí solo aviso al guía ni el 123. El texto fresco completo confirma llamada a emergencias antes/iniciando RCP y compresiones."
+    },
+    {
+      "id": "hours_status.volcanic_alert_closures",
+      "claimed": "high",
+      "support": "full",
+      "note": "La Resolución 207 contiene los antecedentes citados: cierre ordenado en 2023 condicionado a informe de riesgo y retorno a amarillo en el boletín del 27 de junio de 2023; también nombra SGC/Parques como referencias oficiales."
+    }
+  ],
+  "summary": {
+    "approve": 3,
+    "revise": 0,
+    "reject": 0,
+    "audit_support": {
+      "full": 1,
+      "partial": 2,
+      "none": 0
+    }
+  }
+}
