@@ -19,7 +19,8 @@
       "¿Tu duda es una queja del parque o una respuesta mía que no te sirvió?",
       "¿Quieres seguir con el tema anterior o empezamos uno nuevo?"
     ],
-    "fallback": "Puedo ayudarte con temas del parque: cómo llegar, horarios, clima, qué llevar o qué visitar. ¿Cuál te interesa?"
+    "fallback": "Puedo ayudarte con temas del parque: cómo llegar, horarios, clima, qué llevar o qué visitar. ¿Cuál te interesa?",
+    "slot_questions": {}
   },
   "featured": [
     "conversation.capabilities_overview",
@@ -52,7 +53,8 @@
       "hard_negatives": [
         "¿todo bien contigo?",
         "buen trabajo",
-        "bye bye"
+        "bye bye",
+        "cuánto vale para un mayor de 25 en Brisas"
       ],
       "answer": {
         "short": "¡Hola! Soy el asistente del Parque Nacional Natural Los Nevados. Pregúntame lo que necesites para tu visita.",
@@ -100,7 +102,8 @@
       "hard_negatives": [
         "hola, ¿estás ahí?",
         "te quedó bien",
-        "tú qué harías"
+        "tú qué harías",
+        "buen trabajo"
       ],
       "answer": {
         "short": "Funciono bien y estoy listo para ayudarte con tu visita al parque. ¿Qué necesitas saber?",
@@ -146,7 +149,8 @@
       "hard_negatives": [
         "respóndeme en inglés por favor",
         "lee en voz alta por favor",
-        "nos vemos, gracias y chao"
+        "nos vemos, gracias y chao",
+        "qué buen asistente"
       ],
       "answer": {
         "short": "¡Con gusto! Si necesitas algo más del parque, aquí estoy.",
@@ -193,7 +197,8 @@
       "hard_negatives": [
         "va, sigamos",
         "te agradezco la ayuda",
-        "holaa, buenos días"
+        "holaa, buenos días",
+        "no, cambiemos de tema"
       ],
       "answer": {
         "short": "¡Hasta luego! Que tengas una buena visita. Antes de viajar, confirma en las fuentes oficiales las condiciones del parque.",
@@ -239,18 +244,24 @@
       "hard_negatives": [
         "qué puedo visitar",
         "tú qué harías",
-        "no tengo idea de nada, qué me recomiendas preguntar"
+        "no tengo idea de nada, qué me recomiendas preguntar",
+        "qué opinas del parque"
       ],
       "answer": {
-        "short": "Te ayudo con cómo llegar, reservas, horarios, clima, seguridad, actividades, reglas, fauna, flora y la historia del parque. También puedo iniciar el registro de tu visita o un reporte de emergencia, aunque sin conexión no puedo confirmar que llegue.",
+        "short": "Te ayudo con cómo llegar, reservas, horarios, clima, seguridad, actividades, reglas, fauna, flora y la historia del parque. Esta app no envía reportes ni solicita rescate. Avisa al guía o al personal del parque; si tienes señal, llama al 123.",
         "variants": [
-          "Puedo responder sobre el parque Los Nevados: rutas, clima, seguridad, reglas, fauna y más. Dime tu duda."
+          "Puedo responder sobre el parque Los Nevados: rutas, clima, seguridad, reglas, fauna y más. Esta app no despacha rescate ni transmite reportes; pide ayuda directa al personal o guía."
         ]
       },
       "sources": [
         {
           "label": "Texto editorial del asistente; no es comunicación oficial de PNN",
           "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+          "retrieved_at": "2026-11-21"
+        },
+        {
+          "label": "Policía Nacional de Colombia (Línea de emergencias 123)",
+          "url": "https://www.policia.gov.co/noticia/policia-nacional-sensibiliza-comunidad-sobre-uso-las-lineas-emergencia-123-155",
           "retrieved_at": "2026-11-21"
         }
       ],
@@ -262,7 +273,8 @@
       "tags": [
         "funciones",
         "ayuda"
-      ]
+      ],
+      "last_verified": "2026-11-22"
     },
     {
       "id": "conversation.first_time_help",
@@ -286,7 +298,8 @@
       "hard_negatives": [
         "recomiéndame un primer recorrido",
         "ya llegué a la entrada, quiero registrarme",
-        "no entiendo español, qué hago"
+        "no entiendo español, qué hago",
+        "qué puedes hacer"
       ],
       "answer": {
         "short": "Empieza por tu tema: cómo llegar, horarios, clima, qué llevar o qué visitar. Dime desde qué ciudad sales o qué te preocupa, y seguimos desde ahí.",
@@ -312,7 +325,7 @@
     },
     {
       "id": "conversation.ai_identity",
-      "label": "si el asistente es un robot",
+      "label": "aclarar si el asistente es robot o persona",
       "kind": "chat",
       "audience": "visitor",
       "examples": [
@@ -334,7 +347,8 @@
       "hard_negatives": [
         "cómo estás",
         "hola, ¿estás ahí?",
-        "tú qué harías"
+        "tú qué harías",
+        "quiero hablar con una persona"
       ],
       "answer": {
         "short": "Sí, soy un asistente automático, no una persona: respondo con textos preparados del parque, guardados en tu teléfono. Pregúntame lo que necesites para tu visita.",
@@ -383,7 +397,8 @@
       "hard_negatives": [
         "te agradezco la ayuda",
         "no entendí",
-        "necesito que me lo digas con voz"
+        "necesito que me lo digas con voz",
+        "can you elaborate?"
       ],
       "answer": {
         "short": "Por ahora mis respuestas están en español y no puedo garantizar traducciones. Si quieres, pregúntame en español y te respondo con lo que tengo.",
@@ -430,7 +445,8 @@
       "hard_negatives": [
         "cuéntame un chiste",
         "mándame un mensaje",
-        "muéstrame un mapa"
+        "muéstrame un mapa",
+        "me llamas un taxi"
       ],
       "answer": {
         "short": "Mi función es responder sobre el parque con información guardada, así que no escribo poemas ni código. Si quieres, dime qué tema del parque te interesa.",
@@ -477,7 +493,8 @@
       "hard_negatives": [
         "por qué respondes tan mal?",
         "no sé ni qué pedirte",
-        "no me quedó claro"
+        "no me quedó claro",
+        "eres un inútil"
       ],
       "answer": {
         "short": "Lamento que la respuesta no te haya servido. Dime qué preguntaste y qué necesitabas, y confirma el dato en la fuente oficial del tema.",
@@ -523,7 +540,8 @@
       "hard_negatives": [
         "no entendí",
         "estás equivocado",
-        "no sé ni qué pedirte"
+        "no sé ni qué pedirte",
+        "esa respuesta está mal"
       ],
       "answer": {
         "short": "Entiendo que estés molesto. Puedo intentar ayudarte con tu visita al parque, así que dime qué necesitas.",
@@ -596,7 +614,7 @@
     },
     {
       "id": "conversation.human_contact_request",
-      "label": "hablar con una persona del parque",
+      "label": "contactar o hablar con personal del parque",
       "kind": "procedure",
       "audience": "visitor",
       "examples": [
@@ -616,7 +634,8 @@
       "hard_negatives": [
         "me piden asistir a una charla al llegar",
         "quiero entrenar en el parque, a quién escribo",
-        "necesito que me lo digas con voz"
+        "necesito que me lo digas con voz",
+        "eres una persona real?"
       ],
       "answer": {
         "short": "No puedo conectarte con una persona desde aquí. Para hablar con el parque, revisa los canales de atención en la página oficial de Parques Nacionales Naturales y confirma los datos antes de llamar.",
@@ -662,7 +681,8 @@
       ],
       "hard_negatives": [
         "cuéntame más",
-        "mándame un mensaje"
+        "mándame un mensaje",
+        "escríbeme un poema"
       ],
       "answer": {
         "short": "Los chistes no son mi fuerte, pero puedo contarte algo interesante del parque si me dices qué tema te gusta.",
@@ -708,7 +728,8 @@
       "hard_negatives": [
         "respóndeme en inglés por favor",
         "te agradezco la ayuda",
-        "no tengo idea de nada, qué me recomiendas preguntar"
+        "no tengo idea de nada, qué me recomiendas preguntar",
+        "qué hora es"
       ],
       "answer": {
         "short": "Eso queda fuera de lo que puedo responder. Pregúntame por el parque Los Nevados: cómo llegar, el clima o qué llevar.",
@@ -753,7 +774,8 @@
       "hard_negatives": [
         "respóndeme en inglés por favor",
         "no sé ni qué pedirte",
-        "sigue, explícame mejor"
+        "sigue, explícame mejor",
+        "resúmelo"
       ],
       "answer": {
         "short": "Claro. Dime el tema, como acceso, horarios o clima, y te repito el texto preparado; no tengo otra versión más sencilla.",
@@ -799,7 +821,8 @@
       "hard_negatives": [
         "no entendí",
         "déjalo así",
-        "gracias pues"
+        "gracias pues",
+        "te quedó bien"
       ],
       "answer": {
         "short": "Perfecto. Si quieres seguir con el tema o preguntar otra cosa, aquí estoy.",
@@ -843,7 +866,8 @@
       ],
       "hard_negatives": [
         "no entendí",
-        "ya no necesito nada, adiós"
+        "ya no necesito nada, adiós",
+        "listo, me despido"
       ],
       "answer": {
         "short": "Listo, dejamos ese tema. ¿Qué quieres consultar ahora? Si tenías un registro o un reporte en curso, revisa la pantalla antes de seguir, porque no lo doy por enviado.",
@@ -890,7 +914,8 @@
       "hard_negatives": [
         "estás funcionando bien?",
         "bien seguimos",
-        "te agradezco la ayuda"
+        "te agradezco la ayuda",
+        "cómo estás"
       ],
       "answer": {
         "short": "¡Gracias, qué amable! Me alegra poder ayudarte. ¿Qué quieres saber del parque?",
@@ -936,7 +961,8 @@
       "hard_negatives": [
         "explícamelo de nuevo",
         "respóndeme en inglés por favor",
-        "te agradezco la ayuda"
+        "te agradezco la ayuda",
+        "resúmelo"
       ],
       "answer": {
         "short": "Claro, te cuento más sobre el tema anterior. Si no tengo más detalle preparado para ese punto, te digo dónde consultarlo.",
@@ -1035,12 +1061,13 @@
       "hard_negatives": [
         "estás funcionando bien?",
         "sirves para pedir auxilio",
-        "se guardan mis datos aquí?"
+        "se guardan mis datos aquí?",
+        "muéstrame un mapa"
       ],
       "answer": {
-        "short": "Sí, puedo responder sin señal porque la información está guardada en tu teléfono. Cuando tengas conexión, confirma en la página oficial los datos que cambian.",
+        "short": "Con un modelo local instalado y seleccionado puedes consultar la información guardada sin señal. Esta app no recibe alertas en tiempo real; confirma los datos cambiantes con la fuente oficial cuando tengas conexión.",
         "variants": [
-          "Funciono en modo avión. Antes de viajar o al recuperar señal, revisa la página oficial de Parques Nacionales para lo más reciente."
+          "Si tienes un modelo local instalado y seleccionado, puedes consultar la información del parque sin conexión a internet. Para datos cambiantes, verifica la fuente oficial cuando tengas señal."
         ]
       },
       "sources": [
@@ -1057,7 +1084,8 @@
       "tags": [
         "sin internet",
         "modo avión"
-      ]
+      ],
+      "last_verified": "2026-11-22"
     },
     {
       "id": "conversation.emergency_limits",
@@ -1081,18 +1109,19 @@
       "hard_negatives": [
         "me pasó algo grave y necesito llamar",
         "quiero reportar una emergencia",
-        "en qué me puedes ayudar"
+        "en qué me puedes ayudar",
+        "quién eres tú"
       ],
       "answer": {
-        "short": "Si hay peligro, pide ayuda ya a quien esté contigo y revisa las indicaciones de seguridad de esta app. Puedo iniciar un reporte de emergencia, pero sin conexión no puedo confirmar que llegue, así que no dependas solo de mí.",
+        "short": "Si hay peligro, avisa de inmediato al guía o al personal y, si tienes señal, llama al 123. Esta app no llama, no envía reportes ni te localiza. Si necesitas consultar pautas de seguridad o preparar un reporte en el dispositivo, dime qué ocurrió.",
         "variants": [
-          "No me uses como única ayuda en una emergencia. Pide ayuda de inmediato y, si quieres, dime qué pasa para iniciar un reporte."
+          "Si hay una emergencia, acude primero al guía o al personal y llama al 123 si cuentas con señal. Esta app no llama a rescate ni transmite datos; dime qué pasó si requieres orientación o registrar un reporte local."
         ]
       },
       "sources": [
         {
-          "label": "Texto editorial del asistente; no es comunicación oficial de PNN",
-          "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+          "label": "Policía Nacional de Colombia (Línea de emergencias 123)",
+          "url": "https://www.policia.gov.co/noticia/policia-nacional-sensibiliza-comunidad-sobre-uso-las-lineas-emergencia-123-155",
           "retrieved_at": "2026-11-21"
         }
       ],
@@ -1103,7 +1132,8 @@
       "tags": [
         "emergencia",
         "peligro"
-      ]
+      ],
+      "last_verified": "2026-11-22"
     },
     {
       "id": "conversation.history_storage",
@@ -1131,9 +1161,9 @@
         "me atendieron mal, a quién le escribo?"
       ],
       "answer": {
-        "short": "La app guarda esta conversación en tu teléfono. Si quieres volver a leerla, ábrela ahí en la app.",
+        "short": "La app no conserva el texto del chat en el historial. El historial local muestra registros de visita o reportes generados en el dispositivo.",
         "variants": [
-          "Tu historial de chat queda guardado en el teléfono donde usas la app."
+          "Los mensajes del chat no quedan guardados tras cerrar la app. En el historial solo se registran los trámites locales realizados, como el registro de visita o reporte de emergencia."
         ]
       },
       "sources": [
@@ -1150,7 +1180,8 @@
       "tags": [
         "historial",
         "privacidad"
-      ]
+      ],
+      "last_verified": "2026-11-22"
     },
     {
       "id": "conversation.no_outside_actions",
@@ -1174,7 +1205,8 @@
       "hard_negatives": [
         "emergencia, mándame ayuda",
         "escríbeme un poema",
-        "quiero que alguien me llame"
+        "quiero que alguien me llame",
+        "pásame con un humano"
       ],
       "answer": {
         "short": "No puedo hacer llamadas, enviar mensajes ni crear recordatorios por ti. Para eso usa tu teléfono, y aquí sigo disponible para preguntas del parque.",
@@ -1200,7 +1232,7 @@
     },
     {
       "id": "conversation.location_map_request",
-      "label": "pedir tu ubicación o un mapa",
+      "label": "solicitar ubicación gps o mapa en vivo",
       "kind": "chat",
       "audience": "visitor",
       "examples": [
@@ -1220,7 +1252,8 @@
       "hard_negatives": [
         "necesito mapa o gps para caminar?",
         "¿me pasas el GPS del control?",
-        "si la veo en el mapa, puedo entrar por ahi"
+        "si la veo en el mapa, puedo entrar por ahi",
+        "manda la ruta al correo"
       ],
       "answer": {
         "short": "En esta versión no uso tu ubicación ni tengo un mapa en vivo. Para llegar, pregúntame la ruta desde tu ciudad, y si te perdiste, revisa las indicaciones de seguridad.",
@@ -1266,7 +1299,8 @@
       ],
       "hard_negatives": [
         "respóndeme en inglés por favor",
-        "cómo se llama el cráter del Ruiz"
+        "cómo se llama el cráter del Ruiz",
+        "mándame un mensaje"
       ],
       "answer": {
         "short": "Por ahora no puedo leerte en voz alta ni escuchar tu voz. Escribe tu pregunta y te respondo por texto.",
@@ -1312,7 +1346,8 @@
       ],
       "hard_negatives": [
         "qué opinas de la política",
-        "qué sabes del parque"
+        "qué sabes del parque",
+        "en qué me puedes ayudar"
       ],
       "answer": {
         "short": "No tengo opiniones personales, pero puedo darte información del parque y su fuente para que decidas tú.",
@@ -1337,7 +1372,7 @@
     },
     {
       "id": "conversation.time_or_date_request",
-      "label": "preguntar la hora o el día",
+      "label": "consultar la hora actual o la fecha",
       "kind": "chat",
       "audience": "visitor",
       "examples": [
@@ -1357,7 +1392,8 @@
       "hard_negatives": [
         "horarios",
         "horarios de lunes a viernes",
-        "qué tal tu día"
+        "qué tal tu día",
+        "pon una alarma a las 5"
       ],
       "answer": {
         "short": "No tengo un reloj confiable sin conexión, así que mira la hora y la fecha en tu teléfono. Para saber horarios del parque, consulta la página oficial.",
@@ -1405,7 +1441,8 @@
       "hard_negatives": [
         "cuéntame más",
         "explícamelo de nuevo",
-        "háblame en voz alta"
+        "háblame en voz alta",
+        "dame más detalles"
       ],
       "answer": {
         "short": "Claro. Dime el tema en una palabra (acceso, horarios, clima o qué llevar) y te respondo en pocas palabras.",

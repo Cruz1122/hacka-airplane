@@ -309,3 +309,87 @@ Motivo: 17 entradas marcadas «Consejo general» citaban la ficha de Los Nevados
 
 - `overrides.py` no longer refills hard negatives from the alphabetically sorted pool of every other section's examples: that produced unrelated negatives ("0,2 hectáreas…") and made the build depend on corpus state. Authored hard negatives are kept and mapped to real examples by `coordination/map_hard_negatives.py` like every other section.
 - The stale patches in `coordination/polish/preparation.json` reported above were pruned (they were not being applied); `polish/rejections.json` is empty.
+
+
+## Updated entry: preparation.checklist_brisas_day
+
+- Reason: Fix v2: conservar etiqueta; respaldar los elementos de pasadía en el equipo mínimo obligatorio del numeral 6.1 de res207.
+- Changed fields: answer, hard_negatives
+
+- https://www.parquesnacionales.gov.co/wp-content/uploads/2023/08/Resolucion_207_2023_ReglamentacionNevados_.pdf (checked 2026-11-21); evidence: `research_notes/Conocimiento turístico de Los Nevados/activities/evidence/resolucion-207-2023.txt`
+
+> gafas con protección ultravioleta 100% (UV), bloqueador solar factor 50 como
+>          mínimo, linterna frontal y baterías de repuesto, morral pequeño, ropa impermeable, ropa abrigada (para soportar
+>          temperaturas extremas de frío en cabeza, tórax y extremidades), zapatos cómodos preferiblemente impermeables,
+>          cantimplora, guantes, pasa montañas, bolsa para retornar la basura, alimentos ligeros listos para consumir y ricos
+>          en calorías.
+
+- https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/ (checked 2026-11-21); evidence: `research_notes/curation_v2/evidence/preparation/pnn-nevados-ficha.txt`
+
+> Lleva ropa y calzado apropiado para climas fríos inferiores a 0 ºC y lluviosos.
+
+
+## Updated entry: preparation.mountain_tent
+
+- Reason: Fix v2: conservar etiqueta anterior; respaldar especificación de carpa técnica 3 o 4 estaciones de res207.
+- Changed fields: answer, hard_negatives
+
+- https://www.parquesnacionales.gov.co/wp-content/uploads/2023/08/Resolucion_207_2023_ReglamentacionNevados_.pdf (checked 2026-11-21); evidence: `research_notes/Conocimiento turístico de Los Nevados/activities/evidence/resolucion-207-2023.txt`
+
+> Las carpas utilizadas deben tener las especificaciones técnicas para alta montaña; conocidas como carpas de tres
+> y cuatro estaciones para temperaturas menores a cero grados centígrados.
+
+
+## Updated entry: preparation.neck_gaiter
+
+- Reason: Optimizar metadatos de preparation.neck_gaiter: clarificar etiqueta para System 1 y enriquecer hard negatives contrastivos contra pares confusibles.
+- Changed fields: hard_negatives
+
+
+## Updated entry: preparation.sleeping_bag
+
+- Reason: Fix v2: conservar etiqueta anterior; reemplazar fuente 2018 por ficha oficial PNN 2026 (sleeping para acampar).
+- Changed fields: answer, hard_negatives, sources
+
+- https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/ (checked 2026-11-21); evidence: `research_notes/curation_v2/evidence/preparation/pnn-nevados-ficha.txt`
+
+> Si vas a acampar en las zonas permitidas, lleva carpa, sleeping, material de cocina y alimentación apropiada para bajas temperaturas.
+
+
+## Updated entry: preparation.sunglasses_uv
+
+- Reason: Fix v2: conservar etiqueta anterior; ratificar gafas con protección ultravioleta 100% (UV) de res207.
+- Changed fields: answer, hard_negatives
+
+- https://www.parquesnacionales.gov.co/wp-content/uploads/2023/08/Resolucion_207_2023_ReglamentacionNevados_.pdf (checked 2026-11-21); evidence: `research_notes/Conocimiento turístico de Los Nevados/activities/evidence/resolucion-207-2023.txt`
+
+> gafas con protección ultravioleta 100% (UV)
+
+- https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/ (checked 2026-11-21); evidence: `research_notes/curation_v2/evidence/preparation/pnn-nevados-ficha.txt`
+
+> Lleva ropa y calzado apropiado para climas fríos inferiores a 0 ºC y lluviosos.
+
+
+## Updated entry: preparation.thermal_hat
+
+- Reason: Fix v2: conservar etiqueta anterior; respaldar gorro abrigado según protección de frío extremo en cabeza de res207.
+- Changed fields: answer, hard_negatives
+
+- https://www.parquesnacionales.gov.co/wp-content/uploads/2023/08/Resolucion_207_2023_ReglamentacionNevados_.pdf (checked 2026-11-21); evidence: `research_notes/Conocimiento turístico de Los Nevados/activities/evidence/resolucion-207-2023.txt`
+
+> ropa abrigada (para soportar
+>          temperaturas extremas de frío en cabeza, tórax y extremidades)
+
+
+## Updated entry: preparation.water_quantity
+
+- Reason: Fix v2: conservar etiqueta anterior; retirar 'pequeños sorbos' y respaldar cantimplora obligatoria según res207 e hidratación según ficha PNN.
+- Changed fields: answer, hard_negatives
+
+- https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/ (checked 2026-11-21); evidence: `research_notes/curation_v2/evidence/preparation/pnn-nevados-ficha.txt`
+
+> Ten una buena hidratación antes, durante y después de la actividad.
+
+- https://www.parquesnacionales.gov.co/wp-content/uploads/2023/08/Resolucion_207_2023_ReglamentacionNevados_.pdf (checked 2026-11-21); evidence: `research_notes/Conocimiento turístico de Los Nevados/activities/evidence/resolucion-207-2023.txt`
+
+> cantimplora, guantes, pasa montañas

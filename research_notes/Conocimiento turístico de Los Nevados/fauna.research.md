@@ -182,3 +182,189 @@ No official visitor protocol for an encounter with bear, puma or tapir in Los Ne
 - No official hour, season or trail for seeing bear, puma, tapir or condor. Birders’ targets and the parakeet’s flocks are the only “where” sentences the plan supports.
 - The plan’s older national counts (778 vertebrates, 42 amphibians, 108 páramo birds) include the buffer or cite the 2002 plan. They were not revived as interior-of-the-park totals.
 - *Puma concolor* is not in the 2024 threatened-species list. No category was invented for it.
+
+
+## Updated entry: fauna.andean_condor
+
+- Reason: Etiqueta restaurada a "cóndor andino en Los Nevados" según revisión v1; conserva mejoras de hard negatives y desambiguación.
+- Changed fields: hard_negatives
+
+
+## Updated entry: fauna.andean_duck
+
+- Reason: Etiqueta restaurada a "pato andino o pato turrio" según revisión v1; conserva mejoras de hard negatives y desambiguación.
+- Changed fields: hard_negatives
+
+
+## Updated entry: fauna.bear_national_status
+
+- Reason: Etiqueta restaurada a "oso de anteojos vulnerable en Colombia" según revisión v1; conserva mejoras de hard negatives y desambiguación.
+- Changed fields: hard_negatives
+
+
+## Updated entry: fauna.black_and_chestnut_eagle
+
+- Reason: Etiqueta restaurada a "águila crestada en Los Nevados" según revisión v1; conserva mejoras de hard negatives y desambiguación.
+- Changed fields: hard_negatives
+
+
+## Updated entry: fauna.black_chested_buzzard_eagle
+
+- Reason: Etiqueta restaurada a "águila de páramo en Los Nevados" según revisión v1; conserva mejoras de hard negatives y desambiguación.
+- Changed fields: hard_negatives
+
+
+## Updated entry: fauna.brocket_national_status
+
+- Reason: Etiqueta restaurada a "venado colorado vulnerable en Colombia" según revisión v1; conserva mejoras de hard negatives y desambiguación.
+- Changed fields: hard_negatives
+
+
+## Updated entry: fauna.buffy_helmetcrest
+
+- Reason: Label updated to 'colibrí chivito de páramo endémico' to clearly specify topic and prevent retrieval confusion; Contrastive hard negatives added from confusable pair
+- Changed fields: hard_negatives, label
+
+
+## Updated entry: fauna.condor_national_status
+
+- Reason: Etiqueta restaurada a "cóndor andino en peligro crítico" según revisión v1; conserva mejoras de hard negatives y desambiguación.
+- Changed fields: hard_negatives
+
+
+## Updated entry: fauna.conservation_target_species_voc
+
+- Reason: Etiqueta actualizada a "fauna objeto de conservación del parque" según findings/labels.json y taxonomía para desambiguar frente a flora y conceptos administrativos.
+- Changed fields: label
+
+
+## Updated entry: fauna.eagle_national_status
+
+- Reason: Etiqueta restaurada a "águila crestada catalogada en peligro" según revisión v1; conserva mejoras de hard negatives y desambiguación.
+- Changed fields: hard_negatives
+
+
+## Updated entry: fauna.fuertes_national_status
+
+- Reason: Etiqueta restaurada a "cotorra de Fuertes en peligro crítico" según revisión v1; conserva mejoras de hard negatives y desambiguación.
+- Changed fields: hard_negatives
+
+
+## Updated entry: fauna.fuertes_parrot
+
+- Reason: Etiqueta restaurada a "cotorra de Fuertes en el listado" según revisión v1; conserva mejoras de hard negatives y desambiguación.
+- Changed fields: hard_negatives
+
+
+## Updated entry: fauna.golden_plumed_parakeet
+
+- Reason: Etiqueta restaurada a "perico paramuno en Los Nevados" según revisión v1; conserva mejoras de hard negatives y desambiguación.
+- Changed fields: hard_negatives
+
+
+## Updated entry: fauna.guagua_national_status
+
+- Reason: Etiqueta restaurada a "guagua loba vulnerable en Colombia" según revisión v1; conserva mejoras de hard negatives y desambiguación.
+- Changed fields: hard_negatives
+
+
+## Updated entry: fauna.helmetcrest_national_status
+
+- Reason: Etiqueta restaurada a "chivito de páramo en la lista nacional" según revisión v1; conserva mejoras de hard negatives y desambiguación.
+- Changed fields: hard_negatives
+
+
+## Updated entry: fauna.hooded_mountain_toucan
+
+- Reason: Etiqueta restaurada a "terlaque andino en el listado del parque" según revisión v1; conserva mejoras de hard negatives y desambiguación.
+- Changed fields: hard_negatives
+
+
+## Updated entry: fauna.little_red_brocket
+
+- Reason: Etiqueta restaurada a "venado soche en el listado del parque" según revisión v1; conserva mejoras de hard negatives y desambiguación.
+- Changed fields: hard_negatives
+
+
+## Updated entry: fauna.miller_national_status
+
+- Reason: Etiqueta restaurada a "tororoi de Miller catalogado en peligro" según revisión v1; conserva mejoras de hard negatives y desambiguación.
+- Changed fields: hard_negatives
+
+
+## Updated entry: fauna.northern_pudu
+
+- Reason: Etiqueta restaurada a "venado conejo estudiado en el parque" según revisión v1; conserva mejoras de hard negatives y desambiguación.
+- Changed fields: hard_negatives
+
+
+## Updated entry: fauna.northern_tiger_cat
+
+- Reason: Etiqueta restaurada a "tigrillo lanudo en el listado del parque" según revisión v1; conserva mejoras de hard negatives y desambiguación.
+- Changed fields: hard_negatives
+
+
+## Updated entry: fauna.oncilla_national_status
+
+- Reason: Etiqueta restaurada a "tigrillo lanudo en la lista nacional" según revisión v1; conserva mejoras de hard negatives y desambiguación.
+- Changed fields: hard_negatives
+
+
+## Updated entry: fauna.paramo_parakeet_national_status
+
+- Reason: Etiqueta restaurada a "perico paramuno vulnerable en Colombia" según revisión v1; conserva mejoras de hard negatives y desambiguación.
+- Changed fields: hard_negatives
+
+
+## Updated entry: fauna.pudu_national_status
+
+- Reason: Etiqueta restaurada a "venado conejo en la lista de amenaza" según revisión v1; conserva mejoras de hard negatives y desambiguación.
+- Changed fields: hard_negatives
+
+
+## Updated entry: fauna.ruiz_parakeet
+
+- Reason: Contrastive hard negatives added from confusable pair; Refined examples to remove cross-query contamination and improve LOO routing
+- Changed fields: examples, hard_negatives
+
+
+## Updated entry: fauna.spectacled_bear
+
+- Reason: Etiqueta restaurada a "oso de anteojos u oso andino" según revisión v1; conserva mejoras de hard negatives y desambiguación.
+- Changed fields: hard_negatives
+
+
+## Updated entry: fauna.spotting_sector_santa_isabel
+
+- Reason: Etiqueta restaurada a "avistamiento de fauna en Santa Isabel" según revisión v1; conserva mejoras de hard negatives y desambiguación.
+- Changed fields: examples
+
+
+## Updated entry: fauna.tapir_national_status
+
+- Reason: Etiqueta restaurada a "danta de páramo catalogada en peligro" según revisión v1; conserva mejoras de hard negatives y desambiguación.
+- Changed fields: hard_negatives
+
+
+## Updated entry: fauna.tawny_antpitta
+
+- Reason: Etiqueta restaurada a "tororoi leonado en Los Nevados" según revisión v1; conserva mejoras de hard negatives y desambiguación.
+- Changed fields: hard_negatives
+
+
+## Updated entry: fauna.threatened_species
+
+- Reason: Etiqueta actualizada a "especies vulnerables o indicadoras" según findings/labels.json y revisión v1.
+- Changed fields: label
+
+
+## Updated entry: fauna.torrent_duck
+
+- Reason: Etiqueta restaurada a "pato de torrente en Los Nevados" según revisión v1; conserva mejoras de hard negatives y desambiguación.
+- Changed fields: hard_negatives
+
+
+## Updated entry: fauna.toucan_national_status
+
+- Reason: Etiqueta restaurada a "terlaque andino vulnerable en Colombia" según revisión v1; conserva mejoras de hard negatives y desambiguación.
+- Changed fields: hard_negatives

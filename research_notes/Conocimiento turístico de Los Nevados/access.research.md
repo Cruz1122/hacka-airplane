@@ -158,3 +158,69 @@ The four sector descriptions are sections of the same PNN page (Cómo llegar and
 - Invías does not report the tertiary dirt roads.
 - Page 17 of the terminal lists Cootransnorte to Herveo. The park page still publishes no visitor road from that town, so no entry was added.
 - SGC altitudes and straight-line distances remain undated. They stay in detail, not as the driving instruction.
+
+
+## Updated entry: access.always_by_land
+
+- Reason: Enfocar label en la exclusividad del transporte terrestre y contrastar con horarios y servicios.
+- Changed fields: examples, hard_negatives
+
+
+## Updated entry: access.bus_to_letras
+
+- Reason: Diferenciar el bus intermunicipal hasta el páramo de Letras de la carretera y de la portería.
+- Changed fields: examples, hard_negatives
+
+
+## Updated entry: access.cedral_walk_distances
+
+- Reason: Ajustar label para eliminar mención errónea a tiempo no publicado y reforzar discriminación frente a Potosí.
+- Changed fields: examples, hard_negatives
+
+
+## Updated entry: access.cocora_before_park
+
+- Reason: Precisar el tramo intermedio de 14 km desde el valle hasta el límite del área protegida.
+- Changed fields: examples, hard_negatives
+
+
+## Updated entry: access.control_coordinates
+
+- Reason: Precisar label a coordenadas geográficas, retirar ejemplo no natural y blindar frente a confusiones.
+- Changed fields: examples, hard_negatives
+
+
+## Updated entry: access.dirt_roads_cisne
+
+- Reason: Precisar condiciones de trochas y destapadas hacia el sector Cisne y Potosí.
+- Changed fields: examples, hard_negatives
+
+
+## Updated entry: access.el_cisne_approach
+
+- Reason: Enfocar en la ruta y aproximación terrestre hacia el centro El Cisne.
+- Changed fields: examples, hard_negatives
+
+
+## Updated entry: access.from_anzoategui_palomar
+
+- Reason: Especificar la ruta tolimense saliendo de Anzoátegui hacia la vereda Palomar.
+- Changed fields: examples, hard_negatives
+
+
+## Updated entry: access.letras_not_the_gate
+
+- Reason: Enfocar en la aclaración para visitantes de que el alto de Letras no es la caseta de entrada.
+- Changed fields: examples, hard_negatives
+
+
+## Updated entry: access.own_car_brisas
+
+- Reason: Enfocar en el viaje en auto particular hasta el centro Brisas y el requisito posterior de vehículo cubierto.
+- Changed fields: examples, hard_negatives
+
+
+## Updated entry: access.santa_rosa_vs_cedral
+
+- Reason: Diferenciar la ruta de Santa Rosa (vehicular a Potosí) de la de El Cedral (a pie desde Pereira).
+- Changed fields: examples, hard_negatives

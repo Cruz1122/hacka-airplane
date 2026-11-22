@@ -179,3 +179,559 @@ TLS de Función Pública sigue sin validar en este equipo (texto obtenido antes 
 - `generate_rules.py` → `coordinator_fixes.py` → `validate_knowledge.py`: `Errors: 0; review flags: 4`
 - Las 4 advertencias no son de `rules` (dos negativos de `conversation`, uno de `hours_status`, etiquetas parecidas en `booking_fees`).
 - No se hizo commit. No aplica navegador: la sección es JSON.
+
+
+## Updated entry: rules.abandoning_gear_objects
+
+- Reason: Dating rule to 2026-11-21 backed by official regulation, clarifying label, and verifying evidence.
+- Changed fields: last_verified
+
+- https://www.funcionpublica.gov.co/eva/gestornormativo/norma.php?i=78153 (checked 2026-11-21); evidence: `research_notes/Conocimiento turístico de Los Nevados/rules/evidence/raw/decreto_1076_2015.txt`
+
+> Abandonar objetos, vehículos o equipos de cualquier clase.
+
+- https://www.parquesnacionales.gov.co/wp-content/uploads/2023/08/Resolucion_207_2023_ReglamentacionNevados_.pdf (checked 2026-11-21); evidence: `research_notes/Conocimiento turístico de Los Nevados/rules/evidence/raw/res207_2023.txt`
+
+> Los residuos generados por la actividad como alimentos, ropa, plásticos, carpas, etc., deberán ser removidos de
+> las áreas protegidas
+
+
+## Updated entry: rules.agro_industrial_mining_ban
+
+- Reason: Dating rule to 2026-11-21 backed by official regulation, clarifying label, and verifying evidence.
+- Changed fields: last_verified
+
+- https://www.funcionpublica.gov.co/eva/gestornormativo/norma.php?i=78153 (checked 2026-11-21); evidence: `research_notes/Conocimiento turístico de Los Nevados/rules/evidence/raw/decreto_1076_2015.txt`
+
+> 3. Desarrollar actividades agropecuarias o industriales incluidas las hoteleras, mineras y petroleras.
+
+
+## Updated entry: rules.authorized_stay_duration
+
+- Reason: Dating rule to 2026-11-21 backed by official regulation, clarifying label, and verifying evidence.
+- Changed fields: last_verified
+
+- https://www.parquesnacionales.gov.co/wp-content/uploads/2023/08/Resolucion_207_2023_ReglamentacionNevados_.pdf (checked 2026-11-21); evidence: `research_notes/Conocimiento turístico de Los Nevados/rules/evidence/raw/res207_2023.txt`
+
+> Solamente podrá permanecer en el Área Protegida durante el tiempo autorizado por el Parque.
+
+- https://www.funcionpublica.gov.co/eva/gestornormativo/norma.php?i=78153 (checked 2026-11-21); evidence: `research_notes/Conocimiento turístico de Los Nevados/rules/evidence/raw/decreto_1076_2015.txt`
+
+> Las personas que utilicen las áreas del Sistema de Parques Nacionales Naturales, podrán permanecer en ellas sólo el tiempo especificado en las respectivas autorizaciones, de acuerdo con los reglamentos que se expidan para cada una.
+
+
+## Updated entry: rules.avoid_chemicals
+
+- Reason: Dating rule to 2026-11-21 backed by official regulation, clarifying label, and verifying evidence.
+- Changed fields: last_verified
+
+- https://www.funcionpublica.gov.co/eva/gestornormativo/norma.php?i=78153 (checked 2026-11-21); evidence: `research_notes/Conocimiento turístico de Los Nevados/rules/evidence/raw/decreto_1076_2015.txt`
+
+> La utilización de cualquier producto químico de efectos residuales y de explosivos, salvo cuando los últimos deban emplearse en obra autorizada.
+
+- https://www.parquesnacionales.gov.co/wp-content/uploads/2023/08/Resolucion_207_2023_ReglamentacionNevados_.pdf (checked 2026-11-21); evidence: `research_notes/Conocimiento turístico de Los Nevados/rules/evidence/raw/res207_2023.txt`
+
+> Tampoco se permite el uso de productos químicos en aerosoles o en
+> grandes cantidades que puedan ocasionar derrames y contaminación en el suelo, el aire o el agua.
+
+- https://www.funcionpublica.gov.co/eva/gestornormativo/norma.php?i=78153 (checked 2026-11-21); evidence: `research_notes/Conocimiento turístico de Los Nevados/rules/evidence/raw/decreto_1076_2015.txt`
+
+> Llevar y usar cualquier clase de juegos pirotécnicos o portar sustancias inflamables no expresamente autorizadas y sustancias explosivas.
+
+
+## Updated entry: rules.avoid_pollutants
+
+- Reason: Dating rule to 2026-11-21 backed by official regulation, clarifying label, and verifying evidence.
+- Changed fields: last_verified
+
+- https://www.parquesnacionales.gov.co/wp-content/uploads/2023/08/Resolucion_207_2023_ReglamentacionNevados_.pdf (checked 2026-11-21); evidence: `research_notes/Conocimiento turístico de Los Nevados/rules/evidence/raw/res207_2023.txt`
+
+> Tampoco se permite el uso de productos químicos en aerosoles o en
+> grandes cantidades que puedan ocasionar derrames y contaminación en el suelo, el aire o el agua.
+
+- https://www.funcionpublica.gov.co/eva/gestornormativo/norma.php?i=78153 (checked 2026-11-21); evidence: `research_notes/Conocimiento turístico de Los Nevados/rules/evidence/raw/decreto_1076_2015.txt`
+
+> El vertimiento, introducción, distribución, uso o abandono de sustancias tóxicas o contaminantes que puedan perturbar los ecosistemas o causar daños en ellos.
+
+
+## Updated entry: rules.camping
+
+- Reason: Dating rule to 2026-11-21 backed by official regulation, clarifying label, and verifying evidence.
+- Changed fields: label, last_verified
+
+- https://www.parquesnacionales.gov.co/wp-content/uploads/2023/08/Resolucion_207_2023_ReglamentacionNevados_.pdf (checked 2026-11-21); evidence: `research_notes/Conocimiento turístico de Los Nevados/rules/evidence/raw/res207_2023.txt`
+
+> Realizar camping en zonas no permitidas y el uso de play-back (reproducción de audios de fauna silvestre con
+> algún dispositivo electrónico) en el Área Protegida.
+
+
+## Updated entry: rules.commercial_photography
+
+- Reason: Dating rule to 2026-11-21 backed by official regulation, clarifying label, and verifying evidence.
+- Changed fields: last_verified
+
+- https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/ (checked 2026-11-21); evidence: `research_notes/Conocimiento turístico de Los Nevados/rules/evidence/raw/pnn_nevados_ficha.txt`
+
+> Si deseas realizar tomas audiovisuales o fotografías con fines comerciales, eventos, actividades deportivas o actividades de investigación o educación ambiental, debes solicitar la autorización correspondiente.
+
+- https://www.parquesnacionales.gov.co/wp-content/uploads/2023/08/Resolucion_207_2023_ReglamentacionNevados_.pdf (checked 2026-11-21); evidence: `research_notes/Conocimiento turístico de Los Nevados/rules/evidence/raw/res207_2023.txt`
+
+> Se permite la toma de imágenes de video y fotografía de carácter no profesional
+> o aficionado.
+
+- https://www.funcionpublica.gov.co/eva/gestornormativo/norma.php?i=78153 (checked 2026-11-21); evidence: `research_notes/Conocimiento turístico de Los Nevados/rules/evidence/raw/decreto_1076_2015.txt`
+
+> Las personas que utilicen las áreas del Sistema de Parques Nacionales Naturales, podrán permanecer en ellas sólo el tiempo especificado en las respectivas autorizaciones, de acuerdo con los reglamentos que se expidan para cada una.
+
+
+## Updated entry: rules.community_service_sanction
+
+- Reason: Dating rule to 2026-11-21 backed by official regulation, clarifying label, and verifying evidence.
+- Changed fields: last_verified
+
+- https://cancilleria.gov.co/sites/default/files/Normograma/docs/ley_2387_2024.htm (checked 2026-11-21); evidence: `research_notes/Conocimiento turístico de Los Nevados/rules/evidence/raw/ley_2387_2024.txt`
+
+> El infractor que incumpla el servicio comunitario o la asistencia al curso será sancionado con multa equivalente hasta de cinco (5) salarios mínimos legales mensuales vigentes
+
+- https://cancilleria.gov.co/sites/default/files/Normograma/docs/ley_2387_2024.htm (checked 2026-11-21); evidence: `research_notes/Conocimiento turístico de Los Nevados/rules/evidence/raw/ley_2387_2024.txt`
+
+> Estas medidas podrán reemplazar las multas solo cuando la capacidad socioeconómica del infractor sea insuficiente, y podrán ser complementarias en todos los casos.
+
+
+## Updated entry: rules.confiscation_restitution_specimens
+
+- Reason: Dating rule to 2026-11-21 backed by official regulation, clarifying label, and verifying evidence.
+- Changed fields: last_verified
+
+- https://cancilleria.gov.co/sites/default/files/Normograma/docs/ley_2387_2024.htm (checked 2026-11-21); evidence: `research_notes/Conocimiento turístico de Los Nevados/rules/evidence/raw/ley_2387_2024.txt`
+
+> Decomiso definitivo de especímenes, especies silvestres exóticas, productos y subproductos, elementos, medios o implementos utilizados para cometer la infracción.
+
+- https://www.funcionpublica.gov.co/eva/gestornormativo/norma.php?i=36879 (checked 2026-11-21); evidence: `research_notes/Conocimiento turístico de Los Nevados/rules/evidence/raw/ley_1333_2009_fp.txt`
+
+> 6. Atentar contra recursos naturales ubicados en áreas protegidas o declarados en alguna categoría de amenaza o en peligro de extinción o sobre los cuales existe veda, restricción o prohibición.
+> 7. Realizar la acción u omisión en áreas de especial importancia ecológica.
+
+
+## Updated entry: rules.drones
+
+- Reason: Dating rule to 2026-11-21 backed by official regulation, clarifying label, and verifying evidence.
+- Changed fields: answer, last_verified
+
+- https://www.parquesnacionales.gov.co/wp-content/uploads/2023/08/Resolucion_207_2023_ReglamentacionNevados_.pdf (checked 2026-11-21); evidence: `research_notes/Conocimiento turístico de Los Nevados/rules/evidence/raw/res207_2023.txt`
+
+> No utilizar drones conforme la resolución No. 0543 del 27 de
+> diciembre de 2018.
+
+
+## Updated entry: rules.earth_tone_clothing_wildlife
+
+- Reason: Dating rule to 2026-11-21 backed by official regulation, clarifying label, and verifying evidence.
+- Changed fields: last_verified
+
+- https://www.parquesnacionales.gov.co/wp-content/uploads/2023/08/Resolucion_207_2023_ReglamentacionNevados_.pdf (checked 2026-11-21); evidence: `research_notes/Conocimiento turístico de Los Nevados/rules/evidence/raw/res207_2023.txt`
+
+> procurando vestir con
+> colores tierra o evitando colores muy vivos con el fin de no perturbar la fauna.
+
+
+## Updated entry: rules.ecological_customs_checkpoints
+
+- Reason: Dating rule to 2026-11-21 backed by official regulation, clarifying label, and verifying evidence.
+- Changed fields: last_verified
+
+- https://www.parquesnacionales.gov.co/wp-content/uploads/2023/08/Resolucion_207_2023_ReglamentacionNevados_.pdf (checked 2026-11-21); evidence: `research_notes/Conocimiento turístico de Los Nevados/rules/evidence/raw/res207_2023.txt`
+
+> Someterse a aduanas ecológicas emprendidas por las autoridades encargadas del manejo del turismo en el sector.
+
+- https://www.parquesnacionales.gov.co/wp-content/uploads/2023/08/Resolucion_207_2023_ReglamentacionNevados_.pdf (checked 2026-11-21); evidence: `research_notes/Conocimiento turístico de Los Nevados/rules/evidence/raw/res207_2023.txt`
+
+> No ingresar plásticos de un solo uso ya que actualmente se encuentra prohibido de acuerdo a la Resolución 1558
+> de 2019.
+
+
+## Updated entry: rules.entry_bag_checks
+
+- Reason: Dating rule to 2026-11-21 backed by official regulation, clarifying label, and verifying evidence.
+- Changed fields: last_verified
+
+- https://www.parquesnacionales.gov.co/wp-content/uploads/2023/08/Resolucion_207_2023_ReglamentacionNevados_.pdf (checked 2026-11-21); evidence: `research_notes/Conocimiento turístico de Los Nevados/rules/evidence/raw/res207_2023.txt`
+
+> Participar en los controles de ingreso y salida que realiza el área protegida, permitiendo la búsqueda de sustancias
+> psicoactivas, elementos embriagantes, armas de fuego, elementos cortopunzantes, equipos de pesca, entre otros
+
+
+## Updated entry: rules.event_permits
+
+- Reason: Dating rule to 2026-11-21 backed by official regulation, clarifying label, and verifying evidence.
+- Changed fields: answer, last_verified
+
+- https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/ (checked 2026-11-21); evidence: `research_notes/Conocimiento turístico de Los Nevados/rules/evidence/raw/pnn_nevados_ficha.txt`
+
+> Si deseas realizar tomas audiovisuales o fotografías con fines comerciales, eventos, actividades deportivas o actividades de investigación o educación ambiental, debes solicitar la autorización correspondiente.
+
+- https://www.funcionpublica.gov.co/eva/gestornormativo/norma.php?i=78153 (checked 2026-11-21); evidence: `research_notes/Conocimiento turístico de Los Nevados/rules/evidence/raw/decreto_1076_2015.txt`
+
+> Promover, realizar o participar en reuniones no autorizadas por Parques
+> Nacionales Naturales de Colombia
+
+
+## Updated entry: rules.excavations_prohibited
+
+- Reason: Dating rule to 2026-11-21 backed by official regulation, clarifying label, and verifying evidence.
+- Changed fields: answer, last_verified
+
+- https://www.parquesnacionales.gov.co/wp-content/uploads/2023/08/Resolucion_207_2023_ReglamentacionNevados_.pdf (checked 2026-11-21); evidence: `research_notes/Conocimiento turístico de Los Nevados/rules/evidence/raw/res207_2023.txt`
+
+> Tampoco está permitido realizar excavaciones o enterramientos de basuras, de manera
+> excepcional se permitirá realizar hoyo de gato para el manejo de excretas.
+
+- https://www.funcionpublica.gov.co/eva/gestornormativo/norma.php?i=78153 (checked 2026-11-21); evidence: `research_notes/Conocimiento turístico de Los Nevados/rules/evidence/raw/decreto_1076_2015.txt`
+
+> Realizar excavaciones de cualquier índole, excepto cuando las autorice Parques Nacionales Naturales de Colombia por razones de orden técnico o científico.
+
+
+## Updated entry: rules.feed_wildlife
+
+- Reason: Dating rule to 2026-11-21 backed by official regulation, clarifying label, and verifying evidence.
+- Changed fields: last_verified
+
+- https://www.parquesnacionales.gov.co/wp-content/uploads/2023/08/Resolucion_207_2023_ReglamentacionNevados_.pdf (checked 2026-11-21); evidence: `research_notes/Conocimiento turístico de Los Nevados/rules/evidence/raw/res207_2023.txt`
+
+> No se permite la instalación de trampas o conductores de fauna, así como tampoco brindar alimentación a la fauna
+> silvestre con el fin de atraerlos o capturarlos.
+
+- https://www.funcionpublica.gov.co/eva/gestornormativo/norma.php?i=78153 (checked 2026-11-21); evidence: `research_notes/Conocimiento turístico de Los Nevados/rules/evidence/raw/decreto_1076_2015.txt`
+
+> Suministrar alimentos a los animales.
+
+
+## Updated entry: rules.fishing
+
+- Reason: Dating rule to 2026-11-21 backed by official regulation, clarifying label, and verifying evidence.
+- Changed fields: last_verified
+
+- https://www.parquesnacionales.gov.co/wp-content/uploads/2023/08/Resolucion_207_2023_ReglamentacionNevados_.pdf (checked 2026-11-21); evidence: `research_notes/Conocimiento turístico de Los Nevados/rules/evidence/raw/res207_2023.txt`
+
+> Realizar actividades de pesca, salvo la pesca con fines científicos o investigativos, debidamente autorizada por la
+> autoridad ambiental.
+
+
+## Updated entry: rules.follow_park_staff
+
+- Reason: Dating rule to 2026-11-21 backed by official regulation, clarifying label, and verifying evidence.
+- Changed fields: last_verified
+
+- https://www.parquesnacionales.gov.co/wp-content/uploads/2023/08/Resolucion_207_2023_ReglamentacionNevados_.pdf (checked 2026-11-21); evidence: `research_notes/Conocimiento turístico de Los Nevados/rules/evidence/raw/res207_2023.txt`
+
+> Acatar las recomendaciones de los funcionarios del parque y de los guías e intérpretes autorizados por la institución.
+
+- https://www.funcionpublica.gov.co/eva/gestornormativo/norma.php?i=78153 (checked 2026-11-21); evidence: `research_notes/Conocimiento turístico de Los Nevados/rules/evidence/raw/decreto_1076_2015.txt`
+
+> los funcionarios a quienes designe Parques Nacionales de Colombia para ejercer el control y vigilancia, tendrán funciones policivas.
+
+
+## Updated entry: rules.liability_exemptions_force_majeure
+
+- Reason: Dating rule to 2026-11-21 backed by official regulation, clarifying label, and verifying evidence.
+- Changed fields: last_verified
+
+- https://www.funcionpublica.gov.co/eva/gestornormativo/norma.php?i=36879 (checked 2026-11-21); evidence: `research_notes/Conocimiento turístico de Los Nevados/rules/evidence/raw/ley_1333_2009_fp.txt`
+
+> Son eximentes de responsabilidad:
+> 1. Los eventos de fuerza mayor o caso fortuito, de conformidad con la definición de los mismos contenida en la Ley 95 de 1890.
+> 2. El hecho de un tercero, sabotaje o acto terrorista.
+
+
+## Updated entry: rules.no_hunting
+
+- Reason: Dating rule to 2026-11-21 backed by official regulation, clarifying label, and verifying evidence.
+- Changed fields: answer, examples
+
+- https://www.parquesnacionales.gov.co/wp-content/uploads/2023/08/Resolucion_207_2023_ReglamentacionNevados.pdf (checked 2026-11-21); evidence: `research_notes/Conocimiento turístico de Los Nevados/rules/evidence/raw/res207_2023.txt`
+
+> Por ningún motivo está permitida la toma de muestras botánicas ni la caza
+> o captura de ejemplares de fauna.
+
+
+## Updated entry: rules.no_introduce_species
+
+- Reason: Dating rule to 2026-11-21 backed by official regulation, clarifying label, and verifying evidence.
+- Changed fields: last_verified
+
+- https://www.parquesnacionales.gov.co/wp-content/uploads/2023/08/Resolucion_207_2023_ReglamentacionNevados_.pdf (checked 2026-11-21); evidence: `research_notes/Conocimiento turístico de Los Nevados/rules/evidence/raw/res207_2023.txt`
+
+> Introducir transitoria o permanentemente animales, semillas, flores, propágulos de cualquier especie.
+
+- https://www.funcionpublica.gov.co/eva/gestornormativo/norma.php?i=78153 (checked 2026-11-21); evidence: `research_notes/Conocimiento turístico de Los Nevados/rules/evidence/raw/decreto_1076_2015.txt`
+
+> Introducir transitoria o permanentemente animales, semillas, flores o propágulos de cualquier especie.
+
+
+## Updated entry: rules.noise
+
+- Reason: Dating rule to 2026-11-21 backed by official regulation, clarifying label, and verifying evidence.
+- Changed fields: last_verified
+
+- https://www.parquesnacionales.gov.co/wp-content/uploads/2023/08/Resolucion_207_2023_ReglamentacionNevados_.pdf (checked 2026-11-21); evidence: `research_notes/Conocimiento turístico de Los Nevados/rules/evidence/raw/res207_2023.txt`
+
+> Producir ruidos o utilizar equipos que puedan perturbar el ambiente natural.
+
+- https://www.funcionpublica.gov.co/eva/gestornormativo/norma.php?i=78153 (checked 2026-11-21); evidence: `research_notes/Conocimiento turístico de Los Nevados/rules/evidence/raw/decreto_1076_2015.txt`
+
+> Producir ruidos o utilizar instrumentos o equipos sonoros que perturben el ambiente natural o incomoden a los visitantes.
+
+
+## Updated entry: rules.park_closure_no_compensation
+
+- Reason: Dating rule to 2026-11-21 backed by official regulation, clarifying label, and verifying evidence.
+- Changed fields: last_verified
+
+- https://www.parquesnacionales.gov.co/wp-content/uploads/2023/08/Resolucion_207_2023_ReglamentacionNevados_.pdf (checked 2026-11-21); evidence: `research_notes/Conocimiento turístico de Los Nevados/rules/evidence/raw/res207_2023.txt`
+
+> Parques Nacionales Naturales los Nevados dentro de sus facultades legales, podrá restringir el ingreso o cerrar los
+> atractivos el tiempo que haya lugar, mediante resolución motivada por razones de seguridad, gestión del riesgo,
+> investigación y/o protección ecológica
+
+- https://www.parquesnacionales.gov.co/wp-content/uploads/2023/08/Resolucion_207_2023_ReglamentacionNevados_.pdf (checked 2026-11-21); evidence: `research_notes/Conocimiento turístico de Los Nevados/rules/evidence/raw/res207_2023.txt`
+
+> Este hecho no compromete a la entidad
+> a indemnizar a los prestadores de servicios ecoturísticos o turistas que hayan solicitado su entrada al área protegida con
+> anticipación.
+
+
+## Updated entry: rules.pets
+
+- Reason: Dating rule to 2026-11-21 backed by official regulation, clarifying label, and verifying evidence.
+- Changed fields: last_verified
+
+- https://www.parquesnacionales.gov.co/wp-content/uploads/2023/08/Resolucion_207_2023_ReglamentacionNevados_.pdf (checked 2026-11-21); evidence: `research_notes/Conocimiento turístico de Los Nevados/rules/evidence/raw/res207_2023.txt`
+
+> Ingresar animales domésticos o mascotas y material vegetal.
+
+- https://www.parquesnacionales.gov.co/atencion-al-ciudadano/ (checked 2026-11-21); evidence: `research_notes/Conocimiento turístico de Los Nevados/rules/evidence/raw/faq_atencion_ciudadano.txt`
+
+> No, no está permitido el ingreso de mascotas a las áreas protegidas administradas por parques nacionales naturales.
+
+
+## Updated entry: rules.pick_up_trail_litter
+
+- Reason: Dating rule to 2026-11-21 backed by official regulation, clarifying label, and verifying evidence.
+- Changed fields: label, last_verified
+
+- https://www.parquesnacionales.gov.co/wp-content/uploads/2023/08/Resolucion_207_2023_ReglamentacionNevados_.pdf (checked 2026-11-21); evidence: `research_notes/Conocimiento turístico de Los Nevados/rules/evidence/raw/res207_2023.txt`
+
+> Así también, en caso de observar residuos durante el recorrido recogerlos para sacarlos a las zonas
+> de para su disposición final.
+
+
+## Updated entry: rules.playback
+
+- Reason: Dating rule to 2026-11-21 backed by official regulation, clarifying label, and verifying evidence.
+- Changed fields: last_verified
+
+- https://www.parquesnacionales.gov.co/wp-content/uploads/2023/08/Resolucion_207_2023_ReglamentacionNevados_.pdf (checked 2026-11-21); evidence: `research_notes/Conocimiento turístico de Los Nevados/rules/evidence/raw/res207_2023.txt`
+
+> Realizar camping en zonas no permitidas y el uso de play-back (reproducción de audios de fauna silvestre con
+> algún dispositivo electrónico) en el Área Protegida.
+
+- https://www.parquesnacionales.gov.co/wp-content/uploads/2023/08/Resolucion_207_2023_ReglamentacionNevados_.pdf (checked 2026-11-21); evidence: `research_notes/Conocimiento turístico de Los Nevados/rules/evidence/raw/res207_2023.txt`
+
+> Tampoco se permite el uso de playback durante la observación de
+> aves.
+
+
+## Updated entry: rules.presumption_of_fault_burden_proof
+
+- Reason: Dating rule to 2026-11-21 backed by official regulation, clarifying label, and verifying evidence.
+- Changed fields: last_verified
+
+- https://cancilleria.gov.co/sites/default/files/Normograma/docs/ley_2387_2024.htm (checked 2026-11-21); evidence: `research_notes/Conocimiento turístico de Los Nevados/rules/evidence/raw/ley_2387_2024.txt`
+
+> En las infracciones ambientales se presume la culpa o dolo del infractor, quien tendrá a su cargo desvirtuarla, en los términos establecidos en la presente ley.
+
+
+## Updated entry: rules.report_environmental_infractions
+
+- Reason: Dating rule to 2026-11-21 backed by official regulation, clarifying label, and verifying evidence.
+- Changed fields: last_verified
+
+- https://www.parquesnacionales.gov.co/wp-content/uploads/2023/08/Resolucion_207_2023_ReglamentacionNevados_.pdf (checked 2026-11-21); evidence: `research_notes/Conocimiento turístico de Los Nevados/rules/evidence/raw/res207_2023.txt`
+
+> Denunciar delitos o penalidades ante los funcionarios del Parque o las autoridades competentes.
+
+- https://www.funcionpublica.gov.co/eva/gestornormativo/norma.php?i=78153 (checked 2026-11-21); evidence: `research_notes/Conocimiento turístico de Los Nevados/rules/evidence/raw/decreto_1076_2015.txt`
+
+> Denunciar ante los funcionarios de Parques Nacionales Naturales de Colombia, y demás autoridad competentes, la comisión de infracciones contra los reglamentos
+
+
+## Updated entry: rules.respect_carrying_capacity_limits
+
+- Reason: Dating rule to 2026-11-21 backed by official regulation, clarifying label, and verifying evidence.
+- Changed fields: last_verified, sources
+
+- https://www.parquesnacionales.gov.co/wp-content/uploads/2023/08/Resolucion_207_2023_ReglamentacionNevados_.pdf (checked 2026-11-21); evidence: `research_notes/Conocimiento turístico de Los Nevados/rules/evidence/raw/res207_2023.txt`
+
+> Respetar la capacidad de carga establecida para cada uno de los senderos y el número máximo de personas por
+> grupo.
+
+- https://www.parquesnacionales.gov.co/wp-content/uploads/2023/08/Resolucion_207_2023_ReglamentacionNevados_.pdf (checked 2026-11-21); evidence: `research_notes/Conocimiento turístico de Los Nevados/rules/evidence/raw/res207_2023.txt`
+
+> No sobrepasar la capacidad de carga establecida para la actividad
+
+
+## Updated entry: rules.respect_communities
+
+- Reason: Dating rule to 2026-11-21 backed by official regulation, clarifying label, and verifying evidence.
+- Changed fields: last_verified
+
+- https://www.parquesnacionales.gov.co/wp-content/uploads/2023/08/Resolucion_207_2023_ReglamentacionNevados_.pdf (checked 2026-11-21); evidence: `research_notes/Conocimiento turístico de Los Nevados/rules/evidence/raw/res207_2023.txt`
+
+> Respetar la cultura y costumbres de los habitantes del lugar.
+
+- https://www.funcionpublica.gov.co/eva/gestornormativo/norma.php?i=78153 (checked 2026-11-21); evidence: `research_notes/Conocimiento turístico de Los Nevados/rules/evidence/raw/decreto_1076_2015.txt`
+
+> Hacer discriminaciones de cualquier índole.
+
+
+## Updated entry: rules.restoration_duty_civil_criminal
+
+- Reason: Dating rule to 2026-11-21 backed by official regulation, clarifying label, and verifying evidence.
+- Changed fields: last_verified, sources
+
+- https://cancilleria.gov.co/sites/default/files/Normograma/docs/ley_2387_2024.htm (checked 2026-11-21); evidence: `research_notes/Conocimiento turístico de Los Nevados/rules/evidence/raw/ley_2387_2024.txt`
+
+> no exime al infractor de ejecutar las obras o acciones ordenadas por la autoridad ambiental competente, de restaurar el medio ambiente
+
+- https://www.funcionpublica.gov.co/eva/gestornormativo/norma.php?i=36879 (checked 2026-11-21); evidence: `research_notes/Conocimiento turístico de Los Nevados/rules/evidence/raw/ley_1333_2009_fp.txt`
+
+> Estas sanciones se aplicarán sin perjuicio de las acciones civiles, penales, fiscales y disciplinarias a que hubiere lugar.
+
+
+## Updated entry: rules.show_entry_permit_on_request
+
+- Reason: Dating rule to 2026-11-21 backed by official regulation, clarifying label, and verifying evidence.
+- Changed fields: last_verified
+
+- https://www.parquesnacionales.gov.co/wp-content/uploads/2023/08/Resolucion_207_2023_ReglamentacionNevados_.pdf (checked 2026-11-21); evidence: `research_notes/Conocimiento turístico de Los Nevados/rules/evidence/raw/res207_2023.txt`
+
+> Portar el documento que acredita el derecho de ingreso durante todo el tiempo de permanencia en el área
+> protegida, así como adherir una copia del derecho de ingreso en un lugar visible a la carpa cuando se realizan
+> campamentos.
+
+- https://www.funcionpublica.gov.co/eva/gestornormativo/norma.php?i=78153 (checked 2026-11-21); evidence: `research_notes/Conocimiento turístico de Los Nevados/rules/evidence/raw/decreto_1076_2015.txt`
+
+> Exhibir ante los funcionarios y autoridades competentes la autorización respectiva e identificarse debidamente cuando se les requiera.
+
+
+## Updated entry: rules.social_media_unauthorized_routes
+
+- Reason: Dating rule to 2026-11-21 backed by official regulation, clarifying label, and verifying evidence.
+- Changed fields: answer, last_verified, sources
+
+- https://www.parquesnacionales.gov.co/wp-content/uploads/2026/05/Respuesta-Radicado-Ano%CC%81nimo-No.-20264700042282.pdf (checked 2026-11-21); evidence: `research_notes/Conocimiento turístico de Los Nevados/rules/evidence/raw/carta_2026_05_11.txt`
+
+> la presunta incursión no autorizada al sector del glaciar y cráter del Volcán Nevado del
+> Ruíz, en jurisdicción del Parque Nacional Natural Los Nevados, y la divulgación de dicho
+> recorrido a través de la red social Instagram
+
+- https://www.parquesnacionales.gov.co/wp-content/uploads/2023/08/Resolucion_207_2023_ReglamentacionNevados_.pdf (checked 2026-11-21); evidence: `research_notes/Conocimiento turístico de Los Nevados/rules/evidence/raw/res207_2023.txt`
+
+> Parques Nacionales Naturales los Nevados dentro de sus facultades legales, podrá restringir el ingreso o cerrar los
+> atractivos el tiempo que haya lugar, mediante resolución motivada por razones de seguridad, gestión del riesgo,
+> investigación y/o protección ecológica
+
+- https://www.parquesnacionales.gov.co/wp-content/uploads/2026/05/Respuesta-Radicado-Ano%CC%81nimo-No.-20264700042282.pdf (checked 2026-11-21); evidence: `research_notes/Conocimiento turístico de Los Nevados/rules/evidence/raw/carta_2026_05_11.txt`
+
+> Una vez verificada la información, y de encontrarse elementos que permitan es-
+>       tablecer la posible ocurrencia de una infracción ambiental o el incumplimiento de
+>       las disposiciones aplicables al área protegida, se dará trámite a las actuaciones
+>       administrativas que correspondan
+
+
+## Updated entry: rules.sport_mountaineers_advance_request
+
+- Reason: Dating rule to 2026-11-21 backed by official regulation, clarifying label, and verifying evidence.
+- Changed fields: last_verified
+
+- https://www.parquesnacionales.gov.co/wp-content/uploads/2023/08/Resolucion_207_2023_ReglamentacionNevados_.pdf (checked 2026-11-21); evidence: `research_notes/Conocimiento turístico de Los Nevados/rules/evidence/raw/res207_2023.txt`
+
+> Plan de riesgos y contingencias: Documento que evalúa los riesgos y describe las acciones de prevención y manejo
+> de contingencias
+
+- https://www.parquesnacionales.gov.co/wp-content/uploads/2023/08/Resolucion_207_2023_ReglamentacionNevados_.pdf (checked 2026-11-21); evidence: `research_notes/Conocimiento turístico de Los Nevados/rules/evidence/raw/res207_2023.txt`
+
+> días de ocupación de los campamentos con coordenadas en caso de que sean campamentos avanzados o vivac,
+
+
+## Updated entry: rules.stay_on_routes
+
+- Reason: Dating rule to 2026-11-21 backed by official regulation, clarifying label, and verifying evidence.
+- Changed fields: answer, last_verified
+
+- https://www.parquesnacionales.gov.co/wp-content/uploads/2023/08/Resolucion_207_2023_ReglamentacionNevados_.pdf (checked 2026-11-21); evidence: `research_notes/Conocimiento turístico de Los Nevados/rules/evidence/raw/res207_2023.txt`
+
+> Solo se permite el uso de los senderos que se muestran en el siguiente mapa
+
+
+## Updated entry: rules.tent_permit_display
+
+- Reason: Dating rule to 2026-11-21 backed by official regulation, clarifying label, and verifying evidence.
+- Changed fields: last_verified
+
+- https://www.parquesnacionales.gov.co/wp-content/uploads/2023/08/Resolucion_207_2023_ReglamentacionNevados_.pdf (checked 2026-11-21); evidence: `research_notes/Conocimiento turístico de Los Nevados/rules/evidence/raw/res207_2023.txt`
+
+> Portar el documento que acredita el derecho de ingreso durante todo el tiempo de permanencia en el área
+> protegida, así como adherir una copia del derecho de ingreso en un lugar visible a la carpa cuando se realizan
+> campamentos.
+
+
+## Updated entry: rules.visitor_risk_assumption
+
+- Reason: Dating rule to 2026-11-21 backed by official regulation, clarifying label, and verifying evidence.
+- Changed fields: last_verified
+
+- https://www.parquesnacionales.gov.co/wp-content/uploads/2023/08/Resolucion_207_2023_ReglamentacionNevados_.pdf (checked 2026-11-21); evidence: `research_notes/Conocimiento turístico de Los Nevados/rules/evidence/raw/res207_2023.txt`
+
+> Cada persona será responsable de sus objetos personales.
+
+- https://www.funcionpublica.gov.co/eva/gestornormativo/norma.php?i=78153 (checked 2026-11-21); evidence: `research_notes/Conocimiento turístico de Los Nevados/rules/evidence/raw/decreto_1076_2015.txt`
+
+> ni implican para Parques Nacionales Naturales de Colombia ninguna responsabilidad, por tanto, los visitantes de estas áreas asumen los riesgos que puedan presentarse durante su permanencia en ellas.
+
+
+## Updated entry: rules.weapons
+
+- Reason: Dating rule to 2026-11-21 backed by official regulation, clarifying label, and verifying evidence.
+- Changed fields: last_verified
+
+- https://www.parquesnacionales.gov.co/wp-content/uploads/2023/08/Resolucion_207_2023_ReglamentacionNevados_.pdf (checked 2026-11-21); evidence: `research_notes/Conocimiento turístico de Los Nevados/rules/evidence/raw/res207_2023.txt`
+
+> Participar en los controles de ingreso y salida que realiza el área protegida, permitiendo la búsqueda de sustancias
+> psicoactivas, elementos embriagantes, armas de fuego, elementos cortopunzantes, equipos de pesca, entre otros
+
+- https://www.funcionpublica.gov.co/eva/gestornormativo/norma.php?i=78153 (checked 2026-11-21); evidence: `research_notes/Conocimiento turístico de Los Nevados/rules/evidence/raw/decreto_1076_2015.txt`
+
+> Portar armas de fuego y cualquier implemento que se utilice para ejercer actos de caza, pesca y tala de bosques
+
+
+## Updated entry: rules.wildlife_contact_displacement
+
+- Reason: Dating rule to 2026-11-21 backed by official regulation, clarifying label, and verifying evidence.
+- Changed fields: last_verified
+
+- https://www.parquesnacionales.gov.co/wp-content/uploads/2023/08/Resolucion_207_2023_ReglamentacionNevados_.pdf (checked 2026-11-21); evidence: `research_notes/Conocimiento turístico de Los Nevados/rules/evidence/raw/res207_2023.txt`
+
+> Evitar el contacto con la vida silvestre. No intente coger, ni alimentar ni desplazar especies de fauna de las zonas
+> donde se encuentran.
+
+
+## Updated entry: rules.wildlife_traps_prohibited
+
+- Reason: Dating rule to 2026-11-21 backed by official regulation, clarifying label, and verifying evidence.
+- Changed fields: label, last_verified
+
+- https://www.parquesnacionales.gov.co/wp-content/uploads/2023/08/Resolucion_207_2023_ReglamentacionNevados_.pdf (checked 2026-11-21); evidence: `research_notes/Conocimiento turístico de Los Nevados/rules/evidence/raw/res207_2023.txt`
+
+> No se permite la instalación de trampas o conductores de fauna, así como tampoco brindar alimentación a la fauna
+> silvestre con el fin de atraerlos o capturarlos.

@@ -20,7 +20,8 @@
       "¿Tu duda es sobre altura, frío, deshidratación o primeros auxilios por una lesión?",
       "¿Tienes señal para llamar al 123 o estás con un guía con radio?"
     ],
-    "fallback": "Puedo orientarte sobre mal de altura, aclimatación, frío, radiación solar, deshidratación, primeros auxilios básicos y cómo pedir ayuda; si es urgente, avisa de inmediato a tu guía o al personal del parque."
+    "fallback": "Puedo orientarte sobre mal de altura, aclimatación, frío, radiación solar, deshidratación, primeros auxilios básicos y cómo pedir ayuda; si es urgente, avisa de inmediato a tu guía o al personal del parque.",
+    "slot_questions": {}
   },
   "featured": [
     "health_safety.altitude_sickness_symptoms",
@@ -32,7 +33,7 @@
   "entries": [
     {
       "id": "health_safety.high_altitude_health_risk",
-      "label": "riesgo de salud en altura",
+      "label": "frío y presión de la alta montaña",
       "kind": "safety",
       "audience": "visitor",
       "lang": "es",
@@ -48,31 +49,39 @@
         "la altura afecta a cualquiera?",
         "is high altitude risky for visitors?",
         "que tan duro es para el cuerpo",
-        "me preocupa la altura del parque"
+        "me preocupa la altura del parque",
+        "el frio y la presion de los nevados me pueden afectar la salud"
       ],
       "hard_negatives": [
-        "síntomas de soroche",
-        "debo preguntarle al médico antes de ir"
+        "tengo una enfermedad del corazón puedo subir",
+        "soy hipertenso y quiero ir al nevado",
+        "tengo problemas pulmonares y me falta el aire"
       ],
       "answer": {
-        "short": "Los Nevados es un destino de alta montaña donde el frío, la menor presión atmosférica y el esfuerzo físico pueden afectar tu salud. Revisa que tengas un estado de salud adecuado y avísale al guía cualquier condición previa antes de iniciar el recorrido.",
+        "short": "La ficha de Los Nevados dice: «Evita ingresar al área protegida si presentas alguna de las condiciones de salud indicadas abajo» y pide una salud adecuada para la alta montaña, porque el frío, la menor presión atmosférica y el esfuerzo pueden afectar tu salud. El CDC describe ese entorno: frío, baja humedad, más radiación ultravioleta y menos presión de oxígeno. Si tienes una condición previa, la Resolución 207 del 04 de agosto de 2023 pide informarla antes de salir; esta app no avisa al guía.",
         "variants": [
-          "La visita es de alta montaña: revisa cómo te sientes y coméntale al guía o a un profesional cualquier duda de salud antes de subir."
-        ]
+          "Evita ingresar si presentas las condiciones de salud de la ficha y llega con una salud adecuada para la alta montaña: el frío y la menor presión pueden afectarte, y el CDC describe ese ambiente. La Resolución 207 del 04 de agosto de 2023 pide avisar una condición previa antes de salir. Esta app no hace ese aviso."
+        ],
+        "reflection": null
       },
       "sources": [
         {
-          "label": "Parques Nacionales Naturales de Colombia: Parque Nacional Natural Los Nevados",
+          "label": "Parques Nacionales Naturales, ficha PNN Los Nevados",
           "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
           "retrieved_at": "2026-11-21"
         },
         {
-          "label": "CDC Yellow Book: High-Altitude Travel and Altitude Illness",
+          "label": "CDC Yellow Book, High-Altitude Travel and Altitude Illness",
           "url": "https://www.cdc.gov/yellow-book/hcp/environmental-hazards-risks/high-altitude-travel-and-altitude-illness.html",
+          "retrieved_at": "2026-11-21"
+        },
+        {
+          "label": "Resolución 207 del 04 de agosto de 2023, PNN Los Nevados",
+          "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2023/08/Resolucion_207_2023_ReglamentacionNevados.pdf",
           "retrieved_at": "2026-11-21"
         }
       ],
-      "last_verified": "2026-11-21",
+      "last_verified": "2026-11-22",
       "related": [
         "health_safety.altitude_sickness_symptoms",
         "health_safety.pretrip_medical_advice"
@@ -85,7 +94,7 @@
     },
     {
       "id": "health_safety.altitude_sickness_symptoms",
-      "label": "síntomas del mal de altura",
+      "label": "dolor de cabeza y náusea al subir",
       "kind": "safety",
       "audience": "visitor",
       "lang": "es",
@@ -101,11 +110,13 @@
         "poco apetito y dolor de cabeza al subir",
         "how do I recognize altitude sickness?",
         "me dio dolor de cabeza al llegar arriba",
-        "que sintomas vigilo en altura"
+        "que sintomas vigilo en altura",
+        "me duele la cabeza y tengo nauseas pero camino coordinado"
       ],
       "hard_negatives": [
         "confusión en altura",
-        "me puedo quemar aunque esté nublado"
+        "me cuesta coordinar al caminar arriba",
+        "falta de aire en reposo en la montaña"
       ],
       "answer": {
         "short": "Después de subir, el mal de altura suele sentirse como dolor de cabeza acompañado de mareo, cansancio, náuseas, vómito o falta de apetito. Si aparecen estos síntomas, avísale de inmediato al guía y no sigas subiendo mientras te sientas mal.",
@@ -138,7 +149,7 @@
     },
     {
       "id": "health_safety.severe_altitude_warning_signs",
-      "label": "señales graves por altura",
+      "label": "alarma de edema cerebral o pulmonar",
       "kind": "safety",
       "audience": "visitor",
       "lang": "es",
@@ -154,31 +165,29 @@
         "mi compañero está confundido en el páramo",
         "what are danger signs of altitude illness?",
         "señales de emergencia por mal de altura",
-        "se puso torpe y confundido al subir"
+        "se puso torpe y confundido al subir",
+        "hay confusion y falta de aire en reposo"
       ],
       "hard_negatives": [
-        "me duele la cabeza y tengo náuseas arriba",
-        "cual es la linea nacional si me pasa algo en la montaña?"
+        "síntomas de soroche",
+        "cómo sé si me dio mal de altura",
+        "me duele la cabeza y tengo náuseas arriba"
       ],
       "answer": {
-        "short": "Confusión, pérdida de coordinación al caminar, somnolencia intensa o falta de aire en reposo son señales de alarma en altura. Pide ayuda urgente al guía o al personal del parque y desciende de inmediato con asistencia; no dejes sola a la persona.",
+        "short": "Confusión, pérdida de coordinación al caminar, somnolencia intensa o falta de aire en reposo son señales de alarma en altura. Pide ayuda al guía, no dejes sola a la persona y desciendan. Esta app no llama a rescate ni te localiza.",
         "variants": [
-          "Si hay confusión, mala coordinación o dificultad para respirar en reposo, trátalo como una urgencia: pide ayuda al guía y desciende con apoyo."
-        ]
+          "Si hay confusión, tambaleo, somnolencia fuerte o ahogo en reposo, bájense con el guía y no dejen sola a la persona. Esta app no llama a rescate ni te localiza."
+        ],
+        "reflection": null
       },
       "sources": [
         {
-          "label": "CDC Travelers’ Health: Travel to High Altitudes",
-          "url": "https://wwwnc.cdc.gov/travel/page/travel-to-high-altitudes",
-          "retrieved_at": "2026-11-21"
-        },
-        {
-          "label": "CDC Yellow Book: High-Altitude Travel and Altitude Illness",
+          "label": "CDC Yellow Book, High-Altitude Travel and Altitude Illness",
           "url": "https://www.cdc.gov/yellow-book/hcp/environmental-hazards-risks/high-altitude-travel-and-altitude-illness.html",
           "retrieved_at": "2026-11-21"
         }
       ],
-      "last_verified": "2026-11-21",
+      "last_verified": "2026-11-22",
       "related": [
         "health_safety.altitude_sickness_symptoms",
         "health_safety.descent_for_worsening_altitude"
@@ -191,7 +200,7 @@
     },
     {
       "id": "health_safety.no_ascend_while_symptomatic",
-      "label": "no subir con síntomas",
+      "label": "no dormir más alto con síntomas",
       "kind": "safety",
       "audience": "visitor",
       "lang": "es",
@@ -207,36 +216,34 @@
         "subir más ayuda a aclimatar",
         "should I keep climbing with symptoms?",
         "puedo avanzar aunque me sienta raro",
-        "me aguanto el mareo y sigo?"
+        "me aguanto el mareo y sigo?",
+        "con dolor de cabeza leve puedo dormir en una cabaña mas alta"
       ],
       "hard_negatives": [
-        "temblar mucho en el frío es peligroso",
-        "cómo sé si me dio mal de altura"
+        "empeoré descansando en altura",
+        "qué hago si el soroche se pone peor",
+        "debo bajar si sigo con síntomas"
       ],
       "answer": {
-        "short": "No continúes el ascenso ni subas a dormir a mayor altitud mientras tengas síntomas de mal de altura, por leves que parezcan. Quédate a la misma altura, avísale al guía para evaluar si suspenden la ruta y desciende si no mejoras.",
+        "short": "No subas más ni duermas a mayor altitud mientras tengas síntomas de mal de altura, por leves que parezcan. El CDC dice que, sin edema cerebral ni pulmonar, puedes quedarte a esa altura, y que si empeoras ahí mismo el descenso es obligatorio. Avísale al guía: esta app no llama a rescate ni te localiza.",
         "variants": [
-          "Si te sientes mal por la altura, detén el ascenso: informa al guía y evalúen suspender el recorrido o bajar."
-        ]
+          "Con síntomas, no sigas hacia arriba ni duermas más alto. Puedes permanecer ahí si no hay señales de edema cerebral o pulmonar; si empeoras en ese sitio, hay que bajar. Esta app no llama a rescate."
+        ],
+        "reflection": null
       },
       "sources": [
         {
-          "label": "CDC Travelers’ Health: Travel to High Altitudes",
-          "url": "https://wwwnc.cdc.gov/travel/page/travel-to-high-altitudes",
-          "retrieved_at": "2026-11-21"
-        },
-        {
-          "label": "CDC Yellow Book: High-Altitude Travel and Altitude Illness",
+          "label": "CDC Yellow Book, High-Altitude Travel and Altitude Illness",
           "url": "https://www.cdc.gov/yellow-book/hcp/environmental-hazards-risks/high-altitude-travel-and-altitude-illness.html",
           "retrieved_at": "2026-11-21"
         },
         {
-          "label": "Parques Nacionales Naturales de Colombia: Resolución 207 de 2023",
-          "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2023/08/Resolucion_207_2023_ReglamentacionNevados.pdf",
+          "label": "CDC Travelers' Health, Travel to High Altitudes",
+          "url": "https://wwwnc.cdc.gov/travel/page/travel-to-high-altitudes",
           "retrieved_at": "2026-11-21"
         }
       ],
-      "last_verified": "2026-11-21",
+      "last_verified": "2026-11-22",
       "related": [
         "health_safety.altitude_sickness_symptoms",
         "health_safety.descent_for_worsening_altitude"
@@ -249,7 +256,7 @@
     },
     {
       "id": "health_safety.descent_for_worsening_altitude",
-      "label": "descenso si empeoras en altura",
+      "label": "bajar si empeoras a la misma altura",
       "kind": "safety",
       "audience": "visitor",
       "lang": "es",
@@ -265,11 +272,13 @@
         "mi dolor de cabeza empeora en la montaña",
         "should I descend if symptoms get worse?",
         "empeora el mareo aunque pare",
-        "me puse peor mientras descansaba"
+        "me puse peor mientras descansaba",
+        "empeore acostado a la misma altura, toca bajar ya"
       ],
       "hard_negatives": [
+        "puedo seguir subiendo con dolor de cabeza",
         "me siento mal pero sigo al mirador",
-        "a quién le digo que me siento mal"
+        "si tengo soroche puedo subir más"
       ],
       "answer": {
         "short": "Si tus síntomas empeoran aunque descanses a la misma altitud, debes descender a una cota más baja con ayuda del guía o del personal del parque. No intentes continuar hacia zonas más altas ni esperes a que se vuelva una urgencia grave.",
@@ -318,11 +327,13 @@
         "qué revisar con mi médico antes de viajar",
         "should I ask my doctor before a high-altitude trip?",
         "tengo una enfermedad crónica y voy al parque",
-        "me recomienda un médico para subir"
+        "me recomienda un médico para subir",
+        "debo ir al medico de montana antes del viaje o solo avisarle al guia"
       ],
       "hard_negatives": [
-        "mi niño está irritable arriba",
-        "me duele la cabeza y tengo náuseas arriba"
+        "tengo una enfermedad del corazón puedo subir",
+        "soy hipertenso y quiero ir al nevado",
+        "tengo problemas pulmonares y me falta el aire"
       ],
       "answer": {
         "short": "Si tienes una condición médica previa o dudas sobre la altura, consulta antes del viaje con un médico familiarizado con medicina de montaña y lleva tus medicamentos formulados. No te automediques ni uses esta orientación como reemplazo de una consulta médica.",
@@ -360,7 +371,7 @@
     },
     {
       "id": "health_safety.children_altitude_signs",
-      "label": "señales de altura en niños",
+      "label": "irritabilidad del niño en la altura",
       "kind": "safety",
       "audience": "visitor",
       "lang": "es",
@@ -376,10 +387,12 @@
         "cómo noto mal de altura si no habla",
         "can children get altitude sickness?",
         "mi hija está fastidiosa y cansada arriba",
-        "se ve pálido mi hijo al subir"
+        "se ve pálido mi hijo al subir",
+        "mi hijo de cuatro anos esta irritable y no come despues de subir"
       ],
       "hard_negatives": [
-        "un niño llora sin lágrimas",
+        "síntomas de soroche",
+        "cómo sé si me dio mal de altura",
         "me duele la cabeza y tengo náuseas arriba"
       ],
       "answer": {
@@ -429,36 +442,29 @@
         "el guía debe saber si me siento mal",
         "who should I tell if I feel unwell?",
         "me empezó un malestar caminando",
-        "como le aviso al personal del parque"
+        "como le aviso al personal del parque",
+        "le aviso al guia si me da fatiga o dolor en la ruta"
       ],
       "hard_negatives": [
-        "cual es la linea nacional si me pasa algo en la montaña?",
-        "me duele la cabeza y tengo náuseas arriba"
+        "debo preguntarle al médico antes de ir",
+        "tengo una condición de salud y quiero subir",
+        "consulta médica para viajar a Los Nevados"
       ],
       "answer": {
-        "short": "Informa de inmediato a tu guía avalado o a los funcionarios del parque si sientes fatiga, dolor o cualquier malestar en la ruta, y reporta antes de salir si tienes alguna lesión o condición previa. Evalúa con el guía suspender el recorrido y sigue sus instrucciones.",
+        "short": "La Resolución 207 del 04 de agosto de 2023 pide informar al guía si sientes fatiga, dolor o malestar y evaluar si suspenden la ruta, y avisar antes una lesión o una condición. Ese texto es del 04 de agosto de 2023, no un parte del día de tu visita. Esta app no avisa al guía ni llama a rescate.",
         "variants": [
-          "Según la reglamentación del parque, debes avisar al guía sobre tu salud antes y durante la ruta para evaluar si es necesario suspenderla."
-        ]
+          "Si te cansas, te duele algo o traes una lesión, la Resolución 207 del 04 de agosto de 2023 pide decírselo al guía y mirar si suspenden la ruta. Esta app no le avisa ni llama a rescate."
+        ],
+        "reflection": null
       },
       "sources": [
         {
-          "label": "Parques Nacionales Naturales de Colombia: Resolución 207 de 2023",
+          "label": "Resolución 207 del 04 de agosto de 2023, PNN Los Nevados",
           "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2023/08/Resolucion_207_2023_ReglamentacionNevados.pdf",
-          "retrieved_at": "2026-11-21"
-        },
-        {
-          "label": "Parques Nacionales Naturales de Colombia: Parque Nacional Natural Los Nevados",
-          "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
-          "retrieved_at": "2026-11-21"
-        },
-        {
-          "label": "Parques Nacionales: recomendaciones para áreas protegidas",
-          "url": "https://old.parquesnacionales.gov.co/portal/es/decalogo-de-recomendaciones-para-el-uso-de-areas-protegidas-en-parques-nacionales-naturales-de-colombia/",
           "retrieved_at": "2026-11-21"
         }
       ],
-      "last_verified": "2026-11-21",
+      "last_verified": "2026-11-22",
       "related": [
         "health_safety.altitude_sickness_symptoms",
         "health_safety.national_emergency_number_123"
@@ -487,11 +493,13 @@
         "hipotermia por lluvia y viento",
         "what are signs of hypothermia?",
         "me mojé y no paro de temblar",
-        "tengo frío y me siento desorientado"
+        "tengo frío y me siento desorientado",
+        "tiembla sin parar por el frio, ya es la hipotermia severa o no"
       ],
       "hard_negatives": [
-        "dedos entumecidos por el frío",
-        "qué hago si alguien tiene hipotermia"
+        "qué pasa cuando alguien con hipotermia deja de temblar",
+        "por qué es peligroso que desaparezca el escalofrío en el frío",
+        "por qué no se debe mover bruscamente a alguien con hipotermia"
       ],
       "answer": {
         "short": "El temblor constante, el cansancio y la dificultad para pensar o moverse bien son señales de hipotermia; si el temblor se detiene por frío extremo o la persona pierde el conocimiento, es una urgencia grave. Busca resguardo, avisa al guía y solicita atención médica de inmediato.",
@@ -582,7 +590,7 @@
     },
     {
       "id": "health_safety.frostbite_warning_signs",
-      "label": "señales de congelación",
+      "label": "cómo se ve la piel congelada",
       "kind": "safety",
       "audience": "visitor",
       "lang": "es",
@@ -598,11 +606,13 @@
         "frostbite en los pies qué es",
         "how do I spot frostbite?",
         "tengo los dedos con hormigueo y dolor",
-        "parte de la cara sin sensibilidad por frío"
+        "parte de la cara sin sensibilidad por frío",
+        "se me puso blanco y sin sentir el dedo, es congelacion"
       ],
       "hard_negatives": [
-        "cómo reconocer hipotermia",
-        "qué hago con un dedo congelado"
+        "qué hago con un dedo congelado",
+        "cómo caliento una zona congelada",
+        "me puedo frotar los dedos si están entumecidos"
       ],
       "answer": {
         "short": "El hormigueo, entumecimiento, dolor o pérdida de sensibilidad y color en dedos, nariz, orejas o mejillas son señales de congelación, junto con piel fría, pálida y dura. Avisa al guía, pasa a un lugar resguardado del frío y busca atención médica sin frotar la zona.",
@@ -640,7 +650,7 @@
     },
     {
       "id": "health_safety.sun_uv_protection",
-      "label": "protección solar en altura",
+      "label": "bloqueador y gafas contra el sol",
       "kind": "procedure",
       "audience": "visitor",
       "lang": "es",
@@ -656,11 +666,13 @@
         "se puede quemar uno en el páramo",
         "how do I protect myself from UV at altitude?",
         "me quemé la cara en un día nublado",
-        "como cuido los ojos del sol en altura"
+        "como cuido los ojos del sol en altura",
+        "aunque este nublado y haga frio me quemo en la cumbre"
       ],
       "hard_negatives": [
-        "mucha sed y boca seca en el parque",
-        "me dio dolor de cabeza al llegar arriba"
+        "me duelen los ojos después de estar en el sol o la nieve",
+        "me duelen los ojos por el sol de la nieve, eso que es?",
+        "el reflejo del sol en la nieve quema los ojos"
       ],
       "answer": {
         "short": "En alta montaña y cerca del ecuador la radiación UV es más intensa, incluso en días fríos o nublados, y la nieve la refleja. Aplícate bloqueador solar de amplio espectro cada dos horas, usa gafas con protección UV y cubre la piel expuesta durante el recorrido.",
@@ -709,11 +721,13 @@
         "deshidratación en caminata de montaña",
         "what are dehydration warning signs?",
         "mi hijo está muy dormido y no toma agua",
-        "me mareo y tengo sed en el recorrido"
+        "me mareo y tengo sed en el recorrido",
+        "orina oscura y mucha sed en el sendero es falta de agua"
       ],
       "hard_negatives": [
-        "cómo evitar quemarme en Los Nevados",
-        "qué tomo si estoy deshidratado"
+        "qué tomo si estoy deshidratado",
+        "cómo recuperarme de la deshidratación",
+        "bebo agua a sorbos si tengo sed fuerte"
       ],
       "answer": {
         "short": "La sed intensa, la boca seca, orinar menos o con color oscuro, y en niños llorar sin lágrimas o estar muy somnolientos, son señales de deshidratación. Si hay falta de orina, latidos o respiración rápidos, busca atención médica inmediata y avisa al guía.",
@@ -762,36 +776,34 @@
         "número único para reportar una emergencia",
         "what number do I call for an emergency in Colombia?",
         "me pasó algo grave y necesito llamar",
-        "como contacto emergencias si tengo señal"
+        "como contacto emergencias si tengo señal",
+        "marco el 123 sin senal y la app avisa sola"
       ],
       "hard_negatives": [
-        "cómo noto que estoy deshidratado",
-        "a quién le digo que me siento mal"
+        "cuál es el teléfono de los bomberos",
+        "línea 119 bomberos en Colombia",
+        "a qué número llamo si veo humo o incendio en el parque"
       ],
       "answer": {
-        "short": "En Colombia, el 123 es la línea única nacional de emergencias, gratuita y disponible las 24 horas; si tienes señal, llama e informa tu ubicación. Dentro del parque, avisa de inmediato a tu guía avalado, quien porta radio y botiquín para coordinar con las autoridades.",
+        "short": "La nota de la Policía del Meta del 12 de marzo de 2023 llama al 123 la línea única nacional de emergencias, gratuita y de 24 horas. Si tienes señal puedes marcar e informar tu ubicación; esta app no hace la llamada ni te rastrea. En el parque avisa a tu guía avalado: la Resolución 207 del 04 de agosto de 2023 le exige radio y botiquín.",
         "variants": [
-          "Si tienes señal móvil, marca el 123; en el sendero, acude enseguida a tu guía registrado para que active la comunicación por radio."
-        ]
+          "El 123, según la nota policial del 12 de marzo de 2023, es la línea única nacional, gratuita y de 24 horas, solo si tienes señal. La app no marca ni te ubica. Al guía, la Resolución 207 del 04 de agosto de 2023 le pide radio y botiquín."
+        ],
+        "reflection": null
       },
       "sources": [
         {
-          "label": "Policía Nacional de Colombia: línea 123",
+          "label": "Policía Nacional, nota del 12 de marzo de 2023",
           "url": "https://www.policia.gov.co/noticia/policia-nacional-sensibiliza-comunidad-sobre-uso-las-lineas-emergencia-123-155",
           "retrieved_at": "2026-11-21"
         },
         {
-          "label": "Parques Nacionales Naturales de Colombia: Parque Nacional Natural Los Nevados",
-          "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
-          "retrieved_at": "2026-11-21"
-        },
-        {
-          "label": "Parques Nacionales Naturales de Colombia: Resolución 207 de 2023",
+          "label": "Resolución 207 del 04 de agosto de 2023, PNN Los Nevados",
           "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2023/08/Resolucion_207_2023_ReglamentacionNevados.pdf",
           "retrieved_at": "2026-11-21"
         }
       ],
-      "last_verified": "2026-11-21",
+      "last_verified": "2026-11-22",
       "related": [
         "health_safety.tell_guide_about_health_change",
         "health_safety.lost_person_protocol"
@@ -804,7 +816,7 @@
     },
     {
       "id": "health_safety.acclimatization_plan",
-      "label": "aclimatación gradual para la altura",
+      "label": "paradas y sueño más bajo al subir",
       "kind": "procedure",
       "audience": "visitor",
       "lang": "es",
@@ -820,11 +832,13 @@
         "llegué a Manizales y quiero subir mañana",
         "how do I acclimatize for high altitude?",
         "mejor subir en dos etapas al nevado",
-        "qué hago la noche anterior para aclimatarme"
+        "qué hago la noche anterior para aclimatarme",
+        "hago paradas de 10 minutos y duermo mas abajo para aclimatarme"
       ],
       "hard_negatives": [
-        "síntomas de soroche",
-        "puedo seguir subiendo con dolor de cabeza"
+        "qué comer durante la caminata para prevenir el soroche",
+        "por qué recomiendan carbohidratos en alta montaña",
+        "qué tan rápido o fuerte puedo caminar en altura"
       ],
       "answer": {
         "short": "Asciende de forma gradual, evita el alcohol y el ejercicio intenso durante las primeras 48 horas en altura, y procura dormir a menor altitud de la que alcanzas en el día. Durante el ascenso en el parque, haz paradas periódicas de 10 minutos para aclimatarte.",
@@ -862,7 +876,7 @@
     },
     {
       "id": "health_safety.chronic_condition_altitude",
-      "label": "enfermedad cardíaca o pulmonar en altura",
+      "label": "ingreso con problema cardíaco o pulmonar",
       "kind": "safety",
       "audience": "visitor",
       "lang": "es",
@@ -878,41 +892,34 @@
         "mi presión alta me impide subir",
         "tengo enfisema puedo caminar en altura",
         "viajo con marcapasos al páramo",
-        "tengo un soplo cardíaco y quiero subir al páramo"
+        "tengo un soplo cardíaco y quiero subir al páramo",
+        "tengo una enfermedad pulmonar, la resolucion 207 me restringe el ingreso"
       ],
       "hard_negatives": [
-        "debo preguntarle al médico antes de ir",
-        "estoy embarazada puedo subir a Los Nevados"
+        "tuve un infarto hace poco puedo subir al parque",
+        "cuántos días después de un infarto o derrame no se debe subir",
+        "hipertensión pulmonar severa en alta montaña"
       ],
       "answer": {
-        "short": "El ingreso está restringido si tienes problemas cardiovasculares o pulmonares, y el CDC desaconseja viajar a gran altura con afecciones como hipertensión pulmonar severa o anemia falciforme (Resolución 207 de 2023). Consulta antes a tu médico e informa con anticipación al operador y al parque.",
+        "short": "La Resolución 207 del 04 de agosto de 2023 restringe el ingreso si tienes problemas cardiovasculares o pulmonares; es el texto de esa fecha, no la confirmación del día de tu visita. El CDC pide no viajar a gran altura con hipertensión pulmonar severa. Consulta a tu médico e informa al operador antes de ir.",
         "variants": [
-          "El reglamento del parque restringe el ingreso con problemas cardíacos o pulmonares; consulta a tu médico y avisa al operador antes de reservar."
-        ]
+          "Problemas del corazón o del pulmón: la Resolución 207 del 04 de agosto de 2023 restringe el ingreso, y el CDC desaconseja la gran altura si la hipertensión pulmonar es severa. Confírmalo con tu médico; no es el permiso del día de la visita."
+        ],
+        "reflection": null
       },
       "sources": [
         {
-          "label": "Parques Nacionales Naturales de Colombia: Resolución 207 de 2023",
+          "label": "Resolución 207 del 04 de agosto de 2023, PNN Los Nevados",
           "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2023/08/Resolucion_207_2023_ReglamentacionNevados.pdf",
           "retrieved_at": "2026-11-21"
         },
         {
-          "label": "Parques Nacionales Naturales de Colombia: Parque Nacional Natural Los Nevados",
-          "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
-          "retrieved_at": "2026-11-21"
-        },
-        {
-          "label": "CDC Yellow Book: High-Altitude Travel and Altitude Illness",
-          "url": "https://www.cdc.gov/yellow-book/hcp/environmental-hazards-risks/high-altitude-travel-and-altitude-illness.html",
-          "retrieved_at": "2026-11-21"
-        },
-        {
-          "label": "CDC Travelers’ Health: Travel to High Altitudes",
+          "label": "CDC Travelers' Health, Travel to High Altitudes",
           "url": "https://wwwnc.cdc.gov/travel/page/travel-to-high-altitudes",
           "retrieved_at": "2026-11-21"
         }
       ],
-      "last_verified": "2026-11-21",
+      "last_verified": "2026-11-22",
       "related": [
         "health_safety.pretrip_medical_advice",
         "health_safety.high_altitude_health_risk"
@@ -925,7 +932,7 @@
     },
     {
       "id": "health_safety.pregnancy_altitude",
-      "label": "embarazo y visita a gran altura",
+      "label": "embarazo y restricción de ingreso",
       "kind": "safety",
       "audience": "visitor",
       "lang": "es",
@@ -941,36 +948,34 @@
         "la altura afecta el embarazo",
         "puedo dormir arriba estando embarazada",
         "tengo embarazo y me da miedo la altura",
-        "recomendaciones para gestantes en el parque"
+        "recomendaciones para gestantes en el parque",
+        "estoy embarazada, la resolucion 207 me deja entrar a los nevados"
       ],
       "hard_negatives": [
         "tengo una enfermedad del corazón puedo subir",
-        "cómo afecta la altura a los niños"
+        "soy hipertenso y quiero ir al nevado",
+        "tengo problemas pulmonares y me falta el aire"
       ],
       "answer": {
-        "short": "El ingreso de mujeres embarazadas al Parque Nacional Natural Los Nevados está restringido, y hay riesgo de complicaciones en terreno montañoso remoto y al dormir sobre 3.050 metros (Resolución 207 de 2023; el CDC lo advierte). No planees el ascenso en embarazo y consulta a tu médico.",
+        "short": "La Resolución 207 del 04 de agosto de 2023 restringe el ingreso de mujeres embarazadas a Los Nevados; no confirma si esa regla sigue igual el día de tu visita. El CDC recomienda no dormir por encima de 3.050 m y advierte el riesgo de una complicación en terreno montañoso remoto. Consulta a tu médico y no planees el ascenso mientras rija esa restricción.",
         "variants": [
-          "El ingreso de mujeres embarazadas está restringido por la reglamentación del parque debido a los riesgos en alta montaña remota."
-        ]
+          "Embarazo y Los Nevados: la Resolución 207 del 04 de agosto de 2023 restringe el ingreso. El CDC pide prudencia para no dormir sobre 3.050 m por el riesgo de una complicación lejos de un hospital. Consúltalo; no es el estado del día de la visita."
+        ],
+        "reflection": null
       },
       "sources": [
         {
-          "label": "Parques Nacionales Naturales de Colombia: Resolución 207 de 2023",
+          "label": "Resolución 207 del 04 de agosto de 2023, PNN Los Nevados",
           "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2023/08/Resolucion_207_2023_ReglamentacionNevados.pdf",
           "retrieved_at": "2026-11-21"
         },
         {
-          "label": "CDC Yellow Book: High-Altitude Travel and Altitude Illness",
+          "label": "CDC Yellow Book, High-Altitude Travel and Altitude Illness",
           "url": "https://www.cdc.gov/yellow-book/hcp/environmental-hazards-risks/high-altitude-travel-and-altitude-illness.html",
-          "retrieved_at": "2026-11-21"
-        },
-        {
-          "label": "CDC Travelers’ Health: Travel to High Altitudes",
-          "url": "https://wwwnc.cdc.gov/travel/page/travel-to-high-altitudes",
           "retrieved_at": "2026-11-21"
         }
       ],
-      "last_verified": "2026-11-21",
+      "last_verified": "2026-11-22",
       "related": [
         "health_safety.pretrip_medical_advice",
         "health_safety.chronic_condition_altitude"
@@ -983,7 +988,7 @@
     },
     {
       "id": "health_safety.older_adults_altitude_health",
-      "label": "adultos mayores y salud en altura",
+      "label": "sed, frío y tope de edad",
       "kind": "safety",
       "audience": "visitor",
       "lang": "es",
@@ -999,41 +1004,44 @@
         "qué vigilar en un adulto mayor durante el recorrido",
         "mayor riesgo de enfriamiento en personas de edad",
         "recomendaciones de salud para viajeros mayores",
-        "cuidados con la presión y el agua en adultos mayores"
+        "cuidados con la presión y el agua en adultos mayores",
+        "mi papa tiene 69, la ficha y la resolucion dicen lo mismo"
       ],
       "hard_negatives": [
         "cómo noto que estoy deshidratado",
-        "tengo una enfermedad del corazón puedo subir"
+        "orina oscura y mareo caminando",
+        "mucha sed y boca seca en el parque"
       ],
       "answer": {
-        "short": "En adultos mayores disminuye la sensación de sed y las afecciones crónicas o circulatorias aumentan el riesgo ante el frío y la altura. Además, el parque aplica límite máximo de edad (69 años en la ficha web y 70 en la Resolución 207): hidrátate con frecuencia y verifica con el operador antes de ir.",
+        "short": "MedlinePlus indica que con la edad puede bajar la sensación de sed y que una enfermedad crónica o de la circulación aumenta el riesgo ante el frío. La ficha, sin fecha visible, dice edad máxima de 69 años para todo el parque; la Resolución 207 del 04 de agosto de 2023 permite de 6 a 70 años y restringe a los mayores de 70. No es el cupo de hoy: confírmalo con el operador.",
         "variants": [
-          "Las personas mayores pueden sentir menos sed y ser más vulnerables al frío; recuerda también confirmar el límite de edad vigente del parque antes de reservar."
-        ]
+          "En adultos mayores, MedlinePlus señala menos sed y más riesgo si hay enfermedad crónica o circulatoria. La ficha dice 69 años como máximo y la Resolución 207 del 04 de agosto de 2023 habla de 6 a 70 años. Pregunta al operador; no es el cupo de hoy."
+        ],
+        "reflection": null
       },
       "sources": [
         {
-          "label": "MedlinePlus: Dehydration",
+          "label": "MedlinePlus, Dehydration",
           "url": "https://medlineplus.gov/dehydration.html",
           "retrieved_at": "2026-11-21"
         },
         {
-          "label": "MedlinePlus Medical Encyclopedia: Hypothermia",
+          "label": "MedlinePlus, Hypothermia",
           "url": "https://medlineplus.gov/ency/article/000038.htm",
           "retrieved_at": "2026-11-21"
         },
         {
-          "label": "Parques Nacionales Naturales de Colombia: Parque Nacional Natural Los Nevados",
+          "label": "Parques Nacionales Naturales, ficha PNN Los Nevados",
           "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
           "retrieved_at": "2026-11-21"
         },
         {
-          "label": "Parques Nacionales Naturales de Colombia: Resolución 207 de 2023",
+          "label": "Resolución 207 del 04 de agosto de 2023, PNN Los Nevados",
           "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2023/08/Resolucion_207_2023_ReglamentacionNevados.pdf",
           "retrieved_at": "2026-11-21"
         }
       ],
-      "last_verified": "2026-11-21",
+      "last_verified": "2026-11-22",
       "related": [
         "health_safety.dehydration_warning_signs",
         "health_safety.pretrip_medical_advice",
@@ -1047,7 +1055,7 @@
     },
     {
       "id": "health_safety.dehydration_response",
-      "label": "qué hacer ante la deshidratación",
+      "label": "qué tomar si estás deshidratado",
       "kind": "procedure",
       "audience": "visitor",
       "lang": "es",
@@ -1063,11 +1071,13 @@
         "sirve una bebida con electrolitos",
         "me siento débil por el calor y el esfuerzo",
         "mi compañero está deshidratado qué hago",
-        "cómo repongo líquidos después del ascenso"
+        "cómo repongo líquidos después del ascenso",
+        "que liquido tomo si ya estoy deshidratado en la caminata"
       ],
       "hard_negatives": [
         "cómo noto que estoy deshidratado",
-        "alguien se desmayó en el sendero"
+        "orina oscura y mareo caminando",
+        "mucha sed y boca seca en el parque"
       ],
       "answer": {
         "short": "Para prevenir y tratar la deshidratación leve, hidrátate antes, durante y después de la caminata; bebe agua o soluciones de rehidratación oral, y toma pequeños sorbos si tienes náuseas. Si aparecen señales severas como falta de orina o respiración rápida, avisa al guía y busca atención médica.",
@@ -1100,7 +1110,7 @@
     },
     {
       "id": "health_safety.frostbite_first_aid",
-      "label": "primeros auxilios por congelación",
+      "label": "recalentar piel congelada con agua tibia",
       "kind": "procedure",
       "audience": "visitor",
       "lang": "es",
@@ -1116,11 +1126,13 @@
         "la piel se puso cerosa y sin sensibilidad",
         "cómo ayudar a alguien con los pies congelados",
         "la piel congelada se frota o se calienta sin masajearla?",
-        "qué no hacer con una ampolla por congelación"
+        "qué no hacer con una ampolla por congelación",
+        "con que agua recaliento un dedo congelado sin frotar"
       ],
       "hard_negatives": [
-        "dedos entumecidos por el frío",
-        "qué hago si alguien tiene hipotermia"
+        "puedo calentar manos congeladas con una estufa o fogata",
+        "por qué no acercar los dedos congelados al fuego",
+        "se puede usar lámpara de calor o almohadilla eléctrica en congelamiento"
       ],
       "answer": {
         "short": "Lleva a la persona a un lugar resguardado, quita la ropa mojada o anillos ajustados, revisa si tiene hipotermia y calienta la zona en agua tibia (nunca caliente) o con calor corporal. No frotes ni masajees la piel, no toques las ampollas, evita caminar sobre pies congelados y busca atención médica.",
@@ -1158,7 +1170,7 @@
     },
     {
       "id": "health_safety.lightning_storm_safety",
-      "label": "precaución ante tormenta eléctrica",
+      "label": "qué hacer cuando oyes truenos",
       "kind": "safety",
       "audience": "visitor",
       "lang": "es",
@@ -1174,31 +1186,29 @@
         "tormenta con viento y granizo en el recorrido",
         "debo soltar objetos metálicos si hay rayos",
         "cómo protegerme de una descarga eléctrica",
-        "se oyen truenos y estamos lejos del refugio"
+        "se oyen truenos y estamos lejos del refugio",
+        "oi truenos en el paramo, me alejo o sigo al mirador"
       ],
       "hard_negatives": [
-        "cómo reconocer hipotermia",
-        "cual es la linea nacional si me pasa algo en la montaña?"
+        "qué hago si me agarra una tormenta de rayos en campo abierto",
+        "cómo actuar en el páramo si hay rayos y no hay refugio",
+        "debo acostarme en el suelo durante una tormenta eléctrica"
       ],
       "answer": {
-        "short": "Si escuchas truenos o ves rayos, aléjate de zonas abiertas, de árboles aislados y de estructuras u objetos metálicos como bastones o cercas, y busca un lugar seguro. Sigue de inmediato las instrucciones del guía para resguardarte o evacuar la zona expuesta.",
+        "short": "Si escuchas truenos o ves rayos, aléjate de zonas abiertas, de árboles aislados y de objetos metálicos, y pasa a un lugar más seguro. Sigue lo que te indique el guía para resguardarte. Esta app no cierra el parque ni llama a rescate.",
         "variants": [
-          "Ante tormenta eléctrica, evita campos abiertos, árboles solitarios y objetos metálicos; busca un sitio seguro junto a tu guía."
-        ]
+          "Con truenos o rayos, deja el campo abierto, el árbol aislado y el metal, y busca un sitio más seguro con tu guía. La app no decreta un cierre ni pide rescate."
+        ],
+        "reflection": null
       },
       "sources": [
         {
-          "label": "CDC: Lightning Safety Tips",
+          "label": "CDC, Lightning Safety Tips",
           "url": "https://www.cdc.gov/lightning/safety/index.html",
-          "retrieved_at": "2026-11-21"
-        },
-        {
-          "label": "Alcaldía de Bogotá / IDIGER: medidas ante tormentas eléctricas",
-          "url": "https://bogota.gov.co/mi-ciudad/ambiente/medidas-ante-tormentas-electricas-vientos-fuertes-o-vendavales-bogota",
           "retrieved_at": "2026-11-21"
         }
       ],
-      "last_verified": "2026-11-21",
+      "last_verified": "2026-11-22",
       "related": [
         "health_safety.hypothermia_warning_signs",
         "health_safety.national_emergency_number_123"
@@ -1211,7 +1221,7 @@
     },
     {
       "id": "health_safety.lost_person_protocol",
-      "label": "qué hacer si te pierdes",
+      "label": "qué hacer si alguien se extravía",
       "kind": "procedure",
       "audience": "visitor",
       "lang": "es",
@@ -1227,31 +1237,34 @@
         "me alejé del sendero permitido",
         "estamos desorientados y baja la neblina",
         "si alguien se nos pierde, qué hacemos en el momento?",
-        "cómo mantenerme con el grupo en el sendero"
+        "cómo mantenerme con el grupo en el sendero",
+        "me perdi del grupo, la aplicacion puede pedir que me busquen"
       ],
       "hard_negatives": [
-        "a quién le digo que me siento mal",
-        "cual es la linea nacional si me pasa algo en la montaña?"
+        "cómo evitar que alguien se quede atrás o se pierda en el grupo",
+        "por qué no debo adelantarme ni separarme del guía en el sendero",
+        "qué significa mantener contacto visual y auditivo con el grupo"
       ],
       "answer": {
-        "short": "Para evitar extravíos, camina siempre junto al grupo y al guía avalado, sin salirte de los senderos establecidos ni dejar a nadie rezagado (Resolución 207 de 2023). Si alguien se extravía, no te disperses por tu cuenta: avisa de inmediato al guía y a las autoridades para que activen la respuesta con radio.",
+        "short": "La Resolución 207 del 04 de agosto de 2023 pide caminar unidos, sin salirse de los senderos ni dejar a nadie rezagado. Si alguien se extravía, no te disperses: avisa al guía y llama al 123 si tienes señal. El texto manda dar aviso a las autoridades, no que el rescate vaya a salir. Esta app no te localiza ni hace esa llamada.",
         "variants": [
-          "Mantente unido al grupo y dentro del sendero autorizado; ante cualquier extravío, informa de inmediato al guía y a las autoridades sin separarte."
-        ]
+          "No te salgas del sendero ni dejes atrás a nadie: así lo pide la Resolución 207 del 04 de agosto de 2023. Si se pierden, no te disperses, avisa al guía y llama al 123 si hay señal. La app no te rastrea ni confirma que salga un rescate."
+        ],
+        "reflection": null
       },
       "sources": [
         {
-          "label": "Parques Nacionales Naturales de Colombia: Resolución 207 de 2023",
+          "label": "Resolución 207 del 04 de agosto de 2023, PNN Los Nevados",
           "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2023/08/Resolucion_207_2023_ReglamentacionNevados.pdf",
           "retrieved_at": "2026-11-21"
         },
         {
-          "label": "Parques Nacionales Naturales de Colombia: Parque Nacional Natural Los Nevados",
-          "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
-          "retrieved_at": "2026-11-21"
+          "label": "Policía Nacional, líneas de emergencia 123 y 155",
+          "url": "https://www.policia.gov.co/noticia/policia-nacional-sensibiliza-comunidad-sobre-uso-las-lineas-emergencia-123-155",
+          "retrieved_at": "2026-11-22"
         }
       ],
-      "last_verified": "2026-11-21",
+      "last_verified": "2026-11-22",
       "related": [
         "health_safety.tell_guide_about_health_change",
         "health_safety.national_emergency_number_123"
@@ -1264,7 +1277,7 @@
     },
     {
       "id": "health_safety.bleeding_control",
-      "label": "controlar sangrado por herida",
+      "label": "presión directa sobre una herida",
       "kind": "procedure",
       "audience": "visitor",
       "lang": "es",
@@ -1280,11 +1293,13 @@
         "debo lavar una herida grande antes de presionar",
         "se cortó la mano y sale mucha sangre",
         "hemorragia en la pierna durante la caminata",
-        "qué hago si la sangre empapa la gasa"
+        "qué hago si la sangre empapa la gasa",
+        "sangra una herida grande, presiono y no le quito el paño"
       ],
       "hard_negatives": [
         "me sangra la nariz en la montaña",
-        "me torcí el tobillo en el sendero"
+        "cómo parar un sangrado de nariz",
+        "sangrado nasal por el aire seco"
       ],
       "answer": {
         "short": "Acuesta a la persona, eleva la parte que sangra si es posible y aplica presión directa y firme sobre la herida con una gasa o tela limpia. No retires un apósito empapado de sangre ni intentes limpiar una herida grande: pon otro paño encima y pide ayuda urgente al guía.",
@@ -1317,7 +1332,7 @@
     },
     {
       "id": "health_safety.unresponsive_cpr",
-      "label": "persona inconsciente que no respira",
+      "label": "no responde y no respira normal",
       "kind": "procedure",
       "audience": "visitor",
       "lang": "es",
@@ -1333,31 +1348,34 @@
         "cómo pedir ayuda mientras hago RCP",
         "se desplomó y no responde al llamarlo",
         "reanimación mientras llega el rescate",
-        "qué hago primero si alguien deja de respirar"
+        "qué hago primero si alguien deja de respirar",
+        "no responde y no respira normal, empiezo las compresiones"
       ],
       "hard_negatives": [
         "alguien se desmayó en el sendero",
-        "cual es la linea nacional si me pasa algo en la montaña?"
+        "qué hago si una persona se desmaya",
+        "me sentí mareado y perdí el conocimiento"
       ],
       "answer": {
-        "short": "Toca su hombro, pregúntale en voz alta si está bien y mira si respira con normalidad; si no responde y no respira normalmente, pide a alguien que avise al guía y llame a emergencias mientras inicias compresiones firmes y rápidas en el centro del pecho si sabes hacer RCP.",
+        "short": "Toca su hombro, pregúntale en voz alta si está bien y mira si respira con normalidad. Si no responde y no respira normalmente, pide a alguien que avise al guía y llame al 123 si tiene señal, y empuja en el centro del pecho hacia abajo, fuerte y rápido. Esta app no hace esa llamada ni te localiza.",
         "variants": [
-          "Si la persona no responde ni respira con normalidad, pide ayuda urgente al guía y comienza compresiones en el centro del pecho."
-        ]
+          "Mira si responde y si respira normal. Si no, que alguien avise al guía y llame al 123 si hay señal, y empuja en el centro del pecho, fuerte y rápido. La app no llama ni te ubica."
+        ],
+        "reflection": null
       },
       "sources": [
         {
-          "label": "MedlinePlus: Cardiopulmonary Resuscitation (CPR)",
+          "label": "MedlinePlus, CPR",
           "url": "https://medlineplus.gov/cpr.html",
           "retrieved_at": "2026-11-21"
         },
         {
-          "label": "Parques Nacionales Naturales de Colombia: Resolución 207 de 2023",
-          "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2023/08/Resolucion_207_2023_ReglamentacionNevados.pdf",
-          "retrieved_at": "2026-11-21"
+          "label": "Policía Nacional, líneas de emergencia 123 y 155",
+          "url": "https://www.policia.gov.co/noticia/policia-nacional-sensibiliza-comunidad-sobre-uso-las-lineas-emergencia-123-155",
+          "retrieved_at": "2026-11-22"
         }
       ],
-      "last_verified": "2026-11-21",
+      "last_verified": "2026-11-22",
       "related": [
         "health_safety.fainting_response",
         "health_safety.national_emergency_number_123"
@@ -1370,7 +1388,7 @@
     },
     {
       "id": "health_safety.sprain_first_aid",
-      "label": "primeros auxilios por esguince",
+      "label": "tobillo torcido: frío y no apoyes",
       "kind": "procedure",
       "audience": "visitor",
       "lang": "es",
@@ -1386,11 +1404,13 @@
         "me torcí la muñeca y se inflamó",
         "qué hacer con una articulación inflamada",
         "caí y me torcí el pie caminando",
-        "debo apoyar el pie con un esguince"
+        "debo apoyar el pie con un esguince",
+        "me torci el tobillo, le pongo hielo envuelto y no lo apoyo"
       ],
       "hard_negatives": [
-        "cómo paro una hemorragia",
-        "me salió una ampolla en el pie"
+        "qué hago si alguien se fractura una pierna o brazo en el sendero",
+        "cómo inmovilizar una posible fractura en la montaña",
+        "debo intentar acomodar o enderezar un hueso roto"
       ],
       "answer": {
         "short": "Detén la caminata y evita apoyar peso sobre la articulación lesionada para no empeorar el daño; aplica frío envuelto en una tela (nunca directo en la piel), venda con firmeza sin apretar y mantén la zona elevada. Avisa al guía para evaluar la suspensión de la ruta y recibir asistencia.",
@@ -1423,7 +1443,7 @@
     },
     {
       "id": "health_safety.nosebleed_altitude",
-      "label": "sangrado nasal en la montaña",
+      "label": "nariz sangrando por el aire seco",
       "kind": "procedure",
       "audience": "visitor",
       "lang": "es",
@@ -1439,11 +1459,13 @@
         "cómo actuar si me sale sangre de la nariz",
         "sangrado nasal después de un golpe",
         "la nariz sangra por el frío y la altura",
-        "qué hago si el sangrado nasal dura mucho"
+        "qué hago si el sangrado nasal dura mucho",
+        "me sangra la nariz, la aprieto 10 minutos inclinado adelante"
       ],
       "hard_negatives": [
         "cómo paro una hemorragia",
-        "me duele la cabeza y tengo náuseas arriba"
+        "se cortó y sangra mucho",
+        "presión directa en una herida"
       ],
       "answer": {
         "short": "El aire seco y frío irrita la nariz: si sangras, siéntate, inclínate hacia adelante para no tragar sangre, respira por la boca y presiona la parte blanda de la nariz por 10 minutos completos. No te acuestes ni metas gasas; si es tras un golpe en la cabeza o dura más de 20 minutos, busca atención médica.",
@@ -1492,11 +1514,13 @@
         "desmayo durante la caminata en altura",
         "cómo cuidar a una persona que se desmaya",
         "volvió en sí después del desmayo",
-        "mi compañera se sintió mareada y se desmayó"
+        "mi compañera se sintió mareada y se desmayó",
+        "se desmayo pero sigue respirando, lo dejo acostado"
       ],
       "hard_negatives": [
         "la persona no responde qué hago",
-        "qué tomo si estoy deshidratado"
+        "cómo hacer reanimación en la montaña",
+        "mi compañero se desmayó y no despierta"
       ],
       "answer": {
         "short": "Si alguien se desmaya, verifica que sus vías respiratorias estén despejadas y que esté respirando, y haz que permanezca acostado durante 10 a 15 minutos. Avisa al guía y busca valoración médica para identificar la causa; si no responde o deja de respirar, trátalo como una emergencia.",
@@ -1582,7 +1606,7 @@
     },
     {
       "id": "health_safety.no_published_wildlife_protocol",
-      "label": "no hay protocolo de encuentro con fauna",
+      "label": "sin protocolo de fauna en la resolución",
       "kind": "safety",
       "audience": "visitor",
       "lang": "es",
@@ -1598,26 +1622,29 @@
         "qué está prohibido hacer con la fauna del parque",
         "vi un animal y no sé si alejarlo del sendero",
         "si veo un animal en el sendero, me acerco o no?",
-        "debo coger un animal herido o dejarlo quieto"
+        "debo coger un animal herido o dejarlo quieto",
+        "vi un oso en los nevados, cual es el protocolo del parque"
       ],
       "hard_negatives": [
-        "puedo darle comida a un venado",
-        "cual es la linea nacional si me pasa algo en la montaña?"
+        "puedo tocar o acariciar un animal silvestre si se acerca?",
+        "qué hago si veo un animal en el camino, lo puedo mover?",
+        "se puede coger un animalito del páramo para una foto?"
       ],
       "answer": {
-        "short": "Los Nevados no publica un protocolo de encuentro con oso, puma o danta. La Resolución 207 de 2023 solo ordena evitar el contacto: no intentes coger, alimentar ni desplazar la fauna. Si ves un animal, no te acerques y avisa a tu guía.",
+        "short": "La Resolución 207 del 04 de agosto de 2023 no trae un protocolo de encuentro con oso, puma o danta: solo ordena no coger, alimentar ni desplazar la fauna. Si ves un animal, no te acerques y avisa al guía. Eso es el texto de esa resolución, no un inventario de todas las publicaciones del parque.",
         "variants": [
-          "No hay un protocolo publicado de encuentro con fauna en este parque: no cojas, no alimentes y no desplaces al animal, y avisa a tu guía."
-        ]
+          "En esa resolución del 04 de agosto de 2023 no hay un protocolo de oso, puma o danta, solo la orden de no coger, alimentar ni mover la fauna. No te acerques y avisa al guía."
+        ],
+        "reflection": null
       },
       "sources": [
         {
-          "label": "Parques Nacionales Naturales de Colombia: Resolución 207 de 2023",
+          "label": "Resolución 207 del 04 de agosto de 2023, PNN Los Nevados",
           "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2023/08/Resolucion_207_2023_ReglamentacionNevados.pdf",
           "retrieved_at": "2026-11-21"
         }
       ],
-      "last_verified": "2026-11-21",
+      "last_verified": "2026-11-22",
       "related": [
         "rules.feed_wildlife",
         "fauna.injured_wildlife_protocol",
@@ -1638,35 +1665,38 @@
       "examples": [
         "cuánto dura el mal de altura",
         "el soroche se quita solo o hay que bajar",
-        "cuándo el mal de montaña se considera moderado",
         "si el dolor de cabeza de altura dura más de medio día",
         "el mal de altura pasa en dos días de aclimatación",
-        "diferencia entre soroche leve y moderado por el tiempo",
         "how long does acute mountain sickness last?",
         "se me quita el soroche si espero en el mismo sitio",
         "más de 12 horas con síntomas de altura qué significa",
         "el mal de montaña cede con la aclimatación",
         "llevo un día con náuseas en el refugio",
-        "cuánto tarda en mejorar el soroche si no subo más"
+        "cuánto tarda en mejorar el soroche si no subo más",
+        "el soroche empezo a las dos horas y lleva un dia sin subir mas",
+        "si el soroche empeora sin subir mas, bajo con el guia",
+        "diferencia entre soroche leve y moderado por el tiempo"
       ],
       "hard_negatives": [
-        "síntomas de soroche",
-        "cómo me aclimato antes de subir"
+        "a partir de qué altura da soroche",
+        "desde cuántos metros empieza el mal de altura",
+        "cuándo se considera alta o muy alta montaña"
       ],
       "answer": {
-        "short": "El mal agudo de montaña suele empezar 6 a 12 horas después de pasar los 2.500 m. Es leve si mejora antes de 12 horas y moderado si sigue más de 12 horas; muchas veces cede en las primeras 48 horas. Si no mejora o empeora, avisa al guía y desciende.",
+        "short": "El CDC dice que el mal agudo de montaña suele empezar 2 a 12 horas después de llegar a una altitud alta y que, si no sigues subiendo, en general cede en 12 a 48 horas. Si los síntomas empiezan pasados 3 días en la misma altitud, sin un ascenso nuevo, el CDC dice que no los atribuyas a este mal. Si empeoran, avisa al guía y desciende.",
         "variants": [
-          "Si los síntomas de altura siguen más de 12 horas, trátalo como moderado: no sigas subiendo y avisa al guía para valorar el descenso."
-        ]
+          "Suele empezar entre 2 y 12 horas después de llegar, y si no subes más puede ceder entre 12 y 48 horas. Síntomas que empiezan después de 3 días sin un ascenso nuevo no se los atribuye el CDC a este mal. Si empeoran, avisa al guía y baja."
+        ],
+        "reflection": null
       },
       "sources": [
         {
-          "label": "Hospital Civil E.S.E.: guía prehospitalaria de enfermedad por altura",
-          "url": "https://hospitalcivilese.gov.co/site/images/guiasyprot/GUIASAMPH/33%20enfermedad%20por%20altura%20343%20a%20348.pdf",
+          "label": "CDC Yellow Book, High-Altitude Travel and Altitude Illness",
+          "url": "https://www.cdc.gov/yellow-book/hcp/environmental-hazards-risks/high-altitude-travel-and-altitude-illness.html",
           "retrieved_at": "2026-11-21"
         }
       ],
-      "last_verified": "2026-11-21",
+      "last_verified": "2026-11-22",
       "related": [
         "health_safety.altitude_sickness_symptoms",
         "health_safety.altitude_classification_levels",
@@ -1696,26 +1726,29 @@
         "a cuántos grados el frío del cuerpo ya es grave?",
         "menos de 28 grados de temperatura ya es hipotermia grave?",
         "cómo saber si el enfriamiento ya es grave por los grados",
-        "umbral de 35 grados para hipotermia en la montaña"
+        "umbral de 35 grados para hipotermia en la montaña",
+        "bajo 35 grados ya cuenta como hipotermia o solo si baja de 28"
       ],
       "hard_negatives": [
         "cómo reconocer hipotermia",
-        "qué hago si alguien tiene hipotermia"
+        "temblar mucho en el frío es peligroso",
+        "está confundido y tiene frío"
       ],
       "answer": {
-        "short": "Hay hipotermia si la temperatura central baja de 35 °C sin quererlo: leve de 35 a 32 °C, moderada de 32 a 28 °C y severa por debajo de 28 °C. Si tiemblas mucho, te confundes o dejas de temblar, busca resguardo y avisa al guía.",
+        "short": "MedlinePlus define la hipotermia como una temperatura corporal por debajo de 35 °C (95 °F). Si tiemblas sin control, te confundes o dejas de temblar, abrígate y avisa al guía.",
         "variants": [
-          "Por debajo de 35 °C ya es hipotermia. Si dejas de temblar o te confundes, no esperes: abrígate y pide ayuda al guía."
-        ]
+          "Por debajo de 35 °C, MedlinePlus ya habla de hipotermia. Si tiemblas sin parar, te confundes o dejas de temblar, abrígate y avisa al guía."
+        ],
+        "reflection": null
       },
       "sources": [
         {
-          "label": "Hospital Civil E.S.E.: guía prehospitalaria de lesiones por frío",
-          "url": "https://web.hospitalcivilese.gov.co/wp-content/uploads/2025/09/28-lesiones-por-frio-293-a-300.pdf",
+          "label": "MedlinePlus, Hypothermia",
+          "url": "https://medlineplus.gov/ency/article/000038.htm",
           "retrieved_at": "2026-11-21"
         }
       ],
-      "last_verified": "2026-11-21",
+      "last_verified": "2026-11-22",
       "related": [
         "health_safety.hypothermia_warning_signs",
         "health_safety.severe_hypothermia_signs_and_care"
@@ -1740,15 +1773,16 @@
         "medidor de diabetes poco fiable en Los Nevados",
         "does a glucometer work at high altitude?",
         "llevar tiras de repuesto para la glucosa en el sendero",
-        "el mal de altura puede disparar una cetoacidosis",
         "cómo vigilar el azúcar si subo al nevado",
         "mi glucómetro no coincide con cómo me siento arriba",
         "lectura de glucosa poco fiable por la altitud",
-        "debo avisar al guía que mido el azúcar en ruta"
+        "debo avisar al guía que mido el azúcar en ruta",
+        "el glucometro me marca raro arriba, le creo o no"
       ],
       "hard_negatives": [
         "puedo ir a Los Nevados si tengo diabetes",
-        "debo preguntarle al médico antes de ir"
+        "precauciones para diabéticos en alta montaña",
+        "la altura descontrola el azúcar o la diabetes"
       ],
       "answer": {
         "short": "El CDC advierte que no todos los glucómetros leen bien en altura y que el mal de montaña puede desencadenar una cetoacidosis diabética. Sigue el plan de tu médico, lleva insumos de repuesto y avisa a tu guía antes de salir.",
@@ -1776,7 +1810,7 @@
     },
     {
       "id": "health_safety.hape_first_72_hours",
-      "label": "cuándo aparece el edema pulmonar",
+      "label": "en cuántos días avanza el ahogo",
       "kind": "safety",
       "audience": "visitor",
       "lang": "es",
@@ -1792,26 +1826,29 @@
         "puede aparecer edema pulmonar al segundo día de altura",
         "tiempo de aparición del edema pulmonar en el páramo",
         "el ahogo y la tos despues de subir, en que plazo los debo vigilar?",
-        "el edema pulmonar tarda días o sale enseguida"
+        "el edema pulmonar tarda días o sale enseguida",
+        "llevo tos desde ayer, el ahogo de pulmon tarda uno o dos dias"
       ],
       "hard_negatives": [
         "qué es el edema pulmonar de altura",
-        "confusión en altura"
+        "el edema pulmonar de altura es el ahogo y la tos que no aflojan?",
+        "líquido en los pulmones por subir a la montaña"
       ],
       "answer": {
-        "short": "El edema pulmonar de altura suele aparecer en las primeras 72 horas y es la principal causa de mortalidad en escaladores aficionados con poca experiencia y en profesionales por encima de 3.000 m. Si hay ahogo en reposo o tos, avisa al guía y desciende.",
+        "short": "El CDC dice que el edema pulmonar puede ser más rápido de fatal que el cerebral y que lo típico es avanzar en 1 a 2 días hasta la falta de aire en reposo. Si hay tos, congestión o ahogo al esfuerzo, no esperes: avisa al guía y desciende. Esta app no llama a rescate ni te localiza.",
         "variants": [
-          "Vigila tos y ahogo durante las primeras 72 horas tras subir: si aparecen, avisa al guía y desciende sin esperar."
-        ]
+          "El CDC habla de una progresión típica de 1 a 2 días y de un edema pulmonar que puede ser más rápido de fatal que el cerebral. Con tos, congestión o ahogo, avisa al guía y baja. La app no llama a rescate."
+        ],
+        "reflection": null
       },
       "sources": [
         {
-          "label": "Hospital Civil E.S.E.: guía prehospitalaria de enfermedad por altura",
-          "url": "https://hospitalcivilese.gov.co/site/images/guiasyprot/GUIASAMPH/33%20enfermedad%20por%20altura%20343%20a%20348.pdf",
+          "label": "CDC Yellow Book, High-Altitude Travel and Altitude Illness",
+          "url": "https://www.cdc.gov/yellow-book/hcp/environmental-hazards-risks/high-altitude-travel-and-altitude-illness.html",
           "retrieved_at": "2026-11-21"
         }
       ],
-      "last_verified": "2026-11-21",
+      "last_verified": "2026-11-22",
       "related": [
         "health_safety.high_altitude_pulmonary_edema_hape",
         "health_safety.descent_for_worsening_altitude"
@@ -1824,7 +1861,7 @@
     },
     {
       "id": "health_safety.hace_may_appear_days_later",
-      "label": "el edema cerebral puede tardar días",
+      "label": "edema cerebral: baja sin esperar",
       "kind": "safety",
       "audience": "visitor",
       "lang": "es",
@@ -1840,26 +1877,29 @@
         "me sentí bien y al quinto día camino mal",
         "por qué vigilar varios días tras un ascenso alto",
         "el edema cerebral es tardío en la alta montaña",
-        "días después del ascenso aparece confusión"
+        "días después del ascenso aparece confusión",
+        "camino como borracho, espero unos dias o bajo ahora"
       ],
       "hard_negatives": [
         "qué es el edema cerebral de altura",
-        "síntomas de soroche"
+        "como se nota el edema cerebral de altura, confusion y tambaleo?",
+        "alucinaciones y desorientación en la montaña"
       ],
       "answer": {
-        "short": "El edema cerebral de altura puede aparecer días después del mal de montaña, incluso 5 a 7 días más tarde, tras ascensos por encima de 3.500 m. Si hay confusión, somnolencia o pierdes la coordinación al caminar, avisa al guía y desciendan de inmediato.",
+        "short": "En un sitio remoto el CDC pide empezar a bajar en cuanto se sospecha edema cerebral, porque sin descenso el coma puede llegar en 12 a 24 horas desde la ataxia. No esperes varios días para ver si pasa. Avísale al guía y desciendan; esta app no llama a rescate ni te localiza.",
         "variants": [
-          "No des por cerrado el mal de altura al primer día: el edema cerebral puede salir hasta 5 a 7 días después. Ante confusión o tambaleo, bajen con el guía."
-        ]
+          "Si se sospecha edema cerebral, el CDC pide bajar ya en un lugar remoto: sin descenso, el coma puede llegar en 12 a 24 horas desde la ataxia. No esperes días. La app no llama a rescate."
+        ],
+        "reflection": null
       },
       "sources": [
         {
-          "label": "Hospital Civil E.S.E.: guía prehospitalaria de enfermedad por altura",
-          "url": "https://hospitalcivilese.gov.co/site/images/guiasyprot/GUIASAMPH/33%20enfermedad%20por%20altura%20343%20a%20348.pdf",
+          "label": "CDC Yellow Book, High-Altitude Travel and Altitude Illness",
+          "url": "https://www.cdc.gov/yellow-book/hcp/environmental-hazards-risks/high-altitude-travel-and-altitude-illness.html",
           "retrieved_at": "2026-11-21"
         }
       ],
-      "last_verified": "2026-11-21",
+      "last_verified": "2026-11-22",
       "related": [
         "health_safety.high_altitude_cerebral_edema_hace",
         "health_safety.severe_altitude_warning_signs"
@@ -1888,36 +1928,34 @@
         "marcar 132 o 123 por accidente en montaña",
         "contacto de Cruz Roja para atención prehospitalaria",
         "cómo pedir apoyo a la Cruz Roja en ruta",
-        "teléfono corto de la Cruz Roja"
+        "teléfono corto de la Cruz Roja",
+        "el 132 de la cruz roja esta en una nota de 2024 o es de hoy"
       ],
       "hard_negatives": [
         "cual es la linea nacional si me pasa algo en la montaña?",
-        "cuál es el número de la Defensa Civil"
+        "a qué teléfono llamo si hay una urgencia",
+        "línea de emergencia nacional"
       ],
       "answer": {
-        "short": "El Ministerio de Ambiente publica el 132 como línea de la Cruz Roja y el 123 como línea de la Policía. Si tienes señal, marca uno de esos números; dentro del parque avisa primero a tu guía con radio.",
+        "short": "La nota del Ministerio de Ambiente con fecha visible del 10 de enero de 2024 lista Cruz Roja 132 y Policía 123, y no confirma cobertura en la montaña ni que esos números sigan igual el día de tu visita. Si tienes señal puedes marcar; esta app no llama. En el parque avisa primero a tu guía, que debe llevar radio según la Resolución 207 del 04 de agosto de 2023.",
         "variants": [
-          "Con señal puedes marcar el 132 o el 123. En el sendero, el primer aviso es a tu guía avalado, que lleva radio."
-        ]
+          "El 132 y el 123 aparecen en la nota del Ministerio de Ambiente fechada el 10 de enero de 2024. Márcalos solo si hay señal; la app no llama. En el parque, el primer aviso es al guía con radio."
+        ],
+        "reflection": null
       },
       "sources": [
         {
-          "label": "Ministerio de Ambiente y Desarrollo Sostenible: líneas de emergencia 119, 132, 144 y 123",
+          "label": "Ministerio de Ambiente, nota con fecha visible 10 de enero de 2024",
           "url": "https://www.minambiente.gov.co/747-municipios-en-el-pais-en-alerta-por-amenaza-de-incendios-forestales/",
           "retrieved_at": "2026-11-21"
         },
         {
-          "label": "Parques Nacionales Naturales de Colombia: Parque Nacional Natural Los Nevados",
-          "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
-          "retrieved_at": "2026-11-21"
-        },
-        {
-          "label": "Parques Nacionales Naturales de Colombia: Resolución 207 de 2023",
+          "label": "Resolución 207 del 04 de agosto de 2023, PNN Los Nevados",
           "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2023/08/Resolucion_207_2023_ReglamentacionNevados.pdf",
           "retrieved_at": "2026-11-21"
         }
       ],
-      "last_verified": "2026-11-21",
+      "last_verified": "2026-11-22",
       "related": [
         "health_safety.national_emergency_number_123",
         "health_safety.civil_defense_line_144"
@@ -1946,36 +1984,34 @@
         "llamar al 144 por extravío o rescate",
         "número corto de la Defensa Civil",
         "apoyo de Defensa Civil 144 en montaña",
-        "a qué línea llamo a la Defensa Civil"
+        "a qué línea llamo a la Defensa Civil",
+        "llamo al 144 y la app articula el rescate con la defensa civil"
       ],
       "hard_negatives": [
         "cuál es el número de la Cruz Roja en Colombia",
-        "cuál es el teléfono de los bomberos"
+        "línea 132 Cruz Roja emergencias",
+        "llamar al 132 por una urgencia médica"
       ],
       "answer": {
-        "short": "La línea de emergencia de la Defensa Civil Colombiana es el 144 (y la línea nacional integrada es el 123). Si ocurre un accidente o extravío dentro del parque, notifícalo de inmediato a tu guía con radio y al personal de Parques Nacionales para que articulen el rescate con los organismos de socorro.",
+        "short": "La página de la Defensa Civil publica la línea de emergencia 144, y la nota del Ministerio de Ambiente del 10 de enero de 2024 también lista el 144 y el 123. Si tienes señal puedes marcar; esta app no llama ni coordina un rescate. En el parque avisa a tu guía y al personal del parque.",
         "variants": [
-          "El número de emergencia de la Defensa Civil es el 144; en sectores sin señal, activa el reporte por medio del radio de tu guía."
-        ]
+          "El 144 es la línea que publica la Defensa Civil, y la nota del 10 de enero de 2024 también lo lista junto al 123. Si hay señal puedes marcar. La app no coordina el rescate."
+        ],
+        "reflection": null
       },
       "sources": [
         {
-          "label": "Defensa Civil Colombiana: gestión operativa de emergencias y línea 144",
+          "label": "Defensa Civil Colombiana, página de emergencias",
           "url": "https://www.defensacivil.gov.co/nuestra-institucion-1/gestion-operativa/emergencias",
           "retrieved_at": "2026-11-21"
         },
         {
-          "label": "Ministerio de Ambiente y Desarrollo Sostenible: líneas de emergencia 119, 132, 144 y 123",
+          "label": "Ministerio de Ambiente, nota con fecha visible 10 de enero de 2024",
           "url": "https://www.minambiente.gov.co/747-municipios-en-el-pais-en-alerta-por-amenaza-de-incendios-forestales/",
-          "retrieved_at": "2026-11-21"
-        },
-        {
-          "label": "Parques Nacionales Naturales de Colombia: Resolución 207 de 2023",
-          "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2023/08/Resolucion_207_2023_ReglamentacionNevados.pdf",
           "retrieved_at": "2026-11-21"
         }
       ],
-      "last_verified": "2026-11-21",
+      "last_verified": "2026-11-22",
       "related": [
         "health_safety.national_emergency_number_123",
         "health_safety.red_cross_emergency_line_132"
@@ -2004,31 +2040,29 @@
         "llamar al 119 o al 123 por fuego en el páramo",
         "teléfono corto de bomberos Colombia",
         "contacto de bomberos ante emergencia",
-        "a quién llamo si veo fuego en el sendero"
+        "a quién llamo si veo fuego en el sendero",
+        "veo humo, marco el 119 solo si tengo senal o la app llama"
       ],
       "hard_negatives": [
-        "cuál es el número de la Defensa Civil",
-        "cual es la linea nacional si me pasa algo en la montaña?"
+        "cual es la linea nacional si me pasa algo en la montaña?",
+        "a qué teléfono llamo si hay una urgencia",
+        "línea de emergencia nacional"
       ],
       "answer": {
-        "short": "La línea nacional de emergencia de Bomberos es el 119 (también puedes comunicarte al 123). Si detectas humo, fuego o una emergencia en el parque, avisa de inmediato a tu guía con radio y a los guardaparques, y marca el 119 o 123 en cuanto tengas cobertura móvil.",
+        "short": "La nota del Ministerio de Ambiente del 10 de enero de 2024 lista Bomberos 119 y Policía 123; no confirma cobertura en el parque ni que siga igual el día de tu visita. Si ves humo o fuego y tienes señal, puedes marcar; esta app no llama. En el parque avisa de inmediato a tu guía y a los guardaparques.",
         "variants": [
-          "Para emergencias con bomberos o incendios forestales marca el 119 o el 123 si hay señal, y avisa enseguida al guía con radio y a los guardaparques."
-        ]
+          "El 119 y el 123 están en la nota del 10 de enero de 2024. Úsalos si hay señal y hay humo o fuego; la app no marca. Avisa también al guía y a los guardaparques."
+        ],
+        "reflection": null
       },
       "sources": [
         {
-          "label": "Ministerio de Ambiente y Desarrollo Sostenible: líneas de emergencia 119, 132, 144 y 123",
+          "label": "Ministerio de Ambiente, nota con fecha visible 10 de enero de 2024",
           "url": "https://www.minambiente.gov.co/747-municipios-en-el-pais-en-alerta-por-amenaza-de-incendios-forestales/",
-          "retrieved_at": "2026-11-21"
-        },
-        {
-          "label": "Parques Nacionales Naturales de Colombia: Resolución 207 de 2023",
-          "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2023/08/Resolucion_207_2023_ReglamentacionNevados.pdf",
           "retrieved_at": "2026-11-21"
         }
       ],
-      "last_verified": "2026-11-21",
+      "last_verified": "2026-11-22",
       "related": [
         "health_safety.national_emergency_number_123",
         "health_safety.civil_defense_line_144"
@@ -2041,7 +2075,7 @@
     },
     {
       "id": "health_safety.evacuation_and_rescue_reality",
-      "label": "evacuación y rescate en el parque",
+      "label": "la evacuación puede no llegar",
       "kind": "safety",
       "audience": "visitor",
       "lang": "es",
@@ -2057,36 +2091,34 @@
         "qué pasa si no puedo seguir caminando en el páramo",
         "dificultad de evacuación médica en zonas remotas",
         "traslado de emergencia cuando no entra carro",
-        "cómo es el rescate de un visitante lesionado"
+        "cómo es el rescate de un visitante lesionado",
+        "si me fracture, esta app manda helicoptero o camilla"
       ],
       "hard_negatives": [
-        "cual es la linea nacional si me pasa algo en la montaña?",
-        "qué lleva el guía para primeros auxilios"
+        "seguro para entrar a Los Nevados",
+        "¿es obligatoria la póliza?",
+        "necesito seguro de accidentes para Brisas"
       ],
       "answer": {
-        "short": "En sitios remotos la evacuación puede retrasarse y, si no hay recurso aéreo, se hace por tierra con camillaje manual o con arrieros avalados para emergencias. Entra con el seguro obligatorio de accidentes y rescate y avisa a tu guía con radio.",
+        "short": "MedlinePlus advierte que en sitios remotos la evacuación de urgencia puede no ser posible o puede tardarse. La Resolución 207 del 04 de agosto de 2023 exige un seguro de accidentes y rescate y permite arrieros avalados para atención de emergencias, sin prometer que haya rescate. Esta app no despacha ni te rastrea: avisa a tu guía, que debe portar radio.",
         "variants": [
-          "Si no hay evacuación aérea, el descenso es por tierra, en camilla o con apoyo autorizado. Lleva el seguro obligatorio y avisa pronto al guía."
-        ]
+          "En un sitio remoto la evacuación puede no poder hacerse o puede demorarse. El seguro y los arrieros para emergencias son la Resolución 207 del 04 de agosto de 2023, no una promesa de que te saquen. La app no despacha el rescate."
+        ],
+        "reflection": null
       },
       "sources": [
         {
-          "label": "Hospital Civil E.S.E.: guía prehospitalaria de enfermedad por altura",
-          "url": "https://hospitalcivilese.gov.co/site/images/guiasyprot/GUIASAMPH/33%20enfermedad%20por%20altura%20343%20a%20348.pdf",
-          "retrieved_at": "2026-11-21"
-        },
-        {
-          "label": "MedlinePlus Medical Encyclopedia: Acute Mountain Sickness",
+          "label": "MedlinePlus, Acute mountain sickness",
           "url": "https://medlineplus.gov/ency/article/000133.htm",
           "retrieved_at": "2026-11-21"
         },
         {
-          "label": "Parques Nacionales Naturales de Colombia: Resolución 207 de 2023",
+          "label": "Resolución 207 del 04 de agosto de 2023, PNN Los Nevados",
           "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2023/08/Resolucion_207_2023_ReglamentacionNevados.pdf",
           "retrieved_at": "2026-11-21"
         }
       ],
-      "last_verified": "2026-11-21",
+      "last_verified": "2026-11-22",
       "related": [
         "health_safety.national_emergency_number_123",
         "health_safety.tell_guide_about_health_change",
@@ -2100,7 +2132,7 @@
     },
     {
       "id": "health_safety.altitude_classification_levels",
-      "label": "altitud donde empieza el mal de montaña",
+      "label": "niveles de altitud alta y muy alta",
       "kind": "safety",
       "audience": "visitor",
       "lang": "es",
@@ -2109,38 +2141,40 @@
         "desde cuántos metros empieza el mal de altura",
         "cuándo se considera alta o muy alta montaña",
         "en qué altitud aparecen los síntomas de montaña",
-        "a las cuántas horas de subir da mal de altura",
-        "entre 2500 y 5800 metros qué riesgo de altura hay",
         "at what elevation does altitude sickness start?",
         "por qué arriba de 2500 metros falta el aire",
-        "cuánto tarda en aparecer el mal agudo de montaña",
         "desde qué metros esto ya es montaña muy alta?",
         "desde qué cota debo cuidar la aclimatación",
-        "en cuánto tiempo se siente el soroche al subir"
+        "brisas queda cerca de 4100, desde que metros hay riesgo de soroche",
+        "brisas y el cisne quedan cerca de 4100 metros",
+        "subir rapido en avion sobre 3400 metros es riesgo alto",
+        "el 25 por ciento de colorado no es el pronostico del parque"
       ],
       "hard_negatives": [
-        "salud en altura",
-        "síntomas de soroche"
+        "cuánto dura el mal de altura",
+        "el soroche se quita solo o hay que bajar",
+        "se me quita el soroche si espero en el mismo sitio"
       ],
       "answer": {
-        "short": "La elevación alta va de 2.500 a 3.500 m y la muy alta de 3.500 a 5.800 m. El mal agudo de montaña suele empezar 6 a 12 horas después de pasar los 2.500 m. Brisas y El Cisne están cerca de 4100 m: sube gradual y vigila cómo te sientes.",
+        "short": "El CDC pone como ejemplo que el 25% de quienes duermen por encima de 2.450 m en Colorado tienen mal agudo de montaña, y que subir rápido por encima de 3.400 m es una categoría de riesgo alto. La ficha, sin fecha visible, sitúa Brisas y El Cisne cerca de 4.100 m. Ese ejemplo no es el pronóstico de Los Nevados: sube gradual y avisa al guía si te sientes mal.",
         "variants": [
-          "Tras pasar los 2.500 m, el mal de montaña suele empezar en 6 a 12 horas. Brisas y El Cisne rondan los 4100 m: asciende sin prisa y avisa al guía si te sientes mal."
-        ]
+          "El 25% y los 2.450 m son un ejemplo del CDC en Colorado, y sobre 3.400 m el CDC habla de riesgo alto si el ascenso es rápido. Brisas y El Cisne figuran cerca de 4.100 m en la ficha, sin fecha. No es el parte del día."
+        ],
+        "reflection": null
       },
       "sources": [
         {
-          "label": "Hospital Civil E.S.E.: guía prehospitalaria de enfermedad por altura",
-          "url": "https://hospitalcivilese.gov.co/site/images/guiasyprot/GUIASAMPH/33%20enfermedad%20por%20altura%20343%20a%20348.pdf",
+          "label": "CDC Yellow Book, High-Altitude Travel and Altitude Illness",
+          "url": "https://www.cdc.gov/yellow-book/hcp/environmental-hazards-risks/high-altitude-travel-and-altitude-illness.html",
           "retrieved_at": "2026-11-21"
         },
         {
-          "label": "CDC Yellow Book: High-Altitude Travel and Altitude Illness",
-          "url": "https://www.cdc.gov/yellow-book/hcp/environmental-hazards-risks/high-altitude-travel-and-altitude-illness.html",
+          "label": "Parques Nacionales Naturales, ficha PNN Los Nevados",
+          "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
           "retrieved_at": "2026-11-21"
         }
       ],
-      "last_verified": "2026-11-21",
+      "last_verified": "2026-11-22",
       "related": [
         "health_safety.high_altitude_health_risk",
         "health_safety.altitude_sickness_symptoms",
@@ -2154,7 +2188,7 @@
     },
     {
       "id": "health_safety.high_altitude_cerebral_edema_hace",
-      "label": "edema cerebral de altura (ECA)",
+      "label": "confusión y tambaleo en altura",
       "kind": "safety",
       "audience": "visitor",
       "lang": "es",
@@ -2170,36 +2204,29 @@
         "somnolencia extrema y confusión arriba de 3500 metros",
         "cómo reconocer un edema cerebral en el páramo",
         "peligro de coma por mal de altura",
-        "diferencia entre soroche leve y edema cerebral"
+        "diferencia entre soroche leve y edema cerebral",
+        "que es el edema cerebral: confusion y caminar como ebrio"
       ],
       "hard_negatives": [
-        "confusión en altura",
-        "qué es el edema pulmonar de altura"
+        "qué es el edema pulmonar de altura",
+        "el edema pulmonar de altura es el ahogo y la tos que no aflojan?",
+        "líquido en los pulmones por subir a la montaña"
       ],
       "answer": {
-        "short": "El edema cerebral por altura (ECA) es una complicación grave tras ascensos sobre 3.500 metros y se reconoce por desorientación, confusión, alucinaciones, somnolencia intensa y ataxia (pérdida de coordinación al caminar, similar a estar ebrio). Es una emergencia vital: pide ayuda al guía y desciendan de inmediato.",
+        "short": "El CDC reconoce el edema cerebral de altura por confusión, somnolencia y pérdida de coordinación al caminar, parecido a estar ebrio. En un lugar remoto hay que empezar a bajar en cuanto se sospecha. Avísale al guía; esta app no llama a rescate ni te localiza.",
         "variants": [
-          "Si alguien presenta confusión, alucinaciones, somnolencia o incapacidad para caminar coordinado en altura, puede ser edema cerebral de altura: pide rescate al guía y bajen de inmediato."
-        ]
+          "Confusión, somnolencia y tambaleo, como una borrachera, son el edema cerebral que describe el CDC. En remoto se baja al sospecharlo. La app no llama a rescate."
+        ],
+        "reflection": null
       },
       "sources": [
         {
-          "label": "Hospital Civil E.S.E.: guía prehospitalaria de enfermedad por altura",
-          "url": "https://hospitalcivilese.gov.co/site/images/guiasyprot/GUIASAMPH/33%20enfermedad%20por%20altura%20343%20a%20348.pdf",
-          "retrieved_at": "2026-11-21"
-        },
-        {
-          "label": "CDC Yellow Book: High-Altitude Travel and Altitude Illness",
+          "label": "CDC Yellow Book, High-Altitude Travel and Altitude Illness",
           "url": "https://www.cdc.gov/yellow-book/hcp/environmental-hazards-risks/high-altitude-travel-and-altitude-illness.html",
-          "retrieved_at": "2026-11-21"
-        },
-        {
-          "label": "MedlinePlus Medical Encyclopedia: Acute Mountain Sickness",
-          "url": "https://medlineplus.gov/ency/article/000133.htm",
           "retrieved_at": "2026-11-21"
         }
       ],
-      "last_verified": "2026-11-21",
+      "last_verified": "2026-11-22",
       "related": [
         "health_safety.severe_altitude_warning_signs",
         "health_safety.high_altitude_pulmonary_edema_hape",
@@ -2213,7 +2240,7 @@
     },
     {
       "id": "health_safety.high_altitude_pulmonary_edema_hape",
-      "label": "edema pulmonar de altura (EPA)",
+      "label": "tos y falta de aire en reposo",
       "kind": "safety",
       "audience": "visitor",
       "lang": "es",
@@ -2229,36 +2256,29 @@
         "labios azules y falta de aire sentado en la montaña",
         "cómo saber si es edema pulmonar de alta montaña",
         "ahogo progresivo y debilidad extrema al subir",
-        "riesgo de asfixia por edema pulmonar en altura"
+        "riesgo de asfixia por edema pulmonar en altura",
+        "tos y ahogo al caminar, es el edema pulmonar o el cerebral"
       ],
       "hard_negatives": [
         "qué es el edema cerebral de altura",
-        "falta de aire en reposo en la montaña"
+        "como se nota el edema cerebral de altura, confusion y tambaleo?",
+        "alucinaciones y desorientación en la montaña"
       ],
       "answer": {
-        "short": "El edema pulmonar de altura combina síntomas como ahogo en reposo, tos, debilidad u opresión en el pecho con signos como cianosis central. Si los notas, avisa al guía y desciende de inmediato.",
+        "short": "El CDC describe el edema pulmonar con congestión en el pecho, tos, menos rendimiento y falta de aire exagerada al esfuerzo, y si sigue, falta de aire en reposo. Si lo notas, avisa al guía y desciende. Esta app no llama a rescate ni te localiza.",
         "variants": [
-          "Ahogo en reposo, tos, debilidad, opresión en el pecho o cianosis central pueden ser edema pulmonar de altura: avisa al guía y desciende ya."
-        ]
+          "Congestión, tos, menos rendimiento y ahogo al esfuerzo, y después ahogo en reposo, es como el CDC describe el edema pulmonar. Avisa al guía y baja. La app no llama a rescate."
+        ],
+        "reflection": null
       },
       "sources": [
         {
-          "label": "Hospital Civil E.S.E.: guía prehospitalaria de enfermedad por altura",
-          "url": "https://hospitalcivilese.gov.co/site/images/guiasyprot/GUIASAMPH/33%20enfermedad%20por%20altura%20343%20a%20348.pdf",
-          "retrieved_at": "2026-11-21"
-        },
-        {
-          "label": "CDC Yellow Book: High-Altitude Travel and Altitude Illness",
+          "label": "CDC Yellow Book, High-Altitude Travel and Altitude Illness",
           "url": "https://www.cdc.gov/yellow-book/hcp/environmental-hazards-risks/high-altitude-travel-and-altitude-illness.html",
-          "retrieved_at": "2026-11-21"
-        },
-        {
-          "label": "MedlinePlus Medical Encyclopedia: Acute Mountain Sickness",
-          "url": "https://medlineplus.gov/ency/article/000133.htm",
           "retrieved_at": "2026-11-21"
         }
       ],
-      "last_verified": "2026-11-21",
+      "last_verified": "2026-11-22",
       "related": [
         "health_safety.severe_altitude_warning_signs",
         "health_safety.high_altitude_cerebral_edema_hace",
@@ -2326,7 +2346,7 @@
     },
     {
       "id": "health_safety.alcohol_and_altitude_hypothermia",
-      "label": "alcohol en altura y con frío",
+      "label": "alcohol en la altura y en el parque",
       "kind": "safety",
       "audience": "visitor",
       "lang": "es",
@@ -2342,36 +2362,39 @@
         "el alcohol empeora la aclimatación",
         "por qué prohíben bebidas alcohólicas en alta montaña",
         "tomar alcohol la noche anterior a la caminata",
-        "riesgo de beber licor con frío y altura"
+        "riesgo de beber licor con frío y altura",
+        "un trago calienta o la resolucion 207 lo prohibe en el parque"
       ],
       "hard_negatives": [
         "por qué cuesta dormir en la alta montaña",
-        "qué hago si alguien tiene hipotermia"
+        "insomnio por la altura en el refugio o campamento",
+        "me despierto ahogado al dormir en altura"
       ],
       "answer": {
-        "short": "Evita el alcohol las primeras 48 horas en altura y no lo uses para dormir ni para calentar a alguien con frío o congelación. La Resolución 207 prohíbe ingresar o consumir bebidas alcohólicas en el parque; hidrátate con agua.",
+        "short": "Evita el alcohol las primeras 48 horas en altura y no lo uses para dormir ni para calentar a alguien con frío. La Resolución 207 del 04 de agosto de 2023 prohíbe ingresar o consumir bebidas alcohólicas en el parque. Hidrátate con agua.",
         "variants": [
-          "No lleves ni tomes alcohol en el parque: tampoco lo uses para dormir o para entrar en calor. Bebe agua y avisa al guía si alguien se enfría."
-        ]
+          "Nada de alcohol las primeras 48 horas, ni para dormir ni para entrar en calor. Entrar o beber alcohol en el parque lo prohíbe la Resolución 207 del 04 de agosto de 2023. Toma agua."
+        ],
+        "reflection": null
       },
       "sources": [
         {
-          "label": "CDC Yellow Book: High-Altitude Travel and Altitude Illness",
+          "label": "CDC Yellow Book, High-Altitude Travel and Altitude Illness",
           "url": "https://www.cdc.gov/yellow-book/hcp/environmental-hazards-risks/high-altitude-travel-and-altitude-illness.html",
           "retrieved_at": "2026-11-21"
         },
         {
-          "label": "MedlinePlus Medical Encyclopedia: Acute Mountain Sickness",
-          "url": "https://medlineplus.gov/ency/article/000133.htm",
+          "label": "CDC NIOSH, Cold-related Illnesses",
+          "url": "https://www.cdc.gov/niosh/cold-stress/about/related-illness.html",
           "retrieved_at": "2026-11-21"
         },
         {
-          "label": "Hospital Civil E.S.E.: guía prehospitalaria de lesiones por frío",
-          "url": "https://web.hospitalcivilese.gov.co/wp-content/uploads/2025/09/28-lesiones-por-frio-293-a-300.pdf",
+          "label": "Resolución 207 del 04 de agosto de 2023, PNN Los Nevados",
+          "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2023/08/Resolucion_207_2023_ReglamentacionNevados.pdf",
           "retrieved_at": "2026-11-21"
         }
       ],
-      "last_verified": "2026-11-21",
+      "last_verified": "2026-11-22",
       "related": [
         "health_safety.altitude_sleep_disturbance",
         "health_safety.hypothermia_first_response",
@@ -2397,15 +2420,17 @@
         "qué debe llevar una persona con diabetes al sendero",
         "soy diabético qué debo consultar antes de subir",
         "can people with diabetes travel to high altitude?",
-        "control de glucosa en caminatas de páramo",
         "la diabetes es riesgosa a gran altitud",
         "recomendaciones médicas para visitantes con diabetes",
         "llevar insulina y medicamentos formulados al parque",
-        "cómo afecta el soroche a una persona con diabetes"
+        "cómo afecta el soroche a una persona con diabetes",
+        "soy diabetico, puedo hacer el recorrido de brisas",
+        "control de glucosa en caminatas de páramo"
       ],
       "hard_negatives": [
-        "debo preguntarle al médico antes de ir",
-        "tengo anemia puedo subir a la montaña"
+        "el glucómetro mide mal en la alta montaña",
+        "puedo confiar en el medidor de azúcar arriba",
+        "la altura altera la lectura de glucosa"
       ],
       "answer": {
         "short": "La diabetes puede ser difícil de controlar a gran altitud y el mal de montaña puede desencadenar complicaciones como cetoacidosis diabética (dato del CDC). Consulta a tu médico antes de planear el ascenso, lleva tus medicamentos e insumos formulados y avisa a tu guía sobre tu condición antes de iniciar el recorrido.",
@@ -2517,41 +2542,34 @@
         "problemas cardíacos o pulmonares severos en el páramo",
         "por qué la hipertensión pulmonar impide subir a gran altura",
         "la altura agrava la angina de pecho y el EPOC",
-        "hace poco tuve un infarto, me puedo ir al nevado?"
+        "hace poco tuve un infarto, me puedo ir al nevado?",
+        "infarto hace dos meses, el cdc deja subir a los nevados"
       ],
       "hard_negatives": [
         "tengo una enfermedad del corazón puedo subir",
-        "debo preguntarle al médico antes de ir"
+        "soy hipertenso y quiero ir al nevado",
+        "tengo problemas pulmonares y me falta el aire"
       ],
       "answer": {
-        "short": "El parque restringe el ingreso con problemas cardiovasculares o pulmonares; además, las guías médicas señalan que la angina o el EPOC se agravan con la altura y que no se debe ascender tras un infarto o ACV en los últimos 90 días ni con hipertensión pulmonar severa. Abstente de subir y consulta a tu médico.",
+        "short": "La Resolución 207 del 04 de agosto de 2023 restringe el ingreso con problemas cardiovasculares o pulmonares; no es una autorización del día de tu visita. El CDC contraindica el ascenso tras un infarto o un ACV en los 90 días previos y con hipertensión pulmonar de presión sistólica por encima de 60 mm Hg. Abstente de subir y consulta a tu médico.",
         "variants": [
-          "Si sufriste un infarto o ACV en los últimos 90 días, tienes hipertensión pulmonar severa, angina o EPOC, no asciendas a la alta montaña y sigue el criterio de tu médico."
-        ]
+          "La Resolución 207 del 04 de agosto de 2023 restringe problemas del corazón o del pulmón. El CDC pone como contraindicación un infarto o un ACV en los 90 días previos y una hipertensión pulmonar por encima de 60 mm Hg. No subas y consulta a tu médico."
+        ],
+        "reflection": null
       },
       "sources": [
         {
-          "label": "Parques Nacionales Naturales de Colombia: Resolución 207 de 2023",
+          "label": "Resolución 207 del 04 de agosto de 2023, PNN Los Nevados",
           "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2023/08/Resolucion_207_2023_ReglamentacionNevados.pdf",
           "retrieved_at": "2026-11-21"
         },
         {
-          "label": "CDC Yellow Book: High-Altitude Travel and Altitude Illness",
+          "label": "CDC Yellow Book, High-Altitude Travel and Altitude Illness",
           "url": "https://www.cdc.gov/yellow-book/hcp/environmental-hazards-risks/high-altitude-travel-and-altitude-illness.html",
-          "retrieved_at": "2026-11-21"
-        },
-        {
-          "label": "CDC Travelers’ Health: Travel to High Altitudes",
-          "url": "https://wwwnc.cdc.gov/travel/page/travel-to-high-altitudes",
-          "retrieved_at": "2026-11-21"
-        },
-        {
-          "label": "Hospital Civil E.S.E.: guía prehospitalaria de enfermedad por altura",
-          "url": "https://hospitalcivilese.gov.co/site/images/guiasyprot/GUIASAMPH/33%20enfermedad%20por%20altura%20343%20a%20348.pdf",
           "retrieved_at": "2026-11-21"
         }
       ],
-      "last_verified": "2026-11-21",
+      "last_verified": "2026-11-22",
       "related": [
         "health_safety.chronic_condition_altitude",
         "health_safety.pretrip_medical_advice"
@@ -2580,11 +2598,13 @@
         "cómo influye el esfuerzo físico en el mal de altura",
         "caminar despacio y comer carbohidratos en el páramo",
         "por qué me canso más rápido subiendo en Los Nevados",
-        "ritmo de marcha y comidas para aguantar la altura"
+        "ritmo de marcha y comidas para aguantar la altura",
+        "como papa y arroz en la altura o solo miro el ritmo de subida"
       ],
       "hard_negatives": [
         "cómo me aclimato antes de subir",
-        "qué tomo si estoy deshidratado"
+        "cuántos días necesito para adaptarme a la altura",
+        "subir rápido a Los Nevados es peligroso"
       ],
       "answer": {
         "short": "En alta montaña no esperes rendir al mismo nivel físico que en tierras bajas, pues el mal de altura depende de la velocidad de ascenso y de cuánto te exijas. Mantén un ritmo suave durante las primeras 48 horas, haz paradas de 10 minutos al subir, hidrátate bien y consume comidas regulares ricas en carbohidratos.",
@@ -2700,28 +2720,25 @@
         "prepararse para la caída de temperatura en cotas altas"
       ],
       "hard_negatives": [
-        "cómo reconocer hipotermia",
-        "por qué el viento y la ropa mojada dan hipotermia"
+        "por qué el viento y la ropa mojada dan hipotermia",
+        "cuánto multiplica el viento o la humedad el efecto del frío",
+        "qué pasa si camino con la ropa sudada o mojada por lluvia"
       ],
       "answer": {
-        "short": "En montaña la temperatura desciende aproximadamente entre 0,5 y 0,6 °C por cada 100 metros de elevación ganada; además, por encima de los 3.500 metros las tormentas y sistemas de baja presión reducen aún más la presión barométrica. Abrígate por capas antes de enfriarte y consulta al guía si el clima desmejora.",
+        "short": "El IDEAM estima, como referencia, que por cada 100 metros de ascenso la temperatura baja 0.6 grados C. No es la temperatura de hoy ni un pronóstico del parque: abrígate por capas y consulta el pronóstico del IDEAM antes de salir.",
         "variants": [
-          "La temperatura cae cerca de 0,5 a 0,6 °C por cada 100 metros de ascenso y las tormentas sobre 3.500 m acentúan la hipoxia: ajusta tu abrigo a tiempo y sigue las indicaciones del guía."
-        ]
+          "Esa baja de 0.6 grados C cada 100 metros es una referencia del IDEAM, no el clima de tu visita. Abrígate y mira el pronóstico antes de salir."
+        ],
+        "reflection": null
       },
       "sources": [
         {
-          "label": "Hospital Civil E.S.E.: guía prehospitalaria de lesiones por frío",
-          "url": "https://web.hospitalcivilese.gov.co/wp-content/uploads/2025/09/28-lesiones-por-frio-293-a-300.pdf",
-          "retrieved_at": "2026-11-21"
-        },
-        {
-          "label": "Hospital Civil E.S.E.: guía prehospitalaria de enfermedad por altura",
-          "url": "https://hospitalcivilese.gov.co/site/images/guiasyprot/GUIASAMPH/33%20enfermedad%20por%20altura%20343%20a%20348.pdf",
+          "label": "IDEAM, dónde hace más frío",
+          "url": "https://ideam.gov.co/atencion-y-servicios-a-la-ciudadania/preguntas-frecuentes/en-colombia-donde-hace-mas-frio",
           "retrieved_at": "2026-11-21"
         }
       ],
-      "last_verified": "2026-11-21",
+      "last_verified": "2026-11-22",
       "related": [
         "health_safety.hypothermia_first_response",
         "health_safety.wind_and_wetness_heat_loss"
@@ -2753,28 +2770,30 @@
         "riesgo de enfriamiento rápido con prendas mojadas"
       ],
       "hard_negatives": [
-        "cómo reconocer hipotermia",
-        "qué pasa si camino horas con las botas y medias mojadas"
+        "qué pasa si camino horas con las botas y medias mojadas",
+        "qué es el pie de trinchera o pie de inmersión",
+        "pies arrugados rojos y entumidos por humedad y frío"
       ],
       "answer": {
-        "short": "El viento multiplica por 10 la acción del frío, la humedad la multiplica por 14 y el contacto directo con agua fría hace perder calor hasta 32 veces más rápido que el aire seco. Protégete con chaqueta cortaviento e impermeable, retira de inmediato cualquier prenda húmeda o mojada y resguárdate si arrecia el viento.",
+        "short": "MedlinePlus incluye la ropa mojada con viento o con frío entre las causas de la hipotermia, y pide salir del viento si no puedes meterte a un sitio cubierto. El CDC pide quitar la ropa mojada. No es el clima de hoy: sécate y avisa al guía.",
         "variants": [
-          "El viento (10 veces), la humedad (14 veces) y el agua fría (32 veces) disparan la pérdida de calor: mantén tu ropa seca, corta el viento y busca abrigo a tiempo."
-        ]
+          "La ropa mojada con viento favorece la hipotermia, según MedlinePlus. Quítatela, como pide el CDC, sécate y avisa al guía. Eso no dice cuánto viento hay hoy."
+        ],
+        "reflection": null
       },
       "sources": [
         {
-          "label": "Hospital Civil E.S.E.: guía prehospitalaria de lesiones por frío",
-          "url": "https://web.hospitalcivilese.gov.co/wp-content/uploads/2025/09/28-lesiones-por-frio-293-a-300.pdf",
+          "label": "MedlinePlus, Hypothermia",
+          "url": "https://medlineplus.gov/ency/article/000038.htm",
           "retrieved_at": "2026-11-21"
         },
         {
-          "label": "CDC NIOSH: Cold-related Illnesses",
+          "label": "CDC NIOSH, Cold-related illnesses",
           "url": "https://www.cdc.gov/niosh/cold-stress/about/related-illness.html",
           "retrieved_at": "2026-11-21"
         }
       ],
-      "last_verified": "2026-11-21",
+      "last_verified": "2026-11-22",
       "related": [
         "health_safety.hypothermia_first_response",
         "health_safety.hypothermia_warning_signs",
@@ -2788,7 +2807,7 @@
     },
     {
       "id": "health_safety.severe_hypothermia_signs_and_care",
-      "label": "hipotermia moderada a severa y cuidado al mover",
+      "label": "hipotermia severa y poco movimiento",
       "kind": "safety",
       "audience": "visitor",
       "lang": "es",
@@ -2804,36 +2823,29 @@
         "cómo manejar con suavidad a una persona con hipotermia grave",
         "manta térmica y evitar movimientos bruscos en hipotermia",
         "cuándo la hipotermia se vuelve una emergencia crítica",
-        "temperatura menor de 32 grados y pérdida de conciencia por frío"
+        "temperatura menor de 32 grados y pérdida de conciencia por frío",
+        "dejo de temblar y esta frio, lo muevo rapido o lo dejo quieto"
       ],
       "hard_negatives": [
         "cómo reconocer hipotermia",
-        "qué hago si alguien tiene hipotermia"
+        "temblar mucho en el frío es peligroso",
+        "está confundido y tiene frío"
       ],
       "answer": {
-        "short": "La hipotermia moderada o severa es una persona fría con conciencia alterada, temperatura central bajo 32 °C o sin escalofrío; en la moderada hay rigidez y estupor. Quítale la ropa mojada, cúbrela con manta térmica, evita movimientos bruscos y pide evacuación al guía.",
+        "short": "Si alguien está muy frío, MedlinePlus pide sacarlo del frío moviéndolo lo menos posible y cubrirlo. El temblor puede cesar cuando la temperatura está muy baja. Avísale al guía; esta app no promete una evacuación.",
         "variants": [
-          "Si alguien muy frío deja de temblar, se pone rígido o somnoliento, abrígalo con manta térmica, no lo muevas de golpe y pide evacuación al guía."
-        ]
+          "Cubre a la persona muy fría y muévela lo menos posible, como pide MedlinePlus. Avisa al guía; la app no promete evacuación."
+        ],
+        "reflection": null
       },
       "sources": [
         {
-          "label": "Hospital Civil E.S.E.: guía prehospitalaria de lesiones por frío",
-          "url": "https://web.hospitalcivilese.gov.co/wp-content/uploads/2025/09/28-lesiones-por-frio-293-a-300.pdf",
-          "retrieved_at": "2026-11-21"
-        },
-        {
-          "label": "MedlinePlus Medical Encyclopedia: Hypothermia",
+          "label": "MedlinePlus, Hypothermia",
           "url": "https://medlineplus.gov/ency/article/000038.htm",
-          "retrieved_at": "2026-11-21"
-        },
-        {
-          "label": "CDC NIOSH: Cold-related Illnesses",
-          "url": "https://www.cdc.gov/niosh/cold-stress/about/related-illness.html",
           "retrieved_at": "2026-11-21"
         }
       ],
-      "last_verified": "2026-11-21",
+      "last_verified": "2026-11-22",
       "related": [
         "health_safety.hypothermia_warning_signs",
         "health_safety.hypothermia_first_response",
@@ -2841,7 +2853,6 @@
       ],
       "tags": [
         "hipotermia severa",
-        "32 °C",
         "movimientos bruscos"
       ]
     },
@@ -2863,31 +2874,34 @@
         "por qué prohibir que camine alguien con congelamiento en los pies",
         "proteger los pies congelados hasta la evacuación",
         "cuándo recalentar una extremidad congelada en montaña",
-        "cuidado de los pies con congelación durante el rescate"
+        "cuidado de los pies con congelación durante el rescate",
+        "si le descongelo el pie y seguimos, se puede recongelar"
       ],
       "hard_negatives": [
-        "dedos entumecidos por el frío",
-        "puedo calentar manos congeladas con una estufa o fogata"
+        "qué hago con un dedo congelado",
+        "cómo caliento una zona congelada",
+        "me puedo frotar los dedos si están entumecidos"
       ],
       "answer": {
-        "short": "El tejido congelado que se descongela y vuelve a congelarse casi siempre muere; por eso no recalientes una zona en ruta si puede recongelarse. Tampoco camines sobre pies o dedos congelados —y menos tras recalentarlos—, pues causa lesiones graves: protege la extremidad sin apretarla y pide evacuación al guía.",
+        "short": "MedlinePlus dice que recongelar una extremidad ya descongelada puede dañarla más, y que si no puedes evitarlo es mejor retrasar el descongelamiento hasta un sitio cálido y seguro. El CDC pide no caminar sobre pies o dedos congelados. Protégelos y avisa al guía; esta app no despacha una evacuación.",
         "variants": [
-          "No camines sobre pies congelados o recién recalentados ni descongeles una extremidad si puede volver a congelarse: protégela de golpes y frío y coordina la evacuación con el guía."
-        ]
+          "Si no puedes evitar que se vuelva a congelar, MedlinePlus recomienda retrasar el descongelamiento. No camines sobre pies congelados, como pide el CDC, y avisa al guía. La app no despacha una evacuación."
+        ],
+        "reflection": null
       },
       "sources": [
         {
-          "label": "Hospital Civil E.S.E.: guía prehospitalaria de lesiones por frío",
-          "url": "https://web.hospitalcivilese.gov.co/wp-content/uploads/2025/09/28-lesiones-por-frio-293-a-300.pdf",
+          "label": "MedlinePlus, Frostbite",
+          "url": "https://medlineplus.gov/ency/article/000057.htm",
           "retrieved_at": "2026-11-21"
         },
         {
-          "label": "CDC NIOSH: Cold-related Illnesses",
+          "label": "CDC NIOSH, Cold-related illnesses",
           "url": "https://www.cdc.gov/niosh/cold-stress/about/related-illness.html",
           "retrieved_at": "2026-11-21"
         }
       ],
-      "last_verified": "2026-11-21",
+      "last_verified": "2026-11-22",
       "related": [
         "health_safety.frostbite_warning_signs",
         "health_safety.frostbite_no_direct_dry_heat"
@@ -2916,11 +2930,13 @@
         "recalentar dedos en la axila o con agua tibia",
         "errores al tratar manos o pies congelados en campamento",
         "no usar fuego ni agua hirviendo en partes congeladas",
-        "temperatura segura para recalentar una zona congelada"
+        "temperatura segura para recalentar una zona congelada",
+        "sirve la fogata del campamento para descongelar las manos"
       ],
       "hard_negatives": [
-        "dedos entumecidos por el frío",
-        "me quemé con la estufa o agua hirviendo en el campamento"
+        "qué hago con un dedo congelado",
+        "cómo caliento una zona congelada",
+        "me puedo frotar los dedos si están entumecidos"
       ],
       "answer": {
         "short": "Nunca descongeles manos o pies con calor alto directo como estufas, fogatas, lámparas o almohadillas térmicas: como la piel congelada está entumecida, puede quemarse gravemente sin que lo sientas. Usa calor corporal (como abrigar los dedos en la axila) o agua tibia en un sitio seguro y busca atención médica.",
@@ -2959,7 +2975,7 @@
     },
     {
       "id": "health_safety.trench_foot_wet_cold_feet",
-      "label": "pie de trinchera por calzado mojado y frío",
+      "label": "pies fríos y mojados por horas",
       "kind": "safety",
       "audience": "visitor",
       "lang": "es",
@@ -2975,11 +2991,13 @@
         "primeros auxilios si tengo los pies helados y húmedos",
         "por qué llevar medias secas de cambio previene lesiones por frío",
         "entumecimiento y dolor en los pies por botas húmedas",
-        "cuidado de los pies expuestos al agua y al frío"
+        "cuidado de los pies expuestos al agua y al frío",
+        "lleve las botas mojadas todo el dia, es congelacion o pie de trinchera"
       ],
       "hard_negatives": [
-        "me salió una ampolla en el pie",
-        "dedos entumecidos por el frío"
+        "por qué el viento y la ropa mojada dan hipotermia",
+        "cuánto multiplica el viento o la humedad el efecto del frío",
+        "qué pasa si camino con la ropa sudada o mojada por lluvia"
       ],
       "answer": {
         "short": "La exposición prolongada a humedad y frío produce el pie de trinchera: los pies mojados pierden calor 25 veces más rápido que los secos y presentan enrojecimiento, entumecimiento, calambres, hinchazón o ampollas. Quítate botas y medias mojadas, seca y abriga los pies, no camines si hay lesión y avisa al guía.",
@@ -3077,11 +3095,13 @@
         "qué hacer si tengo fiebre y escalofríos tras quemarme con el sol",
         "debo reventar o pelar las ampollas del sol",
         "cuidados para la piel quemada por radiación UV en altura",
-        "tratamiento básico si me insolé o quemé en el recorrido"
+        "tratamiento básico si me insolé o quemé en el recorrido",
+        "me queme la cara en el glaciar, echo crema o mantequilla"
       ],
       "hard_negatives": [
-        "cada cuánto aplicarse bloqueador en la montaña",
-        "me duelen los ojos después de estar en el sol o la nieve"
+        "me quemé con la estufa o agua hirviendo en el campamento",
+        "primeros auxilios para una quemadura con líquido caliente",
+        "cuántos minutos debo poner agua fresca en una quemadura"
       ],
       "answer": {
         "short": "Para aliviar una quemadura solar, aplica paños limpios, húmedos y frescos, bebe abundante agua y no revientes ni peles las ampollas. No uses vaselina, mantequilla ni aceites (tapan los poros), ni productos con benzocaína o lidocaína; si presentas fiebre, escalofríos, mareo o ampollas extensas, consulta a un médico.",
@@ -3131,11 +3151,13 @@
         "fotofobia y ardor en los ojos después de subir",
         "cuándo consultar al médico por dolor en los ojos tras el sol",
         "radiación ultravioleta reflejada en nieve y agua",
-        "gafas oscuras con protección UV para caminar en altura"
+        "gafas oscuras con protección UV para caminar en altura",
+        "me arden los ojos por la nieve, es la quemadura de la piel"
       ],
       "hard_negatives": [
-        "cada cuánto aplicarse bloqueador en la montaña",
-        "cómo aliviar una quemadura de sol después del sendero"
+        "cómo aliviar una quemadura de sol después del sendero",
+        "me quemé la cara con el sol del páramo qué me pongo",
+        "puedo echarme vaselina o mantequilla en una quemadura solar"
       ],
       "answer": {
         "short": "En alta montaña la radiación ultravioleta es muy intensa y se refleja en la nieve y el agua, por lo que siempre debes usar gafas con protección UV. Si tras la exposición solar sientes dolor en los ojos o sensibilidad a la luz, resguárdate del brillo, no te frotes los ojos y consulta de inmediato a un médico.",
@@ -3189,11 +3211,13 @@
         "no reventar las ampollas de una quemadura térmica",
         "retirar anillos y prendas no adheridas tras una quemadura",
         "cuándo una quemadura requiere atención médica urgente",
-        "enfriar quemadura con agua fresca y no helada"
+        "enfriar quemadura con agua fresca y no helada",
+        "me salpico la estufa, enfrio con agua o con hielo"
       ],
       "hard_negatives": [
         "cómo aliviar una quemadura de sol después del sendero",
-        "puedo calentar manos congeladas con una estufa o fogata"
+        "me quemé la cara con el sol del páramo qué me pongo",
+        "puedo echarme vaselina o mantequilla en una quemadura solar"
       ],
       "answer": {
         "short": "Si sufres una quemadura térmica, enfría la zona con agua fresca (no helada) de 5 a 30 minutos y retira anillos o prendas no pegadas a la piel. No arranques ropa adherida, no rompas ampollas ni apliques aceite, mantequilla o remedios caseros; cúbrela con gasa limpia y seca y avisa al guía.",
@@ -3226,7 +3250,7 @@
     },
     {
       "id": "health_safety.lightning_wait_30_minutes_and_shelters",
-      "label": "refugio y espera tras los rayos",
+      "label": "refugio cerrado y espera tras el trueno",
       "kind": "safety",
       "audience": "visitor",
       "lang": "es",
@@ -3242,11 +3266,13 @@
         "qué refugios sí protegen de una descarga eléctrica",
         "puedo retomar la caminata apenas deje de llover si hubo truenos",
         "cerrar las ventanas del vehículo durante tormenta eléctrica",
-        "esperar media hora tras el último trueno antes de caminar"
+        "esperar media hora tras el último trueno antes de caminar",
+        "ya paso el ultimo trueno, cuantos minutos espero en el carro"
       ],
       "hard_negatives": [
-        "y si hay tormenta eléctrica, cierran?",
-        "qué hago si me agarra una tormenta de rayos en campo abierto"
+        "qué hago si me agarra una tormenta de rayos en campo abierto",
+        "cómo actuar en el páramo si hay rayos y no hay refugio",
+        "debo acostarme en el suelo durante una tormenta eléctrica"
       ],
       "answer": {
         "short": "Las carpas y cobertizos abiertos no protegen contra los rayos: busca una edificación cerrada o un vehículo de techo rígido con ventanas subidas. No retomes la actividad al aire libre hasta que pasen al menos 30 minutos desde el último trueno, pues el inicio y el final de la tormenta son muy peligrosos.",
@@ -3280,7 +3306,7 @@
     },
     {
       "id": "health_safety.lightning_caught_in_open_paramo",
-      "label": "tormenta eléctrica en campo abierto",
+      "label": "tormenta de rayos sin un refugio",
       "kind": "safety",
       "audience": "visitor",
       "lang": "es",
@@ -3296,11 +3322,13 @@
         "por qué no ponerse bajo un árbol solitario en tormenta",
         "distancia entre compañeros durante tormenta eléctrica en ruta",
         "qué lugares abiertos son más peligrosos cuando caen rayos",
-        "medidas de emergencia a cielo abierto con truenos"
+        "medidas de emergencia a cielo abierto con truenos",
+        "la tormenta me cogio en campo abierto sin carro ni casa"
       ],
       "hard_negatives": [
-        "y si hay tormenta eléctrica, cierran?",
-        "una carpa protege contra los rayos en una tormenta"
+        "qué hago si hay rayos durante la caminata",
+        "me sorprendió una tormenta eléctrica",
+        "es seguro quedarme en un claro"
       ],
       "answer": {
         "short": "Si una tormenta eléctrica te sorprende sin refugio, baja de inmediato de cumbres, filos y lomas, aléjate de lagunas, cercas y objetos metálicos, no te resguardes bajo árboles aislados ni cornisas de roca y nunca te acuestes plano en el suelo. Si vas en grupo, sepárense entre sí para reducir el riesgo de varios heridos.",
@@ -3404,11 +3432,13 @@
         "revisar circulación en los dedos después de entablillar",
         "diferencia de manejo si sospecho fractura en la ruta",
         "no apoyar ni mover una extremidad fracturada",
-        "cómo improvisar una férula acolchada mientras llega ayuda"
+        "cómo improvisar una férula acolchada mientras llega ayuda",
+        "creo que se partio el brazo, lo enderezo o lo dejo quieto"
       ],
       "hard_negatives": [
-        "me torcí el tobillo en el sendero",
-        "qué hacer si alguien se golpea fuerte la cabeza al caer"
+        "qué hacer si alguien se golpea fuerte la cabeza al caer",
+        "primeros auxilios por trauma en la cabeza o columna",
+        "debo quitarle el casco a un montañista o ciclista que cayó"
       ],
       "answer": {
         "short": "Si sospechas una fractura, mantén quieta a la persona y nunca intentes enderezar el hueso. Si hay herida abierta, cúbrela con un apósito limpio sin presionar el hueso; inmoviliza por encima y por debajo con una férula acolchada sin apretar (vigila que los dedos no se pongan pálidos, azules o entumidos) y avisa al guía.",
@@ -3447,7 +3477,7 @@
     },
     {
       "id": "health_safety.head_or_spine_injury_fall",
-      "label": "golpe en la cabeza o la columna",
+      "label": "no quites el casco tras un golpe",
       "kind": "procedure",
       "audience": "visitor",
       "lang": "es",
@@ -3463,36 +3493,29 @@
         "sostener la cabeza alineada con el cuello tras una caída",
         "vómito somnolencia o pupilas desiguales tras golpe craneal",
         "por qué toda caída fuerte puede tener trauma cervical",
-        "cuándo pedir rescate urgente por golpe en la cabeza"
+        "cuándo pedir rescate urgente por golpe en la cabeza",
+        "se golpeo la cabeza y trae casco, se lo quito"
       ],
       "hard_negatives": [
         "qué hago si alguien se fractura una pierna o brazo en el sendero",
-        "me sangra la nariz en la montaña"
+        "cómo inmovilizar una posible fractura en la montaña",
+        "debo intentar acomodar o enderezar un hueso roto"
       ],
       "answer": {
-        "short": "Ante una caída fuerte o golpe en la cabeza, asume lesión de columna cervical: no muevas a la persona salvo peligro inminente, no le quites el casco y sostén su cabeza alineada con el cuello. Si vomita, giren cabeza, cuello y cuerpo en bloque de lado; pide rescate urgente al guía si hay somnolencia, confusión o vómito.",
+        "short": "Ante una caída fuerte o un golpe en la cabeza, asume lesión de columna: no muevas a la persona salvo peligro inminente, no le quites el casco y sostenle la cabeza alineada con la columna. Si vomita, giren cabeza, cuello y cuerpo juntos, de lado. Avísale al guía; esta app no llama a rescate ni te localiza.",
         "variants": [
-          "No muevas a quien sufrió un golpe craneal o caída fuerte ni le quites el casco: mantén su cabeza y cuello alineados sin movimiento y solicita ayuda médica urgente al guía."
-        ]
+          "No le quites el casco y mantenle la cabeza alineada con la columna, sin moverla salvo un peligro inmediato. Si vomita, giren todo el cuerpo junto. La app no llama a rescate."
+        ],
+        "reflection": null
       },
       "sources": [
         {
-          "label": "Hospital Civil E.S.E.: guía prehospitalaria de inmovilización",
-          "url": "https://web.hospitalcivilese.gov.co/wp-content/uploads/2025/09/42-inmovilizacion-y-transporte-manual-de-pacientes-447-a-466.pdf",
-          "retrieved_at": "2026-11-21"
-        },
-        {
-          "label": "MedlinePlus Medical Encyclopedia: Head Injury (First Aid)",
+          "label": "MedlinePlus, Head injury",
           "url": "https://medlineplus.gov/ency/article/000028.htm",
-          "retrieved_at": "2026-11-21"
-        },
-        {
-          "label": "Parques Nacionales Naturales de Colombia: Resolución 207 de 2023",
-          "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2023/08/Resolucion_207_2023_ReglamentacionNevados.pdf",
           "retrieved_at": "2026-11-21"
         }
       ],
-      "last_verified": "2026-11-21",
+      "last_verified": "2026-11-22",
       "related": [
         "health_safety.suspected_fracture_first_aid",
         "health_safety.nosebleed_altitude",
@@ -3661,7 +3684,7 @@
     },
     {
       "id": "health_safety.guide_first_aid_kit_and_certification",
-      "label": "botiquín y primeros auxilios del guía",
+      "label": "certificado y botiquín del guía",
       "kind": "procedure",
       "audience": "visitor",
       "lang": "es",
@@ -3677,31 +3700,29 @@
         "el guía carga botiquín y radio sí o sí?",
         "el guía tiene que saber primeros auxilios y RCP?",
         "quién presta los primeros auxilios durante la caminata",
-        "equipo médico y radio de comunicación del guía registrado"
+        "equipo médico y radio de comunicación del guía registrado",
+        "el guia tiene que traer radio botiquin y curso de 20 horas"
       ],
       "hard_negatives": [
-        "a quién le digo que me siento mal",
-        "cómo me sacan del parque si me enfermo o me fracturo"
+        "radio",
+        "guías con radio",
+        "tienen radios en el parque"
       ],
       "answer": {
-        "short": "Todo guía o intérprete autorizado en Los Nevados debe tener certificado presencial vigente de 20 horas en primeros auxilios (con RCP y DEA) y portar obligatoriamente botiquín de primeros auxilios, radio portable y filtro de agua (Resolución 207 de 2023). Acude siempre a tu guía ante cualquier síntoma o lesión.",
+        "short": "La Resolución 207 del 04 de agosto de 2023 exige al guía un certificado presencial de 20 horas en primeros auxilios, con RCP y DEA, y portar botiquín, radio portable y filtro de agua. Acude a tu guía si te sientes mal. Esta app no avisa al guía ni despacha rescate.",
         "variants": [
-          "Tu guía avalado cuenta con curso presencial vigente de 20 horas en primeros auxilios y RCP, y lleva botiquín y radio obligatorios para atender y reportar emergencias."
-        ]
+          "Ese certificado de 20 horas con RCP y DEA, más botiquín, radio y filtro, es lo que la Resolución 207 del 04 de agosto de 2023 le exige al guía. Si te sientes mal, búscale. La app no le avisa."
+        ],
+        "reflection": null
       },
       "sources": [
         {
-          "label": "Parques Nacionales Naturales de Colombia: Resolución 207 de 2023",
+          "label": "Resolución 207 del 04 de agosto de 2023, PNN Los Nevados",
           "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2023/08/Resolucion_207_2023_ReglamentacionNevados.pdf",
-          "retrieved_at": "2026-11-21"
-        },
-        {
-          "label": "Parques Nacionales Naturales de Colombia: Parque Nacional Natural Los Nevados",
-          "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
           "retrieved_at": "2026-11-21"
         }
       ],
-      "last_verified": "2026-11-21",
+      "last_verified": "2026-11-22",
       "related": [
         "health_safety.tell_guide_about_health_change",
         "health_safety.evacuation_and_rescue_reality",
@@ -3769,7 +3790,7 @@
     },
     {
       "id": "health_safety.stay_together_prevent_separation",
-      "label": "permanecer en grupo para evitar extravíos",
+      "label": "no fragmentar el grupo en ruta",
       "kind": "safety",
       "audience": "visitor",
       "lang": "es",
@@ -3785,26 +3806,29 @@
         "por qué el grupo no debe dividirse en el páramo",
         "avisar al guía si necesito parar para que el grupo no se separe",
         "riesgo de fragmentar el grupo en senderos de alta montaña",
-        "caminar siempre a la vista del guía y de los compañeros"
+        "caminar siempre a la vista del guía y de los compañeros",
+        "me puedo adelantar al grupo si veo el guia mas arriba"
       ],
       "hard_negatives": [
+        "me separé del grupo y no encuentro el sendero",
         "qué hago si me pierdo en la montaña",
-        "a quién le digo que me siento mal"
+        "cómo evitar perderme en la niebla"
       ],
       "answer": {
-        "short": "Para prevenir extravíos en alta montaña, el grupo debe caminar unido sin fragmentarse y el guía debe mantener contacto visual y auditivo con todos. No te adelantes ni te quedes rezagado por tu cuenta; si alguien camina más lento o necesita parar, avisen de inmediato al guía para ajustar el ritmo.",
+        "short": "La Resolución 207 del 04 de agosto de 2023 pide no fragmentar el grupo y mantener contacto visual o auditivo durante el recorrido. No te adelantes ni te quedes atrás sin avisar al guía. Si alguien va más lento, díganle para ajustar el ritmo.",
         "variants": [
-          "Camina siempre unido al grupo manteniendo contacto visual y auditivo con el guía; nunca te adelantes ni dejes que un compañero quede rezagado."
-        ]
+          "Esa resolución del 04 de agosto de 2023 pide contacto visual o auditivo y que el grupo no se parta. No te adelantes ni te rezagues sin decirlo, y avisen si alguien necesita ir más lento."
+        ],
+        "reflection": null
       },
       "sources": [
         {
-          "label": "Parques Nacionales Naturales de Colombia: Resolución 207 de 2023",
+          "label": "Resolución 207 del 04 de agosto de 2023, PNN Los Nevados",
           "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2023/08/Resolucion_207_2023_ReglamentacionNevados.pdf",
           "retrieved_at": "2026-11-21"
         }
       ],
-      "last_verified": "2026-11-21",
+      "last_verified": "2026-11-22",
       "related": [
         "health_safety.lost_person_protocol",
         "health_safety.tell_guide_about_health_change"
@@ -3833,31 +3857,29 @@
         "datos de contacto en caso de emergencia para el itinerario",
         "si voy de expedición, qué plan de emergencia me piden?",
         "presentar plan de riesgos en la reserva y en la inducción",
-        "preparación técnica y plan de emergencia para montañismo"
+        "preparación técnica y plan de emergencia para montañismo",
+        "el plan de contingencia del montanista lo envia esta app"
       ],
       "hard_negatives": [
         "cómo me sacan del parque si me enfermo o me fracturo",
-        "es obligatorio recibir la charla de inducción al entrar al parque"
+        "cuánto demora un rescate en Los Nevados",
+        "hay helicóptero o ambulancia dentro del sendero"
       ],
       "answer": {
-        "short": "Si ingresas por montañismo deportivo, debes presentar en la reserva y en el centro de inducción un plan de riesgos y contingencias que evalúe los peligros de tu itinerario, describa el manejo de emergencias e incluya los datos de un contacto de emergencia, además de portar el seguro obligatorio de accidentes y rescate.",
+        "short": "Si entras por montañismo deportivo, la Resolución 207 del 04 de agosto de 2023 pide un plan de riesgos y contingencias, con el manejo de emergencias y un contacto, además del seguro de accidentes y rescate. Esa exigencia es el texto de 2023, no el trámite de hoy. Esta app no envía el plan ni rastrea al grupo.",
         "variants": [
-          "Los grupos de montañismo deportivo deben entregar su plan de riesgos y contingencias con contacto de emergencia, adquirir el seguro de rescate y asistir a la inducción obligatoria."
-        ]
+          "El plan de riesgos, el contacto de emergencia y el seguro son lo que la Resolución 207 del 04 de agosto de 2023 pide al montañismo deportivo. No es el trámite de hoy y la app no lo envía ni rastrea al grupo."
+        ],
+        "reflection": null
       },
       "sources": [
         {
-          "label": "Parques Nacionales Naturales de Colombia: Resolución 207 de 2023",
+          "label": "Resolución 207 del 04 de agosto de 2023, PNN Los Nevados",
           "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2023/08/Resolucion_207_2023_ReglamentacionNevados.pdf",
-          "retrieved_at": "2026-11-21"
-        },
-        {
-          "label": "Parques Nacionales: recomendaciones para áreas protegidas",
-          "url": "https://old.parquesnacionales.gov.co/portal/es/decalogo-de-recomendaciones-para-el-uso-de-areas-protegidas-en-parques-nacionales-naturales-de-colombia/",
           "retrieved_at": "2026-11-21"
         }
       ],
-      "last_verified": "2026-11-21",
+      "last_verified": "2026-11-22",
       "related": [
         "health_safety.evacuation_and_rescue_reality",
         "health_safety.pre_hike_health_disclosure_and_induction",

@@ -195,3 +195,39 @@ Los `.txt` de HTML salen de `evidence/html_to_text.py`. Las citas se verifican c
 - `geography.sector_laguna_otun` merged into `geography.laguna_otun` (near-duplicate review, pair "dónde queda el sector" / "dónde queda la laguna"). The kept short now carries the paramillos del Quindío y Santa Rosa and the note that the Potosí cabin altitude is not the lake's; quotes retagged in `evidence/quotes.md`.
 - The quote that backed `geography.glacier_summits` (merged earlier into `flora_ecosystems.glaciers_snow_presence`) is kept as a provenance note.
 - Entries: 62 → 61.
+
+
+## Updated entry: geography.four_sectors
+
+- Reason: Aclarar los 4 sectores ecoturísticos globales frente a sectores individuales y senderos.
+- Changed fields: examples, hard_negatives
+
+
+## Updated entry: geography.manizales_outside
+
+- Reason: Aclarar que la ciudad de Manizales no está dentro del parque, separando de ruta desde Manizales.
+- Changed fields: examples, hard_negatives, label
+
+
+## Updated entry: geography.paramillo_santa_rosa
+
+- Reason: Diferenciar cota del Paramillo de Santa Rosa del municipio homónimo y de Santa Isabel.
+- Changed fields: examples
+
+
+## Updated entry: geography.rio_otun
+
+- Reason: Delimitar nacimiento fluvial geográfico frente a abastecimiento de acueducto.
+- Changed fields: examples
+
+
+## Updated entry: geography.ruiz_versus_huila
+
+- Reason: Enfocar comparación explícita de cotas entre ambos volcanes colombianos.
+- Changed fields: examples, hard_negatives, label
+
+
+## Updated entry: geography.sector_cisne_poleka
+
+- Reason: Delimitar sector geográfico frente a accesos y avistamiento faunístico.
+- Changed fields: examples

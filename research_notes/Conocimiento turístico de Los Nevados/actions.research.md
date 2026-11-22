@@ -142,3 +142,219 @@ Alcance: solo auditoría. Entradas 10 → 10; ejemplos 131 → 131; hard negativ
 3. Nombres de Brisas: la ficha usa "Brisas–Valle de las Tumbas" y "Brisas-Kumanday". No confirmé que sean el mismo recorrido.
 4. "La app no avisa a rescate": límite de la app, no dato de fuente. Ningún answer promete envío de datos.
 5. 28 hard negatives sin ejemplo en ninguna sección: quedan para reemplazo por ejemplos existentes.
+
+
+## Updated entry: actions.register_arrival_today
+
+- Reason: Drop the contrast order, and stop saying the app completes official entry; the screen stores a local record and hours depend on the park's registration points.
+- Changed fields: answer, hard_negatives, last_verified, sources
+
+- https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/ (checked 2026-11-22); evidence: `research_notes/curation_v2/evidence/actions/pnn-los-nevados-ficha.txt`
+
+> Los horarios dependen del sector ecoturístico que quieras visitar y de los puntos de registro e ingreso del Parque:
+
+
+## Updated entry: actions.register_planned_visit
+
+- Reason: Date the ficha rules, keep Brisas-Valle de las Tumbas distinct from Brisas-Kumanday, and say the app screen is a local record, not a Parques Nacionales booking.
+- Changed fields: answer, hard_negatives, last_verified, sources
+
+- https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/ (checked 2026-11-22); evidence: `research_notes/curation_v2/evidence/actions/pnn-los-nevados-ficha.txt`
+
+> Los horarios dependen del sector ecoturístico que quieras visitar y de los puntos de registro e ingreso del Parque:
+
+- https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/ (checked 2026-11-22); evidence: `research_notes/curation_v2/evidence/actions/pnn-los-nevados-ficha.txt`
+
+> Para el recorrido Brisas–Valle de las Tumbas (zona norte del Parque Nacional Natural Los Nevados) en fines de semana y puentes festivos, es indispensable reservar con al menos un día de anticipación para asegurar tu ingreso. Hazlo en: www.reservasnevados.com
+
+- https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/ (checked 2026-11-22); evidence: `research_notes/curation_v2/evidence/actions/pnn-los-nevados-ficha.txt`
+
+> Ingreso al sector Brisas-Kumanday: la reserva no es obligatoria. Sin embargo, para asegurar tu ingreso (ya que los cupos diarios son limitados), reserva con al menos un día de anticipación. Reserva para este atractivo en: www.reservasnevados.com
+
+- https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/ (checked 2026-11-22); evidence: `research_notes/curation_v2/evidence/actions/pnn-los-nevados-ficha.txt`
+
+> Ingreso a los demás sectores: la reserva sí es obligatoria. La puedes gestionar a través de la agencia operadora registrada que elegiste para tu viaje.
+
+- https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/ (checked 2026-11-22); evidence: `research_notes/curation_v2/evidence/actions/pnn-los-nevados-ficha.txt`
+
+> Si vas a visitar el atractivo Brisas–Valle de las Tumbas del Parque Nacional Natural Los Nevados, durante el mes de noviembre ten presente el Pico y Placa Ambiental emitido por la Secretaría de Tránsito y Transporte del Tolima, mediante la Resolución No. 1815 del 24 de julio de 2026, el cual aplica para fines de semana y puentes festivos con horario de restricción de 5:00 a. m. a 4:00 p. m.
+
+
+## Updated entry: actions.report_altitude_sickness
+
+- Reason: Separate an altitude-sickness report from children's symptoms and from hypothermia; date the 123 instruction.
+- Changed fields: answer, examples, hard_negatives, label, last_verified, sources
+
+- https://www.policia.gov.co/noticia/policia-nacional-sensibiliza-comunidad-sobre-uso-las-lineas-emergencia-123-155 (checked 2026-11-22); evidence: `research_notes/curation_v2/evidence/actions/policia-123-2023.txt`
+
+> 12 March, 2023
+> Estas líneas se encuentran a disposición las 24 horas del día, los siete días de la semana.
+
+- https://www.policia.gov.co/noticia/policia-nacional-sensibiliza-comunidad-sobre-uso-las-lineas-emergencia-123-155 (checked 2026-11-22); evidence: `research_notes/curation_v2/evidence/actions/policia-123-2023.txt`
+
+> La Línea de emergencia 123, es la línea única de emergencias Nacional, que permite que en un sólo número los colombianos puedan acceder a todos los servicios de emergencia y seguridad que ofrece el Estado gratuitamente las 24 horas del día todos los días del año; esta permite la atención de manera oportuna de cualquier requerimiento ciudadano en tema de seguridad y convivencia ciudadana.
+
+- https://www.policia.gov.co/noticia/policia-nacional-sensibiliza-comunidad-sobre-uso-las-lineas-emergencia-123-155 (checked 2026-11-22); evidence: `research_notes/curation_v2/evidence/actions/policia-123-2023.txt`
+
+> el mal uso de la línea puede evitar la atención de una emergencia real.
+
+- https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/ (checked 2026-11-22); evidence: `research_notes/curation_v2/evidence/actions/pnn-los-nevados-ficha.txt`
+
+> En el Parque Nacional Natural Los Nevados es obligatorio el servicio de acompañamiento y guianza en todos los sectores. Los operadores y guías deben estar registrados con el fin de que cumplan con condiciones muy importantes como la utilización de los equipos básicos para la alta montaña, el equipo médico de respuesta y los radios con la frecuencia requerida.
+
+
+## Updated entry: actions.report_emergency_general
+
+- Reason: Date the 123 institutional claim to the 12 March 2023 police note and label the app handoff.
+- Changed fields: answer, hard_negatives, label, last_verified, sources
+
+- https://www.policia.gov.co/noticia/policia-nacional-sensibiliza-comunidad-sobre-uso-las-lineas-emergencia-123-155 (checked 2026-11-22); evidence: `research_notes/curation_v2/evidence/actions/policia-123-2023.txt`
+
+> 12 March, 2023
+> Estas líneas se encuentran a disposición las 24 horas del día, los siete días de la semana.
+
+- https://www.policia.gov.co/noticia/policia-nacional-sensibiliza-comunidad-sobre-uso-las-lineas-emergencia-123-155 (checked 2026-11-22); evidence: `research_notes/curation_v2/evidence/actions/policia-123-2023.txt`
+
+> La Línea de emergencia 123, es la línea única de emergencias Nacional, que permite que en un sólo número los colombianos puedan acceder a todos los servicios de emergencia y seguridad que ofrece el Estado gratuitamente las 24 horas del día todos los días del año; esta permite la atención de manera oportuna de cualquier requerimiento ciudadano en tema de seguridad y convivencia ciudadana.
+
+- https://www.policia.gov.co/noticia/policia-nacional-sensibiliza-comunidad-sobre-uso-las-lineas-emergencia-123-155 (checked 2026-11-22); evidence: `research_notes/curation_v2/evidence/actions/policia-123-2023.txt`
+
+> el mal uso de la línea puede evitar la atención de una emergencia real.
+
+- https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/ (checked 2026-11-22); evidence: `research_notes/curation_v2/evidence/actions/pnn-los-nevados-ficha.txt`
+
+> En el Parque Nacional Natural Los Nevados es obligatorio el servicio de acompañamiento y guianza en todos los sectores. Los operadores y guías deben estar registrados con el fin de que cumplan con condiciones muy importantes como la utilización de los equipos básicos para la alta montaña, el equipo médico de respuesta y los radios con la frecuencia requerida.
+
+
+## Updated entry: actions.report_fire
+
+- Reason: Separate a fire report from a past páramo fire and from a generic emergency; date the 123 instruction.
+- Changed fields: answer, examples, hard_negatives, label, last_verified, sources
+
+- https://www.policia.gov.co/noticia/policia-nacional-sensibiliza-comunidad-sobre-uso-las-lineas-emergencia-123-155 (checked 2026-11-22); evidence: `research_notes/curation_v2/evidence/actions/policia-123-2023.txt`
+
+> 12 March, 2023
+> Estas líneas se encuentran a disposición las 24 horas del día, los siete días de la semana.
+
+- https://www.policia.gov.co/noticia/policia-nacional-sensibiliza-comunidad-sobre-uso-las-lineas-emergencia-123-155 (checked 2026-11-22); evidence: `research_notes/curation_v2/evidence/actions/policia-123-2023.txt`
+
+> La Línea de emergencia 123, es la línea única de emergencias Nacional, que permite que en un sólo número los colombianos puedan acceder a todos los servicios de emergencia y seguridad que ofrece el Estado gratuitamente las 24 horas del día todos los días del año; esta permite la atención de manera oportuna de cualquier requerimiento ciudadano en tema de seguridad y convivencia ciudadana.
+
+- https://www.policia.gov.co/noticia/policia-nacional-sensibiliza-comunidad-sobre-uso-las-lineas-emergencia-123-155 (checked 2026-11-22); evidence: `research_notes/curation_v2/evidence/actions/policia-123-2023.txt`
+
+> el mal uso de la línea puede evitar la atención de una emergencia real.
+
+- https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/ (checked 2026-11-22); evidence: `research_notes/curation_v2/evidence/actions/pnn-los-nevados-ficha.txt`
+
+> En el Parque Nacional Natural Los Nevados es obligatorio el servicio de acompañamiento y guianza en todos los sectores. Los operadores y guías deben estar registrados con el fin de que cumplan con condiciones muy importantes como la utilización de los equipos básicos para la alta montaña, el equipo médico de respuesta y los radios con la frecuencia requerida.
+
+
+## Updated entry: actions.report_hypothermia
+
+- Reason: Separate the hypothermia report from first-aid questions; date the 123 instruction.
+- Changed fields: answer, examples, hard_negatives, label, last_verified, sources
+
+- https://www.policia.gov.co/noticia/policia-nacional-sensibiliza-comunidad-sobre-uso-las-lineas-emergencia-123-155 (checked 2026-11-22); evidence: `research_notes/curation_v2/evidence/actions/policia-123-2023.txt`
+
+> 12 March, 2023
+> Estas líneas se encuentran a disposición las 24 horas del día, los siete días de la semana.
+
+- https://www.policia.gov.co/noticia/policia-nacional-sensibiliza-comunidad-sobre-uso-las-lineas-emergencia-123-155 (checked 2026-11-22); evidence: `research_notes/curation_v2/evidence/actions/policia-123-2023.txt`
+
+> La Línea de emergencia 123, es la línea única de emergencias Nacional, que permite que en un sólo número los colombianos puedan acceder a todos los servicios de emergencia y seguridad que ofrece el Estado gratuitamente las 24 horas del día todos los días del año; esta permite la atención de manera oportuna de cualquier requerimiento ciudadano en tema de seguridad y convivencia ciudadana.
+
+- https://www.policia.gov.co/noticia/policia-nacional-sensibiliza-comunidad-sobre-uso-las-lineas-emergencia-123-155 (checked 2026-11-22); evidence: `research_notes/curation_v2/evidence/actions/policia-123-2023.txt`
+
+> el mal uso de la línea puede evitar la atención de una emergencia real.
+
+- https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/ (checked 2026-11-22); evidence: `research_notes/curation_v2/evidence/actions/pnn-los-nevados-ficha.txt`
+
+> En el Parque Nacional Natural Los Nevados es obligatorio el servicio de acompañamiento y guianza en todos los sectores. Los operadores y guías deben estar registrados con el fin de que cumplan con condiciones muy importantes como la utilización de los equipos básicos para la alta montaña, el equipo médico de respuesta y los radios con la frecuencia requerida.
+
+
+## Updated entry: actions.report_injury
+
+- Reason: Separate an injury report from an environmental complaint and from first aid; date the 123 instruction.
+- Changed fields: answer, examples, hard_negatives, label, last_verified, sources
+
+- https://www.policia.gov.co/noticia/policia-nacional-sensibiliza-comunidad-sobre-uso-las-lineas-emergencia-123-155 (checked 2026-11-22); evidence: `research_notes/curation_v2/evidence/actions/policia-123-2023.txt`
+
+> 12 March, 2023
+> Estas líneas se encuentran a disposición las 24 horas del día, los siete días de la semana.
+
+- https://www.policia.gov.co/noticia/policia-nacional-sensibiliza-comunidad-sobre-uso-las-lineas-emergencia-123-155 (checked 2026-11-22); evidence: `research_notes/curation_v2/evidence/actions/policia-123-2023.txt`
+
+> La Línea de emergencia 123, es la línea única de emergencias Nacional, que permite que en un sólo número los colombianos puedan acceder a todos los servicios de emergencia y seguridad que ofrece el Estado gratuitamente las 24 horas del día todos los días del año; esta permite la atención de manera oportuna de cualquier requerimiento ciudadano en tema de seguridad y convivencia ciudadana.
+
+- https://www.policia.gov.co/noticia/policia-nacional-sensibiliza-comunidad-sobre-uso-las-lineas-emergencia-123-155 (checked 2026-11-22); evidence: `research_notes/curation_v2/evidence/actions/policia-123-2023.txt`
+
+> el mal uso de la línea puede evitar la atención de una emergencia real.
+
+- https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/ (checked 2026-11-22); evidence: `research_notes/curation_v2/evidence/actions/pnn-los-nevados-ficha.txt`
+
+> En el Parque Nacional Natural Los Nevados es obligatorio el servicio de acompañamiento y guianza en todos los sectores. Los operadores y guías deben estar registrados con el fin de que cumplan con condiciones muy importantes como la utilización de los equipos básicos para la alta montaña, el equipo médico de respuesta y los radios con la frecuencia requerida.
+
+
+## Updated entry: actions.report_lost_person
+
+- Reason: Separate a missing person from a lost object and from the speaker being lost; date the 123 instruction.
+- Changed fields: answer, examples, hard_negatives, label, last_verified, sources
+
+- https://www.policia.gov.co/noticia/policia-nacional-sensibiliza-comunidad-sobre-uso-las-lineas-emergencia-123-155 (checked 2026-11-22); evidence: `research_notes/curation_v2/evidence/actions/policia-123-2023.txt`
+
+> 12 March, 2023
+> Estas líneas se encuentran a disposición las 24 horas del día, los siete días de la semana.
+
+- https://www.policia.gov.co/noticia/policia-nacional-sensibiliza-comunidad-sobre-uso-las-lineas-emergencia-123-155 (checked 2026-11-22); evidence: `research_notes/curation_v2/evidence/actions/policia-123-2023.txt`
+
+> La Línea de emergencia 123, es la línea única de emergencias Nacional, que permite que en un sólo número los colombianos puedan acceder a todos los servicios de emergencia y seguridad que ofrece el Estado gratuitamente las 24 horas del día todos los días del año; esta permite la atención de manera oportuna de cualquier requerimiento ciudadano en tema de seguridad y convivencia ciudadana.
+
+- https://www.policia.gov.co/noticia/policia-nacional-sensibiliza-comunidad-sobre-uso-las-lineas-emergencia-123-155 (checked 2026-11-22); evidence: `research_notes/curation_v2/evidence/actions/policia-123-2023.txt`
+
+> el mal uso de la línea puede evitar la atención de una emergencia real.
+
+
+## Updated entry: actions.report_offline_emergency
+
+- Reason: Keep the no-signal report distinct from CPR and from calling 123, and date the 123 instruction.
+- Changed fields: answer, hard_negatives, label, last_verified, sources
+
+- https://www.policia.gov.co/noticia/policia-nacional-sensibiliza-comunidad-sobre-uso-las-lineas-emergencia-123-155 (checked 2026-11-22); evidence: `research_notes/curation_v2/evidence/actions/policia-123-2023.txt`
+
+> 12 March, 2023
+> Estas líneas se encuentran a disposición las 24 horas del día, los siete días de la semana.
+
+- https://www.policia.gov.co/noticia/policia-nacional-sensibiliza-comunidad-sobre-uso-las-lineas-emergencia-123-155 (checked 2026-11-22); evidence: `research_notes/curation_v2/evidence/actions/policia-123-2023.txt`
+
+> La Línea de emergencia 123, es la línea única de emergencias Nacional, que permite que en un sólo número los colombianos puedan acceder a todos los servicios de emergencia y seguridad que ofrece el Estado gratuitamente las 24 horas del día todos los días del año; esta permite la atención de manera oportuna de cualquier requerimiento ciudadano en tema de seguridad y convivencia ciudadana.
+
+- https://www.policia.gov.co/noticia/policia-nacional-sensibiliza-comunidad-sobre-uso-las-lineas-emergencia-123-155 (checked 2026-11-22); evidence: `research_notes/curation_v2/evidence/actions/policia-123-2023.txt`
+
+> el mal uso de la línea puede evitar la atención de una emergencia real.
+
+- https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/ (checked 2026-11-22); evidence: `research_notes/curation_v2/evidence/actions/pnn-los-nevados-ficha.txt`
+
+> En el Parque Nacional Natural Los Nevados es obligatorio el servicio de acompañamiento y guianza en todos los sectores. Los operadores y guías deben estar registrados con el fin de que cumplan con condiciones muy importantes como la utilización de los equipos básicos para la alta montaña, el equipo médico de respuesta y los radios con la frecuencia requerida.
+
+
+## Updated entry: actions.report_storm
+
+- Reason: Separate a storm report from snow, hail and lightning first aid; date the 123 instruction.
+- Changed fields: answer, examples, hard_negatives, label, last_verified, sources
+
+- https://www.policia.gov.co/noticia/policia-nacional-sensibiliza-comunidad-sobre-uso-las-lineas-emergencia-123-155 (checked 2026-11-22); evidence: `research_notes/curation_v2/evidence/actions/policia-123-2023.txt`
+
+> 12 March, 2023
+> Estas líneas se encuentran a disposición las 24 horas del día, los siete días de la semana.
+
+- https://www.policia.gov.co/noticia/policia-nacional-sensibiliza-comunidad-sobre-uso-las-lineas-emergencia-123-155 (checked 2026-11-22); evidence: `research_notes/curation_v2/evidence/actions/policia-123-2023.txt`
+
+> La Línea de emergencia 123, es la línea única de emergencias Nacional, que permite que en un sólo número los colombianos puedan acceder a todos los servicios de emergencia y seguridad que ofrece el Estado gratuitamente las 24 horas del día todos los días del año; esta permite la atención de manera oportuna de cualquier requerimiento ciudadano en tema de seguridad y convivencia ciudadana.
+
+- https://www.policia.gov.co/noticia/policia-nacional-sensibiliza-comunidad-sobre-uso-las-lineas-emergencia-123-155 (checked 2026-11-22); evidence: `research_notes/curation_v2/evidence/actions/policia-123-2023.txt`
+
+> el mal uso de la línea puede evitar la atención de una emergencia real.
+
+- https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/ (checked 2026-11-22); evidence: `research_notes/curation_v2/evidence/actions/pnn-los-nevados-ficha.txt`
+
+> En el Parque Nacional Natural Los Nevados es obligatorio el servicio de acompañamiento y guianza en todos los sectores. Los operadores y guías deben estar registrados con el fin de que cumplan con condiciones muy importantes como la utilización de los equipos básicos para la alta montaña, el equipo médico de respuesta y los radios con la frecuencia requerida.

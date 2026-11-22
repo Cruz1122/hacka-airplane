@@ -54,8 +54,8 @@
         "is the park weather cold"
       ],
       "hard_negatives": [
-        "está abierto hoy",
-        "hay cierres"
+        "nieva en Los Nevados",
+        "se va a ver la cumbre del Ruiz"
       ],
       "needs": [],
       "answer": {
@@ -196,7 +196,7 @@
     },
     {
       "id": "weather_volcano.summit_visibility",
-      "label": "niebla y visibilidad de cumbres",
+      "label": "si se verá la cumbre",
       "kind": "safety",
       "audience": "visitor",
       "lang": "es",
@@ -213,11 +213,13 @@
         "se ve el ruiz con lluvia",
         "que tal la visibilidad en la cima",
         "can I see the summit during my visit",
-        "will the volcano be visible from the trail"
+        "will the volcano be visible from the trail",
+        "con la cima tapada me salgo del sendero para la foto?"
       ],
       "hard_negatives": [
-        "hay cierres",
-        "qué riesgo tiene la altura"
+        "nieva en Los Nevados",
+        "si está nublado igual vale la pena ir",
+        "dónde miro el pronóstico del parque"
       ],
       "needs": [],
       "answer": {
@@ -253,7 +255,7 @@
     },
     {
       "id": "weather_volcano.snow_and_hail",
-      "label": "nieve y granizo",
+      "label": "nevada documentada y granizo",
       "kind": "fact",
       "audience": "visitor",
       "lang": "es",
@@ -272,8 +274,9 @@
         "can there be hail on the trail"
       ],
       "hard_negatives": [
-        "cuándo se creó el parque",
-        "es pesado para el cuerpo ir al parque"
+        "cómo es el clima en Los Nevados",
+        "qué tiempo suele hacer en el parque",
+        "se va a ver la cumbre del Ruiz"
       ],
       "needs": [],
       "answer": {
@@ -303,7 +306,7 @@
     },
     {
       "id": "weather_volcano.current_forecast",
-      "label": "pronóstico para la visita",
+      "label": "dónde mirar el pronóstico del día",
       "kind": "procedure",
       "audience": "visitor",
       "lang": "es",
@@ -323,8 +326,8 @@
         "where can I check the weather forecast"
       ],
       "hard_negatives": [
-        "me dio dolor de cabeza al llegar arriba",
-        "está abierto hoy"
+        "el mapa de colombia sirve para la cumbre",
+        "cómo es el clima en Los Nevados"
       ],
       "needs": [],
       "answer": {
@@ -410,7 +413,7 @@
     },
     {
       "id": "weather_volcano.alert_orange_meaning",
-      "label": "significado de alerta naranja",
+      "label": "alerta naranja no es erupción",
       "kind": "safety",
       "audience": "visitor",
       "lang": "es",
@@ -430,20 +433,27 @@
         "is orange alert an eruption"
       ],
       "hard_negatives": [
-        "es pesado para el cuerpo ir al parque",
-        "síntomas de soroche"
+        "qué significa alerta amarilla del Ruiz",
+        "qué significa alerta roja del Ruiz",
+        "en naranja hay lahares pequeños",
+        "qué alerta tiene hoy el Nevado del Ruiz"
       ],
       "needs": [],
       "answer": {
-        "short": "Naranja es un cambio importante y una probabilidad mayor de erupciones grandes: no significa que ya empezó ni dice el día, y puede haber ceniza, olores fuertes y lahares pequeños. No subas por tu cuenta: sigue al SGC y a las autoridades.",
+        "short": "Naranja, en el esquema del SGC del 14 de septiembre de 2023, es un cambio importante y una probabilidad mayor de erupciones grandes: no significa que ya empezó ni dice el día. Puede haber ceniza, olores fuertes y lahares pequeños. No subas por tu cuenta: el color de hoy está en el boletín del SGC y la orden la dan las autoridades.",
         "variants": [
-          "Naranja no es un reloj. No te acerques por tu cuenta y espera la instrucción del SGC y de las autoridades."
+          "Naranja no es un reloj ni una erupción en curso. No te acerques por tu cuenta y espera la instrucción del SGC y de las autoridades."
         ]
       },
       "sources": [
         {
           "label": "SGC, esquema de estados de alerta",
           "url": "https://www2.sgc.gov.co/Paginas/estados-de-alerta-volcanes.aspx",
+          "retrieved_at": "2026-11-21"
+        },
+        {
+          "label": "SGC, cambio del esquema de alertas",
+          "url": "https://www2.sgc.gov.co/Noticias/Paginas/Colombia-cambia-su-esquema-de-medicion-de-la-actividad-volcanica.aspx",
           "retrieved_at": "2026-11-21"
         }
       ],
@@ -461,7 +471,7 @@
     },
     {
       "id": "weather_volcano.alert_red_meaning",
-      "label": "respuesta ante alerta roja",
+      "label": "alerta roja y evacuación",
       "kind": "safety",
       "audience": "visitor",
       "lang": "es",
@@ -481,20 +491,27 @@
         "is the park open during red alert"
       ],
       "hard_negatives": [
-        "está abierto hoy",
-        "hay cierres"
+        "qué significa alerta amarilla del Ruiz",
+        "qué significa alerta naranja del Ruiz",
+        "en naranja hay lahares pequeños",
+        "qué alerta tiene hoy el Nevado del Ruiz"
       ],
       "needs": [],
       "answer": {
-        "short": "Roja, en el esquema del SGC, es un volcán en erupción. Incluye evacuación obligatoria de las zonas que el mapa de amenaza marque. No te acerques ni intentes ingresar: cumple lo que ordenen las autoridades.",
+        "short": "Roja, en el esquema del SGC del 14 de septiembre de 2023, es un volcán en erupción e incluye evacuación obligatoria de las zonas que el mapa de amenaza marque. Esta ficha no dice si hoy está en rojo. No te acerques ni intentes ingresar: cumple lo que ordenen las autoridades.",
         "variants": [
-          "Si declaran rojo, aléjate. La evacuación la marca el mapa de amenaza y la orden de las autoridades."
+          "Si declaran rojo, aléjate. La evacuación la marca el mapa de amenaza y la orden de las autoridades, no esta ficha."
         ]
       },
       "sources": [
         {
           "label": "SGC, esquema de estados de alerta",
           "url": "https://www2.sgc.gov.co/Paginas/estados-de-alerta-volcanes.aspx",
+          "retrieved_at": "2026-11-21"
+        },
+        {
+          "label": "SGC, cambio del esquema de alertas",
+          "url": "https://www2.sgc.gov.co/Noticias/Paginas/Colombia-cambia-su-esquema-de-medicion-de-la-actividad-volcanica.aspx",
           "retrieved_at": "2026-11-21"
         }
       ],
@@ -512,7 +529,7 @@
     },
     {
       "id": "weather_volcano.alert_states_nonsequential",
-      "label": "cambio entre estados de alerta",
+      "label": "los colores no son una escalera",
       "kind": "explanation",
       "audience": "visitor",
       "lang": "es",
@@ -529,17 +546,20 @@
         "como se pasa de un estado a otro",
         "toca esperar que pase por todos los colores",
         "are volcanic alert colors sequential",
-        "can a volcano jump from yellow to red"
+        "can a volcano jump from yellow to red",
+        "de verde a naranja sin pasar por amarillo"
       ],
       "hard_negatives": [
-        "qué pasó en Armero",
-        "cuándo se creó el parque"
+        "en amarilla puedo subir a la parte alta",
+        "santa isabel tolima y machín se consultan aparte",
+        "qué significa alerta amarilla del Ruiz",
+        "la alerta amarilla cierra la cima"
       ],
       "needs": [],
       "answer": {
-        "short": "Los colores no son una escalera: un volcán puede pasar de verde a naranja sin amarillo, y el esquema no pone la erupción en días o semanas. No calcules el riesgo con el color anterior. Lee el boletín más reciente del SGC.",
+        "short": "Desde el 14 de septiembre de 2023 los colores no son una escalera: un volcán puede pasar de verde a naranja sin amarillo, y el esquema no pone la erupción en días o semanas. No calcules el riesgo con el color anterior. Lee el boletín más reciente del SGC.",
         "variants": [
-          "No esperes a que recorra todos los colores. Usa el boletín vigente para decidir si viajas."
+          "No esperes a que recorra todos los colores. El boletín más reciente del SGC, no el color anterior, es el que vale para tu salida."
         ]
       },
       "sources": [
@@ -563,7 +583,7 @@
     },
     {
       "id": "weather_volcano.current_alert",
-      "label": "alerta vigente del Ruiz",
+      "label": "dónde ver la alerta actual del Ruiz",
       "kind": "procedure",
       "audience": "visitor",
       "lang": "es",
@@ -585,19 +605,19 @@
         "qué página publica la actividad del volcán",
         "como se si el volcan esta tranquilo hoy?",
         "dónde miro las novedades del Nevado del Ruiz",
-        "el Observatorio de Manizales publica informes",
         "qué fuente oficial vigila el volcán",
         "dónde están los boletines semanales",
-        "cómo saber qué reportó el observatorio",
         "boletines oficiales del nevado",
         "donde veo el ultimo boletin del ruiz",
-        "toca revisar SGC u Observatorio",
         "where are the official Ruiz bulletins",
-        "how can I check volcano updates"
+        "how can I check volcano updates",
+        "el Observatorio de Manizales publica informes",
+        "cómo saber qué reportó el observatorio"
       ],
       "hard_negatives": [
-        "síntomas de soroche",
-        "me dio dolor de cabeza al llegar arriba"
+        "qué significa alerta amarilla del Ruiz",
+        "el observatorio de manizales publica la alerta",
+        "qué es un boletín extraordinario del volcán"
       ],
       "needs": [],
       "answer": {
@@ -651,8 +671,8 @@
         "how is Nevado del Ruiz monitored"
       ],
       "hard_negatives": [
-        "cuándo se creó el parque",
-        "es pesado para el cuerpo ir al parque"
+        "qué alerta tiene hoy el Nevado del Ruiz",
+        "el observatorio de manizales publica la alerta"
       ],
       "needs": [],
       "answer": {
@@ -756,8 +776,9 @@
         "is sulfur dioxide dangerous near Ruiz"
       ],
       "hard_negatives": [
-        "qué riesgo tiene la altura",
-        "qué pasó en Armero"
+        "huele a azufre en el páramo",
+        "se diluyen antes de las zonas pobladas",
+        "qué alerta tiene hoy el Nevado del Ruiz"
       ],
       "needs": [],
       "answer": {
@@ -787,7 +808,7 @@
     },
     {
       "id": "weather_volcano.volcanic_closures",
-      "label": "cierres por actividad volcánica",
+      "label": "cumbre y ciclomontañismo restringidos por volcán",
       "kind": "rule",
       "audience": "visitor",
       "lang": "es",
@@ -807,14 +828,15 @@
         "is summit access restricted because of Ruiz"
       ],
       "hard_negatives": [
-        "es pesado para el cuerpo ir al parque",
-        "síntomas de soroche"
+        "cierres por volcán",
+        "qué significa alerta amarilla del Ruiz",
+        "en amarilla puedo subir a la parte alta"
       ],
       "needs": [],
       "answer": {
-        "short": "Parques ha restringido la cumbre nevada y el ciclomontañismo entre Brisas, Arenales y Valle de las Tumbas por actividad volcánica, y puede ordenar cierre y evacuación en cualquier momento. No es el horario del parque. Confirma el aviso del día con el personal.",
+        "short": "La Resolución 268 del 22 de octubre de 2024 lista el ascenso a la cumbre nevada y el ciclomontañismo Brisas–Arenales–Valle de las Tumbas como restringidos por actividad volcánica, y dice que puede ordenarse cierre y evacuación en cualquier momento. En ese texto el Ruiz figuraba en alerta amarilla: es el dato de la resolución, no el de hoy. Confirma el aviso del día con el personal del parque y el boletín del SGC; esto no es el horario de apertura.",
         "variants": [
-          "Esas restricciones no dicen si hoy está abierto. Pregunta el aviso vigente al personal del parque antes de subir."
+          "La Resolución 259 del 09 de octubre de 2024 también prevé cierre y evacuación, y pide seguir a los guardaparques. Ninguna de las dos dice si el sector está abierto hoy."
         ]
       },
       "sources": [
@@ -943,7 +965,7 @@
     },
     {
       "id": "weather_volcano.helada_meaning",
-      "label": "helada meteorológica en la madrugada",
+      "label": "definición de helada meteorológica",
       "kind": "fact",
       "audience": "visitor",
       "lang": "es",
@@ -962,8 +984,9 @@
         "is helada the same thing as snow"
       ],
       "hard_negatives": [
-        "síntomas de soroche",
-        "me dio dolor de cabeza al llegar arriba"
+        "la helada se quita cuando sale el sol",
+        "la helada del parque es igual a la del altiplano",
+        "nieva en Los Nevados"
       ],
       "needs": [],
       "answer": {
@@ -1012,8 +1035,9 @@
         "does frost last all day in the mountains"
       ],
       "hard_negatives": [
-        "hay cierres",
-        "qué riesgo tiene la altura"
+        "qué es una helada en la montaña",
+        "la helada es lo mismo que la nieve",
+        "nieva en Los Nevados"
       ],
       "needs": [],
       "answer": {
@@ -1067,8 +1091,8 @@
         "is the three day map valid for the summit"
       ],
       "hard_negatives": [
-        "cuándo se creó el parque",
-        "es pesado para el cuerpo ir al parque"
+        "dónde miro el pronóstico del parque",
+        "se va a ver la cumbre del Ruiz"
       ],
       "needs": [],
       "answer": {
@@ -1281,8 +1305,9 @@
         "who decides when visitors must leave"
       ],
       "hard_negatives": [
-        "está abierto hoy",
-        "hay cierres"
+        "qué significa alerta roja del Ruiz",
+        "los volcanes del parque comparten la misma alerta",
+        "qué alerta tiene hoy el Nevado del Ruiz"
       ],
       "needs": [],
       "answer": {
@@ -1312,7 +1337,7 @@
     },
     {
       "id": "weather_volcano.yellow_upper_access",
-      "label": "parte alta en alerta amarilla",
+      "label": "cima restringida en amarilla",
       "kind": "safety",
       "audience": "visitor",
       "lang": "es",
@@ -1331,20 +1356,26 @@
         "does yellow alert close the summit by itself"
       ],
       "hard_negatives": [
-        "qué pasó en Armero",
-        "cuándo se creó el parque"
+        "qué significa alerta amarilla del Ruiz",
+        "puedo hacer ciclomontañismo por Brisas",
+        "qué alerta tiene hoy el Nevado del Ruiz"
       ],
       "needs": [],
       "answer": {
-        "short": "En amarilla el SGC recomienda restringir la parte alta, y eso depende del volcán. Parques además ha limitado cumbres por actividad volcánica. El color no abre ni cierra el sector: pregúntalo al personal del parque el mismo día.",
+        "short": "En el esquema del SGC del 14 de septiembre de 2023, la alerta amarilla recomienda restringir la parte alta, y eso depende del volcán. La Resolución 268 del 22 de octubre de 2024 dejó restringido el ascenso a la cumbre por actividad volcánica, pero no abre ni cierra el sector hoy. Pregúntalo al personal del parque el mismo día y lee el boletín del SGC.",
         "variants": [
-          "No subas a la parte alta solo porque el color es amarillo. Confirma el ingreso con el personal del parque."
+          "El color amarillo no te autoriza la cima. Confirma el ingreso con el personal del parque el mismo día."
         ]
       },
       "sources": [
         {
           "label": "SGC, esquema de estados de alerta",
           "url": "https://www2.sgc.gov.co/Paginas/estados-de-alerta-volcanes.aspx",
+          "retrieved_at": "2026-11-21"
+        },
+        {
+          "label": "SGC, cambio del esquema de alertas",
+          "url": "https://www2.sgc.gov.co/Noticias/Paginas/Colombia-cambia-su-esquema-de-medicion-de-la-actividad-volcanica.aspx",
           "retrieved_at": "2026-11-21"
         },
         {
@@ -1472,7 +1503,7 @@
     },
     {
       "id": "weather_volcano.orange_near_volcano",
-      "label": "lahares pequeños en naranja",
+      "label": "riesgos junto al cráter en naranja",
       "kind": "safety",
       "audience": "visitor",
       "lang": "es",
@@ -1491,8 +1522,9 @@
         "are small lahars part of orange alert"
       ],
       "hard_negatives": [
-        "cuándo se creó el parque",
-        "es pesado para el cuerpo ir al parque"
+        "qué significa alerta naranja del Ruiz",
+        "qué es un flujo piroclástico",
+        "salen piedras del cráter en naranja"
       ],
       "needs": [],
       "answer": {
@@ -1695,12 +1727,13 @@
         "is Santa Isabel the same alert as Ruiz"
       ],
       "hard_negatives": [
-        "está abierto hoy",
-        "hay cierres"
+        "qué alerta tiene hoy el Nevado del Ruiz",
+        "dónde veo la alerta del cerro machín",
+        "los volcanes del parque comparten la misma alerta"
       ],
       "needs": [],
       "answer": {
-        "short": "El Santa Isabel no hereda el color del Ruiz: el SGC le hace boletín semanal propio. Su ficha todavía dice que es un volcán activo en estado de reposo; no uses esa frase como el estado de hoy. Abre el boletín más reciente antes de subir.",
+        "short": "El Santa Isabel no hereda el color del Ruiz. El boletín del 10 al 16 de noviembre de 2026 es solo un ejemplo fechado de su canal semanal y ya puede no servir: abre el más reciente. La ficha de generalidades dice que es un volcán activo en estado de reposo; esa frase no es la alerta de hoy.",
         "variants": [
           "Reposo en la ficha no es el color de esta semana. Confirma el boletín del Santa Isabel y no el del Ruiz."
         ]
@@ -1749,14 +1782,14 @@
         "is the Machín status on the general page enough"
       ],
       "hard_negatives": [
-        "síntomas de soroche",
-        "me dio dolor de cabeza al llegar arriba"
+        "dónde miro la alerta del santa isabel",
+        "qué alerta tiene hoy el Nevado del Ruiz"
       ],
       "needs": [],
       "answer": {
-        "short": "El Cerro Machín, en el Tolima, tiene boletines semanales, mensuales y extraordinarios. Su ficha mezcla una línea de estado con la frase de volcán en reposo. No des por bueno un pantallazo: abre el boletín más reciente antes de viajar por ese lado.",
+        "short": "El Cerro Machín, en el Tolima, tiene boletines semanales y extraordinarios; la lista incluye el del 10 al 16 de noviembre de 2026, que no fija el estado de hoy. La ficha trae una línea de cambios frente al nivel base y, más abajo, que es un volcán activo en estado de reposo. No uses ninguna de las dos: abre el boletín más reciente.",
         "variants": [
-          "La ficha puede quedar vieja el mismo día. Usa la lista de boletines del Machín en el SGC y quédate con el último."
+          "La ficha puede contradecirse y quedarse vieja. Usa la lista de boletines del Machín en el SGC y quédate con el último."
         ]
       },
       "sources": [
@@ -1815,8 +1848,8 @@
         "does Ruiz alert apply to Nevado del Tolima"
       ],
       "hard_negatives": [
-        "hay cierres",
-        "qué riesgo tiene la altura"
+        "toda alerta volcánica es para evacuar ya",
+        "qué alerta tiene hoy el Nevado del Ruiz"
       ],
       "needs": [],
       "answer": {
@@ -1871,11 +1904,12 @@
         "manizales vigila el ruiz pero el boletin es del sgc",
         "no uses el articulo de la alcaldia como estado",
         "does the Manizales observatory set the alert",
-        "who officially publishes the Ruiz status"
+        "who officially publishes the Ruiz status",
+        "toca revisar SGC u Observatorio"
       ],
       "hard_negatives": [
-        "cuándo se creó el parque",
-        "es pesado para el cuerpo ir al parque"
+        "qué alerta tiene hoy el Nevado del Ruiz",
+        "qué señales vigila el SGC en el Ruiz"
       ],
       "needs": [],
       "answer": {
@@ -1983,9 +2017,9 @@
       ],
       "needs": [],
       "answer": {
-        "short": "La ceniza puede dejar el agua no apta. Tapa los depósitos, no bebas de ríos o quebradas de montaña cerca del volcán y, si hay ceniza en el agua guardada, déjala reposar y usa solo lo limpio. Confirma con las autoridades si sigue sirviendo.",
+        "short": "No bebas de ríos o quebradas de montaña cerca del volcán: la UNGRD dice que pueden estar contaminados y pide tapar los depósitos. Si hay ceniza en el agua guardada, la guía del SGC dice dejarla reposar y usar solo lo limpio; ese texto habla de sabor desagradable más que de un daño. Confirma con las autoridades si sigue sirviendo.",
         "variants": [
-          "No tomes de la quebrada después de la ceniza. Tapa lo que guardes, deja reposar lo turbio y pregunta si el agua del lugar sigue apta."
+          "Tapa los depósitos y no bebas de la quebrada. Si el agua guardada tiene ceniza, déjala reposar y usa solo lo limpio."
         ]
       },
       "sources": [
@@ -2093,24 +2127,24 @@
       ],
       "needs": [],
       "answer": {
-        "short": "Hay dos instrucciones: la UNGRD dice retirar la ceniza del techo sin agua, y la guía del SGC permite humedecerla poco para no levantar polvo, sin empapar el techo. En el parque no subas a limpiarlo: avisa al personal.",
+        "short": "No empapés el techo ni te subas a quitar la ceniza: avisa al personal del parque. La guía del SGC advierte que la ceniza demasiado húmeda puede colapsar el techo, y la UNGRD pide retirarla sin utilizar agua; no hagas ninguna de las dos por tu cuenta.",
         "variants": [
-          "No encharques el techo ni te subas por tu cuenta. Avisa a quien opera el refugio y sigue su instrucción."
+          "En el refugio no limpies el techo ni le eches agua. Avísale al personal y no elijas tú entre mojarlo o barrerlo en seco."
         ]
       },
       "sources": [
         {
           "label": "UNGRD, comunidades preparadas ante erupciones",
           "url": "http://repositorio.gestiondelriesgo.gov.co/bitstream/handle/20.500.11762/19985/Comunidades_preparadas_ante_erupciones_volcanicas.pdf?sequence=1",
-          "retrieved_at": "2026-11-21"
+          "retrieved_at": "2026-11-22"
         },
         {
           "label": "SGC, guía de preparación ante lluvia de cenizas",
           "url": "https://www2.sgc.gov.co/Direcciones-Tecnicas/Geoamenazas/Documents/Guia_preparacion_lluvia_cenizas.pdf",
-          "retrieved_at": "2026-11-21"
+          "retrieved_at": "2026-11-22"
         }
       ],
-      "last_verified": "2026-11-21",
+      "last_verified": "2026-11-22",
       "related": [
         "weather_volcano.ash_actions",
         "weather_volcano.ash_resuspends",
@@ -2442,8 +2476,8 @@
         "does dilution make the crater safe"
       ],
       "hard_negatives": [
-        "es pesado para el cuerpo ir al parque",
-        "síntomas de soroche"
+        "qué gases emite el Nevado del Ruiz",
+        "huele a azufre en el páramo"
       ],
       "needs": [],
       "answer": {
@@ -2492,8 +2526,8 @@
         "can I watch a hot ash cloud from the slope"
       ],
       "hard_negatives": [
-        "está abierto hoy",
-        "hay cierres"
+        "proyectiles balísticos del volcán",
+        "salen piedras del cráter en naranja"
       ],
       "needs": [],
       "answer": {
@@ -2547,8 +2581,8 @@
         "is the upper slope safe for watching explosions"
       ],
       "hard_negatives": [
-        "qué pasó en Armero",
-        "cuándo se creó el parque"
+        "qué es un flujo piroclástico",
+        "en naranja hay lahares pequeños"
       ],
       "needs": [],
       "answer": {
@@ -2647,8 +2681,9 @@
         "are fumaroles a reason to approach the crater"
       ],
       "hard_negatives": [
-        "hay cierres",
-        "qué riesgo tiene la altura"
+        "qué gases emite el Nevado del Ruiz",
+        "se diluyen antes de las zonas pobladas",
+        "qué significa alerta verde del volcán"
       ],
       "needs": [],
       "answer": {
