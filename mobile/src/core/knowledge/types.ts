@@ -1,5 +1,5 @@
 // Contract between the knowledge engine and the chat UI. Pure types; no React/RN imports.
-// Design: docs/phase3-architecture.md §2. The engine never states a fact that is not a curated answer.
+// Design: docs/history/phase3-architecture.md §2. The engine never states a fact that is not a curated answer.
 
 export type EntryKind = 'faq' | 'action' | 'emergency';
 

@@ -1,5 +1,5 @@
 // Builds the on-device KnowledgeEngine: bundled JSON assets + side-loaded e5 GGUF, index vectors and
-// ONNX scorer (scripts/push-knowledge.sh). Laya stays off until policy.laya.enabled (docs/phase3-architecture.md §1.4).
+// ONNX scorer (scripts/push-knowledge.sh). Laya stays off until policy.laya.enabled (docs/history/phase3-architecture.md §1.4).
 import catalog from '@/../assets/data/knowledge/catalog.json';
 import manifest from '@/../assets/data/knowledge/index.json';
 import policy from '@/../assets/data/knowledge/policy.json';

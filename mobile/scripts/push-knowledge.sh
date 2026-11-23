@@ -9,7 +9,7 @@ HERE="$(cd "$(dirname "$0")/.." && pwd)"
 ROOT="$(cd "$HERE/.." && pwd)"
 PKG="co.nevados.assistant"
 MANIFEST="$HERE/assets/data/knowledge/index.json"
-[[ -f "$MANIFEST" ]] || { echo "missing $MANIFEST: run experiments/laya/export_knowledge.py" >&2; exit 1; }
+[[ -f "$MANIFEST" ]] || { echo "missing $MANIFEST: run experiments/nlu/export_nlu.py (docs/architecture.md)" >&2; exit 1; }
 
 read -r GGUF BIN SCORER < <(python3 -c 'import json,sys; m=json.load(open(sys.argv[1])); print(m["embedder"].get("file","-"), m["vectors"]["file"], m["scorer"]["file"])' "$MANIFEST")
 [[ "$GGUF" != "-" ]] || { echo "manifest was built with sentence-transformers; re-export with --embedder gguf" >&2; exit 1; }

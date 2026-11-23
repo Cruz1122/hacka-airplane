@@ -24,7 +24,7 @@ SECTIONS_DIR = (
 SCHEMA = ROOT / "docs/schemas/knowledge-section.schema.json"
 CONVERTED_AT = "2026-11-21"
 
-# v0 label -> (section, entry id suffix, kind). Phase 1 mapping from docs/plan-knowledge-system.md.
+# v0 label -> (section, entry id suffix, kind). Phase 1 mapping from docs/history/plan-knowledge-system.md.
 MAPPING: dict[str, tuple[str, str, str]] = {
     "cómo llegar desde Manizales": ("access", "from_manizales", "procedure"),
     "cómo entrar en vehículo": ("access", "by_vehicle", "procedure"),

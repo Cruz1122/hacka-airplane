@@ -3,7 +3,7 @@
   uv run python eval_ft.py /path/to/laya_ft_ckpt_A     # unzipped checkpoint from the Colab notebook
 
 The e5-base baseline is computed on the same rows (pool order = e5 rank, meta.cos = cosine).
-Rule (docs/plan-knowledge-system.md): versus the BEST embedding-only setup, +5 points top-1, or
+Rule (docs/history/plan-knowledge-system.md): versus the BEST embedding-only setup, +5 points top-1, or
 +10 points answered at <= 3 % wrong; and int8 p50 <= 400 ms on the laptop CPU with k = 5.
 fp32 ONNX runs on the same rows so a miss can be blamed on the model or on quantization.
 """

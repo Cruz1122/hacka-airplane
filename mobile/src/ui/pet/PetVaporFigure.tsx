@@ -1,5 +1,5 @@
-// The Pet drawn as vapor, for scenes where it rises out of the volcano's crater. Same geometry and
-// face as PetFigure; the body stays solid and defined, a soft halo of steam-like puffs behind it
+// The Pet drawn as vapor, for scenes where it rises out of the volcano's crater. Its geometry and
+// face come from petFrame; the body stays solid and defined, a soft halo of steam-like puffs behind it
 // makes the outline billow, and the tail thins into vapor at its tip. No filters, masks or clips
 // (they re-rasterize every frame on Android).
 import { Circle, Defs, G, LinearGradient, Path, RadialGradient, Stop } from 'react-native-svg';

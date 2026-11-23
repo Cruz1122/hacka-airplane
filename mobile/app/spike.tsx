@@ -1,4 +1,4 @@
-// Dev-only device spike (docs/phase3-implementation-plan.md unit 6): open nevados://spike.
+// Dev-only device spike (docs/history/phase3-implementation-plan.md unit 6): open nevados://spike.
 // Loads the real runtime (e5 GGUF + vectors + ONNX scorer), asks the 120 retrieval fixture
 // questions and checks every pool against the Python export. Logs one "SPIKE {json}" line to Metro.
 import { useEffect, useState } from 'react';

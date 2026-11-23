@@ -1,4 +1,4 @@
-// Reranker seam (docs/phase3-architecture.md §2). Laya plugs in here later; it may only reorder the
+// Reranker seam (docs/history/phase3-architecture.md §2). Laya plugs in here later; it may only reorder the
 // e5 pool ("reorder_only"), never add, drop or cut it.
 
 export interface Reranker {

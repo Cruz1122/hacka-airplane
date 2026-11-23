@@ -4,7 +4,7 @@
  * Ported verbatim from the RuizAvatar v3.3 drop-in (adapted from Cruz1122/fleibo-face,
  * https://github.com/Cruz1122/fleibo-face). Only exported names changed (Ruiz -> Pet) and the
  * preset starts at rest instead of mid-speech. The upstream DOM mount (innerHTML, window
- * listeners) is replaced by `petFrame` + PetFigure so the same drawing runs on Android, iOS and web.
+ * listeners) is replaced by `petFrame` + PetVaporFigure (SVG) or drawPet (Skia) so the same drawing runs on Android, iOS and web.
  */
 export type EasingName = 'linear' | 'easeInOutCubic' | 'easeOutCubic';
 export interface FaceState {

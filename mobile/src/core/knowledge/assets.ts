@@ -1,4 +1,4 @@
-// Shapes of the GENERATED knowledge assets (experiments/laya/export_knowledge.py) and their
+// Shapes of the GENERATED knowledge assets (experiments/nlu/export_nlu.py) and their
 // load-time validation. The vectors are side-loaded, so they arrive as a Float32Array argument.
 
 import type { EntryKind } from './types';
