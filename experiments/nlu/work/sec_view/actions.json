@@ -1,0 +1,212 @@
+[
+{
+"id": "actions.register_planned_visit",
+"label": "registrar una visita para otra fecha",
+"kind": "action",
+"examples": [
+"quiero registrar mi visita para el sábado",
+"registrar un grupo para una fecha futura",
+"cómo dejo registrado mi grupo para otro día",
+"anotar a cuatro personas para el domingo",
+"registro de visita para el puente festivo"
+],
+"short": "Esta pantalla prepara un registro local en el teléfono; no reserva ni registra tu ingreso ante Parques Nacionales. La ficha consultada el 22 de noviembre de 2026 distingue dos reglas: el recorrido Brisas–Valle de las Tumbas, en fines de semana y puentes festivos, exige reserva con al menos un día en reservasnevados.com, y el ingreso al sector Brisas-Kumanday no obliga la reserva, solo la recomienda con ese plazo por los cupos. En los demás sectores la reserva sí es obligatoria y la gestiona la agencia operadora registrada.",
+"variants": [
+"Lo que confirmas aquí queda guardado en el teléfono y no es una reserva ni un ingreso ante Parques Nacionales. Brisas–Valle de las Tumbas, en fines de semana y puentes, pide reserva indispensable con al menos un día en reservasnevados.com; Brisas-Kumanday no hace obligatoria esa reserva y solo la recomienda. Los otros sectores sí exigen reserva con la agencia operadora registrada."
+],
+"steps": [
+"Dime el sector, la fecha, el número de personas y el tipo de visitante. Revisa los datos antes de confirmar. Esta pantalla prepara un registro local; no reserva ni registra tu ingreso ante Parques Nacionales.",
+"Los horarios dependen de los puntos de registro e ingreso del parque. Para el recorrido Brisas–Valle de las Tumbas, en fines de semana y puentes festivos, es indispensable reservar con al menos un día de anticipación en reservasnevados.com. En el sector Brisas-Kumanday la reserva no es obligatoria; la ficha recomienda ese mismo plazo en reservasnevados.com porque los cupos diarios son limitados. En los demás sectores la reserva sí es obligatoria y la gestiona la agencia operadora registrada. La ficha consultada el 22 de noviembre de 2026 dice que la Resolución 1815 (24 de julio de 2026) aplica en noviembre a fines de semana y puentes para el atractivo Brisas–Valle de las Tumbas. No confirma si sigue aplicando el día de tu visita."
+],
+"detail": null
+},
+{
+"id": "actions.register_arrival_today",
+"label": "registrar mi llegada al sector hoy",
+"kind": "action",
+"examples": [
+"ya llegué a la entrada, quiero registrarme",
+"estoy en el punto de ingreso, cómo me registro",
+"llegamos hoy al sector, registro el grupo",
+"registrar llegada hoy",
+"ya estoy en Brisas, anoto a mi grupo"
+],
+"short": "Si ya estás en la entrada, dime el sector, cuántas personas son y el tipo de visitante. Esta pantalla deja un registro local en el teléfono; no registra tu ingreso ante Parques Nacionales. Los horarios dependen de los puntos de registro e ingreso del parque.",
+"variants": [
+"Ya en la entrada, dime el sector, el número de personas y si son nacionales o extranjeros, y revisa los datos antes de confirmar. Lo que guardo aquí no es el ingreso oficial ante Parques Nacionales."
+],
+"steps": [
+"Dime el sector en el que estás, el número de personas y el tipo de visitante. Revisa los datos antes de confirmar en la app.",
+"Los horarios dependen de los puntos de registro e ingreso del parque."
+],
+"detail": null
+},
+{
+"id": "actions.report_emergency_general",
+"label": "preparar el reporte de emergencia",
+"kind": "action",
+"examples": [
+"hay una emergencia",
+"quiero reportar una emergencia",
+"necesito ayuda urgente",
+"es una emergencia y no sé a quién llamar",
+"cómo reporto una emergencia"
+],
+"short": "Si hay peligro inmediato, marca el 123 cuando tengas señal. Una nota de la Policía del 12 de marzo de 2023 lo describe como la línea única de emergencias nacional, gratuita y atendida las 24 horas. La app no avisa a rescate; después te llevo al reporte de emergencia para preparar los datos.",
+"variants": [
+"Si la situación es urgente, marca el 123 cuando tengas señal; la nota del 12 de marzo de 2023 lo trata como línea única, gratuita y de 24 horas, y esta app no avisa a rescate. Luego te llevo al reporte para indicar sector, tipo y número de personas."
+],
+"steps": [
+"Si hay peligro inmediato, marca el 123 cuando tengas señal. Si tienes un guía registrado, avísale de inmediato.",
+"Te llevo al reporte de emergencia para preparar el sector, el tipo de emergencia y cuántas personas están involucradas."
+],
+"detail": "Una nota de la Policía del 12 de marzo de 2023 llama al 123 la línea única de emergencias nacional y dice que el mal uso de la línea puede evitar la atención de una emergencia real."
+},
+{
+"id": "actions.report_injury",
+"label": "preparar el reporte de una lesión",
+"kind": "action",
+"examples": [
+"se lastimó alguien del grupo",
+"se cayó y se lastimó la pierna",
+"reportar un accidente en el sendero",
+"mi amigo se torció el tobillo",
+"se fracturo la mano, no puede mover los dedos"
+],
+"short": "Si la persona está herida o no puede caminar, marca el 123 cuando tengas señal; la app no avisa a rescate. Te llevo al reporte de lesión para preparar el sector y cuántas personas están involucradas. Esa indicación sale de una nota de la Policía del 12 de marzo de 2023 y no confirma la cobertura de hoy.",
+"variants": [
+"Con una lesión grave o si no puede caminar, marca el 123 cuando tengas señal; la app no avisa a rescate. Luego te llevo al reporte de lesión para indicar sector y personas involucradas. La nota de la Policía es del 12 de marzo de 2023 y no describe la cobertura de hoy."
+],
+"steps": [
+"Si hay una lesión grave o no puede caminar, marca el 123 cuando tengas señal. Si tienes guía registrado, avísale: según el parque, los guías registrados deben contar con equipo médico de respuesta y radios.",
+"Te llevo al reporte de lesión para preparar el sector, cuántas personas están involucradas y la referencia del sendero."
+],
+"detail": null
+},
+{
+"id": "actions.report_lost_person",
+"label": "preparar reporte de persona perdida",
+"kind": "action",
+"examples": [
+"se perdio mi amigo en el paramo",
+"perdí de vista a mi hijo en el sendero",
+"una persona no volvió del recorrido",
+"persona desaparecida en la montaña",
+"mi compañero se separó del grupo y no aparece"
+],
+"short": "Permanezcan unidos sin dispersarse ni salirse de los senderos autorizados y avisen de inmediato al guía (quien tiene la obligación de colaborar y notificar a las autoridades competentes) o al personal del parque. Marquen el 123 cuando tengan señal; la app no avisa a rescate. Te llevo al reporte de persona perdida para preparar el sector, cuántas personas faltan y la última referencia del recorrido. Esa indicación sale de una nota de la Policía del 12 de marzo de 2023 y no confirma la cobertura de hoy.",
+"variants": [
+"Permanezcan juntos en los senderos establecidos sin dispersarse y avisen de inmediato a su guía para que notifique a las autoridades competentes; llamen al 123 en cuanto tengan señal. La app no avisa a rescate. Luego te llevo al reporte para indicar sector, personas que faltan y la última referencia. La nota de la Policía es del 12 de marzo de 2023 y no describe la cobertura de hoy."
+],
+"steps": [
+"Permanezcan unidos sin dispersarse ni salirse de los senderos autorizados, y avisen de inmediato a su guía (quien tiene la obligación reglamentaria de avisar a las autoridades competentes) o al personal del parque. Si alguien de tu grupo no aparece, marca el 123 cuando tengas señal; la app no avisa a rescate.",
+"Te llevo al reporte de persona perdida para preparar el sector, cuántas personas faltan y la última referencia del recorrido."
+],
+"detail": null
+},
+{
+"id": "actions.report_altitude_sickness",
+"label": "preparar reporte de mal de altura",
+"kind": "action",
+"examples": [
+"mi compañera tiene mal de altura",
+"a alguien le dio soroche",
+"mi hermano está muy mareado por la altura",
+"se desmayó por la altura",
+"persona con dolor de cabeza fuerte en la cumbre"
+],
+"short": "Si la persona empeora o no responde bien, marca el 123 cuando tengas señal; la app no avisa a rescate. Te llevo al reporte de mal de altura para preparar el sector y cuántas personas están involucradas. Esa indicación sale de una nota de la Policía del 12 de marzo de 2023 y no confirma la cobertura de hoy.",
+"variants": [
+"Con soroche que empeora, marca el 123 cuando tengas señal; la app no avisa a rescate. Luego te llevo al reporte de mal de altura para indicar sector y personas involucradas. La nota de la Policía es del 12 de marzo de 2023 y no describe la cobertura de hoy."
+],
+"steps": [
+"Si la persona empeora o no responde bien, marca el 123 cuando tengas señal. Si tienes guía registrado, avísale: según el parque, debe contar con equipo médico de respuesta.",
+"Te llevo al reporte de mal de altura para preparar el sector y cuántas personas están involucradas."
+],
+"detail": null
+},
+{
+"id": "actions.report_hypothermia",
+"label": "preparar el reporte de hipotermia",
+"kind": "action",
+"examples": [
+"mi amigo está congelado y no habla bien",
+"compañero con hipotermia",
+"tiene frio y tirita mucho",
+"mi hermano está temblando y muy confundido",
+"se mojó con la lluvia y tiembla feo"
+],
+"short": "Resguarda a la persona del frío y la humedad, retírale la ropa mojada, cúbrela con capas secas, no le des bebidas si está inconsciente ni suministres alcohol, y avisa de inmediato a tu guía. Si está confundida o no puede moverse, marca el 123 cuando tengas señal; la app no avisa a rescate. Te llevo al reporte de hipotermia para preparar el sector y cuántas personas están involucradas. Esa indicación sale de una nota de la Policía del 12 de marzo de 2023 y no confirma la cobertura de hoy.",
+"variants": [
+"Protege a la persona del frío y la humedad, cámbiale la ropa mojada por capas secas, evita el alcohol, nunca le des bebidas si está inconsciente y avisa al guía; marca el 123 cuando tengas señal. La app no avisa a rescate. Luego te llevo al reporte para indicar sector y personas involucradas. La nota de la Policía es del 12 de marzo de 2023 y no describe la cobertura de hoy."
+],
+"steps": [
+"Resguarda a la persona del frío y la humedad, retírale la ropa mojada, cúbrela con capas secas, sin suministrar alcohol ni darle bebidas si está inconsciente, y avisa a tu guía registrado. Si la persona está confundida o no puede moverse, marca el 123 cuando tengas señal; la app no avisa a rescate.",
+"Te llevo al reporte de hipotermia para preparar el sector y cuántas personas están involucradas."
+],
+"detail": null
+},
+{
+"id": "actions.report_storm",
+"label": "preparar reporte de tormenta eléctrica",
+"kind": "action",
+"examples": [
+"hay tormenta electrica, ayuda",
+"caen rayos cerca del grupo",
+"nos cayó un rayo",
+"truenos y rayos en la cumbre",
+"tormenta con granizo y rayos en el páramo"
+],
+"short": "Si hay personas heridas o en peligro, marca el 123 cuando tengas señal; la app no avisa a rescate. Te llevo al reporte de tormenta eléctrica para preparar el sector y cuántas personas están involucradas. Esa indicación sale de una nota de la Policía del 12 de marzo de 2023 y no confirma la cobertura de hoy.",
+"variants": [
+"Con tormenta eléctrica y personas en peligro, marca el 123 cuando tengas señal; la app no avisa a rescate. Luego te llevo al reporte de tormenta para indicar sector y personas involucradas. La nota de la Policía es del 12 de marzo de 2023 y no describe la cobertura de hoy."
+],
+"steps": [
+"Si hay personas heridas o en peligro, marca el 123 cuando tengas señal. Si vas con guía registrado, avísale de inmediato.",
+"Te llevo al reporte de tormenta eléctrica para preparar el sector y cuántas personas están involucradas."
+],
+"detail": null
+},
+{
+"id": "actions.report_fire",
+"label": "abrir el reporte de un incendio",
+"kind": "action",
+"examples": [
+"hay fuego en el paramo",
+"se está quemando el pajonal",
+"incendio forestal cerca del sendero",
+"humo y fuego cerca de la laguna",
+"reportar candela en la montaña"
+],
+"short": "Si hay fuego o humo cerca de personas, marca el 123 cuando tengas señal; la app no avisa a rescate. Te llevo al reporte de incendio para preparar el sector y cuántas personas están involucradas. Esa indicación sale de una nota de la Policía del 12 de marzo de 2023 y no confirma la cobertura de hoy.",
+"variants": [
+"Con fuego cerca, marca el 123 cuando tengas señal; la app no avisa a rescate. Luego te llevo al reporte de incendio para indicar sector y personas involucradas. La nota de la Policía es del 12 de marzo de 2023 y no describe la cobertura de hoy."
+],
+"steps": [
+"Si hay fuego o humo cerca de personas, marca el 123 cuando tengas señal. Si vas con guía registrado, avísale: según el parque, sus guías deben contar con radios.",
+"Te llevo al reporte de incendio para preparar el sector y cuántas personas están involucradas."
+],
+"detail": null
+},
+{
+"id": "actions.report_offline_emergency",
+"label": "preparar reporte de emergencia sin señal",
+"kind": "action",
+"examples": [
+"no tengo señal y hay una emergencia aquí",
+"estamos sin cobertura y alguien está mal",
+"sin senal, como aviso que hay un herido",
+"se acabó la señal y tenemos una emergencia",
+"no hay señal pero hay que pedir ayuda ya"
+],
+"short": "Sin señal, la app no avisa a rescate: avisa de inmediato a tu guía registrado y, si puedes llamar sin exponerte a más peligro, marca el 123. Te llevo al reporte de emergencia para preparar los datos. Esa indicación sale de una nota de la Policía del 12 de marzo de 2023 y no confirma la cobertura de hoy.",
+"variants": [
+"Esta app no puede avisar a rescate. Avisa de inmediato a tu guía y marca el 123 si consigues señal sin exponerte a más peligro. La nota de la Policía es del 12 de marzo de 2023 y no describe la cobertura de hoy."
+],
+"steps": [
+"Si tienes señal, marca el 123 primero. Si vas con guía registrado, avísale de inmediato: según el parque, debe contar con radios.",
+"Te llevo al reporte de emergencia para preparar el sector, el tipo de emergencia y cuántas personas están involucradas."
+],
+"detail": null
+}
+]

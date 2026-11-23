@@ -178,3 +178,98 @@ Phase 2 data:
 
 - format: (query, candidate answer) pairs, with hard negatives taken from the e5 top 5;
 - head: `choice` or NLI, the head this checkpoint already trained.
+
+## E9: Laya fine-tune setup on the Phase 2 corpus (2026-11-22)
+
+**New baseline: e5-base alone on the full corpus.**
+
+| Item | Value |
+|---|---|
+| Corpus | 806 entries, 10,068 examples |
+| Eval | Phase 2 clean subset: 1,630 paraphrases, 80 near miss, 80 out of scope |
+| Top-1 | 63.3 % |
+| Correct in top 3 | 82.2 % |
+| Correct in top 5 | 87.6 % |
+| Answered at ≤ 3 % wrong, cosine threshold | 16.9 % (3.1 % of out-of-domain answered) |
+| Answered at ≤ 3 % wrong, margin threshold | 26.5 % |
+
+Raw numbers are in `results/p1-laya/p2_baseline.json`.
+
+**Gate for the fine-tuned Laya, measured on ONNX int8 on the laptop CPU:**
+
+- top-1 ≥ 68.3 %, or ≥ 36.5 % answered at ≤ 3 % wrong;
+- p50 ≤ 400 ms at k = 5.
+
+**Format:**
+
+- one listwise `choice` question;
+- options are the e5 top-k labels plus `ninguna de estas opciones`;
+- pool size k is 3-5 during training, and options are shuffled each epoch.
+
+**Data:** `uv run python ft_data.py build` writes everything to `data/knowledge/laya_ft/`.
+
+| Item | Value |
+|---|---|
+| Training rows | 8,618 |
+| Rows whose target is "ninguna" | 2,393 (28 %, natural pool misses only) |
+| Dev rows | 450 |
+| Eval rows | 1,790 |
+
+- **Masking:** each training pool comes from e5 with the query's own vector masked.
+- **Held-out entries:** 81 entries (10 %) never appear in training. 162 eval rows target them, which
+  measures whether new topics need a retrain.
+
+**Chain verified locally on CPU** (`ft_smoke.py`, plus a tiny run through `eval_ft.py`):
+
+- dry_run, finetune, `laya.load`, 6-option predict, ONNX fp32 export and int8 all run;
+- fp32 ONNX gives the same probabilities as torch;
+- int8 changed a pick on the 1-epoch smoke model, so the gate runs both fp32 and int8.
+
+**Training:** in Colab, `notebooks/finetune_laya.ipynb`.
+
+1. A 200-row GPU smoke runs first.
+2. The full run uses grad_accum 1, which gives ~2,150 optimizer updates.
+3. The checkpoint (~650 MB) is zipped without the duplicate `checkpoint_latest/`, copied to Drive
+   and downloaded **before** evaluation.
+
+**Gate:** `uv run python eval_ft.py <checkpoint dir>`. It reports e5 (cosine and margin), Laya and
+Laya + cosine, each for all rows and for held-out entries, at k = 5 and k = 3, with per-row
+predictions on disk.
+
+## E10: fine-tuned Laya results (2026-11-22)
+
+Checkpoint `models/laya_ft_A`: run A, started from `laya-pt-es-nli`, trained in Colab. It was
+evaluated on the 1,790 Phase 2 eval rows on the laptop CPU, idle except for the browser. Raw numbers:
+`results/p1-laya/laya_ft_gate_laya_ft_A.json` and `quant_sweep_laya_ft_A.json`.
+
+| Runtime | Size | p50 / p95 | Top-1 Laya | Top-1 Laya + cos | Top-1, never-trained entries (Laya + cos) | Answered at ≤ 3 % wrong (Laya + cos) | Out-of-domain says "ninguna" |
+|---|---|---|---|---|---|---|---|
+| e5-base alone (baseline) | — | ~30 ms | 63.3 % | — | 64.8 % | 16.9 % cosine / 26.5 % margin | — |
+| ONNX int8 (all ops), k = 5 | 334 MB | 76 / 279 ms | 63.3 % | 65.0 % | 58.6 % | 23.2 % | 45.6 % |
+| ONNX int8 (all ops), k = 3 | 334 MB | 59 / 283 ms | 66.4 % | 67.0 % | 66.7 % | 26.8 % | 58.1 % |
+| ONNX fp32, k = 5 | 1,288 MB | 151 / 461 ms | 68.0 % | **69.3 %** | 60.5 % | 30.2 % | 55.0 % |
+| **ONNX int8 embeddings only (Gather), fp32 layers, k = 5** | **699 MB** | **114 / 463 ms** | 67.7 % | **69.3 %** | 60.5 % | **30.2 %** | 55.0 % |
+| ONNX int8 per-channel (all variants) | 334-924 MB | 71-86 ms | ~21 % | ~63 % | — | ≤ 15 % | — |
+
+**Verdict: pass on the top-1 rule, with embedding-only int8.**
+
+- Laya + cosine reaches 69.3 %, +6.0 points over e5 (the bar was ≥ 68.3 %).
+- p50 is 114 ms, under the 400 ms bar.
+- The coverage rule is not met: 30.2 % vs the 36.5 % bar.
+
+**Caveats:**
+
+1. **Quantization matters.**
+   - Full int8 loses ~4-6 points and no longer beats e5 at k = 5.
+   - Per-channel int8 breaks the model.
+   - Quantizing only the vocabulary table keeps fp32 accuracy at about half the fp32 size.
+2. **New topics need retraining.** On the 81 entries never seen in training, Laya + cos is 4.3
+   points *below* e5 (60.5 % vs 64.8 %). Adding a section or entry is safe for e5 alone but needs a
+   Laya retrain to keep the gain.
+3. **Out-of-domain rejection is weak.** "ninguna" fires on only 55 % of out-of-domain questions,
+   so a cosine floor must stay in front of Laya.
+4. **Phone memory is tight.**
+   - 699 MB resident for Laya on top of e5 and router r1, with ~1.5 GB free at idle.
+   - Phone latency and RAM are not measured.
+5. **Choice and a possible next run.** A single run with a fixed config. The k = 3 int8 result
+   (67.0 %) suggests that a retrain at k = 3 with int8-aware choices could get close at 334 MB. Not tested.

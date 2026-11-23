@@ -1,0 +1,15 @@
+- Cómo llegar y accesos: Rutas por tierra, sectores, porterías y transporte hasta el Parque Nacional Natural Los Nevados, desde las ciudades y veredas que publica Parques Nacionales.
+- Registrar visita y reportar emergencia: Acciones de la app para preparar el registro de una visita o un reporte de emergencia. La app no avisa a rescate; en una emergencia real, marca el 123 cuando tengas señal.
+- Qué hacer y qué visitar: Recorridos, senderos, miradores, cumbres, camping, fotografía y otras actividades de visita en Los Nevados, según el sector.
+- Reservas, tarifas y requisitos de ingreso: Información sobre reservas por sector, tarifas de ingreso, pagos, edad, seguro obligatorio y guías registrados para visitar Los Nevados.
+- Conversación con el asistente: Saludos, agradecimientos, despedidas, qué puede hacer el asistente, límites del asistente (sin conexión, idiomas, emergencias, acciones externas) y cómo responder a quejas, chistes y preguntas fuera del parque.
+- Fauna y vida silvestre: Animales que la ficha del parque, el listado de la CARDER, el plan de manejo y la lista nacional de especies amenazadas registran en Los Nevados o en su complejo de páramos, y cómo observarlos sin tocarlos.
+- Flora y ecosistemas de alta montaña: Ecosistemas del parque, páramo, subpáramo, superpáramo, bosque altoandino, frailejones, turberas, glaciares, agua y conservación.
+- Geografía del parque: Nevados, paramillos, alturas, lagunas, ríos, departamentos, municipios, sectores y la diferencia entre el área protegida y el volcán.
+- Salud y seguridad en alta montaña: Orientación general para reconocer malestares de altura, frío, sol y deshidratación, primeros auxilios básicos, pedir ayuda y visitar Los Nevados con precaución.
+- Historia y cultura: Nombres indígenas, creación del parque, erupciones históricas, memoria de Armero y la cultura campesina y cafetera ligada a Los Nevados.
+- Horarios y estado del parque: Horarios de ingreso y atención por sector, días de apertura, cierres por conservación o alertas y temporadas de visita.
+- Preparación y equipamiento: Recomendaciones de ropa en capas, calzado, equipo de montaña, hidratación, alimentación, condición física, qué llevar con niños, qué no llevar y listas de chequeo para visitar el parque.
+- Normas para visitar Los Nevados: Reglas de cuidado y autorizaciones para visitantes: mascotas, residuos, elementos naturales, sustancias, armas, fuego, ruido, fauna, sanciones y actividades especiales en el Parque Nacional Natural Los Nevados.
+- Servicios del parque: Centro de visitantes, baños, comida, alojamiento, tiendas, primeros auxilios, señal, accesibilidad y cómo confirmar los servicios de Parques Nacionales y de la concesión UTON en Los Nevados.
+- Clima y actividad volcánica: Clima de montaña, heladas, pronóstico, alertas volcánicas, ceniza, lahares y cómo consultar el estado de cada volcán sin fijar el color del día.
