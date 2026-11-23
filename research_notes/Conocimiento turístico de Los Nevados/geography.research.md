@@ -231,3 +231,46 @@ Los `.txt` de HTML salen de `evidence/html_to_text.py`. Las citas se verifican c
 
 - Reason: Delimitar sector geográfico frente a accesos y avistamiento faunístico.
 - Changed fields: examples
+
+
+## Updated entry: geography.park_area
+
+- Reason: Añadir fecha de consulta de la ficha PNN (22-11-2026) a las cifras de 61.388,24 y 61.410 ha, conservando Carder al 14-07-2026.
+- Changed fields: answer, last_verified
+
+- https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/ (checked 2026-11-22); evidence: `research_notes/Conocimiento turístico de Los Nevados/geography/evidence/raw/pnn_ficha_nevados.txt`
+
+> Extensión total
+> 61.388,24 ha
+
+- https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/ (checked 2026-11-22); evidence: `research_notes/Conocimiento turístico de Los Nevados/geography/evidence/raw/pnn_ficha_nevados.txt`
+
+> área geográfica de 61.410 hectáreas distribuidas en diez municipios: Santa Rosa de Cabal, Pereira,
+
+- https://www.carder.gov.co/pnn-los-nevados-un-patrimonio-natural-que-garantiza-el-agua-y-la-vida-de-risaralda/ (checked 2026-11-22); evidence: `research_notes/Conocimiento turístico de Los Nevados/geography/evidence/raw/carder_pnn_nevados_2026.txt`
+
+> de 1974, y cuenta con una extensión de 61.410,53 hectáreas distribuidas entre los departamentos de
+
+- https://www.carder.gov.co/pnn-los-nevados-un-patrimonio-natural-que-garantiza-el-agua-y-la-vida-de-risaralda/ (checked 2026-11-22); evidence: `research_notes/Conocimiento turístico de Los Nevados/geography/evidence/raw/carder_pnn_nevados_2026.txt`
+
+> Pereira, 14 de julio de 2026.
+
+
+## Updated entry: geography.andes_occidentales_office
+
+- Reason: Sustentar la pertenencia a la región Andes Occidentales, la ubicación en la cordillera Central y la distribución en cuatro departamentos exclusivamente con la ficha oficial vigente de Parques Nacionales, retirando el documento de 2019.
+- Changed fields: answer, last_verified, sources
+
+- https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/ (checked 2026-11-22); evidence: `research_notes/curation_v2/evidence/access/pnn-nevados-portal.txt`
+
+> Región
+> Andes Occidentales
+
+- https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/ (checked 2026-11-22); evidence: `research_notes/curation_v2/evidence/access/pnn-nevados-portal.txt`
+
+> Distribución en departamentos
+> Caldas, Quindío, Risaralda, Tolima
+
+- https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/ (checked 2026-11-22); evidence: `research_notes/curation_v2/evidence/access/pnn-nevados-portal.txt`
+
+> Se ubica en la cordillera Central entre dos ríos principales del país —Magdalena y Cauca—

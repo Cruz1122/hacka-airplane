@@ -446,3 +446,60 @@ Movimientos de archivos en esta ronda: los brutos de `new/`, `poe2026/`, el `.do
 
 - Reason: Clarify label and strengthen examples and hard negatives to resolve confusion and raise retrieval discrimination for services.uton_services.
 - Changed fields: examples, hard_negatives, label
+
+
+## Updated entry: services.mule_luggage_registered_only
+
+- Reason: Clarify that authorized mule luggage transport is restricted and does not enter Arenales or Calvito, aligning with rules.no_mules_arenales_calvito and Res. 207 / Anexo 2023.
+- Changed fields: answer, last_verified
+
+- https://parquesnacionales.gov.co/wp-content/uploads/2023/12/ANEXO-PNN-NEVADOS.pdf (checked 2026-11-22); evidence: `research_notes/Conocimiento turístico de Los Nevados/access/evidence/ANEXO-PNN-NEVADOS-2023.txt`
+
+> Animales de carga y asistencia permitidos: Se prohíbe expresamente el ingreso de equinos y mulares al Parque
+>        con fines turísticos, es decir, la actividad de cabalgatas turísticas. Se permite el tránsito en mulas o equinos a
+>        campesinos que habitan al interior del Parque, o para la realización exclusiva de actividades de PORTEO o
+>        CARGA únicamente a los arrieros avalados por el Parque, con fines de carga de equipaje de turistas, de
+>        investigación, prevención, vigilancia, control, apoyo y asistencia, atención de emergencias y transporte de
+>        personas con limitaciones físicas que limiten o impidan su movilidad, previa autorización de un funcionario del Área
+>        Protegida. El ingreso de mulas hacia los campamentos de Arenales y Calvito, ya sea desde el campamento de
+>        Termales de Cañón, la Finca La Primavera o La Playa. La aproximación e ingreso a estos campamentos deberá
+>        realizarse exclusivamente a pie por los visitantes, guías, operadores, intérpretes y montañistas deportivos.
+
+
+## Updated entry: services.porter_luggage
+
+- Reason: Añadir la cita textual del Anexo 2023 que autoriza el porteo exclusivamente en el sector sur (Cedral, Cocora y Palomar), manteniendo la prohibición en Calvito y Arenales y la mención de 2024 de Chilcos-Arenales.
+- Changed fields: answer, last_verified
+
+- https://parquesnacionales.gov.co/wp-content/uploads/2023/12/ANEXO-PNN-NEVADOS.pdf (checked 2026-11-22); evidence: `research_notes/Conocimiento turístico de Los Nevados/services/evidence/raw/anexo_pnn_nevados_2023.txt`
+
+> Esta actividad que corresponde al transporte de maletas de los visitantes que ingresan al área protegida está
+>         permitida sólo para el sector sur, correspondiente al ingreso por los municipios de:
+> 
+>            1. Pereira - ingreso por el Cedral: sólo hasta el predio el Berlín.
+>            2. Salento - ingreso por el Valle de Cocora: sólo hasta los predios La Argentina o Buenos Aires y La
+>               Primavera o La Playa.
+>            3. Anzoátegui - ingreso por Palomar: sólo hasta termales de Cañón.
+
+- https://parquesnacionales.gov.co/wp-content/uploads/2023/12/ANEXO-PNN-NEVADOS.pdf (checked 2026-11-22); evidence: `research_notes/Conocimiento turístico de Los Nevados/services/evidence/raw/anexo_pnn_nevados_2023.txt`
+
+> Nota: queda prohibido el uso del porteo de maletas para las zonas de camping temporales
+>       correspondientes al Calvito y Arenales.
+
+- https://www.parquesnacionales.gov.co/wp-content/uploads/2024/12/Informe-de-necesidades-de-asistencia-PNN-Los-Nevados-2024.docx (checked 2026-11-22); evidence: `research_notes/Conocimiento turístico de Los Nevados/activities/evidence/raw/pnn_informe_necesidades_2024.txt`
+
+> Sendero los chilcos – arenales cumbre
+
+- https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/ (checked 2026-11-22); evidence: `research_notes/Conocimiento turístico de Los Nevados/services/evidence/raw/pnn_nevados.txt`
+
+> Guías y operadores turísticos autorizados
+
+
+## Updated entry: services.charging_power
+
+- Reason: Indicar que la ficha oficial consultada en noviembre de 2026 no lista puntos de recarga y sustentar los servicios ecoturísticos descritos en la ficha de Parques Nacionales.
+- Changed fields: answer, last_verified, sources
+
+- https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/ (checked 2026-11-22); evidence: `research_notes/curation_v2/evidence/access/pnn-nevados-portal.txt`
+
+> Gestiona directamente servicios ecoturísticos como reservas, ingreso, guianza, transporte, alojamiento y tienda.

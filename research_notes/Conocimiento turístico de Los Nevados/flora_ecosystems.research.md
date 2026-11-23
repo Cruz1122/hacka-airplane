@@ -410,3 +410,16 @@ Entries 90 → 67. Examples 1191 → 863. The first 38 entries were left as they
 - https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/ (checked 2026-11-21); evidence: `research_notes/Conocimiento turístico de Los Nevados/flora_ecosystems/evidence/pnn-los-nevados.txt`
 
 > En los bosques altoandinos o nublados se encuentran las palmas de cera; la más representativa es Ceroxylon quindiuense, la famosa palma de cera del Quindío, declarada árbol nacional de Colombia.
+
+
+## Updated entry: flora_ecosystems.forest_paramo_water_link
+
+- Reason: Respaldar textualmente la conexión ecológica y regulación hídrica entre bosque altoandino y páramo con el plan de manejo de CARDER.
+- Changed fields: answer, last_verified, sources
+
+- https://www.carder.gov.co/download/plan-de-manejo-complejo-de-paramos-los-nevados/ (checked 2026-11-22); evidence: `research_notes/Conocimiento turístico de Los Nevados/flora_ecosystems/evidence/raw/carder-plan-manejo-nevados.txt`
+
+> la estrecha relación existente entre este y el bosque altoandino, que se fun-
+> damenta en su integridad ecológica y, además, en funciones como la re-
+> gulación hídrica que son condicionadas por la conexión de estos ecosiste-
+> mas

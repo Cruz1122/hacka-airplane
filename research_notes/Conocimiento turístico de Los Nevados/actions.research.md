@@ -358,3 +358,66 @@ Alcance: solo auditoría. Entradas 10 → 10; ejemplos 131 → 131; hard negativ
 - https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/ (checked 2026-11-22); evidence: `research_notes/curation_v2/evidence/actions/pnn-los-nevados-ficha.txt`
 
 > En el Parque Nacional Natural Los Nevados es obligatorio el servicio de acompañamiento y guianza en todos los sectores. Los operadores y guías deben estar registrados con el fin de que cumplan con condiciones muy importantes como la utilización de los equipos básicos para la alta montaña, el equipo médico de respuesta y los radios con la frecuencia requerida.
+
+
+## Updated entry: actions.report_hypothermia
+
+- Reason: Añadir guía inmediata incondicional para hipotermia (resguardo, retiro de ropa mojada, abrigo seco, sin alcohol, no dar bebidas a inconscientes y aviso al guía), manteniendo la llamada al 123 sujeta a tener señal; preservar que la app no avisa a rescate.
+- Changed fields: answer, sources
+
+- https://www.policia.gov.co/noticia/policia-nacional-sensibiliza-comunidad-sobre-uso-las-lineas-emergencia-123-155 (checked 2026-11-22); evidence: `research_notes/curation_v2/evidence/actions/policia-123-2023.txt`
+
+> 12 March, 2023
+> Estas líneas se encuentran a disposición las 24 horas del día, los siete días de la semana.
+
+- https://www.policia.gov.co/noticia/policia-nacional-sensibiliza-comunidad-sobre-uso-las-lineas-emergencia-123-155 (checked 2026-11-22); evidence: `research_notes/curation_v2/evidence/actions/policia-123-2023.txt`
+
+> La Línea de emergencia 123, es la línea única de emergencias Nacional, que permite que en un sólo número los colombianos puedan acceder a todos los servicios de emergencia y seguridad que ofrece el Estado gratuitamente las 24 horas del día todos los días del año; esta permite la atención de manera oportuna de cualquier requerimiento ciudadano en tema de seguridad y convivencia ciudadana.
+
+- https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/ (checked 2026-11-22); evidence: `research_notes/curation_v2/evidence/actions/pnn-los-nevados-ficha.txt`
+
+> En el Parque Nacional Natural Los Nevados es obligatorio el servicio de acompañamiento y guianza en todos los sectores. Los operadores y guías deben estar registrados con el fin de que cumplan con condiciones muy importantes como la utilización de los equipos básicos para la alta montaña, el equipo médico de respuesta y los radios con la frecuencia requerida.
+
+- https://wwwnc.cdc.gov/travel/page/travel-to-cold-climates/ (checked 2026-11-22); evidence: `research_notes/Conocimiento turístico de Los Nevados/health_safety/evidence/raw/cdc_travel_cold.html`
+
+> Drink a non-alcoholic or non-caffeinated warm beverage. Warm beverages can help increase body temperature. Do not try to give beverages to an unconscious person with hypothermia.
+
+- https://wwwnc.cdc.gov/travel/page/travel-to-cold-climates/ (checked 2026-11-22); evidence: `research_notes/Conocimiento turístico de Los Nevados/health_safety/evidence/raw/cdc_travel_cold.html`
+
+> Remove all wet clothing.
+
+- https://wwwnc.cdc.gov/travel/page/travel-to-cold-climates/ (checked 2026-11-22); evidence: `research_notes/Conocimiento turístico de Los Nevados/health_safety/evidence/raw/cdc_travel_cold.html`
+
+> loose, dry layers of blankets, clothing, towels, or sheets.
+
+- https://www.cdc.gov/niosh/cold-stress/about/related-illness.html (checked 2026-11-22); evidence: `research_notes/Conocimiento turístico de Los Nevados/health_safety/evidence/raw/cdc_niosh_cold.html`
+
+> Move the victim into a warm room or shelter.
+
+
+## Updated entry: actions.report_lost_person
+
+- Reason: Añadir guía inmediata incondicional para grupo ante persona perdida (permanecer unidos en senderos autorizados y avisar al guía, quien debe notificar a las autoridades según la Resolución 207 de 2023), manteniendo la llamada al 123 sujeta a tener señal; preservar que la app no avisa a rescate.
+- Changed fields: answer, sources
+
+- https://www.policia.gov.co/noticia/policia-nacional-sensibiliza-comunidad-sobre-uso-las-lineas-emergencia-123-155 (checked 2026-11-22); evidence: `research_notes/curation_v2/evidence/actions/policia-123-2023.txt`
+
+> 12 March, 2023
+> Estas líneas se encuentran a disposición las 24 horas del día, los siete días de la semana.
+
+- https://www.policia.gov.co/noticia/policia-nacional-sensibiliza-comunidad-sobre-uso-las-lineas-emergencia-123-155 (checked 2026-11-22); evidence: `research_notes/curation_v2/evidence/actions/policia-123-2023.txt`
+
+> La Línea de emergencia 123, es la línea única de emergencias Nacional, que permite que en un sólo número los colombianos puedan acceder a todos los servicios de emergencia y seguridad que ofrece el Estado gratuitamente las 24 horas del día todos los días del año; esta permite la atención de manera oportuna de cualquier requerimiento ciudadano en tema de seguridad y convivencia ciudadana.
+
+- https://www.parquesnacionales.gov.co/wp-content/uploads/2023/08/Resolucion_207_2023_ReglamentacionNevados.pdf (checked 2026-11-22); evidence: `research_notes/Conocimiento turístico de Los Nevados/health_safety/evidence/raw/resolucion-207-2023.txt`
+
+> es sumamente importante permanecer unidos y atentos de que nadie
+
+- https://www.parquesnacionales.gov.co/wp-content/uploads/2023/08/Resolucion_207_2023_ReglamentacionNevados.pdf (checked 2026-11-22); evidence: `research_notes/Conocimiento turístico de Los Nevados/health_safety/evidence/raw/resolucion-207-2023.txt`
+
+> En caso de extravío o pérdida, enfermedad o accidente de un visitante deberá colaborar con la emergencia
+>      presentada y dar aviso inmediato a las autoridades competentes.
+
+- https://www.parquesnacionales.gov.co/wp-content/uploads/2023/08/Resolucion_207_2023_ReglamentacionNevados.pdf (checked 2026-11-22); evidence: `research_notes/Conocimiento turístico de Los Nevados/health_safety/evidence/raw/resolucion-207-2023.txt`
+
+> Realizar el recorrido caminando, sin salirse de los senderos establecidos para realizar la actividad en el atractivo

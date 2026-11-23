@@ -393,3 +393,66 @@ Motivo: 17 entradas marcadas «Consejo general» citaban la ficha de Los Nevados
 - https://www.parquesnacionales.gov.co/wp-content/uploads/2023/08/Resolucion_207_2023_ReglamentacionNevados_.pdf (checked 2026-11-21); evidence: `research_notes/Conocimiento turístico de Los Nevados/activities/evidence/resolucion-207-2023.txt`
 
 > cantimplora, guantes, pasa montañas
+
+
+## Updated entry: preparation.children_gear
+
+- Reason: Alinear el equipo de niños con la regla general de equipo obligatorio y rango de edad de la Resolución 207 de 2023.
+- Changed fields: answer, last_verified, sources
+
+- https://www.parquesnacionales.gov.co/wp-content/uploads/2023/08/Resolucion_207_2023_ReglamentacionNevados.pdf (checked 2026-11-22); evidence: `research_notes/curation_v2/evidence/activities/resolucion-207-2023.txt`
+
+> El rango de edad permitido para el ingreso de personas al área protegida es entre los 6 y los 70 años.
+
+- https://www.parquesnacionales.gov.co/wp-content/uploads/2023/08/Resolucion_207_2023_ReglamentacionNevados.pdf (checked 2026-11-22); evidence: `research_notes/curation_v2/evidence/activities/resolucion-207-2023.txt`
+
+> ropa abrigada (para soportar
+>          temperaturas extremas de frío en cabeza, tórax y extremidades)
+
+
+## Updated entry: preparation.rain_poncho
+
+- Reason: Alinear la respuesta con el texto literal de la Resolución 207 de 2023 sobre ropa impermeable y prohibición de plásticos de un solo uso.
+- Changed fields: answer, last_verified, sources
+
+- https://www.parquesnacionales.gov.co/wp-content/uploads/2023/08/Resolucion_207_2023_ReglamentacionNevados.pdf (checked 2026-11-22); evidence: `research_notes/curation_v2/evidence/activities/resolucion-207-2023.txt`
+
+> Conforme a la Resolución 1558 de 2019 de PNN se prohíben los plásticos de un solo uso dentro de los escenarios
+>      naturales.
+
+
+## Updated entry: preparation.second_layer_fleece
+
+- Reason: Mantener la exigencia normativa de ropa abrigada para frío extremo de la Resolución 207 de 2023 y restaurar el forro polar o micropolar como recomendación práctica.
+- Changed fields: answer, last_verified, sources
+
+- https://www.parquesnacionales.gov.co/wp-content/uploads/2023/08/Resolucion_207_2023_ReglamentacionNevados.pdf (checked 2026-11-22); evidence: `research_notes/curation_v2/evidence/activities/resolucion-207-2023.txt`
+
+> ropa abrigada (para soportar
+>          temperaturas extremas de frío en cabeza, tórax y extremidades)
+
+
+## Updated entry: preparation.sleeping_pad
+
+- Reason: Actualizar requisitos de campamento reemplazando fuente obsoleta de 2018 por la ficha oficial vigente y la Resolución 207 de 2023.
+- Changed fields: answer, last_verified, sources
+
+- https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/ (checked 2026-11-22); evidence: `research_notes/curation_v2/evidence/access/pnn-nevados-portal.txt`
+
+> Si vas a acampar en las zonas permitidas, lleva carpa, sleeping, material de cocina y alimentación apropiada para bajas temperaturas.
+
+- https://www.parquesnacionales.gov.co/wp-content/uploads/2023/08/Resolucion_207_2023_ReglamentacionNevados.pdf (checked 2026-11-22); evidence: `research_notes/curation_v2/evidence/activities/resolucion-207-2023.txt`
+
+> carpas de tres
+> y cuatro estaciones para temperaturas menores a cero grados centígrados.
+
+
+## Updated entry: preparation.sun_hat
+
+- Reason: Alinear la protección solar con las exigencias vinculantes de la Resolución 207 de 2023 (gafas UV 100% y bloqueador solar factor 50).
+- Changed fields: answer, last_verified, sources
+
+- https://www.parquesnacionales.gov.co/wp-content/uploads/2023/08/Resolucion_207_2023_ReglamentacionNevados.pdf (checked 2026-11-22); evidence: `research_notes/curation_v2/evidence/activities/resolucion-207-2023.txt`
+
+> gafas con protección ultravioleta 100% (UV), bloqueador solar factor 50 como
+>          mínimo,

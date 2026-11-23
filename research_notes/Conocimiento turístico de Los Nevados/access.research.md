@@ -224,3 +224,39 @@ The four sector descriptions are sections of the same PNN page (Cómo llegar and
 
 - Reason: Diferenciar la ruta de Santa Rosa (vehicular a Potosí) de la de El Cedral (a pie desde Pereira).
 - Changed fields: examples, hard_negatives
+
+
+## Updated entry: access.cocora_registration
+
+- Reason: Remove misleading "Hoy el punto es..." claim from variant; date 2023 source and park portal.
+- Changed fields: answer
+
+- https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/ (checked 2026-11-22); evidence: `research_notes/Conocimiento turístico de Los Nevados/access/evidence/raw/pnn_nevados.txt`
+
+> Sector Quindío-Dulima (acceso a los atractivos en inmediaciones del volcán Nevado del Tolima): el horario en el punto de atención Valle del Cocora es de 6:00 a. m. a 10:00 a. m., mientras que en Juntas y Anzoátegui es de 6:00 a. m. a 11:00 a. m. (bajo reserva previa)
+
+- https://www.parquesnacionales.gov.co/wp-content/uploads/2023/12/ANEXO-PNN-NEVADOS.pdf (checked 2026-11-22); evidence: `research_notes/Conocimiento turístico de Los Nevados/access/evidence/raw/anexo-reglamentacion-2023.txt`
+
+> Puerta azul ingreso a la truchera, kilómetro 11 sobre la vía Salento - Cocora.
+
+- https://www.parquesnacionales.gov.co/wp-content/uploads/2023/12/ANEXO-PNN-NEVADOS.pdf (checked 2026-11-22); evidence: `research_notes/Conocimiento turístico de Los Nevados/access/evidence/raw/anexo-reglamentacion-2023.txt`
+
+> N 04°38’17.5’’ W 075°29´11.3’’ – 2.400 m.s.n.m
+
+
+## Updated entry: access.no_official_travel_time
+
+- Reason: Indicar que en la ficha oficial consultada el 22/11/2026 no se publican tiempos de recorrido y que la duración debe consultarse con el operador o guía registrado, conforme a la obligación de acompañamiento oficial.
+- Changed fields: answer, last_verified, sources
+
+- https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/ (checked 2026-11-22); evidence: `research_notes/curation_v2/evidence/access/pnn-nevados-portal.txt`
+
+> El Parque no cuenta con servicio de transporte al interior. El transporte, porteo y el acceso al área protegida deben ser gestionados de manera propia o coordinada con alguno de los guías o agencias operadoras registradas y autorizadas, según el sector de ingreso.
+
+- https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/ (checked 2026-11-22); evidence: `research_notes/curation_v2/evidence/access/pnn-nevados-portal.txt`
+
+> En el Parque Nacional Natural Los Nevados es obligatorio el servicio de acompañamiento y guianza en todos los sectores.
+
+- https://www.parquesnacionales.gov.co/wp-content/uploads/2023/08/Resolucion_207_2023_ReglamentacionNevados.pdf (checked 2026-11-22); evidence: `research_notes/curation_v2/evidence/activities/resolucion-207-2023.txt`
+
+> ningún visitante podrá ingresar solo a los escenarios
