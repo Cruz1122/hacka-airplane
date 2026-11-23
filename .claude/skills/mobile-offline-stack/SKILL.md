@@ -1,9 +1,20 @@
 ---
 name: mobile-offline-stack
-description: Fixed architecture and contracts of the Expo offline assistant in mobile/ (on-device llama.cpp via llama.rn, TypeScript port of the Python FSM). Read before touching mobile/ or the mobile export in src/nevados_bench/export_mobile.py.
+description: Fixed architecture and contracts of the Expo offline assistant in mobile/ (since 2026-11-22 an embedding knowledge system - e5 query embedder on llama.rn, top-1 curated answer, optional Laya reorderer on onnxruntime-react-native; the older LLM + FSM stack is legacy). Read before touching mobile/, src/nevados_bench/export_mobile.py or export_knowledge.py.
 ---
 
 # Mobile offline stack (decided; do not relitigate)
+
+## Current architecture (2026-11-22, supersedes the LLM sections below)
+
+User decisions: real PNN Los Nevados, **no generative model and no router**, `onnxruntime-react-native` approved. Design: `docs/phase3-architecture.md`; plan: `docs/phase3-implementation-plan.md`.
+
+- Pipeline: safety and live-status text rules first -> e5-base query embedding (GGUF, its own llama.rn context, `"query: "` prefix, never through `ModelManager`) -> soft gateway + pool (port of the dataset `build_dataset.py` retrieval) -> reranker seam (identity by default; Laya ONNX only when `laya.enabled` and every pool id is in its catalog) -> top-1 policy (user decision 2026-11-22: the best entry when its e5 cosine >= T, else abstain; urgent answers the best emergency entry or the 123 entry, with a banner) -> curated `answer.short` by id, rendered in the main chat (`app/index.tsx` via `src/state/knowledgeRows.ts`). No menus. Laya disabled.
+- Code: `src/core/knowledge/` (pure TS), `src/llm/embedder.ts`, `src/state/useKnowledge.ts`. Assets GENERATED into `assets/data/knowledge/` by `uv run python -m nevados_bench.export_knowledge`; index vectors side-loaded. Never hand-edit.
+- The FSM (`src/core/*.ts` outside `knowledge/`), `world.json` and the GGUF chat models are legacy: they must not be reachable from the knowledge path. Action entries show their curated answer only.
+- Dependency whitelist adds `onnxruntime-react-native`.
+
+## Legacy LLM stack (kept until a separate cleanup)
 
 Product: offline (airplane mode) visitor assistant for 4 stations of a fictional park. The Python package `src/nevados_bench` is the reference implementation and the benchmark; the app is a TypeScript port of its FSM running a GGUF model on the phone. Target device: Moto Edge 60 Fusion, Android 16, arm64, 8 GB RAM.
 
