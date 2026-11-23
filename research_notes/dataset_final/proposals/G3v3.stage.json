@@ -1,0 +1,1474 @@
+{
+  "version": 1,
+  "root": "/home/cruz1122/dev/hacka-airplane",
+  "proposal": {
+    "operations": [
+      {
+        "op": "update",
+        "reason": "Exponer el conflicto entre fuentes oficiales sobre el modo de acceso (gestión propia o coordinada según la ficha vs. guía obligatorio según la misma ficha y la Resolución 207 de 2023) y remitir a la confirmación con el operador registrado.",
+        "entry": {
+          "id": "access.confirm_road_before",
+          "label": "confirmar el estado de la vía",
+          "kind": "procedure",
+          "audience": "visitor",
+          "lang": "es",
+          "examples": [
+            "confirmo la vía antes de salir",
+            "el acceso puede cambiar",
+            "¿si hay obra en la vía, cierran?",
+            "¿dónde miro si la carretera sigue abierta hoy?",
+            "¿hoy sí está habilitada la vía?",
+            "how do I check the road before leaving",
+            "the access can change, where do I look",
+            "le pregunto al operador si la via de hoy sigue abierta",
+            "clima obra o volcan pueden cerrar el tramo",
+            "si no pude confirmar, no lo doy por abierto",
+            "revisar brisas ademas del pico y placa",
+            "¿cómo está el corredor La Esperanza hoy?"
+          ],
+          "hard_negatives": [
+            "si la veo en el mapa, puedo entrar por ahi",
+            "dónde confirmo si abren hoy",
+            "toca revisar el boletín antes de ir"
+          ],
+          "answer": {
+            "short": "La ficha PNN consultada el 22/11/2026 describe el transporte y acceso como gestión propia o coordinada, pero también indica que el acompañamiento de guía es obligatorio en todos los sectores; la Resolución 207 de 2023 exige guía para el ingreso de visitantes. Confirma con tu operador antes de salir.",
+            "variants": [
+              "La ficha PNN describe el transporte y acceso como gestión propia o coordinada, pero exige guía obligatorio en todos los sectores, al igual que la Resolución 207 de 2023; confirma las condiciones de la vía con tu operador registrado antes de salir."
+            ],
+            "detail": "Si entras a Brisas en noviembre, un fin de semana o puente, revisa el pico y placa ambiental del Tolima, Resolución 1815 del 24 de julio de 2026, de 5:00 a. m. a 4:00 p. m."
+          },
+          "sources": [
+            {
+              "label": "Parques Nacionales Naturales de Colombia — Ficha PNN Los Nevados",
+              "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+              "retrieved_at": "2026-11-22"
+            },
+            {
+              "label": "Parques Nacionales Naturales de Colombia — Resolución 207 de 2023",
+              "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2023/08/Resolucion_207_2023_ReglamentacionNevados.pdf",
+              "retrieved_at": "2026-11-22"
+            },
+            {
+              "label": "Resolución No. 1815 del 24 de julio de 2026 — Cortolima",
+              "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+              "retrieved_at": "2026-11-22"
+            }
+          ],
+          "last_verified": "2026-11-22",
+          "related": [
+            "access.mountain_road_conditions",
+            "access.park_email_routes",
+            "hours_status.pico_y_placa_hours_murillo"
+          ],
+          "tags": [
+            "confirmar",
+            "vía",
+            "cambio"
+          ]
+        },
+        "evidence": [
+          {
+            "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+            "path": "research_notes/curation_v2/evidence/access/pnn-nevados-portal.txt",
+            "quote": "El transporte, porteo y el acceso al área protegida deben ser gestionados de manera propia o coordinada con alguno de los guías o agencias operadoras registradas y autorizadas, según el sector de ingreso.",
+            "checked_on": "2026-11-22"
+          },
+          {
+            "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+            "path": "research_notes/curation_v2/evidence/access/pnn-nevados-portal.txt",
+            "quote": "Recuerda que todo ingreso al área protegida debe realizarse con una agencia operadora o guía ecoturístico inscrito en el Registro para Prestadores de Servicios Asociados al Ecoturismo (REPSE) y se debe adquirir un seguro obligatorio de accidentes.",
+            "checked_on": "2026-11-22"
+          },
+          {
+            "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+            "path": "research_notes/curation_v2/evidence/access/pnn-nevados-portal.txt",
+            "quote": "En el Parque Nacional Natural Los Nevados es obligatorio el servicio de acompañamiento y guianza en todos los sectores.",
+            "checked_on": "2026-11-22"
+          },
+          {
+            "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2023/08/Resolucion_207_2023_ReglamentacionNevados.pdf",
+            "path": "research_notes/curation_v2/evidence/activities/resolucion-207-2023.txt",
+            "quote": "ningún visitante podrá ingresar solo a los escenarios",
+            "checked_on": "2026-11-22"
+          },
+          {
+            "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2023/08/Resolucion_207_2023_ReglamentacionNevados.pdf",
+            "path": "research_notes/curation_v2/evidence/activities/resolucion-207-2023.txt",
+            "quote": "Realizar caminatas turísticas por cuenta propia o actividades turísticas sin la compañía de un intérprete local y/o\n    guía avalado, y la autorización del PNN Los Nevados para el desarrollo de las actividades.",
+            "checked_on": "2026-11-22"
+          },
+          {
+            "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+            "path": "research_notes/curation_v2/evidence/access/pnn-nevados-portal.txt",
+            "quote": "Consulta la Resolución No. 1815 del 24 de julio de 2026 aquí y conoce el cronograma de placas autorizadas en el marco del Pico y Placa Ambiental.",
+            "checked_on": "2026-11-22"
+          }
+        ]
+      },
+      {
+        "op": "update",
+        "reason": "Indicar que en la ficha oficial consultada el 22/11/2026 no se publican tiempos de recorrido y que la duración debe consultarse con el operador o guía registrado, conforme a la obligación de acompañamiento oficial.",
+        "entry": {
+          "id": "access.no_official_travel_time",
+          "label": "sin tiempo oficial de viaje",
+          "kind": "fact",
+          "audience": "visitor",
+          "lang": "es",
+          "examples": [
+            "cuánto me demoro en carro",
+            "hay un tiempo de viaje oficial desde manizales hasta brisas o nadie lo publica?",
+            "cuanto es la caminata a la laguna",
+            "¿cuánto tiempo se demora uno en llegar al valle?",
+            "¿son 7 horas de viaje, más o menos?",
+            "how long is the drive to the gate",
+            "is there an official walking or driving time",
+            "no me des un tiempo de una guia vieja",
+            "minutos hasta el valle",
+            "cuanto tardo de salento al limite",
+            "hay un tiempo oficial de viaje o no lo dan",
+            "demora del camino, dato oficial"
+          ],
+          "hard_negatives": [
+            "la entrada dura cuatro dias o menos",
+            "límite de hora para llegar a acampar",
+            "cuánto se demora solo hasta El Mosquito"
+          ],
+          "answer": {
+            "short": "En la ficha oficial consultada el 22/11/2026 no encontramos un tiempo de recorrido por sector; consulta la duración con tu operador o guía registrado.",
+            "variants": [
+              "En la ficha oficial consultada el 22/11/2026 no se publican tiempos de recorrido por sector; debes consultar la duración estimada directamente con tu operador o guía registrado."
+            ]
+          },
+          "sources": [
+            {
+              "label": "Parques Nacionales Naturales de Colombia — Parque Nacional Natural Los Nevados",
+              "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+              "retrieved_at": "2026-11-22"
+            },
+            {
+              "label": "Parques Nacionales Naturales de Colombia — Resolución 207 de 2023",
+              "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2023/08/Resolucion_207_2023_ReglamentacionNevados.pdf",
+              "retrieved_at": "2026-11-22"
+            }
+          ],
+          "last_verified": "2026-11-22",
+          "related": [
+            "access.cedral_walk_distances",
+            "access.confirm_road_before",
+            "hours_status.pico_y_placa_hours_murillo"
+          ],
+          "tags": [
+            "tiempo",
+            "carro",
+            "caminata"
+          ]
+        },
+        "evidence": [
+          {
+            "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+            "path": "research_notes/curation_v2/evidence/access/pnn-nevados-portal.txt",
+            "quote": "El Parque no cuenta con servicio de transporte al interior. El transporte, porteo y el acceso al área protegida deben ser gestionados de manera propia o coordinada con alguno de los guías o agencias operadoras registradas y autorizadas, según el sector de ingreso.",
+            "checked_on": "2026-11-22"
+          },
+          {
+            "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+            "path": "research_notes/curation_v2/evidence/access/pnn-nevados-portal.txt",
+            "quote": "En el Parque Nacional Natural Los Nevados es obligatorio el servicio de acompañamiento y guianza en todos los sectores.",
+            "checked_on": "2026-11-22"
+          },
+          {
+            "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2023/08/Resolucion_207_2023_ReglamentacionNevados.pdf",
+            "path": "research_notes/curation_v2/evidence/activities/resolucion-207-2023.txt",
+            "quote": "ningún visitante podrá ingresar solo a los escenarios",
+            "checked_on": "2026-11-22"
+          }
+        ]
+      },
+      {
+        "op": "update",
+        "reason": "Añadir la obligación de ingreso y verificación en los puntos de control definidos, junto con la exigencia reglamentaria de guía avalado según la Resolución 207 de 2023 y la ficha oficial, manteniendo el tránsito obligatorio por senderos autorizados.",
+        "entry": {
+          "id": "access.stay_on_official_gate",
+          "label": "usar la portería publicada",
+          "kind": "rule",
+          "audience": "visitor",
+          "lang": "es",
+          "examples": [
+            "¿me puedo meter por un hueco que vi en el mapa?",
+            "¿hay atajo sin caseta pa' subir más rápido?",
+            "entro por donde salen los de la vereda",
+            "¿me puedo colar sin registrarme?",
+            "una trocha mas corta que la porteria",
+            "can I skip the official gate",
+            "is an unmarked track an entrance",
+            "solo uso la puerta del sector que voy a visitar",
+            "no mezclo brisas con cocora en el mismo ingreso",
+            "el mapa muestra una linea, esa cuenta",
+            "me registro solo en el control oficial de mi sector",
+            "atajo de moto o de a pie por fuera"
+          ],
+          "hard_negatives": [
+            "si la veo en el mapa, puedo entrar por ahi",
+            "quiero la puerta oficial, no un atajo",
+            "entrada de adulto, sin ser extranjero"
+          ],
+          "answer": {
+            "short": "Debes ingresar por los puntos de control definidos para recibir la inducción, diligenciar el registro y verificar requisitos; la reglamentación (Resolución 207 de 2023 y ficha PNN) exige acompañamiento de guía avalado u operador registrado, indicando que ningún visitante podrá ingresar solo. En caminata es obligatorio transitar únicamente por senderos autorizados.",
+            "variants": [
+              "Ingresa por los puntos de control definidos para registrarte y recibir la inducción; las normas oficiales prohíben ingresar solo y exigen estar acompañado por un guía avalado y circular únicamente por senderos autorizados."
+            ]
+          },
+          "sources": [
+            {
+              "label": "Parques Nacionales Naturales de Colombia — Resolución 207 de 2023",
+              "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2023/08/Resolucion_207_2023_ReglamentacionNevados.pdf",
+              "retrieved_at": "2026-11-22"
+            },
+            {
+              "label": "Parques Nacionales Naturales de Colombia — Ficha PNN Los Nevados",
+              "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+              "retrieved_at": "2026-11-22"
+            }
+          ],
+          "last_verified": "2026-11-22",
+          "related": [
+            "access.brisas_visitor_center",
+            "access.circuit_not_scenic_loop",
+            "access.esperanza_murillo_corridor"
+          ],
+          "tags": [
+            "portería",
+            "registro",
+            "atajo"
+          ]
+        },
+        "evidence": [
+          {
+            "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2023/08/Resolucion_207_2023_ReglamentacionNevados.pdf",
+            "path": "research_notes/curation_v2/evidence/activities/resolucion-207-2023.txt",
+            "quote": "previo ingreso al área protegida en los puntos de control definidos.",
+            "checked_on": "2026-11-22"
+          },
+          {
+            "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2023/08/Resolucion_207_2023_ReglamentacionNevados.pdf",
+            "path": "research_notes/curation_v2/evidence/activities/resolucion-207-2023.txt",
+            "quote": "ningún visitante podrá ingresar solo a los escenarios",
+            "checked_on": "2026-11-22"
+          },
+          {
+            "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2023/08/Resolucion_207_2023_ReglamentacionNevados.pdf",
+            "path": "research_notes/curation_v2/evidence/activities/resolucion-207-2023.txt",
+            "quote": "Es obligatorio contratar los servicios de un guía de turismo",
+            "checked_on": "2026-11-22"
+          },
+          {
+            "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2023/08/Resolucion_207_2023_ReglamentacionNevados.pdf",
+            "path": "research_notes/curation_v2/evidence/activities/resolucion-207-2023.txt",
+            "quote": "Recibir una charla de inducción por parte del personal del PNN Los Nevados en los puntos de control establecidos\n     en el PNN Los Nevados; asimismo, debe contar con seguro de Accidentes y Rescate según lo dispuesto en la\n     resolución 135 de 2014 (esto incluye a visitantes, guías y arrieros) y diligenciar debidamente el formato de ingreso\n     de visitantes.",
+            "checked_on": "2026-11-22"
+          },
+          {
+            "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2023/08/Resolucion_207_2023_ReglamentacionNevados.pdf",
+            "path": "research_notes/curation_v2/evidence/activities/resolucion-207-2023.txt",
+            "quote": "Caminata: Recorrer a pie el PNN Los Nevados debe hacerse únicamente por los Senderos Permitidos y en los\n         horarios establecidos teniendo en cuenta el tipo de actividad que se va a realizar",
+            "checked_on": "2026-11-22"
+          },
+          {
+            "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+            "path": "research_notes/curation_v2/evidence/access/pnn-nevados-portal.txt",
+            "quote": "En el Parque Nacional Natural Los Nevados es obligatorio el servicio de acompañamiento y guianza en todos los sectores.",
+            "checked_on": "2026-11-22"
+          }
+        ]
+      },
+      {
+        "op": "update",
+        "reason": "Corregir la descripción del recorrido Brisas-Valle de las Tumbas según la ficha oficial, retirando la afirmación negativa sin cita.",
+        "entry": {
+          "id": "activities.cloudy_visit_landscape",
+          "label": "ver el Ruiz durante el recorrido",
+          "kind": "explanation",
+          "audience": "visitor",
+          "lang": "es",
+          "examples": [
+            "se ve la cumbre desde el recorrido",
+            "si está nublado igual vale la pena ir",
+            "puedo observar el volcán desde Brisas",
+            "el paseo depende de ver la cima",
+            "qué hago si el Ruiz amanece tapado",
+            "desde el valle se alcanza a ver el nevado",
+            "vale ir aunque no se vea la cumbre",
+            "si esta nublado se ve el ruiz",
+            "el recorrido sirve para mirar el volcan",
+            "quiero ver el Kumanday desde el camino",
+            "can I see the Ruiz from the Brisas route",
+            "is the visit worth it if the summit is cloudy"
+          ],
+          "hard_negatives": [
+            "se ve la nieve desde el recorrido turistico",
+            "quiero ver el ecosistema sin subir a la nieve",
+            "puedo ver el nevado desde el recorrido"
+          ],
+          "needs": [],
+          "answer": {
+            "short": "El sector Brisas está descrito como un recorrido carreteable hasta el Valle de las Tumbas para observar el Nevado del Ruiz y paisajes de superpáramo; confirma las condiciones con tu operador antes de salir.",
+            "variants": [
+              "El recorrido publicado en Brisas va en vehículo hasta el Valle de las Tumbas para observar el volcán y el superpáramo; revisa con tu operador si hay nubosidad."
+            ]
+          },
+          "sources": [
+            {
+              "label": "Parques Nacionales Naturales de Colombia, ficha PNN Los Nevados",
+              "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+              "retrieved_at": "2026-11-22"
+            }
+          ],
+          "last_verified": "2026-11-22",
+          "related": [
+            "activities.brisas_valle_tumbas",
+            "activities.superparamo_landscape",
+            "activities.cisne_viewpoints"
+          ],
+          "tags": [
+            "visibilidad",
+            "cumbre",
+            "nubes"
+          ],
+          "entities": {
+            "sector": [
+              "brisas"
+            ]
+          }
+        },
+        "evidence": [
+          {
+            "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+            "path": "research_notes/curation_v2/evidence/activities/pnn-ficha.txt",
+            "quote": "Recorrido carreteable desde donde puedes observar el volcán Nevado del Ruiz o Kumanday. El trayecto inicia en el centro de inducción Brisas, a 4100 metros de altitud aproximadamente, y continúa en vehículo por la zona de Arenales hasta el Valle del Silencio o Valle de las Tumbas.",
+            "checked_on": "2026-11-22"
+          },
+          {
+            "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+            "path": "research_notes/curation_v2/evidence/activities/pnn-ficha.txt",
+            "quote": "A lo largo del recorrido verás paisajes de superpáramo y formaciones que evocan paisajes análogos a Marte, junto con vestigios del pasado geológico del Parque.",
+            "checked_on": "2026-11-22"
+          }
+        ]
+      },
+      {
+        "op": "update",
+        "reason": "Ajustar la exigencia de permisos a proyectos de investigación o académicos según la Resolución 207 de 2023, retirando sobregeneralizaciones.",
+        "entry": {
+          "id": "activities.special_permit_activities",
+          "label": "cursos y carreras con permiso",
+          "kind": "procedure",
+          "audience": "visitor",
+          "lang": "es",
+          "examples": [
+            "hay cursos de rescate en el Santa Isabel",
+            "puedo hacer una carrera de orientación",
+            "el yoga en el sendero está permitido",
+            "un curso o una carrera adentro pide permiso especial?",
+            "un curso de escala en el Tolima",
+            "la carrera de orientación pasa por Brisas",
+            "eso del yoga en Chilcos es oficial",
+            "yoga y cursos de rescate estan autorizados o no?",
+            "quiero entrenar en el parque, a quién escribo",
+            "sin permiso me dejan dictar un curso",
+            "are rescue courses something I can book",
+            "do orientation races need a separate permit"
+          ],
+          "hard_negatives": [
+            "son obligatorias las gafas de sol en el nevado",
+            "escríbeme un poema",
+            "cómo es el clima en Los Nevados"
+          ],
+          "entities": {},
+          "needs": [],
+          "answer": {
+            "short": "Para proyectos de investigación o académicos (observación de fauna o geología) se requiere permiso debidamente autorizado por Parques Nacionales (Resolución 207 de 2023). Para cualquier otra actividad especial no listada en el reglamento, confírmalo con el parque antes de planearla.",
+            "variants": [
+              "Para investigación o actividades académicas de fauna o geología se requiere permiso autorizado por Parques Nacionales; para cualquier otra actividad no listada en el reglamento, consúltalo directamente con la entidad."
+            ]
+          },
+          "sources": [
+            {
+              "label": "Resolución 207 del 4 de agosto de 2023, reglamentación del ecoturismo",
+              "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2023/08/Resolucion_207_2023_ReglamentacionNevados.pdf",
+              "retrieved_at": "2026-11-22"
+            }
+          ],
+          "last_verified": "2026-11-22",
+          "valid_until": null,
+          "related": [
+            "activities.regulated_sports",
+            "activities.unlisted_activities",
+            "activities.chilcos_trail"
+          ],
+          "tags": [
+            "permiso",
+            "curso",
+            "carrera"
+          ]
+        },
+        "evidence": [
+          {
+            "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2023/08/Resolucion_207_2023_ReglamentacionNevados.pdf",
+            "path": "research_notes/curation_v2/evidence/activities/resolucion-207-2023.txt",
+            "quote": "Cuando\n         se trate de proyectos de investigación o académicos, se debe contar con el permiso debidamente autorizado por\n         Parques Nacionales Naturales de Colombia.",
+            "checked_on": "2026-11-22"
+          }
+        ]
+      },
+      {
+        "op": "update",
+        "reason": "Ajustar la respuesta sobre fuentes oficiales de PNN y SGC eliminando afirmaciones no respaldadas sobre la visualización en la interfaz móvil.",
+        "entry": {
+          "id": "conversation.info_source_trust",
+          "label": "de dónde sale la información",
+          "kind": "explanation",
+          "audience": "visitor",
+          "examples": [
+            "de dónde sacas la info",
+            "qué fuente usas",
+            "eso sale de algún lado oficial?",
+            "tu información es confiable?",
+            "cómo sé que lo que dices es verdad",
+            "quién respalda esas respuestas",
+            "dónde verifico lo que me dices",
+            "la info está actualizada?",
+            "de qué fuente es eso?",
+            "where does your information come from?",
+            "how do I know your info is accurate?",
+            "sacas los datos de internet?",
+            "de onde sale esa informacion"
+          ],
+          "hard_negatives": [
+            "dónde consigo info confiable del parque?",
+            "se guardan mis datos aquí?",
+            "necesito datos para usarte"
+          ],
+          "answer": {
+            "short": "La información proviene de fuentes oficiales como Parques Nacionales Naturales y el Servicio Geológico Colombiano. Como las condiciones del parque pueden cambiar, consulta sus canales oficiales antes de tu viaje y cuando tengas conexión.",
+            "variants": [
+              "Los datos se basan en información oficial de Parques Nacionales y del Servicio Geológico Colombiano. Confirma el estado del parque en sus portales oficiales cuando tengas señal."
+            ]
+          },
+          "sources": [
+            {
+              "label": "Parques Nacionales Naturales de Colombia",
+              "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+              "retrieved_at": "2026-11-22"
+            },
+            {
+              "label": "Servicio Geológico Colombiano",
+              "url": "https://www2.sgc.gov.co/Noticias/Paginas/Boletines-semanales.aspx",
+              "retrieved_at": "2026-11-22"
+            }
+          ],
+          "related": [
+            "conversation.feedback_wrong_answer",
+            "conversation.offline_operation"
+          ],
+          "tags": [
+            "fuentes",
+            "confianza"
+          ],
+          "last_verified": "2026-11-22"
+        },
+        "evidence": [
+          {
+            "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+            "path": "research_notes/Conocimiento turístico de Los Nevados/conversation/evidence/www_parquesnacionales_gov_co_nuestros-parques_parque-nacional-natural-los-nevados_.txt",
+            "quote": "Parque Nacional Natural Los Nevados • Parques Nacionales Naturales de Colombia",
+            "checked_on": "2026-11-22"
+          },
+          {
+            "url": "https://www2.sgc.gov.co/Noticias/Paginas/Boletines-semanales.aspx",
+            "path": "research_notes/Conocimiento turístico de Los Nevados/conversation/evidence/www2_sgc_gov_co_Noticias_Paginas_Boletines-semanales_aspx.txt",
+            "quote": "Boletines de actividad volcánica",
+            "checked_on": "2026-11-22"
+          }
+        ]
+      },
+      {
+        "op": "update",
+        "reason": "Respaldar textualmente la conexión ecológica y regulación hídrica entre bosque altoandino y páramo con el plan de manejo de CARDER.",
+        "entry": {
+          "id": "flora_ecosystems.forest_paramo_water_link",
+          "label": "agua que depende del bosque y el páramo",
+          "kind": "explanation",
+          "audience": "visitor",
+          "lang": "es",
+          "examples": [
+            "el bosque altoandino tambien regula el agua",
+            "sin el bosque el paramo no regula igual",
+            "la regulacion hidrica pide los dos ecosistemas",
+            "cuidar solo el frailejon no alcanza para el agua",
+            "la conexion bosque paramo es la que importa",
+            "si abren un claro en el borde se afecta el agua",
+            "toca no salirse del sendero en bosque y en paramo",
+            "does water regulation need both forest and paramo",
+            "why are the high forest and the paramo one system",
+            "no es solo la esponja del pajonal",
+            "integridad del borde para que siga habiendo agua",
+            "recorrer bosque y paramo sin salirse del camino"
+          ],
+          "hard_negatives": [
+            "qué es el páramo",
+            "qué es el superpáramo",
+            "a qué altura está el Ruiz"
+          ],
+          "answer": {
+            "short": "El plan de manejo del Complejo de Páramos destaca la estrecha relación ecológica entre el páramo y el bosque altoandino en funciones como la regulación hídrica. Para proteger esta cobertura vegetal, transita solo por los senderos autorizados en ambas zonas.",
+            "variants": [
+              "La regulación hídrica del complejo depende de la integridad ecológica entre el bosque altoandino y el páramo. Recorre las dos franjas sin salirte del sendero."
+            ]
+          },
+          "sources": [
+            {
+              "label": "CARDER y comisión conjunta, Plan de manejo del Complejo de Páramos Los Nevados",
+              "url": "https://www.carder.gov.co/download/plan-de-manejo-complejo-de-paramos-los-nevados/",
+              "retrieved_at": "2026-11-22"
+            }
+          ],
+          "last_verified": "2026-11-22",
+          "related": [
+            "flora_ecosystems.forest_subparamo_transition",
+            "flora_ecosystems.coffee_region_water_reserve",
+            "flora_ecosystems.high_andean_forest"
+          ],
+          "tags": [
+            "agua",
+            "bosque",
+            "paramo"
+          ]
+        },
+        "evidence": [
+          {
+            "url": "https://www.carder.gov.co/download/plan-de-manejo-complejo-de-paramos-los-nevados/",
+            "path": "research_notes/Conocimiento turístico de Los Nevados/flora_ecosystems/evidence/raw/carder-plan-manejo-nevados.txt",
+            "quote": "la estrecha relación existente entre este y el bosque altoandino, que se fun-\ndamenta en su integridad ecológica y, además, en funciones como la re-\ngulación hídrica que son condicionadas por la conexión de estos ecosiste-\nmas",
+            "checked_on": "2026-11-22"
+          }
+        ]
+      },
+      {
+        "op": "update",
+        "reason": "Sustentar la pertenencia a la región Andes Occidentales, la ubicación en la cordillera Central y la distribución en cuatro departamentos exclusivamente con la ficha oficial vigente de Parques Nacionales, retirando el documento de 2019.",
+        "entry": {
+          "id": "geography.andes_occidentales_office",
+          "label": "región Andes Occidentales",
+          "kind": "explanation",
+          "audience": "visitor",
+          "lang": "es",
+          "examples": [
+            "qué es Andes Occidentales, lo vi en el parque",
+            "región Andes Occidentales",
+            "eso es la cordillera Occidental",
+            "direccion territorial del parque",
+            "andes occidentales es la administracion",
+            "por qué sale Andes Occidentales si el parque es del Ruiz",
+            "Parques Nacionales en qué territorial lo tiene",
+            "el rótulo de la región me confundió",
+            "what does Andes Occidentales mean on the park page",
+            "is that label the western cordillera",
+            "dirección territorial Andes Occidentales",
+            "Andes Occidentales y cordillera Central me confunden"
+          ],
+          "answer": {
+            "short": "La ficha oficial ubica el parque en la región Andes Occidentales de Parques Nacionales; se sitúa en la cordillera Central (entre los ríos Magdalena y Cauca) con distribución en los departamentos de Caldas, Quindío, Risaralda y Tolima.",
+            "variants": [
+              "Según la ficha oficial de Parques Nacionales, el parque pertenece a la región Andes Occidentales y se ubica en la cordillera Central, con distribución en Caldas, Quindío, Risaralda y Tolima."
+            ]
+          },
+          "sources": [
+            {
+              "label": "Parques Nacionales Naturales de Colombia — Ficha PNN Los Nevados",
+              "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+              "retrieved_at": "2026-11-22"
+            }
+          ],
+          "last_verified": "2026-11-22",
+          "related": [
+            "geography.cordillera_central",
+            "geography.departments"
+          ],
+          "tags": [
+            "andes occidentales",
+            "territorial"
+          ],
+          "hard_negatives": [
+            "en qué cordillera está Los Nevados",
+            "en qué departamentos queda el parque",
+            "qué nevados hay en el parque"
+          ]
+        },
+        "evidence": [
+          {
+            "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+            "path": "research_notes/curation_v2/evidence/access/pnn-nevados-portal.txt",
+            "quote": "Región\nAndes Occidentales",
+            "checked_on": "2026-11-22"
+          },
+          {
+            "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+            "path": "research_notes/curation_v2/evidence/access/pnn-nevados-portal.txt",
+            "quote": "Distribución en departamentos\nCaldas, Quindío, Risaralda, Tolima",
+            "checked_on": "2026-11-22"
+          },
+          {
+            "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+            "path": "research_notes/curation_v2/evidence/access/pnn-nevados-portal.txt",
+            "quote": "Se ubica en la cordillera Central entre dos ríos principales del país —Magdalena y Cauca—",
+            "checked_on": "2026-11-22"
+          }
+        ]
+      },
+      {
+        "op": "update",
+        "reason": "Alinear el equipo de niños con la regla general de equipo obligatorio y rango de edad de la Resolución 207 de 2023.",
+        "entry": {
+          "id": "preparation.children_gear",
+          "label": "ropa y calzado para niños visitantes",
+          "kind": "procedure",
+          "audience": "visitor",
+          "lang": "es",
+          "examples": [
+            "que les pongo a los niños de abrigo y en los pies?",
+            "a un niño que ropa y que calzado le pongo pa esa altura?",
+            "ropa de abrigo para niños en el nevado",
+            "qué abrigo le meto al morral de mi hijo?",
+            "calzado y abrigo para niños mayores de seis años",
+            "qué cuidados de vestimenta tener con los niños",
+            "mi hijo se me moja, ¿qué le llevo?",
+            "a mi pelado, qué le pongo pa que no se moje?",
+            "cómo abrigar a mi hijo para subir a brisas",
+            "que ropa ponerle a un nino en el nevado",
+            "los pelados se congelan rapidito, ¿qué les pongo?",
+            "what clothing should children wear to Los Nevados",
+            "how to dress kids warmly for high altitude visit",
+            "qué prendas son indispensables para niños en el parque"
+          ],
+          "hard_negatives": [
+            "qué ropa me pongo para no pasar frío",
+            "con qué abrigarme la cabeza en el nevado",
+            "debo llevar chaqueta acolchada al nevado"
+          ],
+          "entities": {
+            "trip_duration": [
+              "pasadia"
+            ]
+          },
+          "needs": [],
+          "answer": {
+            "short": "Para niños a partir de 6 años autorizados a ingresar, la Resolución 207 de 2023 exige el mismo equipo obligatorio que a los demás visitantes: ropa abrigada para frío extremo, ropa impermeable y calzado cómodo.",
+            "variants": [
+              "Los menores autorizados (entre 6 y 70 años es el rango de ingreso) deben portar ropa abrigada para frío extremo, impermeable y calzado apropiado según la norma."
+            ]
+          },
+          "sources": [
+            {
+              "label": "Parques Nacionales Naturales de Colombia · Resolución 207 de 2023",
+              "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2023/08/Resolucion_207_2023_ReglamentacionNevados.pdf",
+              "retrieved_at": "2026-11-22"
+            }
+          ],
+          "last_verified": "2026-11-22",
+          "valid_until": null,
+          "related": [
+            "preparation.layering_system"
+          ],
+          "tags": [
+            "ninos",
+            "edad_minima",
+            "ropa_ninos",
+            "abrigo",
+            "familia"
+          ]
+        },
+        "evidence": [
+          {
+            "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2023/08/Resolucion_207_2023_ReglamentacionNevados.pdf",
+            "path": "research_notes/curation_v2/evidence/activities/resolucion-207-2023.txt",
+            "quote": "El rango de edad permitido para el ingreso de personas al área protegida es entre los 6 y los 70 años.",
+            "checked_on": "2026-11-22"
+          },
+          {
+            "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2023/08/Resolucion_207_2023_ReglamentacionNevados.pdf",
+            "path": "research_notes/curation_v2/evidence/activities/resolucion-207-2023.txt",
+            "quote": "ropa abrigada (para soportar\n         temperaturas extremas de frío en cabeza, tórax y extremidades)",
+            "checked_on": "2026-11-22"
+          }
+        ]
+      },
+      {
+        "op": "update",
+        "reason": "Alinear la respuesta con el texto literal de la Resolución 207 de 2023 sobre ropa impermeable y prohibición de plásticos de un solo uso.",
+        "entry": {
+          "id": "preparation.rain_poncho",
+          "label": "uso de poncho para la lluvia",
+          "kind": "procedure",
+          "audience": "visitor",
+          "lang": "es",
+          "examples": [
+            "sirve un poncho de plástico para la lluvia",
+            "puedo llevar capa o poncho al nevado",
+            "es mejor poncho impermeable o chaqueta",
+            "pal nevado toca chaqueta o poncho?",
+            "usar capa impermeable para caminar en páramo",
+            "poncho de agua para senderismo en los nevados",
+            "se puede usar poncho para cubrir el morral",
+            "por qué no recomiendan ponchos plásticos delgados",
+            "la capa de agua, ¿sirve pa' el parque?",
+            "sirve capa plastica para la lluvia en el nevado",
+            "el poncho sí aguanta el viento?",
+            "is a rain poncho suitable for Los Nevados",
+            "rain jacket versus rain poncho in high wind",
+            "qué inconveniente tiene el poncho en el páramo"
+          ],
+          "hard_negatives": [
+            "debo llevar chaqueta acolchada al nevado",
+            "debo llevar sombrero o gorra al nevado",
+            "gorro para no pasar frío en los nevados"
+          ],
+          "entities": {
+            "trip_duration": [
+              "pasadia",
+              "travesia"
+            ]
+          },
+          "needs": [],
+          "answer": {
+            "short": "Para la lluvia debes llevar ropa impermeable, exigida por la Resolución 207 de 2023. Si llevas poncho, debe ser reutilizable: el parque prohíbe expresamente ingresar plásticos de un solo uso según la Resolución 1558 de 2019.",
+            "variants": [
+              "Lleva ropa impermeable reglamentaria. Los ponchos plásticos desechables no están permitidos porque rige la prohibición de plásticos de un solo uso."
+            ],
+            "detail": "La Resolución 207 de 2023 exige ropa impermeable en el equipo mínimo y reitera la prohibición de plásticos de un solo uso conforme a la Resolución 1558 de 2019."
+          },
+          "sources": [
+            {
+              "label": "Parques Nacionales Naturales de Colombia · Resolución 207 de 2023",
+              "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2023/08/Resolucion_207_2023_ReglamentacionNevados.pdf",
+              "retrieved_at": "2026-11-22"
+            }
+          ],
+          "last_verified": "2026-11-22",
+          "valid_until": null,
+          "related": [
+            "preparation.third_layer_waterproof",
+            "preparation.what_not_to_pack"
+          ],
+          "tags": [
+            "poncho",
+            "lluvia",
+            "impermeable",
+            "viento",
+            "plastico"
+          ]
+        },
+        "evidence": [
+          {
+            "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2023/08/Resolucion_207_2023_ReglamentacionNevados.pdf",
+            "path": "research_notes/curation_v2/evidence/activities/resolucion-207-2023.txt",
+            "quote": "Conforme a la Resolución 1558 de 2019 de PNN se prohíben los plásticos de un solo uso dentro de los escenarios\n     naturales.",
+            "checked_on": "2026-11-22"
+          }
+        ]
+      },
+      {
+        "op": "update",
+        "reason": "Mantener la exigencia normativa de ropa abrigada para frío extremo de la Resolución 207 de 2023 y restaurar el forro polar o micropolar como recomendación práctica.",
+        "entry": {
+          "id": "preparation.second_layer_fleece",
+          "label": "segunda capa de abrigo térmico polar",
+          "kind": "procedure",
+          "audience": "visitor",
+          "lang": "es",
+          "examples": [
+            "qué buzo o forro polar llevar",
+            "para qué sirve la segunda capa de ropa",
+            "qué chaqueta intermedia usar en el nevado",
+            "sirve un buzo térmico para el frío",
+            "chaqueta de forro polar para páramo",
+            "qué saco de abrigo me pongo",
+            "segunda capa para caminar en el parque",
+            "el buzo sí sirve pa' el nevado?",
+            "buzo de lana o fleece, ¿cuál llevo?",
+            "que tipo de abrigo intermedio empacar",
+            "qué chaqueta de abrigo sirve pa' el sendero?",
+            "what mid layer fleece should I wear",
+            "warm fleece jacket for cold weather",
+            "cuál chaqueta térmica intermedia llevar"
+          ],
+          "hard_negatives": [
+            "que ropa llevar para el frio",
+            "chaqueta de plumón o fibra para el frío",
+            "chaqueta para tormenta y frío en los nevados"
+          ],
+          "entities": {
+            "trip_duration": [
+              "pasadia",
+              "travesia"
+            ]
+          },
+          "needs": [],
+          "answer": {
+            "short": "La Resolución 207 de 2023 exige ropa abrigada para soportar temperaturas extremas de frío en cabeza, tórax y extremidades. Como segunda capa intermedia se recomienda, por ejemplo, un buzo o chaqueta de forro polar o micropolar.",
+            "variants": [
+              "Debes contar con ropa abrigada para frío extremo según la reglamentación del parque; como segunda capa de abrigo es aconsejable usar un forro polar o micropolar."
+            ],
+            "detail": "La Resolución 207 de 2023 incluye ropa abrigada para soportar temperaturas extremas de frío en cabeza, tórax y extremidades dentro del equipo mínimo obligatorio para senderismo."
+          },
+          "sources": [
+            {
+              "label": "Parques Nacionales Naturales de Colombia · Resolución 207 de 2023",
+              "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2023/08/Resolucion_207_2023_ReglamentacionNevados.pdf",
+              "retrieved_at": "2026-11-22"
+            }
+          ],
+          "last_verified": "2026-11-22",
+          "valid_until": null,
+          "related": [
+            "preparation.layering_system",
+            "preparation.third_layer_waterproof"
+          ],
+          "tags": [
+            "segunda_capa",
+            "polar",
+            "fleece",
+            "abrigo",
+            "buzo"
+          ]
+        },
+        "evidence": [
+          {
+            "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2023/08/Resolucion_207_2023_ReglamentacionNevados.pdf",
+            "path": "research_notes/curation_v2/evidence/activities/resolucion-207-2023.txt",
+            "quote": "ropa abrigada (para soportar\n         temperaturas extremas de frío en cabeza, tórax y extremidades)",
+            "checked_on": "2026-11-22"
+          }
+        ]
+      },
+      {
+        "op": "update",
+        "reason": "Actualizar requisitos de campamento reemplazando fuente obsoleta de 2018 por la ficha oficial vigente y la Resolución 207 de 2023.",
+        "entry": {
+          "id": "preparation.sleeping_pad",
+          "label": "aislante térmico para dormir en campamento",
+          "kind": "procedure",
+          "audience": "visitor",
+          "lang": "es",
+          "examples": [
+            "sirve un aislante térmico para acampar en el nevado",
+            "es necesario colchoneta aislante para el frío",
+            "qué aislante llevar para dormir en el páramo",
+            "por qué se siente tanto frío por el suelo en la carpa",
+            "aislante inflable o de espuma para acampar",
+            "la colchoneta es pa' el piso frío, ¿o no?",
+            "cómo evitar que el frío del piso pase al sleeping",
+            "el piso frío me roba el calor, ¿no?",
+            "qué colchoneta de camping comprar para montaña",
+            "¿la colchoneta de espuma sí me sirve?",
+            "esterilla termica para pernoctar en alta montana",
+            "do I need an insulated sleeping pad for camping",
+            "sleeping pad for freezing ground in Los Nevados",
+            "cuál colchoneta aísla mejor de la humedad de la tierra"
+          ],
+          "hard_negatives": [
+            "debo llevar chaqueta acolchada al nevado",
+            "sleeping abrigado para pernoctar en alta montaña",
+            "qué se come pa' acampar con frío?"
+          ],
+          "entities": {
+            "trip_duration": [
+              "travesia"
+            ]
+          },
+          "needs": [],
+          "answer": {
+            "short": "Para acampar en las zonas permitidas, Parques Nacionales pide llevar carpa, sleeping y equipo para bajas temperaturas. La reglamentación exige carpas de tres o cuatro estaciones aptas para temperaturas menores a cero grados centígrados.",
+            "variants": [
+              "Si acampas en zonas autorizadas, debes llevar carpa de tres o cuatro estaciones y sleeping para temperaturas bajo cero, según la normativa oficial."
+            ],
+            "detail": "La ficha oficial indica llevar carpa, sleeping y alimentación para bajas temperaturas; la Resolución 207 de 2023 exige carpas de tres y cuatro estaciones para temperaturas menores a cero grados centígrados."
+          },
+          "sources": [
+            {
+              "label": "Parques Nacionales Naturales · Los Nevados (ficha oficial)",
+              "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+              "retrieved_at": "2026-11-22"
+            },
+            {
+              "label": "Parques Nacionales Naturales de Colombia · Resolución 207 de 2023",
+              "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2023/08/Resolucion_207_2023_ReglamentacionNevados.pdf",
+              "retrieved_at": "2026-11-22"
+            }
+          ],
+          "last_verified": "2026-11-22",
+          "valid_until": null,
+          "related": [
+            "preparation.sleeping_bag",
+            "preparation.mountain_tent",
+            "preparation.camp_stove"
+          ],
+          "tags": [
+            "aislante",
+            "colchoneta",
+            "suelo",
+            "frio",
+            "campamento"
+          ]
+        },
+        "evidence": [
+          {
+            "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+            "path": "research_notes/curation_v2/evidence/access/pnn-nevados-portal.txt",
+            "quote": "Si vas a acampar en las zonas permitidas, lleva carpa, sleeping, material de cocina y alimentación apropiada para bajas temperaturas.",
+            "checked_on": "2026-11-22"
+          },
+          {
+            "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2023/08/Resolucion_207_2023_ReglamentacionNevados.pdf",
+            "path": "research_notes/curation_v2/evidence/activities/resolucion-207-2023.txt",
+            "quote": "carpas de tres\ny cuatro estaciones para temperaturas menores a cero grados centígrados.",
+            "checked_on": "2026-11-22"
+          }
+        ]
+      },
+      {
+        "op": "update",
+        "reason": "Alinear la protección solar con las exigencias vinculantes de la Resolución 207 de 2023 (gafas UV 100% y bloqueador solar factor 50).",
+        "entry": {
+          "id": "preparation.sun_hat",
+          "label": "sombrero o gorra para protección solar",
+          "kind": "procedure",
+          "audience": "visitor",
+          "lang": "es",
+          "examples": [
+            "debo llevar sombrero o gorra al nevado",
+            "sirve una gorra para el sol en el páramo",
+            "sombrero con ala ancha para alta montaña",
+            "cuándo usar gorra durante la caminata",
+            "gorra para protegerse del sol en el parque",
+            "con esta cachucha me basta pa' el sol?",
+            "gorra o sombrero, ¿cuál sirve pa' el sol?",
+            "es mejor gorra deportiva o sombrero de ala",
+            "protección para la cara y cuello contra el sol",
+            "que tipo de sombrero llevar al parque",
+            "gorra con protector de cuello para el sendero",
+            "should I wear a sun hat in Los Nevados",
+            "wide brim hat for high altitude sun protection",
+            "el sol del mediodía pega fuerte, ¿qué me pongo?"
+          ],
+          "hard_negatives": [
+            "gorro para no pasar frío en los nevados",
+            "que gafas debo llevar, con filtro de verdad contra el sol?",
+            "protector solar para alta montaña"
+          ],
+          "entities": {
+            "trip_duration": [
+              "pasadia",
+              "travesia"
+            ]
+          },
+          "needs": [],
+          "answer": {
+            "short": "Para protegerte del sol, la Resolución 207 de 2023 exige obligatoriamente gafas con protección UV 100% y bloqueador solar factor 50 como mínimo. La gorra o sombrero es una medida complementaria recomendada.",
+            "variants": [
+              "La norma del parque exige gafas con protección UV al 100% y bloqueador solar factor 50 mínimo en senderos; el sombrero o gorra complementa la protección."
+            ],
+            "detail": "La Resolución 207 de 2023 fija en el equipo mínimo obligatorio gafas con protección ultravioleta 100% (UV) y bloqueador solar factor 50 como mínimo."
+          },
+          "sources": [
+            {
+              "label": "Parques Nacionales Naturales de Colombia · Resolución 207 de 2023",
+              "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2023/08/Resolucion_207_2023_ReglamentacionNevados.pdf",
+              "retrieved_at": "2026-11-22"
+            }
+          ],
+          "last_verified": "2026-11-22",
+          "valid_until": null,
+          "related": [
+            "preparation.sunscreen",
+            "preparation.sunglasses_uv",
+            "preparation.thermal_hat"
+          ],
+          "tags": [
+            "sombrero",
+            "gorra",
+            "sol",
+            "visera",
+            "radiacion"
+          ]
+        },
+        "evidence": [
+          {
+            "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2023/08/Resolucion_207_2023_ReglamentacionNevados.pdf",
+            "path": "research_notes/curation_v2/evidence/activities/resolucion-207-2023.txt",
+            "quote": "gafas con protección ultravioleta 100% (UV), bloqueador solar factor 50 como\n         mínimo,",
+            "checked_on": "2026-11-22"
+          }
+        ]
+      },
+      {
+        "op": "update",
+        "reason": "Indicar que la ficha oficial consultada en noviembre de 2026 no lista puntos de recarga y sustentar los servicios ecoturísticos descritos en la ficha de Parques Nacionales.",
+        "entry": {
+          "id": "services.charging_power",
+          "label": "carga de celular o batería",
+          "kind": "fact",
+          "audience": "visitor",
+          "lang": "es",
+          "examples": [
+            "dónde cargo el celular",
+            "hay enchufes en el parque",
+            "tomas de corriente en la cabaña",
+            "puedo cargar la batería",
+            "hay energía eléctrica arriba",
+            "power bank para el páramo, sirve?",
+            "cargar el celular en Brisas",
+            "dónde cargan el cel en la cabaña",
+            "¿el panel solar sirve pa cargar el cel?",
+            "se puede recargar el teléfono en el Cisne",
+            "where can I plug in my phone up there",
+            "can I charge my phone at the cabin",
+            "en las cabañas hay puntos para cargar celular o batería",
+            "se puede conectar el cargador del celular en algún refugio",
+            "hay energía eléctrica para recargar baterías de cámara en el parque",
+            "hay tomas de corriente públicas en las cabañas del parque"
+          ],
+          "hard_negatives": [
+            "hay señal de celular",
+            "los guías llevan radio?",
+            "hay baños en el parque",
+            "dónde tomo agua"
+          ],
+          "entities": {},
+          "answer": {
+            "short": "La ficha oficial consultada en noviembre de 2026 no lista puntos de carga; lleva tus baterías cargadas desde casa.",
+            "variants": [
+              "En la ficha oficial consultada en noviembre de 2026 no se mencionan puntos de recarga eléctrica en el área protegida: debes llevar tus equipos y baterías auxiliares cargados."
+            ],
+            "detail": "La ficha oficial de Parques Nacionales lista servicios de reservas, ingreso, guianza, transporte, alojamiento y tienda, sin incluir puntos de recarga eléctrica para visitantes."
+          },
+          "sources": [
+            {
+              "label": "Parques Nacionales Naturales · Los Nevados (ficha oficial)",
+              "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+              "retrieved_at": "2026-11-22"
+            }
+          ],
+          "last_verified": "2026-11-22",
+          "valid_until": null,
+          "related": [
+            "services.phone_signal",
+            "services.guide_radios"
+          ],
+          "tags": [
+            "carga",
+            "batería",
+            "celular",
+            "electricidad"
+          ]
+        },
+        "evidence": [
+          {
+            "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+            "path": "research_notes/curation_v2/evidence/access/pnn-nevados-portal.txt",
+            "quote": "Gestiona directamente servicios ecoturísticos como reservas, ingreso, guianza, transporte, alojamiento y tienda.",
+            "checked_on": "2026-11-22"
+          }
+        ]
+      },
+      {
+        "op": "update",
+        "reason": "Describir el terreno más exigente y la vocación de montañismo del sector Quindío–Dulima según la ficha oficial, incorporando la reserva previa obligatoria con 5 días hábiles y el acompañamiento obligatorio de guía registrado, retirando la opción de acceso por cuenta propia.",
+        "entry": {
+          "id": "services.quindio_dulima",
+          "label": "servicios en Quindío–Dulima",
+          "kind": "fact",
+          "audience": "visitor",
+          "lang": "es",
+          "examples": [
+            "servicios en Quindío Dulima",
+            "qué hay en el sector Dulima",
+            "hay comida por el nevado del Tolima",
+            "qué servicios hay del lado del Quindío",
+            "qué atienden en el punto del Cocora",
+            "hay baños en el Dulima",
+            "qué toca llevar pal Dulima?",
+            "alojamiento en el Dulima",
+            "servicios para el nevado del Tolima",
+            "hay algo en el Anzoátegui antes de subir",
+            "what services are on the Quindío side",
+            "what facilities are near Nevado del Tolima",
+            "qué servicios turísticos operan en el sector Quindío Dulima",
+            "hay puntos de atención o servicios al visitante en Quindío-Dulima",
+            "en las rutas de Salento, Cocora o Juntas hacia Dulima qué servicios atienden",
+            "qué infraestructura y servicios se encuentran en el lado sur del Tolima y Quindío"
+          ],
+          "hard_negatives": [
+            "qué es el sector Quindío Dulima",
+            "Quindío-Dulima a qué volcán corresponde",
+            "hay alojamiento en Brisas",
+            "hay hospedaje en El Bosque"
+          ],
+          "entities": {
+            "sector": [
+              "quindio_dulima"
+            ]
+          },
+          "answer": {
+            "short": "En el sector Quindío–Dulima el terreno es más exigente y la actividad principal es el montañismo; el ingreso requiere reserva previa obligatoria con cinco (5) días hábiles de anticipación y acompañamiento de guía u operador registrado según las normas oficiales. Confirma antes de subir.",
+            "variants": [
+              "El sector Quindío–Dulima tiene un terreno más exigente centrado en montañismo; exige reserva previa con cinco días hábiles de anticipación y acompañamiento obligatorio de guía o agencia registrada."
+            ],
+            "detail": "La ficha oficial indica que el terreno es más exigente y la actividad principal es el montañismo. El ingreso a Quindío–Dulima es bajo reserva previa (cinco días hábiles antes del ingreso), con horarios de 6:00 a. m. a 10:00 a. m. en Valle del Cocora y de 6:00 a. m. a 11:00 a. m. en Juntas y Anzoátegui; además, las fuentes oficiales exigen servicio obligatorio de acompañamiento de guía."
+          },
+          "sources": [
+            {
+              "label": "Parques Nacionales Naturales · Los Nevados (ficha oficial)",
+              "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+              "retrieved_at": "2026-11-22"
+            }
+          ],
+          "last_verified": "2026-11-22",
+          "valid_until": null,
+          "related": [
+            "services.tolima_lodging",
+            "services.first_aid_points",
+            "services.porter_luggage"
+          ],
+          "tags": [
+            "Quindío",
+            "Dulima",
+            "Cocora",
+            "Juntas",
+            "Anzoátegui"
+          ]
+        },
+        "evidence": [
+          {
+            "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+            "path": "research_notes/curation_v2/evidence/access/pnn-nevados-portal.txt",
+            "quote": "En el sector Quindío-Dulima puedes disfrutar de las actividades de los anteriores sectores, pero aquí el terreno es más exigente, por lo que la actividad principal es el montañismo.",
+            "checked_on": "2026-11-22"
+          },
+          {
+            "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+            "path": "research_notes/curation_v2/evidence/access/pnn-nevados-portal.txt",
+            "quote": "Sector Quindío-Dulima: haz tu reserva con cinco (5) días hábiles antes del día de tu ingreso al Parque.",
+            "checked_on": "2026-11-22"
+          },
+          {
+            "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+            "path": "research_notes/curation_v2/evidence/activities/pnn-ficha.txt",
+            "quote": "Sector Quindío-Dulima (acceso a los atractivos en inmediaciones del volcán Nevado del Tolima): el horario en el punto de atención Valle del Cocora es de 6:00 a. m. a 10:00 a. m., mientras que en Juntas y Anzoátegui es de 6:00 a. m. a 11:00 a. m. (bajo reserva previa)",
+            "checked_on": "2026-11-22"
+          },
+          {
+            "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+            "path": "research_notes/curation_v2/evidence/access/pnn-nevados-portal.txt",
+            "quote": "En el Parque Nacional Natural Los Nevados es obligatorio el servicio de acompañamiento y guianza en todos los sectores.",
+            "checked_on": "2026-11-22"
+          }
+        ]
+      },
+      {
+        "op": "update",
+        "reason": "Añadir guía inmediata incondicional para hipotermia (resguardo, retiro de ropa mojada, abrigo seco, sin alcohol, no dar bebidas a inconscientes y aviso al guía), manteniendo la llamada al 123 sujeta a tener señal; preservar que la app no avisa a rescate.",
+        "entry": {
+          "id": "actions.report_hypothermia",
+          "label": "preparar el reporte de hipotermia",
+          "kind": "action",
+          "audience": "visitor",
+          "lang": "es",
+          "examples": [
+            "mi amigo está congelado y no habla bien",
+            "compañero con hipotermia",
+            "tiene frio y tirita mucho",
+            "mi hermano está temblando y muy confundido",
+            "se mojó con la lluvia y tiembla feo",
+            "creo que alguien tiene hipotermia aqui en el paramo",
+            "mi compañero se quedó sin fuerzas por el frío",
+            "hay una persona con hipotermia en el sendero",
+            "tiritando sin control, necesito ayuda",
+            "someone is shivering uncontrollably and confused",
+            "I think my friend has hypothermia, what do I report?",
+            "mi companero tirita en el paramo y quiero preparar el reporte de hipotermia",
+            "quiero dejar por escrito que mi amigo va con hipotermia"
+          ],
+          "hard_negatives": [
+            "qué hago si alguien tiene hipotermia",
+            "mi amigo está mojado y tiembla mucho",
+            "mi compañero tiene mucho frío pero ya no tiembla y está letárgico",
+            "tengo frío y me siento desorientado"
+          ],
+          "needs": [],
+          "action": "report_emergency",
+          "answer": {
+            "short": "Resguarda a la persona del frío y la humedad, retírale la ropa mojada, cúbrela con capas secas, no le des bebidas si está inconsciente ni suministres alcohol, y avisa de inmediato a tu guía. Si está confundida o no puede moverse, marca el 123 cuando tengas señal; la app no avisa a rescate. Te llevo al reporte de hipotermia para preparar el sector y cuántas personas están involucradas. Esa indicación sale de una nota de la Policía del 12 de marzo de 2023 y no confirma la cobertura de hoy.",
+            "variants": [
+              "Protege a la persona del frío y la humedad, cámbiale la ropa mojada por capas secas, evita el alcohol, nunca le des bebidas si está inconsciente y avisa al guía; marca el 123 cuando tengas señal. La app no avisa a rescate. Luego te llevo al reporte para indicar sector y personas involucradas. La nota de la Policía es del 12 de marzo de 2023 y no describe la cobertura de hoy."
+            ],
+            "steps": [
+              [
+                "Resguarda a la persona del frío y la humedad, retírale la ropa mojada, cúbrela con capas secas, sin suministrar alcohol ni darle bebidas si está inconsciente, y avisa a tu guía registrado.",
+                "Si la persona está confundida o no puede moverse, marca el 123 cuando tengas señal; la app no avisa a rescate."
+              ],
+              [
+                "Te llevo al reporte de hipotermia para preparar el sector y cuántas personas están involucradas."
+              ]
+            ],
+            "detail": null,
+            "reflection": null
+          },
+          "sources": [
+            {
+              "label": "Policía Nacional · línea 123 (nota del 12 mar 2023)",
+              "url": "https://www.policia.gov.co/noticia/policia-nacional-sensibiliza-comunidad-sobre-uso-las-lineas-emergencia-123-155",
+              "retrieved_at": "2026-11-22"
+            },
+            {
+              "label": "Parques Nacionales · ficha Los Nevados",
+              "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+              "retrieved_at": "2026-11-22"
+            },
+            {
+              "label": "CDC Travelers’ Health: Cold Weather and Travel",
+              "url": "https://wwwnc.cdc.gov/travel/page/travel-to-cold-climates/",
+              "retrieved_at": "2026-11-21"
+            },
+            {
+              "label": "CDC NIOSH: Cold-related Illnesses",
+              "url": "https://www.cdc.gov/niosh/cold-stress/about/related-illness.html",
+              "retrieved_at": "2026-11-21"
+            }
+          ],
+          "last_verified": "2026-11-22",
+          "valid_until": null,
+          "related": [
+            "actions.report_altitude_sickness",
+            "actions.report_storm"
+          ],
+          "tags": [
+            "hipotermia",
+            "frío",
+            "tiritar",
+            "reporte"
+          ]
+        },
+        "evidence": [
+          {
+            "url": "https://www.policia.gov.co/noticia/policia-nacional-sensibiliza-comunidad-sobre-uso-las-lineas-emergencia-123-155",
+            "path": "research_notes/curation_v2/evidence/actions/policia-123-2023.txt",
+            "quote": "12 March, 2023\nEstas líneas se encuentran a disposición las 24 horas del día, los siete días de la semana.",
+            "checked_on": "2026-11-22"
+          },
+          {
+            "url": "https://www.policia.gov.co/noticia/policia-nacional-sensibiliza-comunidad-sobre-uso-las-lineas-emergencia-123-155",
+            "path": "research_notes/curation_v2/evidence/actions/policia-123-2023.txt",
+            "quote": "La Línea de emergencia 123, es la línea única de emergencias Nacional, que permite que en un sólo número los colombianos puedan acceder a todos los servicios de emergencia y seguridad que ofrece el Estado gratuitamente las 24 horas del día todos los días del año; esta permite la atención de manera oportuna de cualquier requerimiento ciudadano en tema de seguridad y convivencia ciudadana.",
+            "checked_on": "2026-11-22"
+          },
+          {
+            "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+            "path": "research_notes/curation_v2/evidence/actions/pnn-los-nevados-ficha.txt",
+            "quote": "En el Parque Nacional Natural Los Nevados es obligatorio el servicio de acompañamiento y guianza en todos los sectores. Los operadores y guías deben estar registrados con el fin de que cumplan con condiciones muy importantes como la utilización de los equipos básicos para la alta montaña, el equipo médico de respuesta y los radios con la frecuencia requerida.",
+            "checked_on": "2026-11-22"
+          },
+          {
+            "url": "https://wwwnc.cdc.gov/travel/page/travel-to-cold-climates/",
+            "path": "research_notes/Conocimiento turístico de Los Nevados/health_safety/evidence/raw/cdc_travel_cold.html",
+            "quote": "Drink a non-alcoholic or non-caffeinated warm beverage. Warm beverages can help increase body temperature. Do not try to give beverages to an unconscious person with hypothermia.",
+            "checked_on": "2026-11-22"
+          },
+          {
+            "url": "https://wwwnc.cdc.gov/travel/page/travel-to-cold-climates/",
+            "path": "research_notes/Conocimiento turístico de Los Nevados/health_safety/evidence/raw/cdc_travel_cold.html",
+            "quote": "Remove all wet clothing.",
+            "checked_on": "2026-11-22"
+          },
+          {
+            "url": "https://wwwnc.cdc.gov/travel/page/travel-to-cold-climates/",
+            "path": "research_notes/Conocimiento turístico de Los Nevados/health_safety/evidence/raw/cdc_travel_cold.html",
+            "quote": "loose, dry layers of blankets, clothing, towels, or sheets.",
+            "checked_on": "2026-11-22"
+          },
+          {
+            "url": "https://www.cdc.gov/niosh/cold-stress/about/related-illness.html",
+            "path": "research_notes/Conocimiento turístico de Los Nevados/health_safety/evidence/raw/cdc_niosh_cold.html",
+            "quote": "Move the victim into a warm room or shelter.",
+            "checked_on": "2026-11-22"
+          }
+        ]
+      },
+      {
+        "op": "update",
+        "reason": "Añadir guía inmediata incondicional para grupo ante persona perdida (permanecer unidos en senderos autorizados y avisar al guía, quien debe notificar a las autoridades según la Resolución 207 de 2023), manteniendo la llamada al 123 sujeta a tener señal; preservar que la app no avisa a rescate.",
+        "entry": {
+          "id": "actions.report_lost_person",
+          "label": "preparar reporte de persona perdida",
+          "kind": "action",
+          "audience": "visitor",
+          "lang": "es",
+          "examples": [
+            "se perdio mi amigo en el paramo",
+            "perdí de vista a mi hijo en el sendero",
+            "una persona no volvió del recorrido",
+            "persona desaparecida en la montaña",
+            "mi compañero se separó del grupo y no aparece",
+            "reportar persona extraviada",
+            "se nos perdió un señor en la laguna",
+            "alguien del grupo está perdido desde hace rato",
+            "mi esposa se quedó atrás y no la veo",
+            "se nos perdió la niña",
+            "someone from my group is missing",
+            "a person is lost on the trail, I need help",
+            "no estoy perdido yo: alguien del grupo no aparece y quiero dejar el reporte",
+            "no encuentro a mi grupo"
+          ],
+          "hard_negatives": [
+            "me separé del grupo y no encuentro el sendero",
+            "qué hago si me pierdo en la montaña",
+            "perdi un objeto en el parque",
+            "se me perdio el celular en el sendero"
+          ],
+          "needs": [],
+          "action": "report_emergency",
+          "answer": {
+            "short": "Permanezcan unidos sin dispersarse ni salirse de los senderos autorizados y avisen de inmediato al guía (quien tiene la obligación de colaborar y notificar a las autoridades competentes) o al personal del parque. Marquen el 123 cuando tengan señal; la app no avisa a rescate. Te llevo al reporte de persona perdida para preparar el sector, cuántas personas faltan y la última referencia del recorrido. Esa indicación sale de una nota de la Policía del 12 de marzo de 2023 y no confirma la cobertura de hoy.",
+            "variants": [
+              "Permanezcan juntos en los senderos establecidos sin dispersarse y avisen de inmediato a su guía para que notifique a las autoridades competentes; llamen al 123 en cuanto tengan señal. La app no avisa a rescate. Luego te llevo al reporte para indicar sector, personas que faltan y la última referencia. La nota de la Policía es del 12 de marzo de 2023 y no describe la cobertura de hoy."
+            ],
+            "steps": [
+              [
+                "Permanezcan unidos sin dispersarse ni salirse de los senderos autorizados, y avisen de inmediato a su guía (quien tiene la obligación reglamentaria de avisar a las autoridades competentes) o al personal del parque.",
+                "Si alguien de tu grupo no aparece, marca el 123 cuando tengas señal; la app no avisa a rescate."
+              ],
+              [
+                "Te llevo al reporte de persona perdida para preparar el sector, cuántas personas faltan y la última referencia del recorrido."
+              ]
+            ],
+            "detail": null,
+            "reflection": null
+          },
+          "sources": [
+            {
+              "label": "Policía Nacional · línea 123 (nota del 12 mar 2023)",
+              "url": "https://www.policia.gov.co/noticia/policia-nacional-sensibiliza-comunidad-sobre-uso-las-lineas-emergencia-123-155",
+              "retrieved_at": "2026-11-22"
+            },
+            {
+              "label": "Resolución 207 del 04 de agosto de 2023, PNN Los Nevados",
+              "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2023/08/Resolucion_207_2023_ReglamentacionNevados.pdf",
+              "retrieved_at": "2026-11-22"
+            }
+          ],
+          "last_verified": "2026-11-22",
+          "valid_until": null,
+          "related": [
+            "actions.report_injury",
+            "actions.report_offline_emergency"
+          ],
+          "tags": [
+            "perdido",
+            "desaparecido",
+            "grupo",
+            "búsqueda"
+          ]
+        },
+        "evidence": [
+          {
+            "url": "https://www.policia.gov.co/noticia/policia-nacional-sensibiliza-comunidad-sobre-uso-las-lineas-emergencia-123-155",
+            "path": "research_notes/curation_v2/evidence/actions/policia-123-2023.txt",
+            "quote": "12 March, 2023\nEstas líneas se encuentran a disposición las 24 horas del día, los siete días de la semana.",
+            "checked_on": "2026-11-22"
+          },
+          {
+            "url": "https://www.policia.gov.co/noticia/policia-nacional-sensibiliza-comunidad-sobre-uso-las-lineas-emergencia-123-155",
+            "path": "research_notes/curation_v2/evidence/actions/policia-123-2023.txt",
+            "quote": "La Línea de emergencia 123, es la línea única de emergencias Nacional, que permite que en un sólo número los colombianos puedan acceder a todos los servicios de emergencia y seguridad que ofrece el Estado gratuitamente las 24 horas del día todos los días del año; esta permite la atención de manera oportuna de cualquier requerimiento ciudadano en tema de seguridad y convivencia ciudadana.",
+            "checked_on": "2026-11-22"
+          },
+          {
+            "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2023/08/Resolucion_207_2023_ReglamentacionNevados.pdf",
+            "path": "research_notes/Conocimiento turístico de Los Nevados/health_safety/evidence/raw/resolucion-207-2023.txt",
+            "quote": "es sumamente importante permanecer unidos y atentos de que nadie",
+            "checked_on": "2026-11-22"
+          },
+          {
+            "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2023/08/Resolucion_207_2023_ReglamentacionNevados.pdf",
+            "path": "research_notes/Conocimiento turístico de Los Nevados/health_safety/evidence/raw/resolucion-207-2023.txt",
+            "quote": "En caso de extravío o pérdida, enfermedad o accidente de un visitante deberá colaborar con la emergencia\n     presentada y dar aviso inmediato a las autoridades competentes.",
+            "checked_on": "2026-11-22"
+          },
+          {
+            "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2023/08/Resolucion_207_2023_ReglamentacionNevados.pdf",
+            "path": "research_notes/Conocimiento turístico de Los Nevados/health_safety/evidence/raw/resolucion-207-2023.txt",
+            "quote": "Realizar el recorrido caminando, sin salirse de los senderos establecidos para realizar la actividad en el atractivo",
+            "checked_on": "2026-11-22"
+          }
+        ]
+      }
+    ]
+  },
+  "base": {
+    "data/knowledge/sections/conversation.json": "501623a436facf410c620f5a5864bff2daeb51d3f97bfc23710679149f322815",
+    "data/knowledge/sections/geography.json": "4d23ddfbbaf37f1f61ca3cd1d5cee40e8a79fc8dcfd440801145b2815a4053bd",
+    "data/knowledge/sections/flora_ecosystems.json": "d4e261595a1abea3a496e2b97ef2505a5836f684cecad141d5ec146c19395d40",
+    "data/knowledge/sections/fauna.json": "a583cfa7aa8ae9008033994cca44ff8cf3e80d7a11f41ca807eea1242aeb53a0",
+    "data/knowledge/sections/services.json": "0f99ebfa4e3b65fa1ad3cb2a855dc17792e4536906b05b21c5c07ddb228c7987",
+    "data/knowledge/sections/rules.json": "57996377cb9e83e1fb9e0dad624bd0b44e1e46919fddcb1bce34734c28c1e1cb",
+    "data/knowledge/sections/activities.json": "f89e3532fbc5bec4c2f217c6033941f484083aaee40e0ba99291184d1a3f5600",
+    "data/knowledge/sections/preparation.json": "6d798d212b4015c7a8cbc9173d5c1aea35d27f2ff051e652cc04dfee002bf02e",
+    "data/knowledge/sections/hours_status.json": "c88b89051768289e8cc88eda347aaf1aff7e657caeb1db73446f17d33ff46bef",
+    "data/knowledge/sections/booking_fees.json": "50bd1360e8e33b712489f901ae177d6ef3feaddc8dc2cf9d4d83c85515010340",
+    "data/knowledge/sections/access.json": "d2b2f3f1876f4b1a436e48bf73730a5c26a4dc5e2de4e982292894f1abb312ad",
+    "data/knowledge/sections/weather_volcano.json": "1e5687d907d2fe3afd8c62d1d7fc36663ff5fec5e5c18271452a2b5d170dcf90",
+    "data/knowledge/sections/health_safety.json": "0b4fae6e37667167784047461d98b1a911f4e264db6bdef400253549b101f5da",
+    "data/knowledge/sections/actions.json": "148d5323e085f6c12582ce2e2172f3ed86b8b68a2410c27b20318fdd30c7b395",
+    "data/knowledge/sections/history_culture.json": "47ac43bdf91ff67c9cb7e4c7423c629d8113358e35bbd32ce6216506d640f585",
+    "docs/schemas/knowledge-section.schema.json": "a7b049cddf6e867cbc68c41eff6d16c9e36e4bea73897d944033340cce8161fb",
+    "research_notes/Conocimiento turístico de Los Nevados/coordination/knowledge_additions.json": "a7ab60d34c0595d1b6c6fb6466254680a5aa9911622d58ec1f2ff9defa6c137d",
+    "research_notes/Conocimiento turístico de Los Nevados/conversation/evidence/www2_sgc_gov_co_Noticias_Paginas_Boletines-semanales_aspx.txt": "c1b1c1be59b40f0ca8d25e6df6d368600b936a4ab635fcf86bd15ea3d1a8f56a",
+    "research_notes/Conocimiento turístico de Los Nevados/conversation/evidence/www_parquesnacionales_gov_co_nuestros-parques_parque-nacional-natural-los-nevados_.txt": "cfc27aa26232583d4ba1b5f47a9b22d7a5e631e15a9a5c4188733ddb0e1006f8",
+    "research_notes/Conocimiento turístico de Los Nevados/flora_ecosystems/evidence/raw/carder-plan-manejo-nevados.txt": "df3825490b742d1451c02e779b3aa5e5049c6c36ac61ed19f65a7395641ab892",
+    "research_notes/curation_v2/evidence/actions/pnn-los-nevados-ficha.txt": "840090d4b52c89e8278274fede7c43148f7d908e76f2cd5ee9b0a180d7bd478f",
+    "research_notes/curation_v2/evidence/activities/resolucion-207-2023.txt": "75d1570cba300a96fcd3cd1fae9e3757b347300dd616bbef5438cd01d06cccde",
+    "research_notes/Conocimiento turístico de Los Nevados/health_safety/evidence/raw/cdc_niosh_cold.html": "b8c0f05c7f51b4c6c91d2694c6a734c475fcfd80fc0af33234cbeafee9af2fd8",
+    "research_notes/Conocimiento turístico de Los Nevados/health_safety/evidence/raw/resolucion-207-2023.txt": "75d1570cba300a96fcd3cd1fae9e3757b347300dd616bbef5438cd01d06cccde",
+    "research_notes/Conocimiento turístico de Los Nevados/health_safety/evidence/raw/cdc_travel_cold.html": "a242003629c6422a6677c96980d6f0e282e1f828937ca5620f6b09fc16fe33ca",
+    "research_notes/curation_v2/evidence/access/pnn-nevados-portal.txt": "840090d4b52c89e8278274fede7c43148f7d908e76f2cd5ee9b0a180d7bd478f",
+    "research_notes/curation_v2/evidence/activities/pnn-ficha.txt": "840090d4b52c89e8278274fede7c43148f7d908e76f2cd5ee9b0a180d7bd478f",
+    "research_notes/curation_v2/evidence/actions/policia-123-2023.txt": "95b93a5e22481376f1e334544b4a88c06877d6c70ad8b66eae48f7c29b73ff07",
+    "research_notes/Conocimiento turístico de Los Nevados/access.research.md": "e8385e058c9463de03226c3a183b8967e11a90706beef55cb7b2c55618132043",
+    "research_notes/Conocimiento turístico de Los Nevados/actions.research.md": "b1f713eb524d2c72a64cfb64db65ae8ce22ece4ad55cfd8a79837900e597c28f",
+    "research_notes/Conocimiento turístico de Los Nevados/activities.research.md": "e58b5e1b936c546ea187ec919e8222272ccafd009e932ce4d0c114e7118d3522",
+    "research_notes/Conocimiento turístico de Los Nevados/conversation.research.md": "83824ef8050dbd68825ec6611157904b24b049943c503acc8c3267fc468ed0a5",
+    "research_notes/Conocimiento turístico de Los Nevados/flora_ecosystems.research.md": "79e03a80913ea69b954e7bd3edb2188b02787456bc7427391e2c4e924c321ecf",
+    "research_notes/Conocimiento turístico de Los Nevados/geography.research.md": "8e756bec9074e1da986e8f0fd57c92ff87103bbc1cb3e8b5f1f15d653775be21",
+    "research_notes/Conocimiento turístico de Los Nevados/preparation.research.md": "8b20f7e786aac20c9227f5cea236dd10dea6797e87b7179a8eddf1bbd2a0d9d4",
+    "research_notes/Conocimiento turístico de Los Nevados/services.research.md": "d960292baeea478127894d460e62358f7858f8cfcc0ceab3948fa01bf60f4e27"
+  },
+  "writes": {
+    "data/knowledge/sections/access.json": "4720678b384a5c2e472ca93dbc4b6bacbec677004ca810addcf0bd3928a9e328",
+    "data/knowledge/sections/actions.json": "93cdd0d3ab813685dbecc00b2ed041ef0388bc6c21a22abb0d0262eb26adace9",
+    "data/knowledge/sections/activities.json": "11964a11c14e01a4602d1a70c075400cda6f8be7f0c1388548d6f37003a2a910",
+    "data/knowledge/sections/conversation.json": "98bdef51d6f32b59e77a7c7388e5c4396aaf2f6ff378d1bf7558b810d96df992",
+    "data/knowledge/sections/flora_ecosystems.json": "99c9922d825503650d87465d7a3706ce8a2fa71e84b1d58e0a2878d3e3594adc",
+    "data/knowledge/sections/geography.json": "41ebc5b900058eba1130b6024b7752c570a11254c9abbfa672e9c514c0b1faa8",
+    "data/knowledge/sections/preparation.json": "3dc4a0b4148b811a760729e4ff2a00b4b5af6991c691ded65cb2f661ad7833d5",
+    "data/knowledge/sections/services.json": "c37e844e50397b51cb30dd21c65731d7708175fc5a582a05f659494e48653ea4",
+    "research_notes/Conocimiento turístico de Los Nevados/coordination/knowledge_additions.json": "3930f87249630f9ef087e4fd343869737193177d3c995953169d9972edd5f2f9",
+    "research_notes/Conocimiento turístico de Los Nevados/access.research.md": "ee44cfe4ce53e8d54eff96127eea9b01cb21ce462d6900e2dc5b705d7b8f0a90",
+    "research_notes/Conocimiento turístico de Los Nevados/actions.research.md": "710816f97712584247b6f745686e1f3aefdc0fdd9fe4757c8e89073ab0feb564",
+    "research_notes/Conocimiento turístico de Los Nevados/activities.research.md": "e17ccb62802f558aa3699caf27a8c45177774502dcff9ec7712781b74903b159",
+    "research_notes/Conocimiento turístico de Los Nevados/conversation.research.md": "3504b959330b30b5f76e2cc9f9d11788611132469cbbf54f4210043290c04a66",
+    "research_notes/Conocimiento turístico de Los Nevados/flora_ecosystems.research.md": "220fc72642405bbf5c58751885355c4c1cdbc1b974d86073ec1acaa2bb7d9f8b",
+    "research_notes/Conocimiento turístico de Los Nevados/geography.research.md": "524289ef254d7f175f4c056a65c8c11854dae1e83e466a007dd9a317b1bc1e32",
+    "research_notes/Conocimiento turístico de Los Nevados/preparation.research.md": "421aee2e9cae445b447f2f0f3a5c0cde9795ef69f9ead7d1c18f1ce4bdab8f73",
+    "research_notes/Conocimiento turístico de Los Nevados/services.research.md": "022bca9041765c0732a04b2abf8a0b2da14cf636a949b3ba8e39db982a5151ad"
+  }
+}

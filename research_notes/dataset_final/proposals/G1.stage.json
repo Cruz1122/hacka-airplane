@@ -1,0 +1,218 @@
+{
+  "version": 1,
+  "root": "/home/cruz1122/dev/hacka-airplane",
+  "proposal": {
+    "operations": [
+      {
+        "op": "update",
+        "reason": "Correct claim about SGC bulletin index and clarify dated status of publications.",
+        "entry": {
+          "id": "hours_status.park_open_today",
+          "label": "verificar si el parque está abierto hoy",
+          "kind": "fact",
+          "audience": "visitor",
+          "lang": "es",
+          "examples": [
+            "está abierto hoy",
+            "está cerrado hoy",
+            "puedo entrar mañana",
+            "hay cierres",
+            "hoy hay acceso",
+            "está habilitado el recorrido",
+            "puedo visitar el parque hoy",
+            "el parque abre hoy o no?",
+            "el nevado está cerrado",
+            "hoy sí se puede subir al nevado?",
+            "hoy si dejan subir turistas?",
+            "is the national park open today",
+            "can I visit the park right now"
+          ],
+          "hard_negatives": [
+            "el parque entero está abierto para recorrer",
+            "dónde confirmo si abren hoy",
+            "¿hoy sí está habilitada la vía?"
+          ],
+          "entities": {},
+          "needs": [],
+          "answer": {
+            "short": "No puedo confirmar si el parque abre hoy: los boletines semanales del SGC (como el del Ruiz del 10 al 16 de noviembre de 2026) y la ficha de Parques Nacionales (modificada el 31 de octubre de 2026) son reportes fechados que no garantizan el estado de acceso de hoy. Confirma el ingreso actual directamente con Parques Nacionales (@ParquesColombia).",
+            "variants": [
+              "Esta guía fuera de línea contiene datos fechados (ficha del 31 de octubre de 2026 y boletín del SGC del 10 al 16 de noviembre de 2026), por lo que no puede confirmar la apertura de hoy: consulta el estado en tiempo real con Parques Nacionales (@ParquesColombia)."
+            ],
+            "steps": [
+              [
+                "No puedo confirmar si el parque abre hoy: los boletines semanales del SGC (como el del Ruiz del 10 al 16 de noviembre de 2026) y la ficha de Parques Nacionales (modificada el 31 de octubre de 2026) son reportes fechados que no garantizan el estado de acceso de hoy. Confirma el ingreso actual directamente con Parques Nacionales (@ParquesColombia)."
+              ]
+            ],
+            "detail": null,
+            "reflection": null
+          },
+          "sources": [
+            {
+              "label": "Parques Nacionales · ficha Los Nevados",
+              "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+              "retrieved_at": "2026-11-21"
+            },
+            {
+              "label": "Servicio Geológico Colombiano · índice de boletines",
+              "url": "https://www2.sgc.gov.co/Noticias/Paginas/Boletines-semanales.aspx",
+              "retrieved_at": "2026-11-21"
+            }
+          ],
+          "last_verified": "2026-11-22",
+          "valid_until": null,
+          "related": [
+            "hours_status.official_channels_to_check_status",
+            "hours_status.volcanic_alert_closures",
+            "hours_status.general_opening_schedule"
+          ],
+          "tags": [
+            "apertura",
+            "estado",
+            "abierto",
+            "cerrado",
+            "hoy",
+            "operación"
+          ]
+        },
+        "evidence": [
+          {
+            "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+            "path": "research_notes/Conocimiento turístico de Los Nevados/hours_status/evidence/raw/pnn_nevados.html",
+            "quote": "article:modified_time\" content=\"2026-10-31T00:11:49+00:00\"",
+            "checked_on": "2026-11-22"
+          },
+          {
+            "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+            "path": "research_notes/Conocimiento turístico de Los Nevados/hours_status/evidence/raw/pnn_nevados.txt",
+            "quote": "@ParquesColombia\n@parquescolombia\n@ParquesNaturales\n+573229471031\n@parquescolombia\nParques",
+            "checked_on": "2026-11-22"
+          },
+          {
+            "url": "https://www2.sgc.gov.co/Noticias/Paginas/Boletines-semanales.aspx",
+            "path": "research_notes/Conocimiento turístico de Los Nevados/hours_status/evidence/raw/sgc_boletines.html",
+            "quote": "\"FileLeafRef\": \"Boletin_semanal_de_actividad_del_volcan_Nevado_del_Ruiz_del_10_de_noviembre_al_16_de_noviembre_de_2026.pdf\",",
+            "checked_on": "2026-11-22"
+          }
+        ]
+      },
+      {
+        "op": "update",
+        "reason": "Remove misleading \"Hoy el punto es...\" claim from variant; date 2023 source and park portal.",
+        "entry": {
+          "id": "access.cocora_registration",
+          "label": "registro en el Valle del Cocora",
+          "kind": "fact",
+          "audience": "visitor",
+          "lang": "es",
+          "examples": [
+            "dónde me registro en cocora",
+            "¿en el Quindío dónde toca registrarse?",
+            "la puerta azul sigue siendo el control",
+            "kilometro 11 de salento cocora",
+            "truchera es el registro de ahora",
+            "where do I check in for the Cocora access",
+            "is the blue gate still the checkpoint",
+            "en el valle del cocora es donde me toca registrarme",
+            "¿y el registro es en los 2400 metros?",
+            "¿en Cocora toca registrarse en la puerta azul?",
+            "no doy por sentado el km 11",
+            "¿el registro de Dulima también es en Cocora?"
+          ],
+          "hard_negatives": [
+            "toca registrarnos aquí en la entrada?",
+            "hasta qué hora dejan registrarse en el cocora",
+            "la travesía de Juntas al Cocora"
+          ],
+          "answer": {
+            "short": "Para el sector Quindío–Dulima, la ficha oficial sitúa el punto de atención en el Valle del Cocora. La reglamentación de diciembre de 2023 ubicaba el registro en la puerta azul de la truchera, kilómetro 11, a unos 2.400 m: confirma con el operador dónde opera hoy el mostrador.",
+            "variants": [
+              "La reglamentación de diciembre de 2023 y la ficha oficial sitúan el punto de atención de Quindío–Dulima en el Valle del Cocora (en 2023 en el kilómetro 11, puerta azul de la truchera, a unos 2.400 m). Confirma con tu operador la ubicación exacta del mostrador para tu fecha."
+            ]
+          },
+          "sources": [
+            {
+              "label": "Parques Nacionales Naturales de Colombia — Parque Nacional Natural Los Nevados",
+              "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+              "retrieved_at": "2026-11-21"
+            },
+            {
+              "label": "Parques Nacionales Naturales — Reglamentación transitoria de ecoturismo, PNN Los Nevados, diciembre de 2023",
+              "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2023/12/ANEXO-PNN-NEVADOS.pdf",
+              "retrieved_at": "2026-11-21"
+            }
+          ],
+          "last_verified": "2026-11-21",
+          "related": [
+            "access.from_salento_cocora",
+            "access.cocora_before_park",
+            "access.control_coordinates"
+          ],
+          "tags": [
+            "cocora",
+            "registro",
+            "2023"
+          ],
+          "entities": {
+            "sector": [
+              "quindio"
+            ]
+          }
+        },
+        "evidence": [
+          {
+            "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+            "path": "research_notes/Conocimiento turístico de Los Nevados/access/evidence/raw/pnn_nevados.txt",
+            "quote": "Sector Quindío-Dulima (acceso a los atractivos en inmediaciones del volcán Nevado del Tolima): el horario en el punto de atención Valle del Cocora es de 6:00 a. m. a 10:00 a. m., mientras que en Juntas y Anzoátegui es de 6:00 a. m. a 11:00 a. m. (bajo reserva previa)",
+            "checked_on": "2026-11-22"
+          },
+          {
+            "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2023/12/ANEXO-PNN-NEVADOS.pdf",
+            "path": "research_notes/Conocimiento turístico de Los Nevados/access/evidence/raw/anexo-reglamentacion-2023.txt",
+            "quote": "Puerta azul ingreso a la truchera, kilómetro 11 sobre la vía Salento - Cocora.",
+            "checked_on": "2026-11-22"
+          },
+          {
+            "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2023/12/ANEXO-PNN-NEVADOS.pdf",
+            "path": "research_notes/Conocimiento turístico de Los Nevados/access/evidence/raw/anexo-reglamentacion-2023.txt",
+            "quote": "N 04°38’17.5’’ W 075°29´11.3’’ – 2.400 m.s.n.m",
+            "checked_on": "2026-11-22"
+          }
+        ]
+      }
+    ]
+  },
+  "base": {
+    "data/knowledge/sections/conversation.json": "501623a436facf410c620f5a5864bff2daeb51d3f97bfc23710679149f322815",
+    "data/knowledge/sections/geography.json": "4d23ddfbbaf37f1f61ca3cd1d5cee40e8a79fc8dcfd440801145b2815a4053bd",
+    "data/knowledge/sections/flora_ecosystems.json": "d4e261595a1abea3a496e2b97ef2505a5836f684cecad141d5ec146c19395d40",
+    "data/knowledge/sections/fauna.json": "a583cfa7aa8ae9008033994cca44ff8cf3e80d7a11f41ca807eea1242aeb53a0",
+    "data/knowledge/sections/services.json": "0f99ebfa4e3b65fa1ad3cb2a855dc17792e4536906b05b21c5c07ddb228c7987",
+    "data/knowledge/sections/rules.json": "57996377cb9e83e1fb9e0dad624bd0b44e1e46919fddcb1bce34734c28c1e1cb",
+    "data/knowledge/sections/activities.json": "f89e3532fbc5bec4c2f217c6033941f484083aaee40e0ba99291184d1a3f5600",
+    "data/knowledge/sections/preparation.json": "6d798d212b4015c7a8cbc9173d5c1aea35d27f2ff051e652cc04dfee002bf02e",
+    "data/knowledge/sections/hours_status.json": "c88b89051768289e8cc88eda347aaf1aff7e657caeb1db73446f17d33ff46bef",
+    "data/knowledge/sections/booking_fees.json": "50bd1360e8e33b712489f901ae177d6ef3feaddc8dc2cf9d4d83c85515010340",
+    "data/knowledge/sections/access.json": "d2b2f3f1876f4b1a436e48bf73730a5c26a4dc5e2de4e982292894f1abb312ad",
+    "data/knowledge/sections/weather_volcano.json": "1e5687d907d2fe3afd8c62d1d7fc36663ff5fec5e5c18271452a2b5d170dcf90",
+    "data/knowledge/sections/health_safety.json": "0b4fae6e37667167784047461d98b1a911f4e264db6bdef400253549b101f5da",
+    "data/knowledge/sections/actions.json": "148d5323e085f6c12582ce2e2172f3ed86b8b68a2410c27b20318fdd30c7b395",
+    "data/knowledge/sections/history_culture.json": "47ac43bdf91ff67c9cb7e4c7423c629d8113358e35bbd32ce6216506d640f585",
+    "docs/schemas/knowledge-section.schema.json": "a7b049cddf6e867cbc68c41eff6d16c9e36e4bea73897d944033340cce8161fb",
+    "research_notes/Conocimiento turístico de Los Nevados/coordination/knowledge_additions.json": "a7ab60d34c0595d1b6c6fb6466254680a5aa9911622d58ec1f2ff9defa6c137d",
+    "research_notes/Conocimiento turístico de Los Nevados/hours_status/evidence/raw/sgc_boletines.html": "7507ace269d4b58888fb60fc5fd3fe0973fd65d2407caef186ffc4cd49fe1776",
+    "research_notes/Conocimiento turístico de Los Nevados/access/evidence/raw/anexo-reglamentacion-2023.txt": "9b24756751c1fa134e2232f98f2f943b97ec4dd665cf392dca89d67f5a7a0178",
+    "research_notes/Conocimiento turístico de Los Nevados/access/evidence/raw/pnn_nevados.txt": "50e3b0134747df80e51883969b4441ef14e07eb59b8b814aa14069b836f003e0",
+    "research_notes/Conocimiento turístico de Los Nevados/hours_status/evidence/raw/pnn_nevados.html": "7fd7045189134aa79f0bc84c0a514ee2e0b63a6046abbb6f06fc81bad2f24aff",
+    "research_notes/Conocimiento turístico de Los Nevados/hours_status/evidence/raw/pnn_nevados.txt": "4c09423056f7323c330d50a45783f12510d86bee5a45fb7f541ffd0a4f0e1268",
+    "research_notes/Conocimiento turístico de Los Nevados/access.research.md": "e8385e058c9463de03226c3a183b8967e11a90706beef55cb7b2c55618132043",
+    "research_notes/Conocimiento turístico de Los Nevados/hours_status.research.md": "5755f814ee92a8b30ce788da7db4ad38684d712e29da5ba64e8098f9bf68573d"
+  },
+  "writes": {
+    "data/knowledge/sections/access.json": "8daf4b98c20087a04f1297302fc5b98dcfc42f0ee2e09b93b3a6d78efe6f9105",
+    "data/knowledge/sections/hours_status.json": "4c348b2644df1138409418a06ff1b11d6141b73ebb3da8279e40df595969b23b",
+    "research_notes/Conocimiento turístico de Los Nevados/coordination/knowledge_additions.json": "2e1f219c72ed22f423652c194e0768aa10a6c66e726af35f277659329d3a9134",
+    "research_notes/Conocimiento turístico de Los Nevados/access.research.md": "0a6341b89a287c1acdd1463f4162667e86ad46fa5a242ffee9d572e3200e671e",
+    "research_notes/Conocimiento turístico de Los Nevados/hours_status.research.md": "17b6221d705b7edf000df90c6664145e5bad94173e95a4aad5c9c2071aa3cb51"
+  }
+}

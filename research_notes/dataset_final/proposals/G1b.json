@@ -1,0 +1,148 @@
+{
+  "operations": [
+    {
+      "op": "update",
+      "reason": "Harmonize river origin with SGC official volcano description and IDEAM glacial drainage table, making it consistent with weather_volcano.ruiz_rivers.",
+      "entry": {
+        "id": "geography.rios_lagunilla_recio",
+        "label": "ríos Lagunilla y Recio del Ruiz",
+        "kind": "fact",
+        "audience": "visitor",
+        "lang": "es",
+        "examples": [
+          "río lagunilla del ruiz",
+          "el río recio sale del nevado",
+          "rio recio dónde nace",
+          "qué son los ríos lagunilla y recio",
+          "lagunilla o recio, cuál baja al magdalena",
+          "ríos que nacen en el Ruiz hacia el Magdalena",
+          "is the Recio river on the Ruiz",
+          "el recio y la lagunilla pa' qué lado van",
+          "cuáles son los ríos del Ruiz que van al Alto Magdalena",
+          "tienen algo que ver el recio y el lagunilla con el parque",
+          "lagunilla recio drenaje del ruiz",
+          "qué ríos salen del Ruiz por el lado tolimense"
+        ],
+        "answer": {
+          "short": "El Ideam incluye los ríos Lagunilla y Recio en el drenaje del Ruiz hacia el Alto Magdalena, y el SGC precisa que nacen en el edificio volcánico del Nevado del Ruiz. Si aumenta la actividad volcánica, no te acerques a sus cauces.",
+          "variants": [
+            "Lagunilla y Recio drenan hacia el Alto Magdalena según el Ideam y nacen en el edificio volcánico del Ruiz según el SGC. Aléjate de sus cauces ante avisos de actividad volcánica."
+          ]
+        },
+        "sources": [
+          {
+            "label": "IDEAM, glaciar Nevado del Ruiz",
+            "url": "https://www.ideam.gov.co/nuestra-entidad/ecosistemas-e-informacion-ambiental/glaciares/nevado-del-ruiz",
+            "retrieved_at": "2026-11-21"
+          },
+          {
+            "label": "SGC, ficha del Nevado del Ruiz",
+            "url": "https://www2.sgc.gov.co/sgc/volcanes/VolcanNevadoRuiz/Paginas/generalidades-volcan-nevado-ruiz.aspx",
+            "retrieved_at": "2026-11-21"
+          }
+        ],
+        "last_verified": "2026-11-22",
+        "related": [
+          "geography.rio_guali",
+          "geography.rio_azufrado",
+          "geography.watersheds"
+        ],
+        "tags": [
+          "río",
+          "lagunilla",
+          "recio"
+        ],
+        "hard_negatives": [
+          "a dónde va a parar el agua del parque?",
+          "¿el parque alimenta solo un río grande o varios?",
+          "which rivers drain Los Nevados"
+        ]
+      },
+      "evidence": [
+        {
+          "url": "https://www.ideam.gov.co/nuestra-entidad/ecosistemas-e-informacion-ambiental/glaciares/nevado-del-ruiz",
+          "path": "research_notes/Conocimiento turístico de Los Nevados/geography/evidence/raw/ideam_glaciar_ruiz.txt",
+          "quote": "Río Lagunilla\nRío Lagunilla\n0.87\nAlto Magdalena\nQ. Aguablanca\nQ. El Cisne\nRío Recio",
+          "checked_on": "2026-11-22"
+        },
+        {
+          "url": "https://www2.sgc.gov.co/sgc/volcanes/VolcanNevadoRuiz/Paginas/generalidades-volcan-nevado-ruiz.aspx",
+          "path": "research_notes/Conocimiento turístico de Los Nevados/weather_volcano/evidence/raw/sgc-ruiz-generalidades.txt",
+          "quote": "El drenaje es radial excéntrico y en el edificio volcánico nacen los ríos Güalí, Lagunillas y Recio, afluentes del río Magdalena, y el río Chinchiná, afluente del Cauca; se trata de valles estrechos, profundos y de alta pendiente.",
+          "checked_on": "2026-11-22"
+        }
+      ]
+    },
+    {
+      "op": "update",
+      "reason": "Clarify that authorized mule luggage transport is restricted and does not enter Arenales or Calvito, aligning with rules.no_mules_arenales_calvito and Res. 207 / Anexo 2023.",
+      "entry": {
+        "id": "services.mule_luggage_registered_only",
+        "label": "transporte de carga con mulas y arrieros autorizados",
+        "kind": "fact",
+        "audience": "visitor",
+        "lang": "es",
+        "hard_negatives": [
+          "puedo hacer cabalgata en el parque",
+          "paseo a mula por los senderos",
+          "me pueden subir en mula como pasajero?",
+          "el caballo sirve para la travesía"
+        ],
+        "entities": {},
+        "answer": {
+          "short": "No entran mulas ni caballos con fines turísticos, como cabalgatas. Solo los arrieros avalados por el parque pueden cargar equipaje con mulas (previa autorización), pero ese porteo no ingresa a Arenales ni a Calvito. Pide un arriero registrado antes de subir.",
+          "variants": [
+            "Para carga de equipaje solo operan arrieros avalados por el parque con autorización previa, sin subir a Arenales ni a Calvito. Las cabalgatas turísticas no están permitidas."
+          ],
+          "detail": "El anexo de 2023 prohíbe el ingreso de equinos y mulares con fines turísticos y permite la carga solo a arrieros avalados, restringiendo además el ingreso de mulas hacia los campamentos de Arenales y Calvito. No encontré un listado publicado de arrieros ni tarifas.",
+          "reflection": null
+        },
+        "examples": [
+          "puedo subir con mula pa cargar las maletas?",
+          "se puede entrar con mulas al parque",
+          "llevar caballo para el equipaje",
+          "las mulas pueden cargar la carpa",
+          "entrar con arriero y mula a Los Nevados",
+          "arriero con mula, se puede?",
+          "burros o mulas para subir el equipaje",
+          "se puede llevar el equipaje en mula o caballo",
+          "mulas para llevar la comida al campamento",
+          "el arriero puede subir con los bultos?",
+          "can I bring a mule to carry my bags",
+          "are horses allowed to carry luggage",
+          "está permitido subir carga con mulas y arrieros autorizados",
+          "puedo llevar mi equipaje a lomo de mula con arriero avalado",
+          "mulas de carga autorizadas para llevar equipaje en la travesía",
+          "se puede contratar arriero con mula para subir bultos?"
+        ],
+        "related": [
+          "services.porter_luggage",
+          "services.porter_requirements"
+        ],
+        "tags": [
+          "mulas",
+          "arrieros",
+          "porteo",
+          "caballos"
+        ],
+        "sources": [
+          {
+            "label": "PNN Los Nevados · Anexo de reglamentación ecoturística (2023)",
+            "url": "https://parquesnacionales.gov.co/wp-content/uploads/2023/12/ANEXO-PNN-NEVADOS.pdf",
+            "retrieved_at": "2026-11-21"
+          }
+        ],
+        "last_verified": "2026-11-22",
+        "valid_until": null
+      },
+      "evidence": [
+        {
+          "url": "https://parquesnacionales.gov.co/wp-content/uploads/2023/12/ANEXO-PNN-NEVADOS.pdf",
+          "path": "research_notes/Conocimiento turístico de Los Nevados/access/evidence/ANEXO-PNN-NEVADOS-2023.txt",
+          "quote": "Animales de carga y asistencia permitidos: Se prohíbe expresamente el ingreso de equinos y mulares al Parque\n       con fines turísticos, es decir, la actividad de cabalgatas turísticas. Se permite el tránsito en mulas o equinos a\n       campesinos que habitan al interior del Parque, o para la realización exclusiva de actividades de PORTEO o\n       CARGA únicamente a los arrieros avalados por el Parque, con fines de carga de equipaje de turistas, de\n       investigación, prevención, vigilancia, control, apoyo y asistencia, atención de emergencias y transporte de\n       personas con limitaciones físicas que limiten o impidan su movilidad, previa autorización de un funcionario del Área\n       Protegida. El ingreso de mulas hacia los campamentos de Arenales y Calvito, ya sea desde el campamento de\n       Termales de Cañón, la Finca La Primavera o La Playa. La aproximación e ingreso a estos campamentos deberá\n       realizarse exclusivamente a pie por los visitantes, guías, operadores, intérpretes y montañistas deportivos.",
+          "checked_on": "2026-11-22"
+        }
+      ]
+    }
+  ]
+}

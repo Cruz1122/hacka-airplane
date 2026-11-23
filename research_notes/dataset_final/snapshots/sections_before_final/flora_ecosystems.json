@@ -1,0 +1,3310 @@
+{
+  "contract_version": 1,
+  "id": "flora_ecosystems",
+  "order": 12,
+  "title": "Flora y ecosistemas de alta montaña",
+  "description": "Ecosistemas del parque, páramo, subpáramo, superpáramo, bosque altoandino, frailejones, turberas, glaciares, agua y conservación.",
+  "retrieval": {
+    "profile": "explain",
+    "bm25_weight": 0.2,
+    "top_k": 2,
+    "min_score": null,
+    "entity_filters": []
+  },
+  "clarification": {
+    "between_entries": "¿Te refieres a {label_a} o a {label_b}?",
+    "bank": [
+      "¿Te interesa el subpáramo de la ruta del Tolima o el bosque altoandino?",
+      "¿Preguntas por el hielo del Ruiz, del Tolima o del Santa Isabel?",
+      "¿Quieres saber de la ceniza sobre el glaciar o del retroceso medido por el IDEAM?",
+      "¿Tu duda es sobre turberas y musgos del Otún o sobre el agua que llega a Pereira?",
+      "¿Buscas el incendio de Romerales o los viveros donde propagan frailejones?",
+      "¿Quieres la cifra nacional de glaciares o la proyección del Santa Isabel?",
+      "¿Preguntas por el agua del Eje Cafetero o por lo que aporta el deshielo a los ríos?",
+      "¿Quieres datos del frailejón o de otras plantas del páramo?"
+    ],
+    "slot_questions": {},
+    "fallback": "No tengo ese dato de flora o ecosistemas. Puedo contarte de frailejones, páramo, turberas, glaciares o del agua que sale del parque."
+  },
+  "featured": [
+    "flora_ecosystems.park_ecosystems_overview",
+    "flora_ecosystems.frailejones_overview",
+    "flora_ecosystems.high_andean_wetlands",
+    "flora_ecosystems.glaciers_snow_presence",
+    "flora_ecosystems.coffee_region_water_reserve"
+  ],
+  "entries": [
+    {
+      "id": "flora_ecosystems.park_ecosystems_overview",
+      "label": "ecosistemas protegidos en el parque",
+      "kind": "explanation",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "qué ecosistemas hay en los nevados",
+        "cuales son los ecosistemas del parque",
+        "que ambientes naturales se visitan",
+        "hay bosque y paramo en el parque",
+        "cuales pisos termicos se cruzan al subir",
+        "que zonas de vida protege los nevados",
+        "cuales ecosistemas componen el parque nacional",
+        "paisajes naturales del parque los nevados",
+        "que tipos de vegetacion y zonas hay",
+        "ecosistemas parque los nevados",
+        "cuales ecosistemas tiene los nevados",
+        "que ecosistemas se pueden ver en la visita",
+        "what ecosystems are protected in the park",
+        "which natural habitats are in los nevados"
+      ],
+      "hard_negatives": [
+        "se puede alimentar fauna silvestre",
+        "puedo observar el volcán desde Brisas",
+        "tarifa estudiante en Los Nevados"
+      ],
+      "answer": {
+        "short": "El parque protege bosques altoandinos, páramos, superpáramos, humedales y glaciares. El páramo es su ecosistema más representativo. Recórrelo por los senderos habilitados.",
+        "variants": [
+          "En Los Nevados encuentras bosque altoandino, páramo, superpáramo, humedales y glaciares; el páramo es el ambiente más representativo según Parques Nacionales."
+        ]
+      },
+      "sources": [
+        {
+          "label": "Parques Nacionales Naturales de Colombia",
+          "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "last_verified": "2026-11-21",
+      "related": [
+        "flora_ecosystems.paramo_ecosystem",
+        "flora_ecosystems.superparamo_ecosystem",
+        "flora_ecosystems.high_andean_forest"
+      ]
+    },
+    {
+      "id": "flora_ecosystems.paramo_ecosystem",
+      "label": "características del ecosistema de páramo",
+      "kind": "explanation",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "qué es el páramo",
+        "que es un paramo",
+        "como es el paisaje del paramo",
+        "caracteristicas del paramo en los nevados",
+        "por que es importante el paramo",
+        "que vegetacion domina el paramo del parque",
+        "el paramo del parque es pajonal, turbera, pantano y laguna?",
+        "como se compone el paramo",
+        "que plantas forman el paramo",
+        "definicion de paramo en el parque",
+        "paramo los nevados caracteristicas",
+        "que hace especial al paramo de los nevados",
+        "what is the paramo ecosystem like",
+        "paramo vegetation in the national park"
+      ],
+      "hard_negatives": [
+        "me salgo del sendero para tomar fotos?",
+        "síntomas de soroche",
+        "dónde se puede acampar en Los Nevados"
+      ],
+      "answer": {
+        "short": "El páramo ocupa el 84 % del área del parque e incluye pajonales, turberas, arbustales, pantanos y lagunas. Recórrelo por los senderos habilitados.",
+        "variants": [
+          "Según la ficha de Parques Nacionales, el páramo representa el 84 % del parque y reúne pajonales, turberas, arbustales, pantanos y lagunas."
+        ]
+      },
+      "sources": [
+        {
+          "label": "Parques Nacionales Naturales de Colombia",
+          "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "last_verified": "2026-11-21",
+      "related": [
+        "flora_ecosystems.frailejones_overview",
+        "flora_ecosystems.pajonales_calamagrostis",
+        "flora_ecosystems.coffee_region_water_reserve"
+      ]
+    },
+    {
+      "id": "flora_ecosystems.superparamo_ecosystem",
+      "label": "ecosistema de superpáramo y organismos extremófilos",
+      "kind": "explanation",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "qué es el superpáramo",
+        "como se define el superparamo",
+        "como es la vegetacion del superparamo",
+        "que hay encima del paramo",
+        "paisaje lunar en los nevados",
+        "que plantas viven en el superparamo",
+        "por que el superparamo parece desierto",
+        "organismos extremofilos en el parque",
+        "caracteristicas del superparamo",
+        "condiciones ambientales del superparamo",
+        "donde empieza el superparamo",
+        "suelos de ceniza y rocas en la parte alta",
+        "what is the superparamo ecosystem",
+        "extreme high mountain vegetation in los nevados"
+      ],
+      "hard_negatives": [
+        "se puede mirar el terreno volcánico",
+        "me puede afectar la altura en Los Nevados",
+        "edad para subir a una cumbre"
+      ],
+      "answer": {
+        "short": "El superpáramo se caracteriza por condiciones ambientales extremas y se asemeja a un paisaje lunar de rocas y cenizas. Allí predominan organismos extremófilos adaptados a esas condiciones severas. Recórrelo únicamente por los senderos autorizados.",
+        "variants": [
+          "En el superpáramo de Los Nevados predominan rocas, cenizas y organismos extremófilos que soportan condiciones extremas, según Parques Nacionales."
+        ]
+      },
+      "sources": [
+        {
+          "label": "Parques Nacionales Naturales de Colombia",
+          "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "related": [
+        "flora_ecosystems.paramo_ecosystem",
+        "flora_ecosystems.arenales_volcanicos_ecosystem",
+        "flora_ecosystems.cacho_de_venado_loricaria"
+      ],
+      "last_verified": "2026-11-21"
+    },
+    {
+      "id": "flora_ecosystems.high_andean_forest",
+      "label": "bosque altoandino y selva de niebla",
+      "kind": "explanation",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "cómo es el bosque altoandino del parque",
+        "que arboles crecen en el bosque nublado",
+        "bosque de niebla en los nevados",
+        "flora del bosque altoandino",
+        "que especies vegetales hay en la selva nublada",
+        "bosque altoandino parque los nevados",
+        "donde estan los bosques en el parque",
+        "arboles del bosque de montana",
+        "como es la selva andina del parque",
+        "vegetacion del bosque altoandino",
+        "palmas y arboles en el bosque nuboso",
+        "arboles nativos en los nevados",
+        "high andean cloud forest in los nevados",
+        "what plants grow in the andean forest"
+      ],
+      "hard_negatives": [
+        "se puede alimentar fauna silvestre",
+        "puedo prender una fogata",
+        "se puede entrar con animales de compañía"
+      ],
+      "answer": {
+        "short": "Los bosques altoandinos o nublados forman parte de los ecosistemas protegidos de Los Nevados, con palmas de cera y Ceroxylon quindiuense, el árbol nacional de Colombia. Míralas desde el sendero.",
+        "variants": [
+          "En Los Nevados se protegen bosques altoandinos y nublados; entre sus plantas, Parques Nacionales destaca la palma de cera Ceroxylon quindiuense."
+        ]
+      },
+      "sources": [
+        {
+          "label": "Parques Nacionales Naturales de Colombia",
+          "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "related": [
+        "flora_ecosystems.wax_palm_quindio",
+        "flora_ecosystems.park_ecosystems_overview"
+      ]
+    },
+    {
+      "id": "flora_ecosystems.arenales_volcanicos_ecosystem",
+      "label": "arenales volcánicos y paisaje lunar superpáramo",
+      "kind": "explanation",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "por qué hay arenales en el parque",
+        "que son los arenales volcanicos",
+        "por que no hay plantas en los arenales",
+        "paisaje desértico cerca al Ruiz",
+        "valle de las tumbas por que es puro arenal",
+        "suelo de ceniza volcanica sin vegetacion",
+        "arenales del nevado del ruiz",
+        "que vegetacion crece en la arena volcanica",
+        "por que parece un desierto de piedras arriba",
+        "arenales superparamo parque los nevados",
+        "desierto volcanico en alta montana",
+        "por que el suelo es de pura ceniza en tumbas",
+        "volcanic ash fields in los nevados",
+        "why are there sandy deserts near ruiz volcano"
+      ],
+      "hard_negatives": [
+        "quiero ver rocas y el paisaje volcánico",
+        "se permite llevarse rocas del sendero",
+        "puedo observar el volcán desde Brisas"
+      ],
+      "answer": {
+        "short": "El trayecto vehicular que inicia en Brisas continúa por la zona de Arenales hasta el Valle de las Tumbas. El paisaje de superpáramo se asemeja a un paisaje lunar de rocas y cenizas con organismos extremófilos. Sigue ese recorrido habilitado.",
+        "variants": [
+          "El recorrido hacia el Valle de las Tumbas pasa por Arenales. En el superpáramo verás un paisaje lunar de rocas y cenizas con organismos que soportan condiciones extremas."
+        ]
+      },
+      "sources": [
+        {
+          "label": "Parques Nacionales Naturales de Colombia",
+          "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "related": [
+        "flora_ecosystems.superparamo_ecosystem",
+        "flora_ecosystems.cacho_de_venado_loricaria",
+        "flora_ecosystems.glaciers_snow_presence"
+      ],
+      "last_verified": "2026-11-21"
+    },
+    {
+      "id": "flora_ecosystems.frailejones_overview",
+      "label": "frailejones presentes en el parque",
+      "kind": "explanation",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "qué frailejones hay en el parque",
+        "que especie de frailejon crece en los nevados",
+        "como se llama el frailejon del parque",
+        "espeletia hartwegiana en los nevados",
+        "hay frailejones en el recorrido",
+        "como son los frailejones de alta montana",
+        "por que los frailejones tienen hojas peludas",
+        "en que tramo del recorrido se ven frailejones?",
+        "que animal come de las flores del frailejon",
+        "frailejones parque nacional natural los nevados",
+        "que funcion cumple el frailejon en el paramo",
+        "frailejon espeletia características",
+        "what species of frailejon grows in the park",
+        "are there frailejones in los nevados"
+      ],
+      "hard_negatives": [
+        "usar sonidos de fauna en el páramo",
+        "¿está bien salirse de la ruta para ver mejor?",
+        "dejan usar grabaciones para observar fauna",
+        "que subespecie cita el humedal del otun"
+      ],
+      "answer": {
+        "short": "Espeletia hartwegiana es la especie de frailejón de Los Nevados y está presente en la mayoría de sus páramos. Obsérvala desde los recorridos habilitados, sin retirar partes de la planta.",
+        "variants": [
+          "El frailejón que identifica Parques Nacionales en Los Nevados es Espeletia hartwegiana, presente en la mayoría de sus páramos. Contémplalo sin arrancar hojas ni flores."
+        ]
+      },
+      "sources": [
+        {
+          "label": "Parques Nacionales · ficha y reglamentación de Los Nevados",
+          "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+          "retrieved_at": "2026-11-21"
+        },
+        {
+          "label": "Parques Nacionales · Resolución 207 de 2023",
+          "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2023/08/Resolucion_207_2023_ReglamentacionNevados_.pdf",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "related": [
+        "flora_ecosystems.paramo_ecosystem",
+        "flora_ecosystems.superparamo_ecosystem"
+      ],
+      "last_verified": "2026-11-21"
+    },
+    {
+      "id": "flora_ecosystems.polylepis_sericea_colorado",
+      "label": "árbol siete cueros de páramo",
+      "kind": "explanation",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "qué es el árbol siete cueros de páramo",
+        "arbol polylepis sericea en los nevados",
+        "hay arboles en el paramo de los nevados",
+        "que es el siete cueros de montana",
+        "arboles que crecen sobre los 3000 metros",
+        "polylepis en el parque nacional los nevados",
+        "donde crece el siete cueros de paramo",
+        "por que el siete cueros es prioridad de conservacion",
+        "arbol de corteza de papel en los nevados",
+        "bosques de polylepis sericea en el parque",
+        "que amenazas enfrenta el arbol siete cueros",
+        "arboles nativos de alta montana polylepis",
+        "what is the polylepis sericea tree",
+        "trees that grow above 3000 meters in paramo"
+      ],
+      "hard_negatives": [
+        "tarifa estudiante en Los Nevados",
+        "hay paseo a caballo en Los Nevados",
+        "precio de entrada con carné estudiantil"
+      ],
+      "answer": {
+        "short": "El siete cueros de páramo (Polylepis sericea) crece por encima de los 3.000 metros. Ofrece refugio a otras especies y ayuda a regular el agua; es una prioridad de conservación amenazada por la agricultura y la ganadería. Si pasas junto a uno, míralo desde el sendero.",
+        "variants": [
+          "Parques Nacionales destaca a Polylepis sericea, o siete cueros de páramo, como prioridad de conservación. Es un árbol que crece sobre los 3.000 metros, ofrece refugio y contribuye a la regulación del agua."
+        ]
+      },
+      "sources": [
+        {
+          "label": "Parques Nacionales Naturales de Colombia",
+          "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "last_verified": "2026-11-21",
+      "related": [
+        "flora_ecosystems.high_andean_forest",
+        "flora_ecosystems.cattle_grazing_impact",
+        "flora_ecosystems.paramo_ecosystem"
+      ]
+    },
+    {
+      "id": "flora_ecosystems.wax_palm_quindio",
+      "label": "palma de cera del Quindío",
+      "kind": "explanation",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "hay palmas de cera en los nevados",
+        "donde crecen las palmas de cera en el parque",
+        "ceroxylon quindiuense en el parque los nevados",
+        "palma de cera arbol nacional de colombia",
+        "se ven palmas de cera en los recorridos",
+        "en que ecosistema del parque vive la palma de cera",
+        "palma del quindio en bosques altoandinos",
+        "palmas de cera en las cuencas del parque",
+        "palma de cera los nevados ubicacion",
+        "que tipo de palmas hay en el bosque de niebla",
+        "palma de cera y su proteccion en el parque",
+        "arbol nacional en el parque nacional los nevados",
+        "are wax palms found in los nevados",
+        "wax palm habitat in high andean forests"
+      ],
+      "hard_negatives": [
+        "hay paseo a caballo en Los Nevados",
+        "me llevan a caballo al valle",
+        "se puede alimentar fauna silvestre"
+      ],
+      "answer": {
+        "short": "La palma de cera del Quindío (Ceroxylon quindiuense), declarada árbol nacional de Colombia, se encuentra en los bosques altoandinos o nublados del parque. Obsérvala desde el sendero.",
+        "variants": [
+          "Entre las palmas de cera de los bosques altoandinos o nublados de Los Nevados, Parques Nacionales destaca Ceroxylon quindiuense, la palma declarada árbol nacional de Colombia."
+        ]
+      },
+      "sources": [
+        {
+          "label": "Parques Nacionales Naturales de Colombia",
+          "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "related": [
+        "flora_ecosystems.high_andean_forest",
+        "flora_ecosystems.park_ecosystems_overview"
+      ],
+      "last_verified": "2026-11-21"
+    },
+    {
+      "id": "flora_ecosystems.chite_hypericum",
+      "label": "velillos del género Hypericum",
+      "kind": "explanation",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "qué es el chite o velillo en el páramo",
+        "arbustos con flores amarillas en el parque",
+        "planta hypericum en los nevados",
+        "velillos del genero hypericum",
+        "arbustos del subparamo con flor amarilla",
+        "que funcion cumple el chite en el bosque",
+        "chite de paramo en los senderos",
+        "arbustos nativos de flor amarilla los nevados",
+        "flores amarillas en el camino al nevado",
+        "hypericum arbustos de montana",
+        "matorrales de chite en alta montana",
+        "velillo de paramo caracteristicas",
+        "what are hypericum shrubs in paramo",
+        "yellow flowers along the mountain trails"
+      ],
+      "hard_negatives": [
+        "síntomas de soroche",
+        "el soroche da dolor de cabeza",
+        "debo contarle al guía mis síntomas"
+      ],
+      "answer": {
+        "short": "Entre la flora destacada hay plantas del género Hypericum, conocidas allí como velillos. El género tiene distintas especies y no se identifica una concreta. Pregunta en el parque cuál ves en tu sendero.",
+        "variants": [
+          "Parques Nacionales menciona los velillos del género Hypericum en la flora de Los Nevados, sin precisar una especie individual."
+        ]
+      },
+      "sources": [
+        {
+          "label": "Parques Nacionales Naturales de Colombia",
+          "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "related": [
+        "flora_ecosystems.park_ecosystems_overview",
+        "flora_ecosystems.romeros_diplostephium",
+        "flora_ecosystems.paramo_ecosystem"
+      ],
+      "last_verified": "2026-11-21"
+    },
+    {
+      "id": "flora_ecosystems.romeros_diplostephium",
+      "label": "romeros de páramo y herbáceas senecio",
+      "kind": "explanation",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "qué son los romeros de páramo",
+        "diplostephium en el parque los nevados",
+        "plantas senecio en el paramo",
+        "arbustos romeros de alta montana",
+        "romeros silvestres en los nevados",
+        "que plantas del genero senecio hay",
+        "matorrales de romero en el paramo",
+        "¿Qué plantas acompañan a los frailejones en el páramo?",
+        "vegetacion arbustiva del paramo los nevados",
+        "¿Hay romeros silvestres en Los Nevados?",
+        "que tipos de romero y senecio hay en el paramo?",
+        "romerillo de paramo en senderos",
+        "what are paramo rosemary shrubs"
+      ],
+      "hard_negatives": [
+        "se permite llevarse rocas del sendero",
+        "quiero ver rocas y el paisaje volcánico",
+        "puedo prender una fogata"
+      ],
+      "answer": {
+        "short": "En el páramo de Los Nevados hay varias especies de romeros del género Diplostephium y herbáceas del género Senecio. Míralas desde el sendero.",
+        "variants": [
+          "Entre las plantas del páramo de Los Nevados, la ficha destaca romeros Diplostephium y hierbas Senecio, sin identificar todas sus especies."
+        ]
+      },
+      "sources": [
+        {
+          "label": "Parques Nacionales Naturales de Colombia",
+          "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "related": [
+        "flora_ecosystems.paramo_ecosystem",
+        "flora_ecosystems.chite_hypericum",
+        "flora_ecosystems.superparamo_ecosystem"
+      ],
+      "last_verified": "2026-11-21"
+    },
+    {
+      "id": "flora_ecosystems.cacho_de_venado_loricaria",
+      "label": "planta cacho de venado del superpáramo",
+      "kind": "explanation",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "qué es la planta cacho de venado",
+        "andicolea colombiana planta endemica",
+        "cacho de venado en el superparamo",
+        "planta que parece cuerno de venado en los nevados",
+        "plantas endemicas de superparamo en colombia",
+        "como sobrevive el cacho de venado en las piedras",
+        "donde se encuentra andicolea colombiana",
+        "cacho de venado flora de alta montana",
+        "hierbas del superparamo en suelos volcanicos",
+        "planta cacho de venado los nevados",
+        "por que se llama cacho de venado esa planta",
+        "flora exclusiva de alta montana en colombia",
+        "what is the cacho de venado plant",
+        "endemic plants in the superparamo zone"
+      ],
+      "hard_negatives": [
+        "se permite llevarse rocas del sendero",
+        "se puede mirar el terreno volcánico",
+        "¿está bien salirse de la ruta para ver mejor?"
+      ],
+      "answer": {
+        "short": "El cacho de venado (Andicolea colombiana) es una planta endémica de Colombia y destaca en el superpáramo de Los Nevados. Obsérvala en el recorrido.",
+        "variants": [
+          "Parques Nacionales identifica a Andicolea colombiana, el cacho de venado, como una planta propia de Colombia presente en el superpáramo del parque."
+        ]
+      },
+      "sources": [
+        {
+          "label": "Parques Nacionales Naturales de Colombia",
+          "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "related": [
+        "flora_ecosystems.superparamo_ecosystem",
+        "flora_ecosystems.arenales_volcanicos_ecosystem"
+      ],
+      "last_verified": "2026-11-21"
+    },
+    {
+      "id": "flora_ecosystems.pajonales_calamagrostis",
+      "label": "pajonales y pastizales del páramo",
+      "kind": "explanation",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "qué son los pajonales de páramo",
+        "paja de paramo en los nevados",
+        "pastizales que cubren el paramo",
+        "que funcion tienen los pajonales",
+        "pastos altos en el camino del parque",
+        "por que hay tanta paja en el paramo",
+        "pajonales andinos importancia ecologica",
+        "hierbas y pastizales de alta montana",
+        "pasto de paramo para que sirve",
+        "macollas de paja en el parque nacional",
+        "como protege el pajonal los suelos de montana",
+        "cobertura de pastos en el paramo los nevados",
+        "what are paramo grasslands",
+        "tussock grass in los nevados national park"
+      ],
+      "hard_negatives": [
+        "salud en altura",
+        "acampar fuera del sendero está permitido?",
+        "puedo prender una fogata"
+      ],
+      "answer": {
+        "short": "Los pajonales forman parte del páramo de Los Nevados, junto con turberas, arbustales, pantanos y lagunas. Camínalos por el sendero habilitado.",
+        "variants": [
+          "La ficha del parque incluye los pajonales entre los ambientes que conforman su páramo, acompañados por turberas, arbustos, pantanos y lagunas."
+        ]
+      },
+      "sources": [
+        {
+          "label": "Parques Nacionales Naturales de Colombia",
+          "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "related": [
+        "flora_ecosystems.paramo_ecosystem",
+        "flora_ecosystems.coffee_region_water_reserve",
+        "flora_ecosystems.frailejones_overview"
+      ],
+      "last_verified": "2026-11-21"
+    },
+    {
+      "id": "flora_ecosystems.cojines_plantago_rigida",
+      "label": "colchones de agua en humedales altoandinos",
+      "kind": "explanation",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "qué son los colchones de agua en el parque",
+        "planta plantago rigida en los humedales",
+        "cojines de agua en los nevados",
+        "plantas almohadilladas que retienen agua",
+        "como son los colchones de agua del paramo",
+        "almohadillas vegetales en los humedales andinos",
+        "plantas en forma de cojin en la laguna",
+        "por que crecen colchones verdes en las turberas",
+        "plantago rigida caracteristicas en el parque",
+        "colchones de agua funcion hidrica",
+        "plantas que parecen tapetes en los humedales",
+        "vegetacion de cojin en los nevados",
+        "what are water cushions in paramo wetlands",
+        "cushion plants like plantago rigida"
+      ],
+      "hard_negatives": [
+        "se puede pescar en la Laguna del Otún",
+        "dejan llevar caña de pescar",
+        "toca quedarse en el sendero habilitado"
+      ],
+      "answer": {
+        "short": "En los humedales de Los Nevados hay colchones de agua formados por varias especies vegetales, y Plantago rigida es la más común. Míralos desde el sendero.",
+        "variants": [
+          "Los colchones de agua de los humedales del parque reúnen varias plantas; según Parques Nacionales, Plantago rigida es la más común."
+        ]
+      },
+      "sources": [
+        {
+          "label": "Parques Nacionales Naturales de Colombia",
+          "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "related": [
+        "flora_ecosystems.high_andean_wetlands"
+      ],
+      "last_verified": "2026-11-21"
+    },
+    {
+      "id": "flora_ecosystems.high_andean_wetlands",
+      "label": "humedales altoandinos lagunas y turberas",
+      "kind": "explanation",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "qué son los humedales altoandinos",
+        "que humedales hay en los nevados",
+        "turberas lagunas y pantanos en el parque",
+        "como funcionan los humedales de montana",
+        "por que son importantes los humedales del parque",
+        "humedales de alta montana en colombia",
+        "adentro hay humedales, lagunas y turberas, no solo pajonal?",
+        "cuerpos de agua protegidos en el parque",
+        "que lagunas y pantanos forman los humedales",
+        "humedales altoandinos caracteristicas",
+        "biodiversidad en los humedales de paramo",
+        "conservacion de humedales en alta cordillera",
+        "what are high andean wetlands",
+        "wetlands lakes and bogs in los nevados"
+      ],
+      "hard_negatives": [
+        "se puede pescar en la Laguna del Otún",
+        "puedo pescar truchas en el parque",
+        "dejan llevar caña de pescar"
+      ],
+      "answer": {
+        "short": "Los humedales altoandinos forman parte de los ecosistemas protegidos del Parque Nacional Natural Los Nevados. Recórrelos únicamente por los senderos habilitados.",
+        "variants": [
+          "En Los Nevados se protegen humedales altoandinos junto con bosques, páramos y glaciares. Conócelos transitando siempre por los senderos autorizados."
+        ]
+      },
+      "sources": [
+        {
+          "label": "Parques Nacionales Naturales de Colombia",
+          "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "related": [
+        "flora_ecosystems.ramsar_otun_wetland_complex",
+        "flora_ecosystems.coffee_region_water_reserve"
+      ],
+      "last_verified": "2026-11-21"
+    },
+    {
+      "id": "flora_ecosystems.ramsar_otun_wetland_complex",
+      "label": "complejo ramsar de la laguna otún",
+      "kind": "explanation",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "por qué la Laguna del Otún es sitio Ramsar",
+        "sitio ramsar en el parque los nevados",
+        "que significa que la laguna del otun sea zona ramsar",
+        "complejo de humedales laguna del otun ramsar",
+        "humedales de importancia internacional en los nevados",
+        "que acuerdo internacional protege la laguna del otun?",
+        "por que protegieron los humedales del otun internacionalmente",
+        "zona ramsar parque nacional natural los nevados",
+        "importancia mundial de los humedales del otun",
+        "por que declararon importante la laguna del otun?",
+        "reconocimiento internacional a los humedales del parque",
+        "que protege el sitio ramsar en los nevados",
+        "why is lake otun a ramsar site",
+        "ramsar wetland designation in los nevados"
+      ],
+      "hard_negatives": [
+        "se puede pescar en la Laguna del Otún",
+        "registrar visita al Otún el mes que viene",
+        "llegamos al Otún, ¿cómo anoto a los cuatro?"
+      ],
+      "answer": {
+        "short": "Los humedales de la Laguna del Otún están reconocidos como Zona de Importancia Mundial por el Convenio de Ramsar. Recórrelos por el sendero habilitado.",
+        "variants": [
+          "El reconocimiento internacional de Ramsar declara los humedales de la Laguna del Otún como Zona de Importancia Mundial, según Parques Nacionales."
+        ]
+      },
+      "sources": [
+        {
+          "label": "Parques Nacionales Naturales de Colombia",
+          "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "related": [
+        "flora_ecosystems.laguna_del_otun_ecosystem",
+        "flora_ecosystems.high_andean_wetlands",
+        "flora_ecosystems.coffee_region_water_reserve"
+      ],
+      "last_verified": "2026-11-21"
+    },
+    {
+      "id": "flora_ecosystems.laguna_del_otun_ecosystem",
+      "label": "ecosistema acuático de la laguna otún",
+      "kind": "explanation",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "cómo es la Laguna del Otún como ecosistema",
+        "a que altura esta la laguna del otun",
+        "laguna mas grande del parque los nevados",
+        "ecosistema de la laguna del otun",
+        "caracteristicas de la laguna del otun",
+        "importancia ecologica de la laguna del otun",
+        "laguna de montana otun en el parque",
+        "cuerpo de agua de la laguna del otun",
+        "vida acuatica en la laguna del otun",
+        "laguna del otun reserva de agua dulce",
+        "what is lake otun ecosystem like",
+        "largest lake in los nevados national park"
+      ],
+      "hard_negatives": [
+        "se puede pescar en la Laguna del Otún",
+        "puedo pescar truchas en el parque",
+        "llegamos al Otún, ¿cómo anoto a los cuatro?"
+      ],
+      "answer": {
+        "short": "La Laguna del Otún está rodeada por un páramo y un complejo de humedales con musgos y colchones de agua, parte de los ecosistemas que protege Los Nevados. Recórrela por el sendero habilitado.",
+        "variants": [
+          "El entorno de la Laguna del Otún reúne páramo, humedales, musgos y colchones de agua, según la descripción oficial del parque."
+        ]
+      },
+      "sources": [
+        {
+          "label": "Parques Nacionales Naturales de Colombia",
+          "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "last_verified": "2026-11-21",
+      "related": [
+        "flora_ecosystems.ramsar_otun_wetland_complex",
+        "flora_ecosystems.high_andean_wetlands",
+        "flora_ecosystems.coffee_region_water_reserve"
+      ]
+    },
+    {
+      "id": "flora_ecosystems.glaciers_snow_presence",
+      "label": "nieve y glaciares en cumbres volcánicas",
+      "kind": "explanation",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "hay nieve y glaciares en el parque",
+        "cuales volcanes tienen nieve todavia",
+        "se puede ver hielo en la visita al nevado",
+        "en que montanas del parque quedan glaciares",
+        "cuanto glaciar queda en los nevados",
+        "glaciares del ruiz santa isabel y tolima",
+        "se ve la nieve desde el recorrido turistico",
+        "hay hielo permanente en los nevados",
+        "cumbres con glaciar en el parque los nevados",
+        "donde hay nieve en el parque nacional",
+        "condiciones para ver el glaciar en la visita",
+        "is there snow and ice in the park",
+        "which volcanoes still have glaciers in los nevados",
+        "qué cumbres del parque tienen glaciar",
+        "cuáles nevados siguen con hielo",
+        "el santa isabel sigue con nieve o ya no?",
+        "el ruiz conserva casquete de hielo?",
+        "son tres los nevados con glaciar?",
+        "los paramillos también tienen hielo, o no?",
+        "dónde se puede ver hielo?",
+        "el glaciar cambia de un año a otro",
+        "which summits still have glaciers",
+        "does Santa Isabel still have ice",
+        "los tres nevados todavia tienen hielo?",
+        "ver la nieve depende del día"
+      ],
+      "hard_negatives": [
+        "persona con dolor de cabeza fuerte en la cumbre",
+        "truenos y rayos en la cumbre",
+        "edad para subir a una cumbre",
+        "dónde puedo ver nieve"
+      ],
+      "answer": {
+        "short": "Hay glaciares en el Ruiz, Santa Isabel y Tolima. Lo que puedas observar durante la visita depende de las condiciones y del recorrido habilitado; confirma la visita con un operador registrado.",
+        "variants": [
+          "Ruiz, Santa Isabel y Tolima son los tres nevados con glaciares que describe la ficha del parque. Confirma con tu operador el recorrido habilitado y las condiciones para observarlos."
+        ]
+      },
+      "sources": [
+        {
+          "label": "Parques Nacionales Naturales de Colombia",
+          "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "last_verified": "2026-11-21",
+      "related": [
+        "flora_ecosystems.glacier_retreat_climate_change",
+        "flora_ecosystems.santa_isabel_projection_three_years"
+      ]
+    },
+    {
+      "id": "flora_ecosystems.glacier_retreat_climate_change",
+      "label": "retroceso glaciar por cambio climático",
+      "kind": "explanation",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "por qué se están derritiendo los glaciares",
+        "retroceso glaciar en el parque los nevados",
+        "como afecta el cambio climatico a los nevados",
+        "se estan acabando los glaciares en colombia",
+        "deshielo de las cumbres nevadas",
+        "por que disminuye el hielo de las montanas",
+        "el retroceso del hielo es por el clima, no solo por el dia de la visita?",
+        "calentamiento global y glaciares andinos",
+        "monitoreo del deshielo en los nevados",
+        "futuro de los glaciares tropicales en colombia",
+        "desaparicion del hielo en la cordillera central",
+        "impacto climatico en las cumbres del parque",
+        "why are glaciers melting in los nevados",
+        "glacier retreat due to climate change in colombia"
+      ],
+      "hard_negatives": [
+        "puedo observar el volcán desde Brisas",
+        "quiero ver rocas y el paisaje volcánico",
+        "se puede mirar el terreno volcánico"
+      ],
+      "answer": {
+        "short": "En 2024 el IDEAM señaló un El Niño extremo en los primeros cuatro meses y un derretimiento intenso en las partes bajas de los glaciares por la falta de nieve. No lo tomes como pronóstico de tu día: revisa el informe de glaciares del IDEAM antes de subir.",
+        "variants": [
+          "El informe 2024 habla de un El Niño extremo al inicio del año y de derretimiento en las partes bajas por la ausencia de nieve. Consulta el informe del IDEAM: el hielo cambia."
+        ]
+      },
+      "sources": [
+        {
+          "label": "IDEAM, Informe del estado de los glaciares colombianos 2024",
+          "url": "https://ideam.gov.co/sites/default/files/prensa/boletines/2025-12-29/informe-del-estado-de-los-glaciares-colombianos-2024.pdf",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "related": [
+        "flora_ecosystems.glaciers_snow_presence",
+        "flora_ecosystems.santa_isabel_projection_three_years",
+        "flora_ecosystems.coffee_region_water_reserve"
+      ],
+      "last_verified": "2026-11-21"
+    },
+    {
+      "id": "flora_ecosystems.cattle_grazing_impact",
+      "label": "impacto de la ganadería en páramos",
+      "kind": "explanation",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "por qué afecta el ganado a los páramos",
+        "impacto de la ganaderia en el parque los nevados",
+        "que danos causan las vacas en el paramo",
+        "por que esta prohibido el pastoreo en el parque",
+        "como afecta el pisoteo del ganado a los frailejones",
+        "ganaderia ilegal y destruccion de humedales",
+        "retiro de ganado en el parque nacional los nevados",
+        "pisoteo de pezunas en suelos de paramo",
+        "por que las vacas alteran las fuentes de agua en la montana",
+        "problemas de conservacion por ganado en los nevados",
+        "recuperacion del suelo frente al pastoreo vacuno",
+        "danos en la vegetacion por caballos y ganado",
+        "how does cattle grazing affect paramo ecosystems",
+        "impact of livestock grazing in los nevados"
+      ],
+      "hard_negatives": [
+        "hay paseo a caballo en Los Nevados",
+        "el caballo sirve para la travesía",
+        "¿reciben animales domésticos en Brisas?"
+      ],
+      "answer": {
+        "short": "La expansión de la agricultura y la ganadería amenaza a Polylepis sericea, el siete cueros de páramo, y por eso es una prioridad de conservación en el parque. Si lo ves, míralo desde el sendero.",
+        "variants": [
+          "La expansión agrícola y ganadera amenaza al siete cueros de páramo, según la ficha oficial de Los Nevados; su conservación es prioritaria."
+        ]
+      },
+      "sources": [
+        {
+          "label": "Parques Nacionales · ficha Los Nevados",
+          "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "related": [
+        "flora_ecosystems.ecological_restoration_programs",
+        "flora_ecosystems.paramo_ecosystem"
+      ],
+      "last_verified": "2026-11-21"
+    },
+    {
+      "id": "flora_ecosystems.ecological_restoration_programs",
+      "label": "programas de restauración ecológica del parque",
+      "kind": "explanation",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "cómo se restauran los páramos en el parque",
+        "programas de restauracion ecologica en los nevados",
+        "recuperacion de areas degradadas en alta montana",
+        "que acciones de conservacion hacen los guardaparques",
+        "como recuperan los bosques y frailejonales",
+        "acuerdos de conservacion con campesinos locales",
+        "restauracion de humedales y pastizales en el parque",
+        "como ayudan a regenerar el paramo danado",
+        "proyectos de restauracion ambiental en los nevados",
+        "trabajo de conservacion comunitaria en el parque",
+        "proteccion y rehabilitacion de ecosistemas andinos",
+        "how are degraded paramos restored in the park",
+        "ecological restoration programs in los nevados"
+      ],
+      "hard_negatives": [
+        "se pueden llevar animales para soltarlos",
+        "dejan entrar mascotas al parque",
+        "tarifa estudiante en Los Nevados"
+      ],
+      "answer": {
+        "short": "La declaratoria del parque busca asegurar su conservación, mantenimiento y restauración. Pregunta a los guardaparques qué acciones de restauración están activas en tu sector.",
+        "variants": [
+          "La declaratoria de Los Nevados busca asegurar la conservación, mantenimiento y restauración de sus ecosistemas, según Parques Nacionales."
+        ]
+      },
+      "sources": [
+        {
+          "label": "Parques Nacionales · ficha Los Nevados",
+          "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "related": [
+        "flora_ecosystems.cattle_grazing_impact",
+        "flora_ecosystems.park_ecosystems_overview"
+      ],
+      "last_verified": "2026-11-21"
+    },
+    {
+      "id": "flora_ecosystems.subparamo_ruta_dulima",
+      "label": "subpáramo en la ruta del Tolima",
+      "kind": "explanation",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "que es el subparamo en los nevados",
+        "hay subparamo camino al nevado del tolima",
+        "en la ruta del dulima se pasa por subparamo",
+        "que vegetacion hay entre el bosque y el paramo",
+        "como cambia el paisaje subiendo al tolima",
+        "la transicion de bosque a glaciar en el sector sur",
+        "pisos de vegetacion en la subida al tolima",
+        "oiga en quindio-dulima se cruza el subparamo",
+        "venga y antes del pajonal que zona hay hacia el tolima",
+        "subparamo paramo y superparamo en el mismo recorrido",
+        "desde el bosque altoandino hasta el hielo que franjas veo",
+        "what vegetation belts are on the Tolima route",
+        "is there a subparamo zone on the way to the glacier"
+      ],
+      "hard_negatives": [
+        "qué es el páramo",
+        "qué es el superpáramo",
+        "a qué altura está el Ruiz"
+      ],
+      "answer": {
+        "short": "En el sector Quindío-Dulima recorres la transición desde el bosque altoandino hasta el glaciar, pasando por subpáramo, páramo y superpáramo. Prepárate para ese cambio de vegetación y confirma el recorrido con un operador registrado.",
+        "variants": [
+          "Hacia el Tolima, Parques Nacionales describe el paso de bosque altoandino a glaciar por subpáramo, páramo y superpáramo. Confirma esa ruta con un operador registrado."
+        ]
+      },
+      "sources": [
+        {
+          "label": "Parques Nacionales Naturales de Colombia",
+          "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "last_verified": "2026-11-21",
+      "related": [
+        "flora_ecosystems.high_andean_forest",
+        "flora_ecosystems.paramo_ecosystem",
+        "flora_ecosystems.superparamo_ecosystem"
+      ],
+      "tags": [
+        "subparamo",
+        "tolima",
+        "transicion"
+      ]
+    },
+    {
+      "id": "flora_ecosystems.ruiz_glacier_measured_2024",
+      "label": "hielo medido del volcán Ruiz",
+      "kind": "fact",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "cuanto hielo le queda al nevado del ruiz",
+        "de que tamano es el glaciar del ruiz",
+        "area del casquete del ruiz en 2024",
+        "el ruiz sigue siendo un nevado grande",
+        "cuantos kilometros cuadrados de glaciar tiene el ruiz",
+        "se ha encogido mucho el hielo del ruiz",
+        "medicion del glaciar kumanday",
+        "oiga el ruiz todavia tiene casquete de hielo",
+        "comparado con 2022 cuanto hielo perdio el ruiz",
+        "es el ruiz el segundo glaciar de colombia",
+        "cifra oficial del hielo del nevado del ruiz",
+        "how much glacier does Nevado del Ruiz still have",
+        "what was the Ruiz ice area in 2024"
+      ],
+      "hard_negatives": [
+        "a qué altura está el Ruiz",
+        "qué nevados hay en el parque",
+        "cómo es el clima en Los Nevados"
+      ],
+      "answer": {
+        "short": "El IDEAM estimó el glaciar del Ruiz en 7,17 km² ± 0,30 km² el 20 de febrero de 2024, un 6,6 % menos que los 7,68 km² de 2022. Sigue siendo la segunda masa glaciar del país. Confirma la cifra vigente en el informe del IDEAM.",
+        "variants": [
+          "El 20 de febrero de 2024 el Ruiz tenía 7,17 km² ± 0,30 km² de glaciar, 6,6 % menos que los 7,68 km² de 2022, y sigue siendo la segunda masa del país. Mira el informe vigente del IDEAM."
+        ]
+      },
+      "sources": [
+        {
+          "label": "IDEAM, Informe del estado de los glaciares colombianos 2024",
+          "url": "https://ideam.gov.co/sites/default/files/prensa/boletines/2025-12-29/informe-del-estado-de-los-glaciares-colombianos-2024.pdf",
+          "retrieved_at": "2026-11-21"
+        },
+        {
+          "label": "IDEAM, Nevado del Ruiz",
+          "url": "https://ideam.gov.co/nuestra-entidad/ecosistemas-e-informacion-ambiental/glaciares/nevado-del-ruiz",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "last_verified": "2026-11-21",
+      "related": [
+        "flora_ecosystems.glaciers_snow_presence",
+        "flora_ecosystems.glacier_retreat_climate_change",
+        "flora_ecosystems.tolima_glacier_measured_2024"
+      ],
+      "tags": [
+        "ruiz",
+        "glaciar",
+        "ideam"
+      ]
+    },
+    {
+      "id": "flora_ecosystems.tolima_glacier_measured_2024",
+      "label": "hielo medido del volcán Tolima",
+      "kind": "fact",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "cuanto hielo le queda al nevado del tolima",
+        "el glaciar del tolima que tan pequeno quedo",
+        "area de hielo del dulima en 2024",
+        "el tolima todavia tiene glaciar",
+        "cuantos kilometros de nieve tiene el tolima",
+        "se derritio mucho el nevado del tolima",
+        "medicion oficial del glaciar del tolima",
+        "el nino le quito hielo al tolima",
+        "oiga el dulima aun esta nevado",
+        "comparado con 2022 cuanto perdio el tolima",
+        "cifra del ideam para el glaciar del tolima",
+        "how big is the Tolima glacier now",
+        "did El Niño shrink the Tolima ice cap"
+      ],
+      "hard_negatives": [
+        "qué nevados hay en el parque",
+        "qué es el superpáramo",
+        "cuándo llueve más en Los Nevados"
+      ],
+      "answer": {
+        "short": "El IDEAM estimó el glaciar del Tolima en 0,45 km² ± 0,04 km² el 20 de febrero de 2024: 8,2 % menos que los 0,49 km² de 2022. Parte de ese retroceso se asocia a El Niño 2023-2024. Confirma la cifra vigente en el IDEAM.",
+        "variants": [
+          "El 20 de febrero de 2024 el Tolima tenía 0,45 km² ± 0,04 km² de glaciar, 8,2 % por debajo de los 0,49 km² de 2022, en parte por El Niño 2023-2024. Revisa el informe vigente del IDEAM."
+        ]
+      },
+      "sources": [
+        {
+          "label": "IDEAM, Informe del estado de los glaciares colombianos 2024",
+          "url": "https://ideam.gov.co/sites/default/files/prensa/boletines/2025-12-29/informe-del-estado-de-los-glaciares-colombianos-2024.pdf",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "last_verified": "2026-11-21",
+      "related": [
+        "flora_ecosystems.glaciers_snow_presence",
+        "flora_ecosystems.ruiz_glacier_measured_2024",
+        "flora_ecosystems.glacier_retreat_climate_change"
+      ],
+      "tags": [
+        "tolima",
+        "glaciar",
+        "nino"
+      ]
+    },
+    {
+      "id": "flora_ecosystems.conejeras_extinct_march_2024",
+      "label": "extinción del glaciar Conejeras",
+      "kind": "fact",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "el glaciar conejeras todavia existe",
+        "se acabo el hielo de conejeras",
+        "cuando desaparecio el glaciar conejeras",
+        "puedo ver nieve en el sendero conejeras",
+        "el sector conejeras del santa isabel aun tiene glaciar",
+        "parce el glaciar conejeras ya no existe",
+        "el ideam cerro el monitoreo de conejeras",
+        "cuantos anos midieron el glaciar conejeras",
+        "la cumbre de conejeras sigue con hielo",
+        "oiga conejeras se extingnio o queda un pedazo",
+        "diferencia entre conejeras y el hielo que queda",
+        "is the Conejeras glacier still there",
+        "when did the Conejeras ice disappear"
+      ],
+      "hard_negatives": [
+        "qué es el superpáramo",
+        "cómo es el clima en Los Nevados",
+        "puedo caminar por donde quiera"
+      ],
+      "answer": {
+        "short": "El glaciar Conejeras, en el Santa Isabel, se extinguió a comienzos de 2024, después de 18 años de monitoreo mensual del IDEAM. El hielo que aún queda en ese nevado no es Conejeras. Confirma con un operador registrado qué puedes ver en el recorrido.",
+        "variants": [
+          "Conejeras, un sector del Santa Isabel, se extinguió en marzo de 2024 tras 18 años de mediciones del IDEAM. Si buscas hielo, no es ese sector: confirma el recorrido con un operador registrado."
+        ]
+      },
+      "sources": [
+        {
+          "label": "IDEAM, Informe del estado de los glaciares colombianos 2024",
+          "url": "https://ideam.gov.co/sites/default/files/prensa/boletines/2025-12-29/informe-del-estado-de-los-glaciares-colombianos-2024.pdf",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "last_verified": "2026-11-21",
+      "related": [
+        "flora_ecosystems.santa_isabel_projection_three_years",
+        "flora_ecosystems.glaciers_snow_presence"
+      ],
+      "tags": [
+        "conejeras",
+        "santa isabel",
+        "extincion"
+      ]
+    },
+    {
+      "id": "flora_ecosystems.santa_isabel_projection_three_years",
+      "label": "proyección de extinción del glaciar Santa Isabel",
+      "kind": "explanation",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "cuando se acaba el glaciar del santa isabel",
+        "cuanto hielo le queda al santa isabel",
+        "el glaciar del santa isabel se acaba pronto?",
+        "es cierto que el poleka kasue se extingue en pocos anos",
+        "la proyeccion de tres a cinco anos es fija",
+        "por que unos dicen 2028 y otros menos anos de nieve?",
+        "el santa isabel se derrite por el nino",
+        "como estaba el hielo del santa isabel en febrero de 2024?",
+        "oiga el santa isabel ya casi no tiene nieve",
+        "esa fecha de extincion puede cambiar",
+        "cuantos kilometros de glaciar tenia el santa isabel",
+        "when might the Santa Isabel glacier disappear",
+        "is the 2028 extinction date a forecast",
+        "cuándo se extinguirá el glaciar de Santa Isabel",
+        "deshielo en el nevado santa isabel",
+        "cuando se acaba la nieve del santa isabel",
+        "glaciar santa isabel extincion 2028",
+        "cuanto le queda de nieve al poleka kasue?",
+        "perdida de hielo en poleka kasue",
+        "situacion del glaciar conejeras y santa isabel",
+        "cuando desaparecera el hielo del nevado santa isabel",
+        "hay una proyeccion de que el santa isabel se quede sin nieve?",
+        "por que esta en peligro el glaciar santa isabel",
+        "deshielo critico en el volcan santa isabel",
+        "when will santa isabel glacier disappear",
+        "melting of poleka kasue glacier in colombia"
+      ],
+      "hard_negatives": [
+        "qué nevados hay en el parque",
+        "cómo es el clima en Los Nevados",
+        "qué es el páramo"
+      ],
+      "answer": {
+        "short": "En febrero de 2024 el IDEAM midió el Santa Isabel en 0,16 km² ± 0,01 km², 44,8 % menos que los 0,29 km² de 2022, y proyecta su extinción en tres a cinco años. Esa proyección puede variar con El Niño o La Niña; la ficha del parque aún cita 2028. Confirma el dato vigente en el IDEAM.",
+        "variants": [
+          "El Santa Isabel medía 0,16 km² ± 0,01 km² en febrero de 2024, 44,8 % menos que los 0,29 km² de 2022. El IDEAM proyecta tres a cinco años y la ficha habla de 2028; ambas son proyecciones. Consulta el IDEAM."
+        ]
+      },
+      "sources": [
+        {
+          "label": "IDEAM, Informe del estado de los glaciares colombianos 2024",
+          "url": "https://ideam.gov.co/sites/default/files/prensa/boletines/2025-12-29/informe-del-estado-de-los-glaciares-colombianos-2024.pdf",
+          "retrieved_at": "2026-11-21"
+        },
+        {
+          "label": "Parques Nacionales Naturales de Colombia",
+          "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "last_verified": "2026-11-21",
+      "related": [
+        "flora_ecosystems.conejeras_extinct_march_2024",
+        "flora_ecosystems.colombia_glacier_area_2024"
+      ],
+      "tags": [
+        "santa isabel",
+        "proyeccion",
+        "2028"
+      ]
+    },
+    {
+      "id": "flora_ecosystems.ruiz_ash_insulates_ice",
+      "label": "ceniza que cubre el hielo del Ruiz",
+      "kind": "explanation",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "la ceniza del ruiz derrite el glaciar",
+        "la ceniza volcanica acelera el deshielo",
+        "por que el hielo del ruiz esta gris",
+        "la capa de ceniza protege o dana el glaciar",
+        "cuanta ceniza cubria el nevado del ruiz en 2024",
+        "el cráter arenas ennegrece la nieve",
+        "en el sur del ruiz se derrite mas el hielo",
+        "una capa gruesa de ceniza aisla el glaciar",
+        "oiga la ceniza quita el reflejo de la nieve",
+        "no toda la ceniza derrite el hielo del ruiz",
+        "efecto de la ceniza volcanica sobre el casquete",
+        "does volcanic ash melt the Ruiz glacier",
+        "why is the Ruiz ice covered in ash"
+      ],
+      "hard_negatives": [
+        "cómo es el clima en Los Nevados",
+        "a qué altura está el Ruiz",
+        "qué es el superpáramo"
+      ],
+      "answer": {
+        "short": "En 2024 cerca del 88 % del glaciar del Ruiz estaba cubierto de ceniza. El IDEAM vio que una capa de más de 5 cm aísla el hielo y reduce el derretimiento; al sur, con menos ceniza, el hielo se fundió más. No des por hecho que la ceniza siempre derrite la nieve: mira el informe 2024.",
+        "variants": [
+          "Cerca del 88 % del glaciar del Ruiz tuvo ceniza en 2024. Más de 5 cm actuaron como aislante; donde hubo menos ceniza, al sur, el hielo retrocedió más. Consulta el informe 2024 del IDEAM."
+        ]
+      },
+      "sources": [
+        {
+          "label": "IDEAM, Informe del estado de los glaciares colombianos 2024",
+          "url": "https://ideam.gov.co/sites/default/files/prensa/boletines/2025-12-29/informe-del-estado-de-los-glaciares-colombianos-2024.pdf",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "last_verified": "2026-11-21",
+      "related": [
+        "flora_ecosystems.ruiz_glacier_measured_2024",
+        "flora_ecosystems.glacier_retreat_climate_change",
+        "flora_ecosystems.glaciers_snow_presence"
+      ],
+      "tags": [
+        "ceniza",
+        "ruiz",
+        "albedo"
+      ]
+    },
+    {
+      "id": "flora_ecosystems.colombia_glacier_area_2024",
+      "label": "cobertura glaciar nacional en 2024",
+      "kind": "fact",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "cuanto hielo queda en los glaciares de colombia",
+        "cuantos kilometros de glaciar hay en el pais",
+        "a que ritmo se derriten los nevados colombianos",
+        "el retroceso glaciar de 2024 es una medicion o un pronostico",
+        "porcentaje anual de perdida de glaciares",
+        "cuanto hielo glacial habia en colombia al empezar 2024?",
+        "se estan acabando las nieves de colombia",
+        "oiga cuanto casquete glaciar queda en el pais",
+        "la tasa de 3 a 5 por ciento es todos los anos",
+        "informe de glaciares colombianos 2024",
+        "quien mide cuanto hielo se pierde en colombia?",
+        "how much glacier ice remained in Colombia in 2024",
+        "what yearly glacier loss do they report for colombia?"
+      ],
+      "hard_negatives": [
+        "qué nevados hay en el parque",
+        "cómo es el clima en Los Nevados",
+        "fauna de Los Nevados"
+      ],
+      "answer": {
+        "short": "Para inicios de 2024 el IDEAM estimó 30,83 km² ± 0,48 km² de glaciares en Colombia y una reducción del 6,84 %. El ritmo anual se ha mantenido entre el 3 y el 5 %. Es una medición del informe 2024, no un pronóstico: confirma la cifra en ideam.gov.co.",
+        "variants": [
+          "A inicios de 2024 había 30,83 km² ± 0,48 km² de glaciares en el país, un 6,84 % menos, con un ritmo anual de 3 a 5 %. Es medición, no pronóstico. Revisa el informe vigente del IDEAM."
+        ]
+      },
+      "sources": [
+        {
+          "label": "IDEAM, Informe del estado de los glaciares colombianos 2024",
+          "url": "https://ideam.gov.co/sites/default/files/prensa/boletines/2025-12-29/informe-del-estado-de-los-glaciares-colombianos-2024.pdf",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "last_verified": "2026-11-21",
+      "related": [
+        "flora_ecosystems.glacier_retreat_climate_change",
+        "flora_ecosystems.ruiz_glacier_measured_2024",
+        "flora_ecosystems.santa_isabel_projection_three_years"
+      ],
+      "tags": [
+        "glaciares",
+        "colombia",
+        "ideam"
+      ]
+    },
+    {
+      "id": "flora_ecosystems.romerales_fire_october_2024",
+      "label": "incendio de páramo en Romerales",
+      "kind": "explanation",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "que paso con el incendio de romerales",
+        "el fuego de octubre de 2024 dano los frailejones",
+        "se quemo pajonal en el nevado del ruiz",
+        "el incendio de romerales afecto el siete cueros",
+        "los romeros de paramo se quemaron",
+        "un incendio dana la regulacion del agua del paramo",
+        "puedo visitar romerales despues del incendio",
+        "oiga el fuego del ruiz quemo frailejones",
+        "que plantas se afectaron en romerales",
+        "el 12 de octubre de 2024 hubo incendio en el parque",
+        "el paramo se recupera solo despues de un incendio",
+        "what did the Romerales wildfire burn",
+        "did the 2024 fire damage frailejones"
+      ],
+      "hard_negatives": [
+        "qué frailejones hay en el parque",
+        "puedo caminar por donde quiera",
+        "cómo es el clima en Los Nevados"
+      ],
+      "answer": {
+        "short": "Desde el 12 de octubre de 2024 hubo un incendio en Romerales, en el Ruiz, que dañó frailejones, siete cueros, romeros y pajonal, plantas que regulan el agua. El estado de esa zona puede haber cambiado: pregunta al parque antes de visitar el sector.",
+        "variants": [
+          "El incendio de Romerales, desde el 12 de octubre de 2024, quemó frailejones, siete cueros, romeros y pajonal del Ruiz. Esas plantas regulan el agua. Pregunta al parque cómo está el sector ahora."
+        ]
+      },
+      "sources": [
+        {
+          "label": "Parques Nacionales Naturales de Colombia",
+          "url": "https://www.parquesnacionales.gov.co/sala-prensa/incendio-romerales-parque-los-nevados/",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "last_verified": "2026-11-21",
+      "related": [
+        "flora_ecosystems.frailejones_overview",
+        "flora_ecosystems.pajonales_calamagrostis",
+        "flora_ecosystems.africa_paramo_fire_2026"
+      ],
+      "tags": [
+        "incendio",
+        "romerales",
+        "frailejon"
+      ]
+    },
+    {
+      "id": "flora_ecosystems.africa_paramo_fire_2026",
+      "label": "incendio de páramo en El África",
+      "kind": "fact",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "hubo un incendio en el sector el africa",
+        "se quemo paramo en santa isabel en 2026",
+        "cuantas hectareas quemo el incendio de el africa",
+        "el fuego de septiembre de 2026 ya se apago",
+        "puedo subir a el africa despues del incendio",
+        "incendio a 4200 metros en el parque",
+        "los guardaparques controlaron un fuego en santa isabel",
+        "la cifra de hectareas quemadas es preliminar",
+        "oiga en el africa se quemo el paramo",
+        "entre el 19 y el 20 de septiembre hubo fuego",
+        "los incendios siguen amenazando el paramo",
+        "was there a páramo fire at El África in 2026",
+        "how many hectares burned at El África"
+      ],
+      "hard_negatives": [
+        "qué es el páramo",
+        "cómo es el clima en Los Nevados",
+        "fauna de Los Nevados"
+      ],
+      "answer": {
+        "short": "Entre el 19 y el 20 de septiembre de 2026 se liquidó un incendio en El África, Santa Isabel, a unos 4.200 m, con más de 20 hectáreas de páramo afectadas de forma preliminar. La cifra puede ajustarse: confirma el estado del sector con el parque.",
+        "variants": [
+          "Parques Nacionales liquidó el 19 y 20 de septiembre de 2026 un incendio en El África, cerca de 4.200 m, con más de 20 hectáreas de páramo en una cuenta preliminar. Pregunta al parque antes de ir a ese sector."
+        ]
+      },
+      "sources": [
+        {
+          "label": "Parques Nacionales Naturales de Colombia",
+          "url": "https://www.parquesnacionales.gov.co/sala-prensa/noticias/incendios-forestales-afectan-los-nevados-e-iguaque/",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "last_verified": "2026-11-21",
+      "related": [
+        "flora_ecosystems.romerales_fire_october_2024",
+        "flora_ecosystems.paramo_ecosystem",
+        "flora_ecosystems.ecological_restoration_programs"
+      ],
+      "tags": [
+        "incendio",
+        "africa",
+        "paramo"
+      ]
+    },
+    {
+      "id": "flora_ecosystems.native_species_nurseries",
+      "label": "viveros de plantas nativas del parque",
+      "kind": "explanation",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "donde reproducen los frailejones del parque",
+        "hay viveros de paramo en los nevados",
+        "que es el vivero de potosi",
+        "a que altura esta el vivero de alta montana",
+        "siembran especies nativas para restaurar",
+        "torrecitas otun y brisas tienen vivero",
+        "por que el frailejon del vivero crece lento",
+        "puedo llevarme una planta del paramo",
+        "oiga quien repone los frailejones danados",
+        "el vivero de potosi solo usa plantas nativas",
+        "restauracion activa con material de vivero",
+        "where does the park grow native frailejones",
+        "can I take a plant from the páramo"
+      ],
+      "hard_negatives": [
+        "qué frailejones hay en el parque",
+        "hay palmas de cera en los nevados",
+        "puedo llevar a mi perro"
+      ],
+      "answer": {
+        "short": "Hay viveros de especies nativas en Torrecitas, Potosí, Laguna del Otún y Brisas para restaurar el páramo. En Potosí, a 3.850 m, propagan solo plantas nativas, incluido el frailejón, de crecimiento lento. No arranques plantas: la reposición la hace el parque.",
+        "variants": [
+          "El parque propaga plantas nativas en Torrecitas, Potosí, Laguna del Otún y Brisas. El vivero de Potosí está a 3.850 m y solo usa especies nativas, como el frailejón. Déjalas en el sitio."
+        ]
+      },
+      "sources": [
+        {
+          "label": "Parques Nacionales Naturales de Colombia",
+          "url": "https://www.parquesnacionales.gov.co/sala-prensa/noticias/herencia-colombia-recorre-viveros-del-parque-los-nevados/",
+          "retrieved_at": "2026-11-21"
+        },
+        {
+          "label": "Parques Nacionales Naturales de Colombia",
+          "url": "https://www.parquesnacionales.gov.co/sala-prensa/noticias/asi-es-el-esfuerzo-inmenso-de-restaurar-areas-deforestadas/",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "last_verified": "2026-11-21",
+      "related": [
+        "flora_ecosystems.frailejones_overview",
+        "flora_ecosystems.ecological_restoration_programs",
+        "flora_ecosystems.romerales_fire_october_2024"
+      ],
+      "tags": [
+        "vivero",
+        "restauracion",
+        "frailejon"
+      ]
+    },
+    {
+      "id": "flora_ecosystems.otun_peatland_plants",
+      "label": "turberas vegetales de la laguna Otún",
+      "kind": "explanation",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "que plantas forman las turberas del otun",
+        "hay sphagnum en la laguna del otun",
+        "distichia muscoides crece en el humedal",
+        "las turberas regulan el agua del paramo",
+        "cojines de plantago en la turbera",
+        "puedo pisar la turbera del otun",
+        "que es un pantano turboso en los nevados",
+        "musgo de turbera junto a la laguna",
+        "oiga esas almohadas verdes del camino al otun",
+        "que musgos y cojines hay en la turbera del otun?",
+        "por que no debo caminar sobre los cojines",
+        "which plants build the Otún peatlands",
+        "is sphagnum part of the Otún wetlands"
+      ],
+      "hard_negatives": [
+        "qué es el páramo",
+        "aves",
+        "puedo caminar por donde quiera"
+      ],
+      "answer": {
+        "short": "En el complejo Ramsar de la Laguna del Otún hay turberas con Plantago rigida, Distichia muscoides y musgo Sphagnum, que regulan el ciclo del agua. Camina por el sendero habilitado y no pises esos cojines.",
+        "variants": [
+          "La ficha Ramsar del Otún describe turberas de Plantago rigida, Distichia muscoides y Sphagnum, importantes para el ciclo del agua. Quédate en el sendero y no pises los cojines."
+        ]
+      },
+      "sources": [
+        {
+          "label": "Ficha Ramsar CO1781, Complejo de Humedales Laguna del Otún",
+          "url": "https://rsis.ramsar.org/RISapp/files/RISrep/CO1781RIS.pdf",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "last_verified": "2026-11-21",
+      "related": [
+        "flora_ecosystems.high_andean_wetlands",
+        "flora_ecosystems.cojines_plantago_rigida",
+        "flora_ecosystems.ramsar_otun_wetland_complex"
+      ],
+      "tags": [
+        "turbera",
+        "sphagnum",
+        "otun"
+      ]
+    },
+    {
+      "id": "flora_ecosystems.otun_mosses_and_lichens",
+      "label": "musgos y líquenes que retienen lluvia",
+      "kind": "explanation",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "el otun es un solo espejo de agua o un mosaico de humedales?",
+        "los musgos del paramo guardan el agua lluvia",
+        "que funcion tienen los liquenes del humedal",
+        "el suelo del otun retiene la lluvia",
+        "gramineas musgos y liquenes de la laguna",
+        "por que el suelo del humedal esta siempre humedo",
+        "los liquenes ayudan a la cuenca del otun",
+        "oiga esas costras y musgos del camino al otun",
+        "puedo arrancar musgo para verlo de cerca",
+        "la vegetacion baja controla el flujo del agua",
+        "criptogamas que retienen agua en el otun",
+        "do mosses and lichens hold rain at Otún",
+        "why is the ground around Laguna del Otún so wet"
+      ],
+      "hard_negatives": [
+        "qué es el superpáramo",
+        "fauna de Los Nevados",
+        "dónde boto la basura"
+      ],
+      "answer": {
+        "short": "En los suelos de la Laguna del Otún, gramíneas, musgos, líquenes y algunos arbustos retienen grandes volúmenes de agua lluvia y ayudan a controlar el flujo de la cuenca. Míralos desde el sendero y evita pisar el suelo húmedo.",
+        "variants": [
+          "La ficha Ramsar recoge que en la Laguna del Otún gramíneas, musgos, líquenes y arbustos retienen mucha agua lluvia y regulan la cuenca. Obsérvalos sin salirte del sendero."
+        ]
+      },
+      "sources": [
+        {
+          "label": "Ficha Ramsar CO1781, Complejo de Humedales Laguna del Otún",
+          "url": "https://rsis.ramsar.org/RISapp/files/RISrep/CO1781RIS.pdf",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "last_verified": "2026-11-21",
+      "related": [
+        "flora_ecosystems.otun_peatland_plants",
+        "flora_ecosystems.laguna_del_otun_ecosystem",
+        "flora_ecosystems.coffee_region_water_reserve"
+      ],
+      "tags": [
+        "musgo",
+        "liquen",
+        "lluvia"
+      ]
+    },
+    {
+      "id": "flora_ecosystems.otun_river_supplies_pereira",
+      "label": "agua del río Otún para Pereira",
+      "kind": "fact",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "de donde sale el agua de pereira",
+        "el rio otun nace en la laguna del otun",
+        "la laguna del otun abastece a dosquebradas",
+        "cuantas personas tomaban agua del humedal del otun",
+        "la cifra de 500 mil personas sigue vigente",
+        "a que altura nace el rio otun",
+        "el acueducto de pereira depende de la laguna",
+        "oiga el agua de pereira baja del paramo",
+        "el humedal del otun surte el agua de pereira?",
+        "esa cifra de 2006 puede haber cambiado",
+        "dosquebradas tambien recibe agua del otun",
+        "does the Otún river supply Pereira"
+      ],
+      "hard_negatives": [
+        "reservas para Los Nevados",
+        "qué nevados hay en el parque",
+        "qué es el páramo"
+      ],
+      "answer": {
+        "short": "El río Otún nace en la Laguna del Otún, a 4000 m. El 17 de julio de 2006 el humedal abastecía a más de 500 mil personas de Pereira y Dosquebradas; esa cifra puede haber cambiado: confírmala con Aguas y Aguas de Pereira.",
+        "variants": [
+          "Según la ficha Ramsar del 17 de julio de 2006, el Otún nace en la laguna a 4000 m y el humedal abastecía a más de 500 mil personas de Pereira y Dosquebradas. Confirma el dato actual con Aguas y Aguas de Pereira."
+        ]
+      },
+      "sources": [
+        {
+          "label": "Ficha Ramsar CO1781, Complejo de Humedales Laguna del Otún",
+          "url": "https://rsis.ramsar.org/RISapp/files/RISrep/CO1781RIS.pdf",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "last_verified": "2026-11-21",
+      "related": [
+        "flora_ecosystems.laguna_del_otun_ecosystem",
+        "flora_ecosystems.coffee_region_water_reserve"
+      ],
+      "tags": [
+        "otun",
+        "pereira",
+        "agua"
+      ]
+    },
+    {
+      "id": "flora_ecosystems.coffee_region_water_reserve",
+      "label": "reserva de agua del Eje Cafetero",
+      "kind": "explanation",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "a cuantos departamentos les da agua el parque",
+        "el parque abastece a millones de personas",
+        "los nevados son la reserva de agua del eje cafetero",
+        "el agua llega a caldas risaralda quindio y tolima",
+        "el paramo tambien riega cultivos del magdalena",
+        "hay una cifra exacta de gente que bebe esa agua",
+        "el parque regula agua para la agroindustria",
+        "oiga de los nevados baja el agua del cafe",
+        "millones de habitantes dependen del parque",
+        "el valle del cauca recibe agua de los nevados",
+        "no hay un numero oficial de usuarios del agua",
+        "which departments get water from Los Nevados",
+        "does the park supply the coffee region",
+        "qué ríos alimenta el parque los nevados",
+        "que cuencas abastece el agua del parque",
+        "de donde sale el agua del eje cafetero",
+        "por que el parque es tan importante para el agua",
+        "cuencas del cauca y del magdalena en los nevados",
+        "importancia del agua del parque para la region",
+        "quienes se benefician del agua de los nevados",
+        "el agua del parque y su importancia hidrica",
+        "que departamentos reciben agua de los nevados",
+        "reserva de agua para caldas risaralda quindio y tolima",
+        "acueductos abastecidos por el parque nacional",
+        "estrella hidrica en la cordillera central",
+        "which watersheds are fed by los nevados",
+        "water supply from los nevados national park"
+      ],
+      "hard_negatives": [
+        "qué ecosistemas hay en los nevados",
+        "reservas para Los Nevados",
+        "aves"
+      ],
+      "answer": {
+        "short": "El parque es la reserva de agua más importante para Tolima, Risaralda, Caldas y Quindío: abastece a millones de habitantes del Eje Cafetero y regula agua para agroindustrias del Magdalena y del Cauca. No hay una cifra exacta de personas; pregunta a tu acueducto.",
+        "variants": [
+          "Parques Nacionales llama al parque la reserva de agua de Tolima, Risaralda, Caldas y Quindío, útil para millones de personas y para agroindustrias del Magdalena y del Cauca. La cifra exacta la tiene tu acueducto."
+        ]
+      },
+      "sources": [
+        {
+          "label": "Parques Nacionales Naturales de Colombia",
+          "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "last_verified": "2026-11-21",
+      "related": [
+        "flora_ecosystems.otun_river_supplies_pereira",
+        "flora_ecosystems.glacier_melt_feeds_rivers"
+      ],
+      "tags": [
+        "agua",
+        "eje cafetero",
+        "cuenca"
+      ]
+    },
+    {
+      "id": "flora_ecosystems.conservation_target_values",
+      "label": "valores de conservación del parque",
+      "kind": "explanation",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "que se conserva en los nevados",
+        "cuales son los valores objeto de conservacion",
+        "el parque monitorea paramos humedales y bosques",
+        "las cuencas del chinchina y del otun son prioridad",
+        "los glaciares tambien son un valor de conservacion",
+        "que vigilan los guardaparques en el ecosistema",
+        "por que cuidan el bosque altoandino",
+        "oiga que objetivos de conservacion tiene el parque",
+        "el humedal altoandino esta en la lista de conservacion",
+        "donde leo el detalle de esos valores",
+        "conservacion de cuencas altas y de los tres nevados",
+        "que ecosistemas vigila el parque como valores de conservacion?",
+        "are the glaciers a conservation target"
+      ],
+      "hard_negatives": [
+        "fauna de Los Nevados",
+        "puedo llevar a mi perro",
+        "qué frailejones hay en el parque"
+      ],
+      "answer": {
+        "short": "Los valores de conservación son los páramos, humedales y bosques altoandinos, las cuencas altas del Chinchiná y del Otún, y los glaciares de los tres nevados. Si quieres el detalle de ese monitoreo, pregúntalo en el parque.",
+        "variants": [
+          "Entre lo que el parque monitorea están páramos, humedales, bosques altoandinos, las cuencas del Chinchiná y del Otún, y los tres glaciares. El detalle está en la ficha de Parques Nacionales."
+        ]
+      },
+      "sources": [
+        {
+          "label": "Parques Nacionales Naturales de Colombia",
+          "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "last_verified": "2026-11-21",
+      "related": [
+        "flora_ecosystems.park_ecosystems_overview",
+        "flora_ecosystems.ecological_restoration_programs",
+        "flora_ecosystems.high_andean_forest"
+      ],
+      "tags": [
+        "conservacion",
+        "cuenca",
+        "glaciar"
+      ]
+    },
+    {
+      "id": "flora_ecosystems.glacier_melt_feeds_rivers",
+      "label": "deshielo que alimenta los ríos",
+      "kind": "explanation",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "el agua de la llave sale del deshielo",
+        "el glaciar es el que produce toda el agua",
+        "el derretimiento alimenta los rios del parque",
+        "la nieve baja hacia el cauca y el magdalena",
+        "que porcentaje del agua viene del glaciar",
+        "el paramo aporta mas que el hielo",
+        "no tengo el reparto entre nieve y paramo",
+        "oiga sin el nevado se acaba el agua",
+        "el deshielo del ruiz santa isabel y tolima",
+        "el 84 por ciento de paramo tambien es agua",
+        "debo preguntarle a mi acueducto el origen del agua",
+        "does tap water come only from melting glaciers",
+        "do the three ice caps feed the park rivers"
+      ],
+      "hard_negatives": [
+        "qué es el páramo",
+        "qué nevados hay en el parque",
+        "cuándo llueve más en Los Nevados"
+      ],
+      "answer": {
+        "short": "El deshielo del Ruiz, Santa Isabel y Tolima aporta agua a los ríos que nacen en el parque y siguen hacia el Cauca y el Magdalena. El páramo ocupa el 84 % del área y no hay un reparto del caudal entre nieve y páramo: no atribuyas el agua del grifo solo al deshielo y pregunta a tu acueducto.",
+        "variants": [
+          "Parques Nacionales dice que el deshielo de los tres nevados alimenta ríos que van al Cauca y al Magdalena, y que el páramo es el 84 % del área. No publica el reparto del caudal: consúltalo con tu acueducto."
+        ]
+      },
+      "sources": [
+        {
+          "label": "Parques Nacionales Naturales de Colombia",
+          "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "last_verified": "2026-11-21",
+      "related": [
+        "flora_ecosystems.coffee_region_water_reserve",
+        "flora_ecosystems.glaciers_snow_presence"
+      ],
+      "tags": [
+        "deshielo",
+        "rios",
+        "paramo"
+      ]
+    },
+    {
+      "id": "flora_ecosystems.glaciers_share_of_park",
+      "label": "porcentaje glaciar del área del parque",
+      "kind": "fact",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "porcentaje de glaciar en el parque",
+        "el hielo que porcentaje del area protegida ocupa",
+        "ruiz santa isabel y tolima cubren mucho del parque?",
+        "cuanta superficie sigue siendo glaciar alla",
+        "de todo los nevados cuanto es nieve de verdad",
+        "el paramo es enorme y el hielo es un pedacito?",
+        "que parte del parque sigue blanca de glaciar",
+        "is the ice only a small slice of the park",
+        "how much of the park is still glacier",
+        "area glaciar frente al paramo",
+        "el 1,82 del parque es hielo o me lo invente",
+        "sigue habiendo casquete o ya casi no queda"
+      ],
+      "hard_negatives": [
+        "qué es el páramo",
+        "qué es el superpáramo",
+        "a qué altura está el Ruiz"
+      ],
+      "answer": {
+        "short": "Los glaciares ocupan el 1,82 % del área del parque: Ruiz, Santa Isabel y Tolima. Es poco frente al páramo y esa superficie sigue cambiando. Pregunta a un operador registrado qué hielo se ve en tu ruta.",
+        "variants": [
+          "Ese 1,82 % es el hielo de los tres nevados, poco al lado del páramo. Pregunta a un operador qué queda visible en la ruta que elegiste."
+        ]
+      },
+      "sources": [
+        {
+          "label": "Parques Nacionales Naturales de Colombia",
+          "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "last_verified": "2026-11-21",
+      "related": [
+        "flora_ecosystems.glaciers_snow_presence",
+        "flora_ecosystems.paramo_ecosystem",
+        "flora_ecosystems.glacier_melt_feeds_rivers"
+      ],
+      "tags": [
+        "glaciar",
+        "area",
+        "porcentaje"
+      ]
+    },
+    {
+      "id": "flora_ecosystems.santa_isabel_five_relicts",
+      "label": "cinco relictos de hielo del Santa Isabel",
+      "kind": "fact",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "el santa isabel quedo en varios pedazos",
+        "cuantos relictos de hielo tenia el poleka en 2024",
+        "ya no es un solo manto de nieve el santa isabel",
+        "cinco restos de glaciar en el isabel, eso es cierto?",
+        "el hielo del santa isabel quedo partido en relictos",
+        "vea, el isabel ya no se ve como un nevado entero",
+        "en febrero de 2024 cuantos trozos de hielo habia",
+        "how many ice remnants did santa isabel have",
+        "was the santa isabel still one glacier in 2024",
+        "relictos pequenos del santa isabel",
+        "el hielo del isabel se volvio islitas",
+        "puedo contar cinco glaciares en el santa isabel"
+      ],
+      "hard_negatives": [
+        "qué es el páramo",
+        "qué es el superpáramo",
+        "a qué altura está el Ruiz"
+      ],
+      "answer": {
+        "short": "Al 29 de febrero de 2024 el Santa Isabel estaba en cinco relictos de hielo pequeños, no en un solo manto (IDEAM). No planees la foto con ese dato fijo. Confirma la ruta con un operador y revisa el informe de glaciares.",
+        "variants": [
+          "En esa fecha el Santa Isabel eran cinco restos de hielo. Confirma con un operador y con el IDEAM qué queda antes de subir."
+        ]
+      },
+      "sources": [
+        {
+          "label": "IDEAM, Informe del estado de los glaciares colombianos 2024",
+          "url": "https://ideam.gov.co/sites/default/files/prensa/boletines/2025-12-29/informe-del-estado-de-los-glaciares-colombianos-2024.pdf",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "last_verified": "2026-11-21",
+      "related": [
+        "flora_ecosystems.santa_isabel_projection_three_years",
+        "flora_ecosystems.conejeras_extinct_march_2024",
+        "flora_ecosystems.glaciers_snow_presence"
+      ],
+      "tags": [
+        "santa isabel",
+        "relictos",
+        "hielo"
+      ]
+    },
+    {
+      "id": "flora_ecosystems.hongo_glacier_split",
+      "label": "división del glaciar El Hongo",
+      "kind": "fact",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "se partio el glaciar el hongo",
+        "cambiaron la ruta a la cima norte por el hielo",
+        "el hongo del santa isabel se dividio en 2024",
+        "puedo seguir el track viejo hasta la cumbre norte",
+        "desprendimientos de hielo en la subida al hongo",
+        "cuanta masa perdio el sector el hongo",
+        "5638 milimetros de perdida en el hongo, de donde sale",
+        "brother the north summit route moved because of ice",
+        "did el hongo glacier split in february 2024",
+        "balance de masa del glaciar el hongo",
+        "la cumbre norte ya no se sube por donde antes",
+        "el hongo se quebro y toca otra trocha"
+      ],
+      "hard_negatives": [
+        "qué es el páramo",
+        "qué es el superpáramo",
+        "a qué altura está el Ruiz"
+      ],
+      "answer": {
+        "short": "El glaciar El Hongo se dividió en febrero de 2024 y el turismo cambió las rutas a la cima norte por desprendimientos y pendientes fuertes; ese balance registra pérdidas de 5.638 milímetros (IDEAM). No sigas un track viejo: confirma el acceso con un operador registrado.",
+        "variants": [
+          "El Hongo se partió en febrero de 2024, las rutas a la cima norte cambiaron y el balance marca 5.638 milímetros de pérdida. Pide la ruta vigente a un operador."
+        ]
+      },
+      "sources": [
+        {
+          "label": "IDEAM, Informe del estado de los glaciares colombianos 2024",
+          "url": "https://ideam.gov.co/sites/default/files/prensa/boletines/2025-12-29/informe-del-estado-de-los-glaciares-colombianos-2024.pdf",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "last_verified": "2026-11-21",
+      "related": [
+        "flora_ecosystems.santa_isabel_five_relicts",
+        "flora_ecosystems.santa_isabel_projection_three_years",
+        "flora_ecosystems.glaciers_snow_presence"
+      ],
+      "tags": [
+        "hongo",
+        "ruta",
+        "division"
+      ]
+    },
+    {
+      "id": "flora_ecosystems.cuadrado_glacier_extinct",
+      "label": "extinción del glaciar El Cuadrado",
+      "kind": "fact",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "que paso con el glaciar el cuadrado",
+        "el cuadrado del santa isabel todavia existe",
+        "se extingio el cuadrado en 2024",
+        "0,2 hectareas le quedaban al cuadrado y luego nada",
+        "no confundas el cuadrado con conejeras",
+        "en 2022 el cuadrado media como 0,7 ha",
+        "primer semestre de 2024 desaparecio ese pedazo",
+        "is the el cuadrado glacier gone",
+        "when did the cuadrado ice disappear",
+        "hielo del cuadrado en el santa isabel",
+        "me dijeron que el cuadrado ya no tiene glaciar",
+        "queda un relicto llamado el cuadrado o se acabo"
+      ],
+      "hard_negatives": [
+        "qué es el páramo",
+        "qué es el superpáramo",
+        "a qué altura está el Ruiz"
+      ],
+      "answer": {
+        "short": "El Cuadrado, en el Santa Isabel, pasó de 0,7 ha en 2022 a cerca de 0,2 ha en la estimación de 2024 y se extinguió en el primer semestre de 2024 (IDEAM). No es Conejeras. Confirma en el IDEAM qué hielo queda antes de prometer esa vista.",
+        "variants": [
+          "El Cuadrado se extinguió en el primer semestre de 2024, después de quedar en cerca de 0,2 ha. Verifica el parte del IDEAM y no lo mezcles con Conejeras."
+        ]
+      },
+      "sources": [
+        {
+          "label": "IDEAM, Informe del estado de los glaciares colombianos 2024",
+          "url": "https://ideam.gov.co/sites/default/files/prensa/boletines/2025-12-29/informe-del-estado-de-los-glaciares-colombianos-2024.pdf",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "last_verified": "2026-11-21",
+      "related": [
+        "flora_ecosystems.conejeras_extinct_march_2024",
+        "flora_ecosystems.santa_isabel_five_relicts",
+        "flora_ecosystems.santa_isabel_projection_three_years"
+      ],
+      "tags": [
+        "cuadrado",
+        "extincion",
+        "santa isabel"
+      ]
+    },
+    {
+      "id": "flora_ecosystems.santa_isabel_retreat_below_4900",
+      "label": "retroceso del hielo bajo 4900 metros",
+      "kind": "fact",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "a que altura se perdio mas hielo del santa isabel",
+        "el retroceso pego mas abajo de 4900",
+        "89,6 por ciento del retroceso fue en la parte baja",
+        "el hielo alto del isabel aguanto mas que el bajo",
+        "entre 2022 y 2024 donde se derritio el isabel",
+        "bajo los 4900 metros se fue casi todo el retroceso",
+        "la zona baja del glaciar es la que mas sufrio",
+        "where did santa isabel lose most ice",
+        "did the retreat hit below 4900 metres",
+        "porcentaje de retroceso en zonas bajas del isabel",
+        "se nota mas el deshielo abajo que en la cumbre",
+        "cifra del ideam para el hielo inferior a 4900"
+      ],
+      "hard_negatives": [
+        "qué es el páramo",
+        "qué es el superpáramo",
+        "a qué altura está el Ruiz"
+      ],
+      "answer": {
+        "short": "El 89,6 % del retroceso del Santa Isabel entre 2022 y 2024 ocurrió bajo 4.900 m (IDEAM). El hielo más bajo es el que más se fue. Revisa el informe de glaciares antes de repetir la cifra: es de ese periodo.",
+        "variants": [
+          "Casi todo ese retroceso, el 89,6 %, fue bajo 4.900 m. Consulta el informe del IDEAM antes de usar el dato."
+        ]
+      },
+      "sources": [
+        {
+          "label": "IDEAM, Informe del estado de los glaciares colombianos 2024",
+          "url": "https://ideam.gov.co/sites/default/files/prensa/boletines/2025-12-29/informe-del-estado-de-los-glaciares-colombianos-2024.pdf",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "last_verified": "2026-11-21",
+      "related": [
+        "flora_ecosystems.santa_isabel_projection_three_years",
+        "flora_ecosystems.santa_isabel_five_relicts",
+        "flora_ecosystems.glacier_retreat_climate_change"
+      ],
+      "tags": [
+        "retroceso",
+        "4900",
+        "santa isabel"
+      ]
+    },
+    {
+      "id": "flora_ecosystems.santa_isabel_low_altitude_cause",
+      "label": "causa del retroceso rápido del Santa Isabel",
+      "kind": "fact",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "por que el santa isabel pierde hielo tan rapido",
+        "la baja altitud del isabel lo tiene condenado",
+        "poca nieve sobre el hielo del poleka",
+        "el isabel esta muy bajo y por eso se derrite",
+        "cual es la causa principal de esa reduccion",
+        "no es solo el clima del dia, es la altura del nevado",
+        "escasa nieve y cumbre bajita en el santa isabel",
+        "why is the santa isabel ice shrinking so fast",
+        "is low altitude the main reason that glacier shrinks",
+        "factores del retroceso acelerado del isabel",
+        "el isabel no llega tan alto como el ruiz",
+        "sin nieve fresca el hielo del isabel queda pelado"
+      ],
+      "hard_negatives": [
+        "qué es el páramo",
+        "qué es el superpáramo",
+        "a qué altura está el Ruiz"
+      ],
+      "answer": {
+        "short": "La reducción acelerada del Santa Isabel tiene como causa principal su baja altitud, y también la poca nieve sobre el hielo (IDEAM). No es el pronóstico de tu día. Lee el informe de glaciares y confirma la ruta con un operador.",
+        "variants": [
+          "Se achica sobre todo por la baja altitud y por la nieve escasa. Contrasta el informe del IDEAM antes de subir."
+        ]
+      },
+      "sources": [
+        {
+          "label": "IDEAM, Informe del estado de los glaciares colombianos 2024",
+          "url": "https://ideam.gov.co/sites/default/files/prensa/boletines/2025-12-29/informe-del-estado-de-los-glaciares-colombianos-2024.pdf",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "last_verified": "2026-11-21",
+      "related": [
+        "flora_ecosystems.santa_isabel_retreat_below_4900",
+        "flora_ecosystems.santa_isabel_projection_three_years",
+        "flora_ecosystems.glacier_retreat_climate_change"
+      ],
+      "tags": [
+        "causa",
+        "nieve",
+        "santa isabel"
+      ]
+    },
+    {
+      "id": "flora_ecosystems.tolima_front_retreat_67m",
+      "label": "retroceso reciente del glaciar del Tolima",
+      "kind": "fact",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "cuanto retrocedio el glaciar del tolima",
+        "el frente del dulima se echo para atras cuantos metros",
+        "shimmer y combeima perdieron decenas de metros",
+        "67 metros de retroceso en el tolima es la cifra?",
+        "kraus totare y pijao como van de hielo",
+        "el sector norte del tolima tambien retrocedio",
+        "63 metros en el norte y 67 en el frente, cual es cual",
+        "how far did the tolima glacier front retreat",
+        "what happened to shimmer combeima kraus and pijao",
+        "perdida de 4012 milimetros en el shimmer",
+        "entre 2022 y 2024 el frente del nevado del tolima",
+        "el dulima retrocedio o solo se adelgazo"
+      ],
+      "hard_negatives": [
+        "qué es el páramo",
+        "qué es el superpáramo",
+        "a qué altura está el Ruiz"
+      ],
+      "answer": {
+        "short": "Entre 2022 y 2024 el frente del Tolima retrocedió hasta 67 metros, sobre todo en Shimmer y Combeima; al norte, Kraus, Totare y Pijao retrocedieron hasta 63 metros. Shimmer registró además pérdidas de 4.012 milímetros equivalentes de agua (IDEAM). Consulta el informe de glaciares: son cifras de ese periodo.",
+        "variants": [
+          "Hasta 67 metros en Shimmer y Combeima, hasta 63 metros en Kraus, Totare y Pijao, y 4.012 milímetros en el balance de Shimmer. Revisa si el IDEAM ya publicó otra cifra."
+        ]
+      },
+      "sources": [
+        {
+          "label": "IDEAM, Informe del estado de los glaciares colombianos 2024",
+          "url": "https://ideam.gov.co/sites/default/files/prensa/boletines/2025-12-29/informe-del-estado-de-los-glaciares-colombianos-2024.pdf",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "last_verified": "2026-11-21",
+      "related": [
+        "flora_ecosystems.tolima_glacier_measured_2024",
+        "flora_ecosystems.glacier_retreat_climate_change",
+        "flora_ecosystems.glaciers_snow_presence"
+      ],
+      "tags": [
+        "tolima",
+        "shimmer",
+        "combeima"
+      ]
+    },
+    {
+      "id": "flora_ecosystems.otun_wetland_mosaic",
+      "label": "cómo es el humedal del Otún",
+      "kind": "fact",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "la laguna del otun es solo una laguna",
+        "como es el humedal del otun en serio",
+        "mosquito silencio leona alsacia y bosque son del mismo complejo",
+        "hay pantanos y turberas pegados a la laguna",
+        "hypericum lancioides y pentacalia vaccinioides en el pantano",
+        "gynoxis en los arbustales densos del paramo",
+        "turbera de plantago rigida encima de una loma",
+        "is laguna del otun one lake or a whole wetland",
+        "what shrubs and peat sit around the otun wetland",
+        "el cojin de la colina no tiene quebrada",
+        "lagunas pantanos y turberas van juntos en el otun",
+        "nombres de los otros humedales junto a la laguna"
+      ],
+      "hard_negatives": [
+        "qué es el páramo",
+        "qué es el superpáramo",
+        "a qué altura está el Ruiz"
+      ],
+      "answer": {
+        "short": "El Otún junta lagunas, pantanos y turberas (Otún, Mosquito, Silencio, Leona, Alsacia y Bosque); la Laguna del Otún es la principal. Hay pantanos de Hypericum lancioides, Pentacalia y Baccharis, arbustales con Gynoxis y una turbera de Plantago rigida en una colina sin flujo. Sigue el sendero sin pisar cojines.",
+        "variants": [
+          "Es un mosaico de lagunas, pantanos y turberas, con arbustos, arbustales y un cojín de Plantago rigida en una colina. Recórrelo por el sendero y no pises los cojines."
+        ]
+      },
+      "sources": [
+        {
+          "label": "Ficha Ramsar CO1781, Complejo de Humedales Laguna del Otún",
+          "url": "https://rsis.ramsar.org/RISapp/files/RISrep/CO1781RIS.pdf",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "last_verified": "2026-11-21",
+      "related": [
+        "flora_ecosystems.ramsar_otun_wetland_complex",
+        "flora_ecosystems.laguna_del_otun_ecosystem",
+        "flora_ecosystems.high_andean_wetlands"
+      ],
+      "tags": [
+        "otun",
+        "turbera",
+        "laguna"
+      ]
+    },
+    {
+      "id": "flora_ecosystems.otun_main_wetland",
+      "label": "laguna del Otún como humedal principal del complejo",
+      "kind": "fact",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "cual es el humedal principal del otun",
+        "la laguna del otun manda en el complejo",
+        "entre tantas lagunas cual es la mas importante",
+        "cual laguna manda en el conjunto del otun?",
+        "las otras lagunas giran alrededor de la del otun?",
+        "si solo puedo ver una, cual es la principal",
+        "humedal mas importante de la cuenca del otun",
+        "which wetland is the main one at otun",
+        "is laguna del otun the primary wetland",
+        "cual laguna del otun sale de primera?",
+        "no es el mosquito ni la leona la laguna grande",
+        "quiero ubicar el cuerpo de agua principal"
+      ],
+      "hard_negatives": [
+        "qué es el páramo",
+        "qué es el superpáramo",
+        "a qué altura está el Ruiz"
+      ],
+      "answer": {
+        "short": "Dentro de ese complejo, la Laguna del Otún es el humedal más importante. El resto son lagunas, pantanos y turberas ligados a ella. Recórrela solo por el sendero que te autoricen y no entres a los pantanos.",
+        "variants": [
+          "La Laguna del Otún es el humedal principal del complejo. Sigue la ruta habilitada y no entres a los pantanos."
+        ]
+      },
+      "sources": [
+        {
+          "label": "Ficha Ramsar CO1781, Complejo de Humedales Laguna del Otún",
+          "url": "https://rsis.ramsar.org/RISapp/files/RISrep/CO1781RIS.pdf",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "last_verified": "2026-11-21",
+      "related": [
+        "flora_ecosystems.laguna_del_otun_ecosystem",
+        "flora_ecosystems.otun_wetland_mosaic",
+        "flora_ecosystems.ramsar_otun_wetland_complex"
+      ],
+      "tags": [
+        "otun",
+        "humedal",
+        "principal"
+      ]
+    },
+    {
+      "id": "flora_ecosystems.otun_wetlands_glacial_origin",
+      "label": "origen glaciar de los humedales del Otún",
+      "kind": "explanation",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "de donde salieron las lagunas del otun",
+        "los humedales quedaron de un glaciar viejo",
+        "son lagunas glaciares o las hizo el volcan",
+        "antes del holoceno habia hielo ahi",
+        "el sistema ruiz tolima dejo esos cuerpos de agua",
+        "agua quieta entre las morrenas del otun, de que epoca es",
+        "origen de la laguna, no el caudal de hoy",
+        "were the otun wetlands left by old glaciers",
+        "did a pre holocene glacier form those lakes",
+        "historia del hielo que formo el humedal",
+        "no nacieron ayer esas lagunas del paramo",
+        "actividad glaciar vieja en la cuenca del otun"
+      ],
+      "hard_negatives": [
+        "qué es el páramo",
+        "qué es el superpáramo",
+        "a qué altura está el Ruiz"
+      ],
+      "answer": {
+        "short": "Esos humedales quedaron sobre todo de la actividad glaciar anterior al Holoceno, en el sistema volcánico Ruiz-Tolima. Son ecosistemas, no solo un paisaje. Camínalos por el sendero y no bajes a las orillas blandas.",
+        "variants": [
+          "Vienen en gran parte de un glaciar anterior al Holoceno. Mantente en el sendero y no pises la orilla blanda."
+        ]
+      },
+      "sources": [
+        {
+          "label": "Ficha Ramsar CO1781, Complejo de Humedales Laguna del Otún",
+          "url": "https://rsis.ramsar.org/RISapp/files/RISrep/CO1781RIS.pdf",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "last_verified": "2026-11-21",
+      "related": [
+        "flora_ecosystems.otun_wetland_mosaic",
+        "flora_ecosystems.laguna_del_otun_ecosystem",
+        "flora_ecosystems.glacier_melt_feeds_rivers"
+      ],
+      "tags": [
+        "origen",
+        "glaciar",
+        "humedal"
+      ]
+    },
+    {
+      "id": "flora_ecosystems.otun_pajonal_espeletia",
+      "label": "pajonal con frailejón en el Otún",
+      "kind": "fact",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "que pajonal hay en el humedal del otun",
+        "calamagrostis y frailejon en el paramo del otun",
+        "efusa y recta son los pastos de ese pajonal",
+        "la comunidad de pasto con espeletia en el otun",
+        "como se llama el pastizal alrededor de la laguna",
+        "puedo cortar una macolla para el campamento",
+        "pajonal del otun no es el mismo de todos los senderos",
+        "which grasses grow with the frailejon at otun",
+        "what grassland community does the otun paramo have",
+        "como se escribe el pasto calamagrostis del otun?",
+        "frailejones metidos en el pajonal del humedal",
+        "dos calamagrostis y el frailejon juntos"
+      ],
+      "hard_negatives": [
+        "qué es el páramo",
+        "qué es el superpáramo",
+        "a qué altura está el Ruiz"
+      ],
+      "answer": {
+        "short": "En el páramo del Otún el pajonal es la comunidad Calamagrostis efusa, Calamagrostis recta y Espeletia, con esa grafía de 2006. Míralo desde el sendero y no cortes macollas ni frailejones.",
+        "variants": [
+          "Ese pajonal junta dos Calamagrostis con el frailejón. Déjalo en pie y sigue la ruta."
+        ]
+      },
+      "sources": [
+        {
+          "label": "Ficha Ramsar CO1781, Complejo de Humedales Laguna del Otún",
+          "url": "https://rsis.ramsar.org/RISapp/files/RISrep/CO1781RIS.pdf",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "last_verified": "2026-11-21",
+      "related": [
+        "flora_ecosystems.pajonales_calamagrostis",
+        "flora_ecosystems.frailejones_overview",
+        "flora_ecosystems.otun_peatland_plants"
+      ],
+      "tags": [
+        "pajonal",
+        "calamagrostis",
+        "espeletia"
+      ]
+    },
+    {
+      "id": "flora_ecosystems.otun_grazing_fire_degrades",
+      "label": "amenazas del humedal del Otún",
+      "kind": "explanation",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "que amenaza el paramo del otun",
+        "que le pasa al pajonal si hay ganado o fuego",
+        "el pastoreo cambia el frailejonal",
+        "si el ganado pasta junto a la laguna que pasa",
+        "el pisoteo achica las lagunillas del otun",
+        "usar el humedal de bebedero lo dana",
+        "la leona o vaga seca es el sector mas pastoreado",
+        "what do grazing and fire do at the otun wetland",
+        "does cattle trampling shrink the small lagoons",
+        "donde estaba mas intervenido el pastoreo",
+        "no quiero prender fuego en el pajonal seco",
+        "ganado suelto en la orilla, a quien le aviso"
+      ],
+      "hard_negatives": [
+        "qué es el páramo",
+        "qué es el superpáramo",
+        "a qué altura está el Ruiz"
+      ],
+      "answer": {
+        "short": "El pastoreo y el fuego degradan el pajonal con frailejón. El ganado junto al agua achica algunas lagunillas y, usado de bebedero, acelera el daño; La Leona (Vaga Seca) era el sector más pastoreado en 2006. No prendas fuego, quédate en el sendero y reporta ganado suelto al parque.",
+        "variants": [
+          "Pastoreo, fuego, pisoteo y bebederos degradan el humedal; La Leona era el tramo más pastoreado en 2006. No prendas fuego y avisa al parque si ves ganado en la orilla."
+        ]
+      },
+      "sources": [
+        {
+          "label": "Ficha Ramsar CO1781, Complejo de Humedales Laguna del Otún",
+          "url": "https://rsis.ramsar.org/RISapp/files/RISrep/CO1781RIS.pdf",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "last_verified": "2026-11-21",
+      "related": [
+        "flora_ecosystems.otun_pajonal_espeletia",
+        "flora_ecosystems.cattle_grazing_impact",
+        "flora_ecosystems.otun_cattle_and_2006_fire"
+      ],
+      "tags": [
+        "fuego",
+        "pastoreo",
+        "pajonal"
+      ]
+    },
+    {
+      "id": "flora_ecosystems.otun_149_plants",
+      "label": "plantas listadas en el complejo del Otún",
+      "kind": "fact",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "cuantas plantas lista el complejo del otun",
+        "contaron 149 plantas en el otun?",
+        "esas 149 plantas son todo el parque o solo el otun?",
+        "ese numero de plantas es de 2006",
+        "hay un conteo viejo de flora del humedal",
+        "no esperes ver las 149 en un solo dia",
+        "hay un conteo de plantas del humedal del otun?",
+        "how many plants does the otun complex list",
+        "is 149 the full plant list of the park",
+        "flora contada en la cuenca de la laguna",
+        "me sirve ese listado para la caminata de mañana",
+        "hay un conteo de plantas del otun mas reciente?"
+      ],
+      "hard_negatives": [
+        "qué es el páramo",
+        "qué es el superpáramo",
+        "a qué altura está el Ruiz"
+      ],
+      "answer": {
+        "short": "En el complejo del Otún se contaron 149 especies de plantas en 2006. No es el inventario del parque ni lo que verás hoy. Pregunta en el parque si hay un conteo más reciente.",
+        "variants": [
+          "Ese listado de 2006 cuenta 149 plantas del complejo, no de tu caminata. Pide al parque el dato actual si lo necesitas."
+        ]
+      },
+      "sources": [
+        {
+          "label": "Ficha Ramsar CO1781, Complejo de Humedales Laguna del Otún",
+          "url": "https://rsis.ramsar.org/RISapp/files/RISrep/CO1781RIS.pdf",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "last_verified": "2026-11-21",
+      "related": [
+        "flora_ecosystems.otun_peatland_plants",
+        "flora_ecosystems.frailejones_overview",
+        "flora_ecosystems.high_andean_wetlands"
+      ],
+      "tags": [
+        "plantas",
+        "149",
+        "otun"
+      ]
+    },
+    {
+      "id": "flora_ecosystems.otun_water_functions",
+      "label": "funciones de agua de los humedales",
+      "kind": "explanation",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "para que sirven los humedales del otun con el agua",
+        "captan agua y recargan acuiferos",
+        "el humedal entrega agua buena a las zonas bajas",
+        "retienen agua o solo la dejan pasar",
+        "sirve de esponja la laguna y los pantanos",
+        "de ese humedal sale el agua que baja limpia",
+        "no me des un porcentaje del grifo, explicame la funcion",
+        "how do the otun wetlands regulate water",
+        "do those wetlands recharge aquifers",
+        "captacion y retencion en el complejo del otun",
+        "por que no hay que pisar la turbera si uno quiere agua",
+        "el acueducto y el humedal que relacion tienen"
+      ],
+      "hard_negatives": [
+        "qué es el páramo",
+        "qué es el superpáramo",
+        "a qué altura está el Ruiz"
+      ],
+      "answer": {
+        "short": "Esos humedales captan y retienen agua, recargan acuíferos y entregan agua de buena calidad a las zonas bajas. El porcentaje que llega a tu grifo no está en ese dato. Cuídalos desde el sendero y pregunta a tu acueducto el origen del agua de tu casa.",
+        "variants": [
+          "Captan agua, la retienen y recargan acuíferos. No los pises y consulta a tu acueducto si quieres el dato de tu ciudad."
+        ]
+      },
+      "sources": [
+        {
+          "label": "Ficha Ramsar CO1781, Complejo de Humedales Laguna del Otún",
+          "url": "https://rsis.ramsar.org/RISapp/files/RISrep/CO1781RIS.pdf",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "last_verified": "2026-11-21",
+      "related": [
+        "flora_ecosystems.coffee_region_water_reserve",
+        "flora_ecosystems.otun_river_supplies_pereira",
+        "flora_ecosystems.high_andean_wetlands"
+      ],
+      "tags": [
+        "agua",
+        "acuifero",
+        "humedal"
+      ]
+    },
+    {
+      "id": "flora_ecosystems.otun_cattle_and_2006_fire",
+      "label": "ganadería e incendio del Otún en 2006",
+      "kind": "fact",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "que dano la ganaderia y el incendio de 2006",
+        "el fuego de julio de 2006 quemo miles de hectareas",
+        "cerca de 3000 hectareas del complejo se quemaron",
+        "la ganaderia extensiva era la presion mas fuerte",
+        "hubo un incendio grande en el otun hace años",
+        "primera semana de julio y el paramo ardio",
+        "ese incendio viejo sigue siendo la alerta para no hacer fogata",
+        "what did the 2006 fire and cattle do at otun",
+        "how many hectares burned at the otun wetland in 2006",
+        "ganado e incendio en la laguna del otun",
+        "3000 hectareas quemadas, fue en el humedal?",
+        "parce si veo humo en el paramo a quien llamo"
+      ],
+      "hard_negatives": [
+        "qué es el páramo",
+        "qué es el superpáramo",
+        "a qué altura está el Ruiz"
+      ],
+      "answer": {
+        "short": "En 2006 la ganadería extensiva era la mayor presión sobre el humedal, y un incendio de la primera semana de julio afectó cerca de 3000 hectáreas del complejo. No hagas fuego y reporta humo al parque.",
+        "variants": [
+          "El ganado era la presión principal y el incendio de julio de 2006 afectó cerca de 3000 hectáreas. No prendas fuego y avisa si ves humo."
+        ]
+      },
+      "sources": [
+        {
+          "label": "Ficha Ramsar CO1781, Complejo de Humedales Laguna del Otún",
+          "url": "https://rsis.ramsar.org/RISapp/files/RISrep/CO1781RIS.pdf",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "last_verified": "2026-11-21",
+      "related": [
+        "flora_ecosystems.cattle_grazing_impact",
+        "flora_ecosystems.romerales_fire_october_2024",
+        "flora_ecosystems.otun_grazing_fire_degrades"
+      ],
+      "tags": [
+        "incendio",
+        "ganaderia",
+        "2006"
+      ]
+    },
+    {
+      "id": "flora_ecosystems.espeletia_centroandina_otun",
+      "label": "frailejón hartwegiana del páramo",
+      "kind": "fact",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "el frailejon del parque es mata o arbolito",
+        "espeletia hartwegiana entre que alturas vive",
+        "es endemica y de preocupacion menor",
+        "que subespecie cita el humedal del otun",
+        "hartwegiana centroandina estaba en preocupacion menor",
+        "2370 a 4500 metros es el rango del frailejon",
+        "puedo arrancar una hoja seca de frailejon",
+        "what growth form does espeletia hartwegiana have",
+        "which frailejon subspecies is named at otun",
+        "arbusto o arbolito, no es un pino",
+        "la categoria de 2006 ya no la des por actual",
+        "frailejon nativo endemico del parque"
+      ],
+      "hard_negatives": [
+        "qué es el páramo",
+        "qué es el superpáramo",
+        "a qué altura está el Ruiz"
+      ],
+      "answer": {
+        "short": "Espeletia hartwegiana, el frailejón del parque, es arbusto o arbolito, nativa endémica y de preocupación menor, entre 2370 y 4500 m. En el Otún la subespecie centroandina figuraba en preocupación menor en 2006. Mírala sin arrancar hojas y no tomes esa categoría vieja como la de hoy.",
+        "variants": [
+          "Es arbusto o arbolito, endémico, de preocupación menor, entre 2370 y 4500 m; la subespecie del Otún tenía esa categoría en 2006. Obsérvala desde el sendero."
+        ]
+      },
+      "sources": [
+        {
+          "label": "Parques Nacionales Naturales de Colombia",
+          "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+          "retrieved_at": "2026-11-21"
+        },
+        {
+          "label": "Ficha Ramsar CO1781, Complejo de Humedales Laguna del Otún",
+          "url": "https://rsis.ramsar.org/RISapp/files/RISrep/CO1781RIS.pdf",
+          "retrieved_at": "2026-11-21"
+        },
+        {
+          "label": "Catálogo de plantas y líquenes de Colombia, Espeletia hartwegiana",
+          "url": "https://catalogoplantasdecolombia.unal.edu.co/es/resultados/especie/Espeletia%20hartwegiana/",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "last_verified": "2026-11-21",
+      "related": [
+        "flora_ecosystems.frailejones_overview",
+        "flora_ecosystems.otun_149_plants",
+        "flora_ecosystems.otun_pajonal_espeletia"
+      ],
+      "tags": [
+        "centroandina",
+        "frailejon",
+        "habito"
+      ]
+    },
+    {
+      "id": "flora_ecosystems.otun_paramo_globally_rare",
+      "label": "páramo tropical único del Otún",
+      "kind": "explanation",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "por que el paramo del otun es raro en el mundo",
+        "el paramo humedo tropical casi no se repite",
+        "es unico a nivel mundial ese paisaje",
+        "alta montaña humeda tropical, que tiene de especial",
+        "por eso lo declararon humedal de importancia internacional",
+        "rasgos fisicos y biologicos que no se copian facil",
+        "ese paisaje de la laguna no se repite en cualquier lado",
+        "what makes the otun paramo rare worldwide",
+        "are these tropical paramos globally rare",
+        "vale la pena cuidar ese paramo por lo raro que es",
+        "humedal internacional por el tipo de paramo",
+        "en el mundo hay pocos paisajes asi de humedos y altos"
+      ],
+      "hard_negatives": [
+        "qué es el páramo",
+        "qué es el superpáramo",
+        "a qué altura está el Ruiz"
+      ],
+      "answer": {
+        "short": "Los páramos de este complejo, de alta montaña húmeda tropical, son únicos a nivel mundial por sus rasgos físicos y biológicos. Por eso el humedal se designó de importancia internacional. Recórrelo por el sendero y no dejes basura ni fogatas.",
+        "variants": [
+          "Ese páramo húmedo tropical casi no se repite en el mundo. Cuídalo quedándote en la ruta, sin basura ni fogatas."
+        ]
+      },
+      "sources": [
+        {
+          "label": "Ficha Ramsar CO1781, Complejo de Humedales Laguna del Otún",
+          "url": "https://rsis.ramsar.org/RISapp/files/RISrep/CO1781RIS.pdf",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "last_verified": "2026-11-21",
+      "related": [
+        "flora_ecosystems.paramo_ecosystem",
+        "flora_ecosystems.ramsar_otun_wetland_complex",
+        "flora_ecosystems.otun_wetland_mosaic"
+      ],
+      "tags": [
+        "unico",
+        "paramo",
+        "ramsar"
+      ]
+    },
+    {
+      "id": "flora_ecosystems.paramo_complex_area",
+      "label": "área del complejo de páramos",
+      "kind": "fact",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "cuantas hectareas tiene el paramo los nevados",
+        "el complejo no es lo mismo que el parque",
+        "133666 hectareas y 17 municipios",
+        "caldas risaralda quindio y tolima entran en el paramo",
+        "el paramo es mas grande que el area protegida",
+        "en cuantos pueblos esta el complejo de paramos",
+        "area del paramo, no la del parque nacional",
+        "how big is the los nevados paramo complex",
+        "is the paramo complex larger than the national park",
+        "133.666 hectareas me las confirman",
+        "diecisiete municipios con pedazo de paramo",
+        "pide el limite a la corporacion, no al rumor"
+      ],
+      "hard_negatives": [
+        "qué es el páramo",
+        "qué es el superpáramo",
+        "a qué altura está el Ruiz"
+      ],
+      "answer": {
+        "short": "El Páramo Los Nevados tiene 133.666 hectáreas y está en 17 municipios de Caldas, Risaralda, Quindío y Tolima. Ese complejo es más amplio que el parque nacional. Pide el límite vigente a la corporación de tu departamento.",
+        "variants": [
+          "Son 133.666 hectáreas y 17 municipios, no solo el parque. Confirma el límite con tu corporación."
+        ]
+      },
+      "sources": [
+        {
+          "label": "CARDER y comisión conjunta, Plan de manejo del Complejo de Páramos Los Nevados",
+          "url": "https://www.carder.gov.co/download/plan-de-manejo-complejo-de-paramos-los-nevados/",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "last_verified": "2026-11-21",
+      "related": [
+        "flora_ecosystems.paramo_ecosystem",
+        "flora_ecosystems.park_ecosystems_overview",
+        "flora_ecosystems.paramo_delimitation_2016"
+      ],
+      "tags": [
+        "complejo",
+        "hectareas",
+        "municipios"
+      ]
+    },
+    {
+      "id": "flora_ecosystems.paramo_delimitation_2016",
+      "label": "delimitación del páramo en 2016",
+      "kind": "fact",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "cuando delimitaron el paramo los nevados",
+        "en 2016 hablaron de hectareas y de habitantes",
+        "14 de diciembre de 2016 que decidieron",
+        "la cifra del paramo lleva decimales en las hectareas?",
+        "cuanta gente vive alrededor de ese paramo?",
+        "el area del paramo cambia si redondean las hectareas?",
+        "esa delimitacion puede haberse ajustado",
+        "when was the los nevados paramo delimited",
+        "how many people live around the delimited paramo",
+        "dato de 2016, sigue vigente o lo actualizaron",
+        "el area delimitada no es un numero eterno",
+        "quiero la cifra oficial de la delimitacion"
+      ],
+      "hard_negatives": [
+        "qué es el páramo",
+        "qué es el superpáramo",
+        "a qué altura está el Ruiz"
+      ],
+      "answer": {
+        "short": "El 14 de diciembre de 2016 Minambiente delimitó el páramo Los Nevados en 133.666,25 hectáreas, con 1.758.665 habitantes en su entorno; CARDER redondea el área a 133.666 hectáreas. Es un dato de 2016 y puede ajustarse. Pídelo vigente a Minambiente o a tu corporación.",
+        "variants": [
+          "Esa nota da 133.666,25 hectáreas y 1.758.665 habitantes; CARDER redondea a 133.666. Confirma la cifra actual con Minambiente o la corporación."
+        ]
+      },
+      "sources": [
+        {
+          "label": "Ministerio de Ambiente, delimitación de cinco páramos, 14 de diciembre de 2016",
+          "url": "https://www.minambiente.gov.co/ministerio-de-ambiente-delimita-cinco-nuevos-paramos/",
+          "retrieved_at": "2026-11-21"
+        },
+        {
+          "label": "CARDER y comisión conjunta, Plan de manejo del Complejo de Páramos Los Nevados",
+          "url": "https://www.carder.gov.co/download/plan-de-manejo-complejo-de-paramos-los-nevados/",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "last_verified": "2026-11-21",
+      "related": [
+        "flora_ecosystems.paramo_complex_area",
+        "flora_ecosystems.coffee_region_water_reserve",
+        "flora_ecosystems.paramo_ecosystem"
+      ],
+      "tags": [
+        "delimitacion",
+        "2016",
+        "hectareas"
+      ]
+    },
+    {
+      "id": "flora_ecosystems.complex_flora_1036",
+      "label": "número de especies de flora del complejo",
+      "kind": "fact",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "cuantas especies de flora tiene el complejo",
+        "en el complejo de paramo hay mas de mil plantas?",
+        "cuantas familias y generos de plantas reune el complejo?",
+        "que parte de las plantas de paramo del pais estan en el complejo?",
+        "corpocaldas habla de 321 vasculares, no es el mismo conteo",
+        "cuantas especies de plantas hay en total en el complejo?",
+        "no juntes el conteo grande con el de caldas",
+        "how many plant species does the paramo complex compile",
+        "why are there two plant counts for nevados",
+        "mil plantas en el complejo y trescientas en caldas",
+        "eso no es la lista de mi sendero",
+        "que guia de plantas pido para mi sendero?"
+      ],
+      "hard_negatives": [
+        "qué es el páramo",
+        "qué es el superpáramo",
+        "a qué altura está el Ruiz",
+        "cuantas plantas endemicas tiene el complejo"
+      ],
+      "answer": {
+        "short": "En el complejo hay 1.036 especies de flora, 463 géneros y 197 familias, cerca del 18% de las plantas de páramo del país (compilación CARDER). Corpocaldas reporta 321 vasculares, nueve endémicas, en la porción caldense. No es la lista de tu sendero: pregunta en el parque qué hay en tu zona de visita.",
+        "variants": [
+          "1.036 es la compilación del complejo y 321 vasculares es la cifra de la porción caldense. No las sumes: pregunta en el parque cuál aplica a tu ruta."
+        ]
+      },
+      "sources": [
+        {
+          "label": "CARDER y comisión conjunta, Plan de manejo del Complejo de Páramos Los Nevados",
+          "url": "https://www.carder.gov.co/download/plan-de-manejo-complejo-de-paramos-los-nevados/",
+          "retrieved_at": "2026-11-21"
+        },
+        {
+          "label": "Corpocaldas, anexo de biodiversidad y servicios ecosistémicos",
+          "url": "https://corpocaldas2022.blob.core.windows.net/webadmin/file_Biodiversi_wJ5yJcwq.pdf",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "last_verified": "2026-11-21",
+      "related": [
+        "flora_ecosystems.otun_149_plants",
+        "flora_ecosystems.frailejones_overview",
+        "flora_ecosystems.complex_endemic_plants"
+      ],
+      "tags": [
+        "flora",
+        "1036",
+        "complejo"
+      ]
+    },
+    {
+      "id": "flora_ecosystems.complex_bryophytes_lichens",
+      "label": "musgos líquenes y helechos del complejo",
+      "kind": "fact",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "cuantos musgos y liquenes hay en el complejo",
+        "briofitos liquenes hepaticas y helechos",
+        "el 58 por ciento son espermatofitos",
+        "musgos 14 y liquenes 13 de esa flora",
+        "hepaticas 8 y helechos 7, me lo confirman",
+        "el paramo tiene mas plantas que frailejones?",
+        "puedo arrancar un cojin de musgo para la foto",
+        "what share of the complex flora is moss and lichen",
+        "are lichens a big part of the paramo plant list",
+        "porcentajes de musgo liquen y helecho",
+        "la flora del complejo no es solo plantas con flor",
+        "deja el musgo en la roca, no es souvenir"
+      ],
+      "hard_negatives": [
+        "qué es el páramo",
+        "qué es el superpáramo",
+        "a qué altura está el Ruiz"
+      ],
+      "answer": {
+        "short": "De esa flora del complejo, los espermatofitos son el 58%, los briofitos y líquenes el 14 y 13%, y las hepáticas y helechos el 8 y 7% (Humboldt, 2017). Es el complejo, no tu tramo de sendero. No arranques musgos ni cojines.",
+        "variants": [
+          "Musgos y líquenes pesan en esa compilación: 14 y 13%, junto a hepáticas y helechos en 8 y 7%. Déjalos en el suelo y en las rocas."
+        ]
+      },
+      "sources": [
+        {
+          "label": "CARDER y comisión conjunta, Plan de manejo del Complejo de Páramos Los Nevados",
+          "url": "https://www.carder.gov.co/download/plan-de-manejo-complejo-de-paramos-los-nevados/",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "last_verified": "2026-11-21",
+      "related": [
+        "flora_ecosystems.otun_mosses_and_lichens",
+        "flora_ecosystems.cojines_plantago_rigida",
+        "flora_ecosystems.complex_flora_1036"
+      ],
+      "tags": [
+        "musgo",
+        "liquen",
+        "helecho"
+      ]
+    },
+    {
+      "id": "flora_ecosystems.complex_endemic_plants",
+      "label": "plantas endémicas del complejo",
+      "kind": "fact",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "cuantas plantas endemicas tiene el complejo",
+        "hay endemicas de colombia y de la cordillera",
+        "51 plantas que no estan en todas partes",
+        "nueve de esas endemicas son de colombia",
+        "el dato es de la compilacion de 2017",
+        "voy a ver las endemicas si o si en el camino",
+        "se pueden colectar plantas raras del paramo",
+        "how many endemic plants does the complex report",
+        "are some paramo plants found only in colombia",
+        "flora endemica del complejo los nevados",
+        "no todo el frailejonal es endemico, cuantas si",
+        "quiero una guia del sector, no el libro entero"
+      ],
+      "hard_negatives": [
+        "qué es el páramo",
+        "qué es el superpáramo",
+        "a qué altura está el Ruiz",
+        "cuantas especies de flora tiene el complejo"
+      ],
+      "answer": {
+        "short": "En esa compilación, 51 plantas del complejo son endémicas y nueve de ellas son de Colombia (Humboldt, 2017). No dice cuáles verás en el camino. Obsérvalas sin colectar y pregunta al parque si hay una guía del sector.",
+        "variants": [
+          "Hay 51 plantas endémicas en esa compilación, nueve de ellas de Colombia. No las cortes y pide orientación en el parque."
+        ]
+      },
+      "sources": [
+        {
+          "label": "CARDER y comisión conjunta, Plan de manejo del Complejo de Páramos Los Nevados",
+          "url": "https://www.carder.gov.co/download/plan-de-manejo-complejo-de-paramos-los-nevados/",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "last_verified": "2026-11-21",
+      "related": [
+        "flora_ecosystems.complex_flora_1036",
+        "flora_ecosystems.frailejones_overview",
+        "flora_ecosystems.cacho_de_venado_loricaria"
+      ],
+      "tags": [
+        "endemica",
+        "flora",
+        "complejo"
+      ]
+    },
+    {
+      "id": "flora_ecosystems.complex_threatened_plant_count",
+      "label": "plantas amenazadas del páramo",
+      "kind": "fact",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "que plantas del paramo estan amenazadas",
+        "cuantas plantas amenazadas hay en el complejo",
+        "diecinueve plantas con categoria de amenaza",
+        "la pinuela greigia nubigena esta en peligro critico",
+        "algun romero diplostephium figura en peligro",
+        "el pino romeron podocarpus oleifolius esta amenazado",
+        "las orquideas del complejo estan en cites",
+        "are the paramo orchids on a cites appendix",
+        "which threatened plants should I leave untouched",
+        "greigia en CR y un romero en EN",
+        "22 orquideas en el apendice II, se pueden llevar",
+        "no cortes flores raras para el herbario del viaje"
+      ],
+      "hard_negatives": [
+        "qué es el páramo",
+        "qué es el superpáramo",
+        "a qué altura está el Ruiz"
+      ],
+      "answer": {
+        "short": "Hay 19 plantas del complejo con alguna categoría de amenaza: Greigia nubigena (piñuela) en CR, un Diplostephium llamado romero en EN y Podocarpus oleifolius en peligro en el listado del Otún de 2006. Las 22 orquídeas están en el apéndice II de CITES. No las cortes y revisa el libro rojo si citas una categoría.",
+        "variants": [
+          "Son 19 plantas amenazadas, entre ellas la piñuela en CR, un romero en EN y el romerón en peligro; las 22 orquídeas están en el apéndice II de CITES. Déjalas en el sitio."
+        ]
+      },
+      "sources": [
+        {
+          "label": "CARDER y comisión conjunta, Plan de manejo del Complejo de Páramos Los Nevados",
+          "url": "https://www.carder.gov.co/download/plan-de-manejo-complejo-de-paramos-los-nevados/",
+          "retrieved_at": "2026-11-21"
+        },
+        {
+          "label": "Ficha Ramsar CO1781, Complejo de Humedales Laguna del Otún",
+          "url": "https://rsis.ramsar.org/RISapp/files/RISrep/CO1781RIS.pdf",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "last_verified": "2026-11-21",
+      "related": [
+        "flora_ecosystems.complex_endemic_plants",
+        "flora_ecosystems.romeros_diplostephium",
+        "flora_ecosystems.high_andean_forest"
+      ],
+      "tags": [
+        "amenaza",
+        "plantas",
+        "complejo"
+      ]
+    },
+    {
+      "id": "flora_ecosystems.puya_ochroleuca_endangered",
+      "label": "puya ochroleuca en el complejo",
+      "kind": "fact",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "hay puya en el paramo de los nevados",
+        "puya ochroleuca sale como bromelia en peligro",
+        "la bromelia del complejo esta en EN",
+        "es la misma puya en todos los senderos",
+        "si veo una puya la puedo cortar",
+        "nombre comun bromelia, nombre cientifico puya",
+        "categoria EN en las tres columnas de la tabla",
+        "is there an endangered puya in the paramo complex",
+        "what is puya ochroleuca doing on the threat list",
+        "puya del paramo, no la del jardin",
+        "pregunta en el parque si tu sector tiene puya",
+        "no arranques la roseta aunque este seca"
+      ],
+      "hard_negatives": [
+        "qué es el páramo",
+        "qué es el superpáramo",
+        "a qué altura está el Ruiz"
+      ],
+      "answer": {
+        "short": "Puya ochroleuca, de nombre común bromelia, está en categoría EN en el complejo. No está prometida en todos los senderos del parque. No la cortes si la ves y pregunta en el parque si tu sector la tiene.",
+        "variants": [
+          "Figura en peligro (EN) en la tabla del complejo. No la arranques y confirma con el parque si está en la ruta."
+        ]
+      },
+      "sources": [
+        {
+          "label": "CARDER y comisión conjunta, Plan de manejo del Complejo de Páramos Los Nevados",
+          "url": "https://www.carder.gov.co/download/plan-de-manejo-complejo-de-paramos-los-nevados/",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "last_verified": "2026-11-21",
+      "related": [
+        "flora_ecosystems.frailejones_overview",
+        "flora_ecosystems.complex_threatened_plant_count",
+        "flora_ecosystems.paramo_ecosystem"
+      ],
+      "tags": [
+        "puya",
+        "bromelia",
+        "amenaza"
+      ]
+    },
+    {
+      "id": "flora_ecosystems.wax_palm_threat_table",
+      "label": "categoría de amenaza de la palma de cera",
+      "kind": "fact",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "la palma de cera esta amenazada en el complejo",
+        "en la tabla sale en peligro y vulnerable",
+        "EN VU y EN otra vez, que significa eso",
+        "la palma de cera sale amenazada en varias listas?",
+        "ceroxylon del bosque altoandino que categoria tiene",
+        "puedo llevarme una hoja de palma de cera",
+        "la categoria de la palma puede cambiar",
+        "is the wax palm listed as threatened in the complex",
+        "why does the wax palm show three threat categories",
+        "palma de cera EN VU EN en la tabla",
+        "la palma de cera del complejo no es un adorno",
+        "mirar el bosque sin cortar hojas de palma"
+      ],
+      "hard_negatives": [
+        "qué es el páramo",
+        "qué es el superpáramo",
+        "a qué altura está el Ruiz"
+      ],
+      "answer": {
+        "short": "La palma de cera del complejo figura como EN, VU y EN según libros rojos, UICN y la resolución de 2017. La categoría puede cambiar. No cortes hojas y mira el bosque altoandino desde el sendero.",
+        "variants": [
+          "La tabla la marca EN, VU y EN en esas tres fuentes. Admira el bosque sin llevarte nada."
+        ]
+      },
+      "sources": [
+        {
+          "label": "CARDER y comisión conjunta, Plan de manejo del Complejo de Páramos Los Nevados",
+          "url": "https://www.carder.gov.co/download/plan-de-manejo-complejo-de-paramos-los-nevados/",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "last_verified": "2026-11-21",
+      "related": [
+        "flora_ecosystems.wax_palm_quindio",
+        "flora_ecosystems.high_andean_forest",
+        "flora_ecosystems.complex_threatened_plant_count"
+      ],
+      "tags": [
+        "palma",
+        "cera",
+        "amenaza"
+      ]
+    },
+    {
+      "id": "flora_ecosystems.forest_subparamo_transition",
+      "label": "transición entre bosque y subpáramo",
+      "kind": "explanation",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "como es el limite entre el bosque y el paramo",
+        "arbustos de menos de 5 metros y arbolitos",
+        "arboles de 5 a 10 metros en la franja de transicion",
+        "a veces el cambio es gradual y a veces abrupto",
+        "hypericum lancioides y laricifolium en esa franja",
+        "que hypericum nombra el complejo ademas del genero",
+        "en la subida al tolima se cruza ese borde",
+        "what does the forest to subparamo edge look like",
+        "which hypericum species grow in that transition",
+        "velillos con nombre en el limite del bosque",
+        "el borde no es una pared, es una franja de arbustos",
+        "preparate para el frio cuando se acabe el bosque"
+      ],
+      "hard_negatives": [
+        "qué es el páramo",
+        "qué es el superpáramo",
+        "a qué altura está el Ruiz"
+      ],
+      "answer": {
+        "short": "El contacto del bosque altoandino con el subpáramo mezcla arbustos de menos de 5 m y árboles de 5 a 10 m, a veces gradual y a veces abrupto, e incluye Hypericum lancioides e Hypericum laricifolium. En la subida al Tolima cruzas esa franja. Confirma el recorrido con un operador registrado.",
+        "variants": [
+          "Esa franja mezcla arbustos bajos, árboles de hasta unos 10 m y dos Hypericum. En la subida al Tolima recórrela con un operador registrado."
+        ]
+      },
+      "sources": [
+        {
+          "label": "CARDER y comisión conjunta, Plan de manejo del Complejo de Páramos Los Nevados",
+          "url": "https://www.carder.gov.co/download/plan-de-manejo-complejo-de-paramos-los-nevados/",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "last_verified": "2026-11-21",
+      "related": [
+        "flora_ecosystems.subparamo_ruta_dulima",
+        "flora_ecosystems.high_andean_forest",
+        "flora_ecosystems.chite_hypericum"
+      ],
+      "tags": [
+        "transicion",
+        "subparamo",
+        "bosque"
+      ]
+    },
+    {
+      "id": "flora_ecosystems.forest_paramo_water_link",
+      "label": "agua que depende del bosque y el páramo",
+      "kind": "explanation",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "el bosque altoandino tambien regula el agua",
+        "sin el bosque el paramo no regula igual",
+        "la regulacion hidrica pide los dos ecosistemas",
+        "cuidar solo el frailejon no alcanza para el agua",
+        "la conexion bosque paramo es la que importa",
+        "si abren un claro en el borde se afecta el agua",
+        "toca no salirse del sendero en bosque y en paramo",
+        "does water regulation need both forest and paramo",
+        "why are the high forest and the paramo one system",
+        "no es solo la esponja del pajonal",
+        "integridad del borde para que siga habiendo agua",
+        "recorrer bosque y paramo sin salirse del camino"
+      ],
+      "hard_negatives": [
+        "qué es el páramo",
+        "qué es el superpáramo",
+        "a qué altura está el Ruiz"
+      ],
+      "answer": {
+        "short": "La regulación hídrica depende de que el páramo y el bosque altoandino sigan conectados, no de uno solo. Cuidar solo el frailejón no basta. Quédate en el sendero en las dos franjas y no abras claros.",
+        "variants": [
+          "El agua pide que el bosque altoandino y el páramo sigan conectados. Recorre las dos zonas sin salirte del camino."
+        ]
+      },
+      "sources": [
+        {
+          "label": "CARDER y comisión conjunta, Plan de manejo del Complejo de Páramos Los Nevados",
+          "url": "https://www.carder.gov.co/download/plan-de-manejo-complejo-de-paramos-los-nevados/",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "last_verified": "2026-11-21",
+      "related": [
+        "flora_ecosystems.forest_subparamo_transition",
+        "flora_ecosystems.coffee_region_water_reserve",
+        "flora_ecosystems.high_andean_forest"
+      ],
+      "tags": [
+        "agua",
+        "bosque",
+        "paramo"
+      ]
+    },
+    {
+      "id": "flora_ecosystems.sparse_plants_near_snow",
+      "label": "plantas escasas junto a la nieve",
+      "kind": "explanation",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "que plantas hay justo debajo de la nieve",
+        "frailejones sueltos pajonal musgo y arbustos",
+        "cerca a los 4200 metros la vegetacion es escasa",
+        "alrededor de los conos casi no hay suelo ni plantas",
+        "no es el paramo cerrado de mas abajo",
+        "al bajar aparecen frailejones aislados",
+        "se puede llevar una plantica suelta de recuerdo",
+        "what plants grow just below the snow",
+        "is the vegetation sparse next to the ice",
+        "afloramientos rocosos con cuatro plantas perdidas",
+        "musgo y pajonal suelto camino a la nieve",
+        "la vegetacion aumenta cuando uno desciende"
+      ],
+      "hard_negatives": [
+        "qué es el páramo",
+        "qué es el superpáramo",
+        "a qué altura está el Ruiz"
+      ],
+      "answer": {
+        "short": "Junto a los conos, por debajo de la nieve, la vegetación es escasa: al bajar aparecen frailejones aislados, pajonales, musgos y algunos arbustos cerca a los 4200 m. No es el páramo cerrado de más abajo. Camina por la ruta y no arranques esas plantas sueltas.",
+        "variants": [
+          "Cerca de la nieve hay plantas sueltas: frailejones, pajonal, musgos y arbustos hacia los 4200 m. Míralas sin salirte del sendero."
+        ]
+      },
+      "sources": [
+        {
+          "label": "CARDER y comisión conjunta, Plan de manejo del Complejo de Páramos Los Nevados",
+          "url": "https://www.carder.gov.co/download/plan-de-manejo-complejo-de-paramos-los-nevados/",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "last_verified": "2026-11-21",
+      "related": [
+        "flora_ecosystems.superparamo_ecosystem",
+        "flora_ecosystems.frailejones_overview",
+        "flora_ecosystems.arenales_volcanicos_ecosystem"
+      ],
+      "tags": [
+        "nieve",
+        "frailejon",
+        "musgo"
+      ]
+    },
+    {
+      "id": "flora_ecosystems.glacial_hollow_lagoons",
+      "label": "lagunas en depresiones de origen glaciar",
+      "kind": "explanation",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "por que hay lagunitas entre las morrenas",
+        "huecos glaciares con materia organica y agua",
+        "depresiones que dejo el hielo cerca de los nevados",
+        "al noroccidente del tolima hay lagunas en esos huecos",
+        "unas tienen turba y otras tienen espejo de agua",
+        "puedo bajar a la orilla de esas lagunitas",
+        "suelo blando al lado de las lagunas glaciares",
+        "why are there lagoons in glacial hollows",
+        "are the small lakes near the cones sitting on peat",
+        "origen glaciar de las lagunitas, no de la del otun",
+        "materia organica sin descomponer en el hueco",
+        "rodea la orilla y sigue por suelo firme"
+      ],
+      "hard_negatives": [
+        "qué es el páramo",
+        "qué es el superpáramo",
+        "a qué altura está el Ruiz"
+      ],
+      "answer": {
+        "short": "Hay depresiones de origen glaciar, unas con materia orgánica sin descomponer y otras con agua que forma lagunas, en suelos próximos a los nevados, al noroccidente del Tolima. No bajes a esas orillas: pueden ser turba blanda.",
+        "variants": [
+          "Esas lagunas ocupan huecos que dejó el hielo, a veces con turba. Rodea la orilla y sigue el sendero firme."
+        ]
+      },
+      "sources": [
+        {
+          "label": "CARDER y comisión conjunta, Plan de manejo del Complejo de Páramos Los Nevados",
+          "url": "https://www.carder.gov.co/download/plan-de-manejo-complejo-de-paramos-los-nevados/",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "last_verified": "2026-11-21",
+      "related": [
+        "flora_ecosystems.otun_wetlands_glacial_origin",
+        "flora_ecosystems.high_andean_wetlands",
+        "flora_ecosystems.laguna_del_otun_ecosystem"
+      ],
+      "tags": [
+        "laguna",
+        "glaciar",
+        "turba"
+      ]
+    }
+  ]
+}

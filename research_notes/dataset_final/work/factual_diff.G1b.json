@@ -1,0 +1,97 @@
+[
+ {
+  "id": "geography.rios_lagunilla_recio",
+  "reason": "Harmonize river origin with SGC official volcano description and IDEAM glacial drainage table, making it consistent with weather_volcano.ruiz_rivers.",
+  "changed": {
+   "sources": {
+    "before": [
+     {
+      "label": "IDEAM, glaciar Nevado del Ruiz",
+      "url": "https://www.ideam.gov.co/nuestra-entidad/ecosistemas-e-informacion-ambiental/glaciares/nevado-del-ruiz",
+      "retrieved_at": "2026-11-21"
+     }
+    ],
+    "after": [
+     {
+      "label": "IDEAM, glaciar Nevado del Ruiz",
+      "url": "https://www.ideam.gov.co/nuestra-entidad/ecosistemas-e-informacion-ambiental/glaciares/nevado-del-ruiz",
+      "retrieved_at": "2026-11-21"
+     },
+     {
+      "label": "SGC, ficha del Nevado del Ruiz",
+      "url": "https://www2.sgc.gov.co/sgc/volcanes/VolcanNevadoRuiz/Paginas/generalidades-volcan-nevado-ruiz.aspx",
+      "retrieved_at": "2026-11-21"
+     }
+    ]
+   },
+   "answer": {
+    "before": {
+     "short": "El Ideam incluye los ríos Lagunilla y Recio en la tabla de drenaje del Nevado del Ruiz, dentro de la zona Alto Magdalena. La tabla no dice dónde nace cada uno, así que no la tomes como mapa de quebradas.",
+     "variants": [
+      "Lagunilla y Recio figuran en la zona Alto Magdalena de la tabla del Ideam para el Ruiz. La tabla no da recorridos."
+     ]
+    },
+    "after": {
+     "short": "El Ideam incluye los ríos Lagunilla y Recio en el drenaje del Ruiz hacia el Alto Magdalena, y el SGC precisa que nacen en el edificio volcánico del Nevado del Ruiz. Si aumenta la actividad volcánica, no te acerques a sus cauces.",
+     "variants": [
+      "Lagunilla y Recio drenan hacia el Alto Magdalena según el Ideam y nacen en el edificio volcánico del Ruiz según el SGC. Aléjate de sus cauces ante avisos de actividad volcánica."
+     ]
+    }
+   },
+   "last_verified": {
+    "before": "2026-11-21",
+    "after": "2026-11-22"
+   }
+  },
+  "evidence": [
+   {
+    "url": "https://www.ideam.gov.co/nuestra-entidad/ecosistemas-e-informacion-ambiental/glaciares/nevado-del-ruiz",
+    "path": "research_notes/Conocimiento turístico de Los Nevados/geography/evidence/raw/ideam_glaciar_ruiz.txt",
+    "quote": "Río Lagunilla\nRío Lagunilla\n0.87\nAlto Magdalena\nQ. Aguablanca\nQ. El Cisne\nRío Recio",
+    "checked_on": "2026-11-22"
+   },
+   {
+    "url": "https://www2.sgc.gov.co/sgc/volcanes/VolcanNevadoRuiz/Paginas/generalidades-volcan-nevado-ruiz.aspx",
+    "path": "research_notes/Conocimiento turístico de Los Nevados/weather_volcano/evidence/raw/sgc-ruiz-generalidades.txt",
+    "quote": "El drenaje es radial excéntrico y en el edificio volcánico nacen los ríos Güalí, Lagunillas y Recio, afluentes del río Magdalena, y el río Chinchiná, afluente del Cauca; se trata de valles estrechos, profundos y de alta pendiente.",
+    "checked_on": "2026-11-22"
+   }
+  ]
+ },
+ {
+  "id": "services.mule_luggage_registered_only",
+  "reason": "Clarify that authorized mule luggage transport is restricted and does not enter Arenales or Calvito, aligning with rules.no_mules_arenales_calvito and Res. 207 / Anexo 2023.",
+  "changed": {
+   "answer": {
+    "before": {
+     "short": "No entran mulas ni caballos con fines turísticos, como cabalgatas. Solo los arrieros avalados por el parque pueden cargar equipaje con mulas, previa autorización de un funcionario. Pide un arriero registrado antes de subir.",
+     "variants": [
+      "Para cargar equipaje con mulas solo hay arrieros avalados por el parque, con autorización de un funcionario. Las cabalgatas turísticas no están permitidas."
+     ],
+     "detail": "El anexo de 2023 prohíbe el ingreso de equinos y mulares con fines turísticos y permite la carga solo a arrieros avalados. No encontré un listado publicado de arrieros ni tarifas.",
+     "reflection": null
+    },
+    "after": {
+     "short": "No entran mulas ni caballos con fines turísticos, como cabalgatas. Solo los arrieros avalados por el parque pueden cargar equipaje con mulas (previa autorización), pero ese porteo no ingresa a Arenales ni a Calvito. Pide un arriero registrado antes de subir.",
+     "variants": [
+      "Para carga de equipaje solo operan arrieros avalados por el parque con autorización previa, sin subir a Arenales ni a Calvito. Las cabalgatas turísticas no están permitidas."
+     ],
+     "detail": "El anexo de 2023 prohíbe el ingreso de equinos y mulares con fines turísticos y permite la carga solo a arrieros avalados, restringiendo además el ingreso de mulas hacia los campamentos de Arenales y Calvito. No encontré un listado publicado de arrieros ni tarifas.",
+     "reflection": null
+    }
+   },
+   "last_verified": {
+    "before": "2026-11-21",
+    "after": "2026-11-22"
+   }
+  },
+  "evidence": [
+   {
+    "url": "https://parquesnacionales.gov.co/wp-content/uploads/2023/12/ANEXO-PNN-NEVADOS.pdf",
+    "path": "research_notes/Conocimiento turístico de Los Nevados/access/evidence/ANEXO-PNN-NEVADOS-2023.txt",
+    "quote": "Animales de carga y asistencia permitidos: Se prohíbe expresamente el ingreso de equinos y mulares al Parque\n       con fines turísticos, es decir, la actividad de cabalgatas turísticas. Se permite el tránsito en mulas o equinos a\n       campesinos que habitan al interior del Parque, o para la realización exclusiva de actividades de PORTEO o\n       CARGA únicamente a los arrieros avalados por el Parque, con fines de carga de equipaje de turistas, de\n       investigación, prevención, vigilancia, control, apoyo y asistencia, atención de emergencias y transporte de\n       personas con limitaciones físicas que limiten o impidan su movilidad, previa autorización de un funcionario del Área\n       Protegida. El ingreso de mulas hacia los campamentos de Arenales y Calvito, ya sea desde el campamento de\n       Termales de Cañón, la Finca La Primavera o La Playa. La aproximación e ingreso a estos campamentos deberá\n       realizarse exclusivamente a pie por los visitantes, guías, operadores, intérpretes y montañistas deportivos.",
+    "checked_on": "2026-11-22"
+   }
+  ]
+ }
+]

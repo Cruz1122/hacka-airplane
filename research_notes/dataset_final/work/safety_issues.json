@@ -1,0 +1,119 @@
+{
+ "generated": "2026-11-22",
+ "emergency_policy": {
+  "rule": "If the selected FAQ (or the top e5 candidate when Laya abstains) has policy emergency_direct, show its answer immediately; never put a clarification menu in front of it.",
+  "emergency_direct_ids": [
+   "actions.report_altitude_sickness",
+   "actions.report_emergency_general",
+   "actions.report_fire",
+   "actions.report_hypothermia",
+   "actions.report_injury",
+   "actions.report_lost_person",
+   "actions.report_offline_emergency",
+   "actions.report_storm",
+   "conversation.emergency_limits",
+   "health_safety.altitude_sickness_symptoms",
+   "health_safety.bleeding_control",
+   "health_safety.choking_first_aid_heimlich",
+   "health_safety.civil_defense_line_144",
+   "health_safety.dehydration_warning_signs",
+   "health_safety.descent_for_worsening_altitude",
+   "health_safety.fainting_response",
+   "health_safety.firefighters_line_119",
+   "health_safety.frostbite_first_aid",
+   "health_safety.head_or_spine_injury_fall",
+   "health_safety.high_altitude_cerebral_edema_hace",
+   "health_safety.high_altitude_pulmonary_edema_hape",
+   "health_safety.hypothermia_first_response",
+   "health_safety.hypothermia_warning_signs",
+   "health_safety.lightning_caught_in_open_paramo",
+   "health_safety.lightning_storm_safety",
+   "health_safety.lightning_strike_victim_first_aid",
+   "health_safety.lightning_wait_30_minutes_and_shelters",
+   "health_safety.lost_person_protocol",
+   "health_safety.medical_shock_signs_and_response",
+   "health_safety.national_emergency_number_123",
+   "health_safety.red_cross_emergency_line_132",
+   "health_safety.severe_altitude_warning_signs",
+   "health_safety.severe_hypothermia_signs_and_care",
+   "health_safety.sprain_first_aid",
+   "health_safety.suspected_fracture_first_aid",
+   "health_safety.thermal_burn_first_aid_camp",
+   "health_safety.unresponsive_cpr",
+   "weather_volcano.ash_actions",
+   "weather_volcano.lahar_visitor",
+   "weather_volcano.volcanic_gases"
+  ]
+ },
+ "fixed_in_final_phase": [
+  {
+   "id": "hours_status.park_open_today",
+   "issue": "false claim that the SGC bulletin index does not show the alert level",
+   "fix": "claim removed, bulletins and PNN page dated, official channel kept",
+   "review": "G1.review.H4.json approve"
+  },
+  {
+   "id": "actions.report_hypothermia",
+   "issue": "no immediate care; only 'dial 123 when you have signal'",
+   "fix": "immediate, unconditional care steps (out of wind/wet, dry layers, cover, no alcohol, tell the guide); 123 conditioned on signal; 'la app no avisa a rescate' kept",
+   "review": "G3v3.review.H4.json approve"
+  },
+  {
+   "id": "actions.report_lost_person",
+   "issue": "no immediate guidance; uncited 'note last point'",
+   "fix": "stay together, do not split to search, tell guide/park staff; uncited step removed",
+   "review": "G3v3.review.H4.json approve"
+  },
+  {
+   "id": "access.cocora_registration",
+   "issue": "'Hoy el punto es…' from a 2023 source",
+   "fix": "dated as Dec-2023 regulation + PNN page",
+   "review": "G1.review.H4.json approve"
+  }
+ ],
+ "capability_audit": "All 10 actions entries and health_safety/weather_volcano texts were searched for claims that the app registers, reports, sends or calls (G3 task B; H4 spot-check of 5 entries found the two gaps fixed above). No remaining text claims the app contacts rescue or registers a visit.",
+ "open": [
+  {
+   "id": "access.confirm_road_before",
+   "issue": "answer support judged none; final-round fix left out (wrong authority label for Res. 1815)",
+   "current_text_risk": "low: advises confirming the road with the sector operator"
+  },
+  {
+   "id": "access.stay_on_official_gate",
+   "issue": "support none; fix left out (two quotes missing in its evidence record)",
+   "current_text_risk": "low: tells visitors to enter only by the published gate"
+  },
+  {
+   "id": "services.quindio_dulima",
+   "issue": "support none; fix left out (quotes missing)",
+   "current_text_risk": "low: says confirm before going"
+  },
+  {
+   "id": "access mode (several access.* entries)",
+   "issue": "official sources conflict: PNN portal says entry must be with a REPSE guide/operator and Res. 207 says no visitor may enter alone, while another PNN line says access is managed 'de manera propia o coordinada'. Only partially reflected in the corpus (access.no_official_travel_time states both).",
+   "current_text_risk": "medium: an answer may still imply self-guided access is possible"
+  },
+  {
+   "id": "geography.rios_lagunilla_recio vs weather_volcano.ruiz_rivers",
+   "issue": "river-origin wording differs; fix rejected (IDEAM zone misattributed). Pair is query_dependent, its rows are excluded from training.",
+   "current_text_risk": "low (not safety)"
+  }
+ ],
+ "unsupported_entries_remaining": {
+  "access.bus_or_van_entry": "El extracto solo dice \"Moto: Prohibido el ingreso\". Nada sobre bus, buseta ni vehículo cubierto.",
+  "access.stay_on_official_gate": "El extracto es la frase de cuatro sectores y departamentos. La regla de \"entrar solo por la portería publicada\" y \"no se intercambian\" no aparece en él.",
+  "access.confirm_road_before": "El extracto es sobre el alcance de la red primaria de INVIAS. La frase sobre cambios por clima, obra o decisión del parque no está en él.",
+  "activities.quindio_summit_ask": "La evidence_excerpt no sostiene la afirmación central de la respuesta.",
+  "activities.unlisted_activities": "La excerpt habla de fogatas; bote, picnic y esquí no aparecen.",
+  "fauna.epigeal_beetles_spiders": "eml.xml solo nombra coleópteros y arañas como grupo muestreado. Las familias Staphylinidae, Carabidae y Linyphiidae y \"mesofauna desconocida\" no aparecen.",
+  "history_culture.minor_19th_century": "El extracto sólo dice 'Explosión de cráter parásito'. No sostiene las fechas 1805, 1828 y 1829 ni la lectura de Boussingault.",
+  "services.quindio_dulima": "El excerpt es solo el encabezado \"Necesidades de asistencia\": tema sin contenido. Terreno exigente, montañismo y los sectores de Cocora, Juntas y Anzoátegui no están."
+ },
+ "evidence_located_not_rejudged": [
+  "access.bus_or_van_entry",
+  "activities.quindio_summit_ask",
+  "fauna.epigeal_beetles_spiders",
+  "history_culture.minor_19th_century"
+ ],
+ "partial_support_entries": 406
+}
