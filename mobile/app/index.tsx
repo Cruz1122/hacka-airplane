@@ -1,109 +1,43 @@
-import { FlashList } from '@shopify/flash-list';
-import { Link } from 'expo-router';
-import { memo, useCallback, useRef, useState } from 'react';
-import { ActivityIndicator, KeyboardAvoidingView, Platform, Pressable, StyleSheet, Text, TextInput, View } from 'react-native';
-import { useSafeAreaInsets } from 'react-native-safe-area-context';
+import { Redirect, router, useLocalSearchParams } from 'expo-router';
+import { useCallback, useMemo } from 'react';
 
-import { useAssistant } from '@/state/useAssistant';
-import { DebugPanel } from '@/ui/DebugPanel';
-import { MessageRow } from '@/ui/MessageRow';
-import { es } from '@/ui/strings';
-import { useColors } from '@/ui/theme';
-import { fontSize, radius, spacing } from '@/ui/theme/tokens';
+import { ChatView, type ChatModel } from '@/chat/ChatView';
+import { t } from '@/i18n';
+import { onboardingDone } from '@/onboarding/launch';
+import { toChatRows } from '@/state/knowledgeRows';
+import { useKnowledge } from '@/state/useKnowledge';
 
-type Msg = ReturnType<typeof useAssistant>['messages'][number];
+// The knowledge engine has no routing steps or live draft; ChatView's debug props stay empty.
+const NO_STEPS: never[] = [];
 
-// Owns the draft text so keystrokes re-render only this component, not the list.
-const Composer = memo(function Composer({ disabled, onSend }: { disabled: boolean; onSend: (t: string) => void }) {
-  const c = useColors();
-  const [text, setText] = useState('');
-  const submit = () => {
-    if (!text.trim() || disabled) return;
-    onSend(text);
-    setText('');
-  };
-  return (
-    <View style={styles.composer}>
-      <TextInput
-        value={text}
-        onChangeText={setText}
-        placeholder={es.inputPlaceholder}
-        placeholderTextColor={c.textMuted}
-        onSubmitEditing={submit}
-        style={[styles.input, { color: c.text, borderColor: c.border, backgroundColor: c.surface }]}
-      />
-      <Pressable
-        onPress={submit}
-        disabled={disabled}
-        style={[styles.send, { backgroundColor: c.primary, opacity: disabled ? 0.5 : 1 }]}
-      >
-        <Text style={{ color: c.onPrimary, fontSize: fontSize.md }}>{es.send}</Text>
-      </Pressable>
-    </View>
-  );
-});
-
-const renderItem = ({ item }: { item: Msg }) => (
-  <MessageRow role={item.role} text={item.text} latencyMs={item.latencyMs} />
-);
-const keyExtractor = (m: Msg) => m.id;
-
-export default function ChatScreen() {
-  const c = useColors();
-  const insets = useSafeAreaInsets();
-  const { messages, send, reset, busy, draft, state, lastSteps, model } = useAssistant();
-  const list = useRef<React.ComponentRef<typeof FlashList<Msg>>>(null);
-  const onSend = useCallback((t: string) => void send(t), [send]);
-
-  const banner =
-    model.status === 'ready'
-      ? null
-      : model.status === 'loading'
-        ? es.modelLoading
-        : model.status === 'missing'
-          ? `${es.modelMissing}: ${model.id}`
-          : `${es.modelError}: ${model.error ?? ''}`;
-
-  return (
-    <KeyboardAvoidingView
-      style={{ flex: 1, backgroundColor: c.background, paddingBottom: insets.bottom }}
-      behavior={Platform.OS === 'ios' ? 'padding' : undefined}
-    >
-      <View style={[styles.bar, { borderColor: c.border }]}>
-        <Link href="/settings" style={{ color: c.primary }}>{es.settings}</Link>
-        <Link href="/history" style={{ color: c.primary }}>{es.history}</Link>
-        <Pressable onPress={reset}><Text style={{ color: c.primary }}>{es.reset}</Text></Pressable>
-      </View>
-      {banner && <Text style={{ color: model.status === 'error' ? c.danger : c.textMuted, padding: spacing.md }}>{banner}</Text>}
-      <FlashList
-        ref={list}
-        data={messages}
-        renderItem={renderItem}
-        keyExtractor={keyExtractor}
-        onContentSizeChange={() => list.current?.scrollToEnd({ animated: true })}
-        keyboardShouldPersistTaps="handled"
-        style={{ flex: 1 }}
-      />
-      {busy && (
-        <View style={styles.busy}>
-          <ActivityIndicator color={c.primary} />
-          {/* Live model output of the routing/extraction step (JSON), so generation is visible. */}
-          <Text style={[styles.draft, { color: c.textMuted }]} numberOfLines={3}>
-            {draft || es.thinking}
-          </Text>
-        </View>
-      )}
-      <DebugPanel steps={lastSteps} state={state} />
-      <Composer disabled={busy || model.status !== 'ready'} onSend={onSend} />
-    </KeyboardAvoidingView>
-  );
+export default function ChatRoute() {
+  // Each launch starts on the onboarding, which replaces itself with this route when it ends.
+  if (!onboardingDone()) return <Redirect href="/onboarding" />;
+  return <ChatScreen />;
 }
 
-const styles = StyleSheet.create({
-  bar: { flexDirection: 'row', justifyContent: 'space-between', padding: spacing.md, borderBottomWidth: StyleSheet.hairlineWidth },
-  busy: { flexDirection: 'row', gap: spacing.sm, padding: spacing.md, alignItems: 'center' },
-  draft: { flex: 1, fontFamily: Platform.OS === 'ios' ? 'Menlo' : 'monospace', fontSize: 12 },
-  composer: { flexDirection: 'row', gap: spacing.sm, padding: spacing.md },
-  input: { flex: 1, borderWidth: 1, borderRadius: radius.md, paddingHorizontal: spacing.md, fontSize: fontSize.md },
-  send: { borderRadius: radius.md, paddingHorizontal: spacing.lg, justifyContent: 'center' },
-});
+function ChatScreen() {
+  const { rows, ask, reset, busy, status } = useKnowledge();
+  // Set by the onboarding so the header continues its last frame exactly.
+  const { sceneTime } = useLocalSearchParams<{ sceneTime?: string }>();
+  const onSend = useCallback((text: string) => void ask(text), [ask]);
+  const messages = useMemo(() => toChatRows(rows, t.knowledge.error), [rows]);
+  // Degraded still answers urgent questions (safety rules need no model), so sending stays on.
+  const model: ChatModel = { id: 'e5-base', status: status === 'loading' ? 'loading' : 'ready' };
+  return (
+    <ChatView
+      messages={messages}
+      busy={busy}
+      draft=""
+      model={model}
+      steps={NO_STEPS}
+      state=""
+      sceneTime={sceneTime ? Number(sceneTime) : null}
+      fadeIn={sceneTime !== undefined}
+      onSend={onSend}
+      onReset={reset}
+      onSettings={() => router.push('/settings')}
+      onHistory={() => router.push('/history')}
+    />
+  );
+}

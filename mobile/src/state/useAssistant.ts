@@ -7,12 +7,22 @@ import { loadWorld } from '@/core/world';
 import { HttpBackend } from '@/llm/http';
 import { modelManager } from '@/llm/modelManager';
 
+import type { ChatSource } from '@/ui/chat/citations';
+
 import { recordEffect } from './history';
+import { messageSources } from './messageSources';
 import { loadSettings, type Settings } from './settings';
 
 const SIDE_EFFECTS = new Set(['register_visit', 'report_emergency']);
 
-type Msg = { id: string; role: 'user' | 'assistant'; text: string; latencyMs?: number };
+type Msg = {
+  id: string;
+  role: 'user' | 'assistant';
+  /** As the model or tool wrote it, citation markers included; the bubble hides them. */
+  text: string;
+  latencyMs?: number;
+  sources?: ChatSource[];
+};
 type ModelState = { id: string; status: 'missing' | 'loading' | 'ready' | 'error'; error?: string };
 
 let seq = 0;
@@ -114,9 +124,18 @@ export function useAssistant() {
         (soFar) => upsert({ id: replyId, role: 'assistant', text: soFar }),
         setDraft,
       );
-      upsert({ id: replyId, role: 'assistant', text: reply, latencyMs: Date.now() - t0 });
       const fresh = r.steps.slice(seen.current);
       seen.current = r.steps.length;
+      const retrieved = fresh.flatMap((st) =>
+        st.tool_result?.ok ? st.tool_result.passage_ids : [],
+      );
+      upsert({
+        id: replyId,
+        role: 'assistant',
+        text: reply,
+        latencyMs: Date.now() - t0,
+        sources: messageSources(reply, r.world, retrieved),
+      });
       setLastSteps(fresh);
       setState(r.state);
       for (const st of fresh) {

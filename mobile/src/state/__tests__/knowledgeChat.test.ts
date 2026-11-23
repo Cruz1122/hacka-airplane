@@ -1,0 +1,93 @@
+import type { KnowledgeReply } from '@/core/knowledge/types';
+
+import { KnowledgeChat, type LoadedEngine } from '../knowledgeChat';
+
+const answer: KnowledgeReply = {
+  type: 'answer',
+  id: 'access.from_manizales',
+  title: 'Cómo llegar desde Manizales',
+  text: 'Por la vía...',
+  sources: [],
+};
+const timing = { rulesMs: 0, embedMs: 1, retrieveMs: 1, rerankMs: 0, totalMs: 2 };
+
+function fakeEngine(over: Partial<LoadedEngine['engine']> = {}) {
+  return {
+    ask: jest.fn(async () => ({
+      reply: answer,
+      timing,
+      safety: { urgent: false } as never,
+      contextUsed: false,
+    })),
+    ...over,
+  };
+}
+
+describe('KnowledgeChat', () => {
+  it('goes ready after load and appends the user turn then the answer', async () => {
+    const engine = fakeEngine();
+    const chat = new KnowledgeChat(async () => ({ engine }));
+    expect(chat.snapshot().status).toBe('loading');
+    await chat.ask('  como llego  ');
+    const s = chat.snapshot();
+    expect(s.status).toBe('ready');
+    expect(engine.ask).toHaveBeenCalledWith('como llego');
+    expect(s.rows.map((r) => r.role)).toEqual(['user', 'assistant']);
+    expect(s.rows[1]).toMatchObject({ reply: answer, timing });
+    expect(s.busy).toBe(false);
+  });
+
+  it('ignores blank input', async () => {
+    const engine = fakeEngine();
+    const chat = new KnowledgeChat(async () => ({ engine }));
+    await chat.ask('   ');
+    expect(chat.snapshot().rows).toEqual([]);
+    expect(engine.ask).not.toHaveBeenCalled();
+  });
+
+  it('shows an engine failure as an error row instead of throwing', async () => {
+    const engine = fakeEngine({ ask: jest.fn(async () => Promise.reject(new Error('embedder gone'))) });
+    const chat = new KnowledgeChat(async () => ({ engine }));
+    await chat.ask('hola');
+    expect(chat.snapshot().rows[1]).toEqual({ id: expect.any(String), role: 'assistant', error: 'embedder gone' });
+    expect(chat.snapshot().busy).toBe(false);
+  });
+
+  it('reports a degraded runtime', async () => {
+    const chat = new KnowledgeChat(async () => ({ engine: fakeEngine(), degraded: 'e5-base-f16.gguf not found' }));
+    await chat.ask('hola');
+    const s = chat.snapshot();
+    expect(s.status).toBe('degraded');
+    expect(s.error).toContain('not found');
+  });
+
+  it('notifies subscribers on every change', async () => {
+    const chat = new KnowledgeChat(async () => ({ engine: fakeEngine() }));
+    const fn = jest.fn();
+    const off = chat.subscribe(fn);
+    await chat.ask('hola');
+    off();
+    chat.reset();
+    expect(fn.mock.calls.length).toBeGreaterThanOrEqual(3); // ready, user row, reply row
+    expect(chat.snapshot().rows).toEqual([]);
+  });
+
+  it('reset clears the engine follow-up context', async () => {
+    const engine = { ...fakeEngine(), resetContext: jest.fn() };
+    const chat = new KnowledgeChat(async () => ({ engine }));
+    await chat.ask('hola');
+    expect(engine.resetContext).not.toHaveBeenCalled();
+    chat.reset();
+    await Promise.resolve(); // the engine is behind a promise
+    expect(engine.resetContext).toHaveBeenCalledTimes(1);
+    expect(chat.snapshot().rows).toEqual([]);
+  });
+
+  it('reset works with an engine that has no context to clear', async () => {
+    const chat = new KnowledgeChat(async () => ({ engine: fakeEngine() }));
+    await chat.ask('hola');
+    expect(() => chat.reset()).not.toThrow();
+    await Promise.resolve();
+    expect(chat.snapshot().rows).toEqual([]);
+  });
+});

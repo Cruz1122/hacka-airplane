@@ -1,4 +1,56 @@
-// Neutral placeholder tokens; visual design is decided later.
+// Design tokens: the only place UI colors, fonts and sizes are defined. The app-design skill
+// (.claude/skills/app-design) documents how to use them; a jest guard rejects raw hex colors and
+// font names in UI files.
+
+/**
+ * Brand palette: the teal of the park emblem's ring (#5E9999, the user's pick) and shades of the
+ * same hue. Contrast on `card`: ink 9.3:1, inkMuted 5.2:1. White on `primary` is 3.2:1 (3.1:1
+ * mid-gradient): below WCAG AA for the 16 px button label (4.5:1), accepted for the exact color.
+ */
+export const brand = {
+  /** Buttons, active indicators. */
+  primary: '#5E9999',
+  /** Top of the primary button gradient. */
+  primaryLight: '#68A3A3',
+  /** Idle indicators and decorative tints; never text. */
+  primarySoft: '#C2DADA',
+  onPrimary: '#FFFFFF',
+  /** Titles on light surfaces. */
+  ink: '#234B4B',
+  /** Body text on light surfaces. */
+  inkMuted: '#557070',
+  /** Cloud card surface. */
+  card: '#F9FCFC',
+  /** Cloud card shading and puffs. */
+  cardShade: '#DCEBEB',
+  /** Teal vapor glow around chat bubbles, the composer and the Pet's circle (primary at 22%). */
+  glow: '#5E999938',
+  /** "Ready" dot on the Pet's circle in the chat. */
+  online: '#3FB36A',
+  /** Screen background while the illustration loads. */
+  sky: '#8FA6F2',
+} as const;
+
+/** Manrope and Bricolage Grotesque, bundled in assets/fonts (static weights, Latin subset, OFL). One family per weight:
+ * Android ignores fontWeight on custom fonts, so pick the weight by family, never by fontWeight. */
+export const fonts = {
+  regular: 'Manrope-Regular',
+  medium: 'Manrope-Medium',
+  semibold: 'Manrope-SemiBold',
+  bold: 'Manrope-Bold',
+  display: 'BricolageGrotesque-Bold',
+  heading: 'BricolageGrotesque-SemiBold',
+} as const;
+
+/** Text styles. Spread into a StyleSheet and set only `color` on top. */
+export const type = {
+  display: { fontFamily: fonts.display, fontSize: 26, lineHeight: 32, letterSpacing: -0.4 },
+  title: { fontFamily: fonts.heading, fontSize: 21, lineHeight: 27, letterSpacing: -0.3 },
+  body: { fontFamily: fonts.regular, fontSize: 15, lineHeight: 22 },
+  label: { fontFamily: fonts.semibold, fontSize: 16, lineHeight: 20 },
+  caption: { fontFamily: fonts.medium, fontSize: 13, lineHeight: 18 },
+} as const;
+
 export const colors = {
   light: {
     background: '#ffffff',
@@ -23,5 +75,5 @@ export const colors = {
 } as const;
 
 export const spacing = { xs: 4, sm: 8, md: 12, lg: 16, xl: 24 } as const;
-export const radius = { sm: 6, md: 12, lg: 20 } as const;
+export const radius = { sm: 6, md: 12, lg: 20, pill: 999 } as const;
 export const fontSize = { sm: 13, md: 16, lg: 20, xl: 28 } as const;

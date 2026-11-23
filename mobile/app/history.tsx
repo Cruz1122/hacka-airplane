@@ -3,18 +3,19 @@ import { useFocusEffect } from 'expo-router';
 import { memo, useCallback } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 
+import { LOCALE, t, type Labels } from '@/i18n';
 import { useHistory, type HistoryRow } from '@/state/history';
-import { es } from '@/ui/strings';
 import { useColors } from '@/ui/theme';
 import { fontSize, spacing } from '@/ui/theme/tokens';
 
 const Row = memo(function Row({ row }: { row: HistoryRow }) {
   const c = useColors();
-  const title = (es as Record<string, string>)[row.kind] ?? row.kind;
+  const label = t[row.kind as keyof Labels];
+  const title = typeof label === 'string' ? label : row.kind;
   return (
     <View style={[styles.row, { borderColor: c.border }]}>
       <Text style={{ color: c.text, fontSize: fontSize.md }}>{title}</Text>
-      <Text style={{ color: c.textMuted, fontSize: fontSize.sm }}>{new Date(row.at).toLocaleString('es')}</Text>
+      <Text style={{ color: c.textMuted, fontSize: fontSize.sm }}>{new Date(row.at).toLocaleString(LOCALE)}</Text>
       <Text style={{ color: c.textMuted, fontSize: fontSize.sm }}>{row.args}</Text>
     </View>
   );
@@ -33,7 +34,7 @@ export default function HistoryScreen() {
         data={rows}
         renderItem={renderItem}
         keyExtractor={keyExtractor}
-        ListEmptyComponent={<Text style={{ color: c.textMuted, padding: spacing.lg }}>{es.historyEmpty}</Text>}
+        ListEmptyComponent={<Text style={{ color: c.textMuted, padding: spacing.lg }}>{t.historyEmpty}</Text>}
       />
     </View>
   );

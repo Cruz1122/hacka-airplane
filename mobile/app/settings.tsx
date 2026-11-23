@@ -6,7 +6,7 @@ import { MODELS } from '@/llm/models';
 import { modelManager } from '@/llm/modelManager';
 import { useSettings } from '@/state/settings';
 import { Chip } from '@/ui/Chip';
-import { es } from '@/ui/strings';
+import { t } from '@/i18n';
 import { useColors } from '@/ui/theme';
 import { fontSize, radius, spacing } from '@/ui/theme/tokens';
 
@@ -28,43 +28,43 @@ export default function SettingsScreen() {
   const h = [styles.h, { color: c.textMuted }];
   return (
     <ScrollView style={{ backgroundColor: c.background }} contentContainerStyle={styles.body}>
-      <Text style={h}>{es.model}</Text>
+      <Text style={h}>{t.model}</Text>
       <View style={styles.wrap}>
         {MODELS.map((m) => (
           <Chip
             key={m.id}
             label={m.label}
-            hint={present[m.id] ? es.modelReady : es.modelMissing}
+            hint={present[m.id] ? t.modelReady : t.modelMissing}
             selected={settings.modelId === m.id}
             onPress={() => update({ modelId: m.id })}
           />
         ))}
       </View>
 
-      <Text style={h}>{es.station}</Text>
+      <Text style={h}>{t.station}</Text>
       <View style={styles.wrap}>
-        <Chip label={es.stationNone} selected={settings.deviceStation === null} onPress={() => update({ deviceStation: null })} />
+        <Chip label={t.stationNone} selected={settings.deviceStation === null} onPress={() => update({ deviceStation: null })} />
         {stations.map((s) => (
           <Chip key={s.id} label={s.name} selected={settings.deviceStation === s.id} onPress={() => update({ deviceStation: s.id })} />
         ))}
       </View>
 
-      <Text style={h}>{es.answerMode}</Text>
+      <Text style={h}>{t.answerMode}</Text>
       <View style={styles.wrap}>
-        <Chip label={es.extractive} selected={settings.answerMode === 'extractive'} onPress={() => update({ answerMode: 'extractive' })} />
-        <Chip label={es.generate} selected={settings.answerMode === 'generate'} onPress={() => update({ answerMode: 'generate' })} />
+        <Chip label={t.extractive} selected={settings.answerMode === 'extractive'} onPress={() => update({ answerMode: 'extractive' })} />
+        <Chip label={t.generate} selected={settings.answerMode === 'generate'} onPress={() => update({ answerMode: 'generate' })} />
       </View>
 
-      <Text style={h}>{es.chat}</Text>
+      <Text style={h}>{t.chat}</Text>
       <View style={styles.wrap}>
-        <Chip label={es.chatOn} selected={settings.chat} onPress={() => update({ chat: true })} />
-        <Chip label={es.chatOff} selected={!settings.chat} onPress={() => update({ chat: false })} />
+        <Chip label={t.chatOn} selected={settings.chat} onPress={() => update({ chat: true })} />
+        <Chip label={t.chatOff} selected={!settings.chat} onPress={() => update({ chat: false })} />
       </View>
 
-      <Text style={h}>{es.backend}</Text>
+      <Text style={h}>{t.backend}</Text>
       <View style={styles.wrap}>
-        <Chip label={es.backendDevice} selected={settings.backendKind === 'device'} onPress={() => update({ backendKind: 'device' })} />
-        <Chip label={es.backendHttp} selected={settings.backendKind === 'http'} onPress={() => update({ backendKind: 'http' })} />
+        <Chip label={t.backendDevice} selected={settings.backendKind === 'device'} onPress={() => update({ backendKind: 'device' })} />
+        <Chip label={t.backendHttp} selected={settings.backendKind === 'http'} onPress={() => update({ backendKind: 'http' })} />
       </View>
       {settings.backendKind === 'http' && (
         <TextInput
@@ -72,7 +72,7 @@ export default function SettingsScreen() {
           onEndEditing={(e) => update({ httpUrl: e.nativeEvent.text.trim() })}
           autoCapitalize="none"
           autoCorrect={false}
-          placeholder={es.httpUrl}
+          placeholder={t.httpUrl}
           placeholderTextColor={c.textMuted}
           style={[styles.input, { color: c.text, borderColor: c.border, backgroundColor: c.surface }]}
         />
