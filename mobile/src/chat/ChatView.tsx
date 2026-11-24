@@ -41,6 +41,8 @@ export interface ChatRow {
   role: 'user' | 'assistant';
   /** As written, citation markers included (the bubble hides them). */
   text: string;
+  /** The catalog entry whose `short` this text is; picks the keywords set in bold. */
+  entryId?: string;
   latencyMs?: number;
   /** Validated references of an assistant reply; none means no source button. */
   sources?: ChatSource[];
