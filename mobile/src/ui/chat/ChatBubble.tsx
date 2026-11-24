@@ -32,12 +32,25 @@ export interface ChatBubbleProps {
    * it the bubble shows nothing; without an id the text shows whole.
    */
   revealId?: string;
+  /**
+   * The row id whose first appearance plays the entry; a cell showing it again (recycled, or
+   * scrolled back into view) does not. Without an id the bubble enters on every mount.
+   */
+  entryId?: string;
 }
 
 /** A slow, short rise: the message settles in instead of popping. */
 const ENTRY_MS = 280;
 const ENTRY_RISE = 4;
 const NO_KEYWORDS: readonly string[] = [];
+
+/** Row ids whose bubble has entered, or that were on screen before; FlashList reuses cells. */
+const entered = new Set<string>();
+
+/** Rows the reader has already seen show without an entry. */
+export function markEntered(ids: Iterable<string>) {
+  for (const id of ids) entered.add(id);
+}
 
 export const ChatBubble = memo(function ChatBubble({
   role,
@@ -47,6 +60,7 @@ export const ChatBubble = memo(function ChatBubble({
   onOpenSources,
   keywords = NO_KEYWORDS,
   revealId,
+  entryId,
 }: ChatBubbleProps) {
   const mine = role === 'user';
   const reduced = useReducedMotion();
@@ -60,6 +74,7 @@ export const ChatBubble = memo(function ChatBubble({
   return (
     <BubbleRow
       role={role}
+      entryId={entryId}
       meta={done ? meta : undefined}
       accessory={
         cited && onOpenSources ? (
@@ -141,24 +156,35 @@ export function BubbleRow({
   role,
   meta,
   accessory,
+  entryId,
   children,
 }: {
   role: 'user' | 'assistant';
   meta?: string;
   /** Overlaid on the bubble's bottom corner, opposite its foot. */
   accessory?: ReactNode;
+  /** See ChatBubbleProps.entryId. */
+  entryId?: string;
   children: ReactNode;
 }) {
   const mine = role === 'user';
   const reduced = useReducedMotion();
-  const [entry] = useState(() => new Animated.Value(reduced ? 1 : 0));
-  // Once per mount: streamed text re-renders the row but never replays the entrance.
+  // A value per row id, hidden from its first frame: a recycled cell must not flash a new row.
+  const start = () => {
+    const enter = !reduced && !(entryId !== undefined && entered.has(entryId));
+    return { id: entryId, enter, shown: new Animated.Value(enter ? 0 : 1) };
+  };
+  const [entry, setEntry] = useState(start);
+  if (entry.id !== entryId) setEntry(start());
+  // Once per row: streamed text re-renders the row but never replays the entrance.
   useEffect(() => {
-    if (reduced) {
-      entry.setValue(1);
+    const { id, enter, shown } = entry;
+    if (id !== undefined) entered.add(id);
+    if (reduced || !enter) {
+      shown.setValue(1);
       return;
     }
-    const animation = Animated.timing(entry, {
+    const animation = Animated.timing(shown, {
       toValue: 1,
       duration: ENTRY_MS,
       easing: Easing.out(Easing.quad),
@@ -173,9 +199,14 @@ export function BubbleRow({
         styles.row,
         mine && styles.rowMine,
         {
-          opacity: entry,
+          opacity: entry.shown,
           transform: [
-            { translateY: entry.interpolate({ inputRange: [0, 1], outputRange: [ENTRY_RISE, 0] }) },
+            {
+              translateY: entry.shown.interpolate({
+                inputRange: [0, 1],
+                outputRange: [ENTRY_RISE, 0],
+              }),
+            },
           ],
         },
       ]}
