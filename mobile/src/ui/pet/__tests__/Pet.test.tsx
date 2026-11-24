@@ -113,4 +113,13 @@ describe('Pet loop', () => {
     expect(clock.pending()).toBe(0);
     pet.unmount();
   });
+
+  it('paints the same frame as the preset, minus the smoke no drawer paints', () => {
+    displayClock();
+    const pet = mount({ reducedMotion: true, emotion: 'curious' });
+    const shown = mockPainted.at(-1)!;
+    expect(shown.smoke).toEqual([]);
+    expect({ ...shown, smoke: [] }).toEqual({ ...stillFrame('curious'), smoke: [] });
+    pet.unmount();
+  });
 });
