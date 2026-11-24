@@ -62,7 +62,7 @@ export const en: Labels = {
     typing: '{pet} is thinking',
     seconds: '{s} s',
     webNoModel:
-      "The phone's model does not run on the web: use the app or the HTTP backend in Settings.",
+      'On the web the model loads from models/knowledge through the dev server (npx expo start --web).',
     sources: {
       showOne: 'See the source of this answer',
       showMany: 'See the {n} sources of this answer',

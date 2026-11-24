@@ -65,6 +65,7 @@ The script uses `run-as`, so it needs a debuggable build. A release APK installe
 | `src/i18n/` | UI copy (`es.ts` is the source; the locale is fixed to `es`) |
 | `src/core/*.ts` (outside `knowledge/`) | Legacy FSM port, still compiled for `/settings` and the debug panel types |
 | `src/web-stubs/` | Web stand-ins for `llama.rn` and `onnxruntime-react-native` (`metro.config.js`) |
+| `src/llm/knowledgeRuntime.web.ts` | Web chat runtime: the same e5 GGUF on `@wllama/wllama` (llama.cpp in WebAssembly) plus the JS scorer; the dev server serves `../models/knowledge` at `/knowledge-files/` (`metro.config.js`) |
 
 Generated, never edit by hand: `assets/data/knowledge/*.json`, `src/core/knowledge/__fixtures__/*.json` (`experiments/nlu/export_nlu.py`), `assets/data/world.json` (legacy, `uv run python -m nevados_bench.export_mobile`).
 
