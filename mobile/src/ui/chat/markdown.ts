@@ -43,7 +43,9 @@ export function parseMarkdown(source: string): MdDoc {
       groups.push(open);
       continue;
     }
-    if (!open) {
+    // A plain line under an item starts a paragraph: catalog items are one line each, and a
+    // closing sentence after a list belongs to no bullet.
+    if (!open || open.marker !== null) {
       open = { marker: null, lines: [] };
       groups.push(open);
     }
