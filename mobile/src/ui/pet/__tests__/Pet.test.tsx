@@ -119,21 +119,36 @@ describe('Pet loop', () => {
 
   it('stops drawing while the app is in the background', () => {
     const clock = displayClock();
+    const app = AppState as unknown as { currentState: unknown };
     const pet = mount({});
     clock.run(1);
-    const [, onChange] = jest.mocked(AppState.addEventListener).mock.lastCall as unknown as [
-      string,
-      (state: AppStateStatus) => void,
-    ];
-    act(() => onChange('background'));
-    expect(clock.pending()).toBe(0);
-    const hidden = mockPainted.length;
-    clock.run(1);
-    expect(mockPainted.length).toBe(hidden);
-    act(() => onChange('active'));
-    clock.run(1);
-    expect(mockPainted.length).toBeGreaterThanOrEqual(hidden + 30);
-    pet.unmount();
+    const listen = () =>
+      (jest.mocked(AppState.addEventListener).mock.lastCall as unknown as [
+        string,
+        (state: AppStateStatus) => void,
+      ])[1];
+    // AppState updates currentState before it tells its listeners.
+    const goTo = (state: AppStateStatus) => {
+      app.currentState = state;
+      act(() => listen()(state));
+    };
+    try {
+      goTo('background');
+      expect(clock.pending()).toBe(0);
+      const hidden = mockPainted.length;
+      // A new emotion restarts the loop; in the background it must stay stopped.
+      pet.render({ emotion: 'surprised' });
+      clock.run(1);
+      expect(clock.pending()).toBe(0);
+      const restarted = mockPainted.length;
+      expect(restarted - hidden).toBeLessThanOrEqual(1);
+      goTo('active');
+      clock.run(1);
+      expect(mockPainted.length).toBeGreaterThanOrEqual(restarted + 30);
+    } finally {
+      app.currentState = undefined;
+      pet.unmount();
+    }
   });
 
   it('paints the same frame as the preset, minus the smoke no drawer paints', () => {
