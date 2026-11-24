@@ -191,9 +191,9 @@ export function ChatView(p: ChatViewProps) {
 }
 
 /**
- * Android reports its keyboard with no duration, so the motion follows the IME's own unsynced
- * animation (AOSP InsetsController: 200 ms, linear-out-slow-in shown, fast-out-linear-in hidden).
- * Not tuned on the phone yet.
+ * Android reports its keyboard with no duration. AOSP's InsetsController runs an IME animation the
+ * app does not drive in 200 ms; the curves (decelerate in, accelerate out) are a guess, not yet
+ * tuned against the A24's keyboard.
  */
 const KEYBOARD_IN = { duration: 200, easing: Easing.bezier(0, 0, 0.2, 1) };
 const KEYBOARD_OUT = { duration: 200, easing: Easing.bezier(0.4, 0, 1, 1) };
@@ -258,7 +258,7 @@ type ListRef = RefObject<React.ComponentRef<typeof FlashList<ChatRow>> | null>;
 function useListFollow(list: ListRef) {
   const following = useRef(true);
   const dragging = useRef(false);
-  const scroll = useRef({ offset: 0, ownUntil: -Infinity });
+  const scroll = useRef({ offset: 0, gap: 0, ownUntil: -Infinity });
   const frame = useRef<number | null>(null);
   useEffect(
     () => () => {
@@ -270,7 +270,7 @@ function useListFollow(list: ListRef) {
     if (!following.current || dragging.current || frame.current !== null) return;
     frame.current = requestAnimationFrame(() => {
       frame.current = null;
-      list.current?.scrollToEnd({ animated: !replyReveal.busy() });
+      if (!dragging.current) list.current?.scrollToEnd({ animated: !replyReveal.busy() });
     });
   }, [list]);
   return useMemo(
@@ -294,20 +294,22 @@ function useListFollow(list: ListRef) {
         const { contentOffset, contentSize, layoutMeasurement } = e.nativeEvent;
         const s = scroll.current;
         const offset = contentOffset.y;
-        if (contentSize.height - layoutMeasurement.height - offset <= NEAR_END) {
+        s.gap = contentSize.height - layoutMeasurement.height - offset;
+        if (s.gap <= NEAR_END) {
           following.current = true;
         } else if (offset < s.offset - 1 && performance.now() > s.ownUntil) {
-          // Web has no drag events for a wheel or a scrollbar.
+          // Moving up, and not by our own scroll back: web has no drag events for a wheel.
           following.current = false;
         }
         s.offset = offset;
       },
       onScrollBeginDrag: () => {
         dragging.current = true;
-        following.current = false;
       },
+      // A drag that left the list away from its end is reading back; one that moved nothing is not.
       onScrollEndDrag: () => {
         dragging.current = false;
+        if (scroll.current.gap > NEAR_END) following.current = false;
       },
     }),
     [list, toEnd],

@@ -277,17 +277,24 @@ describe('ChatView follow', () => {
     act(() => mockList.props.onContentSizeChange(0, 1440));
     nextFrame();
     expect(mockList.scrollToEnd).toHaveBeenCalledTimes(1);
-    // A drag stops it too, and the reader's own message brings it back.
+    // A drag that moves nothing keeps following; one up and away from the end stops it.
     act(() => mockList.props.onScrollBeginDrag());
     act(() => mockList.props.onScrollEndDrag());
-    mockList.scrollToEnd.mockClear();
     act(() => mockList.props.onContentSizeChange(0, 1460));
+    nextFrame();
+    expect(mockList.scrollToEnd).toHaveBeenCalledTimes(2);
+    act(() => mockList.props.onScroll(scrolled(960, 1460, 500)));
+    act(() => mockList.props.onScrollBeginDrag());
+    act(() => mockList.props.onScroll(scrolled(700, 1460, 500)));
+    act(() => mockList.props.onScrollEndDrag());
+    mockList.scrollToEnd.mockClear();
+    act(() => mockList.props.onContentSizeChange(0, 1480));
     nextFrame();
     expect(mockList.scrollToEnd).not.toHaveBeenCalled();
     chat.type('¿Necesito guía?');
     chat.submit();
     expect(onSend).toHaveBeenCalledWith('¿Necesito guía?');
-    act(() => mockList.props.onContentSizeChange(0, 1520));
+    act(() => mockList.props.onContentSizeChange(0, 1540));
     nextFrame();
     expect(mockList.scrollToEnd).toHaveBeenCalledTimes(1);
     chat.unmount();
