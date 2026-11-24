@@ -101,7 +101,8 @@ bench('onboarding frame cost', async () => {
   measure('idle', 270);
   for (let s = 0; s < 2; s++) {
     act(() => mockPress.next());
-    measure(`transition ${s + 1}->${s + 2} (480 ms)`, 44);
+    measure(`transition ${s + 1}->${s + 2}, 66 ms`, 6);
+    measure(`transition ${s + 1}->${s + 2}, rest`, 38);
     measure('face morph tail + idle', 30);
   }
   // A finger drag back toward screen 1: two touch moves per display frame (180 Hz touch sampling).
