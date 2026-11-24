@@ -1,4 +1,5 @@
 import { act, type ComponentProps } from 'react';
+import { AppState, type AppStateStatus } from 'react-native';
 import { createRoot } from 'test-renderer';
 
 import type { FrameStore } from '../frameLoop';
@@ -113,6 +114,25 @@ describe('Pet loop', () => {
     expect(shown.mouth).toEqual(expected.mouth);
     expect(shown.leftEye).toEqual(expected.leftEye);
     expect(clock.pending()).toBe(0);
+    pet.unmount();
+  });
+
+  it('stops drawing while the app is in the background', () => {
+    const clock = displayClock();
+    const pet = mount({});
+    clock.run(1);
+    const [, onChange] = jest.mocked(AppState.addEventListener).mock.lastCall as unknown as [
+      string,
+      (state: AppStateStatus) => void,
+    ];
+    act(() => onChange('background'));
+    expect(clock.pending()).toBe(0);
+    const hidden = mockPainted.length;
+    clock.run(1);
+    expect(mockPainted.length).toBe(hidden);
+    act(() => onChange('active'));
+    clock.run(1);
+    expect(mockPainted.length).toBeGreaterThanOrEqual(hidden + 30);
     pet.unmount();
   });
 
