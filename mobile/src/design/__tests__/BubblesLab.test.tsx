@@ -5,6 +5,7 @@ import { createRoot, type TestInstance } from 'test-renderer';
 import catalog from '@/../assets/data/knowledge/catalog.json';
 import { fill, t } from '@/i18n';
 
+import { keywordsFor } from '@/ui/chat/keywords';
 import { fonts } from '@/ui/theme/tokens';
 
 import { BubblesLab } from '../BubblesLab';
@@ -66,11 +67,11 @@ describe('BubblesLab urgent thread', () => {
   it('shows the 123 banner and the catalog answer with keywords in bold and a list', () => {
     const lab = mount();
     lab.press(lab.byLabel(w.threadUrgent)[0]);
+    // Every keyword of both entries is bold (keywords.test.ts checks the data itself).
     expect(lab.bold()).toEqual(
       expect.arrayContaining([
-        'Marca el 123',
-        'Esta app no avisa a rescate',
-        'avísale de inmediato',
+        ...keywordsFor('health_safety.national_emergency_number_123'),
+        ...keywordsFor('actions.report_emergency_general'),
       ]),
     );
     expect(lab.texts()).toEqual(
