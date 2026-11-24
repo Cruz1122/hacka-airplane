@@ -11,10 +11,10 @@ export const WORDS_PER_SECOND = 40;
 const MS_PER_WORD = 1000 / WORDS_PER_SECOND;
 const NO_KEYWORDS: readonly string[] = [];
 
-/** Words shown so far; `Infinity` once the whole reply is out. */
 interface Stream {
   start: number;
   words: number;
+  /** Words on screen; `Infinity` once the whole reply is out. */
   shown: number;
 }
 
