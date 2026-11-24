@@ -32,7 +32,9 @@ function displayClock() {
     queue.set(++id, cb);
     return id;
   });
-  jest.spyOn(globalThis, 'cancelAnimationFrame').mockImplementation((h) => void queue.delete(h));
+  jest
+    .spyOn(globalThis, 'cancelAnimationFrame')
+    .mockImplementation((h) => void queue.delete(Number(h)));
   jest.spyOn(performance, 'now').mockImplementation(() => now);
   return {
     run(seconds: number) {
