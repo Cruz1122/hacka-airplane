@@ -1,7 +1,15 @@
 // The chat screen as plain props (app/index.tsx wires it to the assistant), so the design catalog
 // can show every state on web, where the model never loads.
 import { FlashList } from '@shopify/flash-list';
-import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
+import {
+  useCallback,
+  useEffect,
+  useLayoutEffect,
+  useMemo,
+  useRef,
+  useState,
+  useSyncExternalStore,
+} from 'react';
 import {
   Animated,
   Easing,
@@ -22,6 +30,8 @@ import { ChatBubble } from '@/ui/chat/ChatBubble';
 import type { ChatSource } from '@/ui/chat/citations';
 import { ChatComposer, DOCK } from '@/ui/chat/ChatComposer';
 import { ChatMenu } from '@/ui/chat/ChatMenu';
+import { keywordsFor } from '@/ui/chat/keywords';
+import { replyReveal } from '@/ui/chat/reveal';
 import { SourcesSheet } from '@/ui/chat/SourcesSheet';
 import { TypingBubble } from '@/ui/chat/TypingBubble';
 import { DebugPanel } from '@/ui/DebugPanel';
@@ -97,22 +107,28 @@ function TopFade() {
 }
 
 /**
- * What the Pet is doing: thinking while an answer is worked out, then talking while it arrives
- * (each streamed chunk extends it) and for a moment per character after, as if reading it out.
+ * Rows on screen when the chat mounts show whole (read before, or arrived while it was away); each
+ * later assistant row types itself out after the one before it.
  */
-function usePetVoice(messages: ChatRow[], busy: boolean): VoiceState {
+function useReplyReveal(messages: ChatRow[]): ReadonlySet<string> {
+  const [seen] = useState(() => new Set(messages.map((m) => m.id)));
+  // Before paint, in data order: a banner always types out before its reply.
+  useLayoutEffect(() => replyReveal.schedule(messages, seen, performance.now()), [messages, seen]);
+  return seen;
+}
+
+/**
+ * What the Pet is doing: thinking while an answer is worked out, then talking while it types
+ * itself out (a reply not scheduled yet counts, unless it was there when the chat mounted).
+ */
+function usePetVoice(messages: ChatRow[], busy: boolean, seen: ReadonlySet<string>): VoiceState {
   const last = messages.at(-1);
-  const length = last?.role === 'assistant' ? last.text.length : 0;
-  const key = length > 0 && last ? `${last.id}:${length}` : null;
-  // The reply (or chunk) the Pet has finished saying; any newer key means it is still talking.
-  const [said, setSaid] = useState<string | null>(null);
-  useEffect(() => {
-    if (!key) return;
-    const ms = Math.min(6000, Math.max(1500, length * 40));
-    const timer = setTimeout(() => setSaid(key), ms);
-    return () => clearTimeout(timer);
-  }, [key, length]);
-  if (key !== null && key !== said) return 'speaking';
+  const id = last?.role === 'assistant' ? last.id : undefined;
+  const talking = useSyncExternalStore(
+    replyReveal.subscribe,
+    () => id !== undefined && (replyReveal.revealing(id) ?? !seen.has(id)),
+  );
+  if (talking) return 'speaking';
   return busy ? 'thinking' : 'idle';
 }
 
@@ -216,6 +232,8 @@ function ChatContent(p: ChatViewProps & { width: number; tall: number; viewBotto
       <ChatBubble
         role={item.role}
         text={item.text}
+        keywords={keywordsFor(item.entryId)}
+        revealId={item.role === 'assistant' ? item.id : undefined}
         sources={item.sources}
         onOpenSources={openSheet}
         meta={
@@ -228,8 +246,24 @@ function ChatContent(p: ChatViewProps & { width: number; tall: number; viewBotto
     [openSheet],
   );
   const list = useRef<React.ComponentRef<typeof FlashList<ChatRow>>>(null);
-  const toEnd = useCallback(() => list.current?.scrollToEnd({ animated: true }), []);
-  const voice = usePetVoice(p.messages, p.busy);
+  // One scroll per frame however often the content grows. While a reply types out each new line
+  // jumps into view: an animated scroll per line would stack.
+  const follow = useRef<number | null>(null);
+  const toEnd = useCallback(() => {
+    if (follow.current !== null) return;
+    follow.current = requestAnimationFrame(() => {
+      follow.current = null;
+      list.current?.scrollToEnd({ animated: !replyReveal.busy() });
+    });
+  }, []);
+  useEffect(
+    () => () => {
+      if (follow.current !== null) cancelAnimationFrame(follow.current);
+    },
+    [],
+  );
+  const seen = useReplyReveal(p.messages);
+  const voice = usePetVoice(p.messages, p.busy, seen);
   const [shown] = useState(() => new Animated.Value(p.fadeIn ? 0 : 1));
   useEffect(() => {
     if (!p.fadeIn) return;
