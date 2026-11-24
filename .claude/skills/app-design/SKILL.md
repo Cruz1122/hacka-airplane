@@ -46,8 +46,8 @@ on 2026-11-22; the old glossy figure was deleted):
 
 | Component | Where | Colors |
 |---|---|---|
-| `Pet` (animated, draws `PetVaporCanvas`: Skia on native, `PetVaporFigure` SVG on web) | the chat's circle (`PetCircle`), `/design` | `fill`/`shade` props; default `brand.card`/`brand.cardShade`, the chat circle passes the scene's mist colors |
-| one frame from `petFrame()` (`drawPet` on Skia, `PetVaporFigure` on SVG) | inside the onboarding scene, rising out of the crater | the scene's mist colors (`PetBody.fill`/`shade`, default `$mist`/`$cloudShade`) |
+| `Pet` (animated, draws `PetVaporCanvas`: Skia on native, a 2D canvas (`drawPetCanvas2d`) on web) | the chat's circle (`PetCircle`), `/design` | `fill`/`shade` props; default `brand.card`/`brand.cardShade`, the chat circle passes the scene's mist colors |
+| one frame from `petFrame()` (`drawPet` on Skia, `drawPetCanvas2d` on the web canvas, `PetVaporFigure` in the SVG reference) | inside the onboarding scene, rising out of the crater | the scene's mist colors (`PetBody.fill`/`shade`, default `$mist`/`$cloudShade`) |
 
 The vapor look draws the same body and face, solid and defined, with a soft halo of puffs
 (`petVaporPuffs`) behind the outline so the vapor reads as part of the body (never puffs on top
@@ -70,11 +70,12 @@ import { Pet } from '@/ui/pet/Pet';
   `lookAround` (default on: glances around on its own when the pointer rests or on touch
   screens), `crop` (part of the Pet to show, in Pet units).
 - Inside a scene, draw one frame from `petFrame()`: `drawPet` in the Skia renderer
-  (`SceneCanvas.native.tsx`), `PetVaporFigure` in the SVG one (`NevadoScene`, web). Both read the
-  same frame, so change the look in `petCore.ts` and keep both drawers in step.
+  (`SceneCanvas.native.tsx`), `drawPetCanvas2d` in the web one (`SceneCanvas.tsx`),
+  `PetVaporFigure` in the SVG reference (`NevadoScene`: Lab, export). All read the same frame, so
+  change the look in `petCore.ts` and keep the three drawers in step.
 - Emotion changes always morph with the Pet's own (fleibo-face) transition: `motion.transition`
   ms with `motion.easing`, from the face on screen. `Pet` does it in its engine; a host drawing
-  single frames uses `useFaceTransition` (both scene renderers do). Never switch poses
+  single frames uses `useFaceTransition` (every scene renderer does). Never switch poses
   directly, and show a chat moment as an emotion (`PetCircle`: happy, thinking, speaking), not
   only a voice state, since the voice alone just swaps the mouth.
 
@@ -91,9 +92,11 @@ import { Pet } from '@/ui/pet/Pet';
    on that teal is 3.2:1, below AA for the 16 px label; the user accepted it for the exact color.
    The scene keeps its lavender sky. `online` (green) is only the ready dot on the Pet's circle.
 4. UI gradients, icons and shapes are drawn with `react-native-svg`. The onboarding scene, the
-   chat header scene and the Pet draw with `@shopify/react-native-skia` on native and
-   `react-native-svg` on web (`mobile/README.md`, "Onboarding scene"); the SVG version is the
-   reference look. There is no icon or gradient package; do not add one.
+   chat header scene and the Pet draw with `@shopify/react-native-skia` on native and on 2D
+   canvases on web (the scene one canvas per layer, layer blur and opacity in CSS). The SVG
+   renderer (`NevadoScene`, `PetVaporFigure`) is the reference look and what the Lab and export
+   use (`mobile/README.md`, "Onboarding scene"). There is no icon or gradient package; do not add
+   one.
 5. Illustration colors (sky, volcano, páramo, frailejones, lupines) belong to the scene palette,
    not to the tokens. The look is the reference: lavender dusk sky with a golden horizon,
    blue-violet ranges, white snow with lavender shadows, green-gold páramo, frailejones, purple
