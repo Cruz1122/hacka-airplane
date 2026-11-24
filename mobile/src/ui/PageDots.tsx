@@ -1,6 +1,6 @@
 // Step indicator: one dot per page, the active one solid. `position` may be fractional while
 // pages slide, so the active dot grows and shrinks continuously.
-import { useLayoutEffect, useState } from 'react';
+import { useLayoutEffect, useMemo, useState } from 'react';
 import { Animated, Pressable, StyleSheet, View } from 'react-native';
 
 import { fill, t } from '@/i18n';
@@ -43,6 +43,11 @@ const DOT = 10;
 export function PageDots({ count, position, onSelect }: PageDotsProps) {
   const { value, index } = usePagePosition(position);
   const active = Math.min(count - 1, Math.max(0, index));
+  // Built once per value: a render when the page changes mid-move must not rebuild native nodes.
+  const scales = useMemo(
+    () => Array.from({ length: count }, (_, i) => dotScale(value, i)),
+    [value, count],
+  );
   return (
     <View style={styles.row} accessibilityRole="tablist">
       {Array.from({ length: count }, (_, i) => (
@@ -61,7 +66,7 @@ export function PageDots({ count, position, onSelect }: PageDotsProps) {
               styles.dot,
               {
                 backgroundColor: i === active ? brand.primary : brand.primarySoft,
-                transform: [{ scale: dotScale(value, i) }],
+                transform: [{ scale: scales[i] }],
               },
             ]}
           />
