@@ -5,9 +5,12 @@ import { createRoot } from 'test-renderer';
 import OnboardingScreen from '../../../app/onboarding';
 import { defaultScene } from '../scene/preset';
 
-// Each test counts the overlay's button renders (the overlay's onDone/onGo reach it) and drives the
-// screen with its handlers, so the scene's SVG and the chat route are stubbed out.
+// Each test counts the overlay's button renders (the overlay's onDone/onGo reach it) and the
+// scene's renders, and drives the screen with its handlers, so the scene's drawing and the chat
+// route are stubbed out.
 const mockButton: { renders: number; press: () => void } = { renders: 0, press: () => {} };
+const mockScene = { renders: 0 };
+const mockDots: { position: unknown } = { position: null };
 const mockReplace = jest.fn();
 let mockReduced = false;
 
@@ -16,7 +19,22 @@ jest.mock(
   'react-native-safe-area-context',
   () => jest.requireActual('react-native-safe-area-context/jest/mock').default,
 );
-jest.mock('@/onboarding/SceneCanvas', () => ({ SceneCanvas: () => null }));
+jest.mock('@/onboarding/SceneCanvas', () => ({
+  SceneCanvas: () => {
+    mockScene.renders++;
+    return null;
+  },
+}));
+jest.mock('@/ui/PageDots', () => {
+  const real = jest.requireActual('@/ui/PageDots');
+  return {
+    ...real,
+    PageDots: (props: { position: unknown }) => {
+      mockDots.position = props.position;
+      return real.PageDots(props);
+    },
+  };
+});
 jest.mock('@/chat/PetCircle', () => ({ PetCircle: () => null }));
 jest.mock('@/ui/useReducedMotion', () => ({ useReducedMotion: () => mockReduced }));
 jest.mock('@/ui/PrimaryButton', () => ({
@@ -36,6 +54,12 @@ function fakeFrames() {
   global.requestAnimationFrame = (cb) =>
     setTimeout(() => cb(Date.now()), FRAME_MS) as unknown as number;
   global.cancelAnimationFrame = (id) => clearTimeout(id);
+}
+
+/** The progress the card's native-driven styles read (an Animated.Value, set every frame). */
+function cardProgress(): number {
+  const position = mockDots.position as { value: { __getValue: () => number }; index: number };
+  return position.value.__getValue();
 }
 
 function mount() {
@@ -74,16 +98,24 @@ describe('OnboardingScreen playback', () => {
     s.unmount();
   });
 
-  it('re-renders the overlay while a transition moves the copy, then stops', () => {
+  it('moves the card with the scene on every frame but renders it only when the page changes', () => {
     const s = mount();
     s.frames(5);
-    const before = mockButton.renders;
+    const button = mockButton.renders;
+    const scene = mockScene.renders;
     s.press(); // "next"
-    s.frames(Math.ceil(TRANSITION_MS / FRAME_MS) + 2);
-    const after = mockButton.renders;
-    expect(after - before).toBeGreaterThan(5);
+    const frames = Math.ceil(TRANSITION_MS / FRAME_MS) + 2;
+    s.frames(3);
+    // Mid-move: the card's copy and dots read a fractional progress without a render.
+    expect(cardProgress()).toBeGreaterThan(0);
+    expect(cardProgress()).toBeLessThan(1);
+    s.frames(frames - 3);
+    expect(cardProgress()).toBe(1);
+    // The scene redraws every camera frame; the card renders once, when its page rounds to 2.
+    expect(mockScene.renders - scene).toBeGreaterThanOrEqual(frames - 2);
+    expect(mockButton.renders - button).toBe(1);
     s.frames(60);
-    expect(mockButton.renders).toBe(after);
+    expect(mockButton.renders - button).toBe(1);
     s.unmount();
   });
 

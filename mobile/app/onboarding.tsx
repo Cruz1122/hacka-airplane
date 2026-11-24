@@ -1,5 +1,5 @@
 import { router } from 'expo-router';
-import { useCallback, useEffect, useMemo, useState } from 'react';
+import { memo, useCallback, useEffect, useMemo, useState } from 'react';
 import { Animated, StyleSheet, useWindowDimensions, View } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
@@ -13,12 +13,48 @@ import { markOnboardingDone } from '@/onboarding/launch';
 import { OnboardingOverlay } from '@/onboarding/OnboardingOverlay';
 import { defaultScene } from '@/onboarding/scene/preset';
 import { applyMotions, evaluateTracks } from '@/onboarding/scene/timeline';
-import { usePlayback, useSwipe } from '@/onboarding/usePlayback';
+import {
+  usePlaybackClock,
+  usePlaybackFrame,
+  useSwipe,
+  type PlaybackClock,
+  type PlaybackFrame,
+} from '@/onboarding/usePlayback';
 import { CloudCard } from '@/ui/CloudCard';
 import { brand } from '@/ui/theme/tokens';
 import { useReducedMotion } from '@/ui/useReducedMotion';
 
 const scene = defaultScene();
+
+const screenOf = (frame: PlaybackFrame) => Math.round(frame.progress);
+const wholeFrame = (frame: PlaybackFrame) => frame;
+
+interface Exit {
+  /** Idle-motion time the scene and the chat hold during the handoff. */
+  time: number | null;
+}
+
+/**
+ * The only part of the screen that renders on every playback frame: tracks change with progress,
+ * idle motions are applied on top.
+ */
+const OnboardingScene = memo(function OnboardingScene({
+  clock,
+  exit,
+  width,
+  height,
+}: {
+  clock: PlaybackClock;
+  exit: Exit | null;
+  width: number;
+  height: number;
+}) {
+  const frame = usePlaybackFrame(clock, wholeFrame);
+  const tracked = useMemo(() => evaluateTracks(scene, frame.progress), [frame.progress]);
+  const time = exit ? exit.time : frame.time;
+  const doc = time === null ? tracked : applyMotions(tracked, time);
+  return <SceneCanvas doc={doc} width={width} height={height} moving={frame.moving} />;
+});
 
 /** Opens the chat; `time` holds its backdrop on the idle-motion pose the onboarding left. */
 function openChat(time: number | null) {
@@ -35,22 +71,18 @@ export default function OnboardingScreen() {
   const reduced = useReducedMotion();
   // Set when the last screen's button is pressed: the idle clock stops at `time` and the screen
   // turns into the chat (see src/chat/handoff.ts).
-  const [exit, setExit] = useState<{ time: number | null } | null>(null);
-  const play = usePlayback({
+  const [exit, setExit] = useState<Exit | null>(null);
+  const clock = usePlaybackClock({
     transitionMs: scene.timeline.transitionMs,
     easing: scene.timeline.easing,
     ambient: !exit,
     reduced,
   });
-  const swipe = useSwipe(play, width);
-  // Tracks change only with progress; idle motions are applied on top every frame. The overlay
-  // gets the tracked doc so the idle clock does not re-render the card.
-  const tracked = useMemo(() => evaluateTracks(scene, play.progress), [play.progress]);
-  const shown = play.time === null ? tracked : applyMotions(tracked, play.time);
-  const frozen = useMemo(
-    () => exit && (exit.time === null ? tracked : applyMotions(tracked, exit.time)),
-    [exit, tracked],
-  );
+  const swipe = useSwipe(clock, width);
+  // The screen renders when the page it rounds to changes; per-frame motion reaches only the scene
+  // (OnboardingScene) and the card's native-driven styles (clock.progressValue).
+  const index = usePlaybackFrame(clock, screenOf);
+  const position = useMemo(() => ({ value: clock.progressValue, index }), [clock, index]);
   const chatDoc = useMemo(
     () => exit && (exit.time === null ? headerScene : applyMotions(headerScene, exit.time)),
     [exit],
@@ -70,8 +102,7 @@ export default function OnboardingScreen() {
     anim.start(({ finished }) => finished && openChat(exit.time));
     return () => anim.stop();
   }, [exit, t]);
-  // Reads the idle time through timeNow so the overlay's props stay the same on idle frames.
-  const { timeNow } = play;
+  const { timeNow } = clock;
   const leave = useCallback(() => {
     if (exit) return;
     const time = timeNow();
@@ -98,12 +129,7 @@ export default function OnboardingScreen() {
           </View>
         )}
         <Animated.View style={[StyleSheet.absoluteFill, exit && move.volcano]}>
-          <SceneCanvas
-            doc={frozen ?? shown}
-            width={width}
-            height={layout.scene}
-            moving={play.moving}
-          />
+          <OnboardingScene clock={clock} exit={exit} width={width} height={layout.scene} />
         </Animated.View>
       </Animated.View>
       {exit && (
@@ -118,11 +144,11 @@ export default function OnboardingScreen() {
         pointerEvents={exit ? 'none' : 'box-none'}
       >
         <OnboardingOverlay
-          doc={tracked}
-          progress={play.progress}
+          doc={scene}
+          progress={position}
           width={width}
           cardHeight={layout.card}
-          onGo={play.goTo}
+          onGo={clock.goTo}
           onDone={leave}
         />
       </Animated.View>

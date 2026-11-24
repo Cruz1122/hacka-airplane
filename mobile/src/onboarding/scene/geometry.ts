@@ -140,8 +140,11 @@ export function sceneViewBox(
   };
 }
 
-/** SVG matrix for: translate(x, y) rotate(rotation) scale(sx, sy) translate(-anchor). */
-export function transformMatrix(t: Transform): string {
+/** SVG matrix values [a, b, c, d, e, f], rounded as the SVG renderer writes them. */
+export type MatrixValues = [number, number, number, number, number, number];
+
+/** translate(x, y) rotate(rotation) scale(sx, sy) translate(-anchor), as matrix values. */
+export function transformValues(t: Transform): MatrixValues {
   const c = Math.cos(deg(t.rotation));
   const s = Math.sin(deg(t.rotation));
   const a = c * t.scaleX;
@@ -150,7 +153,12 @@ export function transformMatrix(t: Transform): string {
   const d = c * t.scaleY;
   const e = t.x - (a * t.anchorX + cc * t.anchorY);
   const f = t.y - (b * t.anchorX + d * t.anchorY);
-  return `matrix(${[a, b, cc, d, e, f].map((n) => r2(n * 1000) / 1000).join(' ')})`;
+  return [a, b, cc, d, e, f].map((n) => r2(n * 1000) / 1000) as MatrixValues;
+}
+
+/** SVG matrix for: translate(x, y) rotate(rotation) scale(sx, sy) translate(-anchor). */
+export function transformMatrix(t: Transform): string {
+  return `matrix(${transformValues(t).join(' ')})`;
 }
 
 /** The point `transformMatrix(t)` maps `p` to. */
@@ -191,9 +199,13 @@ export function parallaxAffine(camera: Camera, parallax: number): Affine {
 
 export const applyAffine = (a: Affine, p: Vec): Vec => ({ x: a.k * p.x + a.e, y: a.k * p.y + a.f });
 
-export function affineMatrix(a: Affine): string {
+export function affineValues(a: Affine): MatrixValues {
   const k = r2(a.k * 1000) / 1000;
-  return `matrix(${k} 0 0 ${k} ${r2(a.e)} ${r2(a.f)})`;
+  return [k, 0, 0, k, r2(a.e), r2(a.f)];
+}
+
+export function affineMatrix(a: Affine): string {
+  return `matrix(${affineValues(a).join(' ')})`;
 }
 
 /** `a` applied after `b`. */
