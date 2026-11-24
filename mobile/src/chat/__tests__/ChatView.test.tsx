@@ -262,6 +262,18 @@ describe('ChatView follow', () => {
     chat.unmount();
   });
 
+  it('drops a scroll already requested when the reader scrolls up before its frame', () => {
+    const chat = mount();
+    nextFrame();
+    act(() => mockList.props.onScroll(scrolled(900, 1400, 500)));
+    mockList.scrollToEnd.mockClear();
+    act(() => mockList.props.onContentSizeChange(0, 1420));
+    act(() => mockList.props.onScroll(scrolled(400, 1420, 500)));
+    nextFrame();
+    expect(mockList.scrollToEnd).not.toHaveBeenCalled();
+    chat.unmount();
+  });
+
   it('leaves a reader who scrolled up where they are until they send', () => {
     const onSend = jest.fn();
     const chat = mount({ onSend });
