@@ -2,7 +2,7 @@
 // it has one and the passage itself when it does not. One sheet per screen, not one per bubble, so
 // opening it never resizes a list row (the list would jump to its end) and no open state can
 // follow a recycled row onto another message.
-import { useEffect, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import {
   Animated,
   BackHandler,
@@ -50,29 +50,47 @@ function OpenSheet({
 }: SourcesSheetProps & { sources: ChatSource[] }) {
   const reduced = useReducedMotion() || reducedMotion;
   const [shown] = useState(() => new Animated.Value(reduced ? 1 : 0));
+  // Leaving, the chat under the sheet already takes touches.
+  const [closing, setClosing] = useState(false);
   useEffect(() => {
     if (reduced) return shown.setValue(1);
     const anim = Animated.timing(shown, {
       toValue: 1,
-      duration: 220,
+      duration: 260,
       easing: Easing.out(Easing.quad),
       useNativeDriver: true,
     });
     anim.start();
     return () => anim.stop();
   }, [reduced, shown]);
+  /** Slides out from wherever it is, then tells the chat it is gone. */
+  const close = useCallback(() => {
+    if (reduced) return onClose();
+    setClosing(true);
+    Animated.timing(shown, {
+      toValue: 0,
+      duration: 200,
+      easing: Easing.in(Easing.quad),
+      useNativeDriver: true,
+    }).start(({ finished }) => {
+      if (finished) onClose();
+    });
+  }, [onClose, reduced, shown]);
   // Android's back button closes the sheet before it leaves the screen (web has no back button
   // and logs an error on subscribe).
   useEffect(() => {
     if (Platform.OS !== 'android') return;
     const sub = BackHandler.addEventListener('hardwareBackPress', () => {
-      onClose();
+      close();
       return true;
     });
     return () => sub.remove();
-  }, [onClose]);
+  }, [close]);
   return (
-    <View style={[StyleSheet.absoluteFill, styles.overlay]}>
+    <View
+      style={[StyleSheet.absoluteFill, styles.overlay]}
+      pointerEvents={closing ? 'none' : 'auto'}
+    >
       <Animated.View
         style={[
           StyleSheet.absoluteFill,
@@ -81,7 +99,7 @@ function OpenSheet({
         ]}
       >
         {/* Tapping outside closes too; screen readers get the labelled close button instead. */}
-        <Pressable style={StyleSheet.absoluteFill} onPress={onClose} accessible={false} />
+        <Pressable style={StyleSheet.absoluteFill} onPress={close} accessible={false} />
       </Animated.View>
       <Animated.View
         style={[
@@ -101,7 +119,7 @@ function OpenSheet({
             {copy.title}
           </Text>
           <Pressable
-            onPress={onClose}
+            onPress={close}
             accessibilityRole="button"
             accessibilityLabel={copy.close}
             style={({ pressed }) => [styles.close, pressed && styles.closePressed]}
