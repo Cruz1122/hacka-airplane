@@ -16,7 +16,7 @@ read -r GGUF BIN SCORER < <(python3 -c 'import json,sys; m=json.load(open(sys.ar
 
 FILES=("$ROOT/models/knowledge/$GGUF" "$ROOT/models/knowledge/$BIN" "$ROOT/models/knowledge/$SCORER")
 if [[ "${1:-}" == "--with-laya" ]]; then
-  LAYA="$ROOT/models/laya_final_rlcd6_raw/LOS_NEVADOS_LAYA_FINAL/run_rlcd6/model"
+  LAYA="$ROOT/models/laya"
   FILES+=("$LAYA/onnx/laya_final.gather_int8.onnx" "$LAYA/tokenizer/tokenizer.json")
 fi
 

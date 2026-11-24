@@ -187,7 +187,7 @@ Sealed splits are read for final numbers only; tuning on them invalidates them.
 | Node | Why | Mitigation |
 |---|---|---|
 | `models/knowledge/e5-nlu-ft4-f16.gguf` | trained in Colab from an uncommitted payload | keep an off-machine backup |
-| `models/laya_final_rlcd6_raw/` | Colab training output | only matters if Laya is turned on |
+| `models/laya/` | Colab run `run_rlcd6` (its reports and predictions live in the ignored `results/laya_run_rlcd6/`) | only matters if Laya is turned on |
 | `experiments/nlu/work/colab_payload.b64` `[ignored]` | the frozen training payload of ft4 | keep with the GGUF backup |
 | external `llama-embedding` binary | built from llama.cpp outside the repo (`~/.cache/llama.cpp-src`) | needed to export; rebuild from llama.cpp |
 
