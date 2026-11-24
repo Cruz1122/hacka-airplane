@@ -124,10 +124,8 @@ function useReplyReveal(messages: ChatRow[]): ReadonlySet<string> {
 function usePetVoice(messages: ChatRow[], busy: boolean, seen: ReadonlySet<string>): VoiceState {
   const last = messages.at(-1);
   const id = last?.role === 'assistant' ? last.id : undefined;
-  const talking = useSyncExternalStore(
-    replyReveal.subscribe,
-    () => id !== undefined && (replyReveal.revealing(id) ?? !seen.has(id)),
-  );
+  const read = () => id !== undefined && (replyReveal.revealing(id) ?? !seen.has(id));
+  const talking = useSyncExternalStore(replyReveal.subscribe, read, read);
   if (talking) return 'speaking';
   return busy ? 'thinking' : 'idle';
 }
