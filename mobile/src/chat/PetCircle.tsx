@@ -1,5 +1,7 @@
 // The Pet in its circle on the sheet's edge: fully animated (breathing, tail, blinking, glancing
-// around), thinking while an answer is worked out and talking while one arrives.
+// around), thinking while an answer is worked out and talking while one arrives. It holds still
+// while another screen covers the chat (the stack keeps this one mounted underneath).
+import { useIsFocused } from 'expo-router';
 import { memo } from 'react';
 import { StyleSheet, View } from 'react-native';
 
@@ -44,6 +46,7 @@ export const PetCircle = memo(function PetCircle({
   gaze?: GazeChannel;
 }) {
   const lookAt = useGaze(gaze);
+  const focused = useIsFocused();
   return (
     <View
       style={[styles.root, { left: x - r, top: y - r, width: r * 2, height: r * 2 }]}
@@ -60,6 +63,8 @@ export const PetCircle = memo(function PetCircle({
           voice={voice}
           audioLevel={voice === 'speaking' ? 0.7 : 0}
           lookAt={lookAt}
+          paused={!focused}
+          lookAround={focused}
         />
       </View>
       {ready && <View style={styles.online} />}
