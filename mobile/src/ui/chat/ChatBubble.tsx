@@ -1,7 +1,7 @@
 // Quiet message surfaces. A concave foot grounds each bubble on its side of the conversation; an
 // assistant answer with sources gets a small round button over its other bottom corner.
 import { memo, useEffect, useMemo, useState, type ReactNode } from 'react';
-import { Animated, Easing, Pressable, StyleSheet, Text, View } from 'react-native';
+import { Animated, Easing, Image, Pressable, StyleSheet, Text, View } from 'react-native';
 import Svg, { Path } from 'react-native-svg';
 
 import { fill, t } from '@/i18n';
@@ -16,6 +16,7 @@ export interface ChatBubbleProps {
   role: 'user' | 'assistant';
   /** As written; an assistant's citation markers are hidden, the user's words shown as typed. */
   text: string;
+  photoUri?: string;
   meta?: string;
   /** Assistant only: what the answer rests on, opened by the corner button. */
   sources?: ChatSource[];
@@ -29,6 +30,7 @@ const ENTRY_RISE = 4;
 export const ChatBubble = memo(function ChatBubble({
   role,
   text,
+  photoUri,
   meta,
   sources,
   onOpenSources,
@@ -46,9 +48,16 @@ export const ChatBubble = memo(function ChatBubble({
         ) : null
       }
     >
-      <Text style={mine ? styles.mineText : styles.theirsText} selectable>
-        {shown}
-      </Text>
+      {mine && photoUri ? (
+        <Image
+          source={{ uri: photoUri }}
+          accessibilityLabel="Foto enviada"
+          accessible
+          resizeMode="contain"
+          style={[styles.photo, !!shown && styles.photoWithCaption]}
+        />
+      ) : null}
+      {shown ? <Text style={mine ? styles.mineText : styles.theirsText} selectable>{shown}</Text> : null}
     </BubbleRow>
   );
 });
@@ -142,6 +151,8 @@ export function BubbleRow({
 
 const styles = StyleSheet.create({
   row: { flexDirection: 'row', paddingHorizontal: 22, paddingVertical: 8 },
+  photo: { width: 200, height: 160, maxWidth: '100%', borderRadius: 12 },
+  photoWithCaption: { marginBottom: 8 },
   rowMine: { flexDirection: 'row-reverse' },
   column: { flexShrink: 1, maxWidth: '88%', alignItems: 'flex-start' },
   columnMine: { alignItems: 'flex-end' },
