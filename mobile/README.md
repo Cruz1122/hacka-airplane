@@ -99,3 +99,19 @@ Format touched files with `npx prettier --single-quote --print-width 100 --write
 - `BubblesLab.test.tsx` fails: its fixture copies a catalog answer that the curation changed.
 - `valid_until` on knowledge entries is not enforced.
 - Hermes support for `String.prototype.normalize` and `Intl` is unverified, so text folding uses explicit maps.
+
+## Identificar imágenes sin internet
+
+Toca la cámara a la izquierda del cuadro del chat. En la app nativa puedes tomar una foto o abrir la galería. En la vista web de Metro se abre el selector de archivos y la clasificación corre en el navegador con WebAssembly. Metro sirve el codificador y WebAssembly desde el mismo origen; el navegador procesa la foto seleccionada localmente. MobileNetV3 y ONNX Runtime convierten el recorte central de la foto en un vector de 1024 dimensiones. La app compara ese vector por coseno con el índice incluido. Si las mejores clases quedan demasiado cerca o la similitud es baja, pide otra toma. La coincidencia es orientativa, especialmente entre paisajes parecidos.
+
+Las categorías de la guía son frailejón, Laguna del Otún, piedra pómez, chivito de páramo y cóndor andino. Cada etiqueta se convierte en una consulta de texto plano, por ejemplo `dime que es esto chivito de páramo`, y se vincula con una respuesta del catálogo. La categoría persona activa una frase de bienvenida al adjuntar una foto y escribir «¿Qué ves aquí?» o «Mírame». La detección es de categoría y no distingue identidades. Antes de enviar puedes ver la foto, quitarla o escribir una pregunta. El chat muestra la foto y el texto tal como lo escribiste. La etiqueta visual se añade solo a la consulta interna. Las fotos enviadas se mantienen durante la conversación en memoria. El selector del sistema puede crear archivos temporales.
+
+El paquete incluye `assets/vision/encoder.onnx`, los vectores y sus etiquetas. Las imágenes de referencia se procesan fuera de `mobile/`. Sus fichas de origen están en [vision-sources.json](scripts/vision-sources.json). El modelo deriva de [MobileNetV3 Small publicado por ONNX Community](https://huggingface.co/onnx-community/mobilenetv3_small_100.lamb_in1k), cortado antes de la capa de clasificación ImageNet.
+
+Para regenerar los vectores, organiza las fotos en una carpeta externa con un subdirectorio por ID de `assets/vision/classes.json`. Usa referencias independientes y variadas. La carpeta opcional `other` contiene ejemplos parecidos que deben favorecer la abstención. Descarga el `onnx/model.onnx` original del enlace anterior. Con NumPy, Pillow, ONNX y ONNX Runtime instalados en Python, ejecuta desde `mobile/`:
+
+```powershell
+py scripts/build-vision.py C:/ruta/model.onnx C:/ruta/fotos
+```
+
+La cámara requiere reinstalar una compilación nativa porque incorpora `expo-image-picker`. Prueba la compilación instalada en modo avión, sin Metro.
