@@ -23,7 +23,7 @@ export const ChatBackdrop = memo(function ChatBackdrop({
   height: number;
   layout: ChatLayout;
   /** Vertical move of the vapor sheet (negative = up, at most layout.keyboardLift). */
-  rise?: Animated.AnimatedInterpolation<number>;
+  rise?: Animated.Value;
   /** Idle-motion time the clouds and mist stand still at (the onboarding's, after the handoff). */
   time: number | null;
 }) {
