@@ -4,7 +4,7 @@ import { toChatRows } from '../knowledgeRows';
 const timing = { rulesMs: 0, embedMs: 200, retrieveMs: 10, rerankMs: 0, totalMs: 212.4 };
 
 describe('toChatRows', () => {
-  it('maps a top-1 answer to one bubble with only its reply text, sources and latency', () => {
+  it('maps a top-1 answer to one bubble with its reply text, entry id, sources and latency', () => {
     const rows: KnowledgeRow[] = [
       { id: 'k1', role: 'user', text: 'cómo llego desde Manizales' },
       {
@@ -27,6 +27,7 @@ describe('toChatRows', () => {
         id: 'k2',
         role: 'assistant',
         text: 'Por la vía al Magdalena.',
+        entryId: 'access.from_manizales',
         latencyMs: 212,
         sources: [{ id: 'access.from_manizales#0', title: 'PNN', url: 'https://example.org' }],
       },
@@ -48,6 +49,41 @@ describe('toChatRows', () => {
     expect(toChatRows(rows, 'ERR')).toEqual([
       { id: 'k3:banner', role: 'assistant', text: 'Llama al 123' },
       { id: 'k3', role: 'assistant', text: 'No encontré ese tema.' },
+    ]);
+  });
+
+  it('tags an urgent banner with the emergency entry whose short it shows', () => {
+    const rows: KnowledgeRow[] = [
+      {
+        id: 'k5',
+        role: 'assistant',
+        reply: {
+          type: 'answer',
+          id: 'actions.report_emergency_general',
+          title: 'Reporte',
+          text: 'Si hay peligro inmediato, marca el 123.',
+          sources: [],
+          banner: {
+            kind: 'urgent_safety',
+            text: 'Marca el 123.',
+            sourceIds: ['health_safety.national_emergency_number_123'],
+          },
+        },
+      },
+    ];
+    expect(toChatRows(rows, 'ERR')).toEqual([
+      {
+        id: 'k5:banner',
+        role: 'assistant',
+        text: 'Marca el 123.',
+        entryId: 'health_safety.national_emergency_number_123',
+      },
+      {
+        id: 'k5',
+        role: 'assistant',
+        text: 'Si hay peligro inmediato, marca el 123.',
+        entryId: 'actions.report_emergency_general',
+      },
     ]);
   });
 

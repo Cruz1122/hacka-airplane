@@ -2,7 +2,7 @@
 // it has one and the passage itself when it does not. One sheet per screen, not one per bubble, so
 // opening it never resizes a list row (the list would jump to its end) and no open state can
 // follow a recycled row onto another message.
-import { useEffect, useState } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
 import {
   Animated,
   BackHandler,
@@ -50,29 +50,60 @@ function OpenSheet({
 }: SourcesSheetProps & { sources: ChatSource[] }) {
   const reduced = useReducedMotion() || reducedMotion;
   const [shown] = useState(() => new Animated.Value(reduced ? 1 : 0));
+  // Leaving, the chat under the sheet already takes touches. Keyed by the sources it is closing,
+  // so asking for others while it leaves makes it take touches again.
+  const [closingFor, setClosingFor] = useState<ChatSource[] | null>(null);
+  const closing = closingFor === sources;
+  const leaving = useRef<Animated.CompositeAnimation | null>(null);
+  // Opens on mount, and again from wherever it is when the chat asks for other sources while it
+  // leaves: stopping the exit (finished: false) keeps it from closing the new sources.
   useEffect(() => {
+    leaving.current?.stop();
+    leaving.current = null;
     if (reduced) return shown.setValue(1);
     const anim = Animated.timing(shown, {
       toValue: 1,
-      duration: 220,
+      duration: 260,
       easing: Easing.out(Easing.quad),
       useNativeDriver: true,
     });
     anim.start();
     return () => anim.stop();
-  }, [reduced, shown]);
+  }, [reduced, shown, sources]);
+  useEffect(() => () => leaving.current?.stop(), []);
+  /** Slides out from wherever it is, then tells the chat it is gone. */
+  const close = useCallback(() => {
+    if (reduced) return onClose();
+    setClosingFor(sources);
+    const anim = Animated.timing(shown, {
+      toValue: 0,
+      duration: 200,
+      easing: Easing.in(Easing.quad),
+      useNativeDriver: true,
+    });
+    leaving.current = anim;
+    anim.start(({ finished }) => {
+      if (finished && leaving.current === anim) {
+        leaving.current = null;
+        onClose();
+      }
+    });
+  }, [onClose, reduced, shown, sources]);
   // Android's back button closes the sheet before it leaves the screen (web has no back button
   // and logs an error on subscribe).
   useEffect(() => {
     if (Platform.OS !== 'android') return;
     const sub = BackHandler.addEventListener('hardwareBackPress', () => {
-      onClose();
+      close();
       return true;
     });
     return () => sub.remove();
-  }, [onClose]);
+  }, [close]);
   return (
-    <View style={[StyleSheet.absoluteFill, styles.overlay]}>
+    <View
+      style={[StyleSheet.absoluteFill, styles.overlay]}
+      pointerEvents={closing ? 'none' : 'auto'}
+    >
       <Animated.View
         style={[
           StyleSheet.absoluteFill,
@@ -81,7 +112,7 @@ function OpenSheet({
         ]}
       >
         {/* Tapping outside closes too; screen readers get the labelled close button instead. */}
-        <Pressable style={StyleSheet.absoluteFill} onPress={onClose} accessible={false} />
+        <Pressable style={StyleSheet.absoluteFill} onPress={close} accessible={false} />
       </Animated.View>
       <Animated.View
         style={[
@@ -101,7 +132,7 @@ function OpenSheet({
             {copy.title}
           </Text>
           <Pressable
-            onPress={onClose}
+            onPress={close}
             accessibilityRole="button"
             accessibilityLabel={copy.close}
             style={({ pressed }) => [styles.close, pressed && styles.closePressed]}
