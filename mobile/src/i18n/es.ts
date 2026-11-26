@@ -89,8 +89,33 @@ export const es = {
     },
     back: 'Volver',
     photo: 'Imagen {n} de la etapa',
-    photoCredit: 'Foto: {author}',
-    photoCreditA11y: 'Imagen {n} de la etapa. Foto: {author}',
+    sheet: {
+      more: '¡Saber más!',
+      close: 'Cerrar',
+      blurbs: {
+        brisas:
+          'La puerta de los superpáramos, a 4.100 m sobre la ladera del Nevado del Ruiz. Aquí te inscribes, escuchas la charla y conoces al guía que te llevará hasta el Valle de las Tumbas.',
+        aguacerales:
+          'Primera parada del superpáramo: musgos y líquenes que beben del hielo en las franjas que el glaciar fue dejando atrás. Un páramo que guarda el agua de toda la región.',
+        arenales:
+          'Aquí el suelo es ceniza volcánica. Caminas al pie del Ruiz, un volcán activo de 5.321 m cuyo cráter Arenas mide casi un kilómetro de ancho.',
+        valleLunar:
+          'Parece otro planeta: un altiplano de cenizas y rocas desde donde se asoman el Ruiz, Santa Isabel, el Quindío y el Tolima. Una de las vistas más imponentes de la ruta.',
+        valleTumbas:
+          'El final del camino, a 4.450 m. Sus formaciones volcánicas y fumarolas parecen un cementerio, y los Quimbaya subían hasta aquí en peregrinación a dejar ofrendas.',
+      },
+      species: {
+        brisas:
+          'Crece apenas un centímetro al año. Sus hojas peludas atrapan la niebla y la convierten en agua.',
+        aguacerales:
+          'El único oso de Suramérica. Las manchas claras de su cara son únicas en cada individuo, como una huella digital.',
+        arenales: 'Tan esquivo que casi nunca se deja ver, aunque él sí te esté mirando.',
+        valleLunar:
+          'Pese a su nombre, no es un zorro verdadero: es pariente más cercano de los lobos y los chacales.',
+        valleTumbas:
+          'Más de tres metros de alas: puede planear horas sobre estos valles sin un solo aleteo.',
+      },
+    },
     camera: {
       prompt: 'Toma una foto de esta estación.',
       take: 'Tomar foto',
@@ -172,7 +197,8 @@ export const es = {
     },
   },
   chatScreen: {
-    greeting: '¡Hola! Soy {pet}, tu compañía en Los Nevados. ¿Qué te gustaría descubrir hoy? Puedes preguntarme qué llevar al páramo o enviarme una foto de lo que encuentres en el camino.',
+    greeting:
+      '¡Hola! Soy {pet}, tu compañía en Los Nevados. ¿Qué te gustaría descubrir hoy? Puedes preguntarme qué llevar al páramo o enviarme una foto de lo que encuentres en el camino.',
     greetingKeywords: ['{pet}', 'Los Nevados', 'qué llevar al páramo', 'una foto'],
     newChat: 'Nueva conversación',
     typing: '{pet} está pensando',
@@ -314,7 +340,8 @@ export const es = {
       },
       previewLabel: 'Vista previa',
       previewTitle: 'Valle de las Tumbas',
-      previewBody: 'A 4.450 m s. n. m., lleva abrigo impermeable y agua para el recorrido por el páramo.',
+      previewBody:
+        'A 4.450 m s. n. m., lleva abrigo impermeable y agua para el recorrido por el páramo.',
     },
     highContrast: {
       title: 'Alto contraste',
@@ -353,7 +380,8 @@ export const es = {
       countOne: '1 fuente guardada',
       countMany: '{n} fuentes guardadas',
       emptyTitle: 'Sin fuentes guardadas',
-      emptyBody: 'Cuando abras las fuentes de una respuesta en el chat, toca la estrella para guardarlas aquí.',
+      emptyBody:
+        'Cuando abras las fuentes de una respuesta en el chat, toca la estrella para guardarlas aquí.',
       removedNotice: 'Fuente quitada de guardadas',
       undo: 'Deshacer',
     },

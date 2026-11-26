@@ -86,8 +86,33 @@ export const en: Labels = {
     },
     back: 'Back',
     photo: 'Image {n} of this stage',
-    photoCredit: 'Photo: {author}',
-    photoCreditA11y: 'Image {n} of this stage. Photo: {author}',
+    sheet: {
+      more: 'Learn more!',
+      close: 'Close',
+      blurbs: {
+        brisas:
+          'The gateway to the super-páramo, at 4,100 m on the slopes of the Nevado del Ruiz. Here you sign in, hear the briefing and meet the guide who will take you to the Valley of the Tombs.',
+        aguacerales:
+          'The first stop in the super-páramo: mosses and lichens drinking from the ice on the ground the glacier left behind. A páramo that stores the water of the whole region.',
+        arenales:
+          'Here the ground is volcanic ash. You are at the foot of the Ruiz, an active 5,321 m volcano whose Arenas crater is almost a kilometre wide.',
+        valleLunar:
+          'It looks like another planet: a plateau of ash and rock with the Ruiz, Santa Isabel, Quindío and Tolima peaks on the horizon. One of the most striking views on the route.',
+        valleTumbas:
+          'The end of the road, at 4,450 m. Its volcanic formations and fumaroles look like a graveyard, and the Quimbaya climbed up here on pilgrimage to leave offerings.',
+      },
+      species: {
+        brisas:
+          'It grows barely a centimetre a year. Its furry leaves catch the fog and turn it into water.',
+        aguacerales:
+          'The only bear in South America. The pale markings on its face are unique to each one, like a fingerprint.',
+        arenales: 'So elusive it is almost never seen, even when it is watching you.',
+        valleLunar:
+          'Despite its name, it is not a true fox: it is closer kin to wolves and jackals.',
+        valleTumbas:
+          'Wings over three metres wide: it can glide for hours over these valleys without a single flap.',
+      },
+    },
     camera: {
       prompt: 'Take a photo of this station.',
       take: 'Take photo',
@@ -169,7 +194,8 @@ export const en: Labels = {
     },
   },
   chatScreen: {
-    greeting: "Hi! I'm {pet}, your companion in Los Nevados. What would you like to discover today? Ask me what to pack for the páramo, or send me a photo of something you find along the trail.",
+    greeting:
+      "Hi! I'm {pet}, your companion in Los Nevados. What would you like to discover today? Ask me what to pack for the páramo, or send me a photo of something you find along the trail.",
     greetingKeywords: ['{pet}', 'Los Nevados', 'what to pack for the páramo', 'a photo'],
     newChat: 'New conversation',
     typing: '{pet} is thinking',
@@ -304,7 +330,8 @@ export const en: Labels = {
       },
       previewLabel: 'Preview',
       previewTitle: 'Valle de las Tumbas',
-      previewBody: 'At 4,450 m above sea level, bring a waterproof jacket and water for the páramo trail.',
+      previewBody:
+        'At 4,450 m above sea level, bring a waterproof jacket and water for the páramo trail.',
     },
     highContrast: {
       title: 'High contrast',
