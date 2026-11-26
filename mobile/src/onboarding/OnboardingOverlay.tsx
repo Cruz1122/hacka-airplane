@@ -2,12 +2,12 @@
 // bottom of the scene. Everything follows the scene's progress value, so copy, dots and camera
 // move together. Styling comes from the design tokens only.
 import { memo } from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { Animated, StyleSheet, Text, View } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 import { fill, t } from '@/i18n';
 import { CloudCard } from '@/ui/CloudCard';
-import { PageDots } from '@/ui/PageDots';
+import { PageDots, usePagePosition, type PagePosition } from '@/ui/PageDots';
 import { ParkEmblem } from '@/ui/ParkEmblem';
 import { PET_NAME } from '@/ui/pet/petCore';
 import { PrimaryButton } from '@/ui/PrimaryButton';
@@ -21,10 +21,33 @@ import { ONBOARDING_SCREENS } from './scene/types';
 /** Distance the copy slides while it fades between screens. */
 const COPY_SHIFT = 40;
 
+/**
+ * Motion of screen `k`'s copy: fully shown on its screen, faded out half a screen away while it
+ * slides COPY_SHIFT / 2 to that side. Each screen has its own block, so no text swaps mid-motion.
+ */
+export function copyMotion(value: Animated.Value, k: number) {
+  const range = [k - 0.5, k, k + 0.5];
+  return {
+    opacity: value.interpolate({ inputRange: range, outputRange: [0, 1, 0], extrapolate: 'clamp' }),
+    transform: [
+      {
+        translateX: value.interpolate({
+          inputRange: range,
+          outputRange: [COPY_SHIFT / 2, 0, -COPY_SHIFT / 2],
+          extrapolate: 'clamp',
+        }),
+      },
+    ],
+  };
+}
+
 export interface OnboardingOverlayProps {
   doc: SceneDoc;
-  /** 0 = first screen, ONBOARDING_SCREENS - 1 = last; fractional while moving between screens. */
-  progress: number;
+  /**
+   * 0 = first screen, ONBOARDING_SCREENS - 1 = last; fractional while moving between screens. A
+   * PagePosition animates the copy and dots without re-rendering the overlay on each frame.
+   */
+  progress: number | PagePosition;
   /** Screen width and card height (onboardingLayout). */
   width: number;
   cardHeight: number;
@@ -32,7 +55,7 @@ export interface OnboardingOverlayProps {
   onDone: () => void;
 }
 
-// memo: the onboarding re-renders on every idle-motion frame; the card only changes with progress.
+// memo: with a PagePosition the overlay renders only when the screen it rounds to changes.
 export const OnboardingOverlay = memo(function OnboardingOverlay({
   doc,
   progress,
@@ -42,12 +65,9 @@ export const OnboardingOverlay = memo(function OnboardingOverlay({
   onDone,
 }: OnboardingOverlayProps) {
   const insets = useSafeAreaInsets();
+  const position = usePagePosition(progress);
   if (!uiStyleOf(doc)) return null;
-  const index = Math.min(ONBOARDING_SCREENS - 1, Math.max(0, Math.round(progress)));
-  // -0.5..0.5 around the nearest screen: the copy fades out toward the midpoint and the next one
-  // fades in from the other side.
-  const offset = progress - index;
-  const copy = t.onboarding.screens[index];
+  const index = Math.min(ONBOARDING_SCREENS - 1, Math.max(0, position.index));
   const last = index === ONBOARDING_SCREENS - 1;
   return (
     <View pointerEvents="box-none" style={[styles.root, { height: cardHeight }]}>
@@ -66,23 +86,24 @@ export const OnboardingOverlay = memo(function OnboardingOverlay({
           <View style={styles.mark}>
             <ParkEmblem size={EMBLEM_SIZE} />
           </View>
-          <View
-            style={[
-              styles.copy,
-              {
-                opacity: 1 - Math.min(1, Math.abs(offset) * 2),
-                transform: [{ translateX: -offset * COPY_SHIFT }],
-              },
-            ]}
-          >
-            <Text style={styles.title} accessibilityRole="header" numberOfLines={2}>
-              {fill(copy.title, { pet: PET_NAME })}
-            </Text>
-            <Text style={styles.subtitle} numberOfLines={2}>
-              {fill(copy.subtitle, { pet: PET_NAME })}
-            </Text>
+          <View style={styles.copy}>
+            {t.onboarding.screens.map((copy, k) => (
+              <Animated.View
+                key={k}
+                style={[styles.page, copyMotion(position.value, k)]}
+                accessibilityElementsHidden={k !== index}
+                importantForAccessibility={k === index ? 'auto' : 'no-hide-descendants'}
+              >
+                <Text style={styles.title} accessibilityRole="header" numberOfLines={2}>
+                  {fill(copy.title, { pet: PET_NAME })}
+                </Text>
+                <Text style={styles.subtitle} numberOfLines={2}>
+                  {fill(copy.subtitle, { pet: PET_NAME })}
+                </Text>
+              </Animated.View>
+            ))}
           </View>
-          <PageDots count={ONBOARDING_SCREENS} position={progress} onSelect={onGo} />
+          <PageDots count={ONBOARDING_SCREENS} position={position} onSelect={onGo} />
           <View style={styles.action}>
             <PrimaryButton
               label={last ? t.onboarding.start : t.onboarding.next}
@@ -100,7 +121,9 @@ const styles = StyleSheet.create({
   // Tablets: keep the content phone-sized and centered instead of stretching across the screen.
   mark: { alignItems: 'center', height: EMBLEM_SIZE, justifyContent: 'center' },
   column: { flex: 1, width: '100%', maxWidth: 520, alignSelf: 'center', alignItems: 'stretch' },
-  copy: { height: 64 + 6 + 44, marginTop: 12, marginBottom: 18, justifyContent: 'flex-start' },
+  copy: { height: 64 + 6 + 44, marginTop: 12, marginBottom: 18 },
+  // Screens' copy blocks stack in the copy box; the one off its screen is transparent.
+  page: { position: 'absolute', top: 0, left: 0, right: 0 },
   title: { ...type.display, color: brand.ink, textAlign: 'center' },
   subtitle: { ...type.body, color: brand.inkMuted, textAlign: 'center', marginTop: 6 },
   action: { marginTop: 20 },
