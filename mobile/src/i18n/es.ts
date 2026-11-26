@@ -531,6 +531,23 @@ export const es = {
     },
   },
   // Configuration overlay panel (opened from the right button of CloudNavBar).
+  performance: {
+    title: 'Monitor de rendimiento',
+    description: 'Muestra métricas en la esquina superior izquierda. Toca el indicador para ver el registro.',
+    heap: 'Memoria JS {value} MiB',
+    appMemory: 'RAM de Tumak {value} MiB',
+    available: 'RAM disponible {available} de {total} MiB',
+    cpu: 'CPU de Tumak {value} %',
+    processes: 'Procesos visibles de Tumak {value}',
+    pid: 'Proceso principal (PID) {value}',
+    threads: 'Hilos del proceso {value}',
+    peak: 'Pico de memoria {value} MiB',
+    reply: 'Última respuesta {value} ms',
+    recent: 'Registro reciente',
+    mib: '{value} MiB',
+    web: 'En el navegador, la memoria JS aparece cuando está disponible. La RAM total y los procesos se miden en Android.',
+    nativeUnavailable: 'Las métricas del dispositivo requieren la compilación Android con el monitor.',
+  },
   settingsPanel: {
     title: 'Configuración',
     close: 'Cerrar configuración',

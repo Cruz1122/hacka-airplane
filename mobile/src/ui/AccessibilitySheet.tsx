@@ -98,6 +98,7 @@ export function SwitchRow({
       accessibilityLabel={title}
       accessibilityHint={body}
       accessibilityState={{ checked: value }}
+      aria-checked={value}
       style={({ pressed }) => [styles.switchRow, pressed && { backgroundColor: palette.cardShade }]}
     >
       <View style={styles.switchTexts}>
