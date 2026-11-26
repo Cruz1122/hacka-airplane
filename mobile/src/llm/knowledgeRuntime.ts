@@ -1,10 +1,12 @@
-// Builds the on-device KnowledgeEngine: bundled JSON assets + side-loaded e5 GGUF, index vectors and
-// ONNX scorer (scripts/push-knowledge.sh), plus the Laya reorderer when policy.laya.enabled
+// Builds the on-device KnowledgeEngine: bundled JSON assets + the e5 GGUF, index vectors and ONNX
+// scorer (copied out of the release APK by bundledModels.ts, or side-loaded by
+// scripts/push-knowledge.sh), plus the Laya reorderer when policy.laya.enabled
 // (docs/history/phase3-architecture.md §1.4). The browser build resolves knowledgeRuntime.web.ts.
 import type { InferenceSession } from 'onnxruntime-react-native';
 
 import { KnowledgeEngine } from '@/core/knowledge';
 
+import { ensureBundledModels } from './bundledModels';
 import { loadEmbedder, loadVectors } from './embedder';
 import { knowledgeAssets, restoreKnowledgePatches, type KnowledgeRuntime } from './knowledgeAssets';
 import { layaReranker, openLayaSession } from './laya';
@@ -28,6 +30,8 @@ export async function loadKnowledgeRuntime(): Promise<KnowledgeRuntime> {
   const t0 = performance.now();
   const m = knowledgeAssets.manifest;
   const emb = m.embedder as { file: string; bytes: number };
+  // Release APKs: copy the bundled models into the files dir first (no-op on debug builds).
+  await ensureBundledModels([emb.file, m.vectors.file, ...(m.scorer ? [m.scorer.file] : [])]);
   const [embedder, vectors, score, laya] = await Promise.all([
     loadEmbedder(emb.file, emb.bytes),
     loadVectors(m.vectors.file, m.vectors.bytes),

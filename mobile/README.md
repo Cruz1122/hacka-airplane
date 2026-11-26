@@ -20,8 +20,12 @@ npm install                      # also runs scripts/patch-ort.js (onnxruntime-r
 npx expo prebuild --platform android   # fresh clone only: generates android/ (set ANDROID_HOME or android/local.properties sdk.dir)
 cd android
 ./gradlew assembleDebug   -PreactNativeArchitectures=arm64-v8a   # dev client, ~3-10 min first time
-./gradlew assembleRelease -PreactNativeArchitectures=arm64-v8a   # standalone, signed with the debug key
+./gradlew assembleRelease -PreactNativeArchitectures=arm64-v8a   # standalone; needs the release key, no models inside
 ```
+
+Production APK (models inside, release key, checks the artifact): `scripts/release-android.sh`. It stages the model files named in `assets/data/knowledge/index.json` into `.release-models/` (checked against the manifest's bytes and sha256), runs `expo prebuild` (SDK 58 recreates `android/`), builds, and checks the label, the uncompressed model assets and the signing certificate. Signing reads `TUMAK_UPLOAD_*` from `~/.gradle/gradle.properties` (`plugins/withReleaseAndroid.js`); without them the release build fails. The APK is about 800 MB, so it is installed by side-load, not a store. On first launch the app copies the models into its files dir (`src/llm/bundledModels.ts`) and recopies after each release with new models. A release-key APK cannot install over a debug-key install: uninstall first (this deletes side-loaded files, chats and patches).
+
+App icon, adaptive icon, splash and favicon are rendered from the Pet's geometry: `bun scripts/build-icons.ts` (needs `rsvg-convert`).
 
 | APK | Path | Starts |
 |---|---|---|
@@ -30,7 +34,7 @@ cd android
 
 Install with `adb install -r <apk>`. Expo Go cannot run this app (native modules: llama.rn, onnxruntime, Skia).
 
-Model files are not in the APK. Side-load them into a debug install:
+Debug builds carry no model files. Side-load them into a debug install:
 
 ```bash
 scripts/push-knowledge.sh              # e5 GGUF + vectors + scorer named in assets/data/knowledge/index.json
@@ -106,7 +110,7 @@ Format touched files with `npx prettier --single-quote --print-width 100 --write
 
 Al abrir la app o en la parte superior del chat, toca **Actualízame · Escanea el QR**. Usa la cámara, elige la imagen del QR o pega el código. Si hay una serie numerada, escanea todos sus QR y después confirma una sola vez. La app también lee los QR de versiones anteriores. Los cambios se guardan por dispositivo. Las fichas de seguridad requieren actualizar la app.
 
-En **Ajustes → Administración de información**, el guía puede buscar fichas, agregarlas, editarlas o darlas de baja. La contraseña inicial es `cisco123`. Puedes cambiarla por una de al menos ocho caracteres. Se guarda localmente como un hash con sal y el panel se bloquea al salir.
+En **Ajustes → Administración de información**, el guía puede buscar fichas, agregarlas, editarlas o darlas de baja. La contraseña inicial es `cisco123`. Puedes cambiarla por una de al menos ocho caracteres. Se guarda localmente en el teléfono y el panel se bloquea al salir.
 
 Pulsa **Guardar** después de editar o agregar una ficha, o **Guardar retirada** para darla de baja. El Tumak del guía usa el cambio desde ese momento y lo conserva al cerrar la app. En el catálogo, pulsa **Compartir cambios guardados** para compartir todas las revisiones locales, o abre una ficha guardada para compartirla individualmente. La aplicación comprime los cambios sin internet y, si hace falta, los divide en varios QR menos densos. Al guardar o recibir fichas, la aplicación genera los embeddings de las preguntas con el modelo e5 local y actualiza el buscador y los seguimientos «sigue» y «por qué». La cámara en Android o iOS requiere una compilación que incluya `expo-camera`.
 

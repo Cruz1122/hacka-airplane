@@ -33,15 +33,15 @@ safety + live-status text rules (`src/core/knowledge/safety.ts`) -> follow-up ch
 
 Do not run `experiments/laya/export_knowledge.py` directly: it writes the older `e5-top1-v1` format over the current `e5-nlu-v1` assets. It is the shared library `export_nlu.py` imports.
 
-## Model files (side-loaded, not in the APK)
+## Model files (inside the release APK, side-loaded on debug)
 
-- Named by `assets/data/knowledge/index.json`; pushed with `mobile/scripts/push-knowledge.sh [--with-laya]` (debug builds only, `run-as`). The app checks each file's byte size against the manifest.
+- Named by `assets/data/knowledge/index.json`. Release: `mobile/scripts/release-android.sh` ships them as uncompressed assets (user decision 2026-11-26) and `src/llm/bundledModels.ts` copies them into the files dir on first launch and after a release with a new `models.sha256` stamp. Debug: pushed with `mobile/scripts/push-knowledge.sh [--with-laya]` (`run-as`). The app checks each file's byte size against the manifest.
 - `models/knowledge/e5-nlu-ft4-f16.gguf` cannot be rebuilt from the repo (trained in Colab, payload not committed). Never delete or overwrite it.
 
 ## Stack and dependencies
 
 - Expo SDK 58, RN 0.88 new arch, Hermes, TypeScript strict, `expo-router`, development build (`expo-dev-client`, CNG). Not Expo Go. Android arm64 first; npm only.
-- `mobile/android` is generated: never edit; change `app.json` or plugins. Release: `cd mobile/android && ./gradlew assembleRelease -PreactNativeArchitectures=arm64-v8a`.
+- `mobile/android` is generated: never edit; change `app.json` or plugins. Release: `mobile/scripts/release-android.sh` (models inside, release key).
 - Dependency whitelist: expo + its template deps, expo-router, expo-dev-client, expo-file-system, expo-sqlite (and kv-store), llama.rn, onnxruntime-react-native (patched by `scripts/patch-ort.js` on postinstall), @shopify/flash-list, @shopify/react-native-skia, react-native-svg, react-native-web, @wllama/wllama (web chat only, approved 2026-11-23), expo-speech-recognition (chat hold-to-dictate, approved 2026-11-26), expo-speech (chat reply TTS, approved 2026-11-26). Dev: jest-expo, @types/*, prettier. Anything else needs the user's approval.
 - Web: `metro.config.js` swaps `llama.rn` and `onnxruntime-react-native` for `src/web-stubs/`. The web chat runs the same e5 GGUF on wllama (`src/llm/knowledgeRuntime.web.ts`), fetched with the vectors from the dev server's `/knowledge-files/` (an allowlist in `metro.config.js`); no ONNX scorer (JS loop), Laya off. A static `expo export` has no models.
 
