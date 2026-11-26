@@ -30,12 +30,14 @@ export interface PetStillProps {
   tint?: PetTint;
   /** Part of the Pet to show, in Pet units (see Pet's `crop`). */
   crop?: { x: number; y: number; width: number; height: number };
+  /** 0..1 turn to look left, the same mirror the animated Pet uses. */
+  mirror?: number;
   fill?: string;
   shade?: string;
 }
 
-const frameOf = (cfg: PetConfig, face: PetConfig['poses'][PetEmotion]) =>
-  petFrame(cfg, { time: 0, face, blink: 1, reduced: true });
+const frameOf = (cfg: PetConfig, face: PetConfig['poses'][PetEmotion], mirror: number) =>
+  petFrame(cfg, { time: 0, face, blink: 1, reduced: true, mirror });
 
 export function PetStill({
   size,
@@ -43,6 +45,7 @@ export function PetStill({
   accessory,
   tint,
   crop,
+  mirror = 0,
   fill = brand.card,
   shade = brand.cardShade,
 }: PetStillProps) {
@@ -58,8 +61,8 @@ export function PetStill({
   }, [emotion, accessory, tint]);
   const { transition, easing } = PET_PRESET.motion;
   const face = useFaceTransition(PET_PRESET.poses, emotion, reduced ? 0 : transition, easing);
-  const [frames] = useState(() => new FrameStore(frameOf(cfg, face)));
-  useEffect(() => frames.set(frameOf(cfg, face)), [cfg, face, frames]);
+  const [frames] = useState(() => new FrameStore(frameOf(cfg, face, mirror)));
+  useEffect(() => frames.set(frameOf(cfg, face, mirror)), [cfg, face, frames, mirror]);
   const v = crop ?? (accessory ? PET_ACCESSORY_VIEWBOX : PET_VIEWBOX);
   return (
     <View
