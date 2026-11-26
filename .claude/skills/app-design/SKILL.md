@@ -14,7 +14,7 @@ or size from memory.
 |---|---|
 | Brand colors, fonts, type scale, spacing, radius | `mobile/src/ui/theme/tokens.ts` |
 | Font files (Manrope and Bricolage Grotesque, static instances, OFL) | `mobile/assets/fonts/`, mapped in `mobile/src/ui/theme/fonts.ts`, loaded in `mobile/app/_layout.tsx` |
-| Art direction (palette, light, composition, card) | `reference/onboarding.png` in this folder |
+| Art direction (palette, light, composition, card) | `reference/onboarding.png` and `reference/chat.png` in this folder |
 | Live catalog of everything below | route `/design` (web: `http://localhost:8081/design`) |
 | Onboarding illustration palette | `mobile/src/onboarding/scene/preset.ts` (`DEFAULT_PALETTE`), edited in the Lab (`/lab`) |
 
@@ -42,12 +42,12 @@ A new component goes in `src/ui/`, gets a row in this table and a sample on `/de
 The character is called `PET_NAME` (`src/ui/pet/petCore.ts`); the name is provisional, so never
 hard-code it. Never redraw the Pet's geometry or face: they are ported from its own lab
 (fleibo-face), and `petCore.ts` is the asset. It has one look, vapor (the user made it permanent
-on 2026-11-22; the glossy `PetFigure.tsx` is no longer drawn anywhere):
+on 2026-11-22; the old glossy figure was deleted):
 
 | Component | Where | Colors |
 |---|---|---|
-| `Pet` (animated, draws `PetVaporFigure`) | the chat's circle (`PetCircle`), `/design` | `fill`/`shade` props; default `brand.card`/`brand.cardShade`, the chat circle passes the scene's mist colors |
-| `PetVaporFigure` (one frame) | inside the onboarding scene, rising out of the crater | the scene's mist colors (`PetBody.fill`/`shade`, default `$mist`/`$cloudShade`) |
+| `Pet` (animated, draws `PetVaporCanvas`: Skia on native, `PetVaporFigure` SVG on web) | the chat's circle (`PetCircle`), `/design` | `fill`/`shade` props; default `brand.card`/`brand.cardShade`, the chat circle passes the scene's mist colors |
+| one frame from `petFrame()` (`drawPet` on Skia, `PetVaporFigure` on SVG) | inside the onboarding scene, rising out of the crater | the scene's mist colors (`PetBody.fill`/`shade`, default `$mist`/`$cloudShade`) |
 
 The vapor look draws the same body and face, solid and defined, with a soft halo of puffs
 (`petVaporPuffs`) behind the outline so the vapor reads as part of the body (never puffs on top
@@ -69,11 +69,12 @@ import { Pet } from '@/ui/pet/Pet';
   mirrors in place about the body's center), `paused`, `reducedMotion` (the system setting also applies), `trackPointer` (web only),
   `lookAround` (default on: glances around on its own when the pointer rests or on touch
   screens), `crop` (part of the Pet to show, in Pet units).
-- Inside an SVG scene, draw one frame from `petFrame()` with `PetVaporFigure` (the onboarding
-  scene does this in its `ruizMascot` layer).
+- Inside a scene, draw one frame from `petFrame()`: `drawPet` in the Skia renderer
+  (`SceneCanvas.native.tsx`), `PetVaporFigure` in the SVG one (`NevadoScene`, web). Both read the
+  same frame, so change the look in `petCore.ts` and keep both drawers in step.
 - Emotion changes always morph with the Pet's own (fleibo-face) transition: `motion.transition`
   ms with `motion.easing`, from the face on screen. `Pet` does it in its engine; a host drawing
-  single frames uses `useFaceTransition` (the scene's `ScenePet` does). Never switch poses
+  single frames uses `useFaceTransition` (both scene renderers do). Never switch poses
   directly, and show a chat moment as an emotion (`PetCircle`: happy, thinking, speaking), not
   only a voice state, since the voice alone just swaps the mouth.
 
@@ -89,8 +90,10 @@ import { Pet } from '@/ui/pet/Pet';
    the park emblem's ring, and shades of it), not the reference's violet: the user's call. White
    on that teal is 3.2:1, below AA for the 16 px label; the user accepted it for the exact color.
    The scene keeps its lavender sky. `online` (green) is only the ready dot on the Pet's circle.
-4. Gradients, icons and shapes are drawn with `react-native-svg`. There is no icon or gradient
-   package; do not add one.
+4. UI gradients, icons and shapes are drawn with `react-native-svg`. The onboarding scene, the
+   chat header scene and the Pet draw with `@shopify/react-native-skia` on native and
+   `react-native-svg` on web (`mobile/README.md`, "Onboarding scene"); the SVG version is the
+   reference look. There is no icon or gradient package; do not add one.
 5. Illustration colors (sky, volcano, páramo, frailejones, lupines) belong to the scene palette,
    not to the tokens. The look is the reference: lavender dusk sky with a golden horizon,
    blue-violet ranges, white snow with lavender shadows, green-gold páramo, frailejones, purple
@@ -98,10 +101,10 @@ import { Pet } from '@/ui/pet/Pet';
    derived from the scene palette (`src/chat/headerPeaks.ts`); the user's call on 2026-11-22.
 6. Touch targets are at least 44 pt (use `hitSlop` on small controls). Buttons set
    `accessibilityRole` and a label; step dots are `tab`s named by `t.pageDot` ("Paso N de M").
-8. Copy comes from `src/i18n` (`t.<key>`, `fill()` for `{placeholders}`), never from literals in
+7. Copy comes from `src/i18n` (`t.<key>`, `fill()` for `{placeholders}`), never from literals in
    UI files; the guard test enforces it. New text = a key in `es.ts` and in every other locale.
    Onboarding copy leads with the park; the Pet is the guide, not the product.
-7. Respect reduced motion (`useReducedMotion` in `src/ui/useReducedMotion.ts`): no idle loops and
+8. Respect reduced motion (`useReducedMotion` in `src/ui/useReducedMotion.ts`): no idle loops and
    instant page changes.
 
 ## Not decided yet (do not invent)

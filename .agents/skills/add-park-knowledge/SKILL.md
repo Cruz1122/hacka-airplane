@@ -172,3 +172,17 @@ and remaining factual gaps. Explicitly separate structural validity from retriev
 factual entailment. For a safety-critical new or modified protocol, use a focused independent source
 review before applying; ordinary edits need no panel. Package a ZIP or run semantic/evaluation
 suites only when requested or when a concrete new ambiguity requires it.
+
+## Ship it to the app (only when asked)
+
+The tool stops at `data/knowledge/sections/`; the phone reads generated assets. When the user wants
+the change on the device:
+
+1. Give every added entry its app-layer rows in `data/knowledge/app/` (at least a fidelity-checked
+   reply in `natural_replies.json`; see that folder's README). Remove rows of deleted entries.
+   `experiments/nlu/export_nlu.py` aborts on an entry without a natural reply.
+2. Re-export (command and flags: `docs/architecture.md`, "Regenerating the assets"). It rewrites
+   `mobile/assets/data/knowledge/*.json`, the Jest parity fixtures and the side-loaded vectors.
+3. `cd mobile && npm test`, then `mobile/scripts/push-knowledge.sh` on a debug install.
+
+Never overwrite `models/knowledge/e5-nlu-ft4-f16.gguf`: it cannot be rebuilt from the repo.

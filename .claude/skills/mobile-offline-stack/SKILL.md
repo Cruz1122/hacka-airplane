@@ -1,95 +1,57 @@
 ---
 name: mobile-offline-stack
-description: Fixed architecture and contracts of the Expo offline assistant in mobile/ (since 2026-11-22 an embedding knowledge system - e5 query embedder on llama.rn, top-1 curated answer, optional Laya reorderer on onnxruntime-react-native; the older LLM + FSM stack is legacy). Read before touching mobile/, src/nevados_bench/export_mobile.py or export_knowledge.py.
+description: Fixed architecture and contracts of the Expo offline assistant in mobile/ - embedding knowledge chat (fine-tuned e5 GGUF on llama.rn + ONNX scorer on onnxruntime-react-native, top-1 curated answer, Laya reorderer off), Skia renderers on native, generated assets and side-loaded model files. Read before touching mobile/, experiments/nlu/export_nlu.py, experiments/laya/export_knowledge.py or src/nevados_bench/export_mobile.py.
 ---
 
 # Mobile offline stack (decided; do not relitigate)
 
-## Current architecture (2026-11-22, supersedes the LLM sections below)
+Human docs: `docs/retrieval-architecture.md` (gateway, gates, per-gate strategies, decision layer), `docs/architecture.md` (pipeline, assets, regeneration), `docs/system-map.md` (how every folder, script and model connects; what to redo after a change) and `mobile/README.md` (build, routes, layout). This skill holds the rules an agent must not break.
 
-User decisions: real PNN Los Nevados, **no generative model and no router**, `onnxruntime-react-native` approved. Design: `docs/phase3-architecture.md`; plan: `docs/phase3-implementation-plan.md`.
+## User decisions
 
-- Pipeline: safety and live-status text rules first -> e5-base query embedding (GGUF, its own llama.rn context, `"query: "` prefix, never through `ModelManager`) -> soft gateway + pool (port of the dataset `build_dataset.py` retrieval) -> reranker seam (identity by default; Laya ONNX only when `laya.enabled` and every pool id is in its catalog) -> top-1 policy (user decision 2026-11-22: the best entry when its e5 cosine >= T, else abstain; urgent answers the best emergency entry or the 123 entry, with a banner) -> curated `answer.short` by id, rendered in the main chat (`app/index.tsx` via `src/state/knowledgeRows.ts`). No menus. Laya disabled.
-- Code: `src/core/knowledge/` (pure TS), `src/llm/embedder.ts`, `src/state/useKnowledge.ts`. Assets GENERATED into `assets/data/knowledge/` by `uv run python -m nevados_bench.export_knowledge`; index vectors side-loaded. Never hand-edit.
-- The FSM (`src/core/*.ts` outside `knowledge/`), `world.json` and the GGUF chat models are legacy: they must not be reachable from the knowledge path. Action entries show their curated answer only.
-- Dependency whitelist adds `onnxruntime-react-native`.
+- Real PNN Los Nevados. **No generative model, no router, no LLM** in the chat (2026-11-22). Every reply is a curated catalog answer or a policy text.
+- Top-1 policy: answer with the best entry when its score clears `policy.T`, else abstain. No menus.
+- Laya reorderer: kept as an option, `policy.laya.enabled` false. `src/llm/laya.ts` is a stub that throws until its tokenizer port passes `src/core/knowledge/laya/__fixtures__/laya_io.json`.
+- Native onboarding and Pet draw with `@shopify/react-native-skia` (2026-11-23, approved for perf); web keeps react-native-svg.
+- No network at runtime.
 
-## Legacy LLM stack (kept until a separate cleanup)
+## Pipeline (do not reorder)
 
-Product: offline (airplane mode) visitor assistant for 4 stations of a fictional park. The Python package `src/nevados_bench` is the reference implementation and the benchmark; the app is a TypeScript port of its FSM running a GGUF model on the phone. Target device: Moto Edge 60 Fusion, Android 16, arm64, 8 GB RAM.
+safety + live-status text rules (`src/core/knowledge/safety.ts`) -> follow-up check -> e5 embedding (`clean` only when `policy.strip_fillers`; off) with `"query: "` prefix (own llama.rn context in `src/llm/embedder.ts`, never through `ModelManager`) -> ONNX scorer over all index rows (`src/llm/scorer.ts`) -> vector gateway over the 15 gates (all open: `delta` 2.0, `max_sections` 15) -> entry score = mean of best `score_topk` rows, follow-up fusion (`engine.ts`, `policy.followup`) -> reranker seam (identity) -> top-1 policy (`policy.ts`) -> curated text by id, rendered by `app/index.tsx` through `src/state/useKnowledge.ts` and `knowledgeRows.ts`.
 
-## Stack
+- `src/core/knowledge/` stays pure TS (no React/RN imports); embedder and scorer are injected.
+- Missing or bad side-loaded files -> `degradedKnowledgeEngine`: safety rules still answer, other questions raise `KnowledgeEngineError`.
+- Every reply carries the curated 123 line; urgent messages get a banner plus the emergency entry.
 
-- Expo SDK (latest stable), TypeScript strict, `expo-router`, development build (`expo-dev-client`, CNG/prebuild). Not Expo Go (native module). Android first; keep code platform-agnostic.
-- Package manager: npm. Tests: `jest-expo` preset. Lint/format: `npx expo lint` (ESLint) + Prettier defaults.
-- On-device inference: `llama.rn` (llama.cpp binding). One context kept alive; n_ctx 4096, 4 threads, temperature 0, fixed seed.
-- Dependency whitelist: expo + its template deps, expo-router, expo-dev-client, expo-file-system, expo-sqlite (also its kv-store), llama.rn, @shopify/flash-list. Dev: jest-expo, @types/*, prettier. Nothing else without asking.
-- No network at runtime. `HttpBackend` (dev only) talks to a llama-server (laptop or `adb forward`) and is never the default.
+## Generated files (never hand-edit)
 
-## Layout and ownership
+| Files | Generator |
+|---|---|
+| `mobile/assets/data/knowledge/{catalog,sections,policy,index}.json`, `src/core/knowledge/__fixtures__/{retrieval,clean}.json`, `models/knowledge/{index.f32.bin,index_scorer.onnx}` | `cd experiments/laya && uv run python ../nlu/export_nlu.py --gguf ../../models/knowledge/e5-nlu-ft4-f16.gguf --T 0.5 --w 5.0 --max-words 5 --below 0.7 --cue` |
+| `src/core/knowledge/laya/__fixtures__/laya_io.json` | `experiments/laya/laya_fixtures.py` |
+| `mobile/assets/data/world.json`, legacy `src/core/__fixtures__/*` | `uv run python -m nevados_bench.export_mobile` (legacy) |
 
-```
-mobile/
-  app/                    expo-router screens (UI only, no business logic)
-  assets/data/world.json  GENERATED by `uv run python -m nevados_bench.export_mobile` - never edit
-  src/core/               pure TS port of the Python FSM; no React/RN imports
-    types.ts world.ts tools.ts prompts.ts parse.ts values.ts states.ts guards.ts driver.ts
-    __fixtures__/         GENERATED parity fixtures (prompts.json, replays.json)
-  src/llm/                LLMBackend implementations + model manager
-    llamaRn.ts http.ts fake.ts models.ts modelManager.ts
-  src/state/              session hook, settings, local persistence (expo-sqlite)
-  src/ui/                 small presentational components + theme/tokens.ts
-```
+Do not run `experiments/laya/export_knowledge.py` directly: it writes the older `e5-top1-v1` format over the current `e5-nlu-v1` assets. It is the shared library `export_nlu.py` imports.
 
-## Contracts
+## Model files (side-loaded, not in the APK)
 
-```ts
-// src/core/types.ts
-export type Role = 'system' | 'user' | 'assistant';
-export interface ChatMessage { role: Role; content: string }
-export interface PromptRequest {          // same fields/semantics as Python schemas.PromptRequest
-  messages: ChatMessage[];
-  max_tokens: number;
-  json_schema?: Record<string, unknown>;  // route/extract calls
-  tool_choice?: string;
-  temperature?: number; top_p?: number; top_k?: number; seed?: number;
-}
-export interface Completion {             // subset of Python schemas.Completion, same names
-  content: string;                        // "" when empty, as in Python
-  tool_calls?: { name: string; arguments: string }[];
-  finish_reason?: string | null;
-  prompt_n?: number | null; cache_n?: number | null; predicted_n?: number | null;
-  ttft_ms?: number | null; total_ms?: number | null; prompt_ms?: number | null; predicted_ms?: number | null;
-  timeout?: boolean; http_error?: string | null;
-}
-export interface LLMBackend { complete(req: PromptRequest, signal?: AbortSignal, onText?: (soFar: string) => void): Promise<Completion> }
+- Named by `assets/data/knowledge/index.json`; pushed with `mobile/scripts/push-knowledge.sh [--with-laya]` (debug builds only, `run-as`). The app checks each file's byte size against the manifest.
+- `models/knowledge/e5-nlu-ft4-f16.gguf` cannot be rebuilt from the repo (trained in Colab, payload not committed). Never delete or overwrite it.
 
-// src/core/driver.ts
-export class DialogueRun {
-  constructor(world: World, backend: LLMBackend, opts: {
-    guards: boolean; deviceStation: string | null; answerMode: 'extractive' | 'generate'; mode: 'uniform';
-  });
-  turn(message: string, onText?, onDraft?): Promise<string>; // onText: streamed reply; onDraft: route/extract JSON
-  state: string; steps: StepResult[];       // StepResult mirrors Python fsm.driver.StepResult
-}
+## Stack and dependencies
 
-// src/state/useAssistant.ts  (UI depends only on this)
-export function useAssistant(): {
-  messages: { id: string; role: 'user' | 'assistant'; text: string; latencyMs?: number }[];
-  send(text: string): Promise<void>; reset(): void;
-  busy: boolean; draft: string; state: string; lastSteps: StepResult[];
-  model: { id: string; status: 'missing' | 'loading' | 'ready' | 'error'; error?: string };
-};
-```
+- Expo SDK 58, RN 0.88 new arch, Hermes, TypeScript strict, `expo-router`, development build (`expo-dev-client`, CNG). Not Expo Go. Android arm64 first; npm only.
+- `mobile/android` is generated: never edit; change `app.json` or plugins. Release: `cd mobile/android && ./gradlew assembleRelease -PreactNativeArchitectures=arm64-v8a`.
+- Dependency whitelist: expo + its template deps, expo-router, expo-dev-client, expo-file-system, expo-sqlite (and kv-store), llama.rn, onnxruntime-react-native (patched by `scripts/patch-ort.js` on postinstall), @shopify/flash-list, @shopify/react-native-skia, react-native-svg, react-native-web. Dev: jest-expo, @types/*, prettier. Anything else needs the user's approval.
+- Web: `metro.config.js` swaps `llama.rn` and `onnxruntime-react-native` for `src/web-stubs/`.
 
-## Parity rules (the spec is the fixtures)
+## Renderers
 
-- JSON payload field names stay snake_case exactly as Python emits them; TS identifiers are camelCase.
-- `buildRequest(case, world, 'uniform')` must equal Python `fsm.prompts.build_request` byte for byte (prompts.json).
-- `DialogueRun` with the recorded oracle outputs must reproduce every request, step path, note, assistant message, executed call and final state in replays.json.
-- Deployment path for schema calls mirrors the benchmark's `/completion` path: apply the model's chat template to the messages (reasoning off; Qwen3 gets the empty think block), then raw completion constrained by the JSON schema. Prompt-prefix KV reuse matters (route prefix ~2k tokens).
-- Answer mode default `extractive` (passages verbatim with `[fuente: ID]`, no model call). Guards on.
+- One `SceneDoc` (`src/onboarding/scene/`), two renderers: `SceneCanvas.native.tsx` + `skia/drawScene.ts` (native), `NevadoScene.tsx` (web, the reference). A new body kind goes into both.
+- Pet: `src/ui/pet/Pet.tsx` -> `PetVaporCanvas` (`.native.tsx` Skia via `drawPet.ts`, web SVG via `PetVaporFigure`).
+- Skia pitfalls: always pass bounds to `PictureRecorder.beginRecording` (the default cull rect drops content at negative coordinates); Jest cannot load Skia, so data modules (e.g. `src/chat/headerScene.ts`) must not import renderers.
+- Measure perf on a release build on the phone (`adb shell dumpsys gfxinfo`), never from web or debug numbers.
 
-## Model swap ("ponchar la alternativa")
+## Legacy (still compiled, not in the chat path)
 
-`src/llm/models.ts` is the single registry: `{ id, file, label, quirks }` for `gemma4-e2b` (gemma-4-E2B-it-Q4_K_M.gguf), `qwen3-0.6b-router` (fine-tuned, qwen3-0.6b-router-*-Q4_K_M.gguf), `qwen3-0.6b`, `qwen3-1.7b`. The selected id lives in settings; switching model = pick another id. Models are side-loaded (not in the APK): `mobile/scripts/push-model.sh <gguf>` copies to the app's files dir via adb.
+`src/core/*.ts` outside `knowledge/` (FSM port), `src/llm/{llamaRn,modelManager,models,fake}.ts`, `app/settings.tsx` (model/backend/answer-mode controls the chat ignores) and `src/nevados_bench/` (`export_mobile` closure). They must stay unreachable from the knowledge path. Removing them starts with the settings screen; the old contracts are in git history and `docs/history/`.
