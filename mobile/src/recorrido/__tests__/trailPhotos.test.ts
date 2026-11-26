@@ -1,7 +1,7 @@
 import { es } from '@/i18n/es';
 
 import { STATION_IDS } from '../stations';
-import { trailPhoto } from '../trailPhotos';
+import { speciesPhoto, trailPhoto } from '../trailPhotos';
 
 test('every station page has a bundled, credited photo', () => {
   for (const id of STATION_IDS) {
@@ -12,4 +12,22 @@ test('every station page has a bundled, credited photo', () => {
       expect(photo.license).not.toBe('');
     });
   }
+});
+
+test('every stop has a credited species photo, framed inside it', () => {
+  for (const id of STATION_IDS) {
+    const photo = speciesPhoto(id);
+    expect(photo.author).not.toBe('');
+    expect(photo.license).not.toBe('');
+    expect(photo.url).toMatch(/^https:\/\//);
+    expect(photo.crop.zoom).toBeGreaterThanOrEqual(1);
+  }
+});
+
+test('every trail photo links to its own Commons file page, not a search', () => {
+  const urls = STATION_IDS.flatMap((id) => [
+    speciesPhoto(id).url,
+    ...es.trail.pages[id].map((_, page) => trailPhoto(id, page).url),
+  ]);
+  for (const url of urls) expect(url).toMatch(/^https:\/\/commons\.wikimedia\.org\/wiki\/File:/);
 });

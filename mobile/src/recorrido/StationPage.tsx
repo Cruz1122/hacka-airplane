@@ -34,6 +34,7 @@ export function StationPage({ id }: { id: StationId }) {
           description: page.body,
           creditAuthor: photo.author,
           creditLicense: photo.license,
+          creditUrl: photo.url,
         };
       }),
     [id, paras],

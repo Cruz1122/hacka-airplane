@@ -11,9 +11,7 @@ import {
   Easing,
   Image,
   type LayoutChangeEvent,
-  Linking,
   Platform,
-  Pressable,
   StyleSheet,
   Text,
   View,
@@ -21,9 +19,8 @@ import {
 
 import { photoSource } from '@/core/media/bundled';
 import type { MediaPick, MediaPickItem } from '@/core/media/media';
-import { fill, t } from '@/i18n';
 
-import { Icon } from '../icons/Icon';
+import { PHOTO_CREDIT_INSET, PhotoCredit } from '../PhotoCredit';
 import { brand, fonts, radius, spacing, type } from '../theme/tokens';
 import { useReducedMotion } from '../useReducedMotion';
 
@@ -45,8 +42,7 @@ const STAGGER_MS = 90;
 const IMAGE_FADE_MS = 260;
 const PULSE_MS = 850;
 const RISE = 8;
-const CREDIT_INSET = 6;
-const CAMERA_ICON = 11;
+const CREDIT_INSET = PHOTO_CREDIT_INSET;
 const USE_NATIVE_DRIVER = Platform.OS !== 'web';
 const WEB_LINK = /^https?:\/\/\S+$/i;
 
@@ -333,30 +329,13 @@ function Caption({ words, shown }: { words: Word[]; shown: number }) {
 
 /** Camera icon and author on the photo's corner; tapping opens the photo's source. */
 function Credit({ item, maxWidth }: { item: MediaPickItem; maxWidth: number }) {
-  const { photo } = item;
-  const openSource = () => {
-    const url = photoSourceUrl(item);
-    Linking.openURL(url).catch((e: unknown) =>
-      console.warn(`Could not open photo source for ${item.id} (${url})`, e),
-    );
-  };
   return (
-    <Pressable
-      onPress={openSource}
-      hitSlop={6}
-      accessible
-      accessibilityRole="link"
-      accessibilityLabel={fill(t.chatScreen.media.credit, {
-        author: photo.author,
-        license: photo.license,
-      })}
-      style={({ pressed }) => [styles.credit, { maxWidth }, pressed && styles.creditPressed]}
-    >
-      <Icon name="camera" size={CAMERA_ICON} color={brand.onPrimary} strokeWidth={2.2} />
-      <Text style={styles.author} numberOfLines={1} ellipsizeMode="tail">
-        {photo.author}
-      </Text>
-    </Pressable>
+    <PhotoCredit
+      author={item.photo.author}
+      license={item.photo.license}
+      url={photoSourceUrl(item)}
+      maxWidth={maxWidth}
+    />
   );
 }
 
@@ -395,23 +374,5 @@ const styles = StyleSheet.create({
     position: 'absolute',
     left: CREDIT_INSET,
     bottom: CREDIT_INSET,
-  },
-  credit: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    gap: spacing.xs,
-    paddingLeft: 6,
-    paddingRight: 8,
-    paddingVertical: 3,
-    borderRadius: radius.pill,
-    backgroundColor: brand.photoScrim,
-  },
-  creditPressed: { opacity: 0.8 },
-  author: {
-    flexShrink: 1,
-    fontFamily: fonts.bold,
-    fontSize: 10,
-    lineHeight: 13,
-    color: brand.onPrimary,
   },
 });
