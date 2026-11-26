@@ -228,6 +228,9 @@ def main() -> None:
             # Explicit on every row: true only for entries taken whole from the UTON guion. Hubs
             # (built above) mix members, so they stay false.
             "verified_by_uton": e.get("verified_by_uton") is True,
+            # Talks about the assistant or the conversation (greetings, "that is off topic"), never
+            # about the park: the verified-only mode may still answer with it.
+            "conversational": e.get("kind") == "chat",
         })
     sec_out = [{"id": s, "order": sections[s].get("order"), "title": sections[s].get("title"),
                 "top_k": K, "featured": sections[s].get("featured", [])} for s in sec_names]
