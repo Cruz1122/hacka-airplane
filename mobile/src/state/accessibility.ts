@@ -16,6 +16,8 @@ export interface AccessibilityPrefs {
   textScale: TextScale;
   highContrast: boolean;
   reduceMotion: boolean;
+  /** Speak a new assistant reply as soon as it finishes generating. */
+  autoSpeakReplies: boolean;
   colorVision: ColorVisionMode;
 }
 
@@ -23,6 +25,7 @@ export const DEFAULT_ACCESSIBILITY: AccessibilityPrefs = {
   textScale: 1,
   highContrast: false,
   reduceMotion: false,
+  autoSpeakReplies: false,
   colorVision: 'none',
 };
 
@@ -58,6 +61,7 @@ export function isDefaultAccessibility(p: AccessibilityPrefs): boolean {
     p.textScale === DEFAULT_ACCESSIBILITY.textScale &&
     p.highContrast === DEFAULT_ACCESSIBILITY.highContrast &&
     p.reduceMotion === DEFAULT_ACCESSIBILITY.reduceMotion &&
+    p.autoSpeakReplies === DEFAULT_ACCESSIBILITY.autoSpeakReplies &&
     p.colorVision === DEFAULT_ACCESSIBILITY.colorVision
   );
 }
@@ -77,11 +81,15 @@ export function parseAccessibility(raw: string | null): AccessibilityPrefs {
       typeof row.highContrast === 'boolean' ? row.highContrast : DEFAULT_ACCESSIBILITY.highContrast;
     const reduceMotion =
       typeof row.reduceMotion === 'boolean' ? row.reduceMotion : DEFAULT_ACCESSIBILITY.reduceMotion;
+    const autoSpeakReplies =
+      typeof row.autoSpeakReplies === 'boolean'
+        ? row.autoSpeakReplies
+        : DEFAULT_ACCESSIBILITY.autoSpeakReplies;
     const colorVision =
       typeof row.colorVision === 'string' && COLOR_VISION_SET.has(row.colorVision)
         ? (row.colorVision as ColorVisionMode)
         : DEFAULT_ACCESSIBILITY.colorVision;
-    return { textScale, highContrast, reduceMotion, colorVision };
+    return { textScale, highContrast, reduceMotion, autoSpeakReplies, colorVision };
   } catch {
     return DEFAULT_ACCESSIBILITY;
   }
@@ -121,12 +129,14 @@ export function setAccessibility(patch: Partial<AccessibilityPrefs>) {
     textScale: patch.textScale !== undefined ? snapTextScale(patch.textScale) : prefs.textScale,
     highContrast: patch.highContrast ?? prefs.highContrast,
     reduceMotion: patch.reduceMotion ?? prefs.reduceMotion,
+    autoSpeakReplies: patch.autoSpeakReplies ?? prefs.autoSpeakReplies,
     colorVision: patch.colorVision ?? prefs.colorVision,
   };
   if (
     next.textScale === prefs.textScale &&
     next.highContrast === prefs.highContrast &&
     next.reduceMotion === prefs.reduceMotion &&
+    next.autoSpeakReplies === prefs.autoSpeakReplies &&
     next.colorVision === prefs.colorVision
   ) {
     return;
@@ -157,4 +167,5 @@ const subscribe = (l: () => void) => {
 
 const read = (): AccessibilityPrefs => prefs;
 
-export const useAccessibility = (): AccessibilityPrefs => useSyncExternalStore(subscribe, read, read);
+export const useAccessibility = (): AccessibilityPrefs =>
+  useSyncExternalStore(subscribe, read, read);

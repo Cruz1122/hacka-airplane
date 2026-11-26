@@ -22,6 +22,7 @@ function speech(): SpeechApi {
 }
 
 let speakingKey: string | null = null;
+const autoPlayed = new Set<string>();
 const listeners = new Set<() => void>();
 
 function emit() {
@@ -44,12 +45,8 @@ export function getSpeakingKey() {
   return speakingKey;
 }
 
-export function toggleSpeak(key: string, text: string, onError: (error: Error) => void) {
+export function startSpeak(key: string, text: string, onError: (error: Error) => void) {
   const Speech = speech();
-  if (speakingKey === key) {
-    void Speech.stop();
-    return;
-  }
   void Speech.stop();
   speakingKey = key;
   emit();
@@ -67,4 +64,24 @@ export function toggleSpeak(key: string, text: string, onError: (error: Error) =
       onError(error);
     },
   });
+}
+
+export function toggleSpeak(key: string, text: string, onError: (error: Error) => void) {
+  if (speakingKey === key) {
+    void speech().stop();
+    return;
+  }
+  startSpeak(key, text, onError);
+}
+
+/** Plays a finished reply once per id. Old rows remounting do not speak again. */
+export function autoSpeakReply(key: string, text: string, onError: (error: Error) => void) {
+  if (autoPlayed.has(key)) return;
+  autoPlayed.add(key);
+  startSpeak(key, text, onError);
+}
+
+export function resetSpeakForTest() {
+  speakingKey = null;
+  autoPlayed.clear();
 }

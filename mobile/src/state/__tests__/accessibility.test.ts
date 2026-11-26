@@ -56,12 +56,13 @@ describe('parseAccessibility', () => {
   it('parses valid saved JSON', () => {
     expect(
       parseAccessibility(
-        '{"textScale":1.3,"highContrast":true,"reduceMotion":true,"colorVision":"deuteranopia"}',
+        '{"textScale":1.3,"highContrast":true,"reduceMotion":true,"autoSpeakReplies":true,"colorVision":"deuteranopia"}',
       ),
     ).toEqual({
       textScale: 1.3,
       highContrast: true,
       reduceMotion: true,
+      autoSpeakReplies: true,
       colorVision: 'deuteranopia',
     });
   });
@@ -78,6 +79,7 @@ describe('parseAccessibility', () => {
       textScale: 1.15,
       highContrast: false,
       reduceMotion: false,
+      autoSpeakReplies: false,
       colorVision: 'none',
     });
   });
@@ -91,6 +93,7 @@ describe('setAccessibility & resetAccessibility', () => {
       textScale: 1.3,
       highContrast: true,
       reduceMotion: false,
+      autoSpeakReplies: false,
       colorVision: 'none',
     });
 
@@ -110,6 +113,9 @@ describe('setAccessibility & resetAccessibility', () => {
   it('identifies default vs customized preferences', () => {
     expect(isDefaultAccessibility(DEFAULT_ACCESSIBILITY)).toBe(true);
     expect(isDefaultAccessibility({ ...DEFAULT_ACCESSIBILITY, reduceMotion: true })).toBe(false);
+    expect(isDefaultAccessibility({ ...DEFAULT_ACCESSIBILITY, autoSpeakReplies: true })).toBe(
+      false,
+    );
     expect(isDefaultAccessibility({ ...DEFAULT_ACCESSIBILITY, colorVision: 'tritanopia' })).toBe(
       false,
     );

@@ -368,6 +368,10 @@ export const en: Labels = {
       body: 'Stops decorative animations and shows replies all at once.',
       systemActive: 'Also enabled in your device settings.',
     },
+    autoSpeakReplies: {
+      title: 'Read replies aloud',
+      body: 'Speaks each assistant message as soon as it is generated.',
+    },
     colorVision: {
       title: 'Color vision',
       body: 'Adapts the color palette while keeping icons and text on every status.',
