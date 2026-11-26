@@ -1,13 +1,15 @@
 // The vapor Pet in a box of `width` x `height` showing `viewBox` (Pet units). Web draws SVG;
-// native draws the same frame with Skia (PetVaporCanvas.native.tsx).
+// native draws the same frame with Skia (PetVaporCanvas.native.tsx). Both subscribe to the Pet's
+// frames, so a new frame re-renders the canvas and nothing above it.
 import Svg from 'react-native-svg';
 
-import type { PetConfig, PetFrame } from './petCore';
+import { useFrame, type FrameStore } from './frameLoop';
+import type { PetConfig } from './petCore';
 import { PetVaporFigure } from './PetVaporFigure';
 
 export interface PetVaporCanvasProps {
   config: PetConfig;
-  frame: PetFrame;
+  frames: FrameStore;
   fill: string;
   shade: string;
   prefix: string;
@@ -16,12 +18,13 @@ export interface PetVaporCanvasProps {
   height: number;
 }
 
-export function PetVaporCanvas({ viewBox: v, ...figure }: PetVaporCanvasProps) {
+export function PetVaporCanvas({ viewBox: v, frames, ...figure }: PetVaporCanvasProps) {
+  const frame = useFrame(frames);
   return (
     <Svg width="100%" height="100%" viewBox={`${v.x} ${v.y} ${v.width} ${v.height}`}>
       <PetVaporFigure
         config={figure.config}
-        frame={figure.frame}
+        frame={frame}
         fill={figure.fill}
         shade={figure.shade}
         prefix={figure.prefix}
