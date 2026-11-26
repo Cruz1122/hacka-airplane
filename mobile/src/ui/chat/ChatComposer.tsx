@@ -15,6 +15,7 @@ import {
 } from 'react-native';
 import Svg, { Path } from 'react-native-svg';
 
+import { t } from '@/i18n';
 import { Icon } from '../icons/Icon';
 import { brand, type } from '../theme/tokens';
 import { useReducedMotion } from '../useReducedMotion';
@@ -45,6 +46,10 @@ export interface ChatComposerProps {
    * focus (the start of the field when it is empty); null once it loses focus. The Pet looks there.
    */
   onCaret?: (point: { x: number; y: number } | null) => void;
+  /** Docked only: a pen button left of the field that starts a new conversation. */
+  onNewChat?: () => void;
+  /** Docked only: the pen button's accessibility label (required with `onNewChat`). */
+  newChatLabel?: string;
 }
 
 /** Docked geometry in pt, named so the shape can be tuned in one place. */
@@ -149,6 +154,8 @@ function DockedComposer({
   floor = DOCK.floor,
   reducedMotion = false,
   onCaret,
+  onNewChat,
+  newChatLabel,
 }: ChatComposerProps) {
   const { text, setText, canSend, submit } = useDraft(
     initialText,
@@ -183,10 +190,10 @@ function DockedComposer({
     <View>
       {photoUri && (
         <View style={docked.attachment}>
-          <Image source={{ uri: photoUri }} accessible accessibilityLabel="Foto adjunta" style={docked.thumbnail} />
+          <Image source={{ uri: photoUri }} accessible accessibilityLabel={t.chatScreen.photo.attached} style={docked.thumbnail} />
           <Pressable
             accessibilityRole="button"
-            accessibilityLabel="Quitar foto"
+            accessibilityLabel={t.chatScreen.photo.remove}
             onPress={onRemovePhoto}
             style={docked.removePhoto}
           >
@@ -197,10 +204,20 @@ function DockedComposer({
       <View style={[docked.row, { paddingHorizontal: DOCK.inset - DOCK.fillet }]}>
         <Shoulder side="left" />
         <View style={docked.tab}>
+          {onNewChat && (
+            <Pressable
+              onPress={onNewChat}
+              accessibilityRole="button"
+              accessibilityLabel={newChatLabel}
+              style={({ pressed }) => [docked.newChat, pressed && docked.newChatPressed]}
+            >
+              <Icon name="squarePen" size={20} color={brand.ink} />
+            </Pressable>
+          )}
           {onPhoto && (
             <Pressable
               accessibilityRole="button"
-              accessibilityLabel="Identificar una foto"
+              accessibilityLabel={t.chatScreen.photo.identify}
               disabled={disabled}
               onPress={onPhoto}
               style={docked.photo}
@@ -213,7 +230,7 @@ function DockedComposer({
               ref={field}
               value={text}
               onChangeText={setText}
-              placeholder={photoUri ? "Escribe sobre la foto" : placeholder}
+              placeholder={photoUri ? t.chatScreen.photo.captionPlaceholder : placeholder}
               placeholderTextColor={brand.inkMuted}
               selectionColor={brand.primarySoft}
               onSubmitEditing={submit}
@@ -380,6 +397,15 @@ const docked = StyleSheet.create({
     borderTopRightRadius: DOCK.radius,
     backgroundColor: brand.cardShade,
   },
+  newChat: {
+    width: 44,
+    height: 46,
+    borderRadius: 16,
+    alignItems: 'center',
+    justifyContent: 'center',
+    outlineColor: brand.primary,
+  },
+  newChatPressed: { backgroundColor: brand.primarySoft },
   attachment: { alignSelf: 'flex-start', flexDirection: 'row', marginLeft: DOCK.inset, marginBottom: 6, borderRadius: 14, padding: 6, backgroundColor: brand.cardShade },
   thumbnail: { width: 72, height: 60, borderRadius: 8 },
   removePhoto: { width: 44, height: 44, alignItems: 'center', justifyContent: 'center' },

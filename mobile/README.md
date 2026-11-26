@@ -43,10 +43,11 @@ The script uses `run-as`, so it needs a debuggable build. A release APK installe
 
 | Route | Screen |
 |---|---|
-| `/` (`app/index.tsx`) | Chat. Redirects to `/onboarding` until it is done |
+| `/` (`app/(tabs)/index.tsx`) | Chat, the first tab. A launch opens `/onboarding` first (`app/(tabs)/_layout.tsx`, `src/state/launchGate.ts`); a link straight into Grupo skips it. The cloud bar on top switches tabs; the pen in the composer starts a new conversation |
 | `/onboarding` | Three-screen onboarding, then the hand-off into the chat |
-| `/history` | Past conversations |
-| `/settings` | Legacy LLM settings (the knowledge chat ignores them) |
+| `/history` | Past conversations (no entry in the UI; deep link only) |
+| `/group` (`app/(tabs)/group.tsx`) | Group sync: a guide sees every synced visitor on a line and is alerted when one drifts; a visitor sees its own link. The second tab ("Grupo" in the cloud bar): it stays mounted, so a session survives a trip to the chat; Android back steps back inside Grupo before returning to Chat, and back from Chat leaves the app. Uses BLE beacons on Android |
+| `/settings` | Legacy LLM settings (the knowledge chat ignores them; deep link only) |
 | `/design` | Design system catalog: tokens, components, Pet |
 | `/lab` | Onboarding scene editor (web only; `lab.tsx` is the native fallback) |
 | `/spike` | Dev-only device check of the knowledge runtime against the Python fixtures (`nevados://spike`) |
@@ -57,6 +58,8 @@ The script uses `run-as`, so it needs a debuggable build. A release APK installe
 |---|---|
 | `src/core/knowledge/` | Knowledge engine, pure TS: safety rules, cleaning, retrieval, top-1 policy, reranker seam. Parity fixtures in `__fixtures__/` are generated |
 | `src/llm/` | Native loaders: `embedder.ts` (e5 on llama.rn), `scorer.ts` + `ort.ts` (onnxruntime), `knowledgeRuntime.ts`, `laya.ts` (off). Legacy: `llamaRn.ts`, `modelManager.ts`, `models.ts` |
+| `src/core/group/` | Group-sync core, pure TS: `types.ts`, `policy.ts` (every threshold, uncalibrated), `signal.ts` (per-edge median, EMA, hysteresis, pocket dwell), `groupState.ts` (reducer, `presence`, `alerts`), `lane.ts` (dot placement); `testing.ts` drives the tests |
+| `src/group/` | Group-sync wiring: `transport.ts` (radio seam), `bleTransport.ts` (Android BLE + NFC transport), `session.ts` (role flow), `useGroup.ts` (reducer, 1 s tick, vibration) |
 | `src/state/` | `useKnowledge` + `knowledgeChat` (chat state), `knowledgeRows`, `messageSources`, `history`, `settings` (expo-sqlite kv-store) |
 | `src/chat/` | Chat screen: `ChatView`, `ChatBackdrop` + `headerScene.ts` (header scene), `chatLayout.ts`, `PetCircle.tsx`, `handoff.ts` (onboarding exit) |
 | `src/onboarding/` | Scene data (`scene/`), renderers (`SceneCanvas.native.tsx` + `skia/` on native, `NevadoScene.tsx` on web), `OnboardingOverlay.tsx`, `usePlayback.ts`, `layout.ts` |

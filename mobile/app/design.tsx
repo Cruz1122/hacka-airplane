@@ -9,6 +9,7 @@ import { Toggle, WorkshopNav, type LabProps } from '@/design/chrome';
 import { ComposerLab } from '@/design/ComposerLab';
 import { ButtonsLab, IndicatorsLab } from '@/design/ControlsLabs';
 import { FoundationsLab } from '@/design/FoundationsLab';
+import { GroupLab } from '@/design/GroupLab';
 import { WORKSHOP_ITEMS, type WorkshopId } from '@/design/registry';
 import { fill, t } from '@/i18n';
 import { brand, spacing, type } from '@/ui/theme/tokens';
@@ -19,6 +20,7 @@ const LABS: Record<WorkshopId, ComponentType<LabProps>> = {
   bubbles: BubblesLab,
   buttons: ButtonsLab,
   indicators: IndicatorsLab,
+  group: GroupLab,
   foundations: FoundationsLab,
 };
 

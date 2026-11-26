@@ -29,13 +29,16 @@ import {
   DEFAULT_TRACKING,
   ease,
   lerp,
+  PET_ACCESSORY_VIEWBOX,
   PET_NAME,
   PET_PRESET,
   PET_VIEWBOX,
   petFrame,
   transitionFace,
   type FaceState,
+  type PetAccessory,
   type PetConfig,
+  type PetTint,
   type PetFrame,
   type PetEmotion,
   type VoiceState,
@@ -65,7 +68,14 @@ export interface PetProps {
   /** Vapor colors; default to the card white and its shade. */
   fill?: string;
   shade?: string;
-  /** Part of the Pet to show, in Pet units; defaults to the whole PET_VIEWBOX. */
+  /** Worn on the head (the group roles). */
+  accessory?: PetAccessory;
+  /** The accessory's colors; its own default when absent. */
+  tint?: PetTint;
+  /**
+   * Part of the Pet to show, in Pet units; defaults to the whole PET_VIEWBOX, or
+   * PET_ACCESSORY_VIEWBOX when it wears an accessory.
+   */
   crop?: { x: number; y: number; width: number; height: number };
   /** Full preset; defaults to PET_PRESET. */
   config?: PetConfig;
@@ -127,7 +137,9 @@ export function Pet({
   lookAt = null,
   fill = brand.card,
   shade = brand.cardShade,
-  crop = PET_VIEWBOX,
+  accessory,
+  tint,
+  crop,
   config = PET_PRESET,
   style,
 }: PetProps) {
@@ -139,12 +151,14 @@ export function Pet({
     next.emotion = emotion;
     next.voice = voice;
     next.audio = clamp(audioLevel, 0, 1);
+    next.accessory = accessory;
+    next.accessoryTint = tint;
     next.motion.reducedEffects = next.motion.reducedEffects || reduced;
     // Neither vapor drawer paints smoke filaments; petFrame would build 20 path strings a frame
     // (about a fifth of its cost) for nothing.
     next.smoke.count = 0;
     return next;
-  }, [config, emotion, voice, audioLevel, reduced]);
+  }, [config, emotion, voice, audioLevel, reduced, accessory, tint]);
   const [frames] = useState(
     () =>
       new FrameStore(
@@ -298,7 +312,7 @@ export function Pet({
     });
   }, [lookX, lookY]);
 
-  const v = crop;
+  const v = crop ?? (accessory ? PET_ACCESSORY_VIEWBOX : PET_VIEWBOX);
   return (
     <View
       ref={host}

@@ -1,9 +1,9 @@
 # MISIÓN SDD: LOS NEVADOS — LLENAR LA BASE DE VARIANTES, FOLLOW-UPS, PROFUNDIDAD Y RESPUESTAS QUE NUNCA SE REPITEN
 
-Eres el **orquestador** en OpenCode, dentro de `/home/cruz1122/dev/hacka-airplane`. Esta misión es
+Eres el **orquestador** en T3 Code, dentro de `/home/cruz1122/dev/hacka-airplane`. Esta misión es
 **spec-driven** y **este archivo es la única fuente**: la spec aprobada está más abajo, en tres partes.
 
-- **Parte A — Requirements**: qué tiene que pasar, y la tabla de aceptación A1–A12.
+- **Parte A — Requirements**: qué tiene que pasar, y la tabla de aceptación A1–A13.
 - **Parte B — Design**: cómo se hace.
 - **Parte C — Tasks**: quién hace qué, en qué orden, y cuándo una tarea está terminada.
 
@@ -17,7 +17,9 @@ Eres el **orquestador** en OpenCode, dentro de `/home/cruz1122/dev/hacka-airplan
 ## LA META (no la pierdas de vista)
 
 **Llenar las 806 entradas de variantes, conversaciones de follow-up y profundidad con fuentes, y
-lograr que si preguntas lo mismo otra vez, la respuesta salga dicha distinto cada vez.**
+lograr que si preguntas lo mismo otra vez, la respuesta salga dicha distinto cada vez.** Además, la
+primera respuesta **no lo da todo a propósito**: da lo clave más una porción aleatoria del dato
+complementario, y guarda el resto para cuando el usuario siga preguntando (R7).
 
 | Qué | Meta dura |
 |---|---|
@@ -28,6 +30,7 @@ lograr que si preguntas lo mismo otra vez, la respuesta salga dicha distinto cad
 | "misma pregunta ×8" sobre cada entrada | **8 textos distintos** (emergencias: solo paráfrasis doble-aprobadas) |
 | Oraciones sin soporte / hechos cambiados en paráfrasis | **0** |
 | "pregunta → sigue ×4" sobre las 806 | **0 repeticiones**, ≥3 turnos distintos donde haya fuentes |
+| Primera respuesta con ≥2 datos complementarios disponibles | **nunca los trae todos**; cada "sigue" revela ≥1 dato nuevo |
 
 - Una entrada debajo de su meta **no está terminada**. Lánzale una ronda de top-up con otro
   escritor, o una investigación de fuentes (T3b).
@@ -49,9 +52,9 @@ lograr que si preguntas lo mismo otra vez, la respuesta salga dicha distinto cad
 5. blind_v4 se escribe y se sella **antes** de que exista una sola variante nueva. Nadie abre
    `v4_sealed` después de sellarlo.
 6. Nadie aprueba su propio trabajo.
-   - El escritor y el verificador son de **familias distintas**.
-   - `nv-go` y `nv-zen` son el mismo modelo y nunca se verifican entre sí.
-   - Todo `fix` lo arbitra una sesión de `nv-luna` que no vio ese shard.
+   - El escritor y el verificador son de **familias distintas** (Sonnet ↔ Luna).
+   - Todo `fix` lo arbitra una sesión fresca de `nv-luna` que no escribió ni verificó ese shard.
+   - **Nada de subagentes de OpenCode.**
 7. **Presupuesto de contexto:**
    - Cada hijo recibe un shard pre-digerido por script, con rutas exactas y sin directorios de
      evidencia enteros.
@@ -66,18 +69,16 @@ lograr que si preguntas lo mismo otra vez, la respuesta salga dicha distinto cad
 10. Reporta honestamente lo no verificado. Ningún control cuenta como pasado si no lo corriste y
     leíste su salida.
 
-## Roster (Parte B §8): créalo en T1
+## Roster (Parte B §8): T3 `delegate_task`
 
-| Agente | Modelo | Familia |
+| Agente | Target | Familia |
 |---|---|---|
-| `nv-go` | `opencode-go/deepseek-v4.1-flash` | DeepSeek |
-| `nv-zen` | `opencode/deepseek-v4.1-flash-free` | DeepSeek |
-| `nv-luna` | `openai/gpt-6-luna` | Luna |
+| `nv-sonnet` | `claudeAgent` / `claude-sonnet-5-5` | Anthropic |
+| `nv-luna` | `codex` / `gpt-6-luna` | OpenAI Luna |
 
-- En shards pares, escribe DeepSeek (alternando go y zen) y verifica Luna.
-- En shards impares, escribe Luna y verifica DeepSeek (alternando zen y go).
-- Si zen devuelve rate-limit 2 veces seguidas, pasa el shard a go y regístralo.
-- Cada fila lleva `by: "<agente>/<modelo exacto>"`.
+- En shards pares, escribe Sonnet y verifica Luna.
+- En shards impares, escribe Luna y verifica Sonnet.
+- `by` lo estampa `tools/ledger.py` desde `decisions/dispatch.jsonl`, no el hijo.
 
 ## Paralelismo recomendado
 
@@ -94,7 +95,7 @@ Mantén varios shards en vuelo a la vez, sin pasarte del presupuesto de contexto
 ## Respuesta final (solo estos puntos, en español)
 
 1. Cómo probarlo: "háblame de los frailejones" → "sigue" ×3, con lo que responde cada turno.
-2. Tabla de aceptación A1–A12: valor medido frente a la meta, y cuáles fallaron.
+2. Tabla de aceptación A1–A13: valor medido frente a la meta, y cuáles fallaron.
    Incluye un ejemplo de "¿qué son los frailejones?" ×3 con los 3 textos distintos.
 3. Variantes y conversaciones: escritas, aprobadas, descartadas, `fix` y pares juzgados, por
    sección.
@@ -221,9 +222,9 @@ Volume is the goal. Fidelity to sources is the constraint that is never traded.
 - **R6.1** Every non-exempt entry SHALL have **≥8 approved paraphrases of L0** (the canonical L0
   plus 7 or more). Each depth layer SHALL have **≥4 approved paraphrases**. In total that is
   ≥6,000 L0 paraphrases plus the layer paraphrases.
-- **R6.2** Each paraphrase SHALL carry exactly the facts of its source text: no added fact, no
-  dropped caveat, and identical numbers, units, dates, names and phone numbers, all checked by
-  script.
+- **R6.2** Each paraphrase SHALL carry every **key** fact of its source (R7.1) with identical
+  numbers, units, dates, names and phone numbers, SHALL add nothing from outside the entry's fact
+  inventory, and SHALL tag the complementary fact ids it carries (`atoms`). All checked by script.
 - **R6.3** Paraphrases SHALL actually differ.
   - Within an entry, every pair SHALL have character-trigram Jaccard < 0.55.
   - No two paraphrases SHALL share their first 4 words.
@@ -244,6 +245,30 @@ Volume is the goal. Fidelity to sources is the constraint that is never traded.
     has fewer than 3 such paraphrases, it keeps its canonical text. Consistency beats variety in
     an emergency.
   - `kind: chat` entries SHALL rotate freely.
+
+### R7 — Stochastic partial disclosure: hold back on purpose
+
+- **R7.1** Every non-exempt entry SHALL have a **fact inventory** (`facts[]`): atomic facts, each
+  with a support ref and a class `key | complement`.
+  - `key` = the direct answer to what the entry's label, examples and aug queries ask. A fact that
+    any existing example or aug query asks for directly is `key`.
+  - Never `complement` (script-enforced): everything in `kind: safety`, `rule` or `action` entries
+    and in `emergency_direct` entries; procedure `steps`; "puede cambiar / confirma con PNN"
+    disclaimers; every caveat.
+  - `complement` = sourced extras (detail, evidence quotes, L1/L2 material) that nobody asked for
+    directly.
+- **R7.2** WHEN an entry is answered and it has ≥2 complement facts, THE served L0 text SHALL carry
+  every key fact and **at most half** of the complement facts, never all of them.
+- **R7.3** WHICH complement facts appear SHALL vary: the L0 paraphrases of one entry SHALL cover ≥2
+  different complement subsets, and the seeded rotation (R6.5) picks among them.
+- **R7.4** WHEN "sigue" arrives, THE engine SHALL serve the pre-approved text that carries the most
+  unserved complement facts (ties broken by the seeded RNG), and every continuation turn SHALL
+  reveal ≥1 fact not yet served in this conversation, until the inventory and the walk run out.
+- **R7.5** Served texts SHALL be whole pre-approved texts tagged with fact ids. The engine SHALL
+  NOT assemble sentences at runtime.
+- **R7.6** For eligible entries (≥2 complement facts), the canonical L0 that carries everything
+  SHALL leave the L0 rotation. It stays in the corpus and in `natural_replies.json` unchanged.
+- **R7.7** The RNG seed SHALL be injectable, so that tests are deterministic.
 
 ### R5 — Evaluation and ft5 readiness
 
@@ -293,13 +318,15 @@ Volume is the goal. Fidelity to sources is the constraint that is never traded.
 | A9 | `validate_knowledge.py`; `export_nlu.py` + lint; mobile tests, typecheck, lint | all green |
 | A10 | ft5 ZIP validated on a clean extraction | exit 0, no local paths or user data |
 | A11 | same question ×8 on every non-exempt entry (E2E, real engine) | 8 different texts for 100% of entries (emergency entries: ≥3 or canonical, per R6.6) |
-| A12 | paraphrase fidelity and distinctness (script + reviewer) | 0 fact changes; 100% pass R6.3 |
+| A12 | paraphrase fidelity and distinctness (script + reviewer) | 0 key facts dropped or changed, 0 facts from outside the inventory; 100% pass R6.3 |
+| A13 | partial disclosure (E2E, real engine, fixed seeds) | for entries with ≥2 complements: first reply never carries all; ≥2 complement subsets across ×8; every "sigue" reveals ≥1 new fact until exhausted |
 
 ## Non-goals
 
 - Training ft5. Phone benchmarks, unless the user asks.
 - Menus or separate screens. Generative answers.
-- Replacing the canonical L0 replies. They stay as one of the paraphrases.
+- Rewriting `natural_replies.json`. The canonical L0 stays as is. It leaves the rotation only for
+  R7.6-eligible entries.
 
 ---
 
@@ -387,7 +414,8 @@ research_notes/depth_v1/
 | `data/knowledge/app/train_variants.json` | `{entry_id: [text]}`, approved, deduped, leak-free | `finetune.py` / ft5 (training pool) |
 | `data/knowledge/app/train_convs.json` | `{entry_id: [[{text, entry_id}, ...]]}` | ft5 multi-turn pairs; `context_eval.py` |
 | `data/knowledge/app/depth_replies.json` | `{entry_id: {layers: [{kind, texts: [paraphrases], support}], walk: [ids]}}` | `export_nlu.py` → mobile |
-| `data/knowledge/app/reply_variants.json` | `{entry_id: [L0 paraphrases]}`, canonical L0 first, approved only, passed R6.2/R6.3 checks | `export_nlu.py` → mobile |
+| `data/knowledge/app/reply_variants.json` | `{entry_id: [{text, atoms}]}`, approved only, passed R6.2/R6.3/R7 checks (canonical included only when not R7.6-eligible) | `export_nlu.py` → mobile |
+| `data/knowledge/app/fact_inventory.json` | `{entry_id: [{fid, text, class, support}]}` (R7.1) | `check_replies.py`, `export_nlu.py`, E2E |
 | `data/knowledge/app/index_additions.json` | variants promoted to the phone index after the A/B (may be empty) | `export_nlu.py` |
 | corpus `answer.detail` / `sources` | new facts, through `knowledge.py` only | everything |
 
@@ -408,6 +436,19 @@ behaviour.
   `actions`.
 - Bridge clause templates come from a fixed list in `policy.continuation.bridges` (e.g. "Relacionado
   con esto:"). They carry no facts.
+
+## 5b. Fact inventory and partial disclosure (R7)
+
+- `data/knowledge/app/fact_inventory.json`:
+  `{entry_id: [{fid, text, class: key|complement, support: [...]}]}`.
+  - Written by T3.0 (writer + other-family verifier).
+  - `tools/check_facts.py` forces `key` per the R7.1 rules and rejects purged claims.
+- Every served text (L0 paraphrases, layer texts, walk) carries `atoms: [fid]`, the complement facts
+  it states. Key facts are implied in every L0.
+- Selection at runtime:
+  - L0: rotate (R6.5) over the eligible paraphrases (≤ half of the complements each).
+  - "sigue": pick the text with the most unserved complement fids (seeded tie-break), then mark
+    them served. If no text adds a new fid, move to the walk.
 
 ## 6. Runtime (mobile/src/core/knowledge)
 
@@ -456,27 +497,27 @@ stateDiagram-v2
 | `check_rows.py` | normalised dedup, same-entry near-dup ≥0.93, bucket mix (R1.2/R2.2), continuation lint (R2.4), leak check vs v4 (exact + cos ≥0.93), per-entry counts |
 | `pairs.py` | cross-entry cos ≥0.88 → pair-judgment shards of 280 |
 | `check_depth.py` | literal quote presence in evidence files, number equality, 40–70 words, L0 hashes of safety/rule entries |
-| `check_replies.py` | R6.2: same numbers, units, dates, names and phones as the source text, and every caveat sentence keyword of `kind: safety`/`rule` present. R6.3: trigram Jaccard < 0.55 pairwise, unique first 4 words, ≥3 structures per entry |
+| `check_replies.py` | R6.2: every key fact's numbers, units, dates, names and phones present, no number outside the inventory, every caveat keyword of `kind: safety`/`rule` present. R6.3: trigram Jaccard < 0.55 pairwise, unique first 4 words, ≥3 structures per entry. R7.2/R7.3: ≤ half the complements per L0, ≥2 subsets |
+| `check_facts.py` | R7.1 forced-key rules, an aug/example query asking for a complement → key, purged-claims blocklist |
 | `integrate.py` | reviewed + arbitrated rows → section 4 files, plus `knowledge.py` op files for corpus changes |
 | `coverage.py` | acceptance table A1–A4, A8 per entry and per section |
 | `package.py` | ft5 ZIP, MANIFEST, clean-extract re-validation (same method as `research_notes/dataset_final/tools/package.py`) |
 
 ## 8. Model roster and alternation
 
-OpenCode project agents live in `.opencode/agents/`, with `mode: subagent` and `temperature: 0.2`.
-Edit permission is limited to `research_notes/depth_v1/**`.
+Children are T3 `delegate_task` runs (no OpenCode). Each child writes only under
+`research_notes/depth_v1/**`.
 
-| Agent | Model | Family |
+| Agent | Target | Family |
 |---|---|---|
-| `nv-go` | `opencode-go/deepseek-v4.1-flash` | DeepSeek |
-| `nv-zen` | `opencode/deepseek-v4.1-flash-free` | DeepSeek |
-| `nv-luna` | `openai/gpt-6-luna` | Luna |
+| `nv-sonnet` | `claudeAgent` / `claude-sonnet-5-5` | Anthropic |
+| `nv-luna` | `codex` / `gpt-6-luna` | OpenAI Luna |
 
-- Shard *n* even: the writer is DeepSeek (alternating go and zen), the verifier is `nv-luna`.
-- Shard *n* odd: the writer is `nv-luna`, the verifier is DeepSeek (alternating zen and go).
-- `nv-go` and `nv-zen` are the same model and never verify each other.
-- Every `fix` is arbitrated by an `nv-luna` session that did not write or verify that shard.
-- If zen is rate-limited 2 times in a row, move the shard to go and log it.
+- Shard *n* even: the writer is `nv-sonnet`, the verifier is `nv-luna`.
+- Shard *n* odd: the writer is `nv-luna`, the verifier is `nv-sonnet`.
+- A second verifier (`verify2`) is a fresh session of the non-writer family.
+- Every `fix` is arbitrated by a fresh `nv-luna` session that did not write or verify that shard.
+- `tools/ledger.py` records every dispatch and stamps `by`.
 
 ## 9. Ft5 data (prepared, not trained)
 
@@ -529,11 +570,11 @@ the frailejón cause.
 ## T1 — Roster (orchestrator)
 Depends: none.
 
-1. Create `.opencode/agents/nv-go.md`, `nv-zen.md` and `nv-luna.md` following Part B §8.
-2. Smoke-test each one with a trivial task that writes 1 JSONL row.
+1. Set up the roster in `tools/ledger.py` following Part B §8.
+2. Smoke-test each agent with a trivial `delegate_task` that writes 1 JSONL row.
 3. Write `decisions/roster.md` with the exact model ids.
 
-**Done:** 3 rows exist, each with the right `by`.
+**Done:** 2 rows exist, each with the right `by`.
 
 ## T2 — blind_v4 (BEFORE any new variant or conversation exists)
 Depends: T1. Runs in parallel with T0 and T3a.
@@ -558,10 +599,23 @@ Depends: T1. Runs in parallel with T0 and T3a.
 **Done:** v4 has ≥600 single-turn rows, ≥300 multi-turn turns, and 150 + 150 continuation rows.
 Baseline numbers are in `decisions/T2.md`.
 
+## T3.0 — Fact inventory (R7.1)
+Depends: T0, T1. Gates T3a, T4 and T5b (L0).
+
+1. **Shards:** 10 entries each. Inputs: the corpus entry, L0, its examples and aug queries, and the
+   top evidence windows.
+2. **Writer:** splits the entry into atomic facts with support and class.
+3. **Verifier** (the other family): checks support and class. In particular, a complement must not
+   be something the entry's questions ask for.
+4. **Checks:** `tools/check_facts.py` forces `key` per R7.1, then integrates into
+   `fact_inventory.json`.
+
+**Done:** every non-exempt entry has an inventory, and the forced-key rules pass.
+
 ## T3 — Depth layers (R3)
 
 ### T3a — Write layers from existing sources
-Depends: T0, T1.
+Depends: T0, T1, T3.0.
 
 1. Shards: 8 entries each, about 97 shards. Order:
    - `flora_ecosystems`
@@ -595,7 +649,7 @@ Depends: T0, T1.
 Depends: T3a for that section.
 
 1. **Input:** every `no_headroom` entry, plus every `none` entry from T0, in shards of 5.
-2. **Researcher** (`nv-luna` or `nv-go`, alternating): looks for official or academic public
+2. **Researcher** (`nv-luna` or `nv-sonnet`, alternating): looks for official or academic public
    sources: PNN, SGC, IDEAM, Humboldt, universities, GBIF/SiB, published papers. It saves the
    evidence through the `add-park-knowledge` research flow and proposes `corpus_ops` with literal
    quotes plus L1/L2.
@@ -614,14 +668,16 @@ Depends: T3a and T3b for that section.
 - Every `no_headroom` entry has a reason.
 
 ## T4 — Query variants (R1)
-Depends: T2 closed (v4 written and sealed), T1.
+Depends: T2 closed (v4 written and sealed), T1, T3.0.
 
 1. **Write shards:** 20 entries each, about 41 shards.
-   - Inputs: id, label, L0, 3 current examples, the related labels as "do NOT ask these", and the
-     bucket mix of R1.2.
+   - Inputs: id, label, the **key facts only** (`fact_inventory`), 3 current examples, the related
+     labels as "do NOT ask these", and the bucket mix of R1.2.
+   - `specific_fact` variants ask only about key facts. A variant asking for a complement is `drop`
+     (R7: the answer would withhold it).
    - Per entry, a shard writes 24 variants. The surplus absorbs drops.
 2. **Review shards:** 40 entries each, about 21 shards, by the other family. Each row gets
-   `ok | fix(entry) | drop`, and the reviewer checks R1.3 (answerable by this entry's answer).
+   `ok | fix(entry) | drop`. The reviewer checks R1.3 against the **key-only** reply.
 3. **Arbitration:** Luna arbitrates every `fix`.
 4. **Checks:** `tools/check_rows.py` runs dedup, near-dup, bucket mix, the continuation lint and
    leaks against v4 (v4_dev and v4_sealed, in both directions). `tools/pairs.py` builds the
@@ -648,14 +704,16 @@ Depends: T2 closed, T1. Runs in parallel with T4.
 **Done:** ≥8 approved conversations for 100% of entries. Leaks: 0.
 
 ## T5b — Reply paraphrases: same question, different answer (R6)
-Depends: T1. L0 paraphrases start at once. Layer paraphrases start per section after T3c.
+Depends: T1, T3.0. L0 paraphrases start once the inventory of their section exists. Layer paraphrases start per section after T3c.
 
 1. **Write shards:** 10 entries each.
    - Inputs: id, kind, canonical L0, the facts list (numbers, names and caveats extracted by
      script), and for layers the approved layer texts.
    - The writer produces 10 L0 paraphrases per entry, of which ≥8 must survive, and 5 per layer,
-     of which ≥4 must survive. Every paraphrase is tagged with a structure and a register (R6.3,
-     R6.4). It adds no fact and drops no caveat.
+     of which ≥4 must survive.
+   - Every paraphrase is tagged with a structure, a register and `atoms` (R6.3, R6.4, R7).
+   - L0: all key facts, plus at most half of the complements, with the subsets varied across
+     paraphrases (R7.2, R7.3). It adds no fact and drops no caveat.
 2. **Review shards:** 20 entries each, by the other family. Each paraphrase gets `same_facts`,
    `caveats_kept`, `natural` and a verdict.
    - `kind: safety` and `kind: rule` entries get 100% double review.
@@ -700,7 +758,9 @@ Depends: T0. Can start at once with layers stubbed. It closes after T3c.
    - Rotation (R6.5): same question ×8 gives 8 texts, wrap-around never repeats the last text,
      and emergency entries rotate only over their double-approved set.
 
-**Done:** A5, A6, A7 and A11 pass.
+   - Partial disclosure (R7): atom-based selection, an injectable seed, and A13 in `e2e_sigue.ts`.
+
+**Done:** A5, A6, A7, A11 and A13 pass.
 
 ## T8 — Ft5 package (orchestrator)
 Depends: T3c, T5b, T6, T7.
@@ -721,5 +781,5 @@ Depends: T3c, T5b, T6, T7.
 ## T9 — Final verification and report (orchestrator)
 Depends: T8.
 
-Re-run the full acceptance table A1–A12 from Part A yourself and read the real output.
+Re-run the full acceptance table A1–A13 from Part A yourself and read the real output.
 Then reply with the final report format at the top of this file.

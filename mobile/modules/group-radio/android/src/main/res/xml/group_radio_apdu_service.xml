@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- F0 opens a proprietary AID (ISO/IEC 7816-5); the rest is "NEVGR". Category "other" never
+     competes with the wallet for payment taps. -->
+<host-apdu-service xmlns:android="http://schemas.android.com/apk/res/android"
+  android:description="@string/group_radio_nfc_service"
+  android:requireDeviceUnlock="false">
+  <aid-group
+    android:description="@string/group_radio_nfc_aid_group"
+    android:category="other">
+    <aid-filter android:name="F04E45564752" />
+  </aid-group>
+</host-apdu-service>

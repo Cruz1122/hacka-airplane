@@ -46,6 +46,8 @@ export interface KnowledgePolicy {
   followup?: KnowledgeFollowup | null;
   /** Strip chat fillers (clean.ts) before embedding; the index texts were stripped the same way. */
   strip_fillers?: boolean;
+  /** "Sigue" runtime (R4). Absent or null: the engine behaves as before. */
+  continuation?: KnowledgeContinuation | null;
   emergency_direct: string[];
   emergency_line_id: string;
   texts: {
@@ -79,6 +81,48 @@ export interface KnowledgeFollowup {
   cue?: string | null;
 }
 
+export interface KnowledgeContinuation {
+  /** Whole-message pattern over accent-folded text (foldText), e.g. "sigue", "mas", "que mas". */
+  cue: string;
+  max_words: number; // the whole message has at most this many words
+  /** Whole-message pattern for a bare "por que". */
+  why_cue: string;
+  /** Fact-free clauses that open a related-topic reply. */
+  bridges: string[];
+  texts: {
+    no_state: string;
+    exhausted: string;
+    /** "{topics}" is replaced by two related labels. Absent: the exhausted text stands alone. */
+    related?: string;
+  };
+}
+
+/** A whole pre-approved text and the complement fact ids it states (key facts are implied). */
+export interface DepthText {
+  text: string;
+  atoms: string[];
+}
+
+export interface DepthLayer {
+  kind: string; // why | how | specifics
+  texts: DepthText[]; // paraphrases of one layer
+}
+
+export interface DepthEntry {
+  /** L0 paraphrases the rotation serves (R6.5); the canonical text only when not R7.6-eligible. */
+  l0: DepthText[];
+  layers: DepthLayer[];
+  walk: string[]; // related entry ids, best first
+  /** Every complement fact id of the entry (R7.1); empty: no inventory, layers go in order. */
+  complements: string[];
+  /** Emergency entries only: indexes into `l0` approved twice (R6.6); fewer than 3 keeps the canonical text. */
+  rotation?: number[];
+}
+
+export interface KnowledgeDepth {
+  entries: Record<string, DepthEntry>;
+}
+
 export interface IndexManifest {
   embedder: Record<string, unknown>;
   prefix: string;
@@ -99,6 +143,8 @@ export interface KnowledgeAssets {
   sections: SectionInfo[];
   policy: KnowledgePolicy;
   manifest: IndexManifest;
+  /** depth.json (export_nlu.py); only read when policy.continuation is set. */
+  depth?: KnowledgeDepth | null;
 }
 
 /** Retrieval view of the assets, with every lookup precomputed once at load. */
@@ -208,6 +254,8 @@ export function validateAssets(assets: KnowledgeAssets, vectors: Float32Array): 
     }
   }
 
+  validateContinuation(assets, idSet, fail);
+
   if (problems.length) throw new KnowledgeAssetError(problems);
 
   const buckets: number[][] = m.section_rows.map(() => []);
@@ -232,4 +280,78 @@ export function validateAssets(assets: KnowledgeAssets, vectors: Float32Array): 
     delta: policy.delta,
     scoreTopK,
   };
+}
+
+const isText = (t: unknown): t is DepthText =>
+  typeof t === 'object' &&
+  t !== null &&
+  typeof (t as DepthText).text === 'string' &&
+  (t as DepthText).text.trim() !== '' &&
+  Array.isArray((t as DepthText).atoms) &&
+  (t as DepthText).atoms.every((a) => typeof a === 'string');
+
+function validateContinuation(
+  assets: KnowledgeAssets,
+  idSet: ReadonlySet<string>,
+  fail: (p: string) => void,
+): void {
+  const c = assets.policy.continuation;
+  // R4.8: with continuation off, depth is unused and must not reject assets the old engine accepted.
+  if (c == null) return;
+  for (const key of ['cue', 'why_cue'] as const) {
+    try {
+      new RegExp(c[key], 'u');
+    } catch {
+      fail(`policy.continuation.${key} ${String(c[key])}`);
+    }
+  }
+  if (!isInt(c.max_words) || c.max_words < 1) fail(`policy.continuation.max_words ${c.max_words}`);
+  if (!Array.isArray(c.bridges) || !c.bridges.length || c.bridges.some((b) => !b?.trim())) {
+    fail('policy.continuation.bridges must be a non-empty list of texts');
+  }
+  for (const key of ['no_state', 'exhausted'] as const) {
+    if (typeof c.texts?.[key] !== 'string' || !c.texts[key].trim()) {
+      fail(`policy.continuation.texts.${key}`);
+    }
+  }
+  if (c.texts?.related !== undefined && !c.texts.related.includes('{topics}')) {
+    fail('policy.continuation.texts.related has no {topics}');
+  }
+
+  const depth = assets.depth;
+  if (depth == null) return;
+  for (const [id, d] of Object.entries(depth.entries)) {
+    const at = `depth ${id}`;
+    if (!idSet.has(id)) {
+      fail(`${at} not in catalog`);
+      continue;
+    }
+    if (!Array.isArray(d.l0) || !d.l0.every(isText)) fail(`${at}: bad l0`);
+    if (
+      !Array.isArray(d.layers) ||
+      d.layers.some((l) => !Array.isArray(l.texts) || !l.texts.length || !l.texts.every(isText))
+    ) {
+      fail(`${at}: bad layers`);
+    }
+    if (!Array.isArray(d.complements)) fail(`${at}: bad complements`);
+    const allowed = new Set(Array.isArray(d.complements) ? d.complements : []);
+    const texts = [
+      ...(Array.isArray(d.l0) ? d.l0 : []),
+      ...(Array.isArray(d.layers) ? d.layers.flatMap((l) => l.texts ?? []) : []),
+    ];
+    for (const tx of texts) {
+      for (const atom of tx.atoms ?? []) {
+        if (!allowed.has(atom)) fail(`${at}: atom ${atom} not in complements`);
+      }
+    }
+    for (const w of Array.isArray(d.walk) ? d.walk : [id]) {
+      if (!idSet.has(w) || w === id) fail(`${at}: walk id ${w} not in catalog or self`);
+    }
+    if (d.rotation !== undefined) {
+      const ok =
+        Array.isArray(d.rotation) &&
+        d.rotation.every((i) => isInt(i) && i >= 0 && i < (d.l0?.length ?? 0));
+      if (!ok) fail(`${at}: rotation out of range`);
+    }
+  }
 }

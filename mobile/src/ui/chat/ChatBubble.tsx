@@ -3,9 +3,19 @@
 // text is a small Markdown subset (markdown.ts) with its keywords in bold, typed out word by word
 // (reveal.ts) unless motion is reduced or a screen reader is on.
 import { memo, useEffect, useMemo, useState, type ReactNode } from 'react';
-import { Animated, Easing, Image, Pressable, StyleSheet, Text, View } from 'react-native';
+import {
+  Animated,
+  Easing,
+  Image,
+  Pressable,
+  StyleSheet,
+  Text,
+  useWindowDimensions,
+  View,
+} from 'react-native';
 import Svg, { Path } from 'react-native-svg';
 
+import type { MediaPick } from '@/core/media/media';
 import { fill, t } from '@/i18n';
 
 import { Icon } from '../icons/Icon';
@@ -14,6 +24,7 @@ import { useReducedMotion } from '../useReducedMotion';
 
 import type { ChatSource } from './citations';
 import { replyDoc, sliceDoc, type Block } from './markdown';
+import { MediaGallery } from './MediaGallery';
 import { useRevealedWords } from './reveal';
 import { useScreenReader } from './useScreenReader';
 
@@ -38,12 +49,30 @@ export interface ChatBubbleProps {
    * scrolled back into view) does not. Without an id the bubble enters on every mount.
    */
   entryId?: string;
+  /** Assistant only: photos under the text, shown once it has typed out. */
+  media?: MediaPick;
 }
 
 /** A slow, short rise: the message settles in instead of popping. */
 const ENTRY_MS = 280;
 const ENTRY_RISE = 4;
 const NO_KEYWORDS: readonly string[] = [];
+/** The row's side margins, a bubble's share of what is left, and its padding (styles below). */
+const ROW_PADDING = 22;
+const COLUMN_SHARE = 0.88;
+const BUBBLE_PADDING = 17;
+/** The line's room for the source button beside a bubble's corner. */
+const SOURCE_GUTTER = 22;
+
+/**
+ * A photo bubble's inner width as the window predicts it, for its gallery's first frame. The
+ * gallery then measures itself: inside a narrower frame (the chat's centred column on a wide
+ * screen, the design catalog) it settles one layout later.
+ */
+const predictedGalleryWidth = (screen: number, sourced: boolean) =>
+  Math.floor(COLUMN_SHARE * (screen - 2 * ROW_PADDING)) -
+  (sourced ? SOURCE_GUTTER : 0) -
+  2 * BUBBLE_PADDING;
 
 /** Row ids whose bubble has entered, or that were on screen before; FlashList reuses cells. */
 const entered = new Set<string>();
@@ -63,23 +92,29 @@ export const ChatBubble = memo(function ChatBubble({
   keywords = NO_KEYWORDS,
   revealId,
   entryId,
+  media,
 }: ChatBubbleProps) {
   const mine = role === 'user';
   const reduced = useReducedMotion();
   const reader = useScreenReader();
   const doc = useMemo(() => (mine ? null : replyDoc(text, keywords)), [mine, text, keywords]);
-  const words = useRevealedWords(mine || reduced || reader ? undefined : revealId);
+  const streamId = mine || reduced || reader ? undefined : revealId;
+  const words = useRevealedWords(streamId);
+  const screen = useWindowDimensions().width;
   // Waiting for its turn (a banner is still typing out) or for the chat to schedule it.
   if (words === 0) return null;
   const done = !doc || words >= doc.stops.length;
   const cited = !mine && sources?.length ? sources : null;
+  const sourced = cited !== null && onOpenSources !== undefined;
+  const gallery = mine ? undefined : media;
   return (
     <BubbleRow
       role={role}
       entryId={entryId}
       meta={done ? meta : undefined}
+      fill={gallery !== undefined}
       accessory={
-        cited && onOpenSources ? (
+        sourced ? (
           done ? (
             <SourceButton count={cited.length} onPress={() => onOpenSources(cited)} />
           ) : (
@@ -92,7 +127,7 @@ export const ChatBubble = memo(function ChatBubble({
       {mine && photoUri ? (
         <Image
           source={{ uri: photoUri }}
-          accessibilityLabel="Foto enviada"
+          accessibilityLabel={t.chatScreen.photo.sent}
           accessible
           resizeMode="contain"
           style={[styles.photo, !!text && styles.photoWithCaption]}
@@ -104,6 +139,14 @@ export const ChatBubble = memo(function ChatBubble({
         <Text style={styles.mineText} selectable>
           {text}
         </Text>
+      ) : null}
+      {gallery ? (
+        <MediaGallery
+          key={entryId}
+          media={gallery}
+          width={predictedGalleryWidth(screen, sourced)}
+          revealId={streamId}
+        />
       ) : null}
     </BubbleRow>
   );
@@ -176,6 +219,7 @@ export function BubbleRow({
   meta,
   accessory,
   entryId,
+  fill = false,
   children,
 }: {
   role: 'user' | 'assistant';
@@ -184,6 +228,11 @@ export function BubbleRow({
   accessory?: ReactNode;
   /** See ChatBubbleProps.entryId. */
   entryId?: string;
+  /**
+   * The bubble takes its whole share of the row (photos span it), sized by the row and never by
+   * its content, with even sides: the source button sits in the bottom padding, below the photos.
+   */
+  fill?: boolean;
   children: ReactNode;
 }) {
   const mine = role === 'user';
@@ -230,9 +279,18 @@ export function BubbleRow({
         },
       ]}
     >
-      <View style={[styles.column, mine && styles.columnMine]}>
-        <View style={[styles.line, accessory != null && styles.lineWithSource]}>
-          <View style={[styles.bubble, mine ? styles.mine : styles.theirs, accessory != null && styles.bubbleWithSource]}>
+      <View style={[styles.column, mine && styles.columnMine, fill && styles.columnFill]}>
+        <View
+          style={[styles.line, accessory != null && styles.lineWithSource, fill && styles.lineFill]}
+        >
+          <View
+            style={[
+              styles.bubble,
+              mine ? styles.mine : styles.theirs,
+              accessory != null && styles.bubbleWithSource,
+              fill && styles.bubbleFill,
+            ]}
+          >
             {children}
             <Svg
               width={11}
@@ -256,17 +314,26 @@ export function BubbleRow({
 }
 
 const styles = StyleSheet.create({
-  row: { flexDirection: 'row', paddingHorizontal: 22, paddingVertical: 8 },
+  row: { flexDirection: 'row', paddingHorizontal: ROW_PADDING, paddingVertical: 8 },
   photo: { width: 200, height: 160, maxWidth: '100%', borderRadius: 12 },
   photoWithCaption: { marginBottom: 8 },
   rowMine: { flexDirection: 'row-reverse' },
-  column: { flexShrink: 1, maxWidth: '88%', alignItems: 'flex-start' },
+  column: { flexShrink: 1, maxWidth: `${COLUMN_SHARE * 100}%`, alignItems: 'flex-start' },
   columnMine: { alignItems: 'flex-end' },
+  columnFill: { width: `${COLUMN_SHARE * 100}%` },
   line: { flexDirection: 'row', alignItems: 'flex-end' },
   // Keep the overlaid 44 pt target inside the row so native hit testing can reach all of it.
-  lineWithSource: { paddingRight: 22, paddingBottom: 14 },
+  lineWithSource: { paddingRight: SOURCE_GUTTER, paddingBottom: 14 },
+  lineFill: { alignSelf: 'stretch' },
   bubbleWithSource: { paddingRight: 28, paddingBottom: 24 },
-  bubble: { flexShrink: 1, borderRadius: 22, paddingHorizontal: 17, paddingVertical: 13 },
+  bubble: {
+    flexShrink: 1,
+    borderRadius: 22,
+    paddingHorizontal: BUBBLE_PADDING,
+    paddingVertical: 13,
+  },
+  // flexBasis 0: the line's width, whatever the photos inside would ask for.
+  bubbleFill: { flex: 1, paddingRight: BUBBLE_PADDING },
   theirs: { backgroundColor: brand.cardShade, borderBottomLeftRadius: 0 },
   mine: { backgroundColor: brand.ink, borderBottomRightRadius: 0 },
   join: { position: 'absolute', bottom: 0 },

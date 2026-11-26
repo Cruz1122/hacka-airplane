@@ -45,6 +45,70 @@ VERSION = "e5-nlu-v1"
 CUE = r"^[¿¡\s]*(?:y|e|o|pero|entonces|eso|esa|ese|esos|esas|ahí|ahi|allá|alla|con|sin|para|pa|en|también|tambien)(?=[\s?,.!]|$)"
 
 
+# "Sigue" cue (engine.ts continuation): matched against the WHOLE accent-folded message
+# (safety.foldText: lowercase, a-z0-9 words, doubled vowels collapsed), so "¿sigue abierto?" or
+# "más cerca de Pereira" never match.
+_LEAD = r"(?:(?:ok|okay|oki|vale|bueno|dale|si|claro|listo|bien|entonces|pero|y|eh|mm|hola|gracias|perfecto|genial)\s+){0,2}"
+_TAIL = r"(?:\s+(?:por\s?favor|porfa|porfavor|porfis|pls|plis|gracias|pues|ya|ahora|ok|dale))?"
+_MAS = r"(?:mass?|maz)"
+_CORE = (
+    r"(?:sigue|sige|siga|sigamos|sigu|siguie|siegue|sigeu|sgue|sique"
+    r"|continua|continuar|continue|continuemos|contina|contiua|cotinua|contnua|continia|kontinua|cntinua"
+    rf"|{_MAS}(?:\s+(?:detalles?|info|informacion|datos|despacio|por\s?favor|porfa))?"
+    rf"|(?:que|ke|qe|q|k)\s+{_MAS}"
+    rf"|(?:un\s+poco|algo\s+de|con)\s+{_MAS}(?:\s+detalles?)?"
+    rf"|(?:cuentame|cuenta|dime|dame|explicame|quiero\s+saber|quiero)\s+{_MAS}(?:\s+(?:detalles?|info|informacion|datos))?"
+    r"|explicame\s+mejor|explica\s+mejor|explicalo\s+mejor|explicamelo\s+mejor"
+    r"|amplia|ampliame|ampliar|amplialo|ampliala|amplia\s+(?:eso|esto)|profundiza|detalla|detallame)"
+)
+CONT_CUE = rf"^{_LEAD}{_CORE}{_TAIL}$"
+CONT_WHY_CUE = r"^(?:y\s+)?(?:por\s?que|porque|por\s?ke|porke|pq|xq|x\s?que)(?:\s+(?:eso|es\s+asi|pues))?$"
+CONT_BRIDGES = ["Relacionado con esto:", "Y sobre un tema cercano:", "Cambiando un poco de punto:", "Algo más del parque:"]
+CONT_TEXTS = {
+    "no_state": "¿Sobre qué tema quieres que siga?",
+    "exhausted": "No tengo más detalle verificado sobre esto.",
+    "related": "Puedo contarte sobre {topics}.",
+}
+
+
+def depth_assets(entries: list[dict]) -> tuple[dict | None, dict | None]:
+    """(depth.json payload, policy.continuation) from the three T3/T5b outputs; (None, None) when absent.
+
+    depth_replies.json  {id: {layers: [{kind, texts: [str | {text, atoms}]}], walk: [id]}}
+    reply_variants.json {id: [{text, atoms, emergency_ok?}]}   (emergency_ok: second verifier, R6.6)
+    fact_inventory.json {id: [{fid, class: key|complement, ...}]}
+    """
+    paths = [APP / n for n in ("depth_replies.json", "reply_variants.json", "fact_inventory.json")]
+    if not all(p.exists() for p in paths):
+        return None, None
+    replies, variants, inv = (json.loads(p.read_text()) for p in paths)
+    ids = {e["id"] for e in entries}
+    emer = {k for k, v in json.loads((APP / "answer_policy.json").read_text()).items()
+            if v.get("policy") == "emergency_direct"}
+
+    def txt(t: object) -> dict:
+        t = t if isinstance(t, dict) else {"text": t, "atoms": []}
+        return {"text": t["text"], "atoms": list(t.get("atoms", []))}
+
+    out: dict[str, dict] = {}
+    for eid in sorted(ids & (set(replies) | set(variants))):
+        r = replies.get(eid, {})
+        raw = variants.get(eid, [])
+        d = {
+            "l0": [txt(t) for t in raw],
+            "layers": [{"kind": l["kind"], "texts": [txt(t) for t in l["texts"]]} for l in r.get("layers", [])],
+            "walk": [w for w in r.get("walk", []) if w in ids and w != eid],
+            "complements": [f["fid"] for f in inv.get(eid, []) if f.get("class") == "complement"],
+        }
+        if eid in emer:
+            d["rotation"] = [i for i, t in enumerate(raw) if t.get("emergency_ok")]
+        out[eid] = d
+    return {"entries": out}, {
+        "cue": CONT_CUE, "max_words": 6, "why_cue": CONT_WHY_CUE,
+        "bridges": CONT_BRIDGES, "texts": CONT_TEXTS,
+    }
+
+
 def load() -> tuple[dict, list[dict]]:
     sections, entries = {}, []
     for p in sorted(SECTIONS.glob("*.json")):
@@ -105,11 +169,13 @@ def main() -> None:
                     help="follow-up context: previous turn's scores, or the joined previous+current text")
     ap.add_argument("--cue", action="store_true", help="gate follow-ups by CUE or (short and below)")
     ap.add_argument("--fixture-rows", type=int, default=60)
+    ap.add_argument("--no-train-rows", action="store_true",
+                    help="index without train_variants/train_convs (they lowered v4_dev with ft5/ft5b)")
     a = ap.parse_args()
 
     sections, entries = load()
     natural = json.loads((APP / "natural_replies.json").read_text())
-    extra = app_texts(conv=True)
+    extra = app_texts(conv=True, variants=not a.no_train_rows, train_convs=not a.no_train_rows)
     sec_names = list(sections)
     redirects = {k: v for k, v in json.loads((APP / "redirects.json").read_text()).items() if not k.startswith("_")}
     pos = {e["id"]: n for n, e in enumerate(entries)}
@@ -170,6 +236,9 @@ def main() -> None:
         },
         "laya": {"enabled": False, "model": "laya_final.gather_int8.onnx", "catalog_sha256": None, "mode": "reorder_only"},
     }
+    depth, continuation = depth_assets(entries)
+    if continuation is not None:  # absent key = disabled: no depth files leaves today's assets untouched
+        policy["continuation"] = continuation
     entry_sec = [sec_names.index(e["section"]) for e in entries]
     manifest = {
         "embedder": emb_id, "prefix": PREFIX, "dims": int(vec.shape[1]), "rows": int(vec.shape[0]),
@@ -183,6 +252,13 @@ def main() -> None:
     w(ASSETS / "sections.json", sec_out)
     w(ASSETS / "policy.json", policy)
     w(ASSETS / "index.json", manifest)
+    # The cue is tested by the jest detector table even while policy.continuation is off.
+    w(FIXTURES / "continuation.json", {"cue": CONT_CUE, "max_words": 6, "why_cue": CONT_WHY_CUE,
+                                       "bridges": CONT_BRIDGES, "texts": CONT_TEXTS})
+    if depth is not None:
+        w(ASSETS / "depth.json", depth)
+    else:
+        (ASSETS / "depth.json").unlink(missing_ok=True)
 
     # TS parity: entry scores (top-k mean) and their fusion with the previous fixture row's scores.
     tv = vec[: len(texts)]

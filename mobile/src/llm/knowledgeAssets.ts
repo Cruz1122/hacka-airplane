@@ -1,6 +1,7 @@
 // The bundled knowledge assets and the no-model fallback engine, shared by the native and the web
 // runtime (knowledgeRuntime.ts, knowledgeRuntime.web.ts).
 import catalog from '@/../assets/data/knowledge/catalog.json';
+import depth from '@/../assets/data/knowledge/depth.json';
 import manifest from '@/../assets/data/knowledge/index.json';
 import policy from '@/../assets/data/knowledge/policy.json';
 import sections from '@/../assets/data/knowledge/sections.json';
@@ -11,6 +12,7 @@ export const knowledgeAssets = {
   sections,
   policy,
   manifest,
+  depth,
 } as unknown as KnowledgeAssets;
 
 export interface KnowledgeRuntime {

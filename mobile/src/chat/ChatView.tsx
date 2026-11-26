@@ -2,6 +2,7 @@
 // can show every state on web, where the model never loads.
 import { FlashList } from '@shopify/flash-list';
 import {
+  type ReactNode,
   type RefObject,
   useCallback,
   useEffect,
@@ -18,28 +19,25 @@ import {
   type LayoutChangeEvent,
   type NativeScrollEvent,
   type NativeSyntheticEvent,
-  Platform,
   StyleSheet,
-  Text,
   useWindowDimensions,
   View,
 } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import Svg, { Defs, LinearGradient, Rect, Stop } from 'react-native-svg';
 
-import type { StepResult } from '@/core/driver';
+import type { MediaPick } from '@/core/media/media';
 import { fill, t } from '@/i18n';
 import { ChatBubble, markEntered } from '@/ui/chat/ChatBubble';
 import type { ChatSource } from '@/ui/chat/citations';
 import { ChatComposer, DOCK } from '@/ui/chat/ChatComposer';
-import { ChatMenu } from '@/ui/chat/ChatMenu';
 import { keywordsFor } from '@/ui/chat/keywords';
+import { revealRows } from '@/ui/chat/MediaGallery';
 import { replyReveal } from '@/ui/chat/reveal';
 import { SourcesSheet } from '@/ui/chat/SourcesSheet';
 import { TypingBubble } from '@/ui/chat/TypingBubble';
-import { DebugPanel } from '@/ui/DebugPanel';
 import { PET_NAME, type VoiceState } from '@/ui/pet/petCore';
-import { brand, type } from '@/ui/theme/tokens';
+import { brand } from '@/ui/theme/tokens';
 import { useReducedMotion } from '@/ui/useReducedMotion';
 
 import { ChatBackdrop } from './ChatBackdrop';
@@ -60,6 +58,8 @@ export interface ChatRow {
   latencyMs?: number;
   /** Validated references of an assistant reply; none means no source button. */
   sources?: ChatSource[];
+  /** Photos under an answer, decided once when it arrived (src/core/media). */
+  media?: MediaPick;
 }
 
 export interface ChatModel {
@@ -71,11 +71,7 @@ export interface ChatModel {
 export interface ChatViewProps {
   messages: ChatRow[];
   busy: boolean;
-  /** Live model output of the routing step, for the debug view. */
-  draft: string;
   model: ChatModel;
-  steps: StepResult[];
-  state: string;
   /** Idle-motion time of the backdrop (from the onboarding), or null for its rest pose. */
   sceneTime: number | null;
   /** Fade the conversation in: the onboarding just handed over the header (see handoff.ts). */
@@ -84,12 +80,15 @@ export interface ChatViewProps {
   onPhoto?: () => void;
   photoUri?: string;
   onRemovePhoto?: () => void;
+  /** Starts a new conversation (the composer's pen button). */
   onReset: () => void;
-  onSettings: () => void;
-  onHistory: () => void;
+  /** The cloud navigation bar, drawn over the header and under the sources sheet. */
+  nav?: ReactNode;
 }
 
 const MAX_COLUMN = 720;
+/** Points the sheet rises before the navigation bar is fully faded out. */
+const NAV_FADE = 60;
 const keyExtractor = (m: ChatRow) => m.id;
 const greeting = (
   <ChatBubble role="assistant" text={fill(t.chatScreen.greeting, { pet: PET_NAME })} />
@@ -119,12 +118,14 @@ function TopFade() {
  */
 function useReplyReveal(messages: ChatRow[]): ReadonlySet<string> {
   const [seen] = useState(() => {
-    const ids = new Set(messages.map((m) => m.id));
-    markEntered(ids);
-    return ids;
+    markEntered(messages.map((m) => m.id));
+    return new Set(revealRows(messages).map((r) => r.id));
   });
-  // Before paint, in data order: a banner always types out before its reply.
-  useLayoutEffect(() => replyReveal.schedule(messages, seen, performance.now()), [messages, seen]);
+  // Before paint, in data order: a banner always types out before its reply, photo captions after.
+  useLayoutEffect(
+    () => replyReveal.schedule(revealRows(messages), seen, performance.now()),
+    [messages, seen],
+  );
   return seen;
 }
 
@@ -139,17 +140,6 @@ function usePetVoice(messages: ChatRow[], busy: boolean, seen: ReadonlySet<strin
   const talking = useSyncExternalStore(replyReveal.subscribe, read, read);
   if (talking) return 'speaking';
   return busy ? 'thinking' : 'idle';
-}
-
-function statusText(model: ChatModel): string | null {
-  if (model.status === 'ready') return null;
-  if (model.status === 'loading') return t.modelLoading;
-  const detail =
-    model.status === 'missing'
-      ? `${t.modelMissing}: ${model.id}`
-      : `${t.modelError}: ${model.error ?? ''}`;
-  // The real cause stays visible; on web it is expected, so say so first.
-  return Platform.OS === 'web' ? `${t.chatScreen.webNoModel}\n${detail}` : detail;
 }
 
 /**
@@ -332,7 +322,6 @@ function ChatContent(p: ChatViewProps & { width: number; tall: number; viewBotto
     () => chatLayout(headerScene, p.width, tall, { top: insets.top, bottom: insets.bottom }),
     [p.width, tall, insets.top, insets.bottom],
   );
-  const [debug, setDebug] = useState(false);
   // One sheet for the screen: the bubbles only say which sources to list.
   const [sheet, setSheet] = useState<ChatSource[] | null>(null);
   const openSheet = useCallback((sources: ChatSource[]) => {
@@ -351,6 +340,7 @@ function ChatContent(p: ChatViewProps & { width: number; tall: number; viewBotto
         entryId={item.id}
         sources={item.sources}
         onOpenSources={openSheet}
+        media={item.media}
         meta={
           item.latencyMs != null
             ? fill(t.chatScreen.seconds, { s: (item.latencyMs / 1000).toFixed(1) })
@@ -398,7 +388,6 @@ function ChatContent(p: ChatViewProps & { width: number; tall: number; viewBotto
     anim.start();
     return () => anim.stop();
   }, [p.fadeIn, shown, still]);
-  const status = statusText(p.model);
   const ready = p.model.status === 'ready';
   // The docked composer's base strip covers the home indicator, so the sheet needs no padding.
   const floor = keyboard.open ? DOCK.floor : Math.max(insets.bottom, DOCK.floor);
@@ -421,6 +410,7 @@ function ChatContent(p: ChatViewProps & { width: number; tall: number; viewBotto
           r={layout.circle.r}
           voice={voice}
           ready={ready}
+          loading={p.model.status === 'loading'}
           gaze={gaze}
         />
       </Animated.View>
@@ -429,13 +419,6 @@ function ChatContent(p: ChatViewProps & { width: number; tall: number; viewBotto
           <Animated.View
             style={[styles.conversation, { transform: [{ translateY: motion.sheetY }] }]}
           >
-            {status && (
-              <View style={styles.column}>
-                <Text style={styles.status} numberOfLines={3}>
-                  {status}
-                </Text>
-              </View>
-            )}
             <View style={[styles.column, styles.list]}>
               <FlashList
                 ref={list}
@@ -445,10 +428,7 @@ function ChatContent(p: ChatViewProps & { width: number; tall: number; viewBotto
                 ListHeaderComponent={greeting}
                 ListFooterComponent={
                   p.busy ? (
-                    <TypingBubble
-                      label={fill(t.chatScreen.typing, { pet: PET_NAME })}
-                      detail={debug ? p.draft || t.thinking : undefined}
-                    />
+                    <TypingBubble label={fill(t.chatScreen.typing, { pet: PET_NAME })} />
                   ) : null
                 }
                 onContentSizeChange={follow.toEnd}
@@ -462,11 +442,6 @@ function ChatContent(p: ChatViewProps & { width: number; tall: number; viewBotto
             </View>
           </Animated.View>
           <Animated.View style={{ transform: [{ translateY: motion.composerY }] }}>
-            {debug && (
-              <View style={styles.column}>
-                <DebugPanel steps={p.steps} state={p.state} />
-              </View>
-            )}
             <View>
               {/* Past the reading column the base strip still runs along the whole bottom edge,
                   and a screen further down, so no row shows under the composer as it rises. */}
@@ -483,25 +458,31 @@ function ChatContent(p: ChatViewProps & { width: number; tall: number; viewBotto
                   photoUri={p.photoUri}
                   onRemovePhoto={p.onRemovePhoto}
                   onCaret={gaze.set}
+                  onNewChat={p.onReset}
+                  newChatLabel={t.chatScreen.newChat}
                 />
               </View>
             </View>
           </Animated.View>
         </View>
-        <ChatMenu
-          label={t.chatScreen.more}
-          top={insets.top + 10}
-          right={insets.right + 16}
-          items={[
-            { label: t.chatScreen.newChat, onPress: p.onReset },
-            { label: t.history, onPress: p.onHistory },
-            { label: t.settings, onPress: p.onSettings },
-            {
-              label: debug ? t.chatScreen.debugHide : t.chatScreen.debugShow,
-              onPress: () => setDebug((d) => !d),
-            },
-          ]}
-        />
+        {p.nav && (
+          // The circle rises into the bar's place while typing, so the bar fades out of its way.
+          <Animated.View
+            style={[
+              StyleSheet.absoluteFill,
+              {
+                opacity: motion.sheetY.interpolate({
+                  inputRange: [-NAV_FADE, 0],
+                  outputRange: [0, 1],
+                  extrapolate: 'clamp',
+                }),
+              },
+            ]}
+            pointerEvents={keyboard.open ? 'none' : 'box-none'}
+          >
+            {p.nav}
+          </Animated.View>
+        )}
         <SourcesSheet sources={sheet} onClose={closeSheet} bottom={insets.bottom} />
       </Animated.View>
     </>
@@ -518,11 +499,4 @@ const styles = StyleSheet.create({
   dockBase: { position: 'absolute', left: 0, right: 0, backgroundColor: brand.cardShade },
   listContent: { paddingTop: 10 },
   fade: { position: 'absolute', top: 0, left: 0, right: 0, height: 22 },
-  status: {
-    ...type.caption,
-    color: brand.inkMuted,
-    textAlign: 'center',
-    marginHorizontal: 24,
-    marginBottom: 4,
-  },
 });

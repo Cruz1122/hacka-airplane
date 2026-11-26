@@ -44,9 +44,16 @@ def load_hubs(path: Path | None = None) -> list[Entry]:
             for h in json.loads(path.read_text())]
 
 
-def app_texts(conv: bool = True) -> dict[str, list[str]]:
-    """Extra index/training texts per entry id: augmented queries, plus 2-turn conversations joined
-    with a space (the same way a follow-up's context is joined at query time)."""
+def app_texts(conv: bool = True, variants: bool = True, train_convs: bool = True) -> dict[str, list[str]]:
+    """Extra index/training texts per entry id.
+
+    aug_queries.json and followup_convs.json are the original pools and are not rewritten.
+    train_variants.json and train_convs.json, when present, add the depth_v1 rows. A conversation
+    turn is indexed under the entry that answers that turn, not under the conversation target:
+    export_nlu embeds one row per text, and follow-up fusion happens at query time.
+    variants=False leaves train_variants.json out (ft5 regressed with it in the training pool).
+    train_convs=False leaves train_convs.json out (ft4 ships without the depth_v1 rows).
+    """
     out: dict[str, list[str]] = {}
     aug = APP / "aug_queries.json"
     if aug.exists():
@@ -56,6 +63,16 @@ def app_texts(conv: bool = True) -> dict[str, list[str]]:
     if conv and convs.exists():
         for k, v in json.loads(convs.read_text()).items():
             out.setdefault(k, []).extend(" ".join(c) for c in v)
+    var_path = APP / "train_variants.json"
+    if variants and var_path.exists():
+        for k, v in json.loads(var_path.read_text()).items():
+            out.setdefault(k, []).extend(v)
+    trained = APP / "train_convs.json"
+    if conv and train_convs and trained.exists():
+        for groups in json.loads(trained.read_text()).values():
+            for turns in groups:
+                for turn in turns:
+                    out.setdefault(turn["entry_id"], []).append(turn["text"])
     return out
 
 

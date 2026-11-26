@@ -13,10 +13,11 @@ export function TypingBubble({ label, detail }: { label: string; detail?: string
   const [dots] = useState(() => [0, 1, 2].map(() => new Animated.Value(0.35)));
   useEffect(() => {
     if (reduced) return;
+    const native = Platform.OS !== 'web';
     const breathe = (v: Animated.Value) =>
       Animated.sequence([
-        Animated.timing(v, { toValue: 1, duration: 320, useNativeDriver: true }),
-        Animated.timing(v, { toValue: 0.35, duration: 320, useNativeDriver: true }),
+        Animated.timing(v, { toValue: 1, duration: 320, useNativeDriver: native }),
+        Animated.timing(v, { toValue: 0.35, duration: 320, useNativeDriver: native }),
       ]);
     const loop = Animated.loop(Animated.stagger(180, dots.map(breathe)));
     loop.start();

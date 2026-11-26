@@ -8,7 +8,14 @@ import { CLOUD_EDGE, CloudCard } from '@/ui/CloudCard';
 import { PageDots } from '@/ui/PageDots';
 import { ParkEmblem } from '@/ui/ParkEmblem';
 import { Pet } from '@/ui/pet/Pet';
-import { PET_EMOTIONS, type PetEmotion } from '@/ui/pet/petCore';
+import {
+  PET_ACCESSORIES,
+  PET_EMOTIONS,
+  PET_TINTS,
+  type PetAccessory,
+  type PetEmotion,
+  type PetTint,
+} from '@/ui/pet/petCore';
 import { PrimaryButton } from '@/ui/PrimaryButton';
 import { brand, spacing, type } from '@/ui/theme/tokens';
 
@@ -19,6 +26,8 @@ const w = t.dev.workshop;
 export function FoundationsLab({ wide, reducedMotion }: LabProps) {
   const [emotion, setEmotion] = useState<PetEmotion>('speaking');
   const [page, setPage] = useState(0);
+  const [accessory, setAccessory] = useState<PetAccessory | 'none'>('none');
+  const [tint, setTint] = useState<PetTint | 'auto'>('auto');
   const speaking = emotion === 'speaking';
   // The canvas and page padding take about 80 pt on a phone.
   const cardWidth = Math.min(360, useWindowDimensions().width - 80);
@@ -32,6 +41,8 @@ export function FoundationsLab({ wide, reducedMotion }: LabProps) {
           voice={speaking ? 'speaking' : 'idle'}
           audioLevel={speaking ? 0.39 : 0}
           reducedMotion={reducedMotion}
+          accessory={accessory === 'none' ? undefined : accessory}
+          tint={tint === 'auto' ? undefined : tint}
         />
       </View>
 
@@ -72,13 +83,29 @@ export function FoundationsLab({ wide, reducedMotion }: LabProps) {
   );
 
   const controls = (
-    <Field label={`${w.pet} · ${w.emotion}`}>
-      <Choices
-        value={emotion}
-        onChange={setEmotion}
-        options={PET_EMOTIONS.map((e) => ({ value: e, label: e }))}
-      />
-    </Field>
+    <>
+      <Field label={`${w.pet} · ${w.emotion}`}>
+        <Choices
+          value={emotion}
+          onChange={setEmotion}
+          options={PET_EMOTIONS.map((e) => ({ value: e, label: e }))}
+        />
+      </Field>
+      <Field label={`${w.pet} · ${w.accessory}`}>
+        <Choices
+          value={accessory}
+          onChange={setAccessory}
+          options={(['none', ...PET_ACCESSORIES] as const).map((a) => ({ value: a, label: a }))}
+        />
+      </Field>
+      <Field label={`${w.pet} · ${t.group.pet.color}`}>
+        <Choices
+          value={tint}
+          onChange={setTint}
+          options={(['auto', ...PET_TINTS] as const).map((v) => ({ value: v, label: v }))}
+        />
+      </Field>
+    </>
   );
 
   return <Stage wide={wide} preview={preview} controls={controls} />;

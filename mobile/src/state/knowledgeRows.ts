@@ -45,6 +45,7 @@ export function toChatRows(rows: readonly KnowledgeRow[], errorText: string): Ch
         ...(reply.type === 'answer' ? { entryId: reply.id } : {}),
         ...(row.timing ? { latencyMs: Math.round(row.timing.totalMs) } : {}),
         ...(sources ? { sources } : {}),
+        ...(row.media ? { media: row.media } : {}),
       },
     ];
   });

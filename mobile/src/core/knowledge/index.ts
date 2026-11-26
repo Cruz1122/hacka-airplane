@@ -3,8 +3,13 @@ export { KnowledgeAssetError, validateAssets } from './assets';
 export type {
   CatalogEntry,
   CatalogSource,
+  DepthEntry,
+  DepthLayer,
+  DepthText,
   IndexManifest,
   KnowledgeAssets,
+  KnowledgeContinuation,
+  KnowledgeDepth,
   KnowledgeFollowup,
   KnowledgePolicy,
   LoadedIndex,
@@ -17,4 +22,4 @@ export type { SafetyResult } from './safety';
 export { canRerank, identityReranker, isReordering } from './rerank';
 export type { Reranker } from './rerank';
 export { KnowledgeEngine, KnowledgeEngineError } from './engine';
-export type { AskResult, Embed, Score } from './engine';
+export type { AskResult, Embed, KnowledgeEngineOptions, Score } from './engine';

@@ -2,7 +2,8 @@
 import { t } from '@/i18n';
 import type { IconName } from '@/ui/icons/Icon';
 
-export type WorkshopId = 'composer' | 'bubbles' | 'buttons' | 'indicators' | 'foundations';
+export type WorkshopId =
+  'composer' | 'bubbles' | 'buttons' | 'indicators' | 'group' | 'foundations';
 
 export interface WorkshopItem {
   id: WorkshopId;
@@ -17,6 +18,7 @@ const ORDER: { id: WorkshopId; icon: IconName }[] = [
   { id: 'bubbles', icon: 'messagesSquare' },
   { id: 'buttons', icon: 'squareMousePointer' },
   { id: 'indicators', icon: 'circleDot' },
+  { id: 'group', icon: 'users' },
   { id: 'foundations', icon: 'palette' },
 ];
 

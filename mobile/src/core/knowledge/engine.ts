@@ -3,10 +3,26 @@
 
 import {
   validateAssets,
+  type DepthEntry,
+  type DepthText,
   type KnowledgeAssets,
+  type KnowledgeContinuation,
   type KnowledgeFollowup,
   type LoadedIndex,
 } from './assets';
+import {
+  bestTexts,
+  cueMatcher,
+  factKey,
+  joinTopics,
+  newState,
+  pickLayer,
+  Rotation,
+  seededRandom,
+  type ContinuationState,
+  type CueKind,
+  type CueMatcher,
+} from './continuation';
 import { answerFor, bannerFor, decide, policyContext, type PolicyContext } from './policy';
 import { canRerank, isReordering, type Reranker } from './rerank';
 import { retrieve, type RetrievalResult } from './retrieve';
@@ -46,6 +62,11 @@ function isFollowup(text: string, ownTopCos: number, f: KnowledgeFollowup): bool
   return short || ownTopCos < f.below;
 }
 
+export interface KnowledgeEngineOptions {
+  /** Seeds the paraphrase rotation and the tie-breaks (R7.7). Default: random per session. */
+  seed?: number;
+}
+
 const CHAIN_WORDS = 60; // e5 reads 512 tokens; a follow-up chain stays far below that
 
 const now = (): number => (typeof performance !== 'undefined' ? performance.now() : Date.now());
@@ -56,6 +77,12 @@ export class KnowledgeEngine {
   /** Entry scores of the last ask that produced a retrieval; the follow-up context. */
   private prevScores: Float32Array | undefined;
   private prevText: string | undefined; // previous user message (followup.mode 'concat')
+  private readonly cont: KnowledgeContinuation | null;
+  private readonly cue: CueMatcher | null;
+  private readonly depth: Readonly<Record<string, DepthEntry>>;
+  /** Paraphrase rotation: lives for the app session, so resetContext keeps it (R6.5). */
+  private readonly rot: Rotation;
+  private state: ContinuationState | undefined; // "sigue" conversation on one entry (R4)
 
   /**
    * @param vectors side-loaded index.f32.bin, rows x dims as the manifest says.
@@ -63,6 +90,7 @@ export class KnowledgeEngine {
    *   (manifest.prefix) and returns the L2-normalised vector.
    * @param reranker optional reorderer (Laya); skipped for pools outside its catalogIds.
    * @param score optional native scorer; without it the JS dot-product loop runs (~0.46 s in Hermes).
+   * @param options `seed` for the rotation; depth and "sigue" only run when policy.continuation is set.
    */
   constructor(
     assets: KnowledgeAssets,
@@ -70,9 +98,14 @@ export class KnowledgeEngine {
     private readonly embed: Embed,
     private readonly reranker?: Reranker,
     private readonly score?: Score,
+    options: KnowledgeEngineOptions = {},
   ) {
     this.idx = validateAssets(assets, vectors);
     this.ctx = policyContext(assets);
+    this.cont = assets.policy.continuation ?? null;
+    this.cue = this.cont ? cueMatcher(this.cont) : null;
+    this.depth = this.cont ? (assets.depth?.entries ?? {}) : {};
+    this.rot = new Rotation(seededRandom(options.seed ?? Math.floor(Math.random() * 2 ** 32)));
   }
 
   async ask(text: string, visualEntryId?: string, preferCaption = false): Promise<AskResult> {
@@ -101,6 +134,11 @@ export class KnowledgeEngine {
       if (!preferCaption) return done({ reply: this.answer(visualFallback, banner) });
     }
 
+    // Rules-only turn: no embedding. Urgent text never continues a conversation (R4.7).
+    const kind = this.cue && !safety.urgent ? this.cue.match(text) : null;
+    const cont = kind ? this.continuation(kind, banner) : undefined;
+    if (cont) return done({ reply: cont });
+
     let retrieval: RetrievalResult;
     try {
       const t1 = now();
@@ -114,13 +152,22 @@ export class KnowledgeEngine {
       const f = this.ctx.policy.followup ?? null;
       const prev = f?.mode === 'concat' ? this.prevText : this.prevScores;
       // Urgent turns keep their own pool so a previous topic cannot push emergency entries out.
-      if (f && prev !== undefined && !safety.urgent && isFollowup(text, retrieval.cos[0] ?? -1, f)) {
+      if (
+        f &&
+        prev !== undefined &&
+        !safety.urgent &&
+        isFollowup(text, retrieval.cos[0] ?? -1, f)
+      ) {
         let context: Float32Array;
         if (typeof prev === 'string') {
           const t3 = now();
           const cvec = await this.embed(prep(`${prev} ${text}`));
           timing.embedMs += now() - t3;
-          context = retrieve(cvec, this.idx, this.score ? await this.score(cvec) : undefined).scores;
+          context = retrieve(
+            cvec,
+            this.idx,
+            this.score ? await this.score(cvec) : undefined,
+          ).scores;
         } else {
           context = prev;
         }
@@ -140,7 +187,7 @@ export class KnowledgeEngine {
       if (!banner) throw error;
       // Urgent without a model: the curated 123 entry under the urgent banner.
       const reply = safety.urgent
-        ? this.answer(this.ctx.policy.emergency_line_id, banner)
+        ? this.answer(this.ctx.policy.emergency_line_id, banner, true)
         : this.abstain(banner);
       return done({ reply, error });
     }
@@ -171,7 +218,7 @@ export class KnowledgeEngine {
     const topCos = contextUsed ? Number.POSITIVE_INFINITY : (retrieval.cos[0] ?? -1);
     const d = decide(safety.urgent, order, topCos, this.ctx);
     const id = d.type === 'answer' ? d.id : visualFallback;
-    const reply = id ? this.answer(id, banner) : this.abstain(banner);
+    const reply = id ? this.answer(id, banner, safety.urgent) : this.abstain(banner);
     return done({
       reply,
       retrieval,
@@ -184,13 +231,103 @@ export class KnowledgeEngine {
   resetContext(): void {
     this.prevScores = undefined;
     this.prevText = undefined;
+    this.state = undefined;
   }
 
-  private answer(id: string, banner: Banner | undefined): KnowledgeReply {
-    return { ...answerFor(this.ctx, id), ...(banner ? { banner } : {}) };
+  private answer(id: string, banner: Banner | undefined, urgent = false): KnowledgeReply {
+    const base = { ...answerFor(this.ctx, id), ...(banner ? { banner } : {}) };
+    if (!this.cont) return base;
+    const pick = this.l0(id);
+    if (urgent) this.state = undefined;
+    else {
+      if (this.state?.id !== id) this.state = newState(id);
+      this.markServed(this.state, id, pick?.atoms ?? []);
+    }
+    return pick ? { ...base, text: pick.text } : base;
   }
 
+  /** Abstain or off-topic: the "sigue" conversation ends (R4.7). */
   private abstain(banner: Banner | undefined): KnowledgeReply {
-    return { type: 'abstain', ...(banner ? { banner } : {}), text: this.ctx.policy.texts.abstain };
+    this.state = undefined;
+    return this.policyText(banner, this.ctx.policy.texts.abstain);
+  }
+
+  private policyText(banner: Banner | undefined, text: string): KnowledgeReply {
+    return { type: 'abstain', ...(banner ? { banner } : {}), text };
+  }
+
+  /** Next L0 paraphrase of the seeded rotation (R6.5); undefined keeps the canonical text. */
+  private l0(id: string): DepthText | undefined {
+    const d = this.depth[id];
+    if (!d || !d.l0.length) return undefined;
+    // R6.6: an emergency entry rotates only over its doubly approved set, and only if it has 3.
+    const pool = this.ctx.emergencyDirect.has(id) ? (d.rotation ?? []) : d.l0.map((_, i) => i);
+    if (this.ctx.emergencyDirect.has(id) && pool.length < 3) return undefined;
+    return d.l0[pool[this.rot.take(`${id}:L0`, pool.length)]];
+  }
+
+  private markServed(st: ContinuationState, id: string, atoms: readonly string[]): void {
+    for (const f of atoms) st.served.add(factKey(id, f));
+  }
+
+  /** A served depth text under the entry's own title and sources; steps stay in the first answer. */
+  private reply(id: string, text: string, banner: Banner | undefined): KnowledgeReply {
+    const { steps: _steps, ...base } = answerFor(this.ctx, id);
+    return { ...base, text, ...(banner ? { banner } : {}) };
+  }
+
+  /**
+   * "sigue" / "por qué" without retrieval (R4.1-R4.5). undefined: not handled, take the normal
+   * path (a "por qué" with no unserved why layer is an ordinary follow-up, R4.5).
+   */
+  private continuation(kind: CueKind, banner: Banner | undefined): KnowledgeReply | undefined {
+    const c = this.cont;
+    const st = this.state;
+    if (!c) return undefined;
+    const d = st ? this.depth[st.id] : undefined;
+    // R6.6: an emergency entry never continues into a depth layer. Those texts are not the
+    // doubly approved paraphrase set. "por qué" falls through to retrieval; "sigue" may still walk.
+    const emergency = !!st && this.ctx.emergencyDirect.has(st.id);
+    if (kind === 'why') {
+      if (emergency) return undefined;
+      const li = st && d ? d.layers.findIndex((l, i) => l.kind === 'why' && !st.layers.has(i)) : -1;
+      return st && d && li >= 0 ? this.serveLayer(st, d, li, banner) : undefined;
+    }
+    if (!st) return this.policyText(banner, c.texts.no_state);
+    if (!emergency) {
+      const pick = d ? pickLayer(d, st, () => this.rot.random()) : undefined;
+      if (d && pick) return this.serveLayer(st, d, pick.layer, banner, pick.texts);
+    }
+
+    for (const w of d?.walk ?? []) {
+      if (st.walked.has(w)) continue;
+      st.walked.add(w);
+      const t = this.l0(w);
+      const text = t?.text ?? this.ctx.byId.get(w)?.short ?? '';
+      this.markServed(st, w, t?.atoms ?? []);
+      const bridge = c.bridges[this.rot.take('bridges', c.bridges.length)];
+      return this.reply(w, `${bridge} ${text}`, banner);
+    }
+    const labels = (d?.walk ?? []).slice(0, 2).map((w) => this.ctx.byId.get(w)?.menu_label ?? w);
+    const related =
+      c.texts.related && labels.length
+        ? c.texts.related.replace('{topics}', joinTopics(labels))
+        : '';
+    return this.policyText(banner, `${c.texts.exhausted} ${related}`.trim());
+  }
+
+  private serveLayer(
+    st: ContinuationState,
+    d: DepthEntry,
+    layer: number,
+    banner: Banner | undefined,
+    allowed?: Set<number>,
+  ): KnowledgeReply {
+    const l = d.layers[layer];
+    const ok = allowed ?? bestTexts(l, st);
+    const t = l.texts[this.rot.take(`${st.id}:L${layer + 1}`, l.texts.length, (i) => ok.has(i))];
+    st.layers.add(layer);
+    this.markServed(st, st.id, t.atoms);
+    return this.reply(st.id, t.text, banner);
   }
 }

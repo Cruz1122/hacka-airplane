@@ -221,5 +221,15 @@ export function drawPetCanvas2d(
   ctx.restore();
   drawStroke(ctx, f.mouth);
   ctx.restore();
+  const a = f.accessory;
+  if (a) {
+    ctx.save();
+    applyTransform(ctx, a.transform);
+    for (const s of a.shapes) {
+      ctx.fillStyle = color(s.fill, s.opacity ?? 1);
+      ctx.fill(path(s.d));
+    }
+    ctx.restore();
+  }
   ctx.restore();
 }

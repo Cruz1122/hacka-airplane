@@ -5,8 +5,8 @@ import { StyleSheet, Text, View } from 'react-native';
 
 import { fill, t } from '@/i18n';
 import { Chip } from '@/ui/Chip';
+import { CloudNavBar, NAV_BAR_HEIGHT, type NavTab } from '@/ui/CloudNavBar';
 import { UserAvatar } from '@/ui/chat/Avatars';
-import { ChatMenu } from '@/ui/chat/ChatMenu';
 import { TypingBubble } from '@/ui/chat/TypingBubble';
 import { PageDots } from '@/ui/PageDots';
 import { PET_NAME } from '@/ui/pet/petCore';
@@ -21,6 +21,8 @@ export function ButtonsLab({ wide }: LabProps) {
   const [chevron, setChevron] = useState(true);
   const [mode, setMode] = useState<'extractive' | 'generate'>('extractive');
   const [last, setLast] = useState<{ name: string; count: number } | null>(null);
+  const [tab, setTab] = useState<NavTab>('chat');
+  const [navWidth, setNavWidth] = useState(0);
   const hit = (name: string) =>
     setLast((l) => ({ name, count: l?.name === name ? l.count + 1 : 1 }));
 
@@ -46,18 +48,20 @@ export function ButtonsLab({ wide }: LabProps) {
           />
         ))}
       </View>
-      <Text style={styles.specimen}>ChatMenu</Text>
-      {/* ChatMenu places itself absolutely; this box is its header. */}
-      <View style={styles.menuBox}>
-        <ChatMenu
-          label={t.chatScreen.more}
-          top={8}
-          right={8}
-          items={[t.chatScreen.newChat, t.history, t.settings].map((label) => ({
-            label,
-            onPress: () => hit(`ChatMenu · ${label}`),
-          }))}
-        />
+      <Text style={styles.specimen}>CloudNavBar</Text>
+      {/* CloudNavBar places itself absolutely over a screen; this box is that screen's top. */}
+      <View style={styles.navBox} onLayout={(e) => setNavWidth(e.nativeEvent.layout.width)}>
+        {navWidth > 0 && (
+          <CloudNavBar
+            active={tab}
+            top={spacing.md}
+            screenWidth={navWidth}
+            onSelect={(next) => {
+              setTab(next);
+              hit(`CloudNavBar · ${t.nav[next]}`);
+            }}
+          />
+        )}
       </View>
     </View>
   );
@@ -125,9 +129,10 @@ const styles = StyleSheet.create({
   },
   specimen: { ...type.caption, color: brand.inkMuted, marginTop: spacing.sm },
   row: { flexDirection: 'row', flexWrap: 'wrap', gap: spacing.md, alignItems: 'center' },
-  menuBox: {
-    height: 220,
+  navBox: {
+    height: NAV_BAR_HEIGHT + 2 * spacing.md,
     borderRadius: 20,
-    backgroundColor: brand.cardShade,
+    backgroundColor: brand.sky,
+    overflow: 'hidden',
   },
 });

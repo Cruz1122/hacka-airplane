@@ -1,0 +1,292 @@
+import { act } from 'react';
+import { Animated, StyleSheet } from 'react-native';
+// Ships with jest-expo (its replacement for the deprecated react-test-renderer).
+import { createRoot, type TestInstance } from 'test-renderer';
+
+import type { MediaPick, MediaPickItem } from '@/core/media/media';
+
+import { ChatBubble, type ChatBubbleProps } from '../ChatBubble';
+import type { ChatSource } from '../citations';
+import { licenseFamily, mediaRevealId, revealRows } from '../MediaGallery';
+import { replyReveal, WORDS_PER_SECOND } from '../reveal';
+
+let mockReduced = false;
+jest.mock('@/ui/useReducedMotion', () => ({ useReducedMotion: () => mockReduced }));
+let mockScreen = 390;
+jest.mock('react-native/Libraries/Utilities/useWindowDimensions', () => ({
+  __esModule: true,
+  default: () => ({ width: mockScreen, height: 844, scale: 2, fontScale: 1 }),
+}));
+
+const item = (
+  id: string,
+  common: string,
+  scientific: string | null,
+  author = 'Ana',
+  license = 'CC BY 2.0',
+): MediaPickItem => ({
+  id,
+  common,
+  scientific,
+  photo: { file: `${id}.1.webp`, author, license },
+});
+const CONDOR = item('condor', 'Cóndor de los Andes', 'Vultur gryphus');
+const OSO = item('oso', 'Oso de anteojos', 'Tremarctos ornatus', 'Luis');
+const OTUN = item('otun', 'Laguna del Otún', null, 'Eva', 'Public domain');
+const SINGLE: MediaPick = { layout: 'single', items: [CONDOR] };
+const ROWS: MediaPick = { layout: 'rows', items: [CONDOR, OSO, OTUN] };
+const COLUMNS: MediaPick = { layout: 'columns', items: [CONDOR, OTUN] };
+const TEXT = 'El cóndor anida en los riscos del parque.'; // 8 words
+const SOURCES: ChatSource[] = [{ id: 'EST-D-01', title: 'Estación', excerpt: 'Abre a las 06:10.' }];
+const SOURCED = { sources: SOURCES, onOpenSources: () => {} };
+
+const transparent = (n: TestInstance) => StyleSheet.flatten(n.props.style)?.color === 'transparent';
+/** Text as a reader sees it: words not typed yet are transparent. */
+const visible = (n: TestInstance | string): string =>
+  typeof n === 'string' ? n : transparent(n) ? '' : n.children.map(visible).join('');
+/** The credit's author: the only single-line text in a bubble. */
+const isAuthor = (n: TestInstance) => n.props.numberOfLines === 1;
+
+function mount(props: ChatBubbleProps) {
+  const root = createRoot();
+  act(() => root.render(<ChatBubble {...props} />));
+  const all = (pred: (n: TestInstance) => boolean) => root.container.queryAll(pred);
+  const outer = () => all((n) => n.type === 'Text' && n.parent?.type !== 'Text');
+  const authors = () => outer().filter(isAuthor);
+  const images = () => all((n) => n.type === 'Image');
+  const size = (n: TestInstance) => {
+    const { width, height } = StyleSheet.flatten(n.props.style);
+    return { width, height };
+  };
+  return {
+    /** Each outermost Text as it reads on screen, the photo credits aside. */
+    lines: () => outer().filter((n) => !isAuthor(n)).map(visible),
+    authors: () => authors().map(visible),
+    /** What a screen reader hears for each credit. */
+    creditLabels: () => authors().map((n) => n.parent!.props.accessibilityLabel),
+    /** The licence glyph on each credit. */
+    marks: () =>
+      authors().map((n) => n.parent!.queryAll((m) => !!m.props.testID)[0]?.props.testID),
+    images,
+    sizes: () => images().map(size),
+    italic: () =>
+      all(
+        (n) => n.type === 'Text' && StyleSheet.flatten(n.props.style)?.fontStyle === 'italic',
+      ).map(visible),
+    scrolls: () => all((n) => n.props.horizontal === true),
+    dividers: () => all((n) => StyleSheet.flatten(n.props.style)?.borderTopWidth > 0),
+    /** The gallery reports its laid-out width, as the bubble sizes it. */
+    layout: (width: number) => {
+      const [gallery] = all((n) => typeof n.props.onLayout === 'function');
+      act(() =>
+        gallery.props.onLayout({ nativeEvent: { layout: { x: 0, y: 0, width, height: 300 } } }),
+      );
+    },
+  };
+}
+
+/** Cards side by side: their total width, and how much of `width` they leave. */
+const spread = (sizes: { width: number }[], width: number) => {
+  const total = sizes.reduce((sum, s) => sum + s.width, 0);
+  return { total, left: width - total };
+};
+
+const MS = 1000 / WORDS_PER_SECOND;
+let clock = 0;
+let frames: (() => void)[] = [];
+const advance = (ms: number) =>
+  act(() => {
+    clock += ms;
+    const due = frames;
+    frames = [];
+    due.forEach((f) => f());
+  });
+let ids = 0;
+/** A reply with photos the chat has just scheduled; every row so far is handed over, as the chat does. */
+const rows: { id: string; role: 'assistant'; text: string; media?: MediaPick }[] = [];
+function scheduled(media: MediaPick, seen = false) {
+  const id = `m${++ids}`;
+  rows.push({ id, role: 'assistant', text: TEXT, media });
+  const seenIds = new Set(seen ? revealRows(rows).map((r) => r.id) : []);
+  act(() => replyReveal.schedule(revealRows(rows), seenIds, clock));
+  return id;
+}
+
+describe('MediaGallery', () => {
+  let timing: jest.SpyInstance;
+  /** Delays of the card entrances started so far (the bubble's own entry has none). */
+  const cascade = () => timing.mock.calls.map(([, c]) => c.delay).filter((d) => d !== undefined);
+  beforeEach(() => {
+    mockReduced = false;
+    mockScreen = 390;
+    timing = jest
+      .spyOn(Animated, 'timing')
+      .mockImplementation(() => ({ start: jest.fn(), stop: jest.fn(), reset: jest.fn() }));
+    jest.spyOn(performance, 'now').mockImplementation(() => clock);
+    jest.spyOn(global, 'requestAnimationFrame').mockImplementation((f) => {
+      frames.push(() => f(clock));
+      return frames.length;
+    });
+  });
+  afterEach(() => {
+    while (frames.length) advance(1000);
+    clock += 1000;
+    jest.restoreAllMocks();
+  });
+
+  it('captions one photo and credits it on the photo: one name, the licence only for screen readers', () => {
+    const b = mount({ role: 'assistant', text: TEXT, media: SINGLE });
+    expect(b.lines()).toEqual([TEXT, 'Cóndor de los Andes (Vultur gryphus)']);
+    expect(b.italic()).toEqual(['Vultur', 'gryphus']);
+    expect(b.authors()).toEqual(['Ana']);
+    expect([...b.lines(), ...b.authors()].join(' ')).not.toMatch(/CC|Foto/);
+    expect(b.creditLabels()).toEqual(['Foto de Ana, licencia CC BY 2.0']);
+    expect(b.images().map((i) => i.props.accessibilityLabel)).toEqual([
+      'Cóndor de los Andes (Vultur gryphus)',
+    ]);
+  });
+
+  it('marks each credit with its licence family: CC, or public domain', () => {
+    const b = mount({ role: 'assistant', text: TEXT, media: ROWS });
+    expect(b.authors()).toEqual(['Ana', 'Luis', 'Eva']);
+    expect(b.marks()).toEqual(['license-cc', 'license-cc', 'license-publicDomain']);
+    expect(['CC0', 'CC0 1.0', 'CC BY-SA 4.0', 'Public domain'].map(licenseFamily)).toEqual([
+      'cc',
+      'cc',
+      'cc',
+      'publicDomain',
+    ]);
+  });
+
+  it('spans the bubble at its full share of the row from the first frame, whatever the reply says', () => {
+    // 88 % of the row inside its 22 pt margins, less the bubble's 17 pt sides and, with
+    // sources, the button's 22 pt gutter.
+    const width = (props: Partial<ChatBubbleProps>, text = TEXT) =>
+      mount({ role: 'assistant', text, media: SINGLE, ...props }).sizes()[0].width;
+    expect(width({})).toBe(270);
+    expect(width({}, `${TEXT} `.repeat(12))).toBe(270);
+    expect(width({}, 'Sí.')).toBe(270);
+    expect(width(SOURCED)).toBe(248);
+    mockScreen = 360;
+    expect(width({})).toBe(244);
+    expect(width(SOURCED)).toBe(222);
+  });
+
+  it('follows the width it is laid out at, inside a narrower frame', () => {
+    mockScreen = 1280;
+    const b = mount({ role: 'assistant', text: TEXT, media: SINGLE });
+    b.layout(301.6);
+    const [{ width, height }] = b.sizes();
+    expect(width).toBe(301);
+    expect(height).toBeGreaterThan(width);
+    expect(height).toBeLessThan(width * 1.25);
+  });
+
+  it('lists rows as large square thumbnails with dividers between them; a place has no scientific name', () => {
+    const b = mount({ role: 'assistant', text: TEXT, media: ROWS });
+    expect(b.lines().slice(1)).toEqual([
+      'Cóndor de los Andes (Vultur gryphus)',
+      'Oso de anteojos (Tremarctos ornatus)',
+      'Laguna del Otún',
+    ]);
+    const sizes = b.sizes();
+    expect(sizes).toHaveLength(3);
+    sizes.forEach(({ width, height }) => {
+      expect(width).toBe(height);
+      expect(width).toBeGreaterThanOrEqual(96);
+    });
+    expect(b.dividers()).toHaveLength(2);
+    expect(b.scrolls()).toEqual([]);
+  });
+
+  it('shares the width between two portrait cards on a 360 pt phone, never overflowing it', () => {
+    mockScreen = 360;
+    const b = mount({ role: 'assistant', text: TEXT, media: COLUMNS, ...SOURCED });
+    expect(b.scrolls()).toEqual([]);
+    const sizes = b.sizes();
+    expect(sizes).toHaveLength(2);
+    sizes.forEach(({ width, height }) => expect(height / width).toBeCloseTo(5 / 4, 1));
+    expect(sizes[0].width).toBe(sizes[1].width);
+    const { left } = spread(sizes, 222);
+    expect(left).toBeGreaterThan(0); // the gap between them
+    expect(left).toBeLessThanOrEqual(12);
+  });
+
+  it('falls back to rows when the cards would be too narrow: three on a phone, two in a narrow frame', () => {
+    const three = mount({ role: 'assistant', text: TEXT, media: { ...ROWS, layout: 'columns' } });
+    expect(three.scrolls()).toEqual([]);
+    three.sizes().forEach(({ width, height }) => expect(width).toBe(height));
+    expect(three.dividers()).toHaveLength(2);
+
+    const two = mount({ role: 'assistant', text: TEXT, media: COLUMNS });
+    two.sizes().forEach(({ width, height }) => expect(height).toBeGreaterThan(width));
+    two.layout(180);
+    two.sizes().forEach(({ width, height }) => expect(width).toBe(height));
+  });
+
+  it('keeps three cards side by side where they fit, on a tablet', () => {
+    mockScreen = 820;
+    const b = mount({ role: 'assistant', text: TEXT, media: { ...ROWS, layout: 'columns' } });
+    const sizes = b.sizes();
+    sizes.forEach(({ width, height }) => expect(height / width).toBeCloseTo(5 / 4, 1));
+    const { left } = spread(sizes, Math.floor(0.88 * (820 - 44)) - 34);
+    expect(left).toBeGreaterThan(0);
+    expect(left).toBeLessThanOrEqual(2 * 8 + 3);
+    expect(b.dividers()).toEqual([]);
+  });
+
+  it('keeps the gallery laid out while the text types, then cascades it in and types its captions', () => {
+    const id = scheduled(ROWS);
+    const b = mount({ role: 'assistant', text: TEXT, media: ROWS, revealId: id, entryId: id });
+    // Room for every caption and photo from the first word, nothing of them readable yet.
+    expect(b.images()).toHaveLength(3);
+    expect(b.lines().slice(1)).toEqual(['', '', '']);
+    expect(b.authors()).toEqual(['Ana', 'Luis', 'Eva']);
+    advance(MS * 4);
+    expect(cascade()).toEqual([]);
+    advance(MS * 4); // the text is out
+    expect(b.lines()[0]).toBe(TEXT);
+    expect(cascade()).toEqual([0, 90, 180]);
+    expect(b.lines()[1]).toMatch(/^Cóndor/);
+    expect(b.lines()[1]).not.toBe('Cóndor de los Andes (Vultur gryphus)');
+    advance(MS * 20);
+    expect(b.lines().slice(1)).toEqual([
+      'Cóndor de los Andes (Vultur gryphus)',
+      'Oso de anteojos (Tremarctos ornatus)',
+      'Laguna del Otún',
+    ]);
+    expect(cascade()).toEqual([0, 90, 180]); // once
+  });
+
+  it('shows the photos of a reply already read whole, without a cascade', () => {
+    const id = scheduled(COLUMNS, true);
+    const b = mount({ role: 'assistant', text: TEXT, media: COLUMNS, revealId: id, entryId: id });
+    expect(b.lines()).toContain('Cóndor de los Andes (Vultur gryphus)');
+    expect(b.lines()).toContain('Laguna del Otún');
+    expect(cascade()).toEqual([]);
+  });
+
+  it('shows everything at once under reduced motion', () => {
+    mockReduced = true;
+    const id = scheduled(SINGLE);
+    const b = mount({ role: 'assistant', text: TEXT, media: SINGLE, revealId: id, entryId: id });
+    expect(b.lines()).toEqual([TEXT, 'Cóndor de los Andes (Vultur gryphus)']);
+    expect(b.authors()).toEqual(['Ana']);
+    expect(cascade()).toEqual([]);
+  });
+});
+
+describe('revealRows', () => {
+  it('queues each reply’s captions right after it', () => {
+    expect(
+      revealRows([
+        { id: 'a', role: 'assistant', text: 'Hola' },
+        { id: 'b', role: 'assistant', text: 'El cóndor.', media: ROWS },
+      ]),
+    ).toEqual([
+      { id: 'a', role: 'assistant', text: 'Hola' },
+      { id: 'b', role: 'assistant', text: 'El cóndor.', media: ROWS },
+      { id: mediaRevealId('b'), role: 'assistant', text: expect.any(String) },
+    ]);
+  });
+});
