@@ -225,6 +225,29 @@ describe('ChatView keyboard', () => {
   });
 });
 
+describe('ChatView fade in', () => {
+  const opacity = (chat: ReturnType<typeof mount>) =>
+    chat.root.container
+      .queryAll((n) => n.type === 'View')
+      .map((n) => StyleSheet.flatten(n.props.style)?.opacity)
+      .find((o) => o !== undefined);
+
+  it('fades the conversation in after the onboarding hands over', () => {
+    const chat = mount({ fadeIn: true });
+    expect(opacity(chat)).toBe(0);
+    finishMotion();
+    expect(opacity(chat)).toBe(1);
+    chat.unmount();
+  });
+
+  it('shows it at once under reduced motion', () => {
+    mockReduced = true;
+    const chat = mount({ fadeIn: true });
+    expect(opacity(chat)).toBe(1);
+    chat.unmount();
+  });
+});
+
 describe('ChatView follow', () => {
   it('scrolls to the end once per frame however often the content grows', () => {
     const chat = mount();
