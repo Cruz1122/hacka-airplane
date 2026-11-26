@@ -2,7 +2,15 @@ import { act } from 'react';
 // Ships with jest-expo (its replacement for the deprecated react-test-renderer).
 import { createRoot } from 'test-renderer';
 
-import { usePlayback, type Playback, type PlaybackOptions } from '../usePlayback';
+import {
+  usePlayback,
+  usePlaybackClock,
+  usePlaybackFrame,
+  type Playback,
+  type PlaybackClock,
+  type PlaybackFrame,
+  type PlaybackOptions,
+} from '../usePlayback';
 
 const FRAME_MS = 16;
 const MS = 400;
@@ -149,4 +157,87 @@ describe('usePlayback', () => {
     expect(p.now().time!).toBeGreaterThan(before);
     p.unmount();
   });
+
+  describe('clock outside React', () => {
+    const screenOf = (f: PlaybackFrame) => Math.round(f.progress);
+    function mountClock() {
+      const seen = { renders: 0, screen: -1, clock: null as PlaybackClock | null };
+      function Probe() {
+        const clock = usePlaybackClock({
+          transitionMs: MS,
+          easing: 'easeOut',
+          ambient: true,
+          reduced: false,
+        });
+        seen.clock = clock;
+        seen.screen = usePlaybackFrame(clock, screenOf);
+        seen.renders++;
+        return null;
+      }
+      const root = createRoot();
+      act(() => root.render(<Probe />));
+      return {
+        seen,
+        clock: () => seen.clock!,
+        frames: (n: number) => {
+          for (let i = 0; i < n; i++) act(() => jest.advanceTimersByTime(FRAME_MS));
+        },
+        unmount: () => act(() => root.unmount()),
+      };
+    }
+    const valueOf = (c: PlaybackClock) =>
+      (c.progressValue as unknown as { __getValue: () => number }).__getValue();
+
+    it('renders a page subscriber only when the rounded page changes', () => {
+      const p = mountClock();
+      p.frames(30); // idle frames: the page does not change
+      const idle = p.seen.renders;
+      expect(idle).toBe(1);
+      act(() => p.clock().goTo(2));
+      p.frames(Math.ceil((MS * 1.6) / FRAME_MS) + 2);
+      expect(p.seen.screen).toBe(2);
+      // 0 -> 1 -> 2: one render per page crossed.
+      expect(p.seen.renders - idle).toBe(2);
+      expect(valueOf(p.clock())).toBe(2);
+      p.unmount();
+    });
+
+    it('draws finger moves once per frame, with the latest one', () => {
+      const p = mountClock();
+      const clock = p.clock();
+      let published = 0;
+      const unsubscribe = clock.subscribe(() => published++);
+      act(() => clock.beginDrag());
+      published = 0;
+      act(() => {
+        clock.dragBy(0.1);
+        clock.dragBy(0.2);
+        clock.dragBy(0.3);
+      });
+      // Not drawn yet: the moves wait for the display frame.
+      expect(clock.frame().progress).toBe(0);
+      expect(clock.progressNow()).toBeCloseTo(0.3, 10);
+      p.frames(1);
+      expect(published).toBe(1);
+      expect(clock.frame().progress).toBeCloseTo(0.3, 10);
+      expect(valueOf(clock)).toBeCloseTo(0.3, 10);
+      unsubscribe();
+      p.unmount();
+    });
+
+    it('stops a running transition where it is when a drag starts', () => {
+      const p = mountClock();
+      const clock = p.clock();
+      act(() => clock.goTo(2));
+      p.frames(4);
+      act(() => clock.beginDrag());
+      const held = clock.progressNow();
+      p.frames(5);
+      expect(clock.frame().progress).toBe(held);
+      expect(clock.frame().animating).toBe(false);
+      expect(clock.frame().moving).toBe(true);
+      p.unmount();
+    });
+  });
 });
+
