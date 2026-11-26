@@ -383,6 +383,10 @@ export const es = {
       body: 'Detiene animaciones decorativas y muestra los mensajes al instante.',
       systemActive: 'También está activo en los ajustes de tu teléfono.',
     },
+    autoSpeakReplies: {
+      title: 'Leer respuestas',
+      body: 'Reproduce en voz alta cada mensaje del asistente apenas se genera.',
+    },
     colorVision: {
       title: 'Daltonismo',
       body: 'Adapta la paleta y mantiene iconos y texto en cada estado.',
