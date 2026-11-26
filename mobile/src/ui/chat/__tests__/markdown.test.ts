@@ -31,6 +31,12 @@ describe('parseMarkdown', () => {
     );
   });
 
+  it('puts a plain line after a list in its own paragraph, not in the last item', () => {
+    const doc = parseMarkdown('Avisa:\n- Al guía.\n- Al 123.\nEse dato es de 2023.');
+    expect(doc.blocks.map((b) => b.marker)).toEqual([null, '•', '•', null]);
+    expect(plain(doc.blocks).at(-1)).toBe('Ese dato es de 2023.');
+  });
+
   it('keeps a dash without a space, or a lone dash, as text', () => {
     expect(plain(parseMarkdown('-5 °C de noche\n- ').blocks)).toEqual(['-5 °C de noche\n-']);
   });
