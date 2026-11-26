@@ -7,7 +7,13 @@
     "icon": "./assets/images/icon.png",
     "scheme": "nevados",
     "userInterfaceStyle": "automatic",
-    "ios": {},
+    "ios": {
+      "infoPlist": {
+        "NSBluetoothAlwaysUsageDescription": "Permite encontrar a tu grupo cerca, sin internet.",
+        "NSBluetoothPeripheralUsageDescription": "Permite encontrar a tu grupo cerca, sin internet.",
+        "NFCReaderUsageDescription": "Permite unirte a tu grupo al acercar los teléfonos."
+      }
+    },
     "android": {
       "adaptiveIcon": {
         "backgroundColor": "#E6F4FE",
