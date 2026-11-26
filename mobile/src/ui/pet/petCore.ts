@@ -6,6 +6,8 @@
  * preset starts at rest instead of mid-speech. The upstream DOM mount (innerHTML, window
  * listeners) is replaced by `petFrame` + PetVaporFigure (SVG) or drawPet (Skia) so the same drawing runs on Android, iOS and web.
  */
+import { brand } from '../theme/tokens';
+
 export type EasingName = 'linear' | 'easeInOutCubic' | 'easeOutCubic';
 export interface FaceState {
   faceX: number;
@@ -203,6 +205,10 @@ export interface PetConfig {
   };
   voice: VoiceState;
   audio: number;
+  /** Something the Pet wears on its head (the group roles); none by default. */
+  accessory?: PetAccessory;
+  /** The accessory's colors; its own default when absent. */
+  accessoryTint?: PetTint;
 }
 export const PET_PRESET: PetConfig = {
   version: 2,
@@ -1058,6 +1064,8 @@ export interface PetFrame {
   headX: number;
   /** 0..1 mirror progress: lighting offsets flip with the body. */
   turn: number;
+  /** The head accessory, absent when the config has none. Drawn last, inside shiftX and float. */
+  accessory?: PetAccessoryFrame;
 }
 
 export function petFrame(cfg: PetConfig, input: PetFrameInput): PetFrame {
@@ -1169,7 +1177,7 @@ export function petFrame(cfg: PetConfig, input: PetFrameInput): PetFrame {
   };
   return {
     float,
-    bodyTransform: `rotate(${n(oriented.body.rotation)} ${n(oriented.body.x)} ${n(oriented.body.y)})`,
+    bodyTransform: frameBodyTransform(oriented),
     body: bodyPath(oriented, t),
     volume: volumePath(oriented),
     volumeOpacity: clamp(cfg.body.volume * (1 + breathVolume), 0, 1),
@@ -1195,6 +1203,18 @@ export function petFrame(cfg: PetConfig, input: PetFrameInput): PetFrame {
     shiftX: 2 * (base.x - displayed.faceX) * mirrorProgress,
     headX: oriented.body.x,
     turn: mirrorProgress,
+    ...(cfg.accessory && {
+      accessory: accessoryFrame(
+        cfg.accessory,
+        cfg,
+        oriented,
+        mirrorProgress,
+        frameBodyTransform(oriented),
+        t,
+        gaze,
+        { tx, ty },
+      ),
+    }),
     mouth: {
       d: talking
         ? speakingMouthPath(mouthState, Math.max(opened, spoken), t)
@@ -1213,3 +1233,261 @@ export function transitionFace(cfg: PetConfig, from: FaceState, elapsedMs: numbe
   const ratio = clamp(elapsedMs / Math.max(1, cfg.motion.transition), 0, 1);
   return ratio >= 1 ? to : interpolateFaceState(from, to, ease(cfg.motion.easing, ratio));
 }
+
+const frameBodyTransform = (oriented: PetConfig) =>
+  `rotate(${n(oriented.body.rotation)} ${n(oriented.body.x)} ${n(oriented.body.y)})`;
+
+/** What the Pet can wear on its head. */
+export const PET_ACCESSORIES = ['guideHat', 'visitorCap', 'beanie', 'bandana', 'flower'] as const;
+export type PetAccessory = (typeof PET_ACCESSORIES)[number];
+
+/** Color sets an accessory can take; each accessory has its own default. */
+// No teal: the Pet always sits on a teal circle, where a teal accessory would vanish.
+export const PET_TINTS = ['ink', 'sky', 'sun', 'lupine'] as const;
+export type PetTint = (typeof PET_TINTS)[number];
+
+/** main: the accessory's body; accent: bands, bills, knots; light: lit edges and highlights. */
+type Tone = 'main' | 'accent' | 'light' | 'shade' | 'leaf';
+
+const TINTS: Record<PetTint, Record<'main' | 'accent' | 'light', string>> = {
+  ink: { main: brand.ink, accent: brand.primarySoft, light: brand.primary },
+  sky: { main: brand.sky, accent: brand.ink, light: brand.card },
+  sun: { main: brand.sun, accent: brand.ink, light: brand.card },
+  lupine: { main: brand.lupine, accent: brand.ink, light: brand.primarySoft },
+};
+
+/** The swatch a picker shows for a tint. */
+export const tintColor = (tint: PetTint) => TINTS[tint].main;
+
+/** One filled shape of an accessory; `opacity` < 1 for shading laid over the head or the hat. */
+export interface PetAccessoryShape {
+  d: string;
+  fill: string;
+  opacity?: number;
+}
+
+export interface PetAccessoryFrame {
+  /** Places the shapes on the head: body rotation, head top, gaze, sway, mirror. */
+  transform: string;
+  shapes: PetAccessoryShape[];
+}
+
+interface ToneShape {
+  d: string;
+  tone: Tone;
+  opacity?: number;
+}
+
+/** A near-circle as one closed cubic path (absolute C only, like every accessory path). */
+function roundPath(x: number, y: number, rx: number, ry = rx): string {
+  const k = 1.33;
+  return `M ${n(x - rx)} ${n(y)} C ${n(x - rx)} ${n(y - k * ry)} ${n(x + rx)} ${n(y - k * ry)} ${n(x + rx)} ${n(y)} C ${n(x + rx)} ${n(y + k * ry)} ${n(x - rx)} ${n(y + k * ry)} ${n(x - rx)} ${n(y)} Z`;
+}
+
+/** A pointed petal or leaf from (x, y) out `len` along `deg`, `w` wide at its middle. */
+function petalPath(x: number, y: number, deg: number, len: number, w: number): string {
+  const a = (deg * Math.PI) / 180;
+  const ux = Math.cos(a);
+  const uy = Math.sin(a);
+  const px = -uy * w;
+  const py = ux * w;
+  const tx = x + ux * len;
+  const ty = y + uy * len;
+  const m = (k: number) => [x + ux * len * k, y + uy * len * k];
+  const [m1x, m1y] = m(0.25);
+  const [m2x, m2y] = m(0.75);
+  return `M ${n(x)} ${n(y)} C ${n(m1x + px)} ${n(m1y + py)} ${n(m2x + px)} ${n(m2y + py)} ${n(tx)} ${n(ty)} C ${n(m2x - px)} ${n(m2y - py)} ${n(m1x - px)} ${n(m1y - py)} ${n(x)} ${n(y)} Z`;
+}
+
+/** The frailejón flower tucked on the back of the head: yellow rays round a dark heart. */
+const FLOWER_AT = { x: -60, y: 22 };
+const flowerShapes = (): ToneShape[] => [
+  ...[200, 250].map((deg) => ({
+    d: petalPath(FLOWER_AT.x, FLOWER_AT.y + 6, deg, 60, 12),
+    tone: 'leaf' as Tone,
+  })),
+  ...Array.from({ length: 12 }, (_, i) => ({
+    d: petalPath(FLOWER_AT.x, FLOWER_AT.y, i * 30 - 90, 42, 8),
+    tone: 'main' as Tone,
+  })),
+  { d: roundPath(FLOWER_AT.x, FLOWER_AT.y, 14), tone: 'accent' },
+  { d: roundPath(FLOWER_AT.x - 4, FLOWER_AT.y - 4, 5), tone: 'light', opacity: 0.6 },
+];
+
+/**
+ * Accessory shapes in Pet units, with the origin on the head's top centre (y grows down) and the
+ * Pet facing right (+x), the way its face looks before a mirror. The head narrows toward its top:
+ * about 140 wide 20 below it and 170 wide 45 below it (measured on the outline). Each hat sits
+ * that low and that wide, its lower edge sagging in the middle as a rim seen from the front
+ * does, so it wraps the head instead of perching on it. No outlines: shaded like the Pet (lit
+ * from the upper left), and brims cast a soft shade on the head. Absolute M/L/C/Z only: the web
+ * canvas and Skia parse the same strings.
+ */
+const ACCESSORY_SHAPES: Record<PetAccessory, { tint: PetTint; shapes: ToneShape[] }> = {
+  guideHat: {
+    tint: 'ink',
+    shapes: [
+      // The brim's shade on the head, under everything else.
+      { d: 'M -80 50 C -40 64 30 64 62 50 C 30 74 -40 74 -80 50 Z', tone: 'shade', opacity: 0.9 },
+      // Crown, as wide as the head at the band, with a soft dent on top.
+      {
+        d: 'M -66 40 C -70 0 -52 -28 -16 -32 C -6 -26 6 -26 16 -32 C 52 -28 70 0 66 40 Z',
+        tone: 'main',
+      },
+      {
+        d: 'M -54 20 C -58 -2 -46 -20 -22 -24 C -36 -12 -44 2 -44 22 Z',
+        tone: 'light',
+        opacity: 0.7,
+      },
+      // Band, following the brim's curve.
+      { d: 'M -67 40 C -24 48 24 48 67 40 L 66 22 C 24 30 -24 30 -66 22 Z', tone: 'accent' },
+      // Wide brim: a lens seen from the front, its near edge lower, and its lit top edge.
+      { d: 'M -118 40 C -80 26 80 26 118 40 C 80 60 -80 60 -118 40 Z', tone: 'main' },
+      { d: 'M -108 39 C -72 30 72 30 108 39 C 72 36 -72 36 -108 39 Z', tone: 'light' },
+    ],
+  },
+  visitorCap: {
+    tint: 'sky',
+    shapes: [
+      // The bill's shade on the forehead.
+      { d: 'M 10 66 C 40 70 76 66 96 58 C 76 76 36 80 10 74 Z', tone: 'shade', opacity: 0.9 },
+      // Dome hugging the head down to its rim, and its light.
+      {
+        d: 'M -90 56 C -96 0 -56 -28 0 -28 C 56 -28 96 0 90 56 C 46 68 -46 68 -90 56 Z',
+        tone: 'main',
+      },
+      {
+        d: 'M -72 26 C -72 -2 -46 -18 -12 -20 C -44 -8 -60 8 -62 30 Z',
+        tone: 'light',
+        opacity: 0.55,
+      },
+      // Front seam, turned toward the face, and the button on top.
+      {
+        d: 'M 4 -28 C 18 -8 28 24 30 62 L 37 62 C 35 24 25 -8 10 -28 Z',
+        tone: 'accent',
+        opacity: 0.3,
+      },
+      { d: roundPath(4, -30, 8, 6), tone: 'accent' },
+      // Bill reaching forward from the rim, the way the Pet faces.
+      { d: 'M 40 58 C 76 48 118 54 134 66 C 112 78 68 76 40 66 Z', tone: 'accent' },
+    ],
+  },
+  beanie: {
+    tint: 'lupine',
+    shapes: [
+      // Knit dome down to a folded cuff, ribbed, with a pompom on top.
+      { d: 'M -84 50 C -92 0 -54 -30 0 -30 C 54 -30 92 0 84 50 Z', tone: 'main' },
+      {
+        d: 'M -66 20 C -68 -4 -44 -20 -14 -22 C -42 -10 -56 4 -58 24 Z',
+        tone: 'light',
+        opacity: 0.5,
+      },
+      {
+        d: 'M -40 -16 C -48 6 -50 28 -50 44 L -44 44 C -44 28 -42 6 -34 -18 Z',
+        tone: 'accent',
+        opacity: 0.3,
+      },
+      {
+        d: 'M -2 -30 C -4 0 -4 24 -4 44 L 2 44 C 2 24 2 0 4 -30 Z',
+        tone: 'accent',
+        opacity: 0.3,
+      },
+      {
+        d: 'M 36 -18 C 44 6 46 28 46 44 L 52 44 C 52 28 50 6 42 -16 Z',
+        tone: 'accent',
+        opacity: 0.3,
+      },
+      { d: 'M -92 40 C -40 52 40 52 92 40 L 94 64 C 40 76 -40 76 -94 64 Z', tone: 'main' },
+      {
+        d: 'M -92 40 C -40 52 40 52 92 40 L 92 46 C 40 58 -40 58 -92 46 Z',
+        tone: 'light',
+        opacity: 0.45,
+      },
+      { d: roundPath(0, -38, 17), tone: 'accent' },
+      { d: roundPath(-5, -43, 6), tone: 'light', opacity: 0.5 },
+    ],
+  },
+  bandana: {
+    tint: 'ink',
+    shapes: [
+      // A band round the forehead, knotted at the back with two loose tails.
+      { d: 'M -86 54 C -108 44 -124 50 -134 38 C -130 62 -112 68 -90 66 Z', tone: 'main' },
+      { d: 'M -88 64 C -106 74 -116 88 -128 84 C -118 96 -100 88 -86 74 Z', tone: 'main' },
+      { d: 'M -96 46 C -40 60 40 60 92 44 L 92 70 C 40 86 -40 86 -98 72 Z', tone: 'main' },
+      {
+        d: 'M -94 49 C -40 63 40 63 90 47 C 40 68 -40 68 -94 56 Z',
+        tone: 'light',
+        opacity: 0.45,
+      },
+      ...[-56, -18, 20, 56].map((x) => ({
+        d: roundPath(x, 68 - Math.abs(x) * 0.08, 4.5),
+        tone: 'light' as Tone,
+        opacity: 0.8,
+      })),
+      { d: roundPath(-96, 60, 11, 13), tone: 'accent' },
+    ],
+  },
+  flower: { tint: 'sun', shapes: flowerShapes() },
+};
+
+/** The tint an accessory wears when none is picked. */
+export const defaultTint = (kind: PetAccessory): PetTint => ACCESSORY_SHAPES[kind].tint;
+
+function resolveShapes(kind: PetAccessory, tint: PetTint | undefined): PetAccessoryShape[] {
+  const set = TINTS[tint ?? ACCESSORY_SHAPES[kind].tint];
+  const color: Record<Tone, string> = { ...set, shade: brand.cardShade, leaf: brand.primary };
+  return ACCESSORY_SHAPES[kind].shapes.map((s) => ({
+    d: s.d,
+    fill: color[s.tone],
+    ...(s.opacity !== undefined && { opacity: s.opacity }),
+  }));
+}
+/** Resolved shapes per accessory and tint, built once: a frame reuses the same arrays. */
+const resolved = new Map<string, PetAccessoryShape[]>();
+function shapesFor(kind: PetAccessory, tint: PetTint | undefined): PetAccessoryShape[] {
+  const key = `${kind}:${tint ?? ''}`;
+  let out = resolved.get(key);
+  if (!out) {
+    out = resolveShapes(kind, tint);
+    resolved.set(key, out);
+  }
+  return out;
+}
+
+/** Degrees the hat tips per unit of the float's speed, and per unit of gaze. */
+const HAT_SWAY_DEG = 3;
+const HAT_GAZE_DEG = 4;
+
+/**
+ * The accessory placed on this frame's head. It rides the head (body rotation and float) and
+ * follows its life: it tips a little as the Pet bobs (with the float's speed, so it lags the
+ * motion like something resting on top) and leans with the gaze, sliding a fraction of the
+ * face's own shift. A turn mirrors it about the head without squashing it to a line.
+ */
+function accessoryFrame(
+  kind: PetAccessory,
+  cfg: PetConfig,
+  oriented: PetConfig,
+  mirror: number,
+  bodyTransform: string,
+  t: number,
+  gaze: { x: number; y: number },
+  face: { tx: number; ty: number },
+): PetAccessoryFrame {
+  const b = oriented.body;
+  const facing = 1 - 2 * mirror;
+  const flip = (facing < 0 ? -1 : 1) * Math.max(0.3, Math.abs(facing));
+  // Same centre and radii as bodyPath: the head's top is ry above its centre.
+  // The outline's highest point sits a little toward the face from the head's centre.
+  const cx = b.x + b.asymmetry * 0.07 + 5 * facing + face.tx * 0.4;
+  const top = b.y - 4 - Math.max(30, b.height * b.scaleY * 0.5) + face.ty * 0.25;
+  const bob = cfg.motion.enabled ? Math.cos(t * 1.16) * Math.min(1, cfg.motion.floating / 6) : 0;
+  const tilt = HAT_SWAY_DEG * bob + HAT_GAZE_DEG * gaze.x;
+  return {
+    transform: `${bodyTransform} translate(${n(cx)} ${n(top)}) rotate(${n(tilt)}) scale(${n(flip)} 1)`,
+    shapes: shapesFor(kind, cfg.accessoryTint),
+  };
+}
+
+/** PET_VIEWBOX with room above the head for an accessory's crown. */
+export const PET_ACCESSORY_VIEWBOX = { x: -162, y: -190, width: 324, height: 400 } as const;

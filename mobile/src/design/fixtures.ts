@@ -2,6 +2,8 @@
 // the only way to see the chat's states; they are samples, not product copy.
 import catalog from '@/../assets/data/knowledge/catalog.json';
 import type { ChatModel, ChatRow } from '@/chat/ChatView';
+import { MEDIA } from '@/core/media/bundled';
+import { pickMedia, type MediaPick } from '@/core/media/media';
 import { loadWorld } from '@/core/world';
 import { t } from '@/i18n';
 import { toChatRows } from '@/state/knowledgeRows';
@@ -126,6 +128,46 @@ export const URGENT: ChatRow[] = toChatRows(
   t.knowledge.error,
 );
 
+/**
+ * One answer per gallery layout, from the real catalog and media.json as the live chat maps them;
+ * `roll` fixes the dice (0: rows, 0.7: columns).
+ */
+const PHOTO_TURNS: Record<MediaPick['layout'], { ask: string; topic: string; roll: number }> = {
+  single: { ask: '¿Cómo es el cóndor andino?', topic: 'fauna.andean_condor', roll: 0 },
+  rows: { ask: '¿Qué aves hay en el parque?', topic: 'fauna.birds_overview', roll: 0 },
+  columns: {
+    ask: 'Muéstrame los mamíferos del parque',
+    topic: 'fauna.mammals_overview',
+    roll: 0.7,
+  },
+};
+
+function photoTurn(layout: MediaPick['layout']): ChatRow[] {
+  const { ask, topic, roll } = PHOTO_TURNS[layout];
+  const entry = catalogEntry(topic);
+  const media = pickMedia(MEDIA, { topicId: topic, userText: ask, afterMedia: false }, () => roll);
+  const reply = { type: 'answer' as const, id: topic, title: entry.label, text: entry.short };
+  return toChatRows(
+    [
+      { id: `${layout}/q`, role: 'user', text: ask },
+      {
+        id: `${layout}/a`,
+        role: 'assistant',
+        reply: { ...reply, sources: [] },
+        ...(media ? { media } : {}),
+      },
+    ],
+    t.knowledge.error,
+  );
+}
+
+export const PHOTO_THREADS: Record<MediaPick['layout'], ChatRow[]> = {
+  single: photoTurn('single'),
+  rows: photoTurn('rows'),
+  columns: photoTurn('columns'),
+};
+export const PHOTO_TALK: ChatRow[] = Object.values(PHOTO_THREADS).flat();
+
 export interface ChatScreenState {
   label: string;
   messages: ChatRow[];
@@ -137,6 +179,7 @@ export const CHAT_STATES: ChatScreenState[] = [
   { label: 'Conversación', messages: TALK },
   { label: 'Fuentes', messages: SOURCED },
   { label: 'Urgencia', messages: URGENT },
+  { label: 'Fotos', messages: PHOTO_TALK },
   { label: 'Pensando', messages: TALK.slice(0, 3), busy: true },
   {
     label: 'Larga',
@@ -148,9 +191,6 @@ export const CHAT_STATES: ChatScreenState[] = [
   },
   { label: 'Sin modelo', messages: [], model: { id: 'gemma4-e2b', status: 'missing' } },
 ];
-
-/** Live router output the chat screen shows in its debug view. */
-export const ROUTER_DRAFT = '{"intent": "trail_info", "station": "refugio_quelital"}';
 
 /** Texts the composer presets put in the field. */
 export const COMPOSER_TEXT = {

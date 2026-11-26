@@ -41,6 +41,10 @@ export interface ChatComposerProps {
    * focus (the start of the field when it is empty); null once it loses focus. The Pet looks there.
    */
   onCaret?: (point: { x: number; y: number } | null) => void;
+  /** Docked only: a pen button left of the field that starts a new conversation. */
+  onNewChat?: () => void;
+  /** Docked only: the pen button's accessibility label (required with `onNewChat`). */
+  newChatLabel?: string;
 }
 
 /** Docked geometry in pt, named so the shape can be tuned in one place. */
@@ -141,6 +145,8 @@ function DockedComposer({
   floor = DOCK.floor,
   reducedMotion = false,
   onCaret,
+  onNewChat,
+  newChatLabel,
 }: ChatComposerProps) {
   const { text, setText, canSend, submit } = useDraft(
     initialText,
@@ -175,6 +181,16 @@ function DockedComposer({
       <View style={[docked.row, { paddingHorizontal: DOCK.inset - DOCK.fillet }]}>
         <Shoulder side="left" />
         <View style={docked.tab}>
+          {onNewChat && (
+            <Pressable
+              onPress={onNewChat}
+              accessibilityRole="button"
+              accessibilityLabel={newChatLabel}
+              style={({ pressed }) => [docked.newChat, pressed && docked.newChatPressed]}
+            >
+              <Icon name="squarePen" size={20} color={brand.ink} />
+            </Pressable>
+          )}
           <View style={docked.fieldBox}>
             <TextInput
               ref={field}
@@ -347,6 +363,15 @@ const docked = StyleSheet.create({
     borderTopRightRadius: DOCK.radius,
     backgroundColor: brand.cardShade,
   },
+  newChat: {
+    width: 44,
+    height: 46,
+    borderRadius: 16,
+    alignItems: 'center',
+    justifyContent: 'center',
+    outlineColor: brand.primary,
+  },
+  newChatPressed: { backgroundColor: brand.primarySoft },
   fieldBox: { flex: 1, minWidth: 0 },
   mirror: {
     ...type.body,

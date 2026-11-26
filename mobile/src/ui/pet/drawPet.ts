@@ -178,5 +178,15 @@ export function drawPet(
   canvas.restore();
   drawStroke(f.mouth);
   canvas.restore();
+  const a = f.accessory;
+  if (a) {
+    canvas.save();
+    canvas.concat(toSkMatrix(parseTransform(a.transform)));
+    for (const s of a.shapes) {
+      fill.setColor(skColor(s.fill, s.opacity ?? 1));
+      canvas.drawPath(svgPath(s.d), fill);
+    }
+    canvas.restore();
+  }
   canvas.restore();
 }
