@@ -96,7 +96,7 @@ export const en: Labels = {
   },
   qrUpdate: {
     nav: 'Update me',
-    launch: 'Update me · Scan the QR',
+    subtitle: 'Scan your guide’s QR codes to update Tumak.',
     heading: 'Scan the QR',
     body: "Scan your guide’s QR codes to update Tumak’s knowledge on this device.",
     failed: 'The update could not be applied.',

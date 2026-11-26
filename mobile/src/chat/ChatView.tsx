@@ -83,7 +83,6 @@ export interface ChatViewProps {
   fadeIn?: boolean;
   onSend: (text: string) => void;
   onPhoto?: () => void;
-  welcomeAction?: ReactNode;
   photoUri?: string;
   onRemovePhoto?: () => void;
   /** Starts a new conversation. */
@@ -622,7 +621,7 @@ function ChatContent(p: ChatViewProps & { width: number; tall: number; viewBotto
                 keyExtractor={keyExtractor}
                 drawDistance={900}
                 maintainVisibleContentPosition={FLASHLIST_DISABLE_MVCP}
-                ListHeaderComponent={p.welcomeAction ? <>{p.welcomeAction}{greeting}</> : greeting}
+                ListHeaderComponent={greeting}
                 ListFooterComponent={
                   p.busy ? (
                     <TypingBubble label={fill(t.chatScreen.typing, { pet: PET_NAME })} />

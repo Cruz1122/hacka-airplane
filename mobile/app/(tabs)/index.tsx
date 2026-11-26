@@ -7,12 +7,9 @@ import { ChatView, type ChatModel } from '@/chat/ChatView';
 import { t } from '@/i18n';
 import { toChatRows } from '@/state/knowledgeRows';
 import { useKnowledge } from '@/state/useKnowledge';
-import { UpdateKnowledgeLink } from '@/ui/UpdateKnowledgeLink';
 import { classifyPhoto } from '@/vision/classifyPhoto';
 
 // The onboarding gate lives in the tabs layout (app/(tabs)/_layout.tsx).
-const welcomeAction = <UpdateKnowledgeLink />;
-
 export default function ChatScreen() {
   const { rows, ask, askPhoto, reset, busy, status } = useKnowledge();
   const picking = useRef(false);
@@ -79,7 +76,6 @@ export default function ChatScreen() {
       fadeIn={sceneTime !== undefined}
       onSend={onSend}
       onPhoto={onPhoto}
-      welcomeAction={welcomeAction}
       photoUri={photoUri}
       onRemovePhoto={removePhoto}
       onReset={() => {
