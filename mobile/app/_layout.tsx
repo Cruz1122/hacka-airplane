@@ -3,10 +3,13 @@ import { Stack } from 'expo-router';
 import { useEffect } from 'react';
 
 import { t } from '@/i18n';
+import { preloadKnowledge } from '@/state/useKnowledge';
 import { FONT_FILES } from '@/ui/theme/fonts';
 
 export default function RootLayout() {
   const [loaded, error] = useFonts(FONT_FILES);
+  // After the first commit, so it never delays the first frame; native loads run off the JS thread.
+  useEffect(preloadKnowledge, []);
   useEffect(() => {
     if (error) console.warn('Inter failed to load; text falls back to the system font.', error);
   }, [error]);
@@ -14,9 +17,9 @@ export default function RootLayout() {
   if (!loaded && !error) return null;
   return (
     <Stack>
-      {/* The chat draws its own header; it appears without a slide so the onboarding can hand
-          over its last frame. */}
-      <Stack.Screen name="index" options={{ headerShown: false, animation: 'none' }} />
+      {/* Chat and Grupo tabs. The chat draws its own header; it appears without a slide so the
+          onboarding can hand over its last frame. */}
+      <Stack.Screen name="(tabs)" options={{ headerShown: false, animation: 'none' }} />
       <Stack.Screen name="settings" options={{ title: t.settings }} />
       <Stack.Screen name="history" options={{ title: t.history }} />
       <Stack.Screen name="onboarding" options={{ headerShown: false }} />

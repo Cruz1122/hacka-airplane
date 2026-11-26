@@ -15,6 +15,8 @@ export const brand = {
   /** Idle indicators and decorative tints; never text. */
   primarySoft: '#C2DADA',
   onPrimary: '#FFFFFF',
+  /** Black at 55 %: the credit pill over a chat photo, under `onPrimary` text. Photos only. */
+  photoScrim: '#0000008C',
   /** Titles on light surfaces. */
   ink: '#234B4B',
   /** Body text on light surfaces. */
@@ -27,6 +29,19 @@ export const brand = {
   glow: '#5E999938',
   /** "Ready" dot on the Pet's circle in the chat. */
   online: '#3FB36A',
+  /** Alert states of the group module: a visitor far or lost, the other guide lost. Contrast on
+   *  `card` about 4.7:1; white text (`onPrimary`) on it about 4.8:1. */
+  alert: '#DC2626',
+  /** Vinotinto title of the visitor's error states ("drifting", "no signal"). Contrast on
+   *  `wineSoft` 9.0:1 (AAA); on `card` 10.8:1. */
+  wine: '#6E1E2E',
+  /** Full-screen background of the visitor's error states. `ink` on it is 7.8:1; `inkMuted`
+   *  only 4.3:1, so body text there is `ink`. */
+  wineSoft: '#F5E3E6',
+  /** Pet accessory tints only (the frailejón's yellow and the páramo lupine's purple); never
+   *  text or UI surfaces. */
+  sun: '#E9B949',
+  lupine: '#7E62B8',
   /** Screen background while the illustration loads. */
   sky: '#8FA6F2',
 } as const;

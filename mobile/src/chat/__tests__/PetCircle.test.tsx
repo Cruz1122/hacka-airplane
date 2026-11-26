@@ -1,5 +1,9 @@
 import { act } from 'react';
+import { StyleSheet } from 'react-native';
 import { createRoot } from 'test-renderer';
+
+import { t } from '@/i18n';
+import { brand } from '@/ui/theme/tokens';
 
 import { PetCircle } from '../PetCircle';
 
@@ -78,6 +82,28 @@ describe('PetCircle', () => {
     setFocused(true);
     clock.run(1);
     expect(mockPaints).toBeGreaterThanOrEqual(covered + 30);
+    act(() => root.unmount());
+  });
+
+  it('shows a spinning arrow while the model loads and the green dot once it is ready', () => {
+    const root = createRoot();
+    const spinner = () =>
+      root.container.queryAll((n) => n.props.accessibilityLabel === t.modelLoading);
+    const dot = () =>
+      root.container.queryAll(
+        (n) =>
+          n.type === 'View' && StyleSheet.flatten(n.props.style)?.backgroundColor === brand.online,
+      );
+    act(() => root.render(<PetCircle x={60} y={60} r={60} voice="idle" ready={false} loading />));
+    expect(spinner()).toHaveLength(1);
+    expect(spinner()[0]!.props.accessibilityRole).toBe('progressbar');
+    expect(dot()).toHaveLength(0);
+    act(() => root.render(<PetCircle x={60} y={60} r={60} voice="idle" ready />));
+    expect(spinner()).toHaveLength(0);
+    expect(dot()).toHaveLength(1);
+    act(() => root.render(<PetCircle x={60} y={60} r={60} voice="idle" ready={false} />));
+    expect(spinner()).toHaveLength(0);
+    expect(dot()).toHaveLength(0);
     act(() => root.unmount());
   });
 });

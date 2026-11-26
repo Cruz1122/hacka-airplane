@@ -3,11 +3,19 @@
 import type { KnowledgeEngine } from '@/core/knowledge';
 import { detectSafety } from '@/core/knowledge/safety';
 import type { KnowledgeReply, KnowledgeTiming } from '@/core/knowledge/types';
+import { pickMedia, type MediaCatalog, type MediaPick } from '@/core/media/media';
 import type { PhotoMatch } from '@/vision/matchPhoto';
 
 export type KnowledgeRow =
   | { id: string; role: 'user'; text: string; photoUri?: string }
-  | { id: string; role: 'assistant'; reply: KnowledgeReply; timing?: KnowledgeTiming }
+  | {
+      id: string;
+      role: 'assistant';
+      reply: KnowledgeReply;
+      timing?: KnowledgeTiming;
+      /** Photos under the answer, decided once when the reply arrived. */
+      media?: MediaPick;
+    }
   | { id: string; role: 'assistant'; error: string };
 
 export interface KnowledgeChatState {
@@ -22,6 +30,13 @@ type Engine = Pick<KnowledgeEngine, 'ask'> & Partial<Pick<KnowledgeEngine, 'rese
 export interface LoadedEngine {
   engine: Engine;
   degraded?: string;
+}
+
+export interface KnowledgeChatOptions {
+  /** Photos answers may show; without it no answer shows any. */
+  media?: MediaCatalog;
+  /** The dice for photos, in [0, 1). */
+  rng?: () => number;
 }
 
 const message = (e: unknown) => (e instanceof Error ? e.message : String(e));
@@ -60,10 +75,17 @@ export class KnowledgeChat {
   private state: KnowledgeChatState = { rows: [], busy: false, status: 'loading' };
   private readonly listeners = new Set<() => void>();
   private readonly engine: Promise<Engine>;
+  private readonly media: MediaCatalog | undefined;
+  private readonly rng: () => number;
   private seq = 0;
   private generation = 0;
 
-  constructor(load: () => Promise<LoadedEngine>) {
+  constructor(
+    load: () => Promise<LoadedEngine>,
+    { media, rng = Math.random }: KnowledgeChatOptions = {},
+  ) {
+    this.media = media;
+    this.rng = rng;
     this.engine = load().then(({ engine, degraded }) => {
       this.set({ status: degraded ? 'degraded' : 'ready', ...(degraded ? { error: degraded } : {}) });
       return engine;
@@ -90,7 +112,17 @@ export class KnowledgeChat {
     }
     try {
       const r = await (await this.engine).ask(q);
-      this.push({ id: this.id(), role: 'assistant', reply: r.reply, timing: r.timing }, false);
+      const media = this.mediaFor(r.reply, q);
+      this.push(
+        {
+          id: this.id(),
+          role: 'assistant',
+          reply: r.reply,
+          timing: r.timing,
+          ...(media ? { media } : {}),
+        },
+        false,
+      );
     } catch (e) {
       this.push({ id: this.id(), role: 'assistant', error: message(e) }, false);
     }
@@ -176,6 +208,20 @@ export class KnowledgeChat {
       (e) => e.resetContext?.(),
       () => undefined,
     );
+  }
+
+  /**
+   * Answers only. The banner row itself never shows photos (toChatRows); an urgent reply shows
+   * none at all, while one under the offline-status notice still may.
+   */
+  private mediaFor(reply: KnowledgeReply, userText: string): MediaPick | null {
+    if (!this.media || reply.type !== 'answer' || reply.banner?.kind === 'urgent_safety') {
+      return null;
+    }
+    const previous = this.state.rows.findLast((r) => r.role === 'assistant');
+    const afterMedia =
+      previous !== undefined && 'reply' in previous && previous.media !== undefined;
+    return pickMedia(this.media, { topicId: reply.id, userText, afterMedia }, this.rng);
   }
 
   private photoMessage(text: string): void {

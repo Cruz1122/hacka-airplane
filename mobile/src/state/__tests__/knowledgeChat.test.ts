@@ -1,4 +1,5 @@
 import type { KnowledgeReply } from '@/core/knowledge/types';
+import type { MediaCatalog } from '@/core/media/media';
 
 import { KnowledgeChat, type LoadedEngine } from '../knowledgeChat';
 
@@ -89,6 +90,119 @@ describe('KnowledgeChat', () => {
     expect(() => chat.reset()).not.toThrow();
     await Promise.resolve();
     expect(chat.snapshot().rows).toEqual([]);
+  });
+});
+
+describe('KnowledgeChat photos', () => {
+  const condor: KnowledgeReply = {
+    ...answer,
+    id: 'fauna.condor',
+    text: 'El cóndor anida en los riscos.',
+  };
+  const MEDIA: MediaCatalog = {
+    items: {
+      condor: {
+        kind: 'species',
+        common: 'Cóndor de los Andes',
+        scientific: 'Vultur gryphus',
+        photos: [{ file: 'condor.1.webp', author: 'Ana', license: 'CC BY 2.0' }],
+      },
+    },
+    topics: { 'fauna.condor': ['condor'] },
+  };
+  const replying = (reply: KnowledgeReply) =>
+    fakeEngine({
+      ask: jest.fn(async () => ({
+        reply,
+        timing,
+        safety: { urgent: false } as never,
+        contextUsed: false,
+      })),
+    });
+  const media = (chat: KnowledgeChat) =>
+    chat
+      .snapshot()
+      .rows.flatMap((r) => (r.role === 'assistant' && 'reply' in r ? [r.media ?? null] : []));
+
+  it('decides once per reply and keeps the decision on its row', async () => {
+    const rng = jest.fn(() => 0);
+    const chat = new KnowledgeChat(async () => ({ engine: replying(condor) }), {
+      media: MEDIA,
+      rng,
+    });
+    await chat.ask('háblame del cóndor');
+    const row = chat.snapshot().rows[1];
+    expect(media(chat)).toEqual([
+      {
+        layout: 'single',
+        items: [
+          {
+            id: 'condor',
+            common: 'Cóndor de los Andes',
+            scientific: 'Vultur gryphus',
+            photo: { file: 'condor.1.webp', author: 'Ana', license: 'CC BY 2.0' },
+          },
+        ],
+      },
+    ]);
+    rng.mockReturnValue(0.99);
+    await chat.ask('¿y dónde vive?');
+    // Later turns roll their own dice; the first reply keeps what it showed.
+    expect(chat.snapshot().rows[1]).toBe(row);
+    expect(media(chat)[0]).toMatchObject({ layout: 'single' });
+  });
+
+  it('lowers the chance right after a reply with photos', async () => {
+    // 0.3 clears 0.5 but not the 0.2 that follows a reply with photos.
+    const chat = new KnowledgeChat(async () => ({ engine: replying(condor) }), {
+      media: MEDIA,
+      rng: () => 0.3,
+    });
+    await chat.ask('háblame del cóndor');
+    await chat.ask('¿y dónde vive?');
+    expect(media(chat).map((m) => m?.layout ?? null)).toEqual(['single', null]);
+  });
+
+  it('shows photos when asked for them, whatever the dice say', async () => {
+    const chat = new KnowledgeChat(async () => ({ engine: replying(condor) }), {
+      media: MEDIA,
+      rng: () => 0.99,
+    });
+    await chat.ask('háblame del cóndor');
+    await chat.ask('muéstrame una foto del cóndor');
+    expect(media(chat).map((m) => m?.layout ?? null)).toEqual([null, 'single']);
+  });
+
+  it('never shows photos under an urgent banner', async () => {
+    const urgent: KnowledgeReply = {
+      ...condor,
+      banner: { kind: 'urgent_safety', text: 'Marca el 123.', sourceIds: [] },
+    };
+    const chat = new KnowledgeChat(async () => ({ engine: replying(urgent) }), {
+      media: MEDIA,
+      rng: () => 0,
+    });
+    await chat.ask('me caí cerca de un cóndor, muéstrame fotos');
+    expect(media(chat)).toEqual([null]);
+  });
+
+  it('may still show them under the offline-status notice', async () => {
+    const live: KnowledgeReply = {
+      ...condor,
+      banner: { kind: 'offline_current_status', text: 'Sin conexión.', sourceIds: [] },
+    };
+    const chat = new KnowledgeChat(async () => ({ engine: replying(live) }), {
+      media: MEDIA,
+      rng: () => 0,
+    });
+    await chat.ask('¿hoy se ve el cóndor?');
+    expect(media(chat).map((m) => m?.layout ?? null)).toEqual(['single']);
+  });
+
+  it('shows none without a catalog', async () => {
+    const chat = new KnowledgeChat(async () => ({ engine: replying(condor) }), { rng: () => 0 });
+    await chat.ask('muéstrame el cóndor');
+    expect(media(chat)).toEqual([null]);
   });
 });
 
