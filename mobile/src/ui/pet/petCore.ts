@@ -929,7 +929,7 @@ export function speakingMouthPath(s: FaceState, amplitude: number, t: number): s
 }
 
 /** The character's display name; one place, because the name is provisional. */
-export const PET_NAME = 'Pet';
+export const PET_NAME = 'Tumak';
 /** viewBox of a standalone Pet, from the upstream renderer. */
 export const PET_VIEWBOX = { x: -162, y: -147, width: 324, height: 357 } as const;
 export const FACE_STATE_KEYS = Object.keys(PET_PRESET.poses.idle) as (keyof FaceState)[];
