@@ -23,12 +23,9 @@ const KNOWLEDGE_FILES = {
   'wllama.wasm': path.resolve(__dirname, 'node_modules/@wllama/wllama/esm/wasm/wllama.wasm'),
 };
 
-// The web scene draws with Skia on CanvasKit (src/onboarding/SceneCanvas.tsx), which fetches its
-// wasm from this one URL. A static export does not serve it, and the scene then stays on SVG.
-const CANVASKIT_URL = '/skia/canvaskit.wasm';
-const CANVASKIT_WASM = require.resolve('canvaskit-wasm/bin/full/canvaskit.wasm');
-
-function serveFile(res, name, file) {
+function serveKnowledgeFile(req, res) {
+  const name = decodeURIComponent((req.url ?? '').split('?')[0].slice('/knowledge-files/'.length));
+  const file = Object.hasOwn(KNOWLEDGE_FILES, name) ? KNOWLEDGE_FILES[name] : null;
   if (!file || !fs.existsSync(file)) {
     res.statusCode = 404;
     res.end(`not served: ${name}`);
@@ -42,16 +39,10 @@ function serveFile(res, name, file) {
   fs.createReadStream(file).pipe(res);
 }
 
-function serveKnowledgeFile(req, res) {
-  const name = decodeURIComponent((req.url ?? '').split('?')[0].slice('/knowledge-files/'.length));
-  serveFile(res, name, Object.hasOwn(KNOWLEDGE_FILES, name) ? KNOWLEDGE_FILES[name] : null);
-}
-
 config.server.enhanceMiddleware = (middleware) => (req, res, next) => {
   res.setHeader('Cross-Origin-Embedder-Policy', 'credentialless');
   res.setHeader('Cross-Origin-Opener-Policy', 'same-origin');
   if (req.url?.startsWith('/knowledge-files/')) return serveKnowledgeFile(req, res);
-  if (req.url?.split('?')[0] === CANVASKIT_URL) return serveFile(res, CANVASKIT_URL, CANVASKIT_WASM);
   middleware(req, res, next);
 };
 
