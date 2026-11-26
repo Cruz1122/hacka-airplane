@@ -229,6 +229,19 @@ export const es = {
       identify: 'Identificar una foto',
       captionPlaceholder: 'Escribe sobre la foto',
     },
+    voice: {
+      mic: 'Dictar pregunta',
+      micHint: 'Mantén pulsado para hablar; al soltar, el texto aparece en el campo',
+      recording: 'Grabando, suelta para transcribir',
+      errorTitle: 'Dictado',
+      permissionDenied: 'Necesitamos permiso de micrófono para dictar.',
+      unavailable: 'El dictado no está disponible en este dispositivo.',
+      busy: 'El dictado está ocupado. Intenta de nuevo.',
+      error: 'No pude transcribir. Intenta de nuevo.',
+      speak: 'Escuchar esta respuesta',
+      speakStop: 'Detener la voz',
+      speakError: 'No pude leer la respuesta en voz alta.',
+    },
   },
   // Knowledge chat (top-1 curated answers, src/state/useKnowledge.ts).
   knowledge: {
