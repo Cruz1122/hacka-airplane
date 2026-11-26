@@ -1,5 +1,6 @@
 import type { CatalogEntry, DepthEntry } from './assets';
 import type { QrEntry } from './qrPatch';
+import { foldAccents } from './safety';
 
 export type ListField = 'questions' | 'variants' | 'steps' | 'more' | 'why' | 'sources';
 export type Draft = Pick<QrEntry, 'section' | 'title' | 'answer'> &
@@ -28,10 +29,8 @@ export const emptyDraft = (section: string, id = ''): Draft => ({
 export function prepareDraft(draft: Draft): Draft {
   const title = draft.title.trim();
   if (!title) return draft;
-  const slug = title
+  const slug = foldAccents(title)
     .toLowerCase()
-    .normalize('NFD')
-    .replace(/[\u0300-\u036f]/g, '')
     .replace(/[^a-z0-9]+/g, '_')
     .replace(/^_+|_+$/g, '')
     .slice(0, 65);
