@@ -1,13 +1,15 @@
 // Workshop lab for messages: the real ChatBubble/TypingBubble on the chat sheet, with a
-// replayable new-message entrance and the sources sheet, and the whole chat screen in each of its
-// fixture states.
+// replayable last reply (entrance and word-by-word reveal, keywords in bold) and the sources
+// sheet, and the whole chat screen in each of its fixture states.
 import { useState } from 'react';
 import { StyleSheet, View } from 'react-native';
 
-import { ChatView } from '@/chat/ChatView';
+import { ChatView, type ChatRow } from '@/chat/ChatView';
 import { fill, t } from '@/i18n';
 import { ChatBubble } from '@/ui/chat/ChatBubble';
 import type { ChatSource } from '@/ui/chat/citations';
+import { keywordsFor } from '@/ui/chat/keywords';
+import { replyReveal } from '@/ui/chat/reveal';
 import { SourcesSheet } from '@/ui/chat/SourcesSheet';
 import { TypingBubble } from '@/ui/chat/TypingBubble';
 import { PET_NAME } from '@/ui/pet/petCore';
@@ -22,25 +24,40 @@ import {
   Toggle,
   type LabProps,
 } from './chrome';
-import { CHAT_STATES, READY, ROUTER_DRAFT, SOURCED, TALK } from './fixtures';
+import { CHAT_STATES, READY, ROUTER_DRAFT, SOURCED, TALK, URGENT } from './fixtures';
 
 const w = t.dev.workshop;
 const seconds = (ms?: number) =>
   ms != null ? fill(t.chatScreen.seconds, { s: (ms / 1000).toFixed(1) }) : undefined;
 const noop = () => {};
+const THREADS = { talk: TALK, sources: SOURCED, urgent: URGENT };
+const NOTHING_SEEN = new Set<string>();
 
 export function BubblesLab({ wide, reducedMotion }: LabProps) {
   const [view, setView] = useState<'bubbles' | 'screen'>('bubbles');
-  const [thread, setThread] = useState<'talk' | 'sources'>('talk');
+  const [thread, setThread] = useState<keyof typeof THREADS>('talk');
   const [sheet, setSheet] = useState<ChatSource[] | null>(null);
   const [thinking, setThinking] = useState(false);
+  // 0 shows the thread as read; each replay types its last turn out again under fresh row ids.
   const [replay, setReplay] = useState(0);
   const [screen, setScreen] = useState(CHAT_STATES[0].label);
   const state = CHAT_STATES.find((s) => s.label === screen) ?? CHAT_STATES[0];
 
-  const messages = thread === 'talk' ? TALK : SOURCED;
-  const last = messages.at(-1)!;
-  const bubble = (m: (typeof messages)[number]) => (
+  const messages = THREADS[thread];
+  // The last turn: the assistant rows after the last question (a banner and its reply).
+  const turn = messages.findLastIndex((m) => m.role === 'user') + 1;
+  const replayId = (m: ChatRow, n: number) => `lab/${thread}/${m.id}/${n}`;
+  const replayTurn = () => {
+    const n = replay + 1;
+    const rows = messages.slice(turn).map((m) => ({ ...m, id: replayId(m, n) }));
+    replyReveal.schedule(rows, NOTHING_SEEN, performance.now());
+    setReplay(n);
+  };
+  const pickThread = (next: keyof typeof THREADS) => {
+    setThread(next);
+    setReplay(0);
+  };
+  const bubble = (m: ChatRow, revealId?: string) => (
     <ChatBubble
       key={m.id}
       role={m.role}
@@ -48,15 +65,19 @@ export function BubblesLab({ wide, reducedMotion }: LabProps) {
       meta={seconds(m.latencyMs)}
       sources={m.sources}
       onOpenSources={setSheet}
+      keywords={keywordsFor(m.entryId)}
+      revealId={revealId}
     />
   );
   const preview =
     view === 'bubbles' ? (
       <PhoneFrame height={wide ? 620 : 540}>
         <View style={styles.thread}>
-          {messages.slice(0, -1).map(bubble)}
+          {messages.slice(0, turn).map((m) => bubble(m))}
           <Entrance key={`${thread}-${replay}`} reducedMotion={reducedMotion}>
-            {bubble(last)}
+            {messages
+              .slice(turn)
+              .map((m) => bubble(m, replay > 0 ? replayId(m, replay) : undefined))}
           </Entrance>
           {thinking && <TypingBubble label={fill(t.chatScreen.typing, { pet: PET_NAME })} />}
         </View>
@@ -69,6 +90,8 @@ export function BubblesLab({ wide, reducedMotion }: LabProps) {
     ) : (
       <PhoneFrame height={780}>
         <ChatView
+          // A fresh mount per state: its rows count as read, so switching never replays them.
+          key={screen}
           messages={state.messages}
           busy={!!state.busy}
           draft={ROUTER_DRAFT}
@@ -101,15 +124,16 @@ export function BubblesLab({ wide, reducedMotion }: LabProps) {
           <Field label={w.thread}>
             <Choices
               value={thread}
-              onChange={setThread}
+              onChange={pickThread}
               options={[
                 { value: 'talk', label: w.threadTalk },
                 { value: 'sources', label: w.threadSources },
+                { value: 'urgent', label: w.threadUrgent },
               ]}
             />
           </Field>
           <Toggle label={w.thinking} value={thinking} onChange={setThinking} />
-          <ActionButton icon="play" label={w.replay} onPress={() => setReplay((r) => r + 1)} />
+          <ActionButton icon="play" label={w.replayReply} onPress={replayTurn} />
         </>
       ) : (
         <Field label={w.screenState}>

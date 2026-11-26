@@ -19,8 +19,18 @@ export function toChatRows(rows: readonly KnowledgeRow[], errorText: string): Ch
     }];
     if ('error' in row) return [{ id: row.id, role: 'assistant', text: errorText }];
     const { reply } = row;
+    // An urgent banner is the emergency entry's `short`, under its one source id; a policy
+    // banner has none.
+    const bannerEntry = reply.banner?.sourceIds[0];
     const banner: ChatRow[] = reply.banner
-      ? [{ id: `${row.id}:banner`, role: 'assistant', text: reply.banner.text }]
+      ? [
+          {
+            id: `${row.id}:banner`,
+            role: 'assistant',
+            text: reply.banner.text,
+            ...(bannerEntry ? { entryId: bannerEntry } : {}),
+          },
+        ]
       : [];
     const sources =
       reply.type === 'answer' && reply.sources.length
@@ -32,6 +42,7 @@ export function toChatRows(rows: readonly KnowledgeRow[], errorText: string): Ch
         id: row.id,
         role: 'assistant',
         text: replyText(reply),
+        ...(reply.type === 'answer' ? { entryId: reply.id } : {}),
         ...(row.timing ? { latencyMs: Math.round(row.timing.totalMs) } : {}),
         ...(sources ? { sources } : {}),
       },

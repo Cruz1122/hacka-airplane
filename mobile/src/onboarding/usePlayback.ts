@@ -1,8 +1,12 @@
 // Drives the onboarding: the progress value between screens (transitions, swipe scrubbing) and the
 // idle-motion clock (seconds since mount, held during transitions). One requestAnimationFrame
 // loop, running only while needed.
-import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
-import { PanResponder } from 'react-native';
+//
+// Per-frame values live outside React state. A screen subscribes only the component that draws
+// them (usePlaybackFrame), so a frame re-renders the scene canvas and nothing else, and
+// `progressValue` carries progress to native-driven styles (card copy, page dots) with no render.
+import { useEffect, useLayoutEffect, useMemo, useState } from 'react';
+import { Animated, PanResponder, Platform } from 'react-native';
 
 import { EASINGS } from './scene/timeline';
 import type { EasingName } from './scene/types';
@@ -31,125 +35,226 @@ export interface PlaybackOptions {
   reduced: boolean;
 }
 
-export interface Playback {
+/** What one drawn frame shows. A new object only when one of its values changed. */
+export interface PlaybackFrame {
   progress: number;
   /**
    * Seconds for idle motions, or null when they are off. The clock holds still during a
    * transition and resumes from the same pose afterwards.
    */
   time: number | null;
-  /** `time` as last drawn, for event handlers that must not re-render on every idle frame. */
-  timeNow: () => number | null;
   animating: boolean;
   /** A transition or a drag is moving the camera; the scene draws cheap view transforms. */
   moving: boolean;
+}
+
+export interface PlaybackControls {
+  /** `time` as last drawn, for event handlers that must not re-render on every idle frame. */
+  timeNow: () => number | null;
   goTo: (target: number) => void;
-  /** Jump to a progress value, cancelling any transition (swipe, Lab scrubber). */
+  /** Jump to a progress value, cancelling any transition (Lab scrubber, reduced motion). */
   scrub: (p: number) => void;
   /** Progress right now, for event handlers that run between renders. */
   progressNow: () => number;
-  /** Start a drag at the current progress; dragBy then scrubs relative to that start. */
+  /** Start a drag at the progress on screen, stopping a running transition there. */
   beginDrag: () => void;
+  /** Drag relative to the start; finger moves are drawn once per display frame. */
   dragBy: (delta: number) => void;
 }
 
-export function usePlayback({ transitionMs, easing, ambient, reduced }: PlaybackOptions): Playback {
-  const [progress, setProgress] = useState(0);
-  const [time, setTime] = useState(0);
-  const [animating, setAnimating] = useState(false);
-  const [dragging, setDragging] = useState(false);
-  const current = useRef(0);
-  const transition = useRef<Transition | null>(null);
-  // Idle-motion seconds: advances only outside transitions; `drawn` is the value last rendered.
-  const clock = useRef(0);
-  const drawn = useRef(0);
-  const idle = ambient && !reduced;
+export interface PlaybackClock extends PlaybackControls {
+  /** Progress for native-driven styles. Set on every frame that moves it; never re-renders. */
+  progressValue: Animated.Value;
+  subscribe: (listener: () => void) => () => void;
+  frame: () => PlaybackFrame;
+  setOptions: (options: PlaybackOptions) => void;
+  /** Starts the frame loop if anything needs it; stop() cancels it (unmount). */
+  start: () => void;
+  stop: () => void;
+}
 
-  useEffect(() => {
-    if (!idle && !animating) return;
-    let raf = 0;
-    let last: number | null = null;
-    let lastIdle = -Infinity;
-    const tick = (now: number) => {
-      const dt = last === null ? 0 : now - last;
-      last = now;
-      const tr = transition.current;
-      if (tr) {
-        tr.start ??= now;
-        const t = Math.min(1, (now - tr.start) / tr.ms);
-        current.current = tr.from + (tr.to - tr.from) * EASINGS[tr.easing](t);
-        setProgress(current.current);
-        if (t >= 1) {
-          transition.current = null;
-          setAnimating(false);
-        }
-      } else if (idle) {
-        // Idle motions hold during a transition: their redraws were most of each camera frame's
-        // work (about 4 of 5 object re-renders on the default scene, __tests__/idleCost.test.ts),
-        // and the camera move hides a short pause. The clock skips the paused span, so motions
-        // resume without a jump.
-        clock.current += dt / 1000;
-        if (now - lastIdle >= IDLE_FRAME_MS) {
-          lastIdle = now;
-          drawn.current = clock.current;
-          setTime(clock.current);
-        }
+export type Playback = PlaybackFrame & PlaybackControls;
+
+// react-native-web has no native animated module; its JS driver updates the DOM style directly.
+const NATIVE_DRIVER = Platform.OS !== 'web';
+
+function createClock(initial: PlaybackOptions): PlaybackClock {
+  let options = initial;
+  const idle = () => options.ambient && !options.reduced;
+  let progress = 0;
+  let transition: Transition | null = null;
+  let dragging = false;
+  let dragStart = 0;
+  // A drag move waiting for the next frame: touch events can outnumber display frames.
+  let pending = false;
+  // Idle-motion seconds: advances only outside transitions; `drawn` is the value last published.
+  let clock = 0;
+  let drawn = 0;
+  let raf = 0;
+  let last: number | null = null;
+  let lastIdle = -Infinity;
+  let frame: PlaybackFrame = { progress, time: idle() ? 0 : null, animating: false, moving: false };
+  const listeners = new Set<() => void>();
+  const progressValue = new Animated.Value(0, { useNativeDriver: NATIVE_DRIVER });
+
+  const publish = () => {
+    const time = idle() ? drawn : null;
+    const animating = transition !== null;
+    const moving = animating || dragging;
+    if (
+      frame.progress === progress &&
+      frame.time === time &&
+      frame.animating === animating &&
+      frame.moving === moving
+    )
+      return;
+    if (frame.progress !== progress) progressValue.setValue(progress);
+    frame = { progress, time, animating, moving };
+    for (const listener of listeners) listener();
+  };
+
+  const tick = (now: number) => {
+    raf = 0;
+    const dt = last === null ? 0 : now - last;
+    last = now;
+    const tr = transition;
+    if (tr) {
+      tr.start ??= now;
+      const t = Math.min(1, (now - tr.start) / tr.ms);
+      progress = tr.from + (tr.to - tr.from) * EASINGS[tr.easing](t);
+      if (t >= 1) transition = null;
+    } else if (idle()) {
+      // Idle motions hold during a transition: their redraws were most of each camera frame's
+      // work (about 4 of 5 object re-renders on the default scene, __tests__/idleCost.test.ts),
+      // and the camera move hides a short pause. The clock skips the paused span, so motions
+      // resume without a jump.
+      clock += dt / 1000;
+      if (now - lastIdle >= IDLE_FRAME_MS) {
+        lastIdle = now;
+        drawn = clock;
       }
-      raf = requestAnimationFrame(tick);
-    };
-    raf = requestAnimationFrame(tick);
-    return () => cancelAnimationFrame(raf);
-  }, [idle, animating]);
+    }
+    pending = false;
+    publish();
+    schedule();
+  };
 
-  const scrub = useCallback((p: number) => {
-    transition.current = null;
-    current.current = clamp(p);
-    setProgress(current.current);
-    setAnimating(false);
-  }, []);
+  function schedule() {
+    if (raf) return;
+    if (transition || pending || idle()) raf = requestAnimationFrame(tick);
+    // A stopped loop restarts with dt = 0, so a pause never advances the idle clock.
+    else last = null;
+  }
 
-  const goTo = useCallback(
-    (target: number) => {
-      setDragging(false);
+  const stop = () => {
+    cancelAnimationFrame(raf);
+    raf = 0;
+    last = null;
+  };
+
+  const scrub = (p: number) => {
+    transition = null;
+    pending = false;
+    progress = clamp(p);
+    publish();
+  };
+
+  return {
+    progressValue,
+    setOptions: (next) => {
+      options = next;
+    },
+    subscribe: (listener) => {
+      listeners.add(listener);
+      return () => listeners.delete(listener);
+    },
+    frame: () => frame,
+    start: () => {
+      // Options (ambient, reduced) may have changed since the last frame.
+      publish();
+      schedule();
+    },
+    stop,
+    timeNow: () => (idle() ? drawn : null),
+    progressNow: () => progress,
+    scrub,
+    goTo: (target) => {
+      dragging = false;
       const to = clamp(target);
-      const from = current.current;
-      if (reduced || Math.abs(to - from) < 1e-4) {
+      const from = progress;
+      if (options.reduced || Math.abs(to - from) < 1e-4) {
         scrub(to);
         return;
       }
       // Longer jumps (dot 1 -> dot 3) take longer, short settles after a swipe are quicker.
-      const ms = transitionMs * Math.min(1.6, Math.max(0.4, Math.abs(to - from)));
-      transition.current = { from, to, start: null, ms, easing };
-      setAnimating(true);
+      const ms = options.transitionMs * Math.min(1.6, Math.max(0.4, Math.abs(to - from)));
+      transition = { from, to, start: null, ms, easing: options.easing };
+      publish();
+      schedule();
     },
-    [reduced, transitionMs, easing, scrub],
-  );
-
-  const progressNow = useCallback(() => current.current, []);
-  const timeNow = useCallback(() => (idle ? drawn.current : null), [idle]);
-  const dragStart = useRef(0);
-  const beginDrag = useCallback(() => {
-    dragStart.current = current.current;
-    setDragging(true);
-  }, []);
-  const dragBy = useCallback((delta: number) => scrub(dragStart.current + delta), [scrub]);
-  return {
-    progress,
-    time: idle ? time : null,
-    timeNow,
-    animating,
-    moving: animating || dragging,
-    goTo,
-    scrub,
-    progressNow,
-    beginDrag,
-    dragBy,
+    beginDrag: () => {
+      transition = null;
+      dragStart = progress;
+      dragging = true;
+      publish();
+    },
+    dragBy: (delta) => {
+      transition = null;
+      progress = clamp(dragStart + delta);
+      pending = true;
+      schedule();
+    },
   };
+}
+
+/** The playback clock, without re-rendering the caller on its frames. */
+export function usePlaybackClock(options: PlaybackOptions): PlaybackClock {
+  const [clock] = useState(() => createClock(options));
+  const idle = options.ambient && !options.reduced;
+  useLayoutEffect(() => clock.setOptions(options));
+  // Turning idle motions on or off publishes the new `time` and starts or ends the loop.
+  useLayoutEffect(() => {
+    clock.start();
+    return clock.stop;
+  }, [clock, idle]);
+  return clock;
+}
+
+/**
+ * Re-renders the caller when `select(frame)` changes. `select` must be stable (module level).
+ * State updates land in the same batch as other frame callbacks (the Pet's face morph), so a frame
+ * that changes both still renders once.
+ */
+export function usePlaybackFrame<T>(clock: PlaybackClock, select: (frame: PlaybackFrame) => T): T {
+  const [value, setValue] = useState(() => select(clock.frame()));
+  useEffect(() => {
+    // Compared here, not by React: a same-value setState with updates queued still renders once.
+    let shown: T | undefined;
+    const update = () => {
+      const next = select(clock.frame());
+      if (Object.is(next, shown)) return;
+      shown = next;
+      setValue(next);
+    };
+    update();
+    return clock.subscribe(update);
+  }, [clock, select]);
+  return value;
+}
+
+const wholeFrame = (frame: PlaybackFrame) => frame;
+
+/** Playback as React state: re-renders the caller on every frame (the Lab's editor needs it). */
+export function usePlayback(options: PlaybackOptions): Playback {
+  const clock = usePlaybackClock(options);
+  const frame = usePlaybackFrame(clock, wholeFrame);
+  const { timeNow, goTo, scrub, progressNow, beginDrag, dragBy } = clock;
+  return { ...frame, timeNow, goTo, scrub, progressNow, beginDrag, dragBy };
 }
 
 /** Horizontal swipe: drags scrub the scene, release settles on a screen (flick = next/previous). */
 export function useSwipe(
-  play: Pick<Playback, 'goTo' | 'progressNow' | 'beginDrag' | 'dragBy'>,
+  play: Pick<PlaybackControls, 'goTo' | 'progressNow' | 'beginDrag' | 'dragBy'>,
   width: number,
 ) {
   const { goTo, progressNow, beginDrag, dragBy } = play;
