@@ -4,6 +4,19 @@ One JSON file per section (vector space): `data/knowledge/sections/<section_id>.
 Schema: [schemas/knowledge-section.schema.json](schemas/knowledge-section.schema.json).
 Content (examples, answers) is Spanish unless `lang` says otherwise. Keys are English.
 
+## What the app uses today (2026-11-23)
+
+The schema below is what the validator enforces. Part of it was written for runtimes that no longer exist; the fields stay valid but have no effect on the phone:
+
+| Field or rule | Status |
+|---|---|
+| Section order, section gateway | no effect: every section is searched (`policy.json` `max_sections` 15) |
+| `retrieval.bm25_weight`, `retrieval.top_k`, `clarification.*`, slot questions, `needs` | not read by the app (`k` is a constant 5 in `export_nlu.py`) |
+| `action` "hand-off to the FSM" | no hand-off: action entries show their curated answer |
+| `valid_until` | **not enforced**: expired entries are still exported and served |
+
+What the phone shows and indexes also depends on the app layer, `data/knowledge/app/` (natural replies, extra queries, hubs, redirects; see its README). An entry without a natural reply there makes `experiments/nlu/export_nlu.py` abort.
+
 ## Section order
 
 The order follows a visitor's trip. It sets the section order in the gateway manifest, the order
@@ -155,7 +168,7 @@ emergency is not acceptable.
 | `detail` | `answer.detail` |
 | `reflection` | `answer.reflection` |
 | `source` (`label`, `url`) | `sources[0]` plus `retrieved_at` = conversion date |
-| — | `id`, `kind`, `audience`, section: assigned during conversion (see the Phase 1 mapping in [plan-knowledge-system.md](plan-knowledge-system.md)) |
+| — | `id`, `kind`, `audience`, section: assigned during conversion (see the Phase 1 mapping in [history/plan-knowledge-system.md](history/plan-knowledge-system.md)) |
 
 ## Validation rules (enforced by the validator, beyond the schema)
 
