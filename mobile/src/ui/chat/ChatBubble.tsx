@@ -148,10 +148,10 @@ export const ChatBubble = memo(function ChatBubble({
       accessory={
         done && (canSpeak || sourced) ? (
           <View style={styles.accessories}>
+            {sourced ? <SourcesBadge sources={cited} onPress={() => onOpenSources(cited)} /> : null}
             {canSpeak && doc ? (
               <SpeakButton speakId={revealId ?? entryId ?? doc.text} text={doc.text} />
             ) : null}
-            {sourced ? <SourcesBadge sources={cited} onPress={() => onOpenSources(cited)} /> : null}
           </View>
         ) : null
       }
