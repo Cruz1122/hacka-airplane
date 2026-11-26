@@ -21,6 +21,7 @@ import { brand, radius, spacing, type } from '@/ui/theme/tokens';
 import { useAccessibilityTheme } from '@/ui/useAccessibilityTheme';
 import { useReducedMotion } from '@/ui/useReducedMotion';
 
+import { STAGE_FAB, StageTumak } from './StageTumak';
 import type { StationId } from './stations';
 import { type ConceptPhoto, conceptPhoto } from './trailPhotos';
 
@@ -117,7 +118,7 @@ function OpenSheet({
         style={[
           styles.sheet,
           {
-            paddingBottom: bottom + spacing.lg,
+            paddingBottom: bottom + spacing.lg + STAGE_FAB,
             backgroundColor: palette.card,
             opacity: shown,
             transform: [
@@ -177,6 +178,7 @@ function OpenSheet({
         </View>
         <MoreButton label={t.trail.sheet.more} onPress={() => onMore(id)} />
       </Animated.View>
+      <StageTumak id={id} insetBottom={bottom + spacing.sm} />
     </View>
   );
 }

@@ -10,6 +10,7 @@ import { MediaRowList, type MediaRowItem } from '@/ui/MediaRowList';
 import { brand, spacing, type } from '@/ui/theme/tokens';
 import { useAccessibilityTheme } from '@/ui/useAccessibilityTheme';
 
+import { STAGE_FAB, StageTumak } from './StageTumak';
 import type { StationId } from './stations';
 import { trailPhoto } from './trailPhotos';
 
@@ -83,7 +84,7 @@ export function StationPage({ id }: { id: StationId }) {
         contentContainerStyle={{
           paddingHorizontal: spacing.xl,
           paddingTop: spacing.md,
-          paddingBottom: insets.bottom + spacing.xl,
+          paddingBottom: insets.bottom + spacing.xl + STAGE_FAB,
         }}
         ListHeaderComponent={
           <Text style={[styles.heading, scaled.display, { color: palette.ink }]} selectable>
@@ -99,6 +100,7 @@ export function StationPage({ id }: { id: StationId }) {
           </>
         }
       />
+      <StageTumak id={id} insetBottom={insets.bottom + spacing.md} />
     </View>
   );
 }

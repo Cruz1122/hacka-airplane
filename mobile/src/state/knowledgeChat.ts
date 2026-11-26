@@ -49,34 +49,62 @@ const elapsedTiming = (startedAt: number): KnowledgeTiming => {
   return { rulesMs: totalMs, embedMs: 0, retrieveMs: 0, rerankMs: 0, totalMs };
 };
 
-const unknownPhoto = 'No logro identificar lo que hay en tu imagen. ¿Podrías preguntarle a tu guía turístico por esto?';
+const unknownPhoto =
+  'No logro identificar lo que hay en tu imagen. ¿Podrías preguntarle a tu guía turístico por esto?';
 const editPhoto = 'No puedo editar imágenes. Puedo intentar identificar lo que aparece en la foto.';
 const photoRequest = /\b(?:fotos?|fotografias?|imagen(?:es)?|retrato|selfie|fondo)\b/;
 
 function normalizeRequest(text: string): string {
-  return text.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '')
-    .replace(/[^a-z0-9 ]/g, ' ').trim().replace(/ +/g, ' ');
+  return text
+    .toLowerCase()
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '')
+    .replace(/[^a-z0-9 ]/g, ' ')
+    .trim()
+    .replace(/ +/g, ' ');
 }
 
 function requestsPhotoEdit(words: string, hasPhoto: boolean): boolean {
-  const request = /^(?:(?:por favor|(?:me )?(?:puedes|podrias)|quiero que|necesito que|quiero|necesito|me ayudas a) )*/;
+  const request =
+    /^(?:(?:por favor|(?:me )?(?:puedes|podrias)|quiero que|necesito que|quiero|necesito|me ayudas a) )*/;
   const verb = words.replace(request, '').replace(/^(?:me|le|nos|lo|la) /, '');
-  if (/^(?:edita\w*|retoc\w*|recort\w*|modific\w*|reemplaz\w*|ajust\w*|transform\w*|mejor\w*|arregl\w*|gira\w*|rot\w*|borra\w*|elimin\w*|quit\w*|pon\w*|agreg\w*|cambi\w*|haz\w*|anad\w*|coloc\w*|aplic\w*)\b/.test(verb)) {
+  if (
+    /^(?:edita\w*|retoc\w*|recort\w*|modific\w*|reemplaz\w*|ajust\w*|transform\w*|mejor\w*|arregl\w*|gira\w*|rot\w*|borra\w*|elimin\w*|quit\w*|pon\w*|agreg\w*|cambi\w*|haz\w*|anad\w*|coloc\w*|aplic\w*)\b/.test(
+      verb,
+    )
+  ) {
     if (photoRequest.test(verb)) return true;
-    return hasPhoto && /^(?:edita\w*|retoc\w*|recort\w*|rot\w*|gira\w*|modifical\w*)(?: |$)|\b(?:sombrero|gafas|lentes|camiseta|filtro|colores?|brillo|contraste|nitidez|blanco y negro|mas alto|mas alta)\b/.test(verb);
+    return (
+      hasPhoto &&
+      /^(?:edita\w*|retoc\w*|recort\w*|rot\w*|gira\w*|modifical\w*)(?: |$)|\b(?:sombrero|gafas|lentes|camiseta|filtro|colores?|brillo|contraste|nitidez|blanco y negro|mas alto|mas alta)\b/.test(
+        verb,
+      )
+    );
   }
   return false;
 }
 
 function capabilityReply(text: string): string | undefined {
   const words = normalizeRequest(text);
-  const help = /^(?:(?:hola|oye) )?(?:que (?:puedes hacer|sabes hacer|haces|puedo preguntarte|te puedo preguntar)|como funcionas|como te uso|cuales son tus capacidades|ayuda)(?: por favor)?$/.test(words);
-  const photo = /\b(?:foto(?:s|grafia|grafias)?|imagen(?:es)?|camara)\b/.test(words)
-    && /\b(?:mand\w*|envi\w*|adjunt\w*|sub\w*|carg\w*|seleccion\w*|eleg\w*|acept\w*|recib\w*|identific\w*|reconoc\w*|boton|icono)\b/.test(words);
-  const photoControl = /^(?:donde (?:esta|veo|encuentro)|como (?:abro|uso|activo)|puedo usar|tienes) (?:la |tu )?camara$/.test(words);
+  const help =
+    /^(?:(?:hola|oye) )?(?:que (?:puedes hacer|sabes hacer|haces|puedo preguntarte|te puedo preguntar)|como funcionas|como te uso|cuales son tus capacidades|ayuda)(?: por favor)?$/.test(
+      words,
+    );
+  const photo =
+    /\b(?:foto(?:s|grafia|grafias)?|imagen(?:es)?|camara)\b/.test(words) &&
+    /\b(?:mand\w*|envi\w*|adjunt\w*|sub\w*|carg\w*|seleccion\w*|eleg\w*|acept\w*|recib\w*|identific\w*|reconoc\w*|boton|icono)\b/.test(
+      words,
+    );
+  const photoControl =
+    /^(?:donde (?:esta|veo|encuentro)|como (?:abro|uso|activo)|puedo usar|tienes) (?:la |tu )?camara$/.test(
+      words,
+    );
   if (!(help || photo || photoControl) || detectSafety(text).urgent) return;
-  const how = 'Sí. Toca la cámara a la izquierda del cuadro donde escribes. Elige una foto o tómala con la app del celular. Puedes añadir texto antes de tocar Enviar. Puedo sugerir qué aparece si se parece a alguna de mis referencias de Los Nevados.';
-  return help ? 'Puedo responder preguntas sobre Los Nevados e intentar identificar fotos del parque. Para enviar una foto, toca la cámara a la izquierda del cuadro donde escribes.' : how;
+  const how =
+    'Sí. Toca la cámara a la izquierda del cuadro donde escribes. Elige una foto o tómala con la app del celular. Puedes añadir texto antes de tocar Enviar. Puedo sugerir qué aparece si se parece a alguna de mis referencias de Los Nevados.';
+  return help
+    ? 'Puedo responder preguntas sobre Los Nevados e intentar identificar fotos del parque. Para enviar una foto, toca la cámara a la izquierda del cuadro donde escribes.'
+    : how;
 }
 
 export class KnowledgeChat {
@@ -99,7 +127,10 @@ export class KnowledgeChat {
     this.rng = rng;
     this.verifiedOnly = verifiedOnly;
     this.engine = load().then(({ engine, degraded }) => {
-      this.set({ status: degraded ? 'degraded' : 'ready', ...(degraded ? { error: degraded } : {}) });
+      this.set({
+        status: degraded ? 'degraded' : 'ready',
+        ...(degraded ? { error: degraded } : {}),
+      });
       return engine;
     });
   }
@@ -111,14 +142,19 @@ export class KnowledgeChat {
     return () => this.listeners.delete(fn);
   };
 
-  async ask(text: string): Promise<void> {
+  async ask(text: string, context?: string): Promise<void> {
     const q = text.trim();
     if (!q || this.state.busy) return;
+    const note = context?.trim();
+    // The bubble keeps the typed question. The note only steers retrieval.
+    const prompt = note ? `${q} ${note}` : q;
     const startedAt = now();
     this.push({ id: this.id(), role: 'user', text: q }, true);
-    const lastUser = this.state.rows.slice(0, -1).findLast(row => row.role === 'user');
-    const capability = requestsPhotoEdit(normalizeRequest(q), !!lastUser?.photoUri) && !detectSafety(q).urgent
-      ? editPhoto : capabilityReply(q);
+    const lastUser = this.state.rows.slice(0, -1).findLast((row) => row.role === 'user');
+    const capability =
+      requestsPhotoEdit(normalizeRequest(q), !!lastUser?.photoUri) && !detectSafety(q).urgent
+        ? editPhoto
+        : capabilityReply(q);
     if (capability) {
       this.push(
         {
@@ -132,14 +168,17 @@ export class KnowledgeChat {
       return;
     }
     try {
-      const r = await this.askEngine(await this.engine, q);
+      const r = await this.askEngine(await this.engine, prompt);
       const media = this.mediaFor(r.reply, q);
       this.push(
         {
           id: this.id(),
           role: 'assistant',
           reply: r.reply,
-          timing: r.timing.totalMs > 0 ? r.timing : { ...r.timing, totalMs: Math.max(1, now() - startedAt) },
+          timing:
+            r.timing.totalMs > 0
+              ? r.timing
+              : { ...r.timing, totalMs: Math.max(1, now() - startedAt) },
           ...(media ? { media } : {}),
         },
         false,
@@ -149,7 +188,11 @@ export class KnowledgeChat {
     }
   }
 
-  async askPhoto(photoUri: string, caption: string, classify: () => Promise<PhotoMatch | undefined>): Promise<void> {
+  async askPhoto(
+    photoUri: string,
+    caption: string,
+    classify: () => Promise<PhotoMatch | undefined>,
+  ): Promise<void> {
     if (this.state.busy) return;
     const startedAt = now();
     const generation = this.generation;
@@ -160,7 +203,10 @@ export class KnowledgeChat {
       if (text && detectSafety(text).urgent) {
         const result = await this.askEngine(await this.engine, text);
         if (generation === this.generation) {
-          this.push({ id: this.id(), role: 'assistant', reply: result.reply, timing: result.timing }, false);
+          this.push(
+            { id: this.id(), role: 'assistant', reply: result.reply, timing: result.timing },
+            false,
+          );
         }
         return;
       }
@@ -179,34 +225,47 @@ export class KnowledgeChat {
       const verifiedOnly = this.verifiedOnly();
       if ('id' in match && !verifiedOnly) {
         const totalMs = Math.max(1, Math.round(classifyMs));
-        this.push({
-          id: this.id(),
-          role: 'assistant',
-          reply: {
-            type: 'answer',
-            id: match.id,
-            title: match.label,
-            text: `La foto se parece a ${match.label}.\n\n${match.description}`,
-            sources: [match.source],
-            verified: false,
+        this.push(
+          {
+            id: this.id(),
+            role: 'assistant',
+            reply: {
+              type: 'answer',
+              id: match.id,
+              title: match.label,
+              text: `La foto se parece a ${match.label}.\n\n${match.description}`,
+              sources: [match.source],
+              verified: false,
+            },
+            timing: { rulesMs: 0, embedMs: 0, retrieveMs: totalMs, rerankMs: 0, totalMs },
           },
-          timing: { rulesMs: 0, embedMs: 0, retrieveMs: totalMs, rerankMs: 0, totalMs },
-        }, false);
+          false,
+        );
         return;
       }
-      const identify = /^(?:(?:dime )?que (?:es (?:esto|eso|lo que (?:encontre|vi))|(?:ves|hay)(?: (?:aqui|aca|en (?:esta |la )?(?:foto|imagen)))?)|(?:mira|mire)(?: (?:esto|eso|mi selfie|lo que (?:encontre|vi)))?|identifica (?:esto|la foto)|mirame(?: en (?:esta |la )?foto)?|miranos(?: en (?:esta |la )?foto)?)$/;
+      const identify =
+        /^(?:(?:dime )?que (?:es (?:esto|eso|lo que (?:encontre|vi))|(?:ves|hay)(?: (?:aqui|aca|en (?:esta |la )?(?:foto|imagen)))?)|(?:mira|mire)(?: (?:esto|eso|mi selfie|lo que (?:encontre|vi)))?|identifica (?:esto|la foto)|mirame(?: en (?:esta |la )?foto)?|miranos(?: en (?:esta |la )?foto)?)$/;
       // Sourced vision classes carry a kind too; only the person class has no id.
       if ('kind' in match && !('id' in match)) {
         const describePerson = !words || identify.test(words);
-        this.photoMessage(describePerson
-          ? 'Parece que hay una persona en la foto. ¿Qué tal si exploramos lo que la rodea? Envíame una foto de una planta, un animal o un paisaje del parque.'
-          : unknownPhoto, startedAt, describePerson
+        this.photoMessage(
+          describePerson
+            ? 'Parece que hay una persona en la foto. ¿Qué tal si exploramos lo que la rodea? Envíame una foto de una planta, un animal o un paisaje del parque.'
+            : unknownPhoto,
+          startedAt,
+          describePerson
             ? ['una persona', 'una planta, un animal o un paisaje del parque']
-            : undefined);
+            : undefined,
+        );
         return;
       }
       const useCaption = !!text && !identify.test(words);
-      const prompt = `${text.replace(/[:[\]{}]+/g, ' ').replace(/\s+/g, ' ').trim() || 'dime que es esto'} ${match.label}`;
+      const prompt = `${
+        text
+          .replace(/[:[\]{}]+/g, ' ')
+          .replace(/\s+/g, ' ')
+          .trim() || 'dime que es esto'
+      } ${match.label}`;
       const engine = await this.engine;
       if (generation !== this.generation) return;
       const entryId = 'entryId' in match ? match.entryId : undefined;
@@ -221,7 +280,13 @@ export class KnowledgeChat {
       const description = visionText && 'description' in match ? match.description : undefined;
       const reply: KnowledgeReply = {
         ...base,
-        text: [usesVisualEntry ? `La foto se parece a ${match.label}.` : undefined, description, base.text].filter(Boolean).join('\n\n'),
+        text: [
+          usesVisualEntry ? `La foto se parece a ${match.label}.` : undefined,
+          description,
+          base.text,
+        ]
+          .filter(Boolean)
+          .join('\n\n'),
         ...(visionText && 'source' in match ? { sources: [match.source, ...base.sources] } : {}),
         // The vision index's description is not guion text: no seal over it.
         ...(description ? { verified: false } : {}),
@@ -255,7 +320,8 @@ export class KnowledgeChat {
   reset(): void {
     this.generation++;
     for (const row of this.state.rows) {
-      if (row.role === 'user' && row.photoUri?.startsWith('blob:')) URL.revokeObjectURL(row.photoUri);
+      if (row.role === 'user' && row.photoUri?.startsWith('blob:'))
+        URL.revokeObjectURL(row.photoUri);
     }
     this.set({ rows: [], busy: false });
     // A load failure already surfaced through ask(); nothing to reset then.
@@ -281,7 +347,13 @@ export class KnowledgeChat {
 
   private photoMessage(text: string, startedAt: number, keywords?: readonly string[]): void {
     this.push(
-      { id: this.id(), role: 'assistant', reply: { type: 'abstain', text }, timing: elapsedTiming(startedAt), ...(keywords ? { keywords } : {}) },
+      {
+        id: this.id(),
+        role: 'assistant',
+        reply: { type: 'abstain', text },
+        timing: elapsedTiming(startedAt),
+        ...(keywords ? { keywords } : {}),
+      },
       false,
     );
   }

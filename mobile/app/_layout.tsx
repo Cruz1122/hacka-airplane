@@ -3,6 +3,7 @@ import { Stack } from 'expo-router';
 import { useEffect } from 'react';
 
 import { t } from '@/i18n';
+import { requestDevicePermissions } from '@/platform/devicePermissions';
 import { preloadKnowledge } from '@/state/useKnowledge';
 import { FONT_FILES } from '@/ui/theme/fonts';
 
@@ -10,6 +11,9 @@ export default function RootLayout() {
   const [loaded, error] = useFonts(FONT_FILES);
   // After the first commit, so it never delays the first frame; native loads run off the JS thread.
   useEffect(preloadKnowledge, []);
+  useEffect(() => {
+    void requestDevicePermissions();
+  }, []);
   useEffect(() => {
     if (error) console.warn('Inter failed to load; text falls back to the system font.', error);
   }, [error]);
