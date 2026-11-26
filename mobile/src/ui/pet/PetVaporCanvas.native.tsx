@@ -5,17 +5,19 @@ import { Canvas, Picture, Skia } from '@shopify/react-native-skia';
 import { useMemo } from 'react';
 
 import { drawPet } from './drawPet';
+import { useFrame } from './frameLoop';
 import type { PetVaporCanvasProps } from './PetVaporCanvas';
 
 export function PetVaporCanvas({
   config,
-  frame,
+  frames,
   fill,
   shade,
   viewBox: v,
   width,
   height,
 }: PetVaporCanvasProps) {
+  const frame = useFrame(frames);
   const picture = useMemo(() => {
     const recorder = Skia.PictureRecorder();
     const canvas = recorder.beginRecording(Skia.XYWHRect(0, 0, width, height));

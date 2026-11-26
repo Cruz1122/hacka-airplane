@@ -2,6 +2,8 @@
 // One requestAnimationFrame loop drives time, blinking, emotion transitions and the gaze (the
 // `lookAt` point, the pointer on web; otherwise it looks around on its own). Every frame comes from petFrame(), the
 // same function the onboarding scene uses, and is drawn as vapor like the scene's Pet.
+// The loop runs outside React: it hands each drawn frame to the canvas alone (frameLoop.ts), draws
+// slow motion at AMBIENT_HZ, and sleeps when nothing is left to move.
 import { useEffect, useId, useMemo, useRef, useState } from 'react';
 import {
   Dimensions,
@@ -16,6 +18,7 @@ import { useReducedMotion } from '@/ui/useReducedMotion';
 
 import { brand } from '../theme/tokens';
 
+import { FrameStore, shouldDraw, type FrameInputs } from './frameLoop';
 import { PetVaporCanvas } from './PetVaporCanvas';
 import {
   applyDeadzone,
@@ -32,6 +35,7 @@ import {
   transitionFace,
   type FaceState,
   type PetConfig,
+  type PetFrame,
   type PetEmotion,
   type VoiceState,
 } from './petCore';
@@ -87,16 +91,27 @@ interface Engine {
   /** When the pointer last moved; glancing around waits until it rests. */
   pointerAt: number;
   nextLook: number;
+  /** Restarts a sleeping loop when the gaze gets a new target. */
+  wake?: () => void;
 }
 
 /** A pointer at rest for this long hands the gaze back to glancing around. */
 const POINTER_REST_MS = 2500;
+/**
+ * Gaze this close to its target snaps onto it (about 0.0006 Pet units of eye travel), so a paused
+ * Pet settles and its loop can sleep; the smoothing alone only approaches the target.
+ */
+const GAZE_SETTLE = 1e-4;
 
-interface Snapshot {
-  time: number;
-  face: FaceState;
-  gaze: { x: number; y: number };
-  mirror: number;
+function frameFor(cfg: PetConfig, i: FrameInputs, reduced: boolean): PetFrame {
+  return petFrame(cfg, {
+    time: i.time,
+    face: i.face,
+    blink: i.blink,
+    gaze: { x: i.gazeX, y: i.gazeY },
+    mirror: i.mirror,
+    reduced,
+  });
 }
 
 export function Pet({
@@ -126,12 +141,16 @@ export function Pet({
     next.motion.reducedEffects = next.motion.reducedEffects || reduced;
     return next;
   }, [config, emotion, voice, audioLevel, reduced]);
-  const [snap, setSnap] = useState<Snapshot>(() => ({
-    time: 0,
-    face: cfg.poses[cfg.emotion],
-    gaze: { x: 0, y: 0 },
-    mirror: 0,
-  }));
+  const [frames] = useState(
+    () =>
+      new FrameStore(
+        frameFor(
+          cfg,
+          { time: 0, face: cfg.poses[cfg.emotion], blink: 1, gazeX: 0, gazeY: 0, mirror: 0 },
+          reduced,
+        ),
+      ),
+  );
   const engine = useRef<Engine | null>(null);
   const host = useRef<HostInstance>(null);
 
@@ -166,10 +185,28 @@ export function Pet({
       nextLook: 0,
     };
     const e = engine.current;
+    // The last drawn inputs; null on every (re)start, so a new config or voice draws at once.
+    let drawn: FrameInputs | null = null;
+    let drawnAt = -Infinity;
+    const inputs = (): FrameInputs => ({
+      time: e.time,
+      face: e.shown,
+      blink: paused ? 1 : blinkAt(e.time, cfg.motion.blinkInterval),
+      gazeX: e.gazeX,
+      gazeY: e.gazeY,
+      mirror: e.mirrorProgress,
+    });
     // Reduced motion: a still pose, no loop at all.
-    if (reduced) return;
+    if (reduced) {
+      frames.set(frameFor(cfg, { ...inputs(), face: cfg.poses[cfg.emotion] }, true));
+      return;
+    }
     let raf = 0;
-    const tick = (now: number) => {
+    const tick = () => {
+      raf = 0;
+      // One clock for the engine, aim() and the emotion effect; the rAF timestamp's origin
+      // differs between hosts.
+      const now = performance.now();
       const dt = Math.min(0.06, e.last ? (now - e.last) / 1000 : 0);
       e.last = now;
       if (!paused) e.time += dt * cfg.motion.speed;
@@ -184,22 +221,41 @@ export function Pet({
       const smoothing = clamp(DEFAULT_TRACKING.smoothing, 0.001, 1);
       e.gazeX += (e.targetX - e.gazeX) * smoothing;
       e.gazeY += (e.targetY - e.gazeY) * smoothing;
+      if (Math.abs(e.targetX - e.gazeX) < GAZE_SETTLE) e.gazeX = e.targetX;
+      if (Math.abs(e.targetY - e.gazeY) < GAZE_SETTLE) e.gazeY = e.targetY;
       if (e.mirrorProgress !== e.mirrorTo) {
         const raw = clamp((now - e.mirrorStarted) / Math.max(1, e.mirrorDuration), 0, 1);
         e.mirrorProgress = lerp(e.mirrorFrom, e.mirrorTo, ease('easeInOutCubic', raw));
         if (raw >= 1) e.mirrorProgress = e.mirrorTo;
       }
-      setSnap({
-        time: e.time,
-        face: e.shown,
-        gaze: { x: e.gazeX, y: e.gazeY },
-        mirror: e.mirrorProgress,
-      });
+      const next = inputs();
+      if (shouldDraw(drawn, next, now - drawnAt)) {
+        frames.set(frameFor(cfg, next, false));
+        drawn = next;
+        drawnAt = now;
+      }
+      // Paused with nothing left to ease: sleep until an emotion, a gaze target or unpausing.
+      const settled =
+        paused &&
+        !lookAround &&
+        e.shown === cfg.poses[cfg.emotion] &&
+        e.gazeX === e.targetX &&
+        e.gazeY === e.targetY &&
+        e.mirrorProgress === e.mirrorTo;
+      if (!settled) raf = requestAnimationFrame(tick);
+    };
+    const wake = () => {
+      if (raf) return;
+      e.last = 0;
       raf = requestAnimationFrame(tick);
     };
-    raf = requestAnimationFrame(tick);
-    return () => cancelAnimationFrame(raf);
-  }, [cfg, paused, reduced, lookAround]);
+    e.wake = wake;
+    wake();
+    return () => {
+      cancelAnimationFrame(raf);
+      e.wake = undefined;
+    };
+  }, [cfg, paused, reduced, lookAround, frames]);
 
   // Fleibo gaze: pointer position normalized against the whole viewport around the pet's center.
   useEffect(() => {
@@ -229,14 +285,6 @@ export function Pet({
     });
   }, [lookX, lookY]);
 
-  const frame = petFrame(cfg, {
-    time: snap.time,
-    face: reduced ? cfg.poses[cfg.emotion] : snap.face,
-    blink: paused ? 1 : blinkAt(snap.time, cfg.motion.blinkInterval),
-    gaze: snap.gaze,
-    mirror: snap.mirror,
-    reduced,
-  });
   const v = crop;
   return (
     <View
@@ -247,7 +295,7 @@ export function Pet({
     >
       <PetVaporCanvas
         config={cfg}
-        frame={frame}
+        frames={frames}
         fill={fill}
         shade={shade}
         prefix={prefix}
@@ -290,4 +338,5 @@ function aim(
   const deadzone = clamp(DEFAULT_TRACKING.deadzone, 0, 0.95);
   e.targetX = applyDeadzone(rawX, deadzone);
   e.targetY = applyDeadzone(rawY, deadzone);
+  e.wake?.();
 }
