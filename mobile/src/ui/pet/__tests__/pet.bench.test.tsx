@@ -121,8 +121,12 @@ bench('pet bench', () => {
         mirror: 0,
       };
     };
+    // What Pet.tsx passes: the vapor drawers paint no smoke, so the Pet zeroes its filaments.
+    const pet = copyConfig(idle);
+    pet.smoke.count = 0;
     const n = 3000;
     timeIt('petFrame idle', n, (i) => petFrame(idle, input(idle, i)));
+    timeIt('petFrame idle, Pet config', n, (i) => petFrame(pet, input(pet, i)));
     timeIt('petFrame speaking', n, (i) => petFrame(talk, input(talk, i)));
     const frames = Array.from({ length: n }, (_, i) => petFrame(idle, input(idle, i)));
     const record = (i: number) => {
