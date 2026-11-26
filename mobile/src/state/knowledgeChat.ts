@@ -117,6 +117,7 @@ export class KnowledgeChat {
   private readonly verifiedOnly: () => boolean;
   /** The switch as the engine last saw it; undefined before the first question. */
   private askedVerifiedOnly: boolean | undefined;
+  private askedStage: string | undefined;
   private seq = 0;
   private generation = 0;
   private updating = false;
@@ -160,12 +161,9 @@ export class KnowledgeChat {
     }
   }
 
-  async ask(text: string, context?: string): Promise<void> {
+  async ask(text: string, stage?: AskOptions['stage']): Promise<void> {
     const q = text.trim();
     if (!q || this.state.busy) return;
-    const note = context?.trim();
-    // The bubble keeps the typed question. The note only steers retrieval.
-    const prompt = note ? `${q} ${note}` : q;
     const startedAt = now();
     this.push({ id: this.id(), role: 'user', text: q }, true);
     const lastUser = this.state.rows.slice(0, -1).findLast((row) => row.role === 'user');
@@ -186,7 +184,7 @@ export class KnowledgeChat {
       return;
     }
     try {
-      const r = await this.askEngine(await this.engine, prompt);
+      const r = await this.askEngine(await this.engine, q, stage ? { stage } : undefined);
       const media = this.mediaFor(r.reply, q);
       this.push(
         {
@@ -327,10 +325,12 @@ export class KnowledgeChat {
   /** engine.ask under the switch as it is now; a flip since the last question drops the context. */
   private askEngine(engine: Engine, text: string, options: AskOptions = {}): Promise<AskResult> {
     const verifiedOnly = this.verifiedOnly();
-    if (this.askedVerifiedOnly !== undefined && verifiedOnly !== this.askedVerifiedOnly) {
+    if ((this.askedVerifiedOnly !== undefined && verifiedOnly !== this.askedVerifiedOnly) ||
+        options.stage?.entryId !== this.askedStage) {
       engine.resetContext?.();
     }
     this.askedVerifiedOnly = verifiedOnly;
+    this.askedStage = options.stage?.entryId;
     return engine.ask(text, { ...options, verifiedOnly });
   }
 

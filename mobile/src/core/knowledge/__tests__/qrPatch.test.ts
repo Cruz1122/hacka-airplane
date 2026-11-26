@@ -40,6 +40,20 @@ const assets: KnowledgeAssets = {
 const encode = async () => Float32Array.of(1, 0);
 const bank = Float32Array.of(0, 1, 0, -1, 0, 1, 0, -1);
 const baseScore = async () => Float32Array.of(0, 0, 0, 0);
+
+test('stage overview uses its catalog entry; only local queries add the place to retrieval', async () => {
+  const embed = jest.fn(encode);
+  const engine = new KnowledgeEngine(assets, bank, embed, undefined, baseScore);
+  const stage = { place: 'Aguacerales', entryId: 'geography.original' };
+  await expect(engine.ask('¿Qué hay aquí?', { stage })).resolves.toMatchObject({
+    reply: { id: stage.entryId, text: 'original' },
+  });
+  expect(embed).not.toHaveBeenCalled();
+  await engine.ask('¿A qué altura estamos?', { stage });
+  expect(embed).toHaveBeenLastCalledWith('¿A qué altura estamos? Aguacerales');
+  await engine.ask('¿Cuánto mide el Nevado del Ruiz?', { stage });
+  expect(embed).toHaveBeenLastCalledWith('¿Cuánto mide el Nevado del Ruiz?');
+});
 const patch: KnowledgePatch = {
   id: 'geography.mirador', revision: 1, op: 'put',
   entry: {

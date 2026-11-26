@@ -29,7 +29,7 @@ import { rankEntries, retrieve, type RetrievalResult } from './retrieve';
 import { clean } from './clean';
 import { checkPatch, patchIndex, type IndexedPatch } from './qrIndex';
 import { validateKnowledgePatch, type KnowledgePatch } from './qrPatch';
-import { detectSafety, type SafetyResult } from './safety';
+import { detectSafety, foldText, type SafetyResult } from './safety';
 import type { Banner, KnowledgeReply, KnowledgeTiming } from './types';
 
 export type Embed = (text: string) => Promise<Float32Array>;
@@ -64,7 +64,12 @@ function isFollowup(text: string, ownTopCos: number, f: KnowledgeFollowup): bool
   return short || ownTopCos < f.below;
 }
 
+const STAGE_OVERVIEW = /^(?:donde (?:estoy|estamos)|que (?:es esto|estacion es esta|etapa es esta|puedo ver)|que (?:hay|vemos|se ve|se puede ver) (?:aqui|aca|en esta (?:parada|estacion|etapa))|(?:cuentame|hablame)(?: mas)? (?:de|sobre) est[ea] (?:lugar|parada|estacion|etapa))(?: por favor)?$/;
+const STAGE_REFERENCE = /^(?:altura|altitud|que tan alto es)$|\b(?:aqui|aca|est[ea] (?:lugar|parada|estacion|etapa)|estas (?:rocas|dunas)|altura estamos|se llama asi)\b/;
+
 export interface AskOptions {
+  /** Place shown by the route before the visitor asks a question. */
+  stage?: { place: string; entryId: string };
   /** A photo match's catalog entry: it answers unless `preferCaption`, then backs an abstain. */
   visualEntryId?: string;
   /** Retrieve on the caption first; the visual entry answers only when retrieval abstains. */
@@ -265,12 +270,23 @@ export class KnowledgeEngine {
     const cont = kind ? this.continuation(kind, banner, turn) : undefined;
     if (cont) return done({ reply: cont });
 
+    const stage = turn === 'urgent' ? undefined : options.stage;
+    const folded = stage ? foldText(text) : '';
+    const overview = STAGE_OVERVIEW.test(folded);
+    if (stage && overview && this.ctx.byId.has(stage.entryId) &&
+        (turn !== 'verified' || this.isVerified(stage.entryId))) {
+      this.resetContext();
+      return done({ reply: this.answer(stage.entryId, banner, turn) });
+    }
+    const local = stage && (overview || STAGE_REFERENCE.test(folded));
+    const lookup = local ? `${text} ${stage.place}` : text;
+
     let retrieval: RetrievalResult;
     try {
       const t1 = now();
       // The index was embedded from filler-stripped texts (export_nlu.py), so the query is too.
       const prep = (t: string) => (this.ctx.policy.strip_fillers ? clean(t) : t);
-      const vec = await this.embed(prep(text));
+      const vec = await this.embed(prep(lookup));
       const t2 = now();
       timing.embedMs = t2 - t1;
       const sims = this.score ? await this.score(vec) : undefined;
@@ -282,6 +298,7 @@ export class KnowledgeEngine {
         f &&
         prev !== undefined &&
         !safety.urgent &&
+        !local &&
         isFollowup(text, retrieval.cos[0] ?? -1, f)
       ) {
         let context: Float32Array;
@@ -306,7 +323,7 @@ export class KnowledgeEngine {
       // los consigo?" keeps "guías"); the last CHAIN_WORDS words bound the embedded text.
       this.prevText = contextUsed
         ? `${this.prevText} ${text}`.trim().split(/\s+/).slice(-CHAIN_WORDS).join(' ')
-        : text;
+        : lookup;
     } catch (cause) {
       const error = new KnowledgeEngineError('Knowledge retrieval failed', cause);
       if (visualFallback) return done({ reply: this.answer(visualFallback, banner, turn), error });

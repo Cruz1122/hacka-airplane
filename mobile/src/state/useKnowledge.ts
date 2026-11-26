@@ -3,6 +3,7 @@
 // the onboarding plays; the chat reads the same store.
 import { useSyncExternalStore } from 'react';
 
+import type { AskOptions } from '@/core/knowledge';
 import type { KnowledgePatch } from '@/core/knowledge/qrPatch';
 import { MEDIA } from '@/core/media/bundled';
 import { degradedKnowledgeEngine, loadKnowledgeRuntime } from '@/llm/knowledgeRuntime';
@@ -47,7 +48,7 @@ export function applyKnowledgePatches(patches: readonly KnowledgePatch[]) {
 }
 
 export function useKnowledge(): KnowledgeChatState & {
-  ask: (text: string, context?: string) => Promise<void>;
+  ask: (text: string, stage?: AskOptions['stage']) => Promise<void>;
   askPhoto: KnowledgeChat['askPhoto'];
   reset: () => void;
 } {
@@ -55,7 +56,7 @@ export function useKnowledge(): KnowledgeChatState & {
   const state = useSyncExternalStore(s.subscribe, s.snapshot);
   return {
     ...state,
-    ask: (t, context) => s.ask(t, context),
+    ask: (t, stage) => s.ask(t, stage),
     askPhoto: (uri, caption, classify) => s.askPhoto(uri, caption, classify),
     reset: () => s.reset(),
   };

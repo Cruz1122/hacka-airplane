@@ -255,13 +255,21 @@ test.each(['¿Puedo enviarte una foto?', '¿Dónde está la cámara?', '¿Qué p
   },
 );
 
-test('a stage question keeps the typed text and appends its context for retrieval', async () => {
-  const engine = fakeEngine();
+test('stage metadata reaches the engine separately, and changing stages resets follow-up context', async () => {
+  const engine = { ...fakeEngine(), resetContext: jest.fn() };
   const chat = new KnowledgeChat(async () => ({ engine }));
-  const note = 'Estamos en el contexto de la etapa Aguacerales: el filtro de la montaña.';
-  await chat.ask('qué es esto', note);
+  const stage = { place: 'Aguacerales', entryId: 'geography.uton_aguacerales_station' };
+  await chat.ask('qué es esto', stage);
   expect(chat.snapshot().rows[0]).toMatchObject({ role: 'user', text: 'qué es esto' });
-  expect(engine.ask).toHaveBeenCalledWith(`qué es esto ${note}`, { verifiedOnly: false });
+  expect(engine.ask).toHaveBeenLastCalledWith('qué es esto', { stage, verifiedOnly: false });
+  await chat.ask('sigue', stage);
+  expect(engine.ask).toHaveBeenLastCalledWith('sigue', { stage, verifiedOnly: false });
+  expect(engine.resetContext).toHaveBeenCalledTimes(1);
+  await chat.ask('qué es esto', { place: 'Arenales', entryId: 'geography.uton_arenales_dunes' });
+  expect(engine.resetContext).toHaveBeenCalledTimes(2);
+  await chat.ask('¿Cómo llego desde Manizales?');
+  expect(engine.resetContext).toHaveBeenCalledTimes(3);
+  expect(engine.ask).toHaveBeenLastCalledWith('¿Cómo llego desde Manizales?', { verifiedOnly: false });
 });
 
 test('a park photography question still goes to the knowledge engine', async () => {

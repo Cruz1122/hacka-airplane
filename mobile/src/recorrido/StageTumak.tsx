@@ -20,6 +20,14 @@ import type { StationId } from './stations';
 
 export const STAGE_FAB = 64;
 
+const stageEntries: Record<StationId, string> = {
+  brisas: 'access.brisas_visitor_center',
+  aguacerales: 'geography.uton_aguacerales_station',
+  arenales: 'geography.uton_arenales_dunes',
+  valleLunar: 'geography.uton_lunares_station',
+  valleTumbas: 'geography.uton_valle_tumbas_station',
+};
+
 export function StageTumak({ id, insetBottom }: { id: StationId; insetBottom: number }) {
   const [open, setOpen] = useState(false);
   const { palette, borderWidth } = useAccessibilityTheme();
@@ -104,7 +112,7 @@ function StageChat({ id, onClose }: { id: StationId; onClose: () => void }) {
         placeholder={t.inputPlaceholder}
         sendLabel={t.send}
         onSend={(text) =>
-          void ask(text, fill(es.trail.tumak.context, { place: es.trail.stations[id].name }))
+          void ask(text, { place: es.trail.stations[id].name.split(':')[0], entryId: stageEntries[id] })
         }
       />
     </View>
