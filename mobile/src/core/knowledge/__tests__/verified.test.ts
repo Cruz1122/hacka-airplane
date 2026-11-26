@@ -19,13 +19,24 @@ function engineOf(
     abstainVerified = true,
     reranker,
     followup = null,
-  }: { abstainVerified?: boolean; reranker?: Reranker; followup?: KnowledgeFollowup | null } = {},
+    conversational = [],
+  }: {
+    abstainVerified?: boolean;
+    reranker?: Reranker;
+    followup?: KnowledgeFollowup | null;
+    conversational?: readonly string[];
+  } = {},
 ) {
   const s = synthAssets();
   const flagged = new Set(verified);
+  const chat = new Set(conversational);
   const assets = {
     ...s.assets,
-    catalog: s.assets.catalog.map((e) => ({ ...e, verified_by_uton: flagged.has(e.id) })),
+    catalog: s.assets.catalog.map((e) => ({
+      ...e,
+      verified_by_uton: flagged.has(e.id),
+      conversational: chat.has(e.id),
+    })),
     policy: {
       ...s.assets.policy,
       followup,
@@ -73,6 +84,18 @@ describe('verifiedOnly retrieval', () => {
       type: 'abstain',
       text: ABSTAIN_VERIFIED,
     });
+  });
+
+  test('a conversational entry still answers, without the verified mark', async () => {
+    const e = engineOf(['f.zeta'], { conversational: ['a.alpha'] });
+    const a = answer((await e.ask(QUESTION['a.alpha'], verifiedOnly)).reply);
+    expect(a.id).toBe('a.alpha');
+    expect(a.verified).toBe(false);
+  });
+
+  test('a conversational runner-up does not answer: only the verified entries rank', async () => {
+    const e = engineOf(['f.zeta'], { conversational: ['b.beta'] });
+    expect(answer((await e.ask(GRADED, verifiedOnly)).reply).id).toBe('f.zeta');
   });
 
   test('falls back to the plain abstain text in exports without abstain_verified', async () => {

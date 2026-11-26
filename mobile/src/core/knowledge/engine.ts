@@ -100,6 +100,8 @@ export class KnowledgeEngine {
   private state: ContinuationState | undefined; // "sigue" conversation on one entry (R4)
   /** Catalog indexes of the UTON-verified entries that have index rows. */
   private readonly verifiedEntries: number[];
+  /** Catalog index of each conversational entry (states no park fact) by id. */
+  private readonly conversational: Map<string, number>;
 
   /**
    * @param vectors side-loaded index.f32.bin, rows x dims as the manifest says.
@@ -125,6 +127,9 @@ export class KnowledgeEngine {
     this.rot = new Rotation(seededRandom(options.seed ?? Math.floor(Math.random() * 2 ** 32)));
     this.verifiedEntries = assets.catalog.flatMap((e, n) =>
       e.verified_by_uton === true && this.idx.entryRows[n].length > 0 ? [n] : [],
+    );
+    this.conversational = new Map(
+      assets.catalog.flatMap((e, n) => (e.conversational === true ? [[e.id, n] as const] : [])),
     );
   }
 
@@ -222,9 +227,19 @@ export class KnowledgeEngine {
 
     // Verified only: rank every verified entry by its final score. Cutting retrieval's k-pool
     // instead would abstain on a verified entry ranked below k. The context keeps every entry.
+    // A conversational entry that tops the whole corpus joins them: it states no park fact, so an
+    // off-topic question still gets "that is off topic" instead of the nearest guion entry. Only
+    // as the overall top: as a runner-up ("no reliable clock" under "today's alert") it misleads.
+    const topChat =
+      retrieval.pool[0] === undefined ? undefined : this.conversational.get(retrieval.pool[0]);
     const ranked =
       turn === 'verified'
-        ? rankEntries(retrieval.scores, this.idx.ids, this.verifiedEntries, this.ctx.policy.k)
+        ? rankEntries(
+            retrieval.scores,
+            this.idx.ids,
+            topChat === undefined ? this.verifiedEntries : [...this.verifiedEntries, topChat],
+            this.ctx.policy.k,
+          )
         : retrieval;
     let order = ranked.pool;
     let rerankedBy: string | undefined;

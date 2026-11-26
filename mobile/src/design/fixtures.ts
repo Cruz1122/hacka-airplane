@@ -2,6 +2,7 @@
 // the only way to see the chat's states; they are samples, not product copy.
 import catalog from '@/../assets/data/knowledge/catalog.json';
 import type { ChatModel, ChatRow } from '@/chat/ChatView';
+import type { CatalogEntry } from '@/core/knowledge/assets';
 import { MEDIA } from '@/core/media/bundled';
 import { pickMedia, type MediaPick } from '@/core/media/media';
 import { loadWorld } from '@/core/world';
@@ -91,8 +92,8 @@ export const SOURCED: ChatRow[] = [
   },
 ];
 
-function catalogEntry(id: string) {
-  const entry = catalog.find((e) => e.id === id);
+function catalogEntry(id: string): CatalogEntry {
+  const entry = (catalog as CatalogEntry[]).find((e) => e.id === id);
   if (!entry) throw new Error(`No knowledge catalog entry ${id}`);
   return entry;
 }
