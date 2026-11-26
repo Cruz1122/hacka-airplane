@@ -79,10 +79,13 @@ describe('BubblesLab urgent thread', () => {
   });
 
   it('replays the turn whole under reduced motion', () => {
+    // The reveal loop's frames never run here: no timer keeps spinning after the test.
+    const raf = jest.spyOn(global, 'requestAnimationFrame').mockImplementation(() => 0);
     const lab = mount();
     lab.press(lab.byLabel(w.threadUrgent)[0]);
     const before = lab.texts();
     lab.press(lab.byLabel(w.replayReply)[0]);
     expect(lab.texts()).toEqual(before);
+    raf.mockRestore();
   });
 });
