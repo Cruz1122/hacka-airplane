@@ -21,6 +21,9 @@ import { AccessibilitySheet } from '../AccessibilitySheet';
 import { SettingsSheet } from '../SettingsSheet';
 import { useReducedMotion } from '../useReducedMotion';
 
+const mockPush = jest.fn();
+jest.mock('expo-router', () => ({ router: { push: (to: unknown) => mockPush(to) } }));
+
 jest.mock('expo-sqlite/kv-store', () => ({
   __esModule: true,
   default: {
@@ -152,6 +155,9 @@ describe('AccessibilitySheet', () => {
     expect(latestPrefs!.reduceMotion).toBe(true);
     expect(latestReduced).toBe(true);
 
+    await ui.pressSwitch(copy.autoSpeakReplies.title);
+    expect(latestPrefs!.autoSpeakReplies).toBe(true);
+
     // Color vision radio selection.
     await ui.pressRadio(copy.colorVision.modes.tritanopia.label);
     expect(latestPrefs!.colorVision).toBe('tritanopia');
@@ -163,6 +169,7 @@ describe('AccessibilitySheet', () => {
       textScale: 1,
       highContrast: false,
       reduceMotion: false,
+      autoSpeakReplies: false,
       colorVision: 'none',
     });
     expect(latestReduced).toBe(false);
@@ -186,7 +193,7 @@ describe('AccessibilitySheet', () => {
 });
 
 describe('SettingsSheet', () => {
-  it('toggles the verified-only switch, labelled and explained, and saves it', async () => {
+  it('toggles the verified-only switch and saves it', async () => {
     let on: boolean | undefined;
     function Probe() {
       on = useVerifiedOnly();
@@ -209,8 +216,7 @@ describe('SettingsSheet', () => {
         (n) => n.props.accessibilityRole === 'switch' && n.props.accessibilityLabel === copy.title,
       )[0];
     expect(on).toBe(false);
-    expect(ui.hasText(copy.body)).toBe(true);
-    expect(row().props.accessibilityHint).toBe(copy.body);
+    expect(ui.hasText(copy.title)).toBe(true);
     expect(row().props.accessibilityState).toEqual({ checked: false });
 
     await ui.pressSwitch(copy.title);
@@ -223,7 +229,7 @@ describe('SettingsSheet', () => {
     act(() => setVerifiedOnly(false));
   });
 
-  it('shows Saved Sources and About in the root menu and handles empty Saved Sources', async () => {
+  it('shows the administration entry and opens the Saved Sources and About panels', async () => {
     const root = createRoot();
     mounted.push(root);
     await act(async () => {
@@ -234,6 +240,7 @@ describe('SettingsSheet', () => {
     const copy = t.settingsPanel;
     expect(ui.hasText(copy.title)).toBe(true);
     expect(ui.hasText(copy.savedSources.title)).toBe(true);
+    expect(ui.hasText(t.knowledgeAdmin.heading)).toBe(true);
     expect(ui.hasText(copy.about.title)).toBe(true);
 
     // Drill into Saved sources -> empty state.
@@ -250,6 +257,22 @@ describe('SettingsSheet', () => {
     expect(ui.hasText(copy.about.offlineTitle)).toBe(true);
     expect(ui.hasText(copy.about.sourcesTitle)).toBe(true);
     expect(ui.hasText(copy.about.creditsTitle)).toBe(true);
+  });
+
+  it.each([
+    ['knowledge administration', t.knowledgeAdmin.heading, '/administrar-informacion'],
+    ['QR knowledge update', t.qrUpdate.nav, '/actualizar'],
+  ])('opens the %s screen from the root menu and closes the sheet', async (_, title, route) => {
+    mockPush.mockClear();
+    const onClose = jest.fn();
+    const root = createRoot();
+    mounted.push(root);
+    await act(async () => {
+      root.render(<SettingsSheet open onClose={onClose} reducedMotion />);
+    });
+    await createHarness(root).pressText(title);
+    expect(onClose).toHaveBeenCalled();
+    expect(mockPush).toHaveBeenCalledWith(route);
   });
 
   it('lists saved sources, opens web links, removes with inline Undo, and restores on Undo', async () => {

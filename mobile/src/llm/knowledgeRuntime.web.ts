@@ -6,7 +6,7 @@ import { Wllama } from '@wllama/wllama';
 
 import { KnowledgeEngine } from '@/core/knowledge';
 
-import { knowledgeAssets, type KnowledgeRuntime } from './knowledgeAssets';
+import { knowledgeAssets, restoreKnowledgePatches, type KnowledgeRuntime } from './knowledgeAssets';
 
 export { degradedKnowledgeEngine, knowledgeAssets, type KnowledgeRuntime } from './knowledgeAssets';
 
@@ -14,18 +14,20 @@ export { degradedKnowledgeEngine, knowledgeAssets, type KnowledgeRuntime } from 
 const E5_PREFIX = 'query: ';
 const FILES = '/knowledge-files/';
 
-async function fetchChecked(name: string, expectedBytes: number): Promise<ArrayBuffer> {
+async function fetchFile(name: string): Promise<Response> {
   const res = await fetch(FILES + name);
   if (!res.ok) {
     throw new Error(
       `${name}: HTTP ${res.status}; put the model files in models/knowledge (README)`,
     );
   }
-  const buf = await res.arrayBuffer();
-  if (buf.byteLength !== expectedBytes) {
-    throw new Error(`${name}: ${buf.byteLength} bytes, manifest says ${expectedBytes}`);
+  return res;
+}
+
+function checkSize(name: string, actual: number, expectedBytes: number) {
+  if (actual !== expectedBytes) {
+    throw new Error(`${name}: ${actual} bytes, manifest says ${expectedBytes}`);
   }
-  return buf;
 }
 
 export async function loadKnowledgeRuntime(): Promise<KnowledgeRuntime> {
@@ -34,11 +36,13 @@ export async function loadKnowledgeRuntime(): Promise<KnowledgeRuntime> {
   const emb = m.embedder as { file: string; bytes: number };
   const wllama = new Wllama({ default: `${FILES}wllama.wasm` }, { suppressNativeLog: true });
   const [gguf, vectors] = await Promise.all([
-    fetchChecked(emb.file, emb.bytes),
-    fetchChecked(m.vectors.file, m.vectors.bytes),
+    fetchFile(emb.file).then((response) => response.blob()),
+    fetchFile(m.vectors.file).then((response) => response.arrayBuffer()),
   ]);
+  checkSize(emb.file, gguf.size, emb.bytes);
+  checkSize(m.vectors.file, vectors.byteLength, m.vectors.bytes);
   // Same context as the phone (src/llm/embedder.ts): non-causal BERT, one ubatch per query.
-  await wllama.loadModel([new Blob([gguf])], {
+  await wllama.loadModel([gguf], {
     embeddings: true,
     pooling_type: 'mean',
     n_ctx: 512,
@@ -52,5 +56,6 @@ export async function loadKnowledgeRuntime(): Promise<KnowledgeRuntime> {
     return Float32Array.from(v);
   };
   const engine = new KnowledgeEngine(knowledgeAssets, new Float32Array(vectors), embed);
+  await restoreKnowledgePatches(engine);
   return { engine, loadMs: performance.now() - t0, release: () => wllama.exit() };
 }

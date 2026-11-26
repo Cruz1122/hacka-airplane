@@ -349,3 +349,9 @@ Entradas 29 → 30; ejemplos 362 → 376; hard negatives 83 → 86.
 - https://www2.sgc.gov.co/Noticias/Paginas/Boletines-semanales.aspx (checked 2026-11-22); evidence: `research_notes/Conocimiento turístico de Los Nevados/conversation/evidence/www2_sgc_gov_co_Noticias_Paginas_Boletines-semanales_aspx.txt`
 
 > Boletines de actividad volcánica
+
+
+## Updated entry: conversation.off_topic_question
+
+- Reason: Hackathon slide questions (Reto de IA, slides 5-22) routed to the wrong entry.
+- Changed fields: examples

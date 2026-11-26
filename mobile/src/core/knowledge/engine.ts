@@ -27,6 +27,8 @@ import { answerFor, bannerFor, decide, policyContext, type PolicyContext } from 
 import { canRerank, isReordering, type Reranker } from './rerank';
 import { rankEntries, retrieve, type RetrievalResult } from './retrieve';
 import { clean } from './clean';
+import { checkPatch, patchIndex, type IndexedPatch } from './qrIndex';
+import { validateKnowledgePatch, type KnowledgePatch } from './qrPatch';
 import { detectSafety, type SafetyResult } from './safety';
 import type { Banner, KnowledgeReply, KnowledgeTiming } from './types';
 
@@ -82,24 +84,34 @@ export interface KnowledgeEngineOptions {
   seed?: number;
 }
 
+export interface KnowledgePatchStorage {
+  read(): Promise<string | null>;
+  write(value: string): Promise<void>;
+}
+
 const CHAIN_WORDS = 60; // e5 reads 512 tokens; a follow-up chain stays far below that
 
 const now = (): number => (typeof performance !== 'undefined' ? performance.now() : Date.now());
 
 export class KnowledgeEngine {
-  private readonly idx: LoadedIndex;
+  private readonly baseIndex: LoadedIndex;
+  private idx: LoadedIndex;
   private readonly ctx: PolicyContext;
+  private patchStorage?: KnowledgePatchStorage;
+  private records = new Map<string, IndexedPatch>();
   /** Entry scores of the last ask that produced a retrieval; the follow-up context. */
   private prevScores: Float32Array | undefined;
   private prevText: string | undefined; // previous user message (followup.mode 'concat')
   private readonly cont: KnowledgeContinuation | null;
   private readonly cue: CueMatcher | null;
-  private readonly depth: Readonly<Record<string, DepthEntry>>;
+  private depth: Readonly<Record<string, DepthEntry>>;
   /** Paraphrase rotation: lives for the app session, so resetContext keeps it (R6.5). */
   private readonly rot: Rotation;
   private state: ContinuationState | undefined; // "sigue" conversation on one entry (R4)
   /** Catalog indexes of the UTON-verified entries that have index rows. */
   private readonly verifiedEntries: number[];
+  /** Catalog index of each conversational entry (states no park fact) by id. */
+  private readonly conversational: Map<string, number>;
 
   /**
    * @param vectors side-loaded index.f32.bin, rows x dims as the manifest says.
@@ -110,14 +122,14 @@ export class KnowledgeEngine {
    * @param options `seed` for the rotation; depth and "sigue" only run when policy.continuation is set.
    */
   constructor(
-    assets: KnowledgeAssets,
+    private readonly assets: KnowledgeAssets,
     vectors: Float32Array,
     private readonly embed: Embed,
     private readonly reranker?: Reranker,
     private readonly score?: Score,
     options: KnowledgeEngineOptions = {},
   ) {
-    this.idx = validateAssets(assets, vectors);
+    this.baseIndex = this.idx = validateAssets(assets, vectors);
     this.ctx = policyContext(assets);
     this.cont = assets.policy.continuation ?? null;
     this.cue = this.cont ? cueMatcher(this.cont) : null;
@@ -126,6 +138,93 @@ export class KnowledgeEngine {
     this.verifiedEntries = assets.catalog.flatMap((e, n) =>
       e.verified_by_uton === true && this.idx.entryRows[n].length > 0 ? [n] : [],
     );
+    this.conversational = new Map(
+      assets.catalog.flatMap((e, n) => (e.conversational === true ? [[e.id, n] as const] : [])),
+    );
+  }
+
+  async restorePatches(storage: KnowledgePatchStorage): Promise<void> {
+    const saved = await storage.read();
+    if (saved !== null) {
+      const { model, records } = JSON.parse(saved) as { model: string; records: IndexedPatch[] };
+      const usable = new Map<string, IndexedPatch>();
+      for (const record of records) {
+        const patch = validateKnowledgePatch(record.patch);
+        checkPatch(this.assets, patch);
+        const sameModel = model === this.patchModel();
+        const vectors = sameModel ? record.vectors : await this.embedPatch(patch);
+        if (vectors.length !== (patch.op === 'put' ? patch.entry.questions.length : 0) ||
+            vectors.some((v) => v.length !== this.idx.dims || v.some((value) => !Number.isFinite(value)))) {
+          throw new Error('Los vectores guardados son inválidos.');
+        }
+        usable.set(patch.id, { patch, vectors });
+      }
+      const next = patchIndex(this.assets, this.baseIndex, [...usable.values()]);
+      if (model !== this.patchModel()) await this.savePatches(storage, usable);
+      this.publishPatches(usable, next);
+    }
+    this.patchStorage = storage;
+  }
+
+  async applyPatch(patch: KnowledgePatch): Promise<'applied' | 'duplicate'> {
+    return (await this.applyPatches([patch], false)) ? 'applied' : 'duplicate';
+  }
+
+  async applyPatches(input: readonly KnowledgePatch[], ignoreOlder = true): Promise<number> {
+    const storage = this.patchStorage;
+    if (!storage) throw new Error('El almacenamiento de actualizaciones no está disponible.');
+    const patches = input.map(validateKnowledgePatch);
+    if (new Set(patches.map(({ id }) => id)).size !== patches.length) {
+      throw new Error('La serie contiene fichas repetidas.');
+    }
+    const changes = patches.filter((patch) => {
+      checkPatch(this.assets, patch);
+      const previous = this.records.get(patch.id)?.patch;
+      if (!previous || previous.revision < patch.revision) return true;
+      if (ignoreOlder && previous.revision > patch.revision) return false;
+      if (JSON.stringify(previous) === JSON.stringify(patch)) return false;
+      throw new Error('Esta ficha ya tiene una revisión igual o más reciente.');
+    });
+    if (!changes.length) return 0;
+    const records = new Map(this.records);
+    for (const patch of changes) records.set(patch.id, { patch, vectors: await this.embedPatch(patch) });
+    const next = patchIndex(this.assets, this.baseIndex, [...records.values()]);
+    // Publish the whole update after the stored catalog and vectors have been committed.
+    await this.savePatches(storage, records);
+    this.publishPatches(records, next);
+    return changes.length;
+  }
+
+  private async embedPatch(patch: KnowledgePatch): Promise<number[][]> {
+    if (patch.op === 'remove') return [];
+    const vectors: number[][] = [];
+    for (const question of patch.entry.questions) {
+      const text = this.ctx.policy.strip_fillers ? clean(question) : question;
+      const vector = await this.embed(text);
+      if (vector.length !== this.idx.dims || !vector.every(Number.isFinite)) {
+        throw new Error('El modelo no pudo generar un vector válido.');
+      }
+      vectors.push(Array.from(vector, (value) => Math.round(value * 1e6) / 1e6));
+    }
+    return vectors;
+  }
+
+  private patchModel(): string {
+    const manifest = this.assets.manifest;
+    return JSON.stringify([manifest.embedder.sha256, manifest.embedder.file, manifest.prefix,
+      manifest.dims, this.ctx.policy.strip_fillers ?? false]);
+  }
+
+  private savePatches(storage: KnowledgePatchStorage, records: Map<string, IndexedPatch>) {
+    return storage.write(JSON.stringify({ model: this.patchModel(), records: [...records.values()] }));
+  }
+
+  private publishPatches(records: Map<string, IndexedPatch>, next: ReturnType<typeof patchIndex>) {
+    this.records = records;
+    this.idx = next.idx;
+    this.ctx.byId = next.catalog;
+    this.depth = this.cont ? next.depth : {};
+    this.resetContext();
   }
 
   async ask(text: string, options: AskOptions = {}): Promise<AskResult> {
@@ -222,15 +321,25 @@ export class KnowledgeEngine {
 
     // Verified only: rank every verified entry by its final score. Cutting retrieval's k-pool
     // instead would abstain on a verified entry ranked below k. The context keeps every entry.
+    // A conversational entry that tops the whole corpus joins them: it states no park fact, so an
+    // off-topic question still gets "that is off topic" instead of the nearest guion entry. Only
+    // as the overall top: as a runner-up ("no reliable clock" under "today's alert") it misleads.
+    const topChat =
+      retrieval.pool[0] === undefined ? undefined : this.conversational.get(retrieval.pool[0]);
     const ranked =
       turn === 'verified'
-        ? rankEntries(retrieval.scores, this.idx.ids, this.verifiedEntries, this.ctx.policy.k)
+        ? rankEntries(
+            retrieval.scores,
+            this.idx.ids,
+            topChat === undefined ? this.verifiedEntries : [...this.verifiedEntries, topChat],
+            this.ctx.policy.k,
+          )
         : retrieval;
     let order = ranked.pool;
     let rerankedBy: string | undefined;
     let error: Error | undefined;
     const rr = this.reranker;
-    if (rr && (!rr.catalogIds || canRerank(order, rr.catalogIds))) {
+    if (rr && !order.some((id) => this.records.has(id)) && (!rr.catalogIds || canRerank(order, rr.catalogIds))) {
       const t3 = now();
       try {
         const out = await rr.rerank(text, [...order], [...ranked.cos]);
@@ -346,7 +455,9 @@ export class KnowledgeEngine {
       if (d && pick) return this.serveLayer(st, d, pick.layer, banner, pick.texts);
     }
 
-    const walk = (d?.walk ?? []).filter((w) => !verified || this.isVerified(w));
+    const walk = (d?.walk ?? []).filter(
+      (w) => this.ctx.byId.has(w) && (!verified || this.isVerified(w)),
+    );
     for (const w of walk) {
       if (st.walked.has(w)) continue;
       st.walked.add(w);

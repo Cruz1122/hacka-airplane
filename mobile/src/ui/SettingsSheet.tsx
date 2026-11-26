@@ -1,6 +1,7 @@
 // Configuration bottom-sheet panel opened from the right button of CloudNavBar.
-// Root menu exposes two interactive views: Saved sources (persisted favorites) and About.
+// Open saved sources, knowledge administration, the QR knowledge update or the app information.
 import Constants from 'expo-constants';
+import { router } from 'expo-router';
 import { useCallback, useMemo, useState } from 'react';
 import { Linking, Pressable, ScrollView, StyleSheet, Text, View } from 'react-native';
 
@@ -236,12 +237,29 @@ function SettingsContent({
             >
               <SwitchRow
                 title={copy.verifiedOnly.title}
-                body={copy.verifiedOnly.body}
                 value={verifiedOnly}
                 onToggle={() => setVerifiedOnly(!verifiedOnly)}
                 reduced={reduced}
               />
             </View>
+            <MenuRow
+              icon="bookOpen"
+              title={t.knowledgeAdmin.heading}
+              subtitle={t.knowledgeAdmin.subtitle}
+              onPress={() => {
+                onClose();
+                router.push('/administrar-informacion');
+              }}
+            />
+            <MenuRow
+              icon="camera"
+              title={t.qrUpdate.nav}
+              subtitle={t.qrUpdate.subtitle}
+              onPress={() => {
+                onClose();
+                router.push('/actualizar');
+              }}
+            />
             <MenuRow
               icon="info"
               title={copy.about.title}

@@ -24,6 +24,8 @@ export default function RootLayout() {
       {/* Chat and Grupo tabs. The chat draws its own header; it appears without a slide so the
           onboarding can hand over its last frame. */}
       <Stack.Screen name="(tabs)" options={{ headerShown: false, animation: 'none' }} />
+      <Stack.Screen name="administrar-informacion" options={{ title: t.knowledgeAdmin.heading }} />
+      <Stack.Screen name="actualizar" options={{ title: t.qrUpdate.nav }} />
       <Stack.Screen name="history" options={{ title: t.history }} />
       <Stack.Screen name="onboarding" options={{ headerShown: false }} />
       <Stack.Screen name="lab" options={{ headerShown: false, title: t.dev.lab }} />

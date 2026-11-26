@@ -22,6 +22,12 @@ export interface CatalogEntry {
   last_verified: string | null;
   /** Taken whole from the official UTON guion (2024). Absent in exports before the flag: false. */
   verified_by_uton?: boolean;
+  /**
+   * Talks about the assistant or the conversation (greetings, "that is off topic"), never about the
+   * park, so the verified-only mode may answer with it when it is the overall top match. Absent in
+   * older exports: false.
+   */
+  conversational?: boolean;
 }
 
 export interface SectionInfo {
@@ -155,6 +161,8 @@ export interface KnowledgeAssets {
 export interface LoadedIndex {
   dims: number;
   textRows: number;
+  /** A small mutable layer scored by JS after the base ONNX/JS matrix. */
+  overlay?: { vectors: Float32Array; sections: Int32Array };
   vectors: Float32Array; // (textRows + sectionIds.length) x dims, row-major
   rowEntry: Int32Array; // text row -> entry
   rowSection: Int32Array; // text row -> section

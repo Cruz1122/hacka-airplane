@@ -6,12 +6,13 @@ const mockSpeech = {
 
 jest.mock('expo-speech', () => mockSpeech);
 
-import { getSpeakingKey, toggleSpeak } from '../speak';
+import { autoSpeakReply, getSpeakingKey, resetSpeakForTest, toggleSpeak } from '../speak';
 
 describe('speak', () => {
   beforeEach(() => {
     mockSpeech.speak.mockReset();
     mockSpeech.stop.mockReset();
+    resetSpeakForTest();
   });
 
   it('speaks the reply in Colombian Spanish', () => {
@@ -37,5 +38,13 @@ describe('speak', () => {
     toggleSpeak('a1', 'Hay refugio', jest.fn());
     expect(mockSpeech.stop).toHaveBeenCalled();
     expect(mockSpeech.speak).toHaveBeenCalledTimes(1);
+  });
+
+  it('auto-plays a reply once per id', () => {
+    autoSpeakReply('a1', 'Hay refugio', jest.fn());
+    autoSpeakReply('a1', 'Hay refugio', jest.fn());
+    expect(mockSpeech.speak).toHaveBeenCalledTimes(1);
+    autoSpeakReply('a2', 'Otra', jest.fn());
+    expect(mockSpeech.speak).toHaveBeenCalledTimes(2);
   });
 });

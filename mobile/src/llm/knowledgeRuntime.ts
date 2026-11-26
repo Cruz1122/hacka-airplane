@@ -6,7 +6,7 @@ import type { InferenceSession } from 'onnxruntime-react-native';
 import { KnowledgeEngine } from '@/core/knowledge';
 
 import { loadEmbedder, loadVectors } from './embedder';
-import { knowledgeAssets, type KnowledgeRuntime } from './knowledgeAssets';
+import { knowledgeAssets, restoreKnowledgePatches, type KnowledgeRuntime } from './knowledgeAssets';
 import { layaReranker, openLayaSession } from './laya';
 import { loadScorer } from './scorer';
 
@@ -43,6 +43,7 @@ export async function loadKnowledgeRuntime(): Promise<KnowledgeRuntime> {
     laya && layaReranker(laya, (id) => labels.get(id) ?? id),
     score,
   );
+  await restoreKnowledgePatches(engine);
   return {
     engine,
     loadMs: performance.now() - t0,
