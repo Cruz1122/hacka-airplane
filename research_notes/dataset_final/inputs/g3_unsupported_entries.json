@@ -1,0 +1,521 @@
+[
+ {
+  "entry": {
+   "id": "access.bus_or_van_entry",
+   "label": "bus o buseta hacia Brisas",
+   "kind": "fact",
+   "audience": "visitor",
+   "lang": "es",
+   "examples": [
+    "puedo entrar en bus",
+    "¿una buseta sí sube hasta Brisas?",
+    "un microbus entra al valle",
+    "¿el colectivo me deja en la portería?",
+    "¿pagando la tarifa del bus ya me dejan subir?",
+    "does a fee category mean my bus can enter",
+    "is a van allowed on the Brisas road today",
+    "bus o buseta, ¿cuál sí entra?",
+    "quiero subir un bus de 30 y no se si cabe",
+    "la moto no, pero el bus si o no",
+    "¿Pagar la tarifa del bus garantiza que lo dejen entrar?",
+    "¿Qué debo confirmar antes de subir una buseta?"
+   ],
+   "hard_negatives": [
+    "el bus dice nevado pero no aclara si para en brisas",
+    "el bus dice el ocho, es la entrada",
+    "si hay tarifa de buseta, entonces hay ruta de bus"
+   ],
+   "answer": {
+    "short": "Las tarifas de Brisas nombran bus o buseta, pero eso no autoriza el ingreso de hoy: el valle pide vehículo cubierto. Confírmalo con UTON antes de ir.",
+    "variants": [
+     "Que haya una categoría de bus en la tarifa no autoriza el ingreso de hoy. El valle pide vehículo cubierto, y UTON confirma el vehículo."
+    ],
+    "detail": "En el bloque de Brisas la página lista automóvil, colectivo y buseta, y en otro cuadro automóvil, microbús o buseta, y bus. La moto figura prohibida en ambos. Los valores en pesos están en la tabla de 2026 y no se responden aquí. Ninguno de los dos cuadros dice que el vehículo esté autorizado en la vía durante el pico y placa de noviembre. Si entras a Brisas en noviembre, un fin de semana o puente, revisa el pico y placa ambiental del Tolima, Resolución 1815 del 24 de julio de 2026, de 5:00 a. m. a 4:00 p. m."
+   },
+   "sources": [
+    {
+     "label": "Parques Nacionales Naturales de Colombia — Parque Nacional Natural Los Nevados",
+     "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+     "retrieved_at": "2026-11-21"
+    }
+   ],
+   "last_verified": "2026-11-21",
+   "related": [
+    "access.no_motorcycles",
+    "access.no_public_bus",
+    "hours_status.pico_y_placa_hours_murillo"
+   ],
+   "tags": [
+    "bus",
+    "buseta",
+    "tarifa"
+   ],
+   "entities": {
+    "sector": [
+     "brisas"
+    ]
+   }
+  },
+  "support": {
+   "support": "none",
+   "note": "El extracto solo dice \"Moto: Prohibido el ingreso\". Nada sobre bus, buseta ni vehículo cubierto."
+  }
+ },
+ {
+  "entry": {
+   "id": "access.confirm_road_before",
+   "label": "confirmar el estado de la vía",
+   "kind": "procedure",
+   "audience": "visitor",
+   "lang": "es",
+   "examples": [
+    "confirmo la vía antes de salir",
+    "el acceso puede cambiar",
+    "¿si hay obra en la vía, cierran?",
+    "¿dónde miro si la carretera sigue abierta hoy?",
+    "¿hoy sí está habilitada la vía?",
+    "how do I check the road before leaving",
+    "the access can change, where do I look",
+    "le pregunto al operador si la via de hoy sigue abierta",
+    "clima obra o volcan pueden cerrar el tramo",
+    "si no pude confirmar, no lo doy por abierto",
+    "revisar brisas ademas del pico y placa",
+    "¿cómo está el corredor La Esperanza hoy?"
+   ],
+   "hard_negatives": [
+    "si la veo en el mapa, puedo entrar por ahi",
+    "dónde confirmo si abren hoy",
+    "toca revisar el boletín antes de ir"
+   ],
+   "answer": {
+    "short": "El acceso cambia por clima, obra o decisión del parque: confirma con el operador del sector que la vía esté abierta hoy, antes de salir.",
+    "variants": [
+     "No des el tramo por habilitado si no lo confirmaste con el operador del sector."
+    ],
+    "detail": "Si entras a Brisas en noviembre, un fin de semana o puente, revisa el pico y placa ambiental del Tolima, Resolución 1815 del 24 de julio de 2026, de 5:00 a. m. a 4:00 p. m."
+   },
+   "sources": [
+    {
+     "label": "Parques Nacionales Naturales de Colombia — Parque Nacional Natural Los Nevados",
+     "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+     "retrieved_at": "2026-11-21"
+    }
+   ],
+   "last_verified": "2026-11-21",
+   "related": [
+    "access.mountain_road_conditions",
+    "access.park_email_routes",
+    "hours_status.pico_y_placa_hours_murillo"
+   ],
+   "tags": [
+    "confirmar",
+    "vía",
+    "cambio"
+   ]
+  },
+  "support": {
+   "support": "none",
+   "note": "El extracto es sobre el alcance de la red primaria de INVIAS. La frase sobre cambios por clima, obra o decisión del parque no está en él."
+  }
+ },
+ {
+  "entry": {
+   "id": "access.stay_on_official_gate",
+   "label": "usar la portería publicada",
+   "kind": "rule",
+   "audience": "visitor",
+   "lang": "es",
+   "examples": [
+    "¿me puedo meter por un hueco que vi en el mapa?",
+    "¿hay atajo sin caseta pa' subir más rápido?",
+    "entro por donde salen los de la vereda",
+    "¿me puedo colar sin registrarme?",
+    "una trocha mas corta que la porteria",
+    "can I skip the official gate",
+    "is an unmarked track an entrance",
+    "solo uso la puerta del sector que voy a visitar",
+    "no mezclo brisas con cocora en el mismo ingreso",
+    "el mapa muestra una linea, esa cuenta",
+    "me registro solo en el control oficial de mi sector",
+    "atajo de moto o de a pie por fuera"
+   ],
+   "hard_negatives": [
+    "si la veo en el mapa, puedo entrar por ahi",
+    "quiero la puerta oficial, no un atajo",
+    "entrada de adulto, sin ser extranjero"
+   ],
+   "answer": {
+    "short": "Entra solo por la portería publicada de tu sector y regístrate ahí. Un trazo en un mapa no es una entrada verificada. Brisas, Potosí y Santa Bárbara, El Cedral, Cocora, Juntas y Palomar no se intercambian entre sí.",
+    "variants": [
+     "Usa solo la puerta publicada del sector que vas a visitar. No tomes un atajo que no esté publicado aquí."
+    ]
+   },
+   "sources": [
+    {
+     "label": "Parques Nacionales Naturales de Colombia — Parque Nacional Natural Los Nevados",
+     "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+     "retrieved_at": "2026-11-21"
+    }
+   ],
+   "last_verified": "2026-11-21",
+   "related": [
+    "access.brisas_visitor_center",
+    "access.circuit_not_scenic_loop",
+    "access.esperanza_murillo_corridor"
+   ],
+   "tags": [
+    "portería",
+    "registro",
+    "atajo"
+   ]
+  },
+  "support": {
+   "support": "none",
+   "note": "El extracto es la frase de cuatro sectores y departamentos. La regla de \"entrar solo por la portería publicada\" y \"no se intercambian\" no aparece en él."
+  }
+ },
+ {
+  "entry": {
+   "id": "activities.quindio_summit_ask",
+   "label": "cumbre del Nevado del Quindío",
+   "kind": "fact",
+   "audience": "visitor",
+   "lang": "es",
+   "examples": [
+    "puedo subir el Nevado del Quindío",
+    "hay cumbre turística en el Quindío",
+    "el paramillo del Quindío se asciende",
+    "quiero hacer cima en el Quindío",
+    "el Quindío está en la lista de cumbres",
+    "se contrata ascenso al Nevado del Quindío",
+    "y el Quindío se sube como el Tolima?",
+    "la cumbre del quindio esta permitida",
+    "ese nevado del Quindío sí se deja subir?",
+    "subir el quindio con operador",
+    "can I summit Nevado del Quindío",
+    "is there a published Quindío summit route"
+   ],
+   "hard_negatives": [
+    "el Quindío queda antes del Tolima en la lista",
+    "Quindío también hace parte",
+    "junto con el Quindío enmarca la laguna"
+   ],
+   "needs": [],
+   "answer": {
+    "short": "La cumbre turística descrita es la del Tolima por el glaciar Schimmer (reglamentación del 4 de agosto de 2023). El Nevado del Quindío no aparece en esa lista. Pregunta al parque si hay un ascenso autorizado antes de planearlo.",
+    "variants": [
+     "En los senderos del 4 de agosto de 2023 la cumbre turística descrita es la del Tolima por Schimmer, y el Nevado del Quindío no figura ahí. Confirma con el parque si existe un ascenso autorizado."
+    ]
+   },
+   "sources": [
+    {
+     "label": "Parques Nacionales Naturales, Resolución 207 del 4 de agosto de 2023",
+     "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2023/08/Resolucion_207_2023_ReglamentacionNevados.pdf",
+     "retrieved_at": "2026-11-21"
+    }
+   ],
+   "last_verified": "2026-11-21",
+   "related": [
+    "activities.paramillo_trails_announced",
+    "activities.tolima_summit_schimmer",
+    "activities.sector_tolima"
+   ],
+   "tags": [
+    "quindío",
+    "cumbre",
+    "consulta"
+   ],
+   "entities": {
+    "sector": [
+     "tolima"
+    ]
+   }
+  },
+  "support": {
+   "support": "none",
+   "note": "La evidence_excerpt no sostiene la afirmación central de la respuesta."
+  }
+ },
+ {
+  "entry": {
+   "id": "activities.unlisted_activities",
+   "label": "actividades que no aparecen publicadas",
+   "kind": "fact",
+   "audience": "visitor",
+   "lang": "es",
+   "examples": [
+    "hay paseo en bote por la laguna",
+    "puedo esquiar en el nevado",
+    "hay zona de picnic con mesas",
+    "pa' ver estrellas, ¿hay caminata de noche?",
+    "el esquí de montaña es un tour",
+    "almuerzo en un kiosco del sendero",
+    "de noche sí dejan caminar?",
+    "hay lancha en el muelle del otun",
+    "picnic en el valle de las tumbas",
+    "dejan hacer sky de montana como paseo",
+    "is there a boat, a ski tour, or a picnic area",
+    "do you offer a night hike under the stars"
+   ],
+   "hard_negatives": [
+    "hay sendero a La Piraña",
+    "me pasan los nombres de los senderos pa' ir?",
+    "preparación para trekking a borde de nieve"
+   ],
+   "needs": [],
+   "answer": {
+    "short": "Bote y picnic no están en lo permitido el 4 de agosto de 2023, y el esquí de montaña solo aparece dentro del montañismo deportivo. En 2024 se lista caminata nocturna en Brisas y Cisne como permiso especial, pero esa norma no la nombra. Pregunta al parque antes de contarla.",
+    "variants": [
+     "Ni el bote ni el picnic están en la norma. El esquí de montaña es deporte, no un paseo. La caminata de noche solo aparece como permiso en el informe de 2024: pídela por escrito al parque."
+    ]
+   },
+   "sources": [
+    {
+     "label": "Resolución 207 del 4 de agosto de 2023, reglamentación del ecoturismo",
+     "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2023/08/Resolucion_207_2023_ReglamentacionNevados.pdf",
+     "retrieved_at": "2026-11-21"
+    },
+    {
+     "label": "Informe de necesidades de asistencia, PNN Los Nevados, 2024",
+     "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2024/12/Informe-de-necesidades-de-asistencia-PNN-Los-Nevados-2024.docx",
+     "retrieved_at": "2026-11-21"
+    }
+   ],
+   "last_verified": "2026-11-21",
+   "related": [
+    "activities.sector_laguna_otun",
+    "activities.sport_mountaineering",
+    "activities.brisas_valle_tumbas"
+   ],
+   "tags": [
+    "bote",
+    "esquí",
+    "picnic",
+    "noche"
+   ],
+   "entities": {
+    "sector": [
+     "brisas",
+     "otun",
+     "tolima",
+     "santa_isabel"
+    ]
+   }
+  },
+  "support": {
+   "support": "none",
+   "note": "La excerpt habla de fogatas; bote, picnic y esquí no aparecen."
+  }
+ },
+ {
+  "entry": {
+   "id": "fauna.epigeal_beetles_spiders",
+   "label": "escarabajos y arañas del suelo paramuno",
+   "kind": "fact",
+   "audience": "visitor",
+   "lang": "es",
+   "examples": [
+    "hay insectos en el paramo de los nevados?",
+    "que insectos del suelo hay en el paramo?",
+    "vi un escarabajo en el frailejon, lo dejo quieto?",
+    "hay aranas en el pajonal",
+    "were beetles and spiders recorded in the Los Nevados páramo",
+    "is the soil fauna of the páramo well known",
+    "staphylinidae y carabidae salen en el estudio?",
+    "se sabe poco de los bichos del suelo?",
+    "que invertebrados hay en el complejo de paramos",
+    "puedo recoger un insecto del sendero",
+    "coleopteros y aranas del paramo los nevados",
+    "hay aranas chiquitas en el suelo del paramo?"
+   ],
+   "hard_negatives": [
+    "que animales prioriza el parque para investigar",
+    "que mamiferos se pueden ver en el parque",
+    "que aves vienen a buscar los pajareros"
+   ],
+   "needs": [],
+   "answer": {
+    "short": "En el complejo de páramos Los Nevados hay coleópteros y arañas de la edafofauna; entre las familias están Staphylinidae, Carabidae y Linyphiidae. Gran parte de la mesofauna del suelo paramuno aún es desconocida. No cojas ni desplaces invertebrados.",
+    "variants": [
+     "Hay coleópteros y arañas registrados en el suelo del complejo de páramos, y el plan admite que falta mucho por conocer. No los cojas ni los desplaces."
+    ]
+   },
+   "sources": [
+    {
+     "label": "Instituto Humboldt - estudios bióticos del complejo de páramos Los Nevados",
+     "url": "https://ipt.biodiversidad.co/iavh/resource?r=rrbb_nevados_faunaflora_2015",
+     "retrieved_at": "2026-11-21"
+    },
+    {
+     "label": "Parques Nacionales Naturales de Colombia - Plan de manejo PNN Los Nevados 2017-2022",
+     "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2020/10/plan-de-manejo-pnn-los-nevados.pdf",
+     "retrieved_at": "2026-11-21"
+    },
+    {
+     "label": "Parques Nacionales Naturales de Colombia - Resolución 207 de 2023",
+     "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2023/08/Resolucion_207_2023_ReglamentacionNevados.pdf",
+     "retrieved_at": "2026-11-21"
+    }
+   ],
+   "last_verified": "2026-11-21",
+   "related": [
+    "fauna.priority_research_fauna",
+    "fauna.mammals_plan_says_visible",
+    "fauna.birders_target_species"
+   ],
+   "tags": [
+    "insectos",
+    "aranas"
+   ]
+  },
+  "support": {
+   "support": "none",
+   "note": "eml.xml solo nombra coleópteros y arañas como grupo muestreado. Las familias Staphylinidae, Carabidae y Linyphiidae y \"mesofauna desconocida\" no aparecen."
+  }
+ },
+ {
+  "entry": {
+   "id": "history_culture.minor_19th_century",
+   "label": "actividad menor del siglo XIX",
+   "kind": "fact",
+   "audience": "visitor",
+   "lang": "es",
+   "examples": [
+    "hubo erupciones del ruiz en 1805",
+    "que paso en 1828 y 1829",
+    "y en el siglo XIX hubo cosas menores?",
+    "la tabla lista 1805 como explosion",
+    "boussingault y la ceniza de 1805",
+    "1805 fue ceniza o erupcion",
+    "actividad del ruiz antes de 1845",
+    "crater parasito en 1828",
+    "y en 1829 el Ruiz qué hizo?",
+    "were there smaller Ruiz eruptions in the 1800s",
+    "is the 1805 event confirmed",
+    "14 de marzo de 1805"
+   ],
+   "hard_negatives": [
+    "erupción del Ruiz en 1845",
+    "erupción de 1595",
+    "qué alerta tiene hoy el Nevado del Ruiz"
+   ],
+   "needs": [],
+   "answer": {
+    "short": "Hubo una explosión el 14 de marzo de 1805 y explosiones de cráter parásito en junio de 1828 y el 18 de junio de 1829, según la tabla del SGC. El portal histórico no trata 1805 como erupción confirmada, sino como tormenta de ceniza que un alcalde indígena relató a Boussingault.",
+    "variants": [
+     "Para el siglo XIX menor, la tabla pone explosiones en 1805, 1828 y 1829, y el relato histórico deja 1805 como una tormenta de ceniza oída por Boussingault. 1805 no queda como erupción cerrada."
+    ],
+    "detail": null,
+    "reflection": null
+   },
+   "sources": [
+    {
+     "label": "Servicio Geológico Colombiano, actividad histórica del Ruiz",
+     "url": "https://www2.sgc.gov.co/sgc/volcanes/VolcanNevadoRuiz/Paginas/Actividad-historica.aspx",
+     "retrieved_at": "2026-11-21"
+    },
+    {
+     "label": "Servicio Geológico Colombiano, portal histórico del Ruiz",
+     "url": "https://historia-volcanes.sgc.gov.co/volcan-detalle?id=6",
+     "retrieved_at": "2026-11-21"
+    }
+   ],
+   "last_verified": "2026-11-21",
+   "valid_until": null,
+   "related": [
+    "history_culture.eruption_1845",
+    "history_culture.scientific_observers"
+   ],
+   "tags": [
+    "1805",
+    "1828",
+    "1829"
+   ],
+   "entities": {
+    "volcano": [
+     "ruiz"
+    ]
+   }
+  },
+  "support": {
+   "support": "none",
+   "note": "El extracto sólo dice 'Explosión de cráter parásito'. No sostiene las fechas 1805, 1828 y 1829 ni la lectura de Boussingault."
+  }
+ },
+ {
+  "entry": {
+   "id": "services.quindio_dulima",
+   "label": "servicios en Quindío–Dulima",
+   "kind": "fact",
+   "audience": "visitor",
+   "lang": "es",
+   "examples": [
+    "servicios en Quindío Dulima",
+    "qué hay en el sector Dulima",
+    "hay comida por el nevado del Tolima",
+    "qué servicios hay del lado del Quindío",
+    "qué atienden en el punto del Cocora",
+    "hay baños en el Dulima",
+    "qué toca llevar pal Dulima?",
+    "alojamiento en el Dulima",
+    "servicios para el nevado del Tolima",
+    "hay algo en el Anzoátegui antes de subir",
+    "what services are on the Quindío side",
+    "what facilities are near Nevado del Tolima",
+    "qué servicios turísticos operan en el sector Quindío Dulima",
+    "hay puntos de atención o servicios al visitante en Quindío-Dulima",
+    "en las rutas de Salento, Cocora o Juntas hacia Dulima qué servicios atienden",
+    "qué infraestructura y servicios se encuentran en el lado sur del Tolima y Quindío"
+   ],
+   "hard_negatives": [
+    "qué es el sector Quindío Dulima",
+    "Quindío-Dulima a qué volcán corresponde",
+    "hay alojamiento en Brisas",
+    "hay hospedaje en El Bosque"
+   ],
+   "entities": {
+    "sector": [
+     "quindio_dulima"
+    ]
+   },
+   "answer": {
+    "short": "En Quindío–Dulima el terreno es más exigente y el montañismo es la actividad principal. En Valle del Cocora, Juntas y Anzoátegui hay puntos de atención que en 2024 figuraban como necesidades, no como servicios confirmados. Confirma antes de subir.",
+    "variants": [
+     "En Quindío–Dulima el terreno es más exigente. PNN menciona puntos de atención en Valle del Cocora, Juntas y Anzoátegui, pero el informe 2024 los figuraba como necesidades."
+    ],
+    "detail": "No hay datos confirmados de baños ni de comida en este sector.",
+    "reflection": null
+   },
+   "sources": [
+    {
+     "label": "Parques Nacionales Naturales · Los Nevados (ficha oficial)",
+     "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+     "retrieved_at": "2026-11-21"
+    },
+    {
+     "label": "PNN Los Nevados · Informe de necesidades de asistencia 2024",
+     "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2024/12/Informe-de-necesidades-de-asistencia-PNN-Los-Nevados-2024.docx",
+     "retrieved_at": "2026-11-21"
+    }
+   ],
+   "last_verified": "2026-11-21",
+   "valid_until": null,
+   "related": [
+    "services.tolima_lodging",
+    "services.first_aid_points",
+    "services.porter_luggage"
+   ],
+   "tags": [
+    "Quindío",
+    "Dulima",
+    "Cocora",
+    "Juntas",
+    "Anzoátegui"
+   ]
+  },
+  "support": {
+   "support": "none",
+   "note": "El excerpt es solo el encabezado \"Necesidades de asistencia\": tema sin contenido. Terreno exigente, montañismo y los sectores de Cocora, Juntas y Anzoátegui no están."
+  }
+ }
+]

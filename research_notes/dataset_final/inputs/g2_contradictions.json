@@ -1,0 +1,2695 @@
+[
+ {
+  "ids": [
+   "booking_fees.maximum_entry_age",
+   "health_safety.older_adults_altitude_health",
+   "booking_fees.exempt_young_children_and_seniors"
+  ],
+  "type": "numeric",
+  "severity": "high",
+  "quotes": {
+   "booking_fees.maximum_entry_age": "Hay dos cifras oficiales para la edad máxima: 69 años en la página de PNN y 70 años en la Resolución 207 de 2023.",
+   "health_safety.older_adults_altitude_health": "Además, el parque aplica límite máximo de edad (69 años en la ficha web y 70 en la Resolución 207): hidrátate con frecuencia y verifica con el operador antes de ir.",
+   "booking_fees.exempt_young_children_and_seniors": "La edad máxima de ingreso está en conflicto (69 o 70 años); ver la entrada de edad máxima."
+  },
+  "evidence_says": "La Resolución 207 de 2023 apoya 70: el rango de ingreso es de 6 a 70 años y prohíbe el ingreso de adultos mayores de 70. La ficha web de PNN, sin fecha editorial, dice edad máxima de 69. Las dos cifras están en las fuentes; ninguna entrada puede elegir una.",
+  "fix": "No servir 69 ni 70 como límite único. Decir que las fuentes oficiales no coinciden y que, cerca del límite, solo confirma Parques Nacionales.",
+  "entries": {
+   "booking_fees.maximum_entry_age": {
+    "id": "booking_fees.maximum_entry_age",
+    "label": "edad máxima de ingreso",
+    "kind": "fact",
+    "audience": "visitor",
+    "lang": "es",
+    "examples": [
+     "edad máxima para entrar",
+     "¿puede entrar alguien de 70 años?",
+     "hasta qué edad dejan visitar el parque",
+     "límite de edad para Los Nevados",
+     "adulto mayor puede subir a Brisas",
+     "se admite a mayores de 69?",
+     "edad tope para hacer una ruta",
+     "ponen problema por la edad si ya estoy mayor?",
+     "What is the maximum age to enter the park?",
+     "Can a 70-year-old visit Los Nevados?",
+     "mi papá tiene 68, puede ir?",
+     "hay tope de edad para ingresar"
+    ],
+    "hard_negatives": [
+     "edad mínima en Brisas",
+     "mi hijo se puede ir solo o le toca un adulto?"
+    ],
+    "needs": [],
+    "answer": {
+     "short": "Hay dos cifras oficiales para la edad máxima: 69 años en la página de PNN y 70 años en la Resolución 207 de 2023. No lo des por definitivo: si estás cerca del límite, confirma con Parques Nacionales antes de planear el viaje.",
+     "variants": [
+      "Hay dos cifras oficiales para la edad máxima: 69 años en la página de PNN y 70 años en la Resolución 207 de 2023. No lo des por definitivo: si estás cerca del límite, confirma con Parques Nacionales antes de planear el viaje."
+     ],
+     "detail": "La página de PNN no muestra fecha editorial; la Resolución 207 es del 4 de agosto de 2023. La resolución también prohíbe el ingreso a mujeres embarazadas y a personas con problemas cardiovasculares o pulmonares."
+    },
+    "sources": [
+     {
+      "label": "Parque Nacional Natural Los Nevados · Parques Nacionales Naturales",
+      "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+      "retrieved_at": "2026-11-21"
+     },
+     {
+      "label": "Resolución 207 de 2023, reglamentación del ecoturismo · PNN",
+      "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2023/08/Resolucion_207_2023_ReglamentacionNevados.pdf",
+      "retrieved_at": "2026-11-21"
+     }
+    ],
+    "last_verified": "2026-11-21",
+    "valid_until": null,
+    "related": [
+     "booking_fees.age_minimum_by_attraction",
+     "booking_fees.minor_guardian_requirement"
+    ],
+    "tags": [
+     "edad máxima",
+     "69",
+     "ingreso"
+    ]
+   },
+   "health_safety.older_adults_altitude_health": {
+    "id": "health_safety.older_adults_altitude_health",
+    "label": "sed, frío y tope de edad",
+    "kind": "safety",
+    "audience": "visitor",
+    "lang": "es",
+    "examples": [
+     "cuidados de salud para adultos mayores en altura",
+     "riesgo de deshidratación y frío en personas mayores",
+     "mi papá es adulto mayor y quiere ir a la montaña",
+     "cómo afecta el frío y la altura a la tercera edad",
+     "precauciones médicas para mayores de sesenta años",
+     "los adultos mayores sienten menos sed en la caminata",
+     "is high altitude harder on older adults?",
+     "salud de mis abuelos si subimos al páramo",
+     "qué vigilar en un adulto mayor durante el recorrido",
+     "mayor riesgo de enfriamiento en personas de edad",
+     "recomendaciones de salud para viajeros mayores",
+     "cuidados con la presión y el agua en adultos mayores",
+     "mi papa tiene 69, la ficha y la resolucion dicen lo mismo"
+    ],
+    "hard_negatives": [
+     "cómo noto que estoy deshidratado",
+     "orina oscura y mareo caminando",
+     "mucha sed y boca seca en el parque"
+    ],
+    "answer": {
+     "short": "MedlinePlus indica que con la edad puede bajar la sensación de sed y que una enfermedad crónica o de la circulación aumenta el riesgo ante el frío. La ficha, sin fecha visible, dice edad máxima de 69 años para todo el parque; la Resolución 207 del 04 de agosto de 2023 permite de 6 a 70 años y restringe a los mayores de 70. No es el cupo de hoy: confírmalo con el operador.",
+     "variants": [
+      "En adultos mayores, MedlinePlus señala menos sed y más riesgo si hay enfermedad crónica o circulatoria. La ficha dice 69 años como máximo y la Resolución 207 del 04 de agosto de 2023 habla de 6 a 70 años. Pregunta al operador; no es el cupo de hoy."
+     ],
+     "reflection": null
+    },
+    "sources": [
+     {
+      "label": "MedlinePlus, Dehydration",
+      "url": "https://medlineplus.gov/dehydration.html",
+      "retrieved_at": "2026-11-21"
+     },
+     {
+      "label": "MedlinePlus, Hypothermia",
+      "url": "https://medlineplus.gov/ency/article/000038.htm",
+      "retrieved_at": "2026-11-21"
+     },
+     {
+      "label": "Parques Nacionales Naturales, ficha PNN Los Nevados",
+      "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+      "retrieved_at": "2026-11-21"
+     },
+     {
+      "label": "Resolución 207 del 04 de agosto de 2023, PNN Los Nevados",
+      "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2023/08/Resolucion_207_2023_ReglamentacionNevados.pdf",
+      "retrieved_at": "2026-11-21"
+     }
+    ],
+    "last_verified": "2026-11-22",
+    "related": [
+     "health_safety.dehydration_warning_signs",
+     "health_safety.pretrip_medical_advice",
+     "health_safety.chronic_condition_altitude"
+    ],
+    "tags": [
+     "adulto mayor",
+     "hidratación",
+     "edad"
+    ]
+   },
+   "booking_fees.exempt_young_children_and_seniors": {
+    "id": "booking_fees.exempt_young_children_and_seniors",
+    "label": "exentos: menores de 5 y mayores de 62",
+    "kind": "fact",
+    "audience": "visitor",
+    "lang": "es",
+    "examples": [
+     "los niños pagan entrada?",
+     "mi hijo de 3 años entra gratis?",
+     "abuelos mayores de 62 pagan?",
+     "la entrada es gratis para adultos mayores",
+     "menores de cinco años no pagan al parque",
+     "mi mamá tiene 65, paga ingreso?",
+     "un niño chiquito de cuatro años tiene que pagar?",
+     "se paga para los niños pequeños en Los Nevados",
+     "cuánto paga un niño de 4 años",
+     "tercera edad, descuento en la entrada?",
+     "do kids under 5 pay to enter?",
+     "is entry free for seniors over 62?",
+     "menor de 5 esta exento de pago pero la edad minima no lo deja entrar"
+    ],
+    "hard_negatives": [
+     "las personas con discapacidad pagan entrada?",
+     "discapacidad visual, entro gratis al parque?"
+    ],
+    "needs": [],
+    "answer": {
+     "short": "Si tienes más de 62 años y eres residente en Colombia o miembro de la CAN, no pagas entrada. Los menores de 5 también están exentos, pero no pueden entrar: la edad mínima es 6 años en Brisas, Cisne y Otún, y 15 en el resto de rutas.",
+     "variants": [
+      "Los menores de 5 también están exentos, pero no pueden entrar: la edad mínima es 6 años en Brisas, Cisne y Otún, y 15 en el resto de rutas. Si tienes más de 62 años y eres residente en Colombia o miembro de la CAN, no pagas entrada."
+     ],
+     "detail": "Debes demostrar la edad con cédula de ciudadanía o de extranjería, visa, pasaporte o registro civil. La edad máxima de ingreso está en conflicto (69 o 70 años); ver la entrada de edad máxima."
+    },
+    "sources": [
+     {
+      "label": "Resolución 551 de 2025 · Parques Nacionales Naturales (copia PNN, texto digital)",
+      "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2026/02/RESOLUCION-551-DE-2025-ACTUALIZA-EL-VALOR-DERECHOS-DE-INGRESO-Y-SERVICIOS-COMPLEMENTARIOS-A-LAS-AREAS-PROTEGIDAS.pdf",
+      "retrieved_at": "2026-11-21"
+     },
+     {
+      "label": "Parque Nacional Natural Los Nevados · Parques Nacionales Naturales",
+      "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+      "retrieved_at": "2026-11-21"
+     },
+     {
+      "label": "Resolución 207 de 2023, reglamentación del ecoturismo · PNN",
+      "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2023/08/Resolucion_207_2023_ReglamentacionNevados.pdf",
+      "retrieved_at": "2026-11-21"
+     }
+    ],
+    "last_verified": "2026-11-21",
+    "valid_until": null,
+    "related": [
+     "booking_fees.exempt_disability_visitors",
+     "booking_fees.exemption_no_insurance_waiver",
+     "booking_fees.documents_to_carry"
+    ],
+    "tags": [
+     "exención",
+     "niños",
+     "adulto mayor"
+    ]
+   }
+  }
+ },
+ {
+  "ids": [
+   "geography.santa_isabel_height",
+   "geography.highest_in_park"
+  ],
+  "type": "numeric",
+  "severity": "high",
+  "quotes": {
+   "geography.santa_isabel_height": "Según el Ideam, las cumbres de Santa Isabel están en 4.935 metros (Sur), 4.923 (Central) y 4.903 (Norte, o Hongo), calculadas con el modelo SRTM 12,5 del IGAC y un GPS topográfico.",
+   "geography.highest_in_park": "Santa Isabel, cuyas cumbres el Ideam pone bajo 5.000 metros y el SGC lista a 4.965."
+  },
+  "evidence_says": "El Ideam apoya las tres cumbres (Sur 4935, Central 4923, Norte 4903, SRTM 12,5 y GPS). El ranking del SGC del 9 de agosto de 2024 apoya una sola cifra, 4965 m. No es un error de copia: son dos mediciones publicadas.",
+  "fix": "No reducir Santa Isabel a un solo metro. Si se cita una cota, decir si es cumbre Norte, Central, Sur del Ideam o la cifra única del SGC.",
+  "entries": {
+   "geography.santa_isabel_height": {
+    "id": "geography.santa_isabel_height",
+    "label": "cotas oficiales de Santa Isabel",
+    "kind": "fact",
+    "audience": "visitor",
+    "lang": "es",
+    "examples": [
+     "a qué altura está Santa Isabel",
+     "cuánto mide el Nevado de Santa Isabel",
+     "las tres cumbres no tienen la misma cota",
+     "cuanto mide santa isabel",
+     "4965 o 4935 cual uso",
+     "cumbre Sur Central y Norte en metros",
+     "Hongo es la más baja de las tres",
+     "cuánto mide cada cumbre de Santa Isabel, pa' ver",
+     "how high is Nevado Santa Isabel",
+     "why do the summit heights differ from 4965",
+     "la cumbre norte del santa isabel es la mas baja?",
+     "a cuántos metros queda Poleka Kasue?"
+    ],
+    "answer": {
+     "short": "Según el Ideam, las cumbres de Santa Isabel están en 4.935 metros (Sur), 4.923 (Central) y 4.903 (Norte, o Hongo), calculadas con el modelo SRTM 12,5 del IGAC y un GPS topográfico. El SGC publicó el 9 de agosto de 2024 una sola altura, 4.965 metros, sin ese desglose. Al citar una cota, di si es del Ideam o del SGC.",
+     "variants": [
+      "El Ideam separa tres cumbres: Sur 4.935 m, Central 4.923 m y Norte (Hongo) 4.903 m, con SRTM 12,5 y GPS. El ranking del SGC del 9 de agosto de 2024 da 4.965 m en una sola cifra."
+     ],
+     "detail": "El Ideam llama a Santa Isabel el glaciar de menor altitud del país, a 4.903 metros, que es la cumbre Norte de su tabla. La página no trae una fecha de publicación visible."
+    },
+    "sources": [
+     {
+      "label": "IDEAM, glaciar Nevado Santa Isabel",
+      "url": "https://www.ideam.gov.co/nuestra-entidad/ecosistemas-e-informacion-ambiental/glaciares/nevado-santa-isabel",
+      "retrieved_at": "2026-11-21"
+     },
+     {
+      "label": "Servicio Geológico Colombiano, los 10 volcanes más altos, 9 de agosto de 2024",
+      "url": "https://www2.sgc.gov.co/Noticias/Paginas/Los-10-volcanes-mas-altos-de-Colombia.aspx",
+      "retrieved_at": "2026-11-21"
+     }
+    ],
+    "last_verified": "2026-11-21",
+    "related": [
+     "geography.santa_isabel",
+     "geography.ruiz_height",
+     "geography.highest_in_park"
+    ],
+    "tags": [
+     "altura",
+     "santa isabel"
+    ],
+    "hard_negatives": [
+     "a qué altura está el Ruiz",
+     "a qué altura está el Tolima",
+     "qué es el Nevado Santa Isabel"
+    ]
+   },
+   "geography.highest_in_park": {
+    "id": "geography.highest_in_park",
+    "label": "cumbre más alta del parque",
+    "kind": "fact",
+    "audience": "visitor",
+    "lang": "es",
+    "examples": [
+     "cuál es la cumbre más alta del parque",
+     "el punto más alto de Los Nevados",
+     "el Ruiz le gana al Tolima en metros",
+     "que montaña es la mas alta alla",
+     "el Ruiz le gana al Tolima por cuánto?",
+     "Santa Isabel queda por debajo de las dos",
+     "cuál nevado es el más alto de estos?",
+     "cuál de los tres nevados llega más arriba",
+     "what is the highest summit in the park",
+     "is Ruiz higher than Tolima",
+     "la más alta de las cumbres nombradas",
+     "cuál nevado supera los 5.300 metros"
+    ],
+    "answer": {
+     "short": "Entre las cotas publicadas, el Ruiz a 5.321 metros queda por encima del Tolima a 5.215 y de Santa Isabel, cuyas cumbres el Ideam pone bajo 5.000 metros y el SGC lista a 4.965. Con esas cifras, el Ruiz es la cumbre más alta medida dentro del parque.",
+     "variants": [
+      "Si comparas las alturas publicadas, 5.321 metros del Ruiz superan los 5.215 del Tolima y las cotas de Santa Isabel, todas bajo 5.000 en el Ideam y 4.965 en el ranking del SGC. Por eso el Ruiz es la cima más alta de este parque."
+     ],
+     "detail": "La comparación usa las cotas de las cumbres nombradas por el SGC y el Ideam. No es un barrido nuevo de todo el polígono."
+    },
+    "sources": [
+     {
+      "label": "Servicio Geológico Colombiano, hoja del Nevado del Ruiz, septiembre de 2024",
+      "url": "https://www2.sgc.gov.co/Temas-destacados/Documents/Hoja-informativa-volcan-Nevado-de-Ruiz-SGC.pdf",
+      "retrieved_at": "2026-11-21"
+     },
+     {
+      "label": "Servicio Geológico Colombiano, los 10 volcanes más altos, 9 de agosto de 2024",
+      "url": "https://www2.sgc.gov.co/Noticias/Paginas/Los-10-volcanes-mas-altos-de-Colombia.aspx",
+      "retrieved_at": "2026-11-21"
+     },
+     {
+      "label": "IDEAM, glaciar Nevado del Ruiz",
+      "url": "https://www.ideam.gov.co/nuestra-entidad/ecosistemas-e-informacion-ambiental/glaciares/nevado-del-ruiz",
+      "retrieved_at": "2026-11-21"
+     },
+     {
+      "label": "IDEAM, glaciar Nevado del Tolima",
+      "url": "https://www.ideam.gov.co/nuestra-entidad/ecosistemas-e-informacion-ambiental/glaciares/nevado-del-tolima",
+      "retrieved_at": "2026-11-21"
+     },
+     {
+      "label": "IDEAM, glaciar Nevado Santa Isabel",
+      "url": "https://www.ideam.gov.co/nuestra-entidad/ecosistemas-e-informacion-ambiental/glaciares/nevado-santa-isabel",
+      "retrieved_at": "2026-11-21"
+     }
+    ],
+    "last_verified": "2026-11-21",
+    "related": [
+     "geography.ruiz_height",
+     "geography.ruiz_versus_huila",
+     "geography.tolima_height"
+    ],
+    "tags": [
+     "cima",
+     "más alta"
+    ],
+    "hard_negatives": [
+     "el Ruiz es el volcán más alto de Colombia",
+     "a qué altura está el Ruiz",
+     "a qué altura está el Tolima"
+    ]
+   }
+  }
+ },
+ {
+  "ids": [
+   "geography.paramillo_cisne",
+   "geography.morro_negro"
+  ],
+  "type": "numeric",
+  "severity": "high",
+  "quotes": {
+   "geography.paramillo_cisne": "Hay dos cifras publicadas: 4.700 metros en el ranking del SGC de agosto de 2024 y 4.600 de altura máxima en el boletín de 2023.",
+   "geography.morro_negro": "Morro Negro forma parte del complejo Cisne-Morro Negro: el SGC da 4.700 metros y el boletín 4.600 metros de altura máxima."
+  },
+  "evidence_says": "El ranking del SGC del 9 de agosto de 2024 apoya 4700 m. El boletín de 2023 apoya «altura máxima de 4600 m s.n.m.» para el complejo de domos Cisne-Morro Negro. Las dos están publicadas.",
+  "fix": "Tratar 4700 y 4600 como dos publicaciones del SGC, con año, y no como la altura única de Morro Negro o del paramillo.",
+  "entries": {
+   "geography.paramillo_cisne": {
+    "id": "geography.paramillo_cisne",
+    "label": "cota del Cisne y Morro Negro",
+    "kind": "fact",
+    "audience": "visitor",
+    "lang": "es",
+    "examples": [
+     "qué es el Paramillo del Cisne",
+     "el Cisne es un nevado o un paramillo",
+     "¿El Cisne tiene altura propia?",
+     "qué altura alcanza el paramillo del Cisne?",
+     "el Cisne queda metido entre Caldas y Tolima?",
+     "es un domo al lado de Santa Isabel",
+     "da nombre al sector pero es otra cosa",
+     "¿Qué altura tiene el Paramillo del Cisne?",
+     "what is Paramillo del Cisne",
+     "is El Cisne one of the snow-capped peaks",
+     "queda entre el Ruiz y Santa Isabel",
+     "la cabaña El Cisne es la montaña"
+    ],
+    "answer": {
+     "short": "El Paramillo del Cisne-Morro Negro está a 4.700 metros (SGC, 9 de agosto de 2024), entre Caldas y Tolima. El boletín de 2023 da 4.600 metros de altura máxima y lo describe como un complejo de domos entre el Ruiz y Santa Isabel. La montaña, el sector y el centro El Cisne no son el mismo sitio: di cuál buscas.",
+     "variants": [
+      "Hay dos cifras publicadas: 4.700 metros en el ranking del SGC de agosto de 2024 y 4.600 de altura máxima en el boletín de 2023. No es la cabaña El Cisne."
+     ]
+    },
+    "sources": [
+     {
+      "label": "Servicio Geológico Colombiano, los 10 volcanes más altos, 9 de agosto de 2024",
+      "url": "https://www2.sgc.gov.co/Noticias/Paginas/Los-10-volcanes-mas-altos-de-Colombia.aspx",
+      "retrieved_at": "2026-11-21"
+     },
+     {
+      "label": "Servicio Geológico Colombiano, boletín del segmento volcánico norte, actividad de 2023",
+      "url": "https://www2.sgc.gov.co/Publicaciones/Informes%20tcnicos/Informe_de_actividad_volcanica_segmento_norte_2023.pdf",
+      "retrieved_at": "2026-11-21"
+     },
+     {
+      "label": "Parques Nacionales Naturales de Colombia",
+      "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+      "retrieved_at": "2026-11-21"
+     }
+    ],
+    "last_verified": "2026-11-21",
+    "related": [
+     "geography.sector_cisne_poleka",
+     "geography.santa_isabel",
+     "geography.main_peaks"
+    ],
+    "tags": [
+     "cisne",
+     "morro negro",
+     "paramillo"
+    ],
+    "hard_negatives": [
+     "el sector cisne poleka kasue donde queda?",
+     "qué es el Nevado Santa Isabel",
+     "qué nevados hay en el parque"
+    ]
+   },
+   "geography.morro_negro": {
+    "id": "geography.morro_negro",
+    "label": "Morro Negro y el complejo del Cisne",
+    "kind": "explanation",
+    "audience": "visitor",
+    "lang": "es",
+    "examples": [
+     "morro negro es un nevado?",
+     "qué es morro negro",
+     "dónde queda morro negro",
+     "cerro morro negro del parque",
+     "morro negro y el cisne son lo mismo",
+     "altura de morro negro",
+     "is Morro Negro a separate peak",
+     "morro negro, paramillo del cisne",
+     "morro negro domo",
+     "domos del cisne, qué es el morro negro",
+     "morro negro cuanto mide",
+     "what is Morro Negro"
+    ],
+    "answer": {
+     "short": "Morro Negro no aparece como cumbre aparte: el SGC lo nombra en el Paramillo del Cisne-Morro Negro, con 4.700 metros en el ranking de 2024. El boletín de 2023 da 4.600 metros de altura máxima para el Paramillo del Cisne. Si necesitas la cifra exacta, consulta la fuente del SGC.",
+     "variants": [
+      "Morro Negro forma parte del complejo Cisne-Morro Negro: el SGC da 4.700 metros y el boletín 4.600 metros de altura máxima."
+     ]
+    },
+    "sources": [
+     {
+      "label": "Servicio Geológico Colombiano, los 10 volcanes más altos, 9 de agosto de 2024",
+      "url": "https://www2.sgc.gov.co/Noticias/Paginas/Los-10-volcanes-mas-altos-de-Colombia.aspx",
+      "retrieved_at": "2026-11-21"
+     },
+     {
+      "label": "Servicio Geológico Colombiano, boletín del segmento volcánico norte, actividad de 2023",
+      "url": "https://www2.sgc.gov.co/Publicaciones/Informes%20tcnicos/Informe_de_actividad_volcanica_segmento_norte_2023.pdf",
+      "retrieved_at": "2026-11-21"
+     }
+    ],
+    "last_verified": "2026-11-21",
+    "related": [
+     "geography.paramillo_cisne",
+     "geography.santa_isabel",
+     "geography.sector_cisne_poleka"
+    ],
+    "tags": [
+     "morro negro",
+     "domo",
+     "cisne"
+    ],
+    "hard_negatives": [
+     "qué es el Paramillo del Cisne",
+     "el Cisne es un nevado o un paramillo",
+     "¿El Cisne tiene altura propia?"
+    ]
+   }
+  }
+ },
+ {
+  "ids": [
+   "geography.park_area"
+  ],
+  "type": "numeric",
+  "severity": "high",
+  "quotes": {
+   "geography.park_area": "Para la visita, usa la cifra vigente de 61.388,24 hectáreas. Otras publicaciones oficiales dan una cifra cercana, pero es el mismo parque."
+  },
+  "evidence_says": "El encabezado de la ficha 2026 apoya 61.388,24 ha. El párrafo de historia de la misma ficha apoya 61.410 ha en diez municipios. La Carder, el 14 de julio de 2026, apoya 61.410,53 ha. El short llama «vigente» solo a la primera y no fecha esa vigencia. El detalle de la entrada sí cita las otras dos y dice que no se promedian.",
+  "fix": "Quitar «vigente» sin año. Dar las tres cifras oficiales con su sitio (encabezado, historia, Carder) y no indicar una como la extensión a usar.",
+  "entries": {
+   "geography.park_area": {
+    "id": "geography.park_area",
+    "label": "extensión oficial del parque",
+    "kind": "fact",
+    "audience": "visitor",
+    "lang": "es",
+    "examples": [
+     "cuántas hectáreas tiene el parque",
+     "extensión de Los Nevados",
+     "qué tan grande es el área protegida",
+     "cuantas hectareas son",
+     "extencion del parque en hectareas",
+     "tamaño del parque nacional",
+     "superficie en hectáreas",
+     "por qué veo hectáreas distintas",
+     "how many hectares is Los Nevados",
+     "what is the official area of the national park",
+     "es muy grande el parque, cuántas hectáreas?",
+     "cuántas hectáreas tiene el parque, hoy por hoy?"
+    ],
+    "answer": {
+     "short": "Hay tres cifras oficiales: 61.388,24 hectáreas en el encabezado de la ficha PNN consultada el 22-11-2026, 61.410 hectáreas en su apartado de historia y 61.410,53 hectáreas según la Carder (14 de julio de 2026). No se toma una sola como única extensión.",
+     "variants": [
+      "Las publicaciones oficiales reportan tres cifras de extensión: 61.388,24 hectáreas en el encabezado de la ficha PNN consultada el 22-11-2026, 61.410 hectáreas en su historia y 61.410,53 hectáreas según la Carder (14 de julio de 2026)."
+     ],
+     "detail": "El encabezado de la ficha PNN consultada el 22-11-2026 indica 61.388,24 ha, mientras que el párrafo de historia de la misma ficha señala 61.410 hectáreas en diez municipios. A su vez, la Carder, el 14 de julio de 2026, registra 61.410,53 hectáreas. Ninguna fuente anula a las otras y no se promedian."
+    },
+    "sources": [
+     {
+      "label": "Parques Nacionales Naturales de Colombia",
+      "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+      "retrieved_at": "2026-11-21"
+     },
+     {
+      "label": "CARDER, nota sobre Los Nevados, 14 de julio de 2026",
+      "url": "https://www.carder.gov.co/pnn-los-nevados-un-patrimonio-natural-que-garantiza-el-agua-y-la-vida-de-risaralda/",
+      "retrieved_at": "2026-11-21"
+     }
+    ],
+    "last_verified": "2026-11-22",
+    "related": [
+     "geography.departments",
+     "geography.municipalities",
+     "geography.risaralda_share"
+    ],
+    "tags": [
+     "hectáreas",
+     "extensión"
+    ],
+    "hard_negatives": [
+     "qué parte del parque está en Risaralda",
+     "en qué departamentos queda el parque",
+     "qué municipios cubre el parque"
+    ]
+   }
+  }
+ },
+ {
+  "ids": [
+   "booking_fees.sector_entry_fee_difference",
+   "booking_fees.under25_admission_fee",
+   "booking_fees.adult_resident_admission_fee",
+   "booking_fees.foreign_nonresident_admission_fee"
+  ],
+  "type": "numeric",
+  "severity": "high",
+  "quotes": {
+   "booking_fees.under25_admission_fee": "En 2026, la entrada para menores de 25 años (nacional, residente en Colombia, miembro de la CAN o extranjero residente) es de $12.500 COP en Los Nevados.",
+   "booking_fees.adult_resident_admission_fee": "En 2026, la entrada para mayores de 25 años (nacional, residente en Colombia, miembro de la CAN o extranjero residente) es de $24.500 COP en Los Nevados.",
+   "booking_fees.foreign_nonresident_admission_fee": "En 2026, la entrada para extranjeros no residentes en Colombia, que no pertenecen a la CAN, es de $68.000 COP en Los Nevados.",
+   "booking_fees.sector_entry_fee_difference": "Para Quindío-Dulima hay un conflicto sin resolver: la página de PNN muestra $0, pero la resolución no separa sectores."
+  },
+  "evidence_says": "La ficha web pone $0 en las tres columnas de Quindío-Dulima y $12.500 / $24.500 / $68.000 en Cisne-Poleka Kasue, Laguna del Otún y, por el mismo esquema, Brisas. La Resolución 551 de 2025 muestra una sola fila para Los Nevados, sin separar sectores. Las entradas de tarifa dicen el precio «en Los Nevados» y no avisan el $0.",
+  "fix": "En las tres tarifas, decir que no cubren Quindío-Dulima. Mantener el conflicto $0 frente a la resolución y no cobrar esas cifras como si fueran de los cuatro sectores.",
+  "entries": {
+   "booking_fees.sector_entry_fee_difference": {
+    "id": "booking_fees.sector_entry_fee_difference",
+    "label": "tarifa según sector de Los Nevados",
+    "kind": "fact",
+    "audience": "visitor",
+    "lang": "es",
+    "examples": [
+     "comparar tarifas por sector",
+     "¿cuesta igual entrar a Brisas y Otún?",
+     "qué sectores cobran entrada",
+     "tarifas del parque por zonas",
+     "en qué sector no cobran ingreso",
+     "diferencia de precio entre Cisne y Dulima",
+     "¿cuál es el sector más barato para entrar?",
+     "precios de entrada según el sector",
+     "Are entry fees different by sector?",
+     "Which Los Nevados sector has no entry fee?",
+     "me haces la comparación de tarifas por sector?",
+     "en cuál sector toca pagar derecho de ingreso",
+     "la entrada cobra lo mismo en cada sector?",
+     "algún sector cobra la entrada distinto?"
+    ],
+    "hard_negatives": [
+     "precio menor de 25 años",
+     "cuánto cuesta entrar en carro"
+    ],
+    "needs": [],
+    "answer": {
+     "short": "La ficha PNN consultada el 22-11-2026 muestra iguales tarifas en Brisas, Cisne y Otún ($12.500, $24.500 y $68.000 COP), pero registra $0 en Quindío-Dulima. En contraste, la Resolución 551 del 19-12-2025 (vigente desde 01-01-2026) fija $12.500 (menor), $24.500 (adulto residente/CAN) y $68.000 (extranjero) para todo el parque sin separar sectores. Confirma con el canal oficial (parquesnacionales.gov.co) antes de viajar.",
+     "variants": [
+      "Las tarifas son iguales en Brisas, Cisne y Otún ($12.500, $24.500 y $68.000 COP) según la ficha PNN consultada el 22-11-2026, pero Quindío-Dulima figura en $0. La Resolución 551 del 19-12-2025 (vigente desde 01-01-2026) fija $12.500, $24.500 y $68.000 sin separar sectores: hay un conflicto que debes confirmar en parquesnacionales.gov.co."
+     ],
+     "detail": "Para Quindío-Dulima hay un conflicto explícito: la ficha PNN consultada el 22-11-2026 publica $0 en derechos de ingreso (amparado en el protocolo sur de 2023 como medida transitoria por falta de infraestructura), mientras que la Resolución 551 del 19-12-2025 (vigente desde 01-01-2026) fija las tarifas generales de $12.500 (menores de 25), $24.500 (adultos residentes/CAN) y $68.000 (extranjeros no residentes) sin separar sectores. Brisas, Cisne y Otún cobran esos mismos valores en la web. Confirma con el canal oficial antes de viajar."
+    },
+    "sources": [
+     {
+      "label": "Resolución 551 de 2025 · Parques Nacionales Naturales (copia PNN, texto digital)",
+      "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2026/02/RESOLUCION-551-DE-2025-ACTUALIZA-EL-VALOR-DERECHOS-DE-INGRESO-Y-SERVICIOS-COMPLEMENTARIOS-A-LAS-AREAS-PROTEGIDAS.pdf",
+      "retrieved_at": "2026-11-21"
+     },
+     {
+      "label": "Parque Nacional Natural Los Nevados · Parques Nacionales Naturales",
+      "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+      "retrieved_at": "2026-11-21"
+     },
+     {
+      "label": "Protocolo de reservas zona sur, agosto 2023 · PNN",
+      "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2024/02/Protocolo-de-reservas-nevado-del-Tolima.pdf",
+      "retrieved_at": "2026-11-21"
+     }
+    ],
+    "last_verified": "2026-11-22",
+    "valid_until": "2026-12-31",
+    "related": [
+     "booking_fees.under25_admission_fee",
+     "booking_fees.vehicle_entry_fee",
+     "booking_fees.entry_payment_channels"
+    ],
+    "tags": [
+     "sector",
+     "tarifas",
+     "comparación"
+    ]
+   },
+   "booking_fees.under25_admission_fee": {
+    "id": "booking_fees.under25_admission_fee",
+    "label": "tarifa reducida para menores de 25 años",
+    "kind": "fact",
+    "audience": "visitor",
+    "lang": "es",
+    "examples": [
+     "precio menor de 25 años",
+     "¿cuánto paga un joven colombiano?",
+     "tarifa para estudiante menor de 25",
+     "entrada para extranjero residente joven",
+     "soy de la CAN y tengo 20, cuánto pago",
+     "cuánto cuesta para un menor de 25 en Brisas",
+     "valor juvenil para Cisne",
+     "tarifa joven residente en Colombia",
+     "How much is admission for a visitor under 25?",
+     "What is the under-25 entry price?",
+     "tengo 24, cuánto me cobran de entrada?",
+     "precio para pelao menor de 25"
+    ],
+    "hard_negatives": [
+     "precio adulto colombiano",
+     "precio extranjero no residente"
+    ],
+    "needs": [],
+    "answer": {
+     "short": "Para menores de 25 años (nacional, CAN o extranjero residente), la ficha PNN consultada el 22-11-2026 publica $12.500 COP en Brisas, Cisne y Otún, pero registra $0 en Quindío-Dulima. En contraste, la Resolución 551 del 19-12-2025 (vigente desde 01-01-2026) fija $12.500 COP para todo el parque sin distinguir sectores. Confirma con el canal oficial (parquesnacionales.gov.co) antes de pagar.",
+     "variants": [
+      "Según la ficha PNN consultada el 22-11-2026, la tarifa para menores de 25 años es de $12.500 COP en Brisas, Cisne y Otún, pero figura en $0 en Quindío-Dulima; en cambio, la Resolución 551 del 19-12-2025 (vigente desde 01-01-2026) establece $12.500 COP sin separar sectores. Confirma con el canal oficial en parquesnacionales.gov.co."
+     ],
+     "detail": "Para Quindío-Dulima existe un conflicto explícito: la ficha PNN consultada el 22-11-2026 publica $0, mientras que la Resolución 551 del 19-12-2025 (vigente desde 01-01-2026) fija $12.500 COP para menores de 25 años en el parque sin separar sectores. En Brisas, Cisne y Otún la web lista $12.500 COP. Seguro de accidentes y guianza se pagan aparte. Confirma con el canal oficial antes de pagar."
+    },
+    "sources": [
+     {
+      "label": "Resolución 551 de 2025 · Parques Nacionales Naturales (copia PNN, texto digital)",
+      "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2026/02/RESOLUCION-551-DE-2025-ACTUALIZA-EL-VALOR-DERECHOS-DE-INGRESO-Y-SERVICIOS-COMPLEMENTARIOS-A-LAS-AREAS-PROTEGIDAS.pdf",
+      "retrieved_at": "2026-11-21"
+     },
+     {
+      "label": "Parque Nacional Natural Los Nevados · Parques Nacionales Naturales",
+      "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+      "retrieved_at": "2026-11-21"
+     }
+    ],
+    "last_verified": "2026-11-22",
+    "valid_until": "2026-12-31",
+    "related": [
+     "booking_fees.adult_resident_admission_fee",
+     "booking_fees.foreign_nonresident_admission_fee",
+     "booking_fees.sector_entry_fee_difference"
+    ],
+    "tags": [
+     "tarifa",
+     "menor de 25",
+     "COP"
+    ]
+   },
+   "booking_fees.adult_resident_admission_fee": {
+    "id": "booking_fees.adult_resident_admission_fee",
+    "label": "tarifa general de adultos mayores de 25",
+    "kind": "fact",
+    "audience": "visitor",
+    "lang": "es",
+    "examples": [
+     "precio adulto colombiano",
+     "¿cuánto paga un residente mayor de 25?",
+     "tarifa para adulto nacional",
+     "cuesta lo mismo para un residente extranjero?",
+     "valor entrada adulto para Cisne",
+     "soy colombiano de 40 años cuánto pago",
+     "precio adulto en Laguna del Otún",
+     "tarifa de mayores de 25 residentes",
+     "How much does an adult resident pay?",
+     "What is the entry price for an adult Colombian?",
+     "cuánto vale para un mayor de 25 en Brisas",
+     "entrada de adulto, sin ser extranjero"
+    ],
+    "hard_negatives": [
+     "precio menor de 25 años",
+     "precio extranjero no residente"
+    ],
+    "needs": [],
+    "answer": {
+     "short": "Para adultos mayores de 25 años (nacional, CAN o residente), la ficha PNN consultada el 22-11-2026 publica $24.500 COP en Brisas, Cisne y Otún, pero registra $0 en Quindío-Dulima. En contraste, la Resolución 551 del 19-12-2025 (vigente desde 01-01-2026) fija $24.500 COP para todo el parque sin distinguir sectores. Confirma con el canal oficial (parquesnacionales.gov.co) antes de pagar.",
+     "variants": [
+      "Según la ficha PNN consultada el 22-11-2026, la tarifa de adulto residente mayor de 25 años es de $24.500 COP en Brisas, Cisne y Otún, pero figura en $0 en Quindío-Dulima; en cambio, la Resolución 551 del 19-12-2025 (vigente desde 01-01-2026) establece $24.500 COP sin separar sectores. Confirma con el canal oficial en parquesnacionales.gov.co."
+     ],
+     "detail": "Para Quindío-Dulima existe un conflicto explícito: la ficha PNN consultada el 22-11-2026 publica $0, mientras que la Resolución 551 del 19-12-2025 (vigente desde 01-01-2026) fija $24.500 COP para adultos nacionales, CAN o residentes mayores de 25 años sin separar sectores. En Brisas, Cisne y Otún la web lista $24.500 COP. Seguro de accidentes y guianza van aparte. Confirma con el canal oficial antes de pagar."
+    },
+    "sources": [
+     {
+      "label": "Resolución 551 de 2025 · Parques Nacionales Naturales (copia PNN, texto digital)",
+      "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2026/02/RESOLUCION-551-DE-2025-ACTUALIZA-EL-VALOR-DERECHOS-DE-INGRESO-Y-SERVICIOS-COMPLEMENTARIOS-A-LAS-AREAS-PROTEGIDAS.pdf",
+      "retrieved_at": "2026-11-21"
+     },
+     {
+      "label": "Parque Nacional Natural Los Nevados · Parques Nacionales Naturales",
+      "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+      "retrieved_at": "2026-11-21"
+     }
+    ],
+    "last_verified": "2026-11-22",
+    "valid_until": "2026-12-31",
+    "related": [
+     "booking_fees.under25_admission_fee",
+     "booking_fees.foreign_nonresident_admission_fee",
+     "booking_fees.sector_entry_fee_difference"
+    ],
+    "tags": [
+     "tarifa",
+     "adulto",
+     "residente"
+    ]
+   },
+   "booking_fees.foreign_nonresident_admission_fee": {
+    "id": "booking_fees.foreign_nonresident_admission_fee",
+    "label": "entrada para extranjero no residente",
+    "kind": "fact",
+    "audience": "visitor",
+    "lang": "es",
+    "examples": [
+     "precio extranjero no residente",
+     "¿cuánto cuesta entrar si soy turista extranjero?",
+     "tarifa para visitante internacional",
+     "soy de Estados Unidos cuánto pago",
+     "valor para extranjero en Brisas",
+     "un turista no residente paga cuánto",
+     "entrada para extranjero en Santa Isabel",
+     "costo para visitante de otro país",
+     "How much is admission for a nonresident foreigner?",
+     "What does a foreign tourist pay at Los Nevados?",
+     "soy extranjero y no vivo en Colombia, tarifa?",
+     "cuánto le cobran a un gringo en el parque"
+    ],
+    "hard_negatives": [
+     "precio menor de 25 años",
+     "precio adulto colombiano"
+    ],
+    "needs": [],
+    "answer": {
+     "short": "Para extranjeros no residentes (ni miembros de la CAN), la ficha PNN consultada el 22-11-2026 publica $68.000 COP en Brisas, Cisne y Otún, pero registra $0 en Quindío-Dulima. En contraste, la Resolución 551 del 19-12-2025 (vigente desde 01-01-2026) fija $68.000 COP para todo el parque sin distinguir sectores. Confirma con el canal oficial (parquesnacionales.gov.co) antes de pagar.",
+     "variants": [
+      "Según la ficha PNN consultada el 22-11-2026, la tarifa para extranjeros no residentes es de $68.000 COP en Brisas, Cisne y Otún, pero figura en $0 en Quindío-Dulima; en cambio, la Resolución 551 del 19-12-2025 (vigente desde 01-01-2026) establece $68.000 COP sin separar sectores. Confirma con el canal oficial en parquesnacionales.gov.co."
+     ],
+     "detail": "Para Quindío-Dulima existe un conflicto explícito: la ficha PNN consultada el 22-11-2026 publica $0, mientras que la Resolución 551 del 19-12-2025 (vigente desde 01-01-2026) fija $68.000 COP para extranjeros no residentes sin separar sectores. En Brisas, Cisne y Otún la web publica $68.000 COP. El seguro obligatorio y la guianza se pagan aparte. Confirma con el canal oficial antes de pagar."
+    },
+    "sources": [
+     {
+      "label": "Resolución 551 de 2025 · Parques Nacionales Naturales (copia PNN, texto digital)",
+      "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2026/02/RESOLUCION-551-DE-2025-ACTUALIZA-EL-VALOR-DERECHOS-DE-INGRESO-Y-SERVICIOS-COMPLEMENTARIOS-A-LAS-AREAS-PROTEGIDAS.pdf",
+      "retrieved_at": "2026-11-21"
+     },
+     {
+      "label": "Parque Nacional Natural Los Nevados · Parques Nacionales Naturales",
+      "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+      "retrieved_at": "2026-11-21"
+     }
+    ],
+    "last_verified": "2026-11-22",
+    "valid_until": "2026-12-31",
+    "related": [
+     "booking_fees.under25_admission_fee",
+     "booking_fees.adult_resident_admission_fee",
+     "booking_fees.sector_entry_fee_difference"
+    ],
+    "tags": [
+     "extranjero",
+     "no residente",
+     "tarifa"
+    ]
+   }
+  }
+ },
+ {
+  "ids": [
+   "booking_fees.vehicle_entry_fee"
+  ],
+  "type": "numeric",
+  "severity": "high",
+  "quotes": {
+   "booking_fees.vehicle_entry_fee": "En 2026, el ingreso en vehículo en Brisas-Kumanday cuesta $10.000 COP si es automóvil, $27.500 si es colectivo y $56.000 si es bus o buseta."
+  },
+  "evidence_says": "La ficha apoya automóvil $10.000, microbús o buseta $27.500 y bus $56.000. El detalle de la misma entrada repite esa etiqueta. El short junta buseta con el bus de $56.000. La resolución muestra los tres montos, pero el OCR no deja leer los encabezados de columna.",
+  "fix": "Alinear el short con la ficha: buseta o microbús $27.500 y bus $56.000. No llamar colectivo a la buseta ni buseta al bus.",
+  "entries": {
+   "booking_fees.vehicle_entry_fee": {
+    "id": "booking_fees.vehicle_entry_fee",
+    "label": "tarifa de ingreso en vehículo",
+    "kind": "fact",
+    "audience": "visitor",
+    "lang": "es",
+    "examples": [
+     "cuánto cuesta entrar en carro",
+     "precio del carro para ir a Brisas",
+     "cobran por el vehículo al parque?",
+     "cuánto vale el colectivo para Los Nevados",
+     "tarifa de la buseta al parque",
+     "cuánto paga un bus de turismo por entrar",
+     "valor de ingreso para automóvil",
+     "la moto paga entrada al parque?",
+     "cuánto paga un carro particular para entrar",
+     "how much is the car entry fee?",
+     "do buses pay to enter the park?",
+     "vehículo propio, cuánto es la entrada"
+    ],
+    "hard_negatives": [
+     "comparar tarifas por sector",
+     "cómo pago la entrada al parque"
+    ],
+    "needs": [],
+    "answer": {
+     "short": "En la ficha PNN consultada el 22-11-2026 figuran dos filas incompatibles para Brisas: una lista colectivo $27.500 y buseta $56.000 COP; otra lista microbús o buseta $27.500 y bus $56.000 COP (automóvil coincide en $10.000 y moto prohibida; en Cisne y Otún no aplica). La Resolución 551 del 19-12-2025 (vigente desde 01-01-2026) fija $10.000, $27.500 y $56.000. Confirma las categorías en parquesnacionales.gov.co antes de viajar.",
+     "variants": [
+      "La ficha PNN consultada el 22-11-2026 presenta dos tablas incompatibles para vehículos en Brisas: una indica colectivo $27.500 y buseta $56.000 COP, mientras la otra indica microbús o buseta $27.500 y bus $56.000 COP (ambas coinciden en automóvil $10.000 y moto prohibida). Confirma las tarifas y categorías en el canal oficial parquesnacionales.gov.co."
+     ],
+     "detail": "La ficha PNN consultada el 22-11-2026 contiene dos filas incompatibles en Brisas: una lista automóvil 10.000, colectivo 27.500 y buseta 56.000 (máximo 30 pasajeros); la otra lista vehículo tipo automóvil $10.000, microbús o buseta $27.500 y bus $56.000. En ambas, la moto tiene ingreso prohibido y en Cisne y Otún figura No aplica. La Resolución 551 del 19-12-2025 (vigente desde 01-01-2026) publica los valores $10.000, $27.500 y $56.000 COP. Confirma con el canal oficial antes de viajar."
+    },
+    "sources": [
+     {
+      "label": "Resolución 551 de 2025 · Parques Nacionales Naturales (copia PNN, texto digital)",
+      "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2026/02/RESOLUCION-551-DE-2025-ACTUALIZA-EL-VALOR-DERECHOS-DE-INGRESO-Y-SERVICIOS-COMPLEMENTARIOS-A-LAS-AREAS-PROTEGIDAS.pdf",
+      "retrieved_at": "2026-11-21"
+     },
+     {
+      "label": "Parque Nacional Natural Los Nevados · Parques Nacionales Naturales",
+      "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+      "retrieved_at": "2026-11-21"
+     }
+    ],
+    "last_verified": "2026-11-22",
+    "valid_until": "2026-12-31",
+    "related": [
+     "booking_fees.sector_entry_fee_difference",
+     "booking_fees.entry_payment_channels"
+    ],
+    "tags": [
+     "tarifa",
+     "vehículo"
+    ]
+   }
+  }
+ },
+ {
+  "ids": [
+   "hours_status.quindio_dulima_juntas_anzoategui_hours"
+  ],
+  "type": "numeric",
+  "severity": "high",
+  "quotes": {
+   "hours_status.quindio_dulima_juntas_anzoategui_hours": "Los puntos de registro en Juntas (Ibagué) y Anzoátegui atienden de 6:00 a. m. a 11:00 a. m."
+  },
+  "evidence_says": "La ficha web apoya Juntas y Anzoátegui de 6:00 a 11:00. La Resolución 207 de 2023 apoya Juntas hasta las 10:00 a. m. y Anzoátegui hasta las 11:00 a. m. El detalle de la entrada lo dice; el short deja solo las 11:00 para los dos.",
+  "fix": "En el short, separar Juntas (la ficha dice 11:00 y la Resolución 207 dice 10:00) de Anzoátegui (11:00 en las dos fuentes).",
+  "entries": {
+   "hours_status.quindio_dulima_juntas_anzoategui_hours": {
+    "id": "hours_status.quindio_dulima_juntas_anzoategui_hours",
+    "label": "horarios de ingreso por Juntas y Anzoátegui",
+    "kind": "fact",
+    "audience": "visitor",
+    "lang": "es",
+    "examples": [
+     "horario juntas ibagué nevado del tolima",
+     "a qué hora abren en juntas",
+     "horario puesto de control anzoátegui",
+     "hasta qué hora dejan entrar por juntas tolima",
+     "horario de ingreso por el cañón del combeima",
+     "a qué horas atienden en anzoátegui para el parque",
+     "toca madrugar pa ir a Juntas?",
+     "a q hora cierran en anzoátegui?",
+     "horario de acceso por la vereda palomar",
+     "hasta cuándo atienden en el control de juntas",
+     "juntas and anzoategui check points schedule",
+     "what time do they open in juntas"
+    ],
+    "hard_negatives": [
+     "a q hora abren el punto de informacion de anzoategui en el centro",
+     "a qué hora dejan entrar hacia la asomadera",
+     "a qué hora abren"
+    ],
+    "entities": {
+     "sector": [
+      "quindio_dulima"
+     ]
+    },
+    "needs": [],
+    "answer": {
+     "short": "La ficha agrupa Juntas y Anzoátegui de 6:00 a. m. a 11:00 a. m., pero en la zona sur de la Resolución 207 de 2023 el bullet de Juntas, que cita la Resolución 268 de 2022, va de 6:00 a. m. a 10:00 a. m. y el de Anzoátegui de 6:00 a. m. a 11:00 a. m.; el horario del PIT es otra entrada. La ficha, con última modificación el 31 de octubre de 2026, no confirma el día de tu visita: confírmalo con Parques Nacionales (@ParquesColombia).",
+     "variants": [
+      "Juntas y Anzoátegui no comparten la hora de cierre en la Resolución 207 de 2023: el bullet de Juntas, con la Resolución 268 de 2022, va hasta las 10:00 a. m. y el de Anzoátegui hasta las 11:00 a. m. La ficha del 31 de octubre de 2026 los agrupa hasta las 11:00 a. m. y no confirma tu día: confírmalo con Parques Nacionales (@ParquesColombia)."
+     ],
+     "steps": [
+      [
+       "La ficha agrupa Juntas y Anzoátegui de 6:00 a. m. a 11:00 a. m., pero en la zona sur de la Resolución 207 de 2023 el bullet de Juntas, que cita la Resolución 268 de 2022, va de 6:00 a. m. a 10:00 a. m. y el de Anzoátegui de 6:00 a. m. a 11:00 a. m.; el horario del PIT es otra entrada. La ficha, con última modificación el 31 de octubre de 2026, no confirma el día de tu visita: confírmalo con Parques Nacionales (@ParquesColombia)."
+      ]
+     ],
+     "detail": null,
+     "reflection": null
+    },
+    "sources": [
+     {
+      "label": "Parques Nacionales · ficha Los Nevados",
+      "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+      "retrieved_at": "2026-11-21"
+     },
+     {
+      "label": "Parques Nacionales · Resolución 207 de 2023",
+      "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2023/08/Resolucion_207_2023_ReglamentacionNevados_.pdf",
+      "retrieved_at": "2026-11-21"
+     }
+    ],
+    "last_verified": "2026-11-22",
+    "valid_until": null,
+    "related": [
+     "hours_status.quindio_dulima_cocora_hours",
+     "hours_status.tolima_summit_push_hours",
+     "hours_status.late_arrival_policy"
+    ],
+    "tags": [
+     "juntas",
+     "anzoátegui",
+     "combeima",
+     "horario",
+     "tolima"
+    ]
+   }
+  }
+ },
+ {
+  "ids": [
+   "hours_status.cisne_potan_hours",
+   "hours_status.otun_sector_hours",
+   "hours_status.asomadera_potosi_entry_hours",
+   "hours_status.camping_arrival_cutoff",
+   "hours_status.general_opening_schedule"
+  ],
+  "type": "numeric",
+  "severity": "high",
+  "quotes": {
+   "hours_status.cisne_potan_hours": "En el sector Cisne–Poleka Kasue, los puestos de control de Cabaña Potosí y Alto de Santa Bárbara atienden registro de 7:30 a. m. a 10:00 a. m.",
+   "hours_status.otun_sector_hours": "Para el sector de la Laguna del Otún, el horario oficial de atención en la cabaña Potosí es de 7:00 a. m. a 12:00 m.",
+   "hours_status.asomadera_potosi_entry_hours": "El ingreso al recorrido Potosí–La Asomadera es de 7:30 a. m. a 12:00 m.; sin equipamiento, la caminata se amplía hasta las 2:00 p. m.",
+   "hours_status.camping_arrival_cutoff": "Debes entrar con equipo en el registro matutino (en Potosí, de 7:00 a. m. a 12:00 m.), acampar solo en Termales Cañón, Arenales o Calvito y llegar antes del anochecer con tu guía."
+  },
+  "evidence_says": "La ficha y la Resolución 207 publican las tres ventanas para la misma cabaña: registro Cisne 7:30–10:00, Otún y camping con equipo 7:00–12:00, Asomadera 7:30–12:00 y hasta las 14:00 sin equipo. Ningún texto anula a los otros.",
+  "fix": "Cada respuesta debe nombrar el trámite (registro Cisne, registro Otún, Asomadera, camping) junto con su hora de cierre. No decir «Potosí cierra a las 10:00» ni «a las 12:00» sin el trámite.",
+  "entries": {
+   "hours_status.cisne_potan_hours": {
+    "id": "hours_status.cisne_potan_hours",
+    "label": "horario de registro en cabaña Potosí",
+    "kind": "fact",
+    "audience": "visitor",
+    "lang": "es",
+    "examples": [
+     "horario cabaña potosí",
+     "a qué hora abren en potosí",
+     "horario registro potosí santa bárbara",
+     "horario sector cisne",
+     "hasta qué hora dejan pasar en potosí",
+     "a q hora abren en el alto de santa barbara",
+     "a qué hora atienden en el control de potosí",
+     "horario de entrada a cisne poleka kasue",
+     "toca madrugar pa Potosí?",
+     "cuándo abre el puesto de potosí",
+     "potosi cabin check in hours",
+     "what time is registration at potosi"
+    ],
+    "hard_negatives": [
+     "a qué horas se sale de potosí a conejeras",
+     "hasta qué horas atienden en potosí para el otún",
+     "horario potosí la asomadera"
+    ],
+    "entities": {
+     "sector": [
+      "cisne"
+     ]
+    },
+    "needs": [],
+    "answer": {
+     "short": "En Cisne–Poleka Kasue el registro en cabaña Potosí y alto de Santa Bárbara va de 7:30 a. m. a 10:00 a. m., y ese no es el horario de atención de Otún. La ficha, con última modificación el 31 de octubre de 2026, no confirma el día de tu visita: confírmalo con Parques Nacionales (@ParquesColombia).",
+     "variants": [
+      "La ficha, con última modificación el 31 de octubre de 2026, no confirma el día de tu visita: confírmalo con Parques Nacionales (@ParquesColombia). En Cisne–Poleka Kasue el registro en cabaña Potosí y alto de Santa Bárbara va de 7:30 a. m. a 10:00 a. m., y ese no es el horario de atención de Otún."
+     ],
+     "steps": [
+      [
+       "En Cisne–Poleka Kasue el registro en cabaña Potosí y alto de Santa Bárbara va de 7:30 a. m. a 10:00 a. m., y ese no es el horario de atención de Otún."
+      ]
+     ],
+     "detail": null,
+     "reflection": null
+    },
+    "sources": [
+     {
+      "label": "Parques Nacionales · ficha Los Nevados",
+      "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+      "retrieved_at": "2026-11-21"
+     }
+    ],
+    "last_verified": "2026-11-22",
+    "valid_until": null,
+    "related": [
+     "hours_status.santa_isabel_conejeras_prior_day_checkin",
+     "hours_status.laguna_verde_trail_hours",
+     "hours_status.general_opening_schedule"
+    ],
+    "tags": [
+     "potosí",
+     "cisne",
+     "santa bárbara",
+     "horario",
+     "registro"
+    ]
+   },
+   "hours_status.otun_sector_hours": {
+    "id": "hours_status.otun_sector_hours",
+    "label": "horario de atencion para el sector Otun",
+    "kind": "fact",
+    "audience": "visitor",
+    "lang": "es",
+    "examples": [
+     "horario laguna del otún",
+     "a qué hora abren laguna del otun",
+     "horario de ingreso laguna del otún",
+     "hasta qué hora dejan entrar al otún",
+     "a qué hora atienden en la cabaña del otún",
+     "toca madrugar pa la laguna del otún?",
+     "a qué horas puedo llegar a la laguna del otún",
+     "cuándo abre el sector otún",
+     "a q hora registran pal Otún",
+     "hasta qué horas atienden en potosí para el otún",
+     "what time can I get to laguna del otun",
+     "what time does laguna del otun entrance open"
+    ],
+    "hard_negatives": [
+     "horario caminata el cedral laguna del otun",
+     "que se hace en la visita a la laguna del otun",
+     "plazo para agendar Laguna del Otún"
+    ],
+    "entities": {
+     "sector": [
+      "otun"
+     ]
+    },
+    "needs": [],
+    "answer": {
+     "short": "Para el sector Otún, la atención en la cabaña Potosí va de 7:00 a. m. a 12:00 p. m., distinta del registro de Cisne de 7:30 a. m. a 10:00 a. m. La ficha, con última modificación el 31 de octubre de 2026, no confirma el día de tu visita: confírmalo con Parques Nacionales (@ParquesColombia).",
+     "variants": [
+      "La ficha, con última modificación el 31 de octubre de 2026, no confirma el día de tu visita: confírmalo con Parques Nacionales (@ParquesColombia). Para el sector Otún, la atención en la cabaña Potosí va de 7:00 a. m. a 12:00 p. m., distinta del registro de Cisne de 7:30 a. m. a 10:00 a. m."
+     ],
+     "steps": [
+      [
+       "Para el sector Otún, la atención en la cabaña Potosí va de 7:00 a. m. a 12:00 p. m., distinta del registro de Cisne de 7:30 a. m. a 10:00 a. m."
+      ]
+     ],
+     "detail": null,
+     "reflection": null
+    },
+    "sources": [
+     {
+      "label": "Parques Nacionales · ficha Los Nevados",
+      "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+      "retrieved_at": "2026-11-21"
+     }
+    ],
+    "last_verified": "2026-11-22",
+    "valid_until": null,
+    "related": [
+     "hours_status.cedral_otun_hiking_schedule",
+     "hours_status.cisne_potan_hours",
+     "hours_status.general_opening_schedule"
+    ],
+    "tags": [
+     "otún",
+     "laguna",
+     "potosí",
+     "horario",
+     "registro"
+    ]
+   },
+   "hours_status.asomadera_potosi_entry_hours": {
+    "id": "hours_status.asomadera_potosi_entry_hours",
+    "label": "horario de ingreso hacia La Asomadera",
+    "kind": "fact",
+    "audience": "visitor",
+    "lang": "es",
+    "examples": [
+     "horario potosí la asomadera",
+     "a qué hora dejan entrar hacia la asomadera",
+     "hasta qué hora puedo subir a la asomadera desde potosí",
+     "¿Cuál es el horario de ingreso para el recorrido Potosí - La Asomadera?",
+     "horario caminata a la asomadera sin equipamiento",
+     "a q hora cierran el paso de potosi a la asomadera",
+     "puedo entrar a la 1 pm para ir solo a la asomadera?",
+     "horario límite en potosí para pasadía a la asomadera",
+     "hasta las 2 pm dejan subir a la asomadera sin equipo?",
+     "a qué hora abren el sendero potosí la asomadera porfa",
+     "what are the entry hours for the Potosi to La Asomadera trail?",
+     "schedule for hiking to La Asomadera from Potosi"
+    ],
+    "hard_negatives": [
+     "puedo ir y volver a la Asomadera",
+     "horario cabaña potosí",
+     "horario laguna del otún"
+    ],
+    "entities": {
+     "sector": [
+      "otun"
+     ]
+    },
+    "needs": [],
+    "answer": {
+     "short": "La Resolución 207 de 2023 pone Potosí–La Asomadera de 7:30 a. m. a 12:00 m., y hasta las 2:00 p. m. si la caminata es sin equipamiento; la ficha no repite ese horario. La ficha, con última modificación el 31 de octubre de 2026, no confirma el día de tu visita: confírmalo con Parques Nacionales (@ParquesColombia).",
+     "variants": [
+      "La ficha, con última modificación el 31 de octubre de 2026, no confirma el día de tu visita: confírmalo con Parques Nacionales (@ParquesColombia). La Resolución 207 de 2023 pone Potosí–La Asomadera de 7:30 a. m. a 12:00 m., y hasta las 2:00 p. m. si la caminata es sin equipamiento; la ficha no repite ese horario."
+     ],
+     "steps": [
+      [
+       "La Resolución 207 de 2023 pone Potosí–La Asomadera de 7:30 a. m. a 12:00 m., y hasta las 2:00 p. m. si la caminata es sin equipamiento; la ficha no repite ese horario."
+      ]
+     ],
+     "detail": null,
+     "reflection": null
+    },
+    "sources": [
+     {
+      "label": "Parques Nacionales · Resolución 207 de 2023",
+      "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2023/08/Resolucion_207_2023_ReglamentacionNevados_.pdf",
+      "retrieved_at": "2026-11-21"
+     },
+     {
+      "label": "Parques Nacionales · ficha Los Nevados",
+      "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+      "retrieved_at": "2026-11-21"
+     }
+    ],
+    "last_verified": "2026-11-22",
+    "valid_until": null,
+    "related": [
+     "hours_status.otun_sector_hours",
+     "hours_status.cisne_potan_hours",
+     "activities.asomadera_day"
+    ],
+    "tags": [
+     "horario",
+     "asomadera",
+     "potosí",
+     "pasadía",
+     "otún"
+    ]
+   },
+   "hours_status.camping_arrival_cutoff": {
+    "id": "hours_status.camping_arrival_cutoff",
+    "label": "hora de llegada a zonas de campamento",
+    "kind": "rule",
+    "audience": "visitor",
+    "lang": "es",
+    "examples": [
+     "a qué hora debo llegar al campamento",
+     "hora límite para llegar a la zona de camping",
+     "hasta qué hora puedo llegar al refugio",
+     "a qué horas se debe llegar a armar carpa",
+     "hora máxima de llegada a cabañas",
+     "cuándo debo estar en el campamento",
+     "límite de hora para llegar a acampar",
+     "hora máxima para montar carpas en el parque",
+     "toca estar aquí antes de que oscurezca?",
+     "cuándo llegar a la zona de camping autorizada",
+     "is there a late arrival limit for camping",
+     "what time should I arrive at the campsite"
+    ],
+    "hard_negatives": [
+     "a qué hora puedo entrar",
+     "hasta qué horas puedo estar arriba",
+     "a qué hora salir desde el campamento arenares"
+    ],
+    "entities": {},
+    "needs": [],
+    "answer": {
+     "short": "En «Sitios para camping» de la Resolución 207 del 04 de agosto de 2023, Camping Arenales del sector Brisas queda restringido por actividad volcánica y, como medida transitoria junto al Nevado del Tolima, se habilitan Termales Cañón, Arenales y Calvito; no hay una hora de llegada a la carpa. El informe de necesidades de 2024 dice que la zona de camping de Arenales, en Villamaría (Caldas), no se encuentra habilitada por la actividad volcánica; el Arenales del Tolima no tiene un dato posterior a esa habilitación de 2023. Eso no confirma tu fecha: pregunta a Parques Nacionales (@ParquesColombia).",
+     "variants": [
+      "Hay dos Arenales: el del sector Brisas queda restringido en la Resolución 207 de 2023 y el informe de 2024 dice que esa zona de camping, en Villamaría, no está habilitada por el volcán; el Arenales del Tolima solo tiene la habilitación transitoria de 2023. No hay hora de llegada a la carpa y ninguna de esas fechas confirma tu visita: pregunta a Parques Nacionales (@ParquesColombia)."
+     ],
+     "steps": [
+      [
+       "En «Sitios para camping» de la Resolución 207 del 04 de agosto de 2023, Camping Arenales del sector Brisas queda restringido por actividad volcánica y, como medida transitoria junto al Nevado del Tolima, se habilitan Termales Cañón, Arenales y Calvito; no hay una hora de llegada a la carpa. El informe de necesidades de 2024 dice que la zona de camping de Arenales, en Villamaría (Caldas), no se encuentra habilitada por la actividad volcánica; el Arenales del Tolima no tiene un dato posterior a esa habilitación de 2023. Eso no confirma tu fecha: pregunta a Parques Nacionales (@ParquesColombia)."
+      ]
+     ],
+     "detail": null,
+     "reflection": null
+    },
+    "sources": [
+     {
+      "label": "Parques Nacionales · Resolución 207 de 2023",
+      "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2023/08/Resolucion_207_2023_ReglamentacionNevados_.pdf",
+      "retrieved_at": "2026-11-21"
+     },
+     {
+      "label": "Parques Nacionales · ficha Los Nevados",
+      "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+      "retrieved_at": "2026-11-21"
+     },
+     {
+      "label": "Informe de necesidades de asistencia, PNN Los Nevados, 2024",
+      "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2024/12/Informe-de-necesidades-de-asistencia-PNN-Los-Nevados-2024.docx",
+      "retrieved_at": "2026-11-21"
+     }
+    ],
+    "last_verified": "2026-11-22",
+    "valid_until": null,
+    "related": [
+     "hours_status.night_entry_prohibition",
+     "hours_status.cedral_otun_hiking_schedule",
+     "hours_status.late_arrival_policy"
+    ],
+    "tags": [
+     "campamento",
+     "camping",
+     "llegada",
+     "hora límite",
+     "refugio"
+    ]
+   },
+   "hours_status.general_opening_schedule": {
+    "id": "hours_status.general_opening_schedule",
+    "label": "horarios generales de ingreso al parque",
+    "kind": "fact",
+    "audience": "visitor",
+    "lang": "es",
+    "examples": [
+     "horarios",
+     "cuándo abre",
+     "a qué hora abren",
+     "a qué hora cierran",
+     "la hora limite para entrar es igual en todos los sectores?",
+     "a qué hora puedo entrar",
+     "a qué horas atienden",
+     "a que hora abre cada sector, brisas, cisne, otun y cocora?",
+     "qué horas tiene el parque pa entrar",
+     "a que hora abren el parque",
+     "toca madrugar pa entrar al parque?",
+     "what are the park opening hours",
+     "opening and closing times for los nevados"
+    ],
+    "hard_negatives": [
+     "la entrada cobra lo mismo en cada sector?",
+     "a qué hora abren en juntas",
+     "qué hora es"
+    ],
+    "entities": {},
+    "needs": [],
+    "answer": {
+     "short": "En la ficha, Brisas va de 8:00 a. m. a 2:00 p. m. (última charla a la 1:30 p. m.), Cisne registra de 7:30 a. m. a 10:00 a. m., Otún atiende en Potosí de 7:00 a. m. a 12:00 p. m. y Cocora de 6:00 a. m. a 10:00 a. m. Juntas no entra en ese resumen: la ficha lo pone hasta las 11:00 a. m. y el bullet de Juntas de la Resolución 207 de 2023, que cita la Resolución 268 de 2022, lo deja hasta las 10:00 a. m. La ficha, con última modificación el 31 de octubre de 2026, no confirma el día de tu visita: confírmalo con Parques Nacionales (@ParquesColombia).",
+     "variants": [
+      "La ficha da un horario distinto por sector, y en Juntas el bullet de la Resolución 207 de 2023, que cita la Resolución 268 de 2022, cierra el ingreso a las 10:00 a. m. y no a las 11:00 a. m. de la ficha. Con última modificación el 31 de octubre de 2026, esa ficha no confirma el día de tu visita: confírmalo con Parques Nacionales (@ParquesColombia)."
+     ],
+     "steps": [
+      [
+       "En la ficha, Brisas va de 8:00 a. m. a 2:00 p. m. (última charla a la 1:30 p. m.), Cisne registra de 7:30 a. m. a 10:00 a. m., Otún atiende en Potosí de 7:00 a. m. a 12:00 p. m. y Cocora de 6:00 a. m. a 10:00 a. m. Juntas no entra en ese resumen: la ficha lo pone hasta las 11:00 a. m. y el bullet de Juntas de la Resolución 207 de 2023, que cita la Resolución 268 de 2022, lo deja hasta las 10:00 a. m. La ficha, con última modificación el 31 de octubre de 2026, no confirma el día de tu visita: confírmalo con Parques Nacionales (@ParquesColombia)."
+      ]
+     ],
+     "detail": null,
+     "reflection": null
+    },
+    "sources": [
+     {
+      "label": "Parques Nacionales · ficha Los Nevados",
+      "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+      "retrieved_at": "2026-11-21"
+     },
+     {
+      "label": "Parques Nacionales · Resolución 207 de 2023",
+      "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2023/08/Resolucion_207_2023_ReglamentacionNevados_.pdf",
+      "retrieved_at": "2026-11-21"
+     }
+    ],
+    "last_verified": "2026-11-22",
+    "valid_until": null,
+    "related": [
+     "hours_status.brisas_hours",
+     "hours_status.cisne_potan_hours",
+     "hours_status.otun_sector_hours"
+    ],
+    "tags": [
+     "horario",
+     "ingreso",
+     "apertura",
+     "sectores",
+     "atención"
+    ]
+   }
+  }
+ },
+ {
+  "ids": [
+   "activities.camping_tolima",
+   "activities.camping_brisas_restricted",
+   "activities.camping_where",
+   "hours_status.camping_arrival_cutoff"
+  ],
+  "type": "rule",
+  "severity": "critical",
+  "quotes": {
+   "activities.camping_tolima": "Como medida transitoria puedes pernoctar en Termales del Cañón, Arenales y Calvito, con carpa de tres o cuatro estaciones para temperaturas bajo cero y sin fogata (norma del 4 de agosto de 2023).",
+   "hours_status.camping_arrival_cutoff": "Debes entrar con equipo en el registro matutino (en Potosí, de 7:00 a. m. a 12:00 m.), acampar solo en Termales Cañón, Arenales o Calvito y llegar antes del anochecer con tu guía.",
+   "activities.camping_brisas_restricted": "En 2024 el camping de Arenales no estaba habilitado por la actividad volcánica, y ya venía restringido desde el 4 de agosto de 2023.",
+   "activities.camping_where": "En 2024 Arenales no estaba habilitado por actividad volcánica, y la norma de 2023 no garantiza los demás puntos."
+  },
+  "evidence_says": "La Resolución 207 habilita, como medida transitoria, pernoctar en Termales del Cañón, Arenales y Calvito. El informe de necesidades 2024 dice que la zona de camping de Arenales no está habilitada por la actividad volcánica. Hay dos sitios llamados Arenales; el short de horarios no los distingue y manda acampar en Arenales.",
+  "fix": "No listar Arenales como sitio donde se acampa. Separar Arenales del norte (no habilitado en 2024 por el volcán) del Arenales del Tolima (habilitación transitoria de 2023, sin confirmación posterior) y pedir confirmación para la fecha.",
+  "entries": {
+   "activities.camping_tolima": {
+    "id": "activities.camping_tolima",
+    "label": "pernocte transitorio del Tolima",
+    "kind": "fact",
+    "audience": "visitor",
+    "lang": "es",
+    "examples": [
+     "dónde se duerme en la travesía del Tolima",
+     "puedo acampar en Termales del Cañón",
+     "toca armar carpa en Calvito?",
+     "Arenales del sur deja pasar la noche",
+     "campamentos transitorios del Tolima",
+     "la carpa en la ruta de la cumbre",
+     "pernocte en el sur del parque",
+     "dónde me toca dormir en el sur, parce?",
+     "el canon tiene camping transitorio",
+     "donde armo la carpa en el tolima",
+     "where can I camp on the Tolima trek",
+     "are Calvito and Arenales overnight stops"
+    ],
+    "hard_negatives": [
+     "pernoctar en el sector de las tumbas",
+     "Calvito es un camping del Tolima",
+     "senderismo cerca del Tolima"
+    ],
+    "needs": [],
+    "answer": {
+     "short": "La norma del 4 de agosto de 2023 habilitó de forma transitoria el pernocte en Termales del Cañón, Arenales y Calvito, puntos cercanos al Nevado del Tolima, con carpa de tres o cuatro estaciones para temperaturas bajo cero y sin fogata. Este Arenales no es el camping del sector Brisas. El porteo de maletas a Calvito y Arenales está prohibido. Confirma con Parques Nacionales si siguen habilitados para tu fecha.",
+     "variants": [
+      "Según la norma de agosto de 2023, cerca del Nevado del Tolima se podía pernoctar de forma transitoria en Termales del Cañón, Arenales y Calvito, con carpa de alta montaña y sin fogata; a Calvito y Arenales no se permite porteo de maletas. No es el Arenales del sector Brisas. Confirma con el parque antes de ir."
+     ]
+    },
+    "sources": [
+     {
+      "label": "Parques Nacionales Naturales, Resolución 207 del 4 de agosto de 2023",
+      "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2023/08/Resolucion_207_2023_ReglamentacionNevados.pdf",
+      "retrieved_at": "2026-11-21"
+     }
+    ],
+    "last_verified": "2026-11-22",
+    "related": [
+     "activities.camping_where",
+     "activities.termales_canon",
+     "activities.tolima_summit_schimmer"
+    ],
+    "tags": [
+     "calvito",
+     "arenales",
+     "pernocte"
+    ],
+    "entities": {
+     "sector": [
+      "tolima"
+     ]
+    }
+   },
+   "activities.camping_brisas_restricted": {
+    "id": "activities.camping_brisas_restricted",
+    "label": "camping Arenales restringido",
+    "kind": "rule",
+    "audience": "visitor",
+    "lang": "es",
+    "examples": [
+     "puedo acampar en Arenales de Brisas",
+     "hay camping en el norte",
+     "dormir en carpa camino al valle",
+     "hay dónde dormir en Arenales de Brisas?",
+     "el camping del carreteable está restringido",
+     "zona de carpas entre Brisas y el valle",
+     "parce, en Arenales de Brisas sí se puede dormir?",
+     "camping arenales de brisas esta cerrado",
+     "por el volcan no dejan acampar en el norte",
+     "pernoctar en el sector de las tumbas",
+     "can I camp at Arenales on the Brisas road",
+     "is the northern Arenales campsite restricted"
+    ],
+    "hard_negatives": [
+     "el camino Brisas Arenales está restringido",
+     "camas en Brisas para pasar la noche",
+     "el camping Arenales es el del carreteable"
+    ],
+    "needs": [],
+    "answer": {
+     "short": "El camping de Arenales del sector Brisas, en la zona norte, figura restringido por la actividad volcánica en la norma del 4 de agosto de 2023, y el informe de 2024 lo reporta no habilitado. No lo cuentes como sitio disponible. El Arenales cercano al Nevado del Tolima es otro punto. Confirma con Parques Nacionales cualquier lugar de camping para tu fecha.",
+     "variants": [
+      "Arenales del sector Brisas (zona norte) estaba restringido en 2023 y no habilitado en el informe de 2024 por la actividad volcánica. No es el Arenales del Tolima. Confirma con el parque antes de planear la noche."
+     ]
+    },
+    "sources": [
+     {
+      "label": "Informe de necesidades de asistencia, PNN Los Nevados, 2024",
+      "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2024/12/Informe-de-necesidades-de-asistencia-PNN-Los-Nevados-2024.docx",
+      "retrieved_at": "2026-11-21"
+     },
+     {
+      "label": "Resolución 207 del 4 de agosto de 2023, reglamentación del ecoturismo",
+      "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2023/08/Resolucion_207_2023_ReglamentacionNevados.pdf",
+      "retrieved_at": "2026-11-21"
+     }
+    ],
+    "last_verified": "2026-11-22",
+    "related": [
+     "activities.camping_where",
+     "activities.arenales_two_places",
+     "activities.brisas_valle_tumbas"
+    ],
+    "tags": [
+     "arenales",
+     "brisas",
+     "restringido"
+    ],
+    "entities": {
+     "sector": [
+      "brisas"
+     ]
+    }
+   },
+   "activities.camping_where": {
+    "id": "activities.camping_where",
+    "label": "dónde acampar en el parque",
+    "kind": "procedure",
+    "audience": "visitor",
+    "lang": "es",
+    "examples": [
+     "se puede acampar en el parque",
+     "puedo llevar carpa",
+     "dónde hay camping autorizado",
+     "pasar la noche en Los Nevados",
+     "zonas para dormir con carpa",
+     "toca confirmar el camping pa' la fecha?",
+     "dónde me dejan dormir en el parque?",
+     "¿Hay zonas de acampada junto a los senderos?",
+     "camping en los nevados si o no",
+     "donde dejan pernoctar con carpa",
+     "where am I allowed to camp",
+     "can I bring a tent and stay overnight"
+    ],
+    "hard_negatives": [
+     "acampar en un sitio que no tiene zona marcada",
+     "qué carpa llevar para acampar en los nevados",
+     "límite de hora para llegar a acampar"
+    ],
+    "needs": [],
+    "answer": {
+     "short": "Acampa solo donde Parques Nacionales te confirme para tu fecha. Según el informe de 2024, el camping de Arenales del sector Brisas no estaba habilitado por la actividad volcánica. La norma de 2023 habilitó de forma transitoria Termales del Cañón, Arenales y Calvito, cerca del Nevado del Tolima, pero no garantiza que sigan abiertos. Confirma el lugar con el parque y tu operador antes de viajar.",
+     "variants": [
+      "Ningún punto de camping queda garantizado: Arenales del sector Brisas figuraba no habilitado en 2024, y los puntos transitorios de 2023 cerca del Nevado del Tolima (Termales del Cañón, Arenales, Calvito) hay que confirmarlos. Pregunta al parque antes de cargar la carpa."
+     ],
+     "steps": [
+      [
+       "Pide al parque o al operador si tu fecha tiene una zona habilitada. La reglamentación del 4 de agosto de 2023 no deja un camping prometido como abierto."
+      ],
+      [
+       "Si te autorizan la noche, lleva carpa de tres o cuatro estaciones para temperaturas bajo cero y cocina sin fogata."
+      ]
+     ],
+     "detail": "Un apartado de esa resolución lista Laguna del Otún, camping del Cisne condicionado por actividad volcánica u operación, y Arenales de Brisas restringido por actividad volcánica. El listado de prohibiciones, en el mismo documento, prohíbe acampar salvo Termales del Cañón, Arenales y Calvito como medida transitoria. La Laguna del Otún además figura en proceso de acondicionamiento."
+    },
+    "sources": [
+     {
+      "label": "Resolución 207 del 4 de agosto de 2023, reglamentación del ecoturismo",
+      "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2023/08/Resolucion_207_2023_ReglamentacionNevados.pdf",
+      "retrieved_at": "2026-11-21"
+     },
+     {
+      "label": "Informe de necesidades de asistencia, PNN Los Nevados, 2024",
+      "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2024/12/Informe-de-necesidades-de-asistencia-PNN-Los-Nevados-2024.docx",
+      "retrieved_at": "2026-11-21"
+     }
+    ],
+    "last_verified": "2026-11-22",
+    "related": [
+     "activities.camping_otun",
+     "activities.camping_tolima",
+     "activities.camping_brisas_restricted"
+    ],
+    "tags": [
+     "camping",
+     "carpa",
+     "pernocte"
+    ],
+    "entities": {
+     "sector": [
+      "brisas",
+      "santa_isabel",
+      "otun",
+      "tolima"
+     ]
+    }
+   },
+   "hours_status.camping_arrival_cutoff": {
+    "id": "hours_status.camping_arrival_cutoff",
+    "label": "hora de llegada a zonas de campamento",
+    "kind": "rule",
+    "audience": "visitor",
+    "lang": "es",
+    "examples": [
+     "a qué hora debo llegar al campamento",
+     "hora límite para llegar a la zona de camping",
+     "hasta qué hora puedo llegar al refugio",
+     "a qué horas se debe llegar a armar carpa",
+     "hora máxima de llegada a cabañas",
+     "cuándo debo estar en el campamento",
+     "límite de hora para llegar a acampar",
+     "hora máxima para montar carpas en el parque",
+     "toca estar aquí antes de que oscurezca?",
+     "cuándo llegar a la zona de camping autorizada",
+     "is there a late arrival limit for camping",
+     "what time should I arrive at the campsite"
+    ],
+    "hard_negatives": [
+     "a qué hora puedo entrar",
+     "hasta qué horas puedo estar arriba",
+     "a qué hora salir desde el campamento arenares"
+    ],
+    "entities": {},
+    "needs": [],
+    "answer": {
+     "short": "En «Sitios para camping» de la Resolución 207 del 04 de agosto de 2023, Camping Arenales del sector Brisas queda restringido por actividad volcánica y, como medida transitoria junto al Nevado del Tolima, se habilitan Termales Cañón, Arenales y Calvito; no hay una hora de llegada a la carpa. El informe de necesidades de 2024 dice que la zona de camping de Arenales, en Villamaría (Caldas), no se encuentra habilitada por la actividad volcánica; el Arenales del Tolima no tiene un dato posterior a esa habilitación de 2023. Eso no confirma tu fecha: pregunta a Parques Nacionales (@ParquesColombia).",
+     "variants": [
+      "Hay dos Arenales: el del sector Brisas queda restringido en la Resolución 207 de 2023 y el informe de 2024 dice que esa zona de camping, en Villamaría, no está habilitada por el volcán; el Arenales del Tolima solo tiene la habilitación transitoria de 2023. No hay hora de llegada a la carpa y ninguna de esas fechas confirma tu visita: pregunta a Parques Nacionales (@ParquesColombia)."
+     ],
+     "steps": [
+      [
+       "En «Sitios para camping» de la Resolución 207 del 04 de agosto de 2023, Camping Arenales del sector Brisas queda restringido por actividad volcánica y, como medida transitoria junto al Nevado del Tolima, se habilitan Termales Cañón, Arenales y Calvito; no hay una hora de llegada a la carpa. El informe de necesidades de 2024 dice que la zona de camping de Arenales, en Villamaría (Caldas), no se encuentra habilitada por la actividad volcánica; el Arenales del Tolima no tiene un dato posterior a esa habilitación de 2023. Eso no confirma tu fecha: pregunta a Parques Nacionales (@ParquesColombia)."
+      ]
+     ],
+     "detail": null,
+     "reflection": null
+    },
+    "sources": [
+     {
+      "label": "Parques Nacionales · Resolución 207 de 2023",
+      "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2023/08/Resolucion_207_2023_ReglamentacionNevados_.pdf",
+      "retrieved_at": "2026-11-21"
+     },
+     {
+      "label": "Parques Nacionales · ficha Los Nevados",
+      "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+      "retrieved_at": "2026-11-21"
+     },
+     {
+      "label": "Informe de necesidades de asistencia, PNN Los Nevados, 2024",
+      "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2024/12/Informe-de-necesidades-de-asistencia-PNN-Los-Nevados-2024.docx",
+      "retrieved_at": "2026-11-21"
+     }
+    ],
+    "last_verified": "2026-11-22",
+    "valid_until": null,
+    "related": [
+     "hours_status.night_entry_prohibition",
+     "hours_status.cedral_otun_hiking_schedule",
+     "hours_status.late_arrival_policy"
+    ],
+    "tags": [
+     "campamento",
+     "camping",
+     "llegada",
+     "hora límite",
+     "refugio"
+    ]
+   }
+  }
+ },
+ {
+  "ids": [
+   "activities.cycling_roads_2017",
+   "weather_volcano.volcanic_closures",
+   "activities.regulated_sports"
+  ],
+  "type": "rule",
+  "severity": "high",
+  "quotes": {
+   "activities.cycling_roads_2017": "El ciclomontañismo es bici de montaña por vías autorizadas para vehículos: Brisas–Olleta–Cisne, Cisne–Santa Bárbara–Potosí y Potosí–Muelle (plan de 2017).",
+   "weather_volcano.volcanic_closures": "Parques ha restringido la cumbre nevada y el ciclomontañismo entre Brisas, Arenales y Valle de las Tumbas por actividad volcánica, y puede ordenar cierre y evacuación en cualquier momento.",
+   "activities.regulated_sports": "Esa edición no trae el reglamento completo ni te autoriza a salir en bici o a correr por tu cuenta."
+  },
+  "evidence_says": "El plan de manejo de 2017 es la fuente de esas tres vías. La edición corta 2026 no las repite. La restricción del ciclomontañismo entre Brisas, Arenales y el Valle de las Tumbas está en la respuesta de volcanes sin fecha. No hay evidencia de 2025 o 2026 que deje abiertas Brisas–Olleta–Cisne.",
+  "fix": "No describir esas vías como las del ciclomontañismo actual. Decir que son del plan de 2017, que 2026 no las repite y que el tramo norte ha estado restringido por el volcán, sin fecha de esa restricción.",
+  "entries": {
+   "activities.cycling_roads_2017": {
+    "id": "activities.cycling_roads_2017",
+    "label": "vías del ciclomontañismo en el plan",
+    "kind": "fact",
+    "audience": "visitor",
+    "lang": "es",
+    "examples": [
+     "por dónde puedo ir en bici dentro del parque",
+     "el plan nombra las vías de ciclomontañismo",
+     "Brisas Olleta Cisne es ruta de bici",
+     "se puede pedalear hasta el Muelle",
+     "Cisne Santa Bárbara Potosí está en el plan",
+     "la bici va por las vías de los carros",
+     "el plan de 2026 repite esas vías",
+     "ciclomontañismo es por carretera o por sendero",
+     "puedo llevar la bici al valle y seguir",
+     "esas tres vias siguen vigentes?",
+     "which roads did the management plan allow for bikes",
+     "is the bike route still Brisas to Olleta"
+    ],
+    "hard_negatives": [
+     "puedo seguir subiendo con dolor de cabeza",
+     "me puedo quemar aunque esté nublado",
+     "gracias"
+    ],
+    "entities": {},
+    "needs": [],
+    "answer": {
+     "short": "El ciclomontañismo es bici de montaña por vías autorizadas para vehículos: Brisas–Olleta–Cisne, Cisne–Santa Bárbara–Potosí y Potosí–Muelle (plan de 2017). La edición corta del plan 2026 no repite esas vías. Confirma la ruta con el parque antes de llevar la bici.",
+     "variants": [
+      "Esas tres vías son del plan de 2017. El texto corto de 2026 no las vuelve a escribir. Pregunta al parque cuál, si alguna, está autorizada para tu fecha."
+     ],
+     "detail": null
+    },
+    "sources": [
+     {
+      "label": "Plan de manejo PNN Los Nevados, adoptado en 2017",
+      "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2020/10/plan-de-manejo-pnn-los-nevados.pdf",
+      "retrieved_at": "2026-11-21"
+     },
+     {
+      "label": "Plan de ordenamiento ecoturístico, versión corta 2026-2030",
+      "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2026/03/PUBLICACIO%CC%81N-PNN-LOS-NEVADOS-2026-V2.pdf",
+      "retrieved_at": "2026-11-21"
+     }
+    ],
+    "last_verified": "2026-11-21",
+    "valid_until": null,
+    "related": [
+     "activities.regulated_sports",
+     "activities.brisas_valle_tumbas",
+     "activities.potosi_laguna_road"
+    ],
+    "tags": [
+     "bici",
+     "ciclomontañismo",
+     "vias"
+    ]
+   },
+   "weather_volcano.volcanic_closures": {
+    "id": "weather_volcano.volcanic_closures",
+    "label": "cumbre y ciclomontañismo restringidos por volcán",
+    "kind": "rule",
+    "audience": "visitor",
+    "lang": "es",
+    "examples": [
+     "pueden cerrar un sector por el volcán",
+     "qué pasa si aumenta la actividad del Ruiz",
+     "cierran Brisas por alerta volcánica",
+     "por actividad del volcan pueden cerrar sectores y pedir que la gente salga?",
+     "qué accesos restringe la actividad del nevado",
+     "hay evacuación por actividad volcánica",
+     "por qué no dejan llegar a la nieve del Ruiz",
+     "el camino Brisas Arenales está restringido",
+     "puedo hacer ciclomontañismo por Brisas",
+     "cierre del parque por el volcán",
+     "toca obedecer si cierran por alerta",
+     "can volcanic activity close a park sector",
+     "is summit access restricted because of Ruiz"
+    ],
+    "hard_negatives": [
+     "cierres por volcán",
+     "qué significa alerta amarilla del Ruiz",
+     "en amarilla puedo subir a la parte alta"
+    ],
+    "needs": [],
+    "answer": {
+     "short": "La Resolución 268 del 22 de octubre de 2024 lista el ascenso a la cumbre nevada y el ciclomontañismo Brisas–Arenales–Valle de las Tumbas como restringidos por actividad volcánica, y dice que puede ordenarse cierre y evacuación en cualquier momento. En ese texto el Ruiz figuraba en alerta amarilla: es el dato de la resolución, no el de hoy. Confirma el aviso del día con el personal del parque y el boletín del SGC; esto no es el horario de apertura.",
+     "variants": [
+      "La Resolución 259 del 09 de octubre de 2024 también prevé cierre y evacuación, y pide seguir a los guardaparques. Ninguna de las dos dice si el sector está abierto hoy."
+     ]
+    },
+    "sources": [
+     {
+      "label": "Parques Nacionales, Resolución 268 de 2024",
+      "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2025/01/Res.-No.-268-del-22-de-octubre-de-2024-MODIFICA-PFFO-029-2024.pdf",
+      "retrieved_at": "2026-11-21"
+     },
+     {
+      "label": "Parques Nacionales, Resolución 259 de 2024",
+      "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2024/10/Res.-No.-259-del-09-de-octubre-de-2024-PFFO-022-2024.pdf",
+      "retrieved_at": "2026-11-21"
+     }
+    ],
+    "last_verified": "2026-11-21",
+    "related": [
+     "weather_volcano.current_alert",
+     "weather_volcano.alert_yellow_meaning"
+    ],
+    "tags": [
+     "cierre",
+     "restricción",
+     "sector",
+     "evacuación"
+    ]
+   },
+   "activities.regulated_sports": {
+    "id": "activities.regulated_sports",
+    "label": "ciclomontañismo y trail running",
+    "kind": "procedure",
+    "audience": "visitor",
+    "lang": "es",
+    "examples": [
+     "puedo entrar en bicicleta al parque",
+     "hay ciclomontañismo en Los Nevados",
+     "quiero hacer trail running",
+     "parce, ¿puedo rodar en bici por Brisas?",
+     "correr por los senderos como deporte",
+     "ciclismo de montaña dentro del área",
+     "una carrera a pie por el páramo",
+     "se puede rodar en bici por los nevados",
+     "trail running pide permiso especial",
+     "y pa' la cumbre, ¿llevo la bici?",
+     "can I mountain bike inside the park",
+     "is trail running allowed as its own sport"
+    ],
+    "hard_negatives": [
+     "voy a hacer una carrera ciclística en Los Nevados",
+     "ciclomontañismo es por carretera o por sendero",
+     "puedo hacer ciclomontañismo por Brisas"
+    ],
+    "needs": [],
+    "answer": {
+     "short": "Ciclomontañismo y trail running tienen requisitos propios, distintos de la visita tradicional (edición corta del plan 2026). Esa edición no trae el reglamento completo ni te autoriza a salir en bici o a correr por tu cuenta. Confirma el trámite con el parque; para la visita ordinaria, ve con un operador registrado.",
+     "variants": [
+      "Para ciclomontañismo y trail running hay requisitos propios en la edición corta del plan 2026, que no trae el reglamento completo. No salgas a rodar o correr por tu cuenta: confirma el trámite con el parque y, para una visita ordinaria, ve con operador registrado."
+     ]
+    },
+    "sources": [
+     {
+      "label": "Parques Nacionales Naturales, versión corta del POE Los Nevados, copyright 2025",
+      "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2026/03/PUBLICACIO%CC%81N-PNN-LOS-NEVADOS-2026-V2.pdf",
+      "retrieved_at": "2026-11-21"
+     },
+     {
+      "label": "Parques Nacionales Naturales de Colombia, ficha PNN Los Nevados",
+      "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+      "retrieved_at": "2026-11-21"
+     }
+    ],
+    "last_verified": "2026-11-21",
+    "related": [
+     "activities.sport_mountaineering",
+     "activities.vehicle_or_on_foot",
+     "activities.published_trails"
+    ],
+    "tags": [
+     "bicicleta",
+     "trail",
+     "deporte"
+    ],
+    "entities": {
+     "sector": [
+      "brisas",
+      "santa_isabel",
+      "otun",
+      "tolima"
+     ]
+    }
+   }
+  }
+ },
+ {
+  "ids": [
+   "hours_status.night_entry_prohibition",
+   "activities.unlisted_activities",
+   "hours_status.cedral_otun_hiking_schedule",
+   "hours_status.camping_arrival_cutoff"
+  ],
+  "type": "rule",
+  "severity": "high",
+  "quotes": {
+   "hours_status.night_entry_prohibition": "El ingreso nocturno al Parque Nacional Natural Los Nevados está prohibido en todos los sectores.",
+   "activities.unlisted_activities": "En 2024 se lista caminata nocturna en Brisas y Cisne como permiso especial, pero esa norma no la nombra.",
+   "hours_status.camping_arrival_cutoff": "Está prohibido transitar de noche por senderos."
+  },
+  "evidence_says": "Las respuestas de horario apoyan la prohibición de transitar e ingresar de noche. El informe de necesidades 2024 lista «Actividad nocturna: Sector Brisas y Cisne». La Resolución 207, que la entrada de actividades cita, no nombra esa caminata.",
+  "fix": "No dejar la prohibición absoluta al lado de un permiso especial de 2024 sin decir que no está en la Resolución 207. La instrucción al visitante es no entrar de noche salvo autorización escrita del parque para esa fecha.",
+  "entries": {
+   "hours_status.night_entry_prohibition": {
+    "id": "hours_status.night_entry_prohibition",
+    "label": "prohibición de ingreso nocturno al parque",
+    "kind": "rule",
+    "audience": "visitor",
+    "lang": "es",
+    "examples": [
+     "se puede entrar de noche al parque",
+     "puedo ingresar en la noche",
+     "está permitido entrar de noche",
+     "si llego de noche, ¿igual me dejan pasar?",
+     "si llego de madrugada antes de que abran, me dejan pasar?",
+     "puedo llegar de madrugada al parque",
+     "dejan pasar carros de noche en brisas",
+     "se puede caminar de noche por los senderos",
+     "de noche no dejan entrar al parque, cierto",
+     "por qué no dejan entrar de noche",
+     "is night entry allowed in the park",
+     "can I enter los nevados at night"
+    ],
+    "hard_negatives": [
+     "¿y si ya es tarde, me dejan entrar?",
+     "a qué hora puedo entrar",
+     "de noche sí dejan caminar?"
+    ],
+    "entities": {},
+    "needs": [],
+    "answer": {
+     "short": "La ficha PNN solo publica horarios de ingreso diurnos y la Resolución 207 de 2023 ordena respetar los horarios establecidos para cada actividad turística, sin contener una prohibición general expresa de ingreso nocturno en todo el parque. Por su parte, el informe de necesidades de 2024 establece que la actividad nocturna en los sectores Brisas y Cisne requiere un permiso especial previo de Parques Nacionales. Si planeas actividades nocturnas en Brisas o Cisne, tramita dicho permiso y confirma con la entidad antes de viajar.",
+     "variants": [
+      "Ni la ficha PNN ni la Resolución 207 de 2023 formulan una prohibición nocturna general para todo el parque, aunque sí exigen respetar los horarios diurnos autorizados. El informe de necesidades de 2024 exige permiso especial exclusivamente para actividades nocturnas en los sectores Brisas y Cisne: no las realices en esos sectores sin autorización previa de Parques Nacionales."
+     ],
+     "detail": "La Resolución 207 de 2023 dispone respetar los horarios establecidos para las actividades turísticas autorizadas (todas diurnas), sin enunciar una regla general de prohibición nocturna para la totalidad del área protegida. El informe de necesidades de asistencia 2024 clasifica específicamente la «Actividad nocturna: Sector Brisas y Cisne» entre las que requieren permiso especial expedido por Parques Nacionales. Dicha exigencia de permiso se limita a actividades nocturnas en esos dos sectores."
+    },
+    "sources": [
+     {
+      "label": "Parques Nacionales Naturales de Colombia · PNN Los Nevados",
+      "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+      "retrieved_at": "2026-11-21"
+     },
+     {
+      "label": "Parques Nacionales Naturales de Colombia · Resolución 207 de 2023 (Reglamentación transitoria PNN Los Nevados)",
+      "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2023/08/Resolucion_207_2023_ReglamentacionNevados_.pdf",
+      "retrieved_at": "2026-11-21"
+     },
+     {
+      "label": "PNN Los Nevados · Informe de necesidades de asistencia 2024",
+      "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2024/12/Informe-de-necesidades-de-asistencia-PNN-Los-Nevados-2024.docx",
+      "retrieved_at": "2026-11-21"
+     }
+    ],
+    "last_verified": "2026-11-22",
+    "valid_until": null,
+    "related": [
+     "hours_status.late_arrival_policy",
+     "hours_status.camping_arrival_cutoff",
+     "hours_status.general_opening_schedule"
+    ],
+    "tags": [
+     "nocturno",
+     "prohibición",
+     "seguridad",
+     "noche",
+     "regla"
+    ]
+   },
+   "activities.unlisted_activities": {
+    "id": "activities.unlisted_activities",
+    "label": "actividades que no aparecen publicadas",
+    "kind": "fact",
+    "audience": "visitor",
+    "lang": "es",
+    "examples": [
+     "hay paseo en bote por la laguna",
+     "puedo esquiar en el nevado",
+     "hay zona de picnic con mesas",
+     "pa' ver estrellas, ¿hay caminata de noche?",
+     "el esquí de montaña es un tour",
+     "almuerzo en un kiosco del sendero",
+     "de noche sí dejan caminar?",
+     "hay lancha en el muelle del otun",
+     "picnic en el valle de las tumbas",
+     "dejan hacer sky de montana como paseo",
+     "is there a boat, a ski tour, or a picnic area",
+     "do you offer a night hike under the stars"
+    ],
+    "hard_negatives": [
+     "hay sendero a La Piraña",
+     "me pasan los nombres de los senderos pa' ir?",
+     "preparación para trekking a borde de nieve"
+    ],
+    "needs": [],
+    "answer": {
+     "short": "Bote y picnic no están en lo permitido el 4 de agosto de 2023, y el esquí de montaña solo aparece dentro del montañismo deportivo. En 2024 se lista caminata nocturna en Brisas y Cisne como permiso especial, pero esa norma no la nombra. Pregunta al parque antes de contarla.",
+     "variants": [
+      "Ni el bote ni el picnic están en la norma. El esquí de montaña es deporte, no un paseo. La caminata de noche solo aparece como permiso en el informe de 2024: pídela por escrito al parque."
+     ]
+    },
+    "sources": [
+     {
+      "label": "Resolución 207 del 4 de agosto de 2023, reglamentación del ecoturismo",
+      "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2023/08/Resolucion_207_2023_ReglamentacionNevados.pdf",
+      "retrieved_at": "2026-11-21"
+     },
+     {
+      "label": "Informe de necesidades de asistencia, PNN Los Nevados, 2024",
+      "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2024/12/Informe-de-necesidades-de-asistencia-PNN-Los-Nevados-2024.docx",
+      "retrieved_at": "2026-11-21"
+     }
+    ],
+    "last_verified": "2026-11-21",
+    "related": [
+     "activities.sector_laguna_otun",
+     "activities.sport_mountaineering",
+     "activities.brisas_valle_tumbas"
+    ],
+    "tags": [
+     "bote",
+     "esquí",
+     "picnic",
+     "noche"
+    ],
+    "entities": {
+     "sector": [
+      "brisas",
+      "otun",
+      "tolima",
+      "santa_isabel"
+     ]
+    }
+   },
+   "hours_status.cedral_otun_hiking_schedule": {
+    "id": "hours_status.cedral_otun_hiking_schedule",
+    "label": "horario de caminata desde El Cedral",
+    "kind": "procedure",
+    "audience": "visitor",
+    "lang": "es",
+    "examples": [
+     "a qué hora salir de el cedral hacia el otún",
+     "horario caminata el cedral laguna del otun",
+     "a qué horas empezar a caminar desde el cedral",
+     "cuándo iniciar la ruta desde el cedral",
+     "toca salir de madrugada desde El Cedral?",
+     "horario recomendado subiendo por el cedral",
+     "a qué hora salir a pie desde el cedral",
+     "a q hora arranco caminando pa el otún?",
+     "cuándo madrugar en el cedral",
+     "hora para empezar el ascenso desde el cedral",
+     "start time for hiking from el cedral to otun",
+     "what time should I leave el cedral for the otun"
+    ],
+    "hard_negatives": [
+     "la subida desde El Cedral",
+     "a qué horas puedo llegar a la laguna del otún",
+     "cuántos km a pie desde el cedral"
+    ],
+    "entities": {
+     "sector": [
+      "otun"
+     ]
+    },
+    "needs": [],
+    "answer": {
+     "short": "De El Cedral hay aproximadamente 7,5 km al límite del parque y 18 km a la Laguna del Otún, y la ficha no publica un horario de taquilla en El Cedral. La ficha, con última modificación el 31 de octubre de 2026, no confirma el día de tu visita: confírmalo con Parques Nacionales (@ParquesColombia).",
+     "variants": [
+      "La ficha, con última modificación el 31 de octubre de 2026, no confirma el día de tu visita: confírmalo con Parques Nacionales (@ParquesColombia). De El Cedral hay aproximadamente 7,5 km al límite del parque y 18 km a la Laguna del Otún, y la ficha no publica un horario de taquilla en El Cedral."
+     ],
+     "steps": [
+      [
+       "De El Cedral hay aproximadamente 7,5 km al límite del parque y 18 km a la Laguna del Otún, y la ficha no publica un horario de taquilla en El Cedral."
+      ]
+     ],
+     "detail": null,
+     "reflection": null
+    },
+    "sources": [
+     {
+      "label": "Parques Nacionales · ficha Los Nevados",
+      "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+      "retrieved_at": "2026-11-21"
+     }
+    ],
+    "last_verified": "2026-11-22",
+    "valid_until": null,
+    "related": [
+     "hours_status.otun_sector_hours",
+     "hours_status.night_entry_prohibition",
+     "hours_status.camping_arrival_cutoff"
+    ],
+    "tags": [
+     "el cedral",
+     "otún",
+     "caminata",
+     "horario",
+     "travesía"
+    ]
+   },
+   "hours_status.camping_arrival_cutoff": {
+    "id": "hours_status.camping_arrival_cutoff",
+    "label": "hora de llegada a zonas de campamento",
+    "kind": "rule",
+    "audience": "visitor",
+    "lang": "es",
+    "examples": [
+     "a qué hora debo llegar al campamento",
+     "hora límite para llegar a la zona de camping",
+     "hasta qué hora puedo llegar al refugio",
+     "a qué horas se debe llegar a armar carpa",
+     "hora máxima de llegada a cabañas",
+     "cuándo debo estar en el campamento",
+     "límite de hora para llegar a acampar",
+     "hora máxima para montar carpas en el parque",
+     "toca estar aquí antes de que oscurezca?",
+     "cuándo llegar a la zona de camping autorizada",
+     "is there a late arrival limit for camping",
+     "what time should I arrive at the campsite"
+    ],
+    "hard_negatives": [
+     "a qué hora puedo entrar",
+     "hasta qué horas puedo estar arriba",
+     "a qué hora salir desde el campamento arenares"
+    ],
+    "entities": {},
+    "needs": [],
+    "answer": {
+     "short": "En «Sitios para camping» de la Resolución 207 del 04 de agosto de 2023, Camping Arenales del sector Brisas queda restringido por actividad volcánica y, como medida transitoria junto al Nevado del Tolima, se habilitan Termales Cañón, Arenales y Calvito; no hay una hora de llegada a la carpa. El informe de necesidades de 2024 dice que la zona de camping de Arenales, en Villamaría (Caldas), no se encuentra habilitada por la actividad volcánica; el Arenales del Tolima no tiene un dato posterior a esa habilitación de 2023. Eso no confirma tu fecha: pregunta a Parques Nacionales (@ParquesColombia).",
+     "variants": [
+      "Hay dos Arenales: el del sector Brisas queda restringido en la Resolución 207 de 2023 y el informe de 2024 dice que esa zona de camping, en Villamaría, no está habilitada por el volcán; el Arenales del Tolima solo tiene la habilitación transitoria de 2023. No hay hora de llegada a la carpa y ninguna de esas fechas confirma tu visita: pregunta a Parques Nacionales (@ParquesColombia)."
+     ],
+     "steps": [
+      [
+       "En «Sitios para camping» de la Resolución 207 del 04 de agosto de 2023, Camping Arenales del sector Brisas queda restringido por actividad volcánica y, como medida transitoria junto al Nevado del Tolima, se habilitan Termales Cañón, Arenales y Calvito; no hay una hora de llegada a la carpa. El informe de necesidades de 2024 dice que la zona de camping de Arenales, en Villamaría (Caldas), no se encuentra habilitada por la actividad volcánica; el Arenales del Tolima no tiene un dato posterior a esa habilitación de 2023. Eso no confirma tu fecha: pregunta a Parques Nacionales (@ParquesColombia)."
+      ]
+     ],
+     "detail": null,
+     "reflection": null
+    },
+    "sources": [
+     {
+      "label": "Parques Nacionales · Resolución 207 de 2023",
+      "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2023/08/Resolucion_207_2023_ReglamentacionNevados_.pdf",
+      "retrieved_at": "2026-11-21"
+     },
+     {
+      "label": "Parques Nacionales · ficha Los Nevados",
+      "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+      "retrieved_at": "2026-11-21"
+     },
+     {
+      "label": "Informe de necesidades de asistencia, PNN Los Nevados, 2024",
+      "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2024/12/Informe-de-necesidades-de-asistencia-PNN-Los-Nevados-2024.docx",
+      "retrieved_at": "2026-11-21"
+     }
+    ],
+    "last_verified": "2026-11-22",
+    "valid_until": null,
+    "related": [
+     "hours_status.night_entry_prohibition",
+     "hours_status.cedral_otun_hiking_schedule",
+     "hours_status.late_arrival_policy"
+    ],
+    "tags": [
+     "campamento",
+     "camping",
+     "llegada",
+     "hora límite",
+     "refugio"
+    ]
+   }
+  }
+ },
+ {
+  "ids": [
+   "services.porter_luggage",
+   "activities.camping_tolima",
+   "activities.calvito_overnight"
+  ],
+  "type": "rule",
+  "severity": "high",
+  "quotes": {
+   "services.porter_luggage": "El informe 2024 también lo lista en Juntas y en Los Chilcos–Arenales: confirma la ruta con el prestador.",
+   "activities.camping_tolima": "El porteo de maletas a Calvito y Arenales está prohibido.",
+   "activities.calvito_overnight": "El porteo de maletas hasta Calvito está prohibido."
+  },
+  "evidence_says": "El anexo de 2023 apoya porteo solo por El Cedral, Cocora y Palomar, y lo prohíbe en Calvito y Arenales. El informe 2024 nombra «porteo de maletas» y, aparte, el sendero Chilcos–Arenales cumbre. No dice con esa claridad que el porteo esté autorizado en Juntas o en Chilcos.",
+  "fix": "Dejar la regla de 2023 como la prohibición en Calvito y Arenales y la lista del sur. No afirmar que el informe 2024 autoriza porteo en Juntas y Chilcos; decir que nombra el sendero y que la ruta se confirma con el prestador.",
+  "entries": {
+   "services.porter_luggage": {
+    "id": "services.porter_luggage",
+    "label": "rutas autorizadas para porteo de maletas",
+    "kind": "fact",
+    "audience": "visitor",
+    "lang": "es",
+    "examples": [
+     "porteador",
+     "porteo",
+     "me cargan la maleta?",
+     "hay quien lleve el equipaje",
+     "alguien que cargue las maletas hasta arriba",
+     "y el porteo sale caro?",
+     "cuánto cobran por cargar la maleta",
+     "contratar a alguien para cargar el morral",
+     "hay porteo en la ruta de El Bosque",
+     "el porteo sirve en la ruta de Juntas?",
+     "what does a porter cost",
+     "can someone carry my bags up the trail",
+     "servicio de porteo de maletas en el parque",
+     "dónde contratar porteador de equipaje en las rutas",
+     "en cuáles rutas está permitido el porteo de equipaje",
+     "por cuáles sectores se puede llevar porteador de maletas",
+     "está permitido el porteo de bultos por el Cedral o Cocora"
+    ],
+    "hard_negatives": [
+     "requisitos para ser porteador",
+     "cómo sé si el porteador está avalado",
+     "puedo subir con mula pa cargar las maletas?",
+     "se puede llevar el equipaje en mula o caballo"
+    ],
+    "entities": {
+     "sector": [
+      "otun",
+      "quindio_dulima",
+      "brisas"
+     ]
+    },
+    "answer": {
+     "short": "El porteo de maletas está permitido exclusivamente en el sector sur ingresando por El Cedral (Pereira), Valle de Cocora (Salento) y Palomar (Anzoátegui) hasta los predios autorizados, y queda prohibido hacia los campamentos de Calvito y Arenales (reglamentación de 2023). El informe de 2024 menciona el sendero Chilcos–Arenales cumbre pero no autoriza porteo en Juntas ni en Chilcos: confirma la ruta con el prestador antes de contratar.",
+     "variants": [
+      "Según la reglamentación de 2023, el porteo de equipaje se autoriza únicamente en el sector sur por las entradas de El Cedral, Valle de Cocora y Palomar, estando prohibido para Calvito y Arenales. El informe de 2024 cita Chilcos–Arenales cumbre sin autorizar porteo en Juntas o Chilcos: verifica siempre la ruta con el prestador autorizado."
+     ],
+     "detail": "La reglamentación ecoturística de 2023 (Anexo PNN) restringe el porteo de maletas únicamente al sector sur: Pereira por El Cedral (hasta el predio El Berlín), Salento por Cocora (hasta La Argentina/Buenos Aires y La Primavera/La Playa) y Anzoátegui por Palomar (hasta Termales de Cañón); prohíbe el porteo para las zonas de camping de Calvito y Arenales. El informe de 2024 incluye el sendero Chilcos–Arenales cumbre pero no autoriza porteo en Juntas ni Chilcos. Confirma tu itinerario con el prestador avalado."
+    },
+    "sources": [
+     {
+      "label": "PNN Los Nevados · Anexo de reglamentación ecoturística (2023)",
+      "url": "https://parquesnacionales.gov.co/wp-content/uploads/2023/12/ANEXO-PNN-NEVADOS.pdf",
+      "retrieved_at": "2026-11-21"
+     },
+     {
+      "label": "PNN Los Nevados · Informe de necesidades de asistencia 2024",
+      "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2024/12/Informe-de-necesidades-de-asistencia-PNN-Los-Nevados-2024.docx",
+      "retrieved_at": "2026-11-21"
+     },
+     {
+      "label": "Parques Nacionales Naturales · Los Nevados (ficha oficial)",
+      "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+      "retrieved_at": "2026-11-21"
+     }
+    ],
+    "last_verified": "2026-11-22",
+    "valid_until": null,
+    "related": [
+     "services.otun_lodging",
+     "services.tolima_lodging",
+     "services.uton_services"
+    ],
+    "tags": [
+     "porteo",
+     "maletas",
+     "equipaje",
+     "prestador"
+    ]
+   },
+   "activities.camping_tolima": {
+    "id": "activities.camping_tolima",
+    "label": "pernocte transitorio del Tolima",
+    "kind": "fact",
+    "audience": "visitor",
+    "lang": "es",
+    "examples": [
+     "dónde se duerme en la travesía del Tolima",
+     "puedo acampar en Termales del Cañón",
+     "toca armar carpa en Calvito?",
+     "Arenales del sur deja pasar la noche",
+     "campamentos transitorios del Tolima",
+     "la carpa en la ruta de la cumbre",
+     "pernocte en el sur del parque",
+     "dónde me toca dormir en el sur, parce?",
+     "el canon tiene camping transitorio",
+     "donde armo la carpa en el tolima",
+     "where can I camp on the Tolima trek",
+     "are Calvito and Arenales overnight stops"
+    ],
+    "hard_negatives": [
+     "pernoctar en el sector de las tumbas",
+     "Calvito es un camping del Tolima",
+     "senderismo cerca del Tolima"
+    ],
+    "needs": [],
+    "answer": {
+     "short": "La norma del 4 de agosto de 2023 habilitó de forma transitoria el pernocte en Termales del Cañón, Arenales y Calvito, puntos cercanos al Nevado del Tolima, con carpa de tres o cuatro estaciones para temperaturas bajo cero y sin fogata. Este Arenales no es el camping del sector Brisas. El porteo de maletas a Calvito y Arenales está prohibido. Confirma con Parques Nacionales si siguen habilitados para tu fecha.",
+     "variants": [
+      "Según la norma de agosto de 2023, cerca del Nevado del Tolima se podía pernoctar de forma transitoria en Termales del Cañón, Arenales y Calvito, con carpa de alta montaña y sin fogata; a Calvito y Arenales no se permite porteo de maletas. No es el Arenales del sector Brisas. Confirma con el parque antes de ir."
+     ]
+    },
+    "sources": [
+     {
+      "label": "Parques Nacionales Naturales, Resolución 207 del 4 de agosto de 2023",
+      "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2023/08/Resolucion_207_2023_ReglamentacionNevados.pdf",
+      "retrieved_at": "2026-11-21"
+     }
+    ],
+    "last_verified": "2026-11-22",
+    "related": [
+     "activities.camping_where",
+     "activities.termales_canon",
+     "activities.tolima_summit_schimmer"
+    ],
+    "tags": [
+     "calvito",
+     "arenales",
+     "pernocte"
+    ],
+    "entities": {
+     "sector": [
+      "tolima"
+     ]
+    }
+   },
+   "activities.calvito_overnight": {
+    "id": "activities.calvito_overnight",
+    "label": "pernocte en el punto Calvito",
+    "kind": "fact",
+    "audience": "visitor",
+    "lang": "es",
+    "examples": [
+     "puedo dormir en Calvito",
+     "Calvito es un camping del Tolima",
+     "dónde queda ese punto de Calvito",
+     "Calvito está abierto como los otros",
+     "me cargan la maleta hasta Calvito",
+     "Calvito es lo mismo que Arenales",
+     "ese sitio es transitorio o definitivo",
+     "calvito sirve para la noche antes de la cumbre?",
+     "que carpa piden si duermo en calvito",
+     "puedo hacer fogata en Calvito si hace mucho frío",
+     "can I camp at Calvito",
+     "is Calvito one of the Tolima overnight spots"
+    ],
+    "hard_negatives": [
+     "chao",
+     "nieva en Los Nevados",
+     "sirve un poncho de plástico para la lluvia"
+    ],
+    "entities": {
+     "sector": [
+      "tolima"
+     ]
+    },
+    "needs": [],
+    "answer": {
+     "short": "Calvito es uno de los tres puntos habilitados, de forma transitoria, para dormir junto al Tolima (4 de agosto de 2023). El porteo de maletas hasta Calvito está prohibido. Confirma con el parque si esa noche sigue autorizada y lleva carpa de tres o cuatro estaciones, sin fogata.",
+     "variants": [
+      "Calvito es pernocte transitorio de 2023, no un camping garantizado, y no te pueden portear la maleta hasta allá. Pregunta si sigue abierto y arma la carpa de alta montaña sin fuego."
+     ],
+     "detail": null
+    },
+    "sources": [
+     {
+      "label": "Resolución 207 del 4 de agosto de 2023, reglamentación del ecoturismo",
+      "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2023/08/Resolucion_207_2023_ReglamentacionNevados.pdf",
+      "retrieved_at": "2026-11-21"
+     }
+    ],
+    "last_verified": "2026-11-21",
+    "valid_until": null,
+    "related": [
+     "activities.camping_tolima",
+     "activities.tolima_summit_schimmer",
+     "activities.camping_where"
+    ],
+    "tags": [
+     "calvito",
+     "camping",
+     "tolima"
+    ]
+   }
+  }
+ },
+ {
+  "ids": [
+   "booking_fees.brisas_guide_price"
+  ],
+  "type": "stale",
+  "severity": "high",
+  "quotes": {
+   "booking_fees.brisas_guide_price": "El servicio de guianza e interpretación en Brisas, prestado por UTON, figura en $22.000."
+  },
+  "evidence_says": "La ficha de PNN muestra 22.000 bajo servicios de interpretación y guianza de UTON, sin año y sin decir si es por persona o por grupo. No hay otra tarifa de guianza en las entradas que la contradiga.",
+  "fix": "No mostrar $22.000 como precio a pagar. Decir que la ficha lo publica sin año y sin unidad, y que hay que preguntar a UTON antes de contratar.",
+  "entries": {
+   "booking_fees.brisas_guide_price": {
+    "id": "booking_fees.brisas_guide_price",
+    "label": "precio de la guianza en Brisas",
+    "kind": "fact",
+    "audience": "visitor",
+    "lang": "es",
+    "examples": [
+     "cuanto cuesta el guia en brisas",
+     "precio de la guianza en el sector norte",
+     "cuanto vale el interprete en brisas",
+     "servicio de guia de uton cuanto cobra",
+     "cuanto paga por guia en los nevados brisas",
+     "how much is the guide service in Brisas?",
+     "valor del guia uton",
+     "tarifa de interpretacion en el carreteable",
+     "costo de guianza en brisas por persona o grupo",
+     "cuanto me cobran por el guia del parque",
+     "guianza brisas cuanto sale",
+     "precio del guia en la concesion"
+    ],
+    "hard_negatives": [
+     "dónde reservo Brisas",
+     "cómo sé si el guía está autorizado"
+    ],
+    "needs": [],
+    "answer": {
+     "short": "La ficha PNN consultada el 22-11-2026 publica $22.000 COP para el servicio de guianza e interpretación de UTON en Brisas, pero lo hace sin año de vigencia ni unidad (no especifica si es por persona o por grupo). No lo tomes como tarifa vigente fija a pagar: consulta directamente con la concesión UTON la tarifa actual antes de contratar.",
+     "variants": [
+      "El valor de $22.000 COP que figura en la ficha PNN consultada el 22-11-2026 para la guianza de UTON en Brisas se publica sin año de vigencia ni unidad de cobro (por persona o por grupo). No lo presentes ni asumas como tarifa vigente a pagar; confirma el precio vigente con la concesión UTON antes de viajar."
+     ],
+     "detail": "En la ficha PNN consultada el 22-11-2026 figura la cifra 22.000 para el servicio de interpretación y guianza de la concesión Unión Temporal Operación Nevados (UTON) en Brisas-Kumanday, pero la página lo publica sin año de vigencia ni unidad (individual o grupal). No debe presentarse como tarifa vigente: verifica los costos directamente con el operador UTON."
+    },
+    "sources": [
+     {
+      "label": "Parque Nacional Natural Los Nevados · Parques Nacionales Naturales",
+      "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+      "retrieved_at": "2026-11-21"
+     }
+    ],
+    "last_verified": "2026-11-22",
+    "valid_until": "2026-12-31",
+    "related": [
+     "booking_fees.brisas_booking_channel",
+     "booking_fees.registered_operator_choice"
+    ],
+    "tags": []
+   }
+  }
+ },
+ {
+  "ids": [
+   "weather_volcano.volcanic_closures"
+  ],
+  "type": "stale",
+  "severity": "high",
+  "quotes": {
+   "weather_volcano.volcanic_closures": "Parques ha restringido la cumbre nevada y el ciclomontañismo entre Brisas, Arenales y Valle de las Tumbas por actividad volcánica, y puede ordenar cierre y evacuación en cualquier momento."
+  },
+  "evidence_says": "La respuesta no cita fecha. El cierre de cima y cráter del Ruiz sí está fechado en otra entrada (carta del 11 de mayo de 2026). Para este corredor de ciclomontañismo no hay una fecha en la respuesta ni en la evidencia revisada que fije desde cuándo rige.",
+  "fix": "Poner la fecha de la restricción o decir que no está fechada. No enunciarla como el estado presente del corredor.",
+  "entries": {
+   "weather_volcano.volcanic_closures": {
+    "id": "weather_volcano.volcanic_closures",
+    "label": "cumbre y ciclomontañismo restringidos por volcán",
+    "kind": "rule",
+    "audience": "visitor",
+    "lang": "es",
+    "examples": [
+     "pueden cerrar un sector por el volcán",
+     "qué pasa si aumenta la actividad del Ruiz",
+     "cierran Brisas por alerta volcánica",
+     "por actividad del volcan pueden cerrar sectores y pedir que la gente salga?",
+     "qué accesos restringe la actividad del nevado",
+     "hay evacuación por actividad volcánica",
+     "por qué no dejan llegar a la nieve del Ruiz",
+     "el camino Brisas Arenales está restringido",
+     "puedo hacer ciclomontañismo por Brisas",
+     "cierre del parque por el volcán",
+     "toca obedecer si cierran por alerta",
+     "can volcanic activity close a park sector",
+     "is summit access restricted because of Ruiz"
+    ],
+    "hard_negatives": [
+     "cierres por volcán",
+     "qué significa alerta amarilla del Ruiz",
+     "en amarilla puedo subir a la parte alta"
+    ],
+    "needs": [],
+    "answer": {
+     "short": "La Resolución 268 del 22 de octubre de 2024 lista el ascenso a la cumbre nevada y el ciclomontañismo Brisas–Arenales–Valle de las Tumbas como restringidos por actividad volcánica, y dice que puede ordenarse cierre y evacuación en cualquier momento. En ese texto el Ruiz figuraba en alerta amarilla: es el dato de la resolución, no el de hoy. Confirma el aviso del día con el personal del parque y el boletín del SGC; esto no es el horario de apertura.",
+     "variants": [
+      "La Resolución 259 del 09 de octubre de 2024 también prevé cierre y evacuación, y pide seguir a los guardaparques. Ninguna de las dos dice si el sector está abierto hoy."
+     ]
+    },
+    "sources": [
+     {
+      "label": "Parques Nacionales, Resolución 268 de 2024",
+      "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2025/01/Res.-No.-268-del-22-de-octubre-de-2024-MODIFICA-PFFO-029-2024.pdf",
+      "retrieved_at": "2026-11-21"
+     },
+     {
+      "label": "Parques Nacionales, Resolución 259 de 2024",
+      "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2024/10/Res.-No.-259-del-09-de-octubre-de-2024-PFFO-022-2024.pdf",
+      "retrieved_at": "2026-11-21"
+     }
+    ],
+    "last_verified": "2026-11-21",
+    "related": [
+     "weather_volcano.current_alert",
+     "weather_volcano.alert_yellow_meaning"
+    ],
+    "tags": [
+     "cierre",
+     "restricción",
+     "sector",
+     "evacuación"
+    ]
+   }
+  }
+ },
+ {
+  "ids": [
+   "weather_volcano.ash_roofs"
+  ],
+  "type": "safety",
+  "severity": "critical",
+  "quotes": {
+   "weather_volcano.ash_roofs": "Hay dos instrucciones: la UNGRD dice retirar la ceniza del techo sin agua, y la guía del SGC permite humedecerla poco para no levantar polvo, sin empapar el techo."
+  },
+  "evidence_says": "La UNGRD apoya «Retire la ceniza de los techos, sin utilizar agua». La guía del SGC apoya rociar poco los depósitos antes de palear, sin humedecer demasiado, porque la ceniza mojada puede colapsar el techo. Las dos instrucciones están en las fuentes y el short las deja juntas.",
+  "fix": "Dar una sola instrucción: no empapar el techo. En el parque, no subir a limpiarlo y avisar al personal. Fuera del parque, seguir el texto que se elija y citarlo, sin presentar las dos como equivalentes.",
+  "entries": {
+   "weather_volcano.ash_roofs": {
+    "id": "weather_volcano.ash_roofs",
+    "label": "ceniza acumulada en los techos",
+    "kind": "safety",
+    "audience": "visitor",
+    "lang": "es",
+    "examples": [
+     "cómo quito la ceniza del techo",
+     "le echo agua a la ceniza del techo",
+     "el techo se puede caer con ceniza mojada",
+     "limpio la ceniza del techo con agua o en seco?",
+     "puedo subirme al techo del refugio",
+     "limpiar ceniza sin empapar el techo",
+     "quién limpia el techo en el parque",
+     "ceniza húmeda pesa más",
+     "no subo a limpiar el techo solo",
+     "hay dos instrucciones para la ceniza del techo",
+     "should I wash volcanic ash off a roof",
+     "can I climb the shelter roof to remove ash"
+    ],
+    "hard_negatives": [
+     "está abierto hoy",
+     "hay cierres"
+    ],
+    "needs": [],
+    "answer": {
+     "short": "No empapés el techo ni te subas a quitar la ceniza: avisa al personal del parque. La guía del SGC advierte que la ceniza demasiado húmeda puede colapsar el techo, y la UNGRD pide retirarla sin utilizar agua; no hagas ninguna de las dos por tu cuenta.",
+     "variants": [
+      "En el refugio no limpies el techo ni le eches agua. Avísale al personal y no elijas tú entre mojarlo o barrerlo en seco."
+     ]
+    },
+    "sources": [
+     {
+      "label": "UNGRD, comunidades preparadas ante erupciones",
+      "url": "http://repositorio.gestiondelriesgo.gov.co/bitstream/handle/20.500.11762/19985/Comunidades_preparadas_ante_erupciones_volcanicas.pdf?sequence=1",
+      "retrieved_at": "2026-11-22"
+     },
+     {
+      "label": "SGC, guía de preparación ante lluvia de cenizas",
+      "url": "https://www2.sgc.gov.co/Direcciones-Tecnicas/Geoamenazas/Documents/Guia_preparacion_lluvia_cenizas.pdf",
+      "retrieved_at": "2026-11-22"
+     }
+    ],
+    "last_verified": "2026-11-22",
+    "related": [
+     "weather_volcano.ash_actions",
+     "weather_volcano.ash_resuspends",
+     "weather_volcano.stay_safe_zone"
+    ],
+    "tags": [
+     "techo",
+     "ceniza",
+     "agua"
+    ]
+   }
+  }
+ },
+ {
+  "ids": [
+   "hours_status.volcanic_alert_closures",
+   "weather_volcano.yellow_upper_access",
+   "weather_volcano.alert_yellow_meaning"
+  ],
+  "type": "safety",
+  "severity": "high",
+  "quotes": {
+   "hours_status.volcanic_alert_closures": "Con alerta amarilla siguen abiertos los sectores autorizados.",
+   "weather_volcano.yellow_upper_access": "En amarilla el SGC recomienda restringir la parte alta, y eso depende del volcán.",
+   "weather_volcano.alert_yellow_meaning": "El SGC recomienda restringir la parte alta, según el volcán. El ingreso lo definen el boletín vigente y el personal del parque."
+  },
+  "evidence_says": "La nota de horarios, con la Resolución 068 de 2023, apoya que en amarillo se mantiene el acceso regulado a sectores autorizados. El SGC apoya «Restringir el acceso a la parte alta del volcán». Las dos pueden leerse juntas solo si la parte alta no es un sector autorizado; el short de horarios no lo dice.",
+  "fix": "No decir que en amarillo los sectores siguen abiertos sin añadir que el SGC pide restringir la parte alta y que el color no autoriza el ingreso. El ingreso lo confirma el parque el día de la visita.",
+  "entries": {
+   "hours_status.volcanic_alert_closures": {
+    "id": "hours_status.volcanic_alert_closures",
+    "label": "suspensión de ingreso según el color de alerta",
+    "kind": "safety",
+    "audience": "visitor",
+    "lang": "es",
+    "examples": [
+     "cierres por volcán",
+     "cierre por alerta del nevado del ruiz",
+     "si el volcán está activo cierran el parque",
+     "si el volcán anda raro, cierran el parque?",
+     "si suben el ruiz a naranja, el parque cierra la entrada?",
+     "cuándo cierran el parque por erupción",
+     "por qué cerraron por el volcán nevado del ruiz",
+     "cómo saber si el parque cerró por el volcán",
+     "will they close the park if the volcano wakes up",
+     "si pasan el ruiz a naranja cierran el ingreso de turistas",
+     "cierre por actividad volcánica",
+     "cierran brisas si el volcán emite gases",
+     "is the park closed due to volcanic activity"
+    ],
+    "hard_negatives": [
+     "por qué no dejan llegar a la nieve del Ruiz",
+     "el camino Brisas Arenales está restringido",
+     "puedo hacer ciclomontañismo por Brisas",
+     "cierre del parque por el volcán"
+    ],
+    "entities": {
+     "closure_type": [
+      "volcanica"
+     ]
+    },
+    "needs": [],
+    "answer": {
+     "short": "No puedo decir si la alerta de hoy cierra el ingreso: la Resolución 207 de 2023 cita la Resolución 068 del 31 de marzo de 2023, que ordenó el cierre total hasta un informe de la Oficina Asesora de Gestión del Riesgo con base en el Servicio Geológico Colombiano, y el boletín extraordinario del 27 de junio de 2023 devolvió el Ruiz a nivel amarillo. Ese dato de 2023 no autoriza el ingreso de tu visita ni dice el color de hoy. Confirma el boletín vigente del SGC y el aviso de Parques Nacionales (www.parquesnacionales.gov.co).",
+     "variants": [
+      "La Resolución 068 del 31 de marzo de 2023, citada en la Resolución 207, ordenó el cierre total hasta un informe de riesgo basado en el SGC, y el boletín del 27 de junio de 2023 bajó el Ruiz a amarillo. Eso es de 2023 y no autoriza tu ingreso ni dice el nivel de hoy. Confirma el boletín vigente del SGC y el aviso de Parques Nacionales (www.parquesnacionales.gov.co)."
+     ],
+     "steps": [
+      [
+       "No puedo decir si la alerta de hoy cierra el ingreso: la Resolución 207 de 2023 cita la Resolución 068 del 31 de marzo de 2023, que ordenó el cierre total hasta un informe de la Oficina Asesora de Gestión del Riesgo con base en el Servicio Geológico Colombiano, y el boletín extraordinario del 27 de junio de 2023 devolvió el Ruiz a nivel amarillo. Ese dato de 2023 no autoriza el ingreso de tu visita ni dice el color de hoy. Confirma el boletín vigente del SGC y el aviso de Parques Nacionales (www.parquesnacionales.gov.co)."
+      ]
+     ],
+     "detail": null,
+     "reflection": null
+    },
+    "sources": [
+     {
+      "label": "Parques Nacionales · Resolución 207 de 2023",
+      "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2023/08/Resolucion_207_2023_ReglamentacionNevados_.pdf",
+      "retrieved_at": "2026-11-21"
+     }
+    ],
+    "last_verified": "2026-11-22",
+    "valid_until": null,
+    "related": [
+     "hours_status.park_open_today",
+     "hours_status.reopening_protocol_after_emergencies",
+     "weather_volcano.volcanic_closures"
+    ],
+    "tags": [
+     "alerta",
+     "volcán",
+     "ruiz",
+     "cierre",
+     "seguridad"
+    ]
+   },
+   "weather_volcano.yellow_upper_access": {
+    "id": "weather_volcano.yellow_upper_access",
+    "label": "cima restringida en amarilla",
+    "kind": "safety",
+    "audience": "visitor",
+    "lang": "es",
+    "examples": [
+     "en amarilla puedo subir a la parte alta",
+     "la alerta amarilla cierra la cima",
+     "el sgc restringe la zona alta en amarillo",
+     "depende del volcán si dejan subir",
+     "amarillo me autoriza el cráter",
+     "quién decide el ingreso con alerta amarilla",
+     "la parte alta sigue abierta en amarillo",
+     "puedo llegar a la nieve si el color es amarillo",
+     "en amarillo restringen arriba",
+     "el color no abre el sector solo",
+     "can I hike the upper volcano on yellow alert",
+     "does yellow alert close the summit by itself"
+    ],
+    "hard_negatives": [
+     "qué significa alerta amarilla del Ruiz",
+     "puedo hacer ciclomontañismo por Brisas",
+     "qué alerta tiene hoy el Nevado del Ruiz"
+    ],
+    "needs": [],
+    "answer": {
+     "short": "En el esquema del SGC del 14 de septiembre de 2023, la alerta amarilla recomienda restringir la parte alta, y eso depende del volcán. La Resolución 268 del 22 de octubre de 2024 dejó restringido el ascenso a la cumbre por actividad volcánica, pero no abre ni cierra el sector hoy. Pregúntalo al personal del parque el mismo día y lee el boletín del SGC.",
+     "variants": [
+      "El color amarillo no te autoriza la cima. Confirma el ingreso con el personal del parque el mismo día."
+     ]
+    },
+    "sources": [
+     {
+      "label": "SGC, esquema de estados de alerta",
+      "url": "https://www2.sgc.gov.co/Paginas/estados-de-alerta-volcanes.aspx",
+      "retrieved_at": "2026-11-21"
+     },
+     {
+      "label": "SGC, cambio del esquema de alertas",
+      "url": "https://www2.sgc.gov.co/Noticias/Paginas/Colombia-cambia-su-esquema-de-medicion-de-la-actividad-volcanica.aspx",
+      "retrieved_at": "2026-11-21"
+     },
+     {
+      "label": "Parques Nacionales, Resolución 268 de 2024",
+      "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2025/01/Res.-No.-268-del-22-de-octubre-de-2024-MODIFICA-PFFO-029-2024.pdf",
+      "retrieved_at": "2026-11-21"
+     }
+    ],
+    "last_verified": "2026-11-21",
+    "related": [
+     "weather_volcano.alert_yellow_meaning",
+     "weather_volcano.volcanic_closures",
+     "weather_volcano.current_alert"
+    ],
+    "tags": [
+     "parte alta",
+     "amarilla",
+     "cumbre"
+    ]
+   },
+   "weather_volcano.alert_yellow_meaning": {
+    "id": "weather_volcano.alert_yellow_meaning",
+    "label": "alerta amarilla y visita",
+    "kind": "safety",
+    "audience": "visitor",
+    "lang": "es",
+    "examples": [
+     "qué significa alerta amarilla del Ruiz",
+     "qué implica el amarillo para un turista",
+     "puedo ir con alerta amarilla",
+     "cómo entender el estado amarillo",
+     "alerta amarilla es peligroso",
+     "qué cambios indica el amarillo",
+     "el nivel amarillo permite entrar",
+     "qué hago si el Ruiz está amarillo",
+     "amarillo significa erupción inminente",
+     "que quiere decir alerta amarilla del volcan",
+     "toca seguir al guardaparque con alerta amarilla",
+     "what does yellow volcanic alert mean",
+     "does yellow alert mean the park is closed"
+    ],
+    "hard_negatives": [
+     "qué riesgo tiene la altura",
+     "qué pasó en Armero"
+    ],
+    "needs": [],
+    "answer": {
+     "short": "Amarilla significa cambios frente al nivel base: puede haber sismos, más gases y ceniza esporádica de poco alcance, que el viento dispersa. El SGC recomienda restringir la parte alta, según el volcán. El ingreso lo definen el boletín vigente y el personal del parque.",
+     "variants": [
+      "Amarilla no abre ni cierra sola. Lee el boletín del SGC y obedece al personal del parque."
+     ]
+    },
+    "sources": [
+     {
+      "label": "SGC, esquema de estados de alerta",
+      "url": "https://www2.sgc.gov.co/Paginas/estados-de-alerta-volcanes.aspx",
+      "retrieved_at": "2026-11-21"
+     }
+    ],
+    "last_verified": "2026-11-21",
+    "related": [
+     "weather_volcano.alert_orange_meaning",
+     "weather_volcano.current_alert",
+     "weather_volcano.volcanic_closures"
+    ],
+    "tags": [
+     "alerta amarilla",
+     "SGC",
+     "actividad volcánica"
+    ]
+   }
+  }
+ }
+]

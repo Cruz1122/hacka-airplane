@@ -1,0 +1,581 @@
+{
+ "train": {
+  "rows": 8275,
+  "outcome": {
+   "candidate_none": 2278,
+   "positive": 5997
+  },
+  "none_cause": {
+   "retrieval_miss": 2192,
+   "true_out_of_scope": 86
+  },
+  "target_position": {
+   "1": 4234,
+   "2": 1082,
+   "3": 418,
+   "4": 177,
+   "5": 86
+  },
+  "pool_size": {
+   "3": 1874,
+   "4": 555,
+   "5": 5846
+  },
+  "flat_fill_rows": 1279,
+  "provenance": {
+   "original": 8027,
+   "synthetic": 143,
+   "adversarial": 105
+  },
+  "review_status": {
+   "auto_low_similarity": 2734,
+   "no_decisive_pair": 4069,
+   "label_audit": 385,
+   "pairs_verified": 839,
+   "verified:fix": 29,
+   "verified:ok": 219
+  },
+  "scenario": {
+   "corpus_example": 8027,
+   "out_of_scope": 52,
+   "confusable": 38,
+   "natural": 30,
+   "near_miss": 25,
+   "colloquial": 23,
+   "short": 16,
+   "cross_section": 12,
+   "typo": 11,
+   "emergency": 11,
+   "english": 8,
+   "indirect": 8,
+   "compound": 6,
+   "long": 5,
+   "ambiguous": 3
+  },
+  "sections": {
+   "access": 697,
+   "actions": 100,
+   "activities": 643,
+   "booking_fees": 738,
+   "conversation": 372,
+   "fauna": 745,
+   "flora_ecosystems": 629,
+   "geography": 607,
+   "health_safety": 676,
+   "history_culture": 591,
+   "hours_status": 406,
+   "none": 86,
+   "preparation": 437,
+   "rules": 755,
+   "services": 342,
+   "weather_volcano": 451
+  },
+  "distinct_canonical_faqs": 749,
+  "verified_hard_negatives_rows": 101,
+  "rows_with_judged_distinct_pair": 1317
+ },
+ "checkpoint_selection": {
+  "rows": 121,
+  "outcome": {
+   "positive": 84,
+   "candidate_none": 37
+  },
+  "none_cause": {
+   "retrieval_miss": 14,
+   "true_out_of_scope": 23
+  },
+  "target_position": {
+   "1": 64,
+   "2": 9,
+   "3": 6,
+   "4": 4,
+   "5": 1
+  },
+  "pool_size": {
+   "3": 19,
+   "4": 6,
+   "5": 96
+  },
+  "flat_fill_rows": 14,
+  "provenance": {
+   "synthetic": 121
+  },
+  "review_status": {
+   "verified:fix": 21,
+   "verified:ok": 100
+  },
+  "scenario": {
+   "natural": 21,
+   "colloquial": 21,
+   "short": 13,
+   "confusable": 9,
+   "long": 8,
+   "indirect": 8,
+   "near_miss": 8,
+   "english": 7,
+   "typo": 7,
+   "emergency": 6,
+   "compound": 5,
+   "ambiguous": 5,
+   "out_of_scope": 2,
+   "cross_section": 1
+  },
+  "sections": {
+   "access": 11,
+   "actions": 3,
+   "activities": 10,
+   "booking_fees": 9,
+   "conversation": 4,
+   "fauna": 7,
+   "flora_ecosystems": 6,
+   "geography": 7,
+   "health_safety": 9,
+   "history_culture": 3,
+   "hours_status": 4,
+   "none": 23,
+   "preparation": 4,
+   "rules": 13,
+   "services": 3,
+   "weather_volcano": 5
+  },
+  "distinct_canonical_faqs": 90,
+  "verified_hard_negatives_rows": 54,
+  "rows_with_judged_distinct_pair": 3
+ },
+ "calibration": {
+  "rows": 292,
+  "outcome": {
+   "multi_positive": 45,
+   "candidate_none": 100,
+   "positive": 109,
+   "clarify": 38
+  },
+  "none_cause": {
+   "retrieval_miss": 21,
+   "true_out_of_scope": 79
+  },
+  "target_position": {
+   "1": 83,
+   "2": 17,
+   "3": 3,
+   "4": 4,
+   "5": 2
+  },
+  "pool_size": {
+   "3": 21,
+   "4": 18,
+   "5": 253
+  },
+  "flat_fill_rows": 14,
+  "provenance": {
+   "synthetic": 228,
+   "adversarial": 64
+  },
+  "review_status": {
+   "verified:fix": 63,
+   "verified:ok": 229
+  },
+  "scenario": {
+   "out_of_scope": 46,
+   "natural": 42,
+   "ambiguous": 42,
+   "colloquial": 34,
+   "near_miss": 22,
+   "confusable": 21,
+   "typo": 17,
+   "indirect": 16,
+   "short": 14,
+   "emergency": 12,
+   "english": 8,
+   "long": 7,
+   "cross_section": 6,
+   "compound": 5
+  },
+  "sections": {
+   "access": 28,
+   "actions": 5,
+   "activities": 14,
+   "booking_fees": 9,
+   "conversation": 13,
+   "fauna": 11,
+   "flora_ecosystems": 13,
+   "geography": 8,
+   "health_safety": 19,
+   "history_culture": 11,
+   "hours_status": 8,
+   "none": 121,
+   "preparation": 7,
+   "rules": 11,
+   "services": 3,
+   "weather_volcano": 11
+  },
+  "distinct_canonical_faqs": 150,
+  "verified_hard_negatives_rows": 126,
+  "rows_with_judged_distinct_pair": 11
+ },
+ "unseen_topics": {
+  "rows": 229,
+  "outcome": {
+   "positive": 166,
+   "candidate_none": 44,
+   "multi_positive": 10,
+   "clarify": 9
+  },
+  "none_cause": {
+   "retrieval_miss": 44
+  },
+  "target_position": {
+   "1": 124,
+   "2": 32,
+   "3": 9,
+   "4": 1
+  },
+  "pool_size": {
+   "3": 50,
+   "4": 14,
+   "5": 165
+  },
+  "flat_fill_rows": 37,
+  "provenance": {
+   "original": 193,
+   "synthetic": 33,
+   "adversarial": 3
+  },
+  "review_status": {
+   "pairs_verified": 20,
+   "no_decisive_pair": 109,
+   "auto_low_similarity": 60,
+   "label_audit": 4,
+   "verified:ok": 28,
+   "verified:fix": 8
+  },
+  "scenario": {
+   "corpus_example": 193,
+   "ambiguous": 9,
+   "natural": 8,
+   "confusable": 5,
+   "typo": 3,
+   "cross_section": 2,
+   "near_miss": 2,
+   "indirect": 2,
+   "colloquial": 2,
+   "compound": 1,
+   "long": 1,
+   "short": 1
+  },
+  "sections": {
+   "access": 22,
+   "activities": 25,
+   "booking_fees": 21,
+   "fauna": 16,
+   "flora_ecosystems": 19,
+   "geography": 18,
+   "health_safety": 6,
+   "history_culture": 19,
+   "hours_status": 14,
+   "none": 9,
+   "preparation": 13,
+   "rules": 27,
+   "services": 9,
+   "weather_volcano": 11
+  },
+  "distinct_canonical_faqs": 56,
+  "verified_hard_negatives_rows": 16,
+  "rows_with_judged_distinct_pair": 9
+ },
+ "adversarial": {
+  "rows": 211,
+  "outcome": {
+   "positive": 95,
+   "candidate_none": 103,
+   "multi_positive": 13
+  },
+  "none_cause": {
+   "retrieval_miss": 14,
+   "true_out_of_scope": 89
+  },
+  "target_position": {
+   "1": 66,
+   "2": 17,
+   "3": 6,
+   "4": 3,
+   "5": 3
+  },
+  "pool_size": {
+   "3": 11,
+   "4": 7,
+   "5": 193
+  },
+  "flat_fill_rows": 8,
+  "provenance": {
+   "adversarial": 211
+  },
+  "review_status": {
+   "verified:ok": 190,
+   "verified:fix": 21
+  },
+  "scenario": {
+   "confusable": 102,
+   "out_of_scope": 60,
+   "near_miss": 29,
+   "cross_section": 20
+  },
+  "sections": {
+   "access": 8,
+   "actions": 1,
+   "activities": 6,
+   "booking_fees": 11,
+   "conversation": 2,
+   "fauna": 5,
+   "flora_ecosystems": 9,
+   "geography": 4,
+   "health_safety": 23,
+   "history_culture": 6,
+   "hours_status": 7,
+   "none": 89,
+   "preparation": 13,
+   "rules": 7,
+   "services": 6,
+   "weather_volcano": 14
+  },
+  "distinct_canonical_faqs": 115,
+  "verified_hard_negatives_rows": 83,
+  "rows_with_judged_distinct_pair": 9
+ },
+ "final_test": {
+  "rows": 294,
+  "outcome": {
+   "candidate_none": 61,
+   "positive": 185,
+   "multi_positive": 20,
+   "clarify": 28
+  },
+  "none_cause": {
+   "true_out_of_scope": 27,
+   "retrieval_miss": 34
+  },
+  "target_position": {
+   "1": 138,
+   "2": 34,
+   "3": 8,
+   "4": 4,
+   "5": 1
+  },
+  "pool_size": {
+   "3": 35,
+   "4": 13,
+   "5": 246
+  },
+  "flat_fill_rows": 22,
+  "provenance": {
+   "synthetic": 294
+  },
+  "review_status": {
+   "verified:fix": 46,
+   "verified:ok": 248
+  },
+  "scenario": {
+   "colloquial": 53,
+   "natural": 47,
+   "ambiguous": 34,
+   "typo": 25,
+   "near_miss": 25,
+   "short": 24,
+   "emergency": 20,
+   "long": 17,
+   "confusable": 15,
+   "compound": 11,
+   "indirect": 11,
+   "english": 5,
+   "cross_section": 4,
+   "out_of_scope": 3
+  },
+  "sections": {
+   "access": 25,
+   "actions": 10,
+   "activities": 24,
+   "booking_fees": 22,
+   "conversation": 7,
+   "fauna": 8,
+   "flora_ecosystems": 13,
+   "geography": 13,
+   "health_safety": 36,
+   "history_culture": 9,
+   "hours_status": 7,
+   "none": 57,
+   "preparation": 8,
+   "rules": 29,
+   "services": 13,
+   "weather_volcano": 13
+  },
+  "distinct_canonical_faqs": 210,
+  "verified_hard_negatives_rows": 118,
+  "rows_with_judged_distinct_pair": 16
+ },
+ "retrospective_READ_ONLY": {
+  "rows": 628,
+  "outcome": {
+   "candidate_none": 216,
+   "positive": 356,
+   "multi_positive": 38,
+   "clarify": 18
+  },
+  "none_cause": {
+   "retrieval_miss": 57,
+   "true_out_of_scope": 159
+  },
+  "target_position": {
+   "1": 245,
+   "2": 66,
+   "3": 29,
+   "4": 12,
+   "5": 4
+  },
+  "pool_size": {
+   "3": 51,
+   "4": 26,
+   "5": 551
+  },
+  "flat_fill_rows": 35,
+  "provenance": {
+   "eval_v2_dev_gate": 162,
+   "eval_v2_test_blind": 466
+  },
+  "review_status": {
+   "eval_v2_verified": 628
+  },
+  "scenario": {
+   "natural": 109,
+   "confusable": 100,
+   "out_of_scope": 80,
+   "near_miss": 59,
+   "colloquial": 57,
+   "temporal": 52,
+   "long": 40,
+   "typo": 36,
+   "short": 28,
+   "compound": 27,
+   "clarification": 22,
+   "english": 18
+  },
+  "sections": {
+   "access": 35,
+   "actions": 17,
+   "activities": 40,
+   "booking_fees": 49,
+   "conversation": 22,
+   "fauna": 31,
+   "flora_ecosystems": 35,
+   "geography": 24,
+   "health_safety": 40,
+   "history_culture": 21,
+   "hours_status": 33,
+   "none": 159,
+   "preparation": 25,
+   "rules": 37,
+   "services": 21,
+   "weather_volcano": 39
+  },
+  "distinct_canonical_faqs": 185,
+  "verified_hard_negatives_rows": 0,
+  "rows_with_judged_distinct_pair": 0
+ },
+ "retrieval_recall": {
+  "after_final_phase": {
+   "checkpoint_selection": {
+    "n": 98,
+    "r@1": 0.6531,
+    "r@3": 0.8061,
+    "r@5": 0.8571
+   },
+   "calibration": {
+    "n": 175,
+    "r@1": 0.7086,
+    "r@3": 0.8457,
+    "r@5": 0.88
+   },
+   "final_test": {
+    "n": 239,
+    "r@1": 0.636,
+    "r@3": 0.8368,
+    "r@5": 0.8577
+   },
+   "adversarial": {
+    "n": 122,
+    "r@1": 0.6393,
+    "r@3": 0.8361,
+    "r@5": 0.8852
+   },
+   "retrospective_READ_ONLY": {
+    "n": 451,
+    "r@1": 0.6098,
+    "r@3": 0.8381,
+    "r@5": 0.8736
+   }
+  },
+  "before_final_phase": {
+   "checkpoint_selection": {
+    "n": 98,
+    "r@1": 0.6531,
+    "r@3": 0.8061,
+    "r@5": 0.8571
+   },
+   "calibration": {
+    "n": 175,
+    "r@1": 0.7086,
+    "r@3": 0.8457,
+    "r@5": 0.88
+   },
+   "final_test": {
+    "n": 239,
+    "r@1": 0.636,
+    "r@3": 0.8368,
+    "r@5": 0.8577
+   },
+   "adversarial": {
+    "n": 122,
+    "r@1": 0.6393,
+    "r@3": 0.8361,
+    "r@5": 0.8852
+   },
+   "retrospective_READ_ONLY": {
+    "n": 451,
+    "r@1": 0.6098,
+    "r@3": 0.8381,
+    "r@5": 0.8736
+   }
+  },
+  "before_curation_v2": {
+   "checkpoint_selection": {
+    "n": 98,
+    "r@1": 0.6224,
+    "r@3": 0.7959,
+    "r@5": 0.8469
+   },
+   "calibration": {
+    "n": 175,
+    "r@1": 0.6857,
+    "r@3": 0.8629,
+    "r@5": 0.8971
+   },
+   "final_test": {
+    "n": 239,
+    "r@1": 0.6192,
+    "r@3": 0.8201,
+    "r@5": 0.8536
+   },
+   "adversarial": {
+    "n": 122,
+    "r@1": 0.6148,
+    "r@3": 0.8279,
+    "r@5": 0.8689
+   },
+   "retrospective_READ_ONLY": {
+    "n": 451,
+    "r@1": 0.5965,
+    "r@3": 0.8204,
+    "r@5": 0.8647
+   }
+  }
+ }
+}

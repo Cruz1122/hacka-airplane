@@ -1,0 +1,181 @@
+{
+  "operations": [
+    {
+      "op": "update",
+      "reason": "Correct claim about SGC bulletin index and clarify dated status of publications.",
+      "entry": {
+        "id": "hours_status.park_open_today",
+        "label": "verificar si el parque está abierto hoy",
+        "kind": "fact",
+        "audience": "visitor",
+        "lang": "es",
+        "examples": [
+          "está abierto hoy",
+          "está cerrado hoy",
+          "puedo entrar mañana",
+          "hay cierres",
+          "hoy hay acceso",
+          "está habilitado el recorrido",
+          "puedo visitar el parque hoy",
+          "el parque abre hoy o no?",
+          "el nevado está cerrado",
+          "hoy sí se puede subir al nevado?",
+          "hoy si dejan subir turistas?",
+          "is the national park open today",
+          "can I visit the park right now"
+        ],
+        "hard_negatives": [
+          "el parque entero está abierto para recorrer",
+          "dónde confirmo si abren hoy",
+          "¿hoy sí está habilitada la vía?"
+        ],
+        "entities": {},
+        "needs": [],
+        "answer": {
+          "short": "No puedo confirmar si el parque abre hoy: los boletines semanales del SGC (como el del Ruiz del 10 al 16 de noviembre de 2026) y la ficha de Parques Nacionales (modificada el 31 de octubre de 2026) son reportes fechados que no garantizan el estado de acceso de hoy. Confirma el ingreso actual directamente con Parques Nacionales (@ParquesColombia).",
+          "variants": [
+            "Esta guía fuera de línea contiene datos fechados (ficha del 31 de octubre de 2026 y boletín del SGC del 10 al 16 de noviembre de 2026), por lo que no puede confirmar la apertura de hoy: consulta el estado en tiempo real con Parques Nacionales (@ParquesColombia)."
+          ],
+          "steps": [
+            [
+              "No puedo confirmar si el parque abre hoy: los boletines semanales del SGC (como el del Ruiz del 10 al 16 de noviembre de 2026) y la ficha de Parques Nacionales (modificada el 31 de octubre de 2026) son reportes fechados que no garantizan el estado de acceso de hoy. Confirma el ingreso actual directamente con Parques Nacionales (@ParquesColombia)."
+            ]
+          ],
+          "detail": null,
+          "reflection": null
+        },
+        "sources": [
+          {
+            "label": "Parques Nacionales · ficha Los Nevados",
+            "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+            "retrieved_at": "2026-11-21"
+          },
+          {
+            "label": "Servicio Geológico Colombiano · índice de boletines",
+            "url": "https://www2.sgc.gov.co/Noticias/Paginas/Boletines-semanales.aspx",
+            "retrieved_at": "2026-11-21"
+          }
+        ],
+        "last_verified": "2026-11-22",
+        "valid_until": null,
+        "related": [
+          "hours_status.official_channels_to_check_status",
+          "hours_status.volcanic_alert_closures",
+          "hours_status.general_opening_schedule"
+        ],
+        "tags": [
+          "apertura",
+          "estado",
+          "abierto",
+          "cerrado",
+          "hoy",
+          "operación"
+        ]
+      },
+      "evidence": [
+        {
+          "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+          "path": "research_notes/Conocimiento turístico de Los Nevados/hours_status/evidence/raw/pnn_nevados.html",
+          "quote": "article:modified_time\" content=\"2026-10-31T00:11:49+00:00\"",
+          "checked_on": "2026-11-22"
+        },
+        {
+          "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+          "path": "research_notes/Conocimiento turístico de Los Nevados/hours_status/evidence/raw/pnn_nevados.txt",
+          "quote": "@ParquesColombia\n@parquescolombia\n@ParquesNaturales\n+573229471031\n@parquescolombia\nParques",
+          "checked_on": "2026-11-22"
+        },
+        {
+          "url": "https://www2.sgc.gov.co/Noticias/Paginas/Boletines-semanales.aspx",
+          "path": "research_notes/Conocimiento turístico de Los Nevados/hours_status/evidence/raw/sgc_boletines.html",
+          "quote": "\"FileLeafRef\": \"Boletin_semanal_de_actividad_del_volcan_Nevado_del_Ruiz_del_10_de_noviembre_al_16_de_noviembre_de_2026.pdf\",",
+          "checked_on": "2026-11-22"
+        }
+      ]
+    },
+    {
+      "op": "update",
+      "reason": "Remove misleading \"Hoy el punto es...\" claim from variant; date 2023 source and park portal.",
+      "entry": {
+        "id": "access.cocora_registration",
+        "label": "registro en el Valle del Cocora",
+        "kind": "fact",
+        "audience": "visitor",
+        "lang": "es",
+        "examples": [
+          "dónde me registro en cocora",
+          "¿en el Quindío dónde toca registrarse?",
+          "la puerta azul sigue siendo el control",
+          "kilometro 11 de salento cocora",
+          "truchera es el registro de ahora",
+          "where do I check in for the Cocora access",
+          "is the blue gate still the checkpoint",
+          "en el valle del cocora es donde me toca registrarme",
+          "¿y el registro es en los 2400 metros?",
+          "¿en Cocora toca registrarse en la puerta azul?",
+          "no doy por sentado el km 11",
+          "¿el registro de Dulima también es en Cocora?"
+        ],
+        "hard_negatives": [
+          "toca registrarnos aquí en la entrada?",
+          "hasta qué hora dejan registrarse en el cocora",
+          "la travesía de Juntas al Cocora"
+        ],
+        "answer": {
+          "short": "Para el sector Quindío–Dulima, la ficha oficial sitúa el punto de atención en el Valle del Cocora. La reglamentación de diciembre de 2023 ubicaba el registro en la puerta azul de la truchera, kilómetro 11, a unos 2.400 m: confirma con el operador dónde opera hoy el mostrador.",
+          "variants": [
+            "La reglamentación de diciembre de 2023 y la ficha oficial sitúan el punto de atención de Quindío–Dulima en el Valle del Cocora (en 2023 en el kilómetro 11, puerta azul de la truchera, a unos 2.400 m). Confirma con tu operador la ubicación exacta del mostrador para tu fecha."
+          ]
+        },
+        "sources": [
+          {
+            "label": "Parques Nacionales Naturales de Colombia — Parque Nacional Natural Los Nevados",
+            "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+            "retrieved_at": "2026-11-21"
+          },
+          {
+            "label": "Parques Nacionales Naturales — Reglamentación transitoria de ecoturismo, PNN Los Nevados, diciembre de 2023",
+            "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2023/12/ANEXO-PNN-NEVADOS.pdf",
+            "retrieved_at": "2026-11-21"
+          }
+        ],
+        "last_verified": "2026-11-21",
+        "related": [
+          "access.from_salento_cocora",
+          "access.cocora_before_park",
+          "access.control_coordinates"
+        ],
+        "tags": [
+          "cocora",
+          "registro",
+          "2023"
+        ],
+        "entities": {
+          "sector": [
+            "quindio"
+          ]
+        }
+      },
+      "evidence": [
+        {
+          "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+          "path": "research_notes/Conocimiento turístico de Los Nevados/access/evidence/raw/pnn_nevados.txt",
+          "quote": "Sector Quindío-Dulima (acceso a los atractivos en inmediaciones del volcán Nevado del Tolima): el horario en el punto de atención Valle del Cocora es de 6:00 a. m. a 10:00 a. m., mientras que en Juntas y Anzoátegui es de 6:00 a. m. a 11:00 a. m. (bajo reserva previa)",
+          "checked_on": "2026-11-22"
+        },
+        {
+          "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2023/12/ANEXO-PNN-NEVADOS.pdf",
+          "path": "research_notes/Conocimiento turístico de Los Nevados/access/evidence/raw/anexo-reglamentacion-2023.txt",
+          "quote": "Puerta azul ingreso a la truchera, kilómetro 11 sobre la vía Salento - Cocora.",
+          "checked_on": "2026-11-22"
+        },
+        {
+          "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2023/12/ANEXO-PNN-NEVADOS.pdf",
+          "path": "research_notes/Conocimiento turístico de Los Nevados/access/evidence/raw/anexo-reglamentacion-2023.txt",
+          "quote": "N 04°38’17.5’’ W 075°29´11.3’’ – 2.400 m.s.n.m",
+          "checked_on": "2026-11-22"
+        }
+      ]
+    }
+  ]
+}

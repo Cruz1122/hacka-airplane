@@ -1,0 +1,898 @@
+{
+  "version": 1,
+  "root": "/home/cruz1122/dev/hacka-airplane",
+  "proposal": {
+    "operations": [
+      {
+        "op": "update",
+        "reason": "Añadir fecha de consulta de la ficha PNN (22-11-2026) a las cifras de 61.388,24 y 61.410 ha, conservando Carder al 14-07-2026.",
+        "entry": {
+          "id": "geography.park_area",
+          "label": "extensión oficial del parque",
+          "kind": "fact",
+          "audience": "visitor",
+          "lang": "es",
+          "examples": [
+            "cuántas hectáreas tiene el parque",
+            "extensión de Los Nevados",
+            "qué tan grande es el área protegida",
+            "cuantas hectareas son",
+            "extencion del parque en hectareas",
+            "tamaño del parque nacional",
+            "superficie en hectáreas",
+            "por qué veo hectáreas distintas",
+            "how many hectares is Los Nevados",
+            "what is the official area of the national park",
+            "es muy grande el parque, cuántas hectáreas?",
+            "cuántas hectáreas tiene el parque, hoy por hoy?"
+          ],
+          "answer": {
+            "short": "Hay tres cifras oficiales: 61.388,24 hectáreas en el encabezado de la ficha PNN consultada el 22-11-2026, 61.410 hectáreas en su apartado de historia y 61.410,53 hectáreas según la Carder (14 de julio de 2026). No se toma una sola como única extensión.",
+            "variants": [
+              "Las publicaciones oficiales reportan tres cifras de extensión: 61.388,24 hectáreas en el encabezado de la ficha PNN consultada el 22-11-2026, 61.410 hectáreas en su historia y 61.410,53 hectáreas según la Carder (14 de julio de 2026)."
+            ],
+            "detail": "El encabezado de la ficha PNN consultada el 22-11-2026 indica 61.388,24 ha, mientras que el párrafo de historia de la misma ficha señala 61.410 hectáreas en diez municipios. A su vez, la Carder, el 14 de julio de 2026, registra 61.410,53 hectáreas. Ninguna fuente anula a las otras y no se promedian."
+          },
+          "sources": [
+            {
+              "label": "Parques Nacionales Naturales de Colombia",
+              "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+              "retrieved_at": "2026-11-21"
+            },
+            {
+              "label": "CARDER, nota sobre Los Nevados, 14 de julio de 2026",
+              "url": "https://www.carder.gov.co/pnn-los-nevados-un-patrimonio-natural-que-garantiza-el-agua-y-la-vida-de-risaralda/",
+              "retrieved_at": "2026-11-21"
+            }
+          ],
+          "last_verified": "2026-11-22",
+          "related": [
+            "geography.departments",
+            "geography.municipalities",
+            "geography.risaralda_share"
+          ],
+          "tags": [
+            "hectáreas",
+            "extensión"
+          ],
+          "hard_negatives": [
+            "qué parte del parque está en Risaralda",
+            "en qué departamentos queda el parque",
+            "qué municipios cubre el parque"
+          ]
+        },
+        "evidence": [
+          {
+            "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+            "path": "research_notes/Conocimiento turístico de Los Nevados/geography/evidence/raw/pnn_ficha_nevados.txt",
+            "quote": "Extensión total\n61.388,24 ha",
+            "checked_on": "2026-11-22"
+          },
+          {
+            "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+            "path": "research_notes/Conocimiento turístico de Los Nevados/geography/evidence/raw/pnn_ficha_nevados.txt",
+            "quote": "área geográfica de 61.410 hectáreas distribuidas en diez municipios: Santa Rosa de Cabal, Pereira,",
+            "checked_on": "2026-11-22"
+          },
+          {
+            "url": "https://www.carder.gov.co/pnn-los-nevados-un-patrimonio-natural-que-garantiza-el-agua-y-la-vida-de-risaralda/",
+            "path": "research_notes/Conocimiento turístico de Los Nevados/geography/evidence/raw/carder_pnn_nevados_2026.txt",
+            "quote": "de 1974, y cuenta con una extensión de 61.410,53 hectáreas distribuidas entre los departamentos de",
+            "checked_on": "2026-11-22"
+          },
+          {
+            "url": "https://www.carder.gov.co/pnn-los-nevados-un-patrimonio-natural-que-garantiza-el-agua-y-la-vida-de-risaralda/",
+            "path": "research_notes/Conocimiento turístico de Los Nevados/geography/evidence/raw/carder_pnn_nevados_2026.txt",
+            "quote": "Pereira, 14 de julio de 2026.",
+            "checked_on": "2026-11-22"
+          }
+        ]
+      },
+      {
+        "op": "update",
+        "reason": "Mostrar explícitamente el conflicto de Quindío-Dulima: ficha PNN consultada el 22-11-2026 = $0 frente a Resolución 551 del 19-12-2025 (vigente desde 01-01-2026) = $12.500 COP, remitiendo a confirmar con el canal oficial.",
+        "entry": {
+          "id": "booking_fees.under25_admission_fee",
+          "label": "tarifa reducida para menores de 25 años",
+          "kind": "fact",
+          "audience": "visitor",
+          "lang": "es",
+          "examples": [
+            "precio menor de 25 años",
+            "¿cuánto paga un joven colombiano?",
+            "tarifa para estudiante menor de 25",
+            "entrada para extranjero residente joven",
+            "soy de la CAN y tengo 20, cuánto pago",
+            "cuánto cuesta para un menor de 25 en Brisas",
+            "valor juvenil para Cisne",
+            "tarifa joven residente en Colombia",
+            "How much is admission for a visitor under 25?",
+            "What is the under-25 entry price?",
+            "tengo 24, cuánto me cobran de entrada?",
+            "precio para pelao menor de 25"
+          ],
+          "hard_negatives": [
+            "precio adulto colombiano",
+            "precio extranjero no residente"
+          ],
+          "needs": [],
+          "answer": {
+            "short": "Para menores de 25 años (nacional, CAN o extranjero residente), la ficha PNN consultada el 22-11-2026 publica $12.500 COP en Brisas, Cisne y Otún, pero registra $0 en Quindío-Dulima. En contraste, la Resolución 551 del 19-12-2025 (vigente desde 01-01-2026) fija $12.500 COP para todo el parque sin distinguir sectores. Confirma con el canal oficial (parquesnacionales.gov.co) antes de pagar.",
+            "variants": [
+              "Según la ficha PNN consultada el 22-11-2026, la tarifa para menores de 25 años es de $12.500 COP en Brisas, Cisne y Otún, pero figura en $0 en Quindío-Dulima; en cambio, la Resolución 551 del 19-12-2025 (vigente desde 01-01-2026) establece $12.500 COP sin separar sectores. Confirma con el canal oficial en parquesnacionales.gov.co."
+            ],
+            "detail": "Para Quindío-Dulima existe un conflicto explícito: la ficha PNN consultada el 22-11-2026 publica $0, mientras que la Resolución 551 del 19-12-2025 (vigente desde 01-01-2026) fija $12.500 COP para menores de 25 años en el parque sin separar sectores. En Brisas, Cisne y Otún la web lista $12.500 COP. Seguro de accidentes y guianza se pagan aparte. Confirma con el canal oficial antes de pagar."
+          },
+          "sources": [
+            {
+              "label": "Resolución 551 de 2025 · Parques Nacionales Naturales (copia PNN, texto digital)",
+              "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2026/02/RESOLUCION-551-DE-2025-ACTUALIZA-EL-VALOR-DERECHOS-DE-INGRESO-Y-SERVICIOS-COMPLEMENTARIOS-A-LAS-AREAS-PROTEGIDAS.pdf",
+              "retrieved_at": "2026-11-21"
+            },
+            {
+              "label": "Parque Nacional Natural Los Nevados · Parques Nacionales Naturales",
+              "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+              "retrieved_at": "2026-11-21"
+            }
+          ],
+          "last_verified": "2026-11-22",
+          "valid_until": "2026-12-31",
+          "related": [
+            "booking_fees.adult_resident_admission_fee",
+            "booking_fees.foreign_nonresident_admission_fee",
+            "booking_fees.sector_entry_fee_difference"
+          ],
+          "tags": [
+            "tarifa",
+            "menor de 25",
+            "COP"
+          ]
+        },
+        "evidence": [
+          {
+            "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+            "path": "research_notes/Conocimiento turístico de Los Nevados/booking_fees/evidence/raw/pnn_nevados.txt",
+            "quote": "Quindío-Dulima\n*Estos valores no incluyen el seguro obligatorio de accidentes, que debe ser asumido por el visitante y pagado a través de la agencia o guía ecoturístico de su elección.\n0\n0\n0\nNo aplica\nSegún el guía o la agencia operadora registrada que se elija.",
+            "checked_on": "2026-11-22"
+          },
+          {
+            "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+            "path": "research_notes/Conocimiento turístico de Los Nevados/booking_fees/evidence/raw/pnn_nevados.txt",
+            "quote": "Cisne-Poleka Kasue y Laguna del Otún\n*Estos valores no incluyen el seguro obligatorio de accidentes, que debe ser asumido por el visitante y pagado a través de la agencia o guía ecoturístico de su elección.\n12.500\n24.500\n68.000",
+            "checked_on": "2026-11-22"
+          },
+          {
+            "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+            "path": "research_notes/Conocimiento turístico de Los Nevados/booking_fees/evidence/raw/pnn_nevados.txt",
+            "quote": "Brisas-Kumanday\n*Estos valores no incluyen el seguro obligatorio de accidentes, que debe ser asumido por el visitante y pagado a través de la concesión Unión Temporal Operación Nevados (UTON).\n12.500\n24.500\n68.000",
+            "checked_on": "2026-11-22"
+          },
+          {
+            "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2026/02/RESOLUCION-551-DE-2025-ACTUALIZA-EL-VALOR-DERECHOS-DE-INGRESO-Y-SERVICIOS-COMPLEMENTARIOS-A-LAS-AREAS-PROTEGIDAS.pdf",
+            "path": "research_notes/Conocimiento turístico de Los Nevados/booking_fees/evidence/raw/resolucion-551-2025-pnn-2026-02.txt",
+            "quote": "RESOLUCIÓN 551\n\nDE 19 DE DICIEMBRE DE 2025\n\n“Por medio de la cual se actualiza el valor de los derechos de ingreso y\nservicios complementarios a las áreas protegidas del Sistema de Parques\nNacionales Naturales de Colombia y se unifican disposiciones.”",
+            "checked_on": "2026-11-22"
+          },
+          {
+            "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2026/02/RESOLUCION-551-DE-2025-ACTUALIZA-EL-VALOR-DERECHOS-DE-INGRESO-Y-SERVICIOS-COMPLEMENTARIOS-A-LAS-AREAS-PROTEGIDAS.pdf",
+            "path": "research_notes/Conocimiento turístico de Los Nevados/booking_fees/evidence/raw/resolucion-551-2025-pnn-2026-02.txt",
+            "quote": "ARTÍCULO 22. – La presente resolución rige a partir del primero de enero de\n2026 y deroga a partir de esta fecha las disposiciones que le sean contrarias,\nentre éstas, la Resolución 695 de 2024 .\nDada en Bogotá D.C., a los 19\n\ndías del mes de diciembre de 2025.",
+            "checked_on": "2026-11-22"
+          },
+          {
+            "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2026/02/RESOLUCION-551-DE-2025-ACTUALIZA-EL-VALOR-DERECHOS-DE-INGRESO-Y-SERVICIOS-COMPLEMENTARIOS-A-LAS-AREAS-PROTEGIDAS.pdf",
+            "path": "research_notes/Conocimiento turístico de Los Nevados/booking_fees/evidence/raw/resolucion-551-2025-pnn-2026-02.txt",
+            "quote": "$12.500\n\n$24.500\n\n$68.000\n\nVía Parque Isla de Salamanca.\nParque Nacional Naturales Los\nNevados.",
+            "checked_on": "2026-11-22"
+          }
+        ]
+      },
+      {
+        "op": "update",
+        "reason": "Mostrar explícitamente ambos valores para Quindío-Dulima: ficha PNN consultada el 22-11-2026 = $0 frente a Resolución 551 del 19-12-2025 (vigente desde 01-01-2026) = $24.500 COP, remitiendo a confirmar con el canal oficial.",
+        "entry": {
+          "id": "booking_fees.adult_resident_admission_fee",
+          "label": "tarifa general de adultos mayores de 25",
+          "kind": "fact",
+          "audience": "visitor",
+          "lang": "es",
+          "examples": [
+            "precio adulto colombiano",
+            "¿cuánto paga un residente mayor de 25?",
+            "tarifa para adulto nacional",
+            "cuesta lo mismo para un residente extranjero?",
+            "valor entrada adulto para Cisne",
+            "soy colombiano de 40 años cuánto pago",
+            "precio adulto en Laguna del Otún",
+            "tarifa de mayores de 25 residentes",
+            "How much does an adult resident pay?",
+            "What is the entry price for an adult Colombian?",
+            "cuánto vale para un mayor de 25 en Brisas",
+            "entrada de adulto, sin ser extranjero"
+          ],
+          "hard_negatives": [
+            "precio menor de 25 años",
+            "precio extranjero no residente"
+          ],
+          "needs": [],
+          "answer": {
+            "short": "Para adultos mayores de 25 años (nacional, CAN o residente), la ficha PNN consultada el 22-11-2026 publica $24.500 COP en Brisas, Cisne y Otún, pero registra $0 en Quindío-Dulima. En contraste, la Resolución 551 del 19-12-2025 (vigente desde 01-01-2026) fija $24.500 COP para todo el parque sin distinguir sectores. Confirma con el canal oficial (parquesnacionales.gov.co) antes de pagar.",
+            "variants": [
+              "Según la ficha PNN consultada el 22-11-2026, la tarifa de adulto residente mayor de 25 años es de $24.500 COP en Brisas, Cisne y Otún, pero figura en $0 en Quindío-Dulima; en cambio, la Resolución 551 del 19-12-2025 (vigente desde 01-01-2026) establece $24.500 COP sin separar sectores. Confirma con el canal oficial en parquesnacionales.gov.co."
+            ],
+            "detail": "Para Quindío-Dulima existe un conflicto explícito: la ficha PNN consultada el 22-11-2026 publica $0, mientras que la Resolución 551 del 19-12-2025 (vigente desde 01-01-2026) fija $24.500 COP para adultos nacionales, CAN o residentes mayores de 25 años sin separar sectores. En Brisas, Cisne y Otún la web lista $24.500 COP. Seguro de accidentes y guianza van aparte. Confirma con el canal oficial antes de pagar."
+          },
+          "sources": [
+            {
+              "label": "Resolución 551 de 2025 · Parques Nacionales Naturales (copia PNN, texto digital)",
+              "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2026/02/RESOLUCION-551-DE-2025-ACTUALIZA-EL-VALOR-DERECHOS-DE-INGRESO-Y-SERVICIOS-COMPLEMENTARIOS-A-LAS-AREAS-PROTEGIDAS.pdf",
+              "retrieved_at": "2026-11-21"
+            },
+            {
+              "label": "Parque Nacional Natural Los Nevados · Parques Nacionales Naturales",
+              "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+              "retrieved_at": "2026-11-21"
+            }
+          ],
+          "last_verified": "2026-11-22",
+          "valid_until": "2026-12-31",
+          "related": [
+            "booking_fees.under25_admission_fee",
+            "booking_fees.foreign_nonresident_admission_fee",
+            "booking_fees.sector_entry_fee_difference"
+          ],
+          "tags": [
+            "tarifa",
+            "adulto",
+            "residente"
+          ]
+        },
+        "evidence": [
+          {
+            "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+            "path": "research_notes/Conocimiento turístico de Los Nevados/booking_fees/evidence/raw/pnn_nevados.txt",
+            "quote": "Quindío-Dulima\n*Estos valores no incluyen el seguro obligatorio de accidentes, que debe ser asumido por el visitante y pagado a través de la agencia o guía ecoturístico de su elección.\n0\n0\n0\nNo aplica\nSegún el guía o la agencia operadora registrada que se elija.",
+            "checked_on": "2026-11-22"
+          },
+          {
+            "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+            "path": "research_notes/Conocimiento turístico de Los Nevados/booking_fees/evidence/raw/pnn_nevados.txt",
+            "quote": "Cisne-Poleka Kasue y Laguna del Otún\n*Estos valores no incluyen el seguro obligatorio de accidentes, que debe ser asumido por el visitante y pagado a través de la agencia o guía ecoturístico de su elección.\n12.500\n24.500\n68.000",
+            "checked_on": "2026-11-22"
+          },
+          {
+            "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+            "path": "research_notes/Conocimiento turístico de Los Nevados/booking_fees/evidence/raw/pnn_nevados.txt",
+            "quote": "Brisas-Kumanday\n*Estos valores no incluyen el seguro obligatorio de accidentes, que debe ser asumido por el visitante y pagado a través de la concesión Unión Temporal Operación Nevados (UTON).\n12.500\n24.500\n68.000",
+            "checked_on": "2026-11-22"
+          },
+          {
+            "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2026/02/RESOLUCION-551-DE-2025-ACTUALIZA-EL-VALOR-DERECHOS-DE-INGRESO-Y-SERVICIOS-COMPLEMENTARIOS-A-LAS-AREAS-PROTEGIDAS.pdf",
+            "path": "research_notes/Conocimiento turístico de Los Nevados/booking_fees/evidence/raw/resolucion-551-2025-pnn-2026-02.txt",
+            "quote": "RESOLUCIÓN 551\n\nDE 19 DE DICIEMBRE DE 2025\n\n“Por medio de la cual se actualiza el valor de los derechos de ingreso y\nservicios complementarios a las áreas protegidas del Sistema de Parques\nNacionales Naturales de Colombia y se unifican disposiciones.”",
+            "checked_on": "2026-11-22"
+          },
+          {
+            "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2026/02/RESOLUCION-551-DE-2025-ACTUALIZA-EL-VALOR-DERECHOS-DE-INGRESO-Y-SERVICIOS-COMPLEMENTARIOS-A-LAS-AREAS-PROTEGIDAS.pdf",
+            "path": "research_notes/Conocimiento turístico de Los Nevados/booking_fees/evidence/raw/resolucion-551-2025-pnn-2026-02.txt",
+            "quote": "ARTÍCULO 22. – La presente resolución rige a partir del primero de enero de\n2026 y deroga a partir de esta fecha las disposiciones que le sean contrarias,\nentre éstas, la Resolución 695 de 2024 .\nDada en Bogotá D.C., a los 19\n\ndías del mes de diciembre de 2025.",
+            "checked_on": "2026-11-22"
+          },
+          {
+            "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2026/02/RESOLUCION-551-DE-2025-ACTUALIZA-EL-VALOR-DERECHOS-DE-INGRESO-Y-SERVICIOS-COMPLEMENTARIOS-A-LAS-AREAS-PROTEGIDAS.pdf",
+            "path": "research_notes/Conocimiento turístico de Los Nevados/booking_fees/evidence/raw/resolucion-551-2025-pnn-2026-02.txt",
+            "quote": "$12.500\n\n$24.500\n\n$68.000\n\nVía Parque Isla de Salamanca.\nParque Nacional Naturales Los\nNevados.",
+            "checked_on": "2026-11-22"
+          }
+        ]
+      },
+      {
+        "op": "update",
+        "reason": "Mostrar explícitamente ambos valores para Quindío-Dulima: ficha PNN consultada el 22-11-2026 = $0 frente a Resolución 551 del 19-12-2025 (vigente desde 01-01-2026) = $68.000 COP, remitiendo a confirmar con el canal oficial.",
+        "entry": {
+          "id": "booking_fees.foreign_nonresident_admission_fee",
+          "label": "entrada para extranjero no residente",
+          "kind": "fact",
+          "audience": "visitor",
+          "lang": "es",
+          "examples": [
+            "precio extranjero no residente",
+            "¿cuánto cuesta entrar si soy turista extranjero?",
+            "tarifa para visitante internacional",
+            "soy de Estados Unidos cuánto pago",
+            "valor para extranjero en Brisas",
+            "un turista no residente paga cuánto",
+            "entrada para extranjero en Santa Isabel",
+            "costo para visitante de otro país",
+            "How much is admission for a nonresident foreigner?",
+            "What does a foreign tourist pay at Los Nevados?",
+            "soy extranjero y no vivo en Colombia, tarifa?",
+            "cuánto le cobran a un gringo en el parque"
+          ],
+          "hard_negatives": [
+            "precio menor de 25 años",
+            "precio adulto colombiano"
+          ],
+          "needs": [],
+          "answer": {
+            "short": "Para extranjeros no residentes (ni miembros de la CAN), la ficha PNN consultada el 22-11-2026 publica $68.000 COP en Brisas, Cisne y Otún, pero registra $0 en Quindío-Dulima. En contraste, la Resolución 551 del 19-12-2025 (vigente desde 01-01-2026) fija $68.000 COP para todo el parque sin distinguir sectores. Confirma con el canal oficial (parquesnacionales.gov.co) antes de pagar.",
+            "variants": [
+              "Según la ficha PNN consultada el 22-11-2026, la tarifa para extranjeros no residentes es de $68.000 COP en Brisas, Cisne y Otún, pero figura en $0 en Quindío-Dulima; en cambio, la Resolución 551 del 19-12-2025 (vigente desde 01-01-2026) establece $68.000 COP sin separar sectores. Confirma con el canal oficial en parquesnacionales.gov.co."
+            ],
+            "detail": "Para Quindío-Dulima existe un conflicto explícito: la ficha PNN consultada el 22-11-2026 publica $0, mientras que la Resolución 551 del 19-12-2025 (vigente desde 01-01-2026) fija $68.000 COP para extranjeros no residentes sin separar sectores. En Brisas, Cisne y Otún la web publica $68.000 COP. El seguro obligatorio y la guianza se pagan aparte. Confirma con el canal oficial antes de pagar."
+          },
+          "sources": [
+            {
+              "label": "Resolución 551 de 2025 · Parques Nacionales Naturales (copia PNN, texto digital)",
+              "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2026/02/RESOLUCION-551-DE-2025-ACTUALIZA-EL-VALOR-DERECHOS-DE-INGRESO-Y-SERVICIOS-COMPLEMENTARIOS-A-LAS-AREAS-PROTEGIDAS.pdf",
+              "retrieved_at": "2026-11-21"
+            },
+            {
+              "label": "Parque Nacional Natural Los Nevados · Parques Nacionales Naturales",
+              "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+              "retrieved_at": "2026-11-21"
+            }
+          ],
+          "last_verified": "2026-11-22",
+          "valid_until": "2026-12-31",
+          "related": [
+            "booking_fees.under25_admission_fee",
+            "booking_fees.adult_resident_admission_fee",
+            "booking_fees.sector_entry_fee_difference"
+          ],
+          "tags": [
+            "extranjero",
+            "no residente",
+            "tarifa"
+          ]
+        },
+        "evidence": [
+          {
+            "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+            "path": "research_notes/Conocimiento turístico de Los Nevados/booking_fees/evidence/raw/pnn_nevados.txt",
+            "quote": "Quindío-Dulima\n*Estos valores no incluyen el seguro obligatorio de accidentes, que debe ser asumido por el visitante y pagado a través de la agencia o guía ecoturístico de su elección.\n0\n0\n0\nNo aplica\nSegún el guía o la agencia operadora registrada que se elija.",
+            "checked_on": "2026-11-22"
+          },
+          {
+            "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+            "path": "research_notes/Conocimiento turístico de Los Nevados/booking_fees/evidence/raw/pnn_nevados.txt",
+            "quote": "Cisne-Poleka Kasue y Laguna del Otún\n*Estos valores no incluyen el seguro obligatorio de accidentes, que debe ser asumido por el visitante y pagado a través de la agencia o guía ecoturístico de su elección.\n12.500\n24.500\n68.000",
+            "checked_on": "2026-11-22"
+          },
+          {
+            "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+            "path": "research_notes/Conocimiento turístico de Los Nevados/booking_fees/evidence/raw/pnn_nevados.txt",
+            "quote": "Brisas-Kumanday\n*Estos valores no incluyen el seguro obligatorio de accidentes, que debe ser asumido por el visitante y pagado a través de la concesión Unión Temporal Operación Nevados (UTON).\n12.500\n24.500\n68.000",
+            "checked_on": "2026-11-22"
+          },
+          {
+            "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2026/02/RESOLUCION-551-DE-2025-ACTUALIZA-EL-VALOR-DERECHOS-DE-INGRESO-Y-SERVICIOS-COMPLEMENTARIOS-A-LAS-AREAS-PROTEGIDAS.pdf",
+            "path": "research_notes/Conocimiento turístico de Los Nevados/booking_fees/evidence/raw/resolucion-551-2025-pnn-2026-02.txt",
+            "quote": "RESOLUCIÓN 551\n\nDE 19 DE DICIEMBRE DE 2025\n\n“Por medio de la cual se actualiza el valor de los derechos de ingreso y\nservicios complementarios a las áreas protegidas del Sistema de Parques\nNacionales Naturales de Colombia y se unifican disposiciones.”",
+            "checked_on": "2026-11-22"
+          },
+          {
+            "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2026/02/RESOLUCION-551-DE-2025-ACTUALIZA-EL-VALOR-DERECHOS-DE-INGRESO-Y-SERVICIOS-COMPLEMENTARIOS-A-LAS-AREAS-PROTEGIDAS.pdf",
+            "path": "research_notes/Conocimiento turístico de Los Nevados/booking_fees/evidence/raw/resolucion-551-2025-pnn-2026-02.txt",
+            "quote": "ARTÍCULO 22. – La presente resolución rige a partir del primero de enero de\n2026 y deroga a partir de esta fecha las disposiciones que le sean contrarias,\nentre éstas, la Resolución 695 de 2024 .\nDada en Bogotá D.C., a los 19\n\ndías del mes de diciembre de 2025.",
+            "checked_on": "2026-11-22"
+          },
+          {
+            "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2026/02/RESOLUCION-551-DE-2025-ACTUALIZA-EL-VALOR-DERECHOS-DE-INGRESO-Y-SERVICIOS-COMPLEMENTARIOS-A-LAS-AREAS-PROTEGIDAS.pdf",
+            "path": "research_notes/Conocimiento turístico de Los Nevados/booking_fees/evidence/raw/resolucion-551-2025-pnn-2026-02.txt",
+            "quote": "$12.500\n\n$24.500\n\n$68.000\n\nVía Parque Isla de Salamanca.\nParque Nacional Naturales Los\nNevados.",
+            "checked_on": "2026-11-22"
+          }
+        ]
+      },
+      {
+        "op": "update",
+        "reason": "Mostrar explícitamente los valores en conflicto para Quindío-Dulima: ficha PNN consultada el 22-11-2026 = $0 frente a los montos de la Resolución 551 del 19-12-2025 (vigente desde 01-01-2026) de $12.500, $24.500 y $68.000 COP, fechando la consulta web.",
+        "entry": {
+          "id": "booking_fees.sector_entry_fee_difference",
+          "label": "tarifa según sector de Los Nevados",
+          "kind": "fact",
+          "audience": "visitor",
+          "lang": "es",
+          "examples": [
+            "comparar tarifas por sector",
+            "¿cuesta igual entrar a Brisas y Otún?",
+            "qué sectores cobran entrada",
+            "tarifas del parque por zonas",
+            "en qué sector no cobran ingreso",
+            "diferencia de precio entre Cisne y Dulima",
+            "¿cuál es el sector más barato para entrar?",
+            "precios de entrada según el sector",
+            "Are entry fees different by sector?",
+            "Which Los Nevados sector has no entry fee?",
+            "me haces la comparación de tarifas por sector?",
+            "en cuál sector toca pagar derecho de ingreso",
+            "la entrada cobra lo mismo en cada sector?",
+            "algún sector cobra la entrada distinto?"
+          ],
+          "hard_negatives": [
+            "precio menor de 25 años",
+            "cuánto cuesta entrar en carro"
+          ],
+          "needs": [],
+          "answer": {
+            "short": "La ficha PNN consultada el 22-11-2026 muestra iguales tarifas en Brisas, Cisne y Otún ($12.500, $24.500 y $68.000 COP), pero registra $0 en Quindío-Dulima. En contraste, la Resolución 551 del 19-12-2025 (vigente desde 01-01-2026) fija $12.500 (menor), $24.500 (adulto residente/CAN) y $68.000 (extranjero) para todo el parque sin separar sectores. Confirma con el canal oficial (parquesnacionales.gov.co) antes de viajar.",
+            "variants": [
+              "Las tarifas son iguales en Brisas, Cisne y Otún ($12.500, $24.500 y $68.000 COP) según la ficha PNN consultada el 22-11-2026, pero Quindío-Dulima figura en $0. La Resolución 551 del 19-12-2025 (vigente desde 01-01-2026) fija $12.500, $24.500 y $68.000 sin separar sectores: hay un conflicto que debes confirmar en parquesnacionales.gov.co."
+            ],
+            "detail": "Para Quindío-Dulima hay un conflicto explícito: la ficha PNN consultada el 22-11-2026 publica $0 en derechos de ingreso (amparado en el protocolo sur de 2023 como medida transitoria por falta de infraestructura), mientras que la Resolución 551 del 19-12-2025 (vigente desde 01-01-2026) fija las tarifas generales de $12.500 (menores de 25), $24.500 (adultos residentes/CAN) y $68.000 (extranjeros no residentes) sin separar sectores. Brisas, Cisne y Otún cobran esos mismos valores en la web. Confirma con el canal oficial antes de viajar."
+          },
+          "sources": [
+            {
+              "label": "Resolución 551 de 2025 · Parques Nacionales Naturales (copia PNN, texto digital)",
+              "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2026/02/RESOLUCION-551-DE-2025-ACTUALIZA-EL-VALOR-DERECHOS-DE-INGRESO-Y-SERVICIOS-COMPLEMENTARIOS-A-LAS-AREAS-PROTEGIDAS.pdf",
+              "retrieved_at": "2026-11-21"
+            },
+            {
+              "label": "Parque Nacional Natural Los Nevados · Parques Nacionales Naturales",
+              "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+              "retrieved_at": "2026-11-21"
+            },
+            {
+              "label": "Protocolo de reservas zona sur, agosto 2023 · PNN",
+              "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2024/02/Protocolo-de-reservas-nevado-del-Tolima.pdf",
+              "retrieved_at": "2026-11-21"
+            }
+          ],
+          "last_verified": "2026-11-22",
+          "valid_until": "2026-12-31",
+          "related": [
+            "booking_fees.under25_admission_fee",
+            "booking_fees.vehicle_entry_fee",
+            "booking_fees.entry_payment_channels"
+          ],
+          "tags": [
+            "sector",
+            "tarifas",
+            "comparación"
+          ]
+        },
+        "evidence": [
+          {
+            "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+            "path": "research_notes/Conocimiento turístico de Los Nevados/booking_fees/evidence/raw/pnn_nevados.txt",
+            "quote": "Quindío-Dulima\n*Estos valores no incluyen el seguro obligatorio de accidentes, que debe ser asumido por el visitante y pagado a través de la agencia o guía ecoturístico de su elección.\n0\n0\n0\nNo aplica\nSegún el guía o la agencia operadora registrada que se elija.",
+            "checked_on": "2026-11-22"
+          },
+          {
+            "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+            "path": "research_notes/Conocimiento turístico de Los Nevados/booking_fees/evidence/raw/pnn_nevados.txt",
+            "quote": "Cisne-Poleka Kasue y Laguna del Otún\n*Estos valores no incluyen el seguro obligatorio de accidentes, que debe ser asumido por el visitante y pagado a través de la agencia o guía ecoturístico de su elección.\n12.500\n24.500\n68.000",
+            "checked_on": "2026-11-22"
+          },
+          {
+            "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+            "path": "research_notes/Conocimiento turístico de Los Nevados/booking_fees/evidence/raw/pnn_nevados.txt",
+            "quote": "Brisas-Kumanday\n*Estos valores no incluyen el seguro obligatorio de accidentes, que debe ser asumido por el visitante y pagado a través de la concesión Unión Temporal Operación Nevados (UTON).\n12.500\n24.500\n68.000",
+            "checked_on": "2026-11-22"
+          },
+          {
+            "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2026/02/RESOLUCION-551-DE-2025-ACTUALIZA-EL-VALOR-DERECHOS-DE-INGRESO-Y-SERVICIOS-COMPLEMENTARIOS-A-LAS-AREAS-PROTEGIDAS.pdf",
+            "path": "research_notes/Conocimiento turístico de Los Nevados/booking_fees/evidence/raw/resolucion-551-2025-pnn-2026-02.txt",
+            "quote": "RESOLUCIÓN 551\n\nDE 19 DE DICIEMBRE DE 2025\n\n“Por medio de la cual se actualiza el valor de los derechos de ingreso y\nservicios complementarios a las áreas protegidas del Sistema de Parques\nNacionales Naturales de Colombia y se unifican disposiciones.”",
+            "checked_on": "2026-11-22"
+          },
+          {
+            "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2026/02/RESOLUCION-551-DE-2025-ACTUALIZA-EL-VALOR-DERECHOS-DE-INGRESO-Y-SERVICIOS-COMPLEMENTARIOS-A-LAS-AREAS-PROTEGIDAS.pdf",
+            "path": "research_notes/Conocimiento turístico de Los Nevados/booking_fees/evidence/raw/resolucion-551-2025-pnn-2026-02.txt",
+            "quote": "ARTÍCULO 22. – La presente resolución rige a partir del primero de enero de\n2026 y deroga a partir de esta fecha las disposiciones que le sean contrarias,\nentre éstas, la Resolución 695 de 2024 .\nDada en Bogotá D.C., a los 19\n\ndías del mes de diciembre de 2025.",
+            "checked_on": "2026-11-22"
+          },
+          {
+            "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2024/02/Protocolo-de-reservas-nevado-del-Tolima.pdf",
+            "path": "research_notes/Conocimiento turístico de Los Nevados/booking_fees/evidence/raw/protocolo_reservas_tolima_2024.txt",
+            "quote": "sin realizar el cobro de derecho de ingreso, hasta tanto se cuente con la\n         infraestructura necesaria para el cobro",
+            "checked_on": "2026-11-22"
+          },
+          {
+            "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2026/02/RESOLUCION-551-DE-2025-ACTUALIZA-EL-VALOR-DERECHOS-DE-INGRESO-Y-SERVICIOS-COMPLEMENTARIOS-A-LAS-AREAS-PROTEGIDAS.pdf",
+            "path": "research_notes/Conocimiento turístico de Los Nevados/booking_fees/evidence/raw/resolucion-551-2025-pnn-2026-02.txt",
+            "quote": "$12.500\n\n$24.500\n\n$68.000\n\nVía Parque Isla de Salamanca.\nParque Nacional Naturales Los\nNevados.",
+            "checked_on": "2026-11-22"
+          }
+        ]
+      },
+      {
+        "op": "update",
+        "reason": "Presentar ambas filas incompatibles de la ficha PNN consultada el 22-11-2026 para vehículos en Brisas (colectivo $27.500 y buseta $56.000 vs microbús/buseta $27.500 y bus $56.000) y contrastar con Resolución 551 de 2025, remitiendo a confirmar.",
+        "entry": {
+          "id": "booking_fees.vehicle_entry_fee",
+          "label": "tarifa de ingreso en vehículo",
+          "kind": "fact",
+          "audience": "visitor",
+          "lang": "es",
+          "examples": [
+            "cuánto cuesta entrar en carro",
+            "precio del carro para ir a Brisas",
+            "cobran por el vehículo al parque?",
+            "cuánto vale el colectivo para Los Nevados",
+            "tarifa de la buseta al parque",
+            "cuánto paga un bus de turismo por entrar",
+            "valor de ingreso para automóvil",
+            "la moto paga entrada al parque?",
+            "cuánto paga un carro particular para entrar",
+            "how much is the car entry fee?",
+            "do buses pay to enter the park?",
+            "vehículo propio, cuánto es la entrada"
+          ],
+          "hard_negatives": [
+            "comparar tarifas por sector",
+            "cómo pago la entrada al parque"
+          ],
+          "needs": [],
+          "answer": {
+            "short": "En la ficha PNN consultada el 22-11-2026 figuran dos filas incompatibles para Brisas: una lista colectivo $27.500 y buseta $56.000 COP; otra lista microbús o buseta $27.500 y bus $56.000 COP (automóvil coincide en $10.000 y moto prohibida; en Cisne y Otún no aplica). La Resolución 551 del 19-12-2025 (vigente desde 01-01-2026) fija $10.000, $27.500 y $56.000. Confirma las categorías en parquesnacionales.gov.co antes de viajar.",
+            "variants": [
+              "La ficha PNN consultada el 22-11-2026 presenta dos tablas incompatibles para vehículos en Brisas: una indica colectivo $27.500 y buseta $56.000 COP, mientras la otra indica microbús o buseta $27.500 y bus $56.000 COP (ambas coinciden en automóvil $10.000 y moto prohibida). Confirma las tarifas y categorías en el canal oficial parquesnacionales.gov.co."
+            ],
+            "detail": "La ficha PNN consultada el 22-11-2026 contiene dos filas incompatibles en Brisas: una lista automóvil 10.000, colectivo 27.500 y buseta 56.000 (máximo 30 pasajeros); la otra lista vehículo tipo automóvil $10.000, microbús o buseta $27.500 y bus $56.000. En ambas, la moto tiene ingreso prohibido y en Cisne y Otún figura No aplica. La Resolución 551 del 19-12-2025 (vigente desde 01-01-2026) publica los valores $10.000, $27.500 y $56.000 COP. Confirma con el canal oficial antes de viajar."
+          },
+          "sources": [
+            {
+              "label": "Resolución 551 de 2025 · Parques Nacionales Naturales (copia PNN, texto digital)",
+              "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2026/02/RESOLUCION-551-DE-2025-ACTUALIZA-EL-VALOR-DERECHOS-DE-INGRESO-Y-SERVICIOS-COMPLEMENTARIOS-A-LAS-AREAS-PROTEGIDAS.pdf",
+              "retrieved_at": "2026-11-21"
+            },
+            {
+              "label": "Parque Nacional Natural Los Nevados · Parques Nacionales Naturales",
+              "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+              "retrieved_at": "2026-11-21"
+            }
+          ],
+          "last_verified": "2026-11-22",
+          "valid_until": "2026-12-31",
+          "related": [
+            "booking_fees.sector_entry_fee_difference",
+            "booking_fees.entry_payment_channels"
+          ],
+          "tags": [
+            "tarifa",
+            "vehículo"
+          ]
+        },
+        "evidence": [
+          {
+            "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+            "path": "research_notes/Conocimiento turístico de Los Nevados/booking_fees/evidence/raw/pnn_nevados.txt",
+            "quote": "Automóvil:\n10.000\nColectivo:\n27.500\nBuseta:\n56.000\n(máximo 30 pasajeros)\nMoto:\nProhibido el ingreso",
+            "checked_on": "2026-11-22"
+          },
+          {
+            "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+            "path": "research_notes/Conocimiento turístico de Los Nevados/booking_fees/evidence/raw/pnn_nevados.txt",
+            "quote": "Vehículo tipo automóvil\n$ 10.000\nMicrobús o buseta\n$ 27.500\nBus\n$ 56.000\nMoto\nPROHIBIDO",
+            "checked_on": "2026-11-22"
+          },
+          {
+            "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+            "path": "research_notes/Conocimiento turístico de Los Nevados/booking_fees/evidence/raw/pnn_nevados.txt",
+            "quote": "Cisne-Poleka Kasue y Laguna del Otún\n*Estos valores no incluyen el seguro obligatorio de accidentes, que debe ser asumido por el visitante y pagado a través de la agencia o guía ecoturístico de su elección.\n12.500\n24.500\n68.000\nNo aplica",
+            "checked_on": "2026-11-22"
+          },
+          {
+            "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2026/02/RESOLUCION-551-DE-2025-ACTUALIZA-EL-VALOR-DERECHOS-DE-INGRESO-Y-SERVICIOS-COMPLEMENTARIOS-A-LAS-AREAS-PROTEGIDAS.pdf",
+            "path": "research_notes/Conocimiento turístico de Los Nevados/booking_fees/evidence/raw/resolucion-551-2025-pnn-2026-02.txt",
+            "quote": "Parque Nacional Natural Los\n$10.000\n$27.500\n$56.000\nNevados",
+            "checked_on": "2026-11-22"
+          },
+          {
+            "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2026/02/RESOLUCION-551-DE-2025-ACTUALIZA-EL-VALOR-DERECHOS-DE-INGRESO-Y-SERVICIOS-COMPLEMENTARIOS-A-LAS-AREAS-PROTEGIDAS.pdf",
+            "path": "research_notes/Conocimiento turístico de Los Nevados/booking_fees/evidence/raw/resolucion-551-2025-pnn-2026-02.txt",
+            "quote": "RESOLUCIÓN 551\n\nDE 19 DE DICIEMBRE DE 2025\n\n“Por medio de la cual se actualiza el valor de los derechos de ingreso y\nservicios complementarios a las áreas protegidas del Sistema de Parques\nNacionales Naturales de Colombia y se unifican disposiciones.”",
+            "checked_on": "2026-11-22"
+          },
+          {
+            "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2026/02/RESOLUCION-551-DE-2025-ACTUALIZA-EL-VALOR-DERECHOS-DE-INGRESO-Y-SERVICIOS-COMPLEMENTARIOS-A-LAS-AREAS-PROTEGIDAS.pdf",
+            "path": "research_notes/Conocimiento turístico de Los Nevados/booking_fees/evidence/raw/resolucion-551-2025-pnn-2026-02.txt",
+            "quote": "ARTÍCULO 22. – La presente resolución rige a partir del primero de enero de\n2026 y deroga a partir de esta fecha las disposiciones que le sean contrarias,\nentre éstas, la Resolución 695 de 2024 .\nDada en Bogotá D.C., a los 19\n\ndías del mes de diciembre de 2025.",
+            "checked_on": "2026-11-22"
+          }
+        ]
+      },
+      {
+        "op": "update",
+        "reason": "Limitar la exigencia de permiso especial estrictamente a actividades nocturnas en los sectores Brisas y Cisne según el informe 2024, precisando que la Resolución 207 de 2023 no impone una prohibición general para todo el parque.",
+        "entry": {
+          "id": "hours_status.night_entry_prohibition",
+          "label": "prohibición de ingreso nocturno al parque",
+          "kind": "rule",
+          "audience": "visitor",
+          "lang": "es",
+          "examples": [
+            "se puede entrar de noche al parque",
+            "puedo ingresar en la noche",
+            "está permitido entrar de noche",
+            "si llego de noche, ¿igual me dejan pasar?",
+            "si llego de madrugada antes de que abran, me dejan pasar?",
+            "puedo llegar de madrugada al parque",
+            "dejan pasar carros de noche en brisas",
+            "se puede caminar de noche por los senderos",
+            "de noche no dejan entrar al parque, cierto",
+            "por qué no dejan entrar de noche",
+            "is night entry allowed in the park",
+            "can I enter los nevados at night"
+          ],
+          "hard_negatives": [
+            "¿y si ya es tarde, me dejan entrar?",
+            "a qué hora puedo entrar",
+            "de noche sí dejan caminar?"
+          ],
+          "entities": {},
+          "needs": [],
+          "answer": {
+            "short": "La ficha PNN solo publica horarios de ingreso diurnos y la Resolución 207 de 2023 ordena respetar los horarios establecidos para cada actividad turística, sin contener una prohibición general expresa de ingreso nocturno en todo el parque. Por su parte, el informe de necesidades de 2024 establece que la actividad nocturna en los sectores Brisas y Cisne requiere un permiso especial previo de Parques Nacionales. Si planeas actividades nocturnas en Brisas o Cisne, tramita dicho permiso y confirma con la entidad antes de viajar.",
+            "variants": [
+              "Ni la ficha PNN ni la Resolución 207 de 2023 formulan una prohibición nocturna general para todo el parque, aunque sí exigen respetar los horarios diurnos autorizados. El informe de necesidades de 2024 exige permiso especial exclusivamente para actividades nocturnas en los sectores Brisas y Cisne: no las realices en esos sectores sin autorización previa de Parques Nacionales."
+            ],
+            "detail": "La Resolución 207 de 2023 dispone respetar los horarios establecidos para las actividades turísticas autorizadas (todas diurnas), sin enunciar una regla general de prohibición nocturna para la totalidad del área protegida. El informe de necesidades de asistencia 2024 clasifica específicamente la «Actividad nocturna: Sector Brisas y Cisne» entre las que requieren permiso especial expedido por Parques Nacionales. Dicha exigencia de permiso se limita a actividades nocturnas en esos dos sectores."
+          },
+          "sources": [
+            {
+              "label": "Parques Nacionales Naturales de Colombia · PNN Los Nevados",
+              "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+              "retrieved_at": "2026-11-21"
+            },
+            {
+              "label": "Parques Nacionales Naturales de Colombia · Resolución 207 de 2023 (Reglamentación transitoria PNN Los Nevados)",
+              "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2023/08/Resolucion_207_2023_ReglamentacionNevados_.pdf",
+              "retrieved_at": "2026-11-21"
+            },
+            {
+              "label": "PNN Los Nevados · Informe de necesidades de asistencia 2024",
+              "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2024/12/Informe-de-necesidades-de-asistencia-PNN-Los-Nevados-2024.docx",
+              "retrieved_at": "2026-11-21"
+            }
+          ],
+          "last_verified": "2026-11-22",
+          "valid_until": null,
+          "related": [
+            "hours_status.late_arrival_policy",
+            "hours_status.camping_arrival_cutoff",
+            "hours_status.general_opening_schedule"
+          ],
+          "tags": [
+            "nocturno",
+            "prohibición",
+            "seguridad",
+            "noche",
+            "regla"
+          ]
+        },
+        "evidence": [
+          {
+            "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+            "path": "research_notes/Conocimiento turístico de Los Nevados/hours_status/evidence/raw/pnn_nevados.txt",
+            "quote": "abierto todos los días del año en horario de 8:00 a. m. a 2:00 p. m., pero ten presente que la última charla de inducción obligatoria se realiza a la 1:30 p. m.",
+            "checked_on": "2026-11-22"
+          },
+          {
+            "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2023/08/Resolucion_207_2023_ReglamentacionNevados_.pdf",
+            "path": "research_notes/Conocimiento turístico de Los Nevados/hours_status/evidence/raw/resolucion_207_2023.txt",
+            "quote": "Respetar los horarios establecidos para realizar cada una de las actividades turísticas.",
+            "checked_on": "2026-11-22"
+          },
+          {
+            "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2024/12/Informe-de-necesidades-de-asistencia-PNN-Los-Nevados-2024.docx",
+            "path": "research_notes/Conocimiento turístico de Los Nevados/activities/evidence/raw/pnn_informe_necesidades_2024.txt",
+            "quote": "Estas actividades requieren un permiso especial para realizarlas en el PNN Los Nevados.\n1.Actividad nocturna: Sector Brisas y Cisne",
+            "checked_on": "2026-11-22"
+          }
+        ]
+      },
+      {
+        "op": "update",
+        "reason": "Añadir la cita textual del Anexo 2023 que autoriza el porteo exclusivamente en el sector sur (Cedral, Cocora y Palomar), manteniendo la prohibición en Calvito y Arenales y la mención de 2024 de Chilcos-Arenales.",
+        "entry": {
+          "id": "services.porter_luggage",
+          "label": "rutas autorizadas para porteo de maletas",
+          "kind": "fact",
+          "audience": "visitor",
+          "lang": "es",
+          "examples": [
+            "porteador",
+            "porteo",
+            "me cargan la maleta?",
+            "hay quien lleve el equipaje",
+            "alguien que cargue las maletas hasta arriba",
+            "y el porteo sale caro?",
+            "cuánto cobran por cargar la maleta",
+            "contratar a alguien para cargar el morral",
+            "hay porteo en la ruta de El Bosque",
+            "el porteo sirve en la ruta de Juntas?",
+            "what does a porter cost",
+            "can someone carry my bags up the trail",
+            "servicio de porteo de maletas en el parque",
+            "dónde contratar porteador de equipaje en las rutas",
+            "en cuáles rutas está permitido el porteo de equipaje",
+            "por cuáles sectores se puede llevar porteador de maletas",
+            "está permitido el porteo de bultos por el Cedral o Cocora"
+          ],
+          "hard_negatives": [
+            "requisitos para ser porteador",
+            "cómo sé si el porteador está avalado",
+            "puedo subir con mula pa cargar las maletas?",
+            "se puede llevar el equipaje en mula o caballo"
+          ],
+          "entities": {
+            "sector": [
+              "otun",
+              "quindio_dulima",
+              "brisas"
+            ]
+          },
+          "answer": {
+            "short": "El porteo de maletas está permitido exclusivamente en el sector sur ingresando por El Cedral (Pereira), Valle de Cocora (Salento) y Palomar (Anzoátegui) hasta los predios autorizados, y queda prohibido hacia los campamentos de Calvito y Arenales (reglamentación de 2023). El informe de 2024 menciona el sendero Chilcos–Arenales cumbre pero no autoriza porteo en Juntas ni en Chilcos: confirma la ruta con el prestador antes de contratar.",
+            "variants": [
+              "Según la reglamentación de 2023, el porteo de equipaje se autoriza únicamente en el sector sur por las entradas de El Cedral, Valle de Cocora y Palomar, estando prohibido para Calvito y Arenales. El informe de 2024 cita Chilcos–Arenales cumbre sin autorizar porteo en Juntas o Chilcos: verifica siempre la ruta con el prestador autorizado."
+            ],
+            "detail": "La reglamentación ecoturística de 2023 (Anexo PNN) restringe el porteo de maletas únicamente al sector sur: Pereira por El Cedral (hasta el predio El Berlín), Salento por Cocora (hasta La Argentina/Buenos Aires y La Primavera/La Playa) y Anzoátegui por Palomar (hasta Termales de Cañón); prohíbe el porteo para las zonas de camping de Calvito y Arenales. El informe de 2024 incluye el sendero Chilcos–Arenales cumbre pero no autoriza porteo en Juntas ni Chilcos. Confirma tu itinerario con el prestador avalado."
+          },
+          "sources": [
+            {
+              "label": "PNN Los Nevados · Anexo de reglamentación ecoturística (2023)",
+              "url": "https://parquesnacionales.gov.co/wp-content/uploads/2023/12/ANEXO-PNN-NEVADOS.pdf",
+              "retrieved_at": "2026-11-21"
+            },
+            {
+              "label": "PNN Los Nevados · Informe de necesidades de asistencia 2024",
+              "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2024/12/Informe-de-necesidades-de-asistencia-PNN-Los-Nevados-2024.docx",
+              "retrieved_at": "2026-11-21"
+            },
+            {
+              "label": "Parques Nacionales Naturales · Los Nevados (ficha oficial)",
+              "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+              "retrieved_at": "2026-11-21"
+            }
+          ],
+          "last_verified": "2026-11-22",
+          "valid_until": null,
+          "related": [
+            "services.otun_lodging",
+            "services.tolima_lodging",
+            "services.uton_services"
+          ],
+          "tags": [
+            "porteo",
+            "maletas",
+            "equipaje",
+            "prestador"
+          ]
+        },
+        "evidence": [
+          {
+            "url": "https://parquesnacionales.gov.co/wp-content/uploads/2023/12/ANEXO-PNN-NEVADOS.pdf",
+            "path": "research_notes/Conocimiento turístico de Los Nevados/services/evidence/raw/anexo_pnn_nevados_2023.txt",
+            "quote": "Esta actividad que corresponde al transporte de maletas de los visitantes que ingresan al área protegida está\n        permitida sólo para el sector sur, correspondiente al ingreso por los municipios de:\n\n           1. Pereira - ingreso por el Cedral: sólo hasta el predio el Berlín.\n           2. Salento - ingreso por el Valle de Cocora: sólo hasta los predios La Argentina o Buenos Aires y La\n              Primavera o La Playa.\n           3. Anzoátegui - ingreso por Palomar: sólo hasta termales de Cañón.",
+            "checked_on": "2026-11-22"
+          },
+          {
+            "url": "https://parquesnacionales.gov.co/wp-content/uploads/2023/12/ANEXO-PNN-NEVADOS.pdf",
+            "path": "research_notes/Conocimiento turístico de Los Nevados/services/evidence/raw/anexo_pnn_nevados_2023.txt",
+            "quote": "Nota: queda prohibido el uso del porteo de maletas para las zonas de camping temporales\n      correspondientes al Calvito y Arenales.",
+            "checked_on": "2026-11-22"
+          },
+          {
+            "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2024/12/Informe-de-necesidades-de-asistencia-PNN-Los-Nevados-2024.docx",
+            "path": "research_notes/Conocimiento turístico de Los Nevados/activities/evidence/raw/pnn_informe_necesidades_2024.txt",
+            "quote": "Sendero los chilcos – arenales cumbre",
+            "checked_on": "2026-11-22"
+          },
+          {
+            "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+            "path": "research_notes/Conocimiento turístico de Los Nevados/services/evidence/raw/pnn_nevados.txt",
+            "quote": "Guías y operadores turísticos autorizados",
+            "checked_on": "2026-11-22"
+          }
+        ]
+      },
+      {
+        "op": "update",
+        "reason": "Indicar que la ficha PNN consultada el 22-11-2026 publica $22.000 sin año de vigencia ni unidad (persona o grupo), sin presentarlo como tarifa vigente fija a pagar.",
+        "entry": {
+          "id": "booking_fees.brisas_guide_price",
+          "label": "precio de la guianza en Brisas",
+          "kind": "fact",
+          "audience": "visitor",
+          "lang": "es",
+          "examples": [
+            "cuanto cuesta el guia en brisas",
+            "precio de la guianza en el sector norte",
+            "cuanto vale el interprete en brisas",
+            "servicio de guia de uton cuanto cobra",
+            "cuanto paga por guia en los nevados brisas",
+            "how much is the guide service in Brisas?",
+            "valor del guia uton",
+            "tarifa de interpretacion en el carreteable",
+            "costo de guianza en brisas por persona o grupo",
+            "cuanto me cobran por el guia del parque",
+            "guianza brisas cuanto sale",
+            "precio del guia en la concesion"
+          ],
+          "hard_negatives": [
+            "dónde reservo Brisas",
+            "cómo sé si el guía está autorizado"
+          ],
+          "needs": [],
+          "answer": {
+            "short": "La ficha PNN consultada el 22-11-2026 publica $22.000 COP para el servicio de guianza e interpretación de UTON en Brisas, pero lo hace sin año de vigencia ni unidad (no especifica si es por persona o por grupo). No lo tomes como tarifa vigente fija a pagar: consulta directamente con la concesión UTON la tarifa actual antes de contratar.",
+            "variants": [
+              "El valor de $22.000 COP que figura en la ficha PNN consultada el 22-11-2026 para la guianza de UTON en Brisas se publica sin año de vigencia ni unidad de cobro (por persona o por grupo). No lo presentes ni asumas como tarifa vigente a pagar; confirma el precio vigente con la concesión UTON antes de viajar."
+            ],
+            "detail": "En la ficha PNN consultada el 22-11-2026 figura la cifra 22.000 para el servicio de interpretación y guianza de la concesión Unión Temporal Operación Nevados (UTON) en Brisas-Kumanday, pero la página lo publica sin año de vigencia ni unidad (individual o grupal). No debe presentarse como tarifa vigente: verifica los costos directamente con el operador UTON."
+          },
+          "sources": [
+            {
+              "label": "Parque Nacional Natural Los Nevados · Parques Nacionales Naturales",
+              "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+              "retrieved_at": "2026-11-21"
+            }
+          ],
+          "last_verified": "2026-11-22",
+          "valid_until": "2026-12-31",
+          "related": [
+            "booking_fees.brisas_booking_channel",
+            "booking_fees.registered_operator_choice"
+          ],
+          "tags": []
+        },
+        "evidence": [
+          {
+            "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+            "path": "research_notes/Conocimiento turístico de Los Nevados/booking_fees/evidence/raw/pnn_nevados.txt",
+            "quote": "22.000\n*Este servicio es prestado por la Concesión Unión Temporal Operación Nevados (UTON).",
+            "checked_on": "2026-11-22"
+          }
+        ]
+      }
+    ]
+  },
+  "base": {
+    "data/knowledge/sections/conversation.json": "501623a436facf410c620f5a5864bff2daeb51d3f97bfc23710679149f322815",
+    "data/knowledge/sections/geography.json": "4d23ddfbbaf37f1f61ca3cd1d5cee40e8a79fc8dcfd440801145b2815a4053bd",
+    "data/knowledge/sections/flora_ecosystems.json": "d4e261595a1abea3a496e2b97ef2505a5836f684cecad141d5ec146c19395d40",
+    "data/knowledge/sections/fauna.json": "a583cfa7aa8ae9008033994cca44ff8cf3e80d7a11f41ca807eea1242aeb53a0",
+    "data/knowledge/sections/services.json": "0f99ebfa4e3b65fa1ad3cb2a855dc17792e4536906b05b21c5c07ddb228c7987",
+    "data/knowledge/sections/rules.json": "57996377cb9e83e1fb9e0dad624bd0b44e1e46919fddcb1bce34734c28c1e1cb",
+    "data/knowledge/sections/activities.json": "f89e3532fbc5bec4c2f217c6033941f484083aaee40e0ba99291184d1a3f5600",
+    "data/knowledge/sections/preparation.json": "6d798d212b4015c7a8cbc9173d5c1aea35d27f2ff051e652cc04dfee002bf02e",
+    "data/knowledge/sections/hours_status.json": "c88b89051768289e8cc88eda347aaf1aff7e657caeb1db73446f17d33ff46bef",
+    "data/knowledge/sections/booking_fees.json": "50bd1360e8e33b712489f901ae177d6ef3feaddc8dc2cf9d4d83c85515010340",
+    "data/knowledge/sections/access.json": "d2b2f3f1876f4b1a436e48bf73730a5c26a4dc5e2de4e982292894f1abb312ad",
+    "data/knowledge/sections/weather_volcano.json": "1e5687d907d2fe3afd8c62d1d7fc36663ff5fec5e5c18271452a2b5d170dcf90",
+    "data/knowledge/sections/health_safety.json": "0b4fae6e37667167784047461d98b1a911f4e264db6bdef400253549b101f5da",
+    "data/knowledge/sections/actions.json": "148d5323e085f6c12582ce2e2172f3ed86b8b68a2410c27b20318fdd30c7b395",
+    "data/knowledge/sections/history_culture.json": "47ac43bdf91ff67c9cb7e4c7423c629d8113358e35bbd32ce6216506d640f585",
+    "docs/schemas/knowledge-section.schema.json": "a7b049cddf6e867cbc68c41eff6d16c9e36e4bea73897d944033340cce8161fb",
+    "research_notes/Conocimiento turístico de Los Nevados/coordination/knowledge_additions.json": "a7ab60d34c0595d1b6c6fb6466254680a5aa9911622d58ec1f2ff9defa6c137d",
+    "research_notes/Conocimiento turístico de Los Nevados/geography/evidence/raw/carder_pnn_nevados_2026.txt": "608cd85c014470b99657e93de3d1e80cc41140ded38ff4f5860d00fc2dbeb0db",
+    "research_notes/Conocimiento turístico de Los Nevados/activities/evidence/raw/pnn_informe_necesidades_2024.txt": "a86bd521edf210754f28b1e68c93a99ee2fb9a89399ba041311d506c4b9ec9f5",
+    "research_notes/Conocimiento turístico de Los Nevados/services/evidence/raw/anexo_pnn_nevados_2023.txt": "9b24756751c1fa134e2232f98f2f943b97ec4dd665cf392dca89d67f5a7a0178",
+    "research_notes/Conocimiento turístico de Los Nevados/services/evidence/raw/pnn_nevados.txt": "4c09423056f7323c330d50a45783f12510d86bee5a45fb7f541ffd0a4f0e1268",
+    "research_notes/Conocimiento turístico de Los Nevados/booking_fees/evidence/raw/pnn_nevados.txt": "4c09423056f7323c330d50a45783f12510d86bee5a45fb7f541ffd0a4f0e1268",
+    "research_notes/Conocimiento turístico de Los Nevados/booking_fees/evidence/raw/resolucion-551-2025-pnn-2026-02.txt": "8571463838ff7cd1fa56244a63dca7cd991cdbf7e092c831c4933d8da79cb65a",
+    "research_notes/Conocimiento turístico de Los Nevados/geography/evidence/raw/pnn_ficha_nevados.txt": "840090d4b52c89e8278274fede7c43148f7d908e76f2cd5ee9b0a180d7bd478f",
+    "research_notes/Conocimiento turístico de Los Nevados/booking_fees/evidence/raw/protocolo_reservas_tolima_2024.txt": "849952e9d8404d5fc963317710e2acbb91961471a4368c8216a1cc9c62ebf884",
+    "research_notes/Conocimiento turístico de Los Nevados/hours_status/evidence/raw/resolucion_207_2023.txt": "75d1570cba300a96fcd3cd1fae9e3757b347300dd616bbef5438cd01d06cccde",
+    "research_notes/Conocimiento turístico de Los Nevados/hours_status/evidence/raw/pnn_nevados.txt": "4c09423056f7323c330d50a45783f12510d86bee5a45fb7f541ffd0a4f0e1268",
+    "research_notes/Conocimiento turístico de Los Nevados/booking_fees.research.md": "d7bb21c8b85729a2e1d3a3158b530bba919c530178fb074caf216f76d6f04a3b",
+    "research_notes/Conocimiento turístico de Los Nevados/geography.research.md": "8e756bec9074e1da986e8f0fd57c92ff87103bbc1cb3e8b5f1f15d653775be21",
+    "research_notes/Conocimiento turístico de Los Nevados/hours_status.research.md": "5755f814ee92a8b30ce788da7db4ad38684d712e29da5ba64e8098f9bf68573d",
+    "research_notes/Conocimiento turístico de Los Nevados/services.research.md": "d960292baeea478127894d460e62358f7858f8cfcc0ceab3948fa01bf60f4e27"
+  },
+  "writes": {
+    "data/knowledge/sections/booking_fees.json": "6c25e32e74e2298909b486d86cea17273ca0e3a8d2afacee4d75c155e86c984c",
+    "data/knowledge/sections/geography.json": "798b5c31d012b665e63a30d783aee912570f3347908ad27ecd1d7afe39810427",
+    "data/knowledge/sections/hours_status.json": "e55d2ff785a86b4124b843b7f3ec8c7b378d08b32a4e6a2bd91dfa31661f3219",
+    "data/knowledge/sections/services.json": "69bccc41f4f6937056315377345dc26895d99acc1e5ac9d9365d5b5f7285b377",
+    "research_notes/Conocimiento turístico de Los Nevados/coordination/knowledge_additions.json": "b6b365bf80e3647e87c03c5a03baa6bb76c7faac89c52b8dd9c1cd8116c547a7",
+    "research_notes/Conocimiento turístico de Los Nevados/booking_fees.research.md": "93d9bf12cc174bb8e24245fbfbb42d6e25c3a1de11d82f1291bcf18bce819b84",
+    "research_notes/Conocimiento turístico de Los Nevados/geography.research.md": "0123c082e61b483791d5d44d36de762f5e48936afdf81d76707040610a0917bb",
+    "research_notes/Conocimiento turístico de Los Nevados/hours_status.research.md": "79da537bd82454b2c2af85ab4697f4f670e09bd0c2bccf03a3a7a42b3ad7265c",
+    "research_notes/Conocimiento turístico de Los Nevados/services.research.md": "29aa27a9d4d7626b01fac2b5b06636cc6f87ab75abec02eebc292fc5bc9ca1bd"
+  }
+}

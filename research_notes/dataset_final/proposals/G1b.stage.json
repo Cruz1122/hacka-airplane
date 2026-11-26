@@ -1,0 +1,183 @@
+{
+  "version": 1,
+  "root": "/home/cruz1122/dev/hacka-airplane",
+  "proposal": {
+    "operations": [
+      {
+        "op": "update",
+        "reason": "Harmonize river origin with SGC official volcano description and IDEAM glacial drainage table, making it consistent with weather_volcano.ruiz_rivers.",
+        "entry": {
+          "id": "geography.rios_lagunilla_recio",
+          "label": "ríos Lagunilla y Recio del Ruiz",
+          "kind": "fact",
+          "audience": "visitor",
+          "lang": "es",
+          "examples": [
+            "río lagunilla del ruiz",
+            "el río recio sale del nevado",
+            "rio recio dónde nace",
+            "qué son los ríos lagunilla y recio",
+            "lagunilla o recio, cuál baja al magdalena",
+            "ríos que nacen en el Ruiz hacia el Magdalena",
+            "is the Recio river on the Ruiz",
+            "el recio y la lagunilla pa' qué lado van",
+            "cuáles son los ríos del Ruiz que van al Alto Magdalena",
+            "tienen algo que ver el recio y el lagunilla con el parque",
+            "lagunilla recio drenaje del ruiz",
+            "qué ríos salen del Ruiz por el lado tolimense"
+          ],
+          "answer": {
+            "short": "El Ideam incluye los ríos Lagunilla y Recio en el drenaje del Ruiz hacia el Alto Magdalena, y el SGC precisa que nacen en el edificio volcánico del Nevado del Ruiz. Si aumenta la actividad volcánica, no te acerques a sus cauces.",
+            "variants": [
+              "Lagunilla y Recio drenan hacia el Alto Magdalena según el Ideam y nacen en el edificio volcánico del Ruiz según el SGC. Aléjate de sus cauces ante avisos de actividad volcánica."
+            ]
+          },
+          "sources": [
+            {
+              "label": "IDEAM, glaciar Nevado del Ruiz",
+              "url": "https://www.ideam.gov.co/nuestra-entidad/ecosistemas-e-informacion-ambiental/glaciares/nevado-del-ruiz",
+              "retrieved_at": "2026-11-21"
+            },
+            {
+              "label": "SGC, ficha del Nevado del Ruiz",
+              "url": "https://www2.sgc.gov.co/sgc/volcanes/VolcanNevadoRuiz/Paginas/generalidades-volcan-nevado-ruiz.aspx",
+              "retrieved_at": "2026-11-21"
+            }
+          ],
+          "last_verified": "2026-11-22",
+          "related": [
+            "geography.rio_guali",
+            "geography.rio_azufrado",
+            "geography.watersheds"
+          ],
+          "tags": [
+            "río",
+            "lagunilla",
+            "recio"
+          ],
+          "hard_negatives": [
+            "a dónde va a parar el agua del parque?",
+            "¿el parque alimenta solo un río grande o varios?",
+            "which rivers drain Los Nevados"
+          ]
+        },
+        "evidence": [
+          {
+            "url": "https://www.ideam.gov.co/nuestra-entidad/ecosistemas-e-informacion-ambiental/glaciares/nevado-del-ruiz",
+            "path": "research_notes/Conocimiento turístico de Los Nevados/geography/evidence/raw/ideam_glaciar_ruiz.txt",
+            "quote": "Río Lagunilla\nRío Lagunilla\n0.87\nAlto Magdalena\nQ. Aguablanca\nQ. El Cisne\nRío Recio",
+            "checked_on": "2026-11-22"
+          },
+          {
+            "url": "https://www2.sgc.gov.co/sgc/volcanes/VolcanNevadoRuiz/Paginas/generalidades-volcan-nevado-ruiz.aspx",
+            "path": "research_notes/Conocimiento turístico de Los Nevados/weather_volcano/evidence/raw/sgc-ruiz-generalidades.txt",
+            "quote": "El drenaje es radial excéntrico y en el edificio volcánico nacen los ríos Güalí, Lagunillas y Recio, afluentes del río Magdalena, y el río Chinchiná, afluente del Cauca; se trata de valles estrechos, profundos y de alta pendiente.",
+            "checked_on": "2026-11-22"
+          }
+        ]
+      },
+      {
+        "op": "update",
+        "reason": "Clarify that authorized mule luggage transport is restricted and does not enter Arenales or Calvito, aligning with rules.no_mules_arenales_calvito and Res. 207 / Anexo 2023.",
+        "entry": {
+          "id": "services.mule_luggage_registered_only",
+          "label": "transporte de carga con mulas y arrieros autorizados",
+          "kind": "fact",
+          "audience": "visitor",
+          "lang": "es",
+          "hard_negatives": [
+            "puedo hacer cabalgata en el parque",
+            "paseo a mula por los senderos",
+            "me pueden subir en mula como pasajero?",
+            "el caballo sirve para la travesía"
+          ],
+          "entities": {},
+          "answer": {
+            "short": "No entran mulas ni caballos con fines turísticos, como cabalgatas. Solo los arrieros avalados por el parque pueden cargar equipaje con mulas (previa autorización), pero ese porteo no ingresa a Arenales ni a Calvito. Pide un arriero registrado antes de subir.",
+            "variants": [
+              "Para carga de equipaje solo operan arrieros avalados por el parque con autorización previa, sin subir a Arenales ni a Calvito. Las cabalgatas turísticas no están permitidas."
+            ],
+            "detail": "El anexo de 2023 prohíbe el ingreso de equinos y mulares con fines turísticos y permite la carga solo a arrieros avalados, restringiendo además el ingreso de mulas hacia los campamentos de Arenales y Calvito. No encontré un listado publicado de arrieros ni tarifas.",
+            "reflection": null
+          },
+          "examples": [
+            "puedo subir con mula pa cargar las maletas?",
+            "se puede entrar con mulas al parque",
+            "llevar caballo para el equipaje",
+            "las mulas pueden cargar la carpa",
+            "entrar con arriero y mula a Los Nevados",
+            "arriero con mula, se puede?",
+            "burros o mulas para subir el equipaje",
+            "se puede llevar el equipaje en mula o caballo",
+            "mulas para llevar la comida al campamento",
+            "el arriero puede subir con los bultos?",
+            "can I bring a mule to carry my bags",
+            "are horses allowed to carry luggage",
+            "está permitido subir carga con mulas y arrieros autorizados",
+            "puedo llevar mi equipaje a lomo de mula con arriero avalado",
+            "mulas de carga autorizadas para llevar equipaje en la travesía",
+            "se puede contratar arriero con mula para subir bultos?"
+          ],
+          "related": [
+            "services.porter_luggage",
+            "services.porter_requirements"
+          ],
+          "tags": [
+            "mulas",
+            "arrieros",
+            "porteo",
+            "caballos"
+          ],
+          "sources": [
+            {
+              "label": "PNN Los Nevados · Anexo de reglamentación ecoturística (2023)",
+              "url": "https://parquesnacionales.gov.co/wp-content/uploads/2023/12/ANEXO-PNN-NEVADOS.pdf",
+              "retrieved_at": "2026-11-21"
+            }
+          ],
+          "last_verified": "2026-11-22",
+          "valid_until": null
+        },
+        "evidence": [
+          {
+            "url": "https://parquesnacionales.gov.co/wp-content/uploads/2023/12/ANEXO-PNN-NEVADOS.pdf",
+            "path": "research_notes/Conocimiento turístico de Los Nevados/access/evidence/ANEXO-PNN-NEVADOS-2023.txt",
+            "quote": "Animales de carga y asistencia permitidos: Se prohíbe expresamente el ingreso de equinos y mulares al Parque\n       con fines turísticos, es decir, la actividad de cabalgatas turísticas. Se permite el tránsito en mulas o equinos a\n       campesinos que habitan al interior del Parque, o para la realización exclusiva de actividades de PORTEO o\n       CARGA únicamente a los arrieros avalados por el Parque, con fines de carga de equipaje de turistas, de\n       investigación, prevención, vigilancia, control, apoyo y asistencia, atención de emergencias y transporte de\n       personas con limitaciones físicas que limiten o impidan su movilidad, previa autorización de un funcionario del Área\n       Protegida. El ingreso de mulas hacia los campamentos de Arenales y Calvito, ya sea desde el campamento de\n       Termales de Cañón, la Finca La Primavera o La Playa. La aproximación e ingreso a estos campamentos deberá\n       realizarse exclusivamente a pie por los visitantes, guías, operadores, intérpretes y montañistas deportivos.",
+            "checked_on": "2026-11-22"
+          }
+        ]
+      }
+    ]
+  },
+  "base": {
+    "data/knowledge/sections/conversation.json": "501623a436facf410c620f5a5864bff2daeb51d3f97bfc23710679149f322815",
+    "data/knowledge/sections/geography.json": "4d23ddfbbaf37f1f61ca3cd1d5cee40e8a79fc8dcfd440801145b2815a4053bd",
+    "data/knowledge/sections/flora_ecosystems.json": "d4e261595a1abea3a496e2b97ef2505a5836f684cecad141d5ec146c19395d40",
+    "data/knowledge/sections/fauna.json": "a583cfa7aa8ae9008033994cca44ff8cf3e80d7a11f41ca807eea1242aeb53a0",
+    "data/knowledge/sections/services.json": "0f99ebfa4e3b65fa1ad3cb2a855dc17792e4536906b05b21c5c07ddb228c7987",
+    "data/knowledge/sections/rules.json": "57996377cb9e83e1fb9e0dad624bd0b44e1e46919fddcb1bce34734c28c1e1cb",
+    "data/knowledge/sections/activities.json": "f89e3532fbc5bec4c2f217c6033941f484083aaee40e0ba99291184d1a3f5600",
+    "data/knowledge/sections/preparation.json": "6d798d212b4015c7a8cbc9173d5c1aea35d27f2ff051e652cc04dfee002bf02e",
+    "data/knowledge/sections/hours_status.json": "c88b89051768289e8cc88eda347aaf1aff7e657caeb1db73446f17d33ff46bef",
+    "data/knowledge/sections/booking_fees.json": "50bd1360e8e33b712489f901ae177d6ef3feaddc8dc2cf9d4d83c85515010340",
+    "data/knowledge/sections/access.json": "d2b2f3f1876f4b1a436e48bf73730a5c26a4dc5e2de4e982292894f1abb312ad",
+    "data/knowledge/sections/weather_volcano.json": "1e5687d907d2fe3afd8c62d1d7fc36663ff5fec5e5c18271452a2b5d170dcf90",
+    "data/knowledge/sections/health_safety.json": "0b4fae6e37667167784047461d98b1a911f4e264db6bdef400253549b101f5da",
+    "data/knowledge/sections/actions.json": "148d5323e085f6c12582ce2e2172f3ed86b8b68a2410c27b20318fdd30c7b395",
+    "data/knowledge/sections/history_culture.json": "47ac43bdf91ff67c9cb7e4c7423c629d8113358e35bbd32ce6216506d640f585",
+    "docs/schemas/knowledge-section.schema.json": "a7b049cddf6e867cbc68c41eff6d16c9e36e4bea73897d944033340cce8161fb",
+    "research_notes/Conocimiento turístico de Los Nevados/coordination/knowledge_additions.json": "a7ab60d34c0595d1b6c6fb6466254680a5aa9911622d58ec1f2ff9defa6c137d",
+    "research_notes/Conocimiento turístico de Los Nevados/geography/evidence/raw/ideam_glaciar_ruiz.txt": "f059b1629a99a9b11d0061b2bfc981dfad396193934fb62739b62c90ed9e6b4d",
+    "research_notes/Conocimiento turístico de Los Nevados/weather_volcano/evidence/raw/sgc-ruiz-generalidades.txt": "d11b0f6ea4eeb81d4bd29e391258d562996440e1987132b045fc29011ef09404",
+    "research_notes/Conocimiento turístico de Los Nevados/access/evidence/ANEXO-PNN-NEVADOS-2023.txt": "9b24756751c1fa134e2232f98f2f943b97ec4dd665cf392dca89d67f5a7a0178",
+    "research_notes/Conocimiento turístico de Los Nevados/geography.research.md": "8e756bec9074e1da986e8f0fd57c92ff87103bbc1cb3e8b5f1f15d653775be21",
+    "research_notes/Conocimiento turístico de Los Nevados/services.research.md": "d960292baeea478127894d460e62358f7858f8cfcc0ceab3948fa01bf60f4e27"
+  },
+  "writes": {
+    "data/knowledge/sections/geography.json": "f9d6d21409a7a444c529505dcc3a9164202208ac9b3062ee1dcbb83bccc273b6",
+    "data/knowledge/sections/services.json": "5044a85e68ec10abe6806003db978128ad93937e19f59ef0eacc16ee06342f28",
+    "research_notes/Conocimiento turístico de Los Nevados/coordination/knowledge_additions.json": "6268d51e91a2da006df733510516c91902e2f7c4c6cfe19d5e70d21fdfb03142",
+    "research_notes/Conocimiento turístico de Los Nevados/geography.research.md": "94eb1b5e5e983b40d4985255c6eea12601fa90f8186e8170eceb35e852b81e18",
+    "research_notes/Conocimiento turístico de Los Nevados/services.research.md": "90da7d7e0fab5862939bbf4c51824c932ba2b35232534fb5e78b86142a2bdd67"
+  }
+}
