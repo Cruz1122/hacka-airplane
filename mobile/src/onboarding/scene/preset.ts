@@ -117,6 +117,15 @@ export const DEFAULT_PALETTE: Record<string, string> = {
   mist: '#F5F2FF',
   lupine: '#8B6CD6',
   lupineLight: '#C3ADF2',
+  // Neutral coat for the culpeo fox on the trail map (user asked for a darker, stronger grey).
+  furGrey: '#57544A',
+  furGreyLight: '#9C978A',
+  furRufous: '#A0712E',
+  // Trail map animals (user call): golden puma, true-black bear and condor, the condor's pink nape.
+  pumaGold: '#CC9A38',
+  furBlack: '#1C1B1E',
+  furBlackLight: '#3B393E',
+  condorSkin: '#D27A76',
 };
 
 const frailejon = (
