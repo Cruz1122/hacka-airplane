@@ -150,6 +150,9 @@ describe('AccessibilitySheet', () => {
     expect(latestPrefs!.reduceMotion).toBe(true);
     expect(latestReduced).toBe(true);
 
+    await ui.pressSwitch(copy.autoSpeakReplies.title);
+    expect(latestPrefs!.autoSpeakReplies).toBe(true);
+
     // Color vision radio selection.
     await ui.pressRadio(copy.colorVision.modes.tritanopia.label);
     expect(latestPrefs!.colorVision).toBe('tritanopia');
@@ -161,6 +164,7 @@ describe('AccessibilitySheet', () => {
       textScale: 1,
       highContrast: false,
       reduceMotion: false,
+      autoSpeakReplies: false,
       colorVision: 'none',
     });
     expect(latestReduced).toBe(false);

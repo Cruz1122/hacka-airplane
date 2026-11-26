@@ -4,13 +4,16 @@ import { Animated, StyleSheet } from 'react-native';
 import { createRoot, type TestInstance } from 'test-renderer';
 
 const mockToggleSpeak = jest.fn();
+const mockAutoSpeakReply = jest.fn();
 jest.mock('@/speech/speak', () => ({
   subscribeSpeak: () => () => {},
   getSpeakingKey: () => null,
   toggleSpeak: (...args: unknown[]) => mockToggleSpeak(...args),
+  autoSpeakReply: (...args: unknown[]) => mockAutoSpeakReply(...args),
 }));
 
 import { fill, t } from '@/i18n';
+import { resetAccessibilityForTest, setAccessibility } from '@/state/accessibility';
 import { fonts } from '@/ui/theme/tokens';
 
 import { ChatBubble, type ChatBubbleProps, markEntered } from '../ChatBubble';
@@ -78,6 +81,9 @@ describe('ChatBubble', () => {
   let timing: jest.SpyInstance;
   beforeEach(() => {
     mockReduced = false;
+    mockToggleSpeak.mockClear();
+    mockAutoSpeakReply.mockClear();
+    resetAccessibilityForTest();
     timing = jest
       .spyOn(Animated, 'timing')
       .mockImplementation(() => ({ start: jest.fn(), stop: jest.fn(), reset: jest.fn() }));
@@ -159,6 +165,29 @@ describe('ChatBubble', () => {
     expect(voice).toBeTruthy();
     act(() => voice!.props.onClick(PRESS));
     expect(mockToggleSpeak).toHaveBeenCalledWith('a1', 'Dato', expect.any(Function));
+    expect(mockAutoSpeakReply).not.toHaveBeenCalled();
+  });
+
+  it('auto-speaks a finished reply only when the setting is on and the row is generated', () => {
+    mockReduced = true;
+    const prior = mount({ role: 'assistant', text: 'Ya leída.', revealId: 'r-old' });
+    setAccessibility({ autoSpeakReplies: true });
+    prior.render({ role: 'assistant', text: 'Ya leída.', revealId: 'r-old' });
+    expect(mockAutoSpeakReply).not.toHaveBeenCalled();
+
+    mount({
+      role: 'assistant',
+      text: fill(t.chatScreen.greeting, { pet: 'Laya' }),
+      keywords: t.chatScreen.greetingKeywords.map((keyword) => fill(keyword, { pet: 'Laya' })),
+    });
+    expect(mockAutoSpeakReply).not.toHaveBeenCalled();
+
+    mount({ role: 'assistant', text: 'Abre a las 06:10.', revealId: 'r-auto' });
+    expect(mockAutoSpeakReply).toHaveBeenCalledWith(
+      'r-auto',
+      'Abre a las 06:10.',
+      expect.any(Function),
+    );
   });
 
   it('has no source button without sources, and shows the user words as typed', () => {
@@ -193,9 +222,7 @@ describe('ChatBubble', () => {
     advance(MS * 2);
     expect(b.text()).toBe('Abre a las ');
     advance(MS * 3);
-    expect(b.text()).toBe(
-      `${text}|E|P|${t.chatScreen.sources.title}|0.6 s`,
-    );
+    expect(b.text()).toBe(`${text}|E|P|${t.chatScreen.sources.title}|0.6 s`);
     expect(b.buttons()).toHaveLength(2);
   });
 

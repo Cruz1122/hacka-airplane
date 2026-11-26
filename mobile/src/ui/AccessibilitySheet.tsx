@@ -1,16 +1,8 @@
 // Accessibility bottom-sheet panel opened from the left button of CloudNavBar.
 // Minimal, breathable layout for text size (with live preview), high contrast, reduce motion,
-// and color-vision palettes.
+// auto-speak of new chat replies, and color-vision palettes.
 import { useEffect, useState } from 'react';
-import {
-  Animated,
-  Platform,
-  Pressable,
-  ScrollView,
-  StyleSheet,
-  Text,
-  View,
-} from 'react-native';
+import { Animated, Platform, Pressable, ScrollView, StyleSheet, Text, View } from 'react-native';
 
 import { fill, t } from '@/i18n';
 import {
@@ -105,14 +97,13 @@ function SwitchRow({
       accessibilityLabel={title}
       accessibilityHint={body}
       accessibilityState={{ checked: value }}
-      style={({ pressed }) => [
-        styles.switchRow,
-        pressed && { backgroundColor: palette.cardShade },
-      ]}
+      style={({ pressed }) => [styles.switchRow, pressed && { backgroundColor: palette.cardShade }]}
     >
       <View style={styles.switchTexts}>
         <Text style={[styles.sectionTitle, scaled.label, { color: palette.ink }]}>{title}</Text>
-        <Text style={[styles.sectionBody, scaled.caption, { color: palette.inkMuted }]}>{body}</Text>
+        <Text style={[styles.sectionBody, scaled.caption, { color: palette.inkMuted }]}>
+          {body}
+        </Text>
         {note ? (
           <Text style={[styles.note, scaled.caption, { color: palette.primary }]}>{note}</Text>
         ) : null}
@@ -149,8 +140,16 @@ function AccessibilityContent({
   onClose: () => void;
   reducedMotion: boolean;
 }) {
-  const { palette, scaled, textScale, highContrast, reduceMotion, colorVision, borderWidth } =
-    useAccessibilityTheme();
+  const {
+    palette,
+    scaled,
+    textScale,
+    highContrast,
+    reduceMotion,
+    autoSpeakReplies,
+    colorVision,
+    borderWidth,
+  } = useAccessibilityTheme();
   const reduced = useReducedMotion() || reducedMotion;
   const systemReduced = useSystemReducedMotion();
 
@@ -162,6 +161,7 @@ function AccessibilityContent({
     textScale,
     highContrast,
     reduceMotion,
+    autoSpeakReplies,
     colorVision,
   });
 
@@ -316,10 +316,7 @@ function AccessibilityContent({
                   ]}
                 >
                   <Text
-                    style={[
-                      styles.segmentText,
-                      { color: on ? palette.onPrimary : palette.ink },
-                    ]}
+                    style={[styles.segmentText, { color: on ? palette.onPrimary : palette.ink }]}
                     numberOfLines={1}
                   >
                     {label}
@@ -392,6 +389,16 @@ function AccessibilityContent({
 
         <View style={[styles.divider, { backgroundColor: dividerColor }]} />
 
+        <SwitchRow
+          title={copy.autoSpeakReplies.title}
+          body={copy.autoSpeakReplies.body}
+          value={autoSpeakReplies}
+          onToggle={() => setAccessibility({ autoSpeakReplies: !autoSpeakReplies })}
+          reduced={reduced}
+        />
+
+        <View style={[styles.divider, { backgroundColor: dividerColor }]} />
+
         {/* 4. Color vision palettes + icon/text status strip */}
         <View style={[styles.section, styles.lastSection]}>
           <View style={styles.sectionHeadText}>
@@ -423,8 +430,7 @@ function AccessibilityContent({
                   style={({ pressed }) => [
                     styles.visionOption,
                     {
-                      backgroundColor:
-                        on || pressed ? palette.cardShade : palette.card,
+                      backgroundColor: on || pressed ? palette.cardShade : palette.card,
                       borderColor: on
                         ? palette.primary
                         : highContrast
@@ -457,7 +463,9 @@ function AccessibilityContent({
                     ]}
                     aria-hidden
                   >
-                    {on && <Icon name="check" size={12} color={palette.onPrimary} strokeWidth={2.8} />}
+                    {on && (
+                      <Icon name="check" size={12} color={palette.onPrimary} strokeWidth={2.8} />
+                    )}
                   </View>
                 </Pressable>
               );

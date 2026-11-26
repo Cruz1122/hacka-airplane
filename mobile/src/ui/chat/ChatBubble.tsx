@@ -29,7 +29,7 @@ import Svg, { Path } from 'react-native-svg';
 
 import type { MediaPick } from '@/core/media/media';
 import { fill, t } from '@/i18n';
-import { getSpeakingKey, subscribeSpeak, toggleSpeak } from '@/speech/speak';
+import { autoSpeakReply, getSpeakingKey, subscribeSpeak, toggleSpeak } from '@/speech/speak';
 
 import { Icon } from '../icons/Icon';
 import { brand, fonts, radius, spacing, type } from '../theme/tokens';
@@ -106,7 +106,7 @@ export const ChatBubble = memo(function ChatBubble({
   entryId,
   media,
 }: ChatBubbleProps) {
-  const { palette, scaled } = useAccessibilityTheme();
+  const { palette, scaled, autoSpeakReplies } = useAccessibilityTheme();
   const mine = role === 'user';
   const reduced = useReducedMotion();
   const reader = useScreenReader();
@@ -114,9 +114,19 @@ export const ChatBubble = memo(function ChatBubble({
   const streamId = mine || reduced || reader ? undefined : revealId;
   const words = useRevealedWords(streamId);
   const screen = useWindowDimensions().width;
+  const doneNow = !doc || words >= doc.stops.length;
+  const wasDone = useRef(false);
+  useEffect(() => {
+    const justFinished = doneNow && !wasDone.current;
+    wasDone.current = doneNow;
+    if (!autoSpeakReplies || mine || !revealId || !doc?.text || words === 0 || !justFinished) return;
+    autoSpeakReply(revealId, doc.text, (error) => {
+      Alert.alert(t.chatScreen.voice.speakError, error.message);
+    });
+  }, [autoSpeakReplies, mine, revealId, doc, words, doneNow]);
   // Waiting for its turn (a banner is still typing out) or for the chat to schedule it.
   if (words === 0) return null;
-  const done = !doc || words >= doc.stops.length;
+  const done = doneNow;
   const cited = !mine && sources?.length ? sources : null;
   const sourced = cited !== null && onOpenSources !== undefined;
   const canSpeak = !mine && done && !!doc?.text;
