@@ -64,8 +64,9 @@ export const es = {
     debugHide: 'Ocultar depuración',
     typing: '{pet} está pensando',
     seconds: '{s} s',
-    // The browser preview has no on-device model; the phone build does.
-    webNoModel: 'En web no corre el modelo del teléfono: usa la app o el backend HTTP de Ajustes.',
+    // The browser loads the e5 model from the dev server (metro.config.js) out of models/knowledge.
+    webNoModel:
+      'En web el modelo se carga desde models/knowledge con el servidor de desarrollo (npx expo start --web).',
     // The button on an assistant message and the sheet that lists what the answer rests on.
     sources: {
       showOne: 'Ver la fuente de esta respuesta',

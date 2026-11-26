@@ -46,6 +46,8 @@ The core (`src/core/knowledge`) is pure TypeScript with the embedder and scorer 
 
 If the side-loaded files are missing or fail to load, `degradedKnowledgeEngine` keeps the safety rules working and every other question returns an error row.
 
+On the web (`npx expo start --web`), `src/llm/knowledgeRuntime.web.ts` runs the same pipeline in the browser: the e5 GGUF on `@wllama/wllama` (llama.cpp compiled to WebAssembly) and the index vectors, both fetched from the dev server, which serves `models/knowledge` at `/knowledge-files/` (`mobile/metro.config.js`). There is no ONNX scorer on the web; the engine's JS loop scores the rows. Top-1 matched the llama.cpp fixture on 10 of 10 checked queries (2026-11-23). The page is not cross-origin isolated (Expo serves the HTML without the COOP/COEP headers), so wllama runs single-threaded: about 4 s per reply on the laptop.
+
 ## Assets
 
 Bundled with the app (generated, never edit): `mobile/assets/data/knowledge/`
