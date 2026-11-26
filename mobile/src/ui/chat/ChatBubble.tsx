@@ -3,8 +3,18 @@
 // (nudged slightly left), while response time sits below with a clock icon. Assistant text is a
 // small Markdown subset (markdown.ts) with its keywords in bold, typed out word by word
 // (reveal.ts) unless motion is reduced or a screen reader is on.
-import { memo, useCallback, useEffect, useMemo, useRef, useState, type ReactNode } from 'react';
 import {
+  memo,
+  useCallback,
+  useEffect,
+  useMemo,
+  useRef,
+  useState,
+  useSyncExternalStore,
+  type ReactNode,
+} from 'react';
+import {
+  Alert,
   Animated,
   Easing,
   Image,
@@ -19,6 +29,7 @@ import Svg, { Path } from 'react-native-svg';
 
 import type { MediaPick } from '@/core/media/media';
 import { fill, t } from '@/i18n';
+import { getSpeakingKey, subscribeSpeak, toggleSpeak } from '@/speech/speak';
 
 import { Icon } from '../icons/Icon';
 import { brand, fonts, radius, spacing, type } from '../theme/tokens';
@@ -108,6 +119,7 @@ export const ChatBubble = memo(function ChatBubble({
   const done = !doc || words >= doc.stops.length;
   const cited = !mine && sources?.length ? sources : null;
   const sourced = cited !== null && onOpenSources !== undefined;
+  const canSpeak = !mine && done && !!doc?.text;
   const gallery = mine ? undefined : media;
   const sentPhoto =
     mine && photoUri ? (
@@ -134,8 +146,13 @@ export const ChatBubble = memo(function ChatBubble({
       fill={gallery !== undefined}
       above={sentPhoto}
       accessory={
-        sourced && done ? (
-          <SourcesBadge sources={cited} onPress={() => onOpenSources(cited)} />
+        done && (canSpeak || sourced) ? (
+          <View style={styles.accessories}>
+            {canSpeak && doc ? (
+              <SpeakButton speakId={revealId ?? entryId ?? doc.text} text={doc.text} />
+            ) : null}
+            {sourced ? <SourcesBadge sources={cited} onPress={() => onOpenSources(cited)} /> : null}
+          </View>
         ) : null
       }
     >
@@ -267,6 +284,55 @@ function spans(block: Block): ReactNode[] {
   );
 }
 
+function SpeakButton({ speakId, text }: { speakId: string; text: string }) {
+  const { palette, textScale, highContrast, borderWidth } = useAccessibilityTheme();
+  const speaking = useSyncExternalStore(subscribeSpeak, getSpeakingKey) === speakId;
+  const onPress = useCallback(() => {
+    toggleSpeak(speakId, text, () => {
+      Alert.alert(t.chatScreen.voice.errorTitle, t.chatScreen.voice.speakError);
+    });
+  }, [speakId, text]);
+  const copy = t.chatScreen.voice;
+  return (
+    <Pressable
+      onPress={onPress}
+      hitSlop={8}
+      accessibilityRole="button"
+      accessibilityLabel={speaking ? copy.speakStop : copy.speak}
+      accessibilityState={{ busy: speaking }}
+      style={({ pressed }) => [
+        styles.speakBadge,
+        {
+          borderColor: pressed ? palette.primary : highContrast ? palette.ink : palette.primarySoft,
+          borderWidth,
+          backgroundColor: pressed ? palette.cardShade : palette.card,
+          boxShadow: `0 2px 8px ${palette.glow}`,
+          outlineColor: palette.primary,
+        },
+      ]}
+    >
+      <Icon
+        name={speaking ? 'circlePause' : 'volume2'}
+        size={16}
+        color={palette.ink}
+        strokeWidth={2.1}
+      />
+      <Text
+        style={[
+          styles.sourceLabel,
+          {
+            color: palette.ink,
+            fontSize: scaleSize(12, textScale),
+            lineHeight: scaleSize(16, textScale),
+          },
+        ]}
+      >
+        {copy.speakLabel}
+      </Text>
+    </Pressable>
+  );
+}
+
 /** Bottom-right sources badge (nudged slightly left) with overlapping circular favicon previews. */
 function SourcesBadge({
   sources,
@@ -288,11 +354,7 @@ function SourcesBadge({
       style={({ pressed }) => [
         styles.sourceBadge,
         {
-          borderColor: pressed
-            ? palette.primary
-            : highContrast
-              ? palette.ink
-              : palette.primarySoft,
+          borderColor: pressed ? palette.primary : highContrast ? palette.ink : palette.primarySoft,
           borderWidth,
           backgroundColor: pressed ? palette.cardShade : palette.card,
           boxShadow: `0 2px 8px ${palette.glow}`,
@@ -522,10 +584,30 @@ const styles = StyleSheet.create({
     color: brand.inkMuted,
     fontVariant: ['tabular-nums'],
   },
-  sourceBadge: {
+  accessories: {
     position: 'absolute',
     right: 14,
     bottom: 0,
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 6,
+  },
+  speakBadge: {
+    minHeight: 44,
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 6,
+    paddingLeft: 10,
+    paddingRight: 10,
+    paddingVertical: 4,
+    borderRadius: radius.pill,
+    borderWidth: 1,
+    borderColor: brand.primarySoft,
+    backgroundColor: brand.card,
+    boxShadow: `0 2px 8px ${brand.glow}`,
+    outlineColor: brand.primary,
+  },
+  sourceBadge: {
     flexDirection: 'row',
     alignItems: 'center',
     gap: 6,

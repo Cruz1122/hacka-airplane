@@ -232,6 +232,10 @@ export const en: Labels = {
       unavailable: 'Dictation is not available on this device.',
       busy: 'Dictation is busy. Try again.',
       error: 'I could not transcribe. Try again.',
+      speak: 'Listen to this answer',
+      speakStop: 'Stop the voice',
+      speakLabel: 'Voice',
+      speakError: 'I could not read the answer aloud.',
     },
   },
   // Knowledge chat (top-1 curated answers, src/state/useKnowledge.ts).

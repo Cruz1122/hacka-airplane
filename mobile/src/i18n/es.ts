@@ -238,6 +238,10 @@ export const es = {
       unavailable: 'El dictado no está disponible en este dispositivo.',
       busy: 'El dictado está ocupado. Intenta de nuevo.',
       error: 'No pude transcribir. Intenta de nuevo.',
+      speak: 'Escuchar esta respuesta',
+      speakStop: 'Detener la voz',
+      speakLabel: 'Voz',
+      speakError: 'No pude leer la respuesta en voz alta.',
     },
   },
   // Knowledge chat (top-1 curated answers, src/state/useKnowledge.ts).

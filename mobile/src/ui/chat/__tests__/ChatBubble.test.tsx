@@ -3,6 +3,13 @@ import { Animated, StyleSheet } from 'react-native';
 // Ships with jest-expo (its replacement for the deprecated react-test-renderer).
 import { createRoot, type TestInstance } from 'test-renderer';
 
+const mockToggleSpeak = jest.fn();
+jest.mock('@/speech/speak', () => ({
+  subscribeSpeak: () => () => {},
+  getSpeakingKey: () => null,
+  toggleSpeak: (...args: unknown[]) => mockToggleSpeak(...args),
+}));
+
 import { fill, t } from '@/i18n';
 import { fonts } from '@/ui/theme/tokens';
 
@@ -90,9 +97,9 @@ describe('ChatBubble', () => {
   it('enters once and not again while the streamed answer grows', () => {
     const b = mount({ role: 'assistant', text: 'Abre' });
     b.render({ role: 'assistant', text: 'Abre a las 06:10 [fue' });
-    expect(b.text()).toBe('Abre a las 06:10');
+    expect(b.text()).toBe(`Abre a las 06:10|${t.chatScreen.voice.speakLabel}`);
     b.render({ role: 'assistant', text: 'Abre a las 06:10 [fuente: EST-D-01].' });
-    expect(b.text()).toBe('Abre a las 06:10.');
+    expect(b.text()).toBe(`Abre a las 06:10.|${t.chatScreen.voice.speakLabel}`);
     expect(timing).toHaveBeenCalledTimes(1);
   });
 
@@ -130,18 +137,35 @@ describe('ChatBubble', () => {
       sources: SOURCES,
       onOpenSources,
     });
-    const [button] = b.buttons();
-    expect(b.buttons()).toHaveLength(1);
-    expect(button.props.accessibilityLabel).toBe(fill(t.chatScreen.sources.showMany, { n: 2 }));
-    act(() => button.props.onClick(PRESS));
+    expect(b.buttons()).toHaveLength(2);
+    const source = b
+      .buttons()
+      .find((n) => n.props.accessibilityLabel === fill(t.chatScreen.sources.showMany, { n: 2 }));
+    expect(source).toBeTruthy();
+    act(() => source!.props.onClick(PRESS));
     expect(onOpenSources).toHaveBeenCalledWith(SOURCES);
+  });
+
+  it('reads an assistant answer aloud from the voice button beside sources', () => {
+    mockToggleSpeak.mockClear();
+    const b = mount({
+      role: 'assistant',
+      text: 'Dato [fuente: EST-D-01]',
+      sources: SOURCES,
+      onOpenSources: jest.fn(),
+      entryId: 'a1',
+    });
+    const voice = b.buttons().find((n) => n.props.accessibilityLabel === t.chatScreen.voice.speak);
+    expect(voice).toBeTruthy();
+    act(() => voice!.props.onClick(PRESS));
+    expect(mockToggleSpeak).toHaveBeenCalledWith('a1', 'Dato', expect.any(Function));
   });
 
   it('has no source button without sources, and shows the user words as typed', () => {
     const onOpenSources = jest.fn();
-    expect(
-      mount({ role: 'assistant', text: 'Hola', sources: [], onOpenSources }).buttons(),
-    ).toEqual([]);
+    const none = mount({ role: 'assistant', text: 'Hola', sources: [], onOpenSources });
+    expect(none.buttons()).toHaveLength(1);
+    expect(none.buttons()[0].props.accessibilityLabel).toBe(t.chatScreen.voice.speak);
     const mine = mount({
       role: 'user',
       text: 'Cita [fuente: EST-D-01]',
@@ -169,8 +193,10 @@ describe('ChatBubble', () => {
     advance(MS * 2);
     expect(b.text()).toBe('Abre a las ');
     advance(MS * 3);
-    expect(b.text()).toBe(`${text}|E|P|${t.chatScreen.sources.title}|0.6 s`);
-    expect(b.buttons()).toHaveLength(1);
+    expect(b.text()).toBe(
+      `${text}|${t.chatScreen.voice.speakLabel}|E|P|${t.chatScreen.sources.title}|0.6 s`,
+    );
+    expect(b.buttons()).toHaveLength(2);
   });
 
   it('deduplicates up to three favicon previews by source domain', () => {
@@ -211,7 +237,7 @@ describe('ChatBubble', () => {
     mockReduced = true;
     const id = scheduled('Abre a las 06:10.');
     const b = mount({ role: 'assistant', text: 'Abre a las 06:10.', meta: '1.0 s', revealId: id });
-    expect(b.text()).toBe('Abre a las 06:10.|1.0 s');
+    expect(b.text()).toBe(`Abre a las 06:10.|${t.chatScreen.voice.speakLabel}|1.0 s`);
   });
 
   it('does not replay a reply when the chat mounts again, even one left mid-way', () => {
@@ -222,7 +248,9 @@ describe('ChatBubble', () => {
     expect(first.text()).toBe('uno dos ');
     act(() => first.root.unmount());
     advance(MS * 10);
-    expect(mount({ role: 'assistant', text, revealId: id }).text()).toBe(text);
+    expect(mount({ role: 'assistant', text, revealId: id }).text()).toBe(
+      `${text}|${t.chatScreen.voice.speakLabel}`,
+    );
   });
 
   it('renders the welcome message with the same keyword emphasis as answers', () => {
@@ -242,7 +270,9 @@ describe('ChatBubble', () => {
       keywords: ['marca el 123', 'tu guía'],
     });
     expect(b.bold()).toEqual(['marca el 123', 'tu guía']);
-    expect(b.text()).toBe('Si hay peligro, marca el 123.|•|Avisa a tu guía.');
+    expect(b.text()).toBe(
+      `Si hay peligro, marca el 123.|•|Avisa a tu guía.|${t.chatScreen.voice.speakLabel}`,
+    );
   });
 
   it('re-renders only the bubble that is typing out', () => {
