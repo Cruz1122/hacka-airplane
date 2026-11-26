@@ -46,6 +46,131 @@ export const brand = {
   sky: '#8FA6F2',
 } as const;
 
+export type BrandPalette = { readonly [K in keyof typeof brand]: string };
+export type PaletteColorVision = 'none' | 'protanopia' | 'deuteranopia' | 'tritanopia';
+
+/** Color-vision-adapted brand tokens (Okabe-Ito / Tol inspired, preserving high contrast). */
+const COLOR_VISION_PALETTES: Record<PaletteColorVision, BrandPalette> = {
+  none: brand,
+  // Red-green (L-cone): shift primary/status onto a clear blue vs ochre-gold axis.
+  protanopia: {
+    ...brand,
+    primary: '#2B6CB0',
+    primaryLight: '#3B82C4',
+    primarySoft: '#BDD6EE',
+    ink: '#163659',
+    inkMuted: '#426282',
+    card: '#F8FBFE',
+    cardShade: '#DCE9F5',
+    glow: '#2B6CB038',
+    online: '#0284C7',
+    alert: '#A16207',
+    wine: '#5C3806',
+    wineSoft: '#FAF0DB',
+  },
+  // Red-green (M-cone): clear cobalt-blue vs warm burnt-amber axis.
+  deuteranopia: {
+    ...brand,
+    primary: '#2563A6',
+    primaryLight: '#3578BF',
+    primarySoft: '#BFD5EE',
+    ink: '#173454',
+    inkMuted: '#44607E',
+    card: '#F8FBFE',
+    cardShade: '#DDE8F4',
+    glow: '#2563A638',
+    online: '#0385B8',
+    alert: '#B45309',
+    wine: '#5E2B04',
+    wineSoft: '#FBECE0',
+  },
+  // Blue-yellow (S-cone): keep clear cyan-teal vs crimson-rose axis.
+  tritanopia: {
+    ...brand,
+    primary: '#0E7C86',
+    primaryLight: '#1A919C',
+    primarySoft: '#B6E0E3',
+    ink: '#0E3C40',
+    inkMuted: '#3B6569',
+    card: '#F7FCFC',
+    cardShade: '#D6ECEE',
+    glow: '#0E7C8638',
+    online: '#0D8A72',
+    alert: '#C81E4B',
+    wine: '#6B102E',
+    wineSoft: '#FCE7EE',
+  },
+};
+
+/** High-contrast outdoor overrides (WCAG AAA text & strong borders) for each vision mode. */
+const HIGH_CONTRAST_OVERRIDES: Record<PaletteColorVision, Partial<BrandPalette>> = {
+  none: {
+    primary: '#1B5C5C',
+    primaryLight: '#247070',
+    primarySoft: '#7CA8A8',
+    ink: '#091B1B',
+    inkMuted: '#1F3D3D',
+    card: '#FFFFFF',
+    cardShade: '#C4DEDE',
+    glow: '#091B1B2E',
+    online: '#166534',
+    alert: '#A41212',
+    wine: '#4F0E1B',
+    wineSoft: '#F8DADF',
+  },
+  protanopia: {
+    primary: '#144682',
+    primaryLight: '#1D5AA3',
+    primarySoft: '#7EA4CC',
+    ink: '#0A1A2E',
+    inkMuted: '#1D3550',
+    card: '#FFFFFF',
+    cardShade: '#BDD3EA',
+    glow: '#0A1A2E2E',
+    online: '#0369A1',
+    alert: '#7C3A03',
+    wine: '#452403',
+    wineSoft: '#F7E4C0',
+  },
+  deuteranopia: {
+    primary: '#14427A',
+    primaryLight: '#1E5496',
+    primarySoft: '#7EA2CC',
+    ink: '#0A192B',
+    inkMuted: '#1E344D',
+    card: '#FFFFFF',
+    cardShade: '#BED2E9',
+    glow: '#0A192B2E',
+    online: '#0369A1',
+    alert: '#853804',
+    wine: '#471E02',
+    wineSoft: '#F9DFC8',
+  },
+  tritanopia: {
+    primary: '#0A5B63',
+    primaryLight: '#11707A',
+    primarySoft: '#6EAAB0',
+    ink: '#081C1E',
+    inkMuted: '#193D41',
+    card: '#FFFFFF',
+    cardShade: '#B6DCDF',
+    glow: '#081C1E2E',
+    online: '#0B6353',
+    alert: '#9B1237',
+    wine: '#4F0920',
+    wineSoft: '#FAD4E0',
+  },
+};
+
+export function resolveBrand(
+  colorVision: PaletteColorVision = 'none',
+  highContrast = false,
+): BrandPalette {
+  const base = COLOR_VISION_PALETTES[colorVision];
+  if (!highContrast) return base;
+  return { ...base, ...HIGH_CONTRAST_OVERRIDES[colorVision] };
+}
+
 /** Manrope and Bricolage Grotesque, bundled in assets/fonts (static weights, Latin subset, OFL). One family per weight:
  * Android ignores fontWeight on custom fonts, so pick the weight by family, never by fontWeight. */
 export const fonts = {

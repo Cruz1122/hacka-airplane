@@ -1,12 +1,14 @@
 // Quiet message surfaces. A concave foot grounds each bubble on its side of the conversation; an
-// assistant answer with sources gets a small round button over its other bottom corner. Assistant
-// text is a small Markdown subset (markdown.ts) with its keywords in bold, typed out word by word
+// assistant answer with sources gets a favicon preview badge tucked on its bottom-right corner
+// (nudged slightly left), while response time sits below with a clock icon. Assistant text is a
+// small Markdown subset (markdown.ts) with its keywords in bold, typed out word by word
 // (reveal.ts) unless motion is reduced or a screen reader is on.
-import { memo, useEffect, useMemo, useState, type ReactNode } from 'react';
+import { memo, useCallback, useEffect, useMemo, useRef, useState, type ReactNode } from 'react';
 import {
   Animated,
   Easing,
   Image,
+  Platform,
   Pressable,
   StyleSheet,
   Text,
@@ -19,13 +21,15 @@ import type { MediaPick } from '@/core/media/media';
 import { fill, t } from '@/i18n';
 
 import { Icon } from '../icons/Icon';
-import { brand, fonts, spacing, type } from '../theme/tokens';
+import { brand, fonts, radius, spacing, type } from '../theme/tokens';
+import { scaleSize, useAccessibilityTheme } from '../useAccessibilityTheme';
 import { useReducedMotion } from '../useReducedMotion';
 
 import type { ChatSource } from './citations';
 import { replyDoc, sliceDoc, type Block } from './markdown';
 import { MediaGallery } from './MediaGallery';
 import { useRevealedWords } from './reveal';
+import { SourceFaviconBall, sourcePreviews } from './SourceFavicon';
 import { useScreenReader } from './useScreenReader';
 
 export interface ChatBubbleProps {
@@ -34,7 +38,7 @@ export interface ChatBubbleProps {
   text: string;
   photoUri?: string;
   meta?: string;
-  /** Assistant only: what the answer rests on, opened by the corner button. */
+  /** Assistant only: what the answer rests on, opened by the sources badge. */
   sources?: ChatSource[];
   onOpenSources?: (sources: ChatSource[]) => void;
   /** Assistant only: phrases of `text` to set in bold (`keywordsFor(entryId)`). */
@@ -56,23 +60,20 @@ export interface ChatBubbleProps {
 /** A slow, short rise: the message settles in instead of popping. */
 const ENTRY_MS = 280;
 const ENTRY_RISE = 4;
+const USE_NATIVE_DRIVER = Platform.OS !== 'web';
 const NO_KEYWORDS: readonly string[] = [];
 /** The row's side margins, a bubble's share of what is left, and its padding (styles below). */
 const ROW_PADDING = 22;
 const COLUMN_SHARE = 0.88;
 const BUBBLE_PADDING = 17;
-/** The line's room for the source button beside a bubble's corner. */
-const SOURCE_GUTTER = 22;
 
 /**
  * A photo bubble's inner width as the window predicts it, for its gallery's first frame. The
  * gallery then measures itself: inside a narrower frame (the chat's centred column on a wide
  * screen, the design catalog) it settles one layout later.
  */
-const predictedGalleryWidth = (screen: number, sourced: boolean) =>
-  Math.floor(COLUMN_SHARE * (screen - 2 * ROW_PADDING)) -
-  (sourced ? SOURCE_GUTTER : 0) -
-  2 * BUBBLE_PADDING;
+const predictedGalleryWidth = (screen: number) =>
+  Math.floor(COLUMN_SHARE * (screen - 2 * ROW_PADDING)) - 2 * BUBBLE_PADDING;
 
 /** Row ids whose bubble has entered, or that were on screen before; FlashList reuses cells. */
 const entered = new Set<string>();
@@ -94,6 +95,7 @@ export const ChatBubble = memo(function ChatBubble({
   entryId,
   media,
 }: ChatBubbleProps) {
+  const { palette, scaled } = useAccessibilityTheme();
   const mine = role === 'user';
   const reduced = useReducedMotion();
   const reader = useScreenReader();
@@ -107,50 +109,118 @@ export const ChatBubble = memo(function ChatBubble({
   const cited = !mine && sources?.length ? sources : null;
   const sourced = cited !== null && onOpenSources !== undefined;
   const gallery = mine ? undefined : media;
+  const sentPhoto =
+    mine && photoUri ? (
+      <SentPhoto
+        key={photoUri}
+        uri={photoUri}
+        reduced={reduced}
+        placeholderBg={palette.cardShade}
+      />
+    ) : null;
+  const bubbleContent = doc ? (
+    <Reply blocks={done ? doc.blocks : sliceDoc(doc, doc.stops[words - 1])} label={doc.text} />
+  ) : text ? (
+    <Text style={[styles.mineText, scaled.body, { color: palette.onPrimary }]} selectable>
+      {text}
+    </Text>
+  ) : null;
+  const hasBubble = bubbleContent !== null || (gallery !== undefined && done);
   return (
     <BubbleRow
       role={role}
       entryId={entryId}
       meta={done ? meta : undefined}
       fill={gallery !== undefined}
+      above={sentPhoto}
       accessory={
-        sourced ? (
-          done ? (
-            <SourceButton count={cited.length} onPress={() => onOpenSources(cited)} />
-          ) : (
-            // The button's room, kept while the text arrives so its lines never re-wrap.
-            <View style={styles.source} pointerEvents="none" />
-          )
+        sourced && done ? (
+          <SourcesBadge sources={cited} onPress={() => onOpenSources(cited)} />
         ) : null
       }
     >
-      {mine && photoUri ? (
-        <Image
-          source={{ uri: photoUri }}
-          accessibilityLabel={t.chatScreen.photo.sent}
-          accessible
-          resizeMode="contain"
-          style={[styles.photo, !!text && styles.photoWithCaption]}
-        />
-      ) : null}
-      {doc ? (
-        <Reply blocks={done ? doc.blocks : sliceDoc(doc, doc.stops[words - 1])} label={doc.text} />
-      ) : text ? (
-        <Text style={styles.mineText} selectable>
-          {text}
-        </Text>
-      ) : null}
-      {gallery ? (
-        <MediaGallery
-          key={entryId}
-          media={gallery}
-          width={predictedGalleryWidth(screen, sourced)}
-          revealId={streamId}
-        />
+      {hasBubble ? (
+        <>
+          {bubbleContent}
+          {gallery && done ? (
+            <MediaGallery
+              key={entryId}
+              media={gallery}
+              width={predictedGalleryWidth(screen)}
+              revealId={streamId}
+            />
+          ) : null}
+        </>
       ) : null}
     </BubbleRow>
   );
 });
+
+const SENT_PHOTO_WIDTH = 220;
+const SENT_PHOTO_DEFAULT = { width: SENT_PHOTO_WIDTH, height: 165 };
+
+/** User photo URIs already decoded this session (with measured size) so scrolling never re-fades. */
+const loadedSentPhotos = new Map<string, { width: number; height: number }>();
+
+function SentPhoto({
+  uri,
+  reduced,
+  placeholderBg,
+}: {
+  uri: string;
+  reduced: boolean;
+  placeholderBg: string;
+}) {
+  const cached = loadedSentPhotos.get(uri);
+  const initial = reduced || cached !== undefined;
+  const [size, setSize] = useState(() => cached ?? SENT_PHOTO_DEFAULT);
+  const [opacity] = useState(() => new Animated.Value(initial ? 1 : 0));
+  const doneRef = useRef(initial);
+  const onReady = useCallback(() => {
+    if (doneRef.current) return;
+    doneRef.current = true;
+    if (!loadedSentPhotos.has(uri)) loadedSentPhotos.set(uri, SENT_PHOTO_DEFAULT);
+    if (reduced) {
+      opacity.setValue(1);
+      return;
+    }
+    Animated.timing(opacity, {
+      toValue: 1,
+      duration: 220,
+      easing: Easing.out(Easing.cubic),
+      useNativeDriver: USE_NATIVE_DRIVER,
+    }).start();
+  }, [opacity, reduced, uri]);
+  const onLoad = useCallback(
+    (e: { nativeEvent?: { source?: { width?: number; height?: number } } }) => {
+      const w = e.nativeEvent?.source?.width;
+      const h = e.nativeEvent?.source?.height;
+      if (w && h && w > 0 && h > 0) {
+        const ratio = Math.min(1.5, Math.max(0.72, w / h));
+        const next = { width: SENT_PHOTO_WIDTH, height: Math.round(SENT_PHOTO_WIDTH / ratio) };
+        loadedSentPhotos.set(uri, next);
+        setSize(next);
+      }
+      onReady();
+    },
+    [onReady, uri],
+  );
+  return (
+    <View style={[styles.photoFrame, size, { backgroundColor: placeholderBg }]}>
+      <Animated.View style={[StyleSheet.absoluteFill, { opacity }]}>
+        <Image
+          source={{ uri }}
+          accessibilityLabel={t.chatScreen.photo.sent}
+          accessible
+          resizeMode="cover"
+          onLoad={onLoad}
+          onLoadEnd={onReady}
+          style={styles.photo}
+        />
+      </Animated.View>
+    </View>
+  );
+}
 
 /** The shown blocks; screen readers get the whole reply from the first frame. */
 function Reply({ blocks, label }: { blocks: Block[]; label: string }) {
@@ -168,14 +238,16 @@ function Reply({ blocks, label }: { blocks: Block[]; label: string }) {
  * while a reply types out only its last block re-renders.
  */
 const BlockView = memo(function BlockView({ block: b, first }: { block: Block; first: boolean }) {
+  const { palette, scaled } = useAccessibilityTheme();
+  const textStyle = [styles.theirsText, scaled.body, { color: palette.ink }];
   return b.marker === null ? (
-    <Text style={[styles.theirsText, !first && styles.paragraphGap]} selectable>
+    <Text style={[textStyle, !first && styles.paragraphGap]} selectable>
       {spans(b)}
     </Text>
   ) : (
     <View style={[styles.item, !first && styles.itemGap]}>
-      <Text style={[styles.theirsText, styles.marker]}>{b.marker}</Text>
-      <Text style={[styles.theirsText, styles.itemText]} selectable>
+      <Text style={[textStyle, styles.marker]}>{b.marker}</Text>
+      <Text style={[textStyle, styles.itemText]} selectable>
         {spans(b)}
       </Text>
     </View>
@@ -195,21 +267,62 @@ function spans(block: Block): ReactNode[] {
   );
 }
 
-/** A 44 pt target around a small ring, so it needs no hitSlop past the row's bounds. */
-function SourceButton({ count, onPress }: { count: number; onPress: () => void }) {
+/** Bottom-right sources badge (nudged slightly left) with overlapping circular favicon previews. */
+function SourcesBadge({
+  sources,
+  onPress,
+}: {
+  sources: readonly ChatSource[];
+  onPress: () => void;
+}) {
+  const { palette, textScale, highContrast, borderWidth } = useAccessibilityTheme();
   const copy = t.chatScreen.sources;
+  const count = sources.length;
+  const previews = useMemo(() => sourcePreviews(sources), [sources]);
   return (
     <Pressable
       onPress={onPress}
+      hitSlop={8}
       accessibilityRole="button"
       accessibilityLabel={count === 1 ? copy.showOne : fill(copy.showMany, { n: count })}
-      style={styles.source}
+      style={({ pressed }) => [
+        styles.sourceBadge,
+        {
+          borderColor: pressed
+            ? palette.primary
+            : highContrast
+              ? palette.ink
+              : palette.primarySoft,
+          borderWidth,
+          backgroundColor: pressed ? palette.cardShade : palette.card,
+          boxShadow: `0 2px 8px ${palette.glow}`,
+          outlineColor: palette.primary,
+        },
+      ]}
     >
-      {({ pressed }) => (
-        <View style={[styles.sourceRing, pressed && styles.sourceRingPressed]}>
-          <Icon name="bookOpen" size={14} color={brand.ink} strokeWidth={2.2} />
-        </View>
-      )}
+      <View style={styles.faviconStack}>
+        {previews.map((preview, index) => (
+          <SourceFaviconBall
+            key={preview.key}
+            preview={preview}
+            size={18}
+            overlap={index > 0}
+            ringColor={palette.card}
+          />
+        ))}
+      </View>
+      <Text
+        style={[
+          styles.sourceLabel,
+          {
+            color: palette.ink,
+            fontSize: scaleSize(12, textScale),
+            lineHeight: scaleSize(16, textScale),
+          },
+        ]}
+      >
+        {copy.title}
+      </Text>
     </Pressable>
   );
 }
@@ -217,6 +330,7 @@ function SourceButton({ count, onPress }: { count: number; onPress: () => void }
 export function BubbleRow({
   role,
   meta,
+  above,
   accessory,
   entryId,
   fill = false,
@@ -224,17 +338,20 @@ export function BubbleRow({
 }: {
   role: 'user' | 'assistant';
   meta?: string;
-  /** Overlaid on the bubble's bottom corner, opposite its foot. */
+  /** Standalone media rendered above the bubble with no bubble surface or border. */
+  above?: ReactNode;
+  /** Overlaid on the bubble's bottom-right corner, nudged slightly left. */
   accessory?: ReactNode;
   /** See ChatBubbleProps.entryId. */
   entryId?: string;
   /**
    * The bubble takes its whole share of the row (photos span it), sized by the row and never by
-   * its content, with even sides: the source button sits in the bottom padding, below the photos.
+   * its content.
    */
   fill?: boolean;
-  children: ReactNode;
+  children?: ReactNode;
 }) {
+  const { palette, textScale, highContrast } = useAccessibilityTheme();
   const mine = role === 'user';
   const reduced = useReducedMotion();
   // A value per row id, hidden from its first frame: a recycled cell must not flash a new row.
@@ -256,11 +373,12 @@ export function BubbleRow({
       toValue: 1,
       duration: ENTRY_MS,
       easing: Easing.out(Easing.quad),
-      useNativeDriver: true,
+      useNativeDriver: USE_NATIVE_DRIVER,
     });
     animation.start();
     return () => animation.stop();
   }, [entry, reduced]);
+  const bubbleBg = mine ? palette.ink : palette.cardShade;
   return (
     <Animated.View
       style={[
@@ -280,34 +398,69 @@ export function BubbleRow({
       ]}
     >
       <View style={[styles.column, mine && styles.columnMine, fill && styles.columnFill]}>
-        <View
-          style={[styles.line, accessory != null && styles.lineWithSource, fill && styles.lineFill]}
-        >
+        {above}
+        {children != null ? (
           <View
             style={[
-              styles.bubble,
-              mine ? styles.mine : styles.theirs,
-              accessory != null && styles.bubbleWithSource,
-              fill && styles.bubbleFill,
+              styles.line,
+              above != null && styles.lineAfterAbove,
+              accessory != null && styles.lineWithSource,
+              fill && styles.lineFill,
             ]}
           >
-            {children}
-            <Svg
-              width={11}
-              height={11}
-              viewBox="0 0 11 11"
-              style={[styles.join, mine ? styles.joinMine : styles.joinTheirs]}
-              pointerEvents="none"
+            <View
+              style={[
+                styles.bubble,
+                mine ? styles.mine : styles.theirs,
+                {
+                  backgroundColor: bubbleBg,
+                  borderWidth: !mine && highContrast ? 1 : 0,
+                  borderColor: palette.ink,
+                },
+                accessory != null && styles.bubbleWithSource,
+                fill && styles.bubbleFill,
+              ]}
             >
-              <Path
-                d={mine ? 'M0 0H1A10 10 0 0 0 11 10V11H0Z' : 'M11 0H10A10 10 0 0 1 0 10V11H11Z'}
-                fill={mine ? brand.ink : brand.cardShade}
-              />
-            </Svg>
+              {children}
+              <Svg
+                width={11}
+                height={11}
+                viewBox="0 0 11 11"
+                style={[styles.join, mine ? styles.joinMine : styles.joinTheirs]}
+                pointerEvents="none"
+              >
+                <Path
+                  d={mine ? 'M0 0H1A10 10 0 0 0 11 10V11H0Z' : 'M11 0H10A10 10 0 0 1 0 10V11H11Z'}
+                  fill={bubbleBg}
+                />
+              </Svg>
+            </View>
+            {accessory}
           </View>
-          {accessory}
-        </View>
-        {meta ? <Text style={[styles.meta, mine && styles.metaMine]}>{meta}</Text> : null}
+        ) : null}
+        {meta ? (
+          <View
+            style={[
+              styles.metaRow,
+              mine && styles.metaRowMine,
+              accessory != null && styles.metaRowWithSource,
+            ]}
+          >
+            <Icon name="clock" size={12} color={palette.inkMuted} strokeWidth={2} />
+            <Text
+              style={[
+                styles.meta,
+                {
+                  color: palette.inkMuted,
+                  fontSize: scaleSize(12, textScale),
+                  lineHeight: scaleSize(16, textScale),
+                },
+              ]}
+            >
+              {meta}
+            </Text>
+          </View>
+        ) : null}
       </View>
     </Animated.View>
   );
@@ -315,23 +468,24 @@ export function BubbleRow({
 
 const styles = StyleSheet.create({
   row: { flexDirection: 'row', paddingHorizontal: ROW_PADDING, paddingVertical: 8 },
-  photo: { width: 200, height: 160, maxWidth: '100%', borderRadius: 12 },
-  photoWithCaption: { marginBottom: 8 },
+  photoFrame: { maxWidth: '100%', borderRadius: 18, overflow: 'hidden' },
+  photo: { width: '100%', height: '100%' },
   rowMine: { flexDirection: 'row-reverse' },
   column: { flexShrink: 1, maxWidth: `${COLUMN_SHARE * 100}%`, alignItems: 'flex-start' },
   columnMine: { alignItems: 'flex-end' },
   columnFill: { width: `${COLUMN_SHARE * 100}%` },
   line: { flexDirection: 'row', alignItems: 'flex-end' },
-  // Keep the overlaid 44 pt target inside the row so native hit testing can reach all of it.
-  lineWithSource: { paddingRight: SOURCE_GUTTER, paddingBottom: 14 },
+  lineAfterAbove: { marginTop: 6 },
+  // Leaves room under the bubble's bottom edge for the overlaid sources badge to sit cleanly.
+  lineWithSource: { paddingBottom: 14 },
   lineFill: { alignSelf: 'stretch' },
-  bubbleWithSource: { paddingRight: 28, paddingBottom: 24 },
   bubble: {
     flexShrink: 1,
     borderRadius: 22,
     paddingHorizontal: BUBBLE_PADDING,
     paddingVertical: 13,
   },
+  bubbleWithSource: { paddingBottom: 22, minWidth: 148 },
   // flexBasis 0: the line's width, whatever the photos inside would ask for.
   bubbleFill: { flex: 1, paddingRight: BUBBLE_PADDING },
   theirs: { backgroundColor: brand.cardShade, borderBottomLeftRadius: 0 },
@@ -347,28 +501,57 @@ const styles = StyleSheet.create({
   marker: { minWidth: 18, marginRight: spacing.xs },
   itemText: { flexShrink: 1 },
   mineText: { ...type.body, color: brand.onPrimary },
-  meta: { ...type.caption, color: brand.inkMuted, marginTop: 6, marginLeft: 4 },
-  metaMine: { marginLeft: 0, marginRight: 4 },
-  source: {
-    width: 44,
-    height: 44,
-    position: 'absolute',
-    right: 0,
-    bottom: 0,
+  metaRow: {
+    flexDirection: 'row',
     alignItems: 'center',
-    justifyContent: 'center',
-    borderRadius: 22,
-    outlineColor: brand.primary,
+    gap: 4,
+    marginTop: 6,
+    marginLeft: 4,
   },
-  sourceRing: {
-    width: 28,
-    height: 28,
-    borderRadius: 14,
+  metaRowWithSource: {
+    marginTop: 2,
+  },
+  metaRowMine: {
+    marginLeft: 0,
+    marginRight: 4,
+  },
+  meta: {
+    ...type.caption,
+    fontSize: 12,
+    lineHeight: 16,
+    color: brand.inkMuted,
+    fontVariant: ['tabular-nums'],
+  },
+  sourceBadge: {
+    position: 'absolute',
+    right: 14,
+    bottom: 0,
+    flexDirection: 'row',
     alignItems: 'center',
-    justifyContent: 'center',
+    gap: 6,
+    paddingLeft: 5,
+    paddingRight: 10,
+    paddingVertical: 4,
+    borderRadius: radius.pill,
     borderWidth: 1,
     borderColor: brand.primarySoft,
     backgroundColor: brand.card,
+    boxShadow: `0 2px 8px ${brand.glow}`,
+    outlineColor: brand.primary,
   },
-  sourceRingPressed: { backgroundColor: brand.cardShade },
+  sourceBadgePressed: {
+    backgroundColor: brand.cardShade,
+    borderColor: brand.primary,
+  },
+  faviconStack: {
+    flexDirection: 'row',
+    alignItems: 'center',
+  },
+  sourceLabel: {
+    ...type.caption,
+    fontFamily: fonts.semibold,
+    fontSize: 12,
+    lineHeight: 16,
+    color: brand.ink,
+  },
 });

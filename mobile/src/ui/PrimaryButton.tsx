@@ -4,6 +4,7 @@ import { Animated, Pressable, StyleSheet, Text, View } from 'react-native';
 
 import { Icon } from './icons/Icon';
 import { brand, type } from './theme/tokens';
+import { useAccessibilityTheme } from './useAccessibilityTheme';
 import { useReducedMotion } from './useReducedMotion';
 
 export const PRIMARY_BUTTON_HEIGHT = 54;
@@ -15,6 +16,7 @@ export interface PrimaryButtonProps {
 }
 
 export function PrimaryButton({ label, onPress, chevron = true }: PrimaryButtonProps) {
+  const { palette, scaled } = useAccessibilityTheme();
   const reduced = useReducedMotion();
   const [scale] = useState(() => new Animated.Value(1));
   const [focused, setFocused] = useState(false);
@@ -33,12 +35,23 @@ export function PrimaryButton({ label, onPress, chevron = true }: PrimaryButtonP
         onPressOut={() => move(1)}
         onFocus={() => setFocused(true)}
         onBlur={() => setFocused(false)}
-        style={({ pressed }) => [styles.root, focused && styles.focused, pressed && styles.pressed]}
+        style={({ pressed }) => [
+          styles.root,
+          {
+            backgroundColor: pressed ? palette.primary : palette.ink,
+            borderColor: palette.primary,
+            outlineColor: palette.primary,
+          },
+          focused && styles.focused,
+        ]}
       >
-        <Text style={styles.label}>{label}</Text>
+        <Text style={[styles.label, scaled.label, { color: palette.onPrimary }]}>{label}</Text>
         {chevron && (
-          <View style={styles.direction} pointerEvents="none">
-            <Icon name="chevronRight" size={20} color={brand.onPrimary} />
+          <View
+            style={[styles.direction, { borderColor: palette.primary }]}
+            pointerEvents="none"
+          >
+            <Icon name="chevronRight" size={20} color={palette.onPrimary} />
           </View>
         )}
       </Pressable>

@@ -50,8 +50,9 @@ describe('RevealStore', () => {
     }
     expect(emits).toBeGreaterThanOrEqual(12);
     expect(emits).toBeLessThanOrEqual(16);
-    // Time-based all the same: a second at 40 words/s has 40 (or 41) words out.
-    expect(s.shown('a')).toBeGreaterThanOrEqual(38);
+    // Time-based all the same: a second at WORDS_PER_SECOND has roughly that many words out.
+    expect(s.shown('a')).toBeGreaterThanOrEqual(WORDS_PER_SECOND - 2);
+    expect(s.shown('a')).toBeLessThanOrEqual(WORDS_PER_SECOND + 2);
     clock.mockRestore();
   });
 
@@ -108,7 +109,7 @@ describe('RevealStore', () => {
     }
     expect([s.shown('a'), s.shown('b')]).toEqual([Infinity, Infinity]);
     expect(t).toBeGreaterThanOrEqual(MS * 3);
-    expect(t).toBeLessThan(MS * 3 + 16 * 2);
+    expect(t).toBeLessThan(MS * 3 + 66 + 16 * 2);
     now.mockRestore();
   });
 

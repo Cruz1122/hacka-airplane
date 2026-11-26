@@ -1,0 +1,794 @@
+{
+ "shard": "T30_066",
+ "entries": [
+  {
+   "entry_id": "booking_fees.reservation_by_operator",
+   "section": "booking_fees",
+   "kind": "rule",
+   "label": "quién pide la reserva del parque",
+   "all_key_forced": true,
+   "L0": "Donde la reserva es obligatoria, el operador avalado es quien la solicita ante el parque. En Brisas se reserva en reservasnevados.com (dato de noviembre de 2026). Confirma el canal antes de salir.",
+   "answer": {
+    "short": "Donde la reserva es obligatoria, la Resolución 207 de 2023 dice que el operador avalado es quien la solicita ante el parque. En Brisas la ficha consultada en noviembre de 2026 remite a reservasnevados.com. Confirma el canal antes de salir.",
+    "variants": [
+     "En Brisas la ficha consultada en noviembre de 2026 remite a reservasnevados.com. Confirma el canal antes de salir. Donde la reserva es obligatoria, la Resolución 207 de 2023 dice que el operador avalado es quien la solicita ante el parque."
+    ]
+   },
+   "questions": [
+    "quien hace la reserva, yo o la agencia?",
+    "la reserva la hago yo o mi guia",
+    "el operador debe reservar por mi?",
+    "tengo que pedir la reserva por medio de agencia",
+    "puedo reservar directamente en el parque",
+    "who makes the reservation, me or the operator?",
+    "reserva la hace la agencia avalada?",
+    "reservo yo solo o con operador",
+    "la agencia pide el cupo por mi?",
+    "necesito una agencia para hacer la reserva",
+    "reservar por cuenta propia en los nevados",
+    "solicitud de reserva, la hace el operador",
+    "ey parce quien hace la reserva yo o la agencia",
+    "mano la reserva la pide mi guia o la hago yo",
+    "qué más, toca que el operador solicite el cupo",
+    "pa' reservar uno mismo o por la agencia",
+    "quien reserba yo o el operador",
+    "la reserba la hace mi guia",
+    "puedo reserbar yo solo en brisas",
+    "el operador pide la reserba al parke",
+    "quién reserva",
+    "reserva por agencia",
+    "Contraté una agencia para ir al parque, ¿ellos se encargan de apartar el cupo?",
+    "Quiero reservar sin intermediarios, ¿puedo hacerlo yo mismo?"
+   ],
+   "evidence_windows": []
+  },
+  {
+   "entry_id": "booking_fees.brisas_guide_price",
+   "section": "booking_fees",
+   "kind": "fact",
+   "label": "precio de la guianza en Brisas",
+   "all_key_forced": false,
+   "L0": "Para la guianza e interpretación de UTON en Brisas figura $22.000 COP, pero sin año de vigencia ni unidad: no dice si es por persona o por grupo. No lo tomes como tarifa fija y consulta con la concesión UTON la tarifa actual antes de contratar.",
+   "answer": {
+    "short": "La ficha PNN consultada el 22-11-2026 publica $22.000 COP para el servicio de guianza e interpretación de UTON en Brisas, pero lo hace sin año de vigencia ni unidad (no especifica si es por persona o por grupo). No lo tomes como tarifa vigente fija a pagar: consulta directamente con la concesión UTON la tarifa actual antes de contratar.",
+    "variants": [
+     "El valor de $22.000 COP que figura en la ficha PNN consultada el 22-11-2026 para la guianza de UTON en Brisas se publica sin año de vigencia ni unidad de cobro (por persona o por grupo). No lo presentes ni asumas como tarifa vigente a pagar; confirma el precio vigente con la concesión UTON antes de viajar."
+    ],
+    "detail": "En la ficha PNN consultada el 22-11-2026 figura la cifra 22.000 para el servicio de interpretación y guianza de la concesión Unión Temporal Operación Nevados (UTON) en Brisas-Kumanday, pero la página lo publica sin año de vigencia ni unidad (individual o grupal). No debe presentarse como tarifa vigente: verifica los costos directamente con el operador UTON."
+   },
+   "questions": [
+    "cuanto cuesta el guia en brisas",
+    "precio de la guianza en el sector norte",
+    "cuanto vale el interprete en brisas",
+    "servicio de guia de uton cuanto cobra",
+    "cuanto paga por guia en los nevados brisas",
+    "how much is the guide service in Brisas?",
+    "valor del guia uton",
+    "tarifa de interpretacion en el carreteable",
+    "costo de guianza en brisas por persona o grupo",
+    "cuanto me cobran por el guia del parque",
+    "guianza brisas cuanto sale",
+    "precio del guia en la concesion",
+    "ey parce cuanto cuesta el guia en brisas",
+    "mano cuanto cobran por la guianza en el sector norte",
+    "qué más, el guia de UTON en Brisas cuanto vale",
+    "pa' un guia en Brisas cuanto toca pagar",
+    "cuanto bale el guia en brisas",
+    "precio guianza uton",
+    "22000 del guia es por persona o por grupo",
+    "cuanto cobra el guia pa kumanday",
+    "precio guía Brisas",
+    "guianza UTON",
+    "Vi que la guianza en Brisas cuesta 22.000, ¿eso es por persona o por todo el grupo?",
+    "Quiero contratar el servicio de interpretación en Brisas, ¿cuánto debo pagar?"
+   ],
+   "evidence_windows": [
+    {
+     "qid": "booking_fees/evidence/raw/pnn_nevados.txt#22381",
+     "score": 5.819,
+     "text": "Ten en cuenta: Para visitar el sector Brisas-Kumanday: el operador autorizado por Parques Nacionales es la concesión Unión Temporal Operación Nevados (UTON). Ellos gestionan directamente los servicios ecoturísticos como reservas, ingreso, guianza, transporte y tienda. Visita su página web https://www.operacionnevados.co si deseas visitar este sector. Para subir progresivamente a un glaciar: tu grupo debe ser liderado solamente por guías especializados en alta montaña. Por tu seguridad, únicamente acepta ofertas que cumplan con esta condición. Consulta y descarga aquí la información de las agencias operadoras, intérpretes y guías registrados La concesión Unión Temporal Operación Nevados (UTON) es el operador autorizado por Parques Nacionales para el sector Brisas."
+    },
+    {
+     "qid": "booking_fees/evidence/raw/pnn_nevados.txt#18307",
+     "score": 5.576,
+     "text": "Estos son los valores de ingreso para el 2026 en pesos colombianos (no incluyen el seguro obligatorio de accidentes): Sector Menor de 25 años ✅ Residente en Colombia ✅ Nacional ✅ Miembro de la Comunidad Andina de Naciones (CAN) ✅ Extranjero residente Mayor de 25 años ✅ Residente en Colombia ✅ Adulto nacional ✅ Miembro de la Comunidad Andina de Naciones (CAN) ✅ Extranjero residente Extranjero no residente Valor por ingreso de vehículos Servicios ecoturísticos de interpretación y guianza Brisas-Kumanday *Estos valores no incluyen el seguro obligatorio de accidentes, que debe ser asumido por el visitante y pagado a través de la concesión Unión Temporal Operación Nevados (UTON). 12.500 24.500 68.000 Automóvil: 10.000 Colectivo: 27.500 Buseta: 56.000 (máximo 30 pasajeros) Moto: Prohibido el ingreso 22.000 *Este servicio es prestado por la Concesión Unión Temporal Operación Nevados (UTON). Ci"
+    },
+    {
+     "qid": "booking_fees/evidence/raw/pnn_nevados.txt#20755",
+     "score": 3.868,
+     "text": "La puedes gestionar a través de la agencia operadora registrada que elegiste para tu viaje. Visita a los atractivos de los sectores Cisne-Poleka Kasue y Otún: realiza las reservas con tres (3) días hábiles de anticipación. Sector Quindío-Dulima: haz tu reserva con cinco (5) días hábiles antes del día de tu ingreso al Parque. Para visitar el Parque siempre debes adquirir un seguro obligatorio de accidentes otorgado por una compañía aseguradora avalada por Parques Nacionales. Lo debes pagar a través de la Unión Temporal Operación Nevados (UTON) en el sector Brisas-Kumanday, o a través de la agencia operadora de tu elección en los demás atractivos. Guías y operadores turísticos autorizados En el Parque Nacional Natural Los Nevados es obligatorio el servicio de acompañamiento y guianza en todos los sectores."
+    },
+    {
+     "qid": "booking_fees/evidence/raw/resolucion-207-2023.txt#13724",
+     "score": 3.065,
+     "text": "Cabe mencionar que para la reanudación de la actividad ecoturística de la zona norte (Brisas - Arenales - Valle de las Tumbas) y zona Centro (El Cisne, Nevado de Santa Isabel, Potosí y Laguna del Otún) se seguirá implementando la reglamentación vigente según el Plan de Ordenamiento Ecoturístico (POE) y su operación estará sujeta a la prestación de servicios ecoturístico bajo el modelo de contrato de concesión suscrito entre la Unión Temporal Operación Nevados (UTON) y Parques Nacionales Naturales de Colombia."
+    },
+    {
+     "qid": "booking_fees/evidence/raw/pnn_nevados.txt#24914",
+     "score": 3.064,
+     "text": "Este requisito aplica a todos los sectores del Parque. Atractivos Para disfrutar de los atractivos que ofrece el área protegida debes tener en cuenta el sector que deseas visitar: Sector Brisas – Kumanday Recorrido carreteable desde donde puedes observar el volcán Nevado del Ruiz o Kumanday. El trayecto inicia en el centro de inducción Brisas, a 4100 metros de altitud aproximadamente, y continúa en vehículo por la zona de Arenales hasta el Valle del Silencio o Valle de las Tumbas. A lo largo del recorrido verás paisajes de superpáramo y formaciones que evocan paisajes análogos a Marte, junto con vestigios del pasado geológico del Parque. En este sector, Parques Nacionales cuenta con un contrato de concesión vigente con la Unión Temporal Operación Nevados (UTON)."
+    },
+    {
+     "qid": "booking_fees/evidence/raw/radicado_20266200001002.txt#5095",
+     "score": 2.552,
+     "text": "Es importante precisar que la validación preliminar o revisión inicial efectuada por personal operativo de la concesión no constituye, por sí sola, una aprobación definitiva e inmodificable de la reserva, toda vez que las reservas continúan sujetas a procesos posteriores de verificación documental, validación de requisitos y controles administrativos por parte del Área Protegida y la Unión Temporal Operación Nevados (UTON)."
+    },
+    {
+     "qid": "booking_fees/evidence/raw/radicado_20266200001002.txt#0",
+     "score": 2.543,
+     "text": "20266200003531 Al contestar por favor cite estos datos: Radicado No.: 20266200003531 Fecha: 18-05-2026 Código de dependencia 620 PARQUE NACIONAL NATURAL LOS NEVADOS Manizales - Caldas, 18-05-2026 Señores: Agencias Avaladas Correos electrónicos: agenciasavaladaspnnn@gmail.com Anónimo: página web Asunto: Respuesta a derecho de petición con radicado No. 20266200001002 – relacionado con la plataforma de reserva, en el marco del contrato de concesión No. 001-2019 - Unión Temporal Operación Nevados. Cordial saludo,"
+    },
+    {
+     "qid": "booking_fees/evidence/raw/pnn_nevados.txt#23155",
+     "score": 2.52,
+     "text": "Gestiona directamente servicios ecoturísticos como reservas, ingreso, guianza, transporte, alojamiento y tienda. Contacto UTON 📍 Oficinas en Manizales • Carrera 26A #68-44, barrio Palermo • Calle 70 #27-70 🕒 Horario de atención: lunes a viernes, 8:00 a. m. a 12:00 m. y 2:00 p. m. a 5:00 p. m. 📱 321 506 6031 – 322 360 3637 ✉️ [email protected] ✉️ [email protected] 🌐 https://ecoturismonevados.com.co/uton-union-temporal-operador-nevados/ 🌐 https://www.operacionnevados.co/ También puedes escribir al correo del Parque para saber más sobre la visita al área protegida: [email protected] Actividades Ecoturismo Montañismo Observación aves Senderismo terrestre Observación geológica Observación fauna y flora Investigación educación ambiental Fotografía no comercial En el Parque Nacional Natural Los Nevados favorecemos el ecoturismo como estrategia de conservación."
+    }
+   ]
+  },
+  {
+   "entry_id": "booking_fees.platform_pays_services",
+   "section": "booking_fees",
+   "kind": "procedure",
+   "label": "registro y servicios que cobra la plataforma",
+   "all_key_forced": false,
+   "L0": "Sí, la plataforma de UTON permite registrar visitantes, validar datos y pagar los servicios ecoturísticos. En mayo de 2026 se informaron cancelaciones de reservas ya validadas y devoluciones pendientes. Confirma en el paso de pago qué incluye y el estado de tu reserva.",
+   "answer": {
+    "short": "El radicado 20266200003531 del 18 de mayo de 2026 dice que la plataforma de UTON permite registrar visitantes, validar datos y pagar los servicios ecoturísticos. El mismo texto informa cancelaciones de reservas ya validadas y devoluciones pendientes sin pronunciamiento de fondo. Confirma en el paso de pago qué incluye y el estado de tu reserva.",
+    "variants": [
+     "El mismo texto informa cancelaciones de reservas ya validadas y devoluciones pendientes sin pronunciamiento de fondo. Confirma en el paso de pago qué incluye y el estado de tu reserva. El radicado 20266200003531 del 18 de mayo de 2026 dice que la plataforma de UTON permite registrar visitantes, validar datos y pagar los servicios ecoturísticos."
+    ]
+   },
+   "questions": [
+    "puedo pagar la reserva en la pagina",
+    "la plataforma cobra cuando reservo?",
+    "reservo y pago al mismo tiempo",
+    "pago en la web de la reserva, sirve",
+    "pago de servicios en reservasnevados",
+    "can I pay for the booking online?",
+    "se paga al hacer la reserva en linea",
+    "pago en linea con la reserva del parque",
+    "la reserva incluye pago de la entrada?",
+    "lo puedo pagar desde la plataforma",
+    "pagar la visita en la pagina de reservas",
+    "reserva y pago en la misma web",
+    "ey parce puedo pagar la reserva en la pagina",
+    "mano la plataforma cobra cuando uno reserva",
+    "qué más, en reservasnevados se pagan los servicios",
+    "pa' registrar los visitantes toca en la pagina de UTON",
+    "se paga en la pajina de reserbas",
+    "la plataforma cobra algo",
+    "puedo registrar visitantes en la pagina",
+    "q pasa si cancelan mi reserba ya validada",
+    "pagar en plataforma",
+    "plataforma UTON",
+    "Entré a la plataforma de reservas y quiero saber si ahí mismo se pagan los servicios.",
+    "Leí que hubo cancelaciones de reservas validadas, ¿qué debo revisar antes de pagar?"
+   ],
+   "evidence_windows": [
+    {
+     "qid": "booking_fees/evidence/raw/radicado_20266200001002.txt#0",
+     "score": 3.723,
+     "text": "20266200003531 Al contestar por favor cite estos datos: Radicado No.: 20266200003531 Fecha: 18-05-2026 Código de dependencia 620 PARQUE NACIONAL NATURAL LOS NEVADOS Manizales - Caldas, 18-05-2026 Señores: Agencias Avaladas Correos electrónicos: agenciasavaladaspnnn@gmail.com Anónimo: página web Asunto: Respuesta a derecho de petición con radicado No. 20266200001002 – relacionado con la plataforma de reserva, en el marco del contrato de concesión No. 001-2019 - Unión Temporal Operación Nevados. Cordial saludo,"
+    },
+    {
+     "qid": "booking_fees/evidence/raw/radicado_20266200001002.txt#7832",
+     "score": 3.682,
+     "text": "Así mismo, se informa que las actualizaciones implementadas en la plataforma de reservas permiten realizar de manera integral el proceso de registro de visitantes, validación de información y pago de los servicios ecoturísticos asociados a la visita, en concordancia con la capacidad de carga autorizada para el área protegida. La aprobación definitiva de las reservas se encuentra sujeta a los procesos de validación y control efectuados conjuntamente por el Área Protegida y la Unión Temporal Operación Nevados (UTON). En relación con los guías que actualmente se encuentran en proceso de bitácora, se informa que estos deberán registrarse en el campo de observaciones generales de la reserva, en calidad de apoyo a los guías líderes previamente habilitados, ya que no se consideran en la categoría de guía hasta tanto se culmine el respectivo proceso de cumplimiento de todos los requisitos."
+    },
+    {
+     "qid": "booking_fees/evidence/raw/radicado_20266200001002.txt#3750",
+     "score": 3.242,
+     "text": "Respuesta: En atención a las manifestaciones relacionadas con las solicitudes de devolución pendientes y la cancelación de reservas previamente validadas en la plataforma de reservas de la Unión Temporal Operación Nevados (UTON), nos permitimos informar, que en el marco de las actividades de seguimiento, control y verificación adelantadas por el Área Protegida sobre la operación de la plataforma de reservas, se identificaron registros y reservas que no cumplían integralmente con los requisitos, condiciones y lineamientos operativos establecidos para el ingreso al Parque Nacional Natural Los Nevados."
+    },
+    {
+     "qid": "booking_fees/evidence/raw/protocolo_reservas_tolima_2024.txt#9854",
+     "score": 2.78,
+     "text": "PASOS A PASO PARA REALIZAR UNA RESERVA 1. Revise la plataforma del PNN Los Nevados para verificar la disponibilidad de cupos antes de hacer la solicitud."
+    },
+    {
+     "qid": "booking_fees/evidence/raw/radicado_20266200001002.txt#5524",
+     "score": 2.438,
+     "text": "Frente a las solicitudes de devolución mencionadas, se informa que el Parque Nacional Natural Los Nevados no cuenta actualmente con información específica que permita emitir un pronunciamiento de fondo respecto de los casos referidos. En consecuencia, se solicita remitir la información detallada de las solicitudes, incluyendo número de reserva, fecha de solicitud y soportes correspondientes, con el fin de realizar la respectiva verificación y gestión ante la Unión Temporal Operación Nevados. “se solicita información clara sobre cómo se gestionara este proceso en adelante ya que se han evidenciado múltiples inconsistencias entre ellas la no aceptación de guías de bitácora y la cancelación de cupos aun existiendo soportes de aprobación por parte del personal de ustedes”."
+    },
+    {
+     "qid": "booking_fees/evidence/raw/radicado_20266200001002.txt#735",
+     "score": 2.34,
+     "text": "En atención al derecho de petición recibido bajo el asunto “incertidumbre frente al funcionamiento actual de la plataforma”, nos permitimos dar respuesta en los siguientes términos: “buenas tardes las agencias avaladas para operar en el parque los nevados presentan incertidumbre frente al funcionamiento actual de la plataforma de reservas uton considerando que durante el presente año el procedimiento ha tenido variaciones y recientemente se recibieron notificaciones informando cancelaciones de reservas” RESPUESTA:"
+    },
+    {
+     "qid": "booking_fees/evidence/raw/protocolo_reservas_tolima_2024.txt#10902",
+     "score": 2.251,
+     "text": "Recibido pendiente de anexos Negado con observaciones Cupo aprobado Sin cupo Cuando el estado de reserva es “Negada con observaciones”, inmediatamente el sistema libera el cupo dando la oportunidad a la siguiente reserva en lista en espera y el operador turístico deberá iniciar de nuevo el proceso de reserva sujeto a disponibilidad de cupos. POLÍTICA DE CANCELACIÓN Y MODIFICACIÓN DE RESERVAS: CANCELACIONES"
+    },
+    {
+     "qid": "booking_fees/evidence/raw/radicado_20266200001002.txt#3311",
+     "score": 2.214,
+     "text": "“resulta preocupante que no se esté contemplando la situación de las agencias que desde hace más de dos meses hemos solicitado devoluciones sin obtener respuesta por parte del área correspondiente adicionalmente se están anulando reservas que previamente habían sido validadas por funcionarios de la concesión quienes en su momento confirmaron que todo se encontraba conforme y aprobado”."
+    }
+   ]
+  },
+  {
+   "entry_id": "booking_fees.platform_payment_methods",
+   "section": "booking_fees",
+   "kind": "fact",
+   "label": "medios de pago de la plataforma",
+   "all_key_forced": false,
+   "L0": "En el código público de reservasnevados.com figuran PSE, Daviplata, Visa, Mastercard y American Express, aunque no se probó una transacción (dato de noviembre de 2026). Confirma en el paso de pago cuáles aparecen para tu reserva. La entrada también puede pagarse en sede u oficina.",
+   "answer": {
+    "short": "En el código público de reservasnevados.com figuran PSE, Daviplata, Visa, Mastercard y American Express; no se probó una transacción ni una pantalla de pago. Confirma en el paso de pago cuáles aparecen para tu reserva. Dato del código consultado en noviembre de 2026.",
+    "variants": [
+     "Confirma en el paso de pago cuáles aparecen para tu reserva. Dato del código consultado en noviembre de 2026. En el código público de reservasnevados.com figuran PSE, Daviplata, Visa, Mastercard y American Express; no se probó una transacción ni una pantalla de pago."
+    ],
+    "detail": "Los nombres están en el código público del sitio, no en una transacción probada. La entrada del parque también puede pagarse en sede u oficina según la Resolución 551."
+   },
+   "questions": [
+    "con que tarjeta puedo pagar la reserva",
+    "aceptan pse para los nevados?",
+    "puedo pagar con daviplata",
+    "medios de pago de la reserva",
+    "se puede pagar con visa en la pagina",
+    "do they accept credit cards for the reservation?",
+    "pago con mastercard para reservar",
+    "pagar con amex en reservas",
+    "como pago la reserva, con pse",
+    "que opciones de pago tiene la plataforma",
+    "pagar con tarjeta de credito en nevados",
+    "pago en linea con daviplata, aceptan",
+    "que medios muestra la plataforma: pse, daviplata o tarjeta",
+    "aceptan visa mastercard o solo pse en la reserva",
+    "ey parce con que tarjeta puedo pagar la reserva",
+    "mano aceptan pse pa los nevados",
+    "qué más, se paga con daviplata en la pagina",
+    "pa' pagar la reserva sirve american express",
+    "con q tarjeta pago la reserba",
+    "aseptan pse",
+    "recibe visa y mastercard la pajina",
+    "se puede pagar con daviplata",
+    "medios de pago",
+    "PSE Daviplata",
+    "Voy a reservar en línea, ¿qué métodos de pago aparecen disponibles?",
+    "Solo tengo tarjeta débito Mastercard, ¿me sirve para pagar la reserva?"
+   ],
+   "evidence_windows": [
+    {
+     "qid": "booking_fees/evidence/raw/protocolo_reservas_tolima_2024.txt#9854",
+     "score": 2.78,
+     "text": "PASOS A PASO PARA REALIZAR UNA RESERVA 1. Revise la plataforma del PNN Los Nevados para verificar la disponibilidad de cupos antes de hacer la solicitud."
+    },
+    {
+     "qid": "booking_fees/evidence/raw/radicado_20266200001002.txt#0",
+     "score": 2.673,
+     "text": "20266200003531 Al contestar por favor cite estos datos: Radicado No.: 20266200003531 Fecha: 18-05-2026 Código de dependencia 620 PARQUE NACIONAL NATURAL LOS NEVADOS Manizales - Caldas, 18-05-2026 Señores: Agencias Avaladas Correos electrónicos: agenciasavaladaspnnn@gmail.com Anónimo: página web Asunto: Respuesta a derecho de petición con radicado No. 20266200001002 – relacionado con la plataforma de reserva, en el marco del contrato de concesión No. 001-2019 - Unión Temporal Operación Nevados. Cordial saludo,"
+    },
+    {
+     "qid": "booking_fees/evidence/resolucion-551-2025-ocr.txt#9868",
+     "score": 2.282,
+     "text": "1. Pago presencial: De acuerdo con los procedimientos de cada Area Protegida se haré el pago en la sede o en la oficina de atencién del usuario de la central en Bogotd o en la cuenta bancaria que la entidad establezca. 2. Pago en Linea: Se podra hacer el pago a través del enlace ubicado en el sitio de internet de la entidad, a través de medios bancarios electrénicos disponibles. Los pagos en linea generaran costos por el uso de las plataformas de reservas y de los medios de pago, servicios complementarios que deberan ser asumidos por el visitante y sumarse al valor final a pagar. Sin perjuicio de lo anterior, el pago de los derechos de ingreso dependerd de los procedimientos propios de cada area protegida. Pagina 4 de 16 REONALEN 2 coLows® PARQUES NACIONALES NATURALES DE COLOMBIA"
+    },
+    {
+     "qid": "booking_fees/evidence/raw/resolucion-551-2025-ocr.txt#9868",
+     "score": 2.282,
+     "text": "1. Pago presencial: De acuerdo con los procedimientos de cada Area Protegida se haré el pago en la sede o en la oficina de atencién del usuario de la central en Bogotd o en la cuenta bancaria que la entidad establezca. 2. Pago en Linea: Se podra hacer el pago a través del enlace ubicado en el sitio de internet de la entidad, a través de medios bancarios electrénicos disponibles. Los pagos en linea generaran costos por el uso de las plataformas de reservas y de los medios de pago, servicios complementarios que deberan ser asumidos por el visitante y sumarse al valor final a pagar. Sin perjuicio de lo anterior, el pago de los derechos de ingreso dependerd de los procedimientos propios de cada area protegida. Pagina 4 de 16 REONALEN 2 coLows® PARQUES NACIONALES NATURALES DE COLOMBIA"
+    },
+    {
+     "qid": "booking_fees/evidence/raw/resolucion-551-2025-pnn-2026-02.txt#8626",
+     "score": 2.098,
+     "text": "El valor que se establece por el ingreso a las áreas protegidas administradas por Parques Nacionales Naturales de Colombia atiende a los siguientes elementos: Ingreso al área: La acción de ingresar al Área Protegida con Vocación Ecoturística por factores personales y de medio de transporte. Valor a pagar: Determinado por un conjunto de factores, que incluyen la diversidad de las regiones, la oferta turística ofrecida en el Área protegida, la seguridad pública, la nacionalidad, como también la recuperación de costos y gastos incurridos por la entidad para la conservación e inversiones realizadas en el conjunto de Áreas Protegidas que administra Parques Nacionales Naturales de Colombia. ARTÍCULO 5. COMPRA DEL DERECHO DE INGRESO. El visitante de las áreas protegidas administradas por Parques Nacionales Naturales de Colombia podrá pagar el valor de derecho de ingreso así: 1. Pago presencial: De acuerdo con los procedimientos de cada Área Protegida se hará el pago en la sede o en la oficina de atención del usuario de la central en Bogotá o en la cuenta bancaria que la entidad establezca. 2. Pago en Línea: Se podrá hacer el pago a través del enlace ubicado en el sitio de internet de la entidad, a través de medios bancarios electrónicos disponibles. Los pagos en línea generarán costos por el uso de las plataformas de reservas y de los medios de pago, servicios complementarios que deberán ser asumidos por el visitante y sumarse al valor final a pagar. Sin perjuicio de lo anterior, el pago de los derechos de ingreso dependerá de los procedimientos propios de cada área protegida."
+    },
+    {
+     "qid": "booking_fees/evidence/raw/pnn_nevados.txt#31948",
+     "score": 2.054,
+     "text": "(shapefile) asociada. Para mayor información sobre esta área protegida ingrese al siguiente enlace del RUNAP: Parque Nacional Natural Los Nevados Para mayor información sobre esta área protegida ingrese al siguiente enlace del RUNAP: Parque Nacional Natural Los Nevados Parques Nacionales Naturales de Colombia Dirección: Calle 74 # 11 - 81 Bogotá, Colombia. Código postal 110221 Teléfono Conmutador: +57 (601) 353 2400 Ext. 3011 - 3012 Línea gratuita nacional desde un fijo: 018000129722 Teléfono celular: +57 3229471031 Horario de atención: Lunes a viernes de 8:00 a.m. a 4:30 p.m. Jornada Continua Correo atención al usuario: [email protected] Correo de notificaciones judiciales: [email protected] Denunciar actos de corrupción: [email protected] Enlace a canales físicos y electrónicos para atención al público: Sede Central y Territoriales Políticas, Términos y Condiciones de Uso . Mapa del Sitio Intranet Correo Institucional Glosario ParquesNacionalesNaturalesdeColombia @ParquesColombia @parquescolombia @ParquesNaturales +573229471031 @parquescolombia Parques Colombia © 2026 - Todos los derechos reservados Contraste Reducir letra Aumentar letra Centro de relevo × ×"
+    },
+    {
+     "qid": "booking_fees/evidence/raw/pnn_nevados.txt#2522",
+     "score": 2.02,
+     "text": "Es importante que revises el cronograma de placas autorizadas para circular al realizar la reserva para ingreso al atractivo, la cual se debe hacer con al menos un día de anticipación en www.reservasnevados.com Consulta la Resolución No. 1815 del 24 de julio de 2026 aquí y conoce el cronograma de placas autorizadas en el marco del Pico y Placa Ambiental. Plan de necesidades asistencia Informe de necesidades de asistencia Parque Nacional Natural Los Nevados Ficha del área protegida Ecosistemas El Parque Nacional Natural Los Nevados está compuesto por ecosistemas de bosque altoandino, páramo, superpáramo, humedales altoandinos, glaciares y volcanes. El páramo es el ecosistema más representativo del Parque (84 % de su área) y está conformado por pajonales, turberas, arbustales, pantanos y lagunas. El ecosistema de superpáramo se caracteriza por condiciones ambientales extremas."
+    },
+    {
+     "qid": "booking_fees/evidence/raw/pnn_nevados.txt#20107",
+     "score": 1.991,
+     "text": "00 Bus $ 56.000 Moto PROHIBIDO Reservas y seguro Adquiere una póliza contra accidentes con las agencias y aseguradoras aliadas de Parques Nacionales Naturales de Colombia. Cuida de ti mientras disfrutas del Parque. El Parque Los Nevados es muy diverso. Las condiciones de reservas también dependen del sector ecoturístico que deseas visitar. Ingreso al sector Brisas-Kumanday: la reserva no es obligatoria. Sin embargo, para asegurar tu ingreso (ya que los cupos diarios son limitados), reserva con al menos un día de anticipación. Reserva para este atractivo en: www.reservasnevados.com Ingreso a los demás sectores : la reserva sí es obligatoria."
+    }
+   ]
+  },
+  {
+   "entry_id": "booking_fees.insurance_price_not_published",
+   "section": "booking_fees",
+   "kind": "fact",
+   "label": "precio del seguro obligatorio",
+   "all_key_forced": false,
+   "L0": "El precio del seguro obligatorio no está publicado, y la entrada no lo incluye. En Brisas lo pagas a UTON y en los demás sectores a tu agencia. Pide el precio por escrito antes de confirmar.",
+   "answer": {
+    "short": "La ficha consultada en noviembre de 2026 y la Resolución 551 del 19 de diciembre de 2025 no publican el precio del seguro obligatorio, y la entrada no lo incluye. En Brisas lo pagas a UTON y en los demás sectores a tu agencia. Pide el precio por escrito antes de confirmar.",
+    "variants": [
+     "En Brisas lo pagas a UTON y en los demás sectores a tu agencia. Pide el precio por escrito antes de confirmar. La ficha consultada en noviembre de 2026 y la Resolución 551 del 19 de diciembre de 2025 no publican el precio del seguro obligatorio, y la entrada no lo incluye."
+    ]
+   },
+   "questions": [
+    "cuanto vale el seguro para entrar",
+    "precio del seguro de accidentes del parque",
+    "cuanto cuesta la poliza obligatoria",
+    "cuanto me cobran por el seguro",
+    "seguro de los nevados cuanto sale",
+    "how much is the mandatory insurance?",
+    "cuanto es el seguro obligatorio al entrar",
+    "vale el seguro aparte de la entrada?",
+    "el seguro lo cobran aparte?",
+    "precio de la poliza para subir a la nieve",
+    "seguro de accidentes cuanto es",
+    "cuanto toca pagar de seguro antes de entrar",
+    "ey parce cuanto vale el seguro pa entrar",
+    "mano cual es el precio de la poliza de accidentes",
+    "qué más, cuanto cobran por el seguro del parque",
+    "pa' el seguro obligatorio cuanto toca pagar",
+    "cuanto bale el seguro",
+    "precio de la poliza del parke",
+    "el seguro cuesta mucho",
+    "en q pajina dice el precio del seguro",
+    "precio seguro",
+    "valor póliza",
+    "Necesito presupuestar mi visita, ¿cuánto me va a costar el seguro de accidentes?",
+    "Ya sé lo que vale la entrada, pero ¿cuánto es el seguro que piden además?"
+   ],
+   "evidence_windows": [
+    {
+     "qid": "booking_fees/evidence/raw/pnn_nevados.txt#20755",
+     "score": 3.479,
+     "text": "La puedes gestionar a través de la agencia operadora registrada que elegiste para tu viaje. Visita a los atractivos de los sectores Cisne-Poleka Kasue y Otún: realiza las reservas con tres (3) días hábiles de anticipación. Sector Quindío-Dulima: haz tu reserva con cinco (5) días hábiles antes del día de tu ingreso al Parque. Para visitar el Parque siempre debes adquirir un seguro obligatorio de accidentes otorgado por una compañía aseguradora avalada por Parques Nacionales. Lo debes pagar a través de la Unión Temporal Operación Nevados (UTON) en el sector Brisas-Kumanday, o a través de la agencia operadora de tu elección en los demás atractivos. Guías y operadores turísticos autorizados En el Parque Nacional Natural Los Nevados es obligatorio el servicio de acompañamiento y guianza en todos los sectores."
+    },
+    {
+     "qid": "booking_fees/evidence/raw/resolucion-551-2025-pnn-2026-02.txt#7916",
+     "score": 3.157,
+     "text": "Página 3 de 16 RESOLUCIÓN 551 DE 19 DE DICIEMBRE DE 2025"
+    },
+    {
+     "qid": "booking_fees/evidence/raw/resolucion-551-2025-pnn-2026-02.txt#5653",
+     "score": 3.157,
+     "text": "Página 2 de 16 RESOLUCIÓN 551 DE 19 DE DICIEMBRE DE 2025"
+    },
+    {
+     "qid": "booking_fees/evidence/raw/resolucion-551-2025-pnn-2026-02.txt#30616",
+     "score": 3.157,
+     "text": "Página 13 de 16 RESOLUCIÓN 551 DE 19 DE DICIEMBRE DE 2025"
+    },
+    {
+     "qid": "booking_fees/evidence/raw/resolucion-551-2025-pnn-2026-02.txt#2686",
+     "score": 3.157,
+     "text": "Página 1 de 16 RESOLUCIÓN 551 DE 19 DE DICIEMBRE DE 2025"
+    },
+    {
+     "qid": "booking_fees/evidence/raw/pnn_nevados.txt#18307",
+     "score": 2.202,
+     "text": "Estos son los valores de ingreso para el 2026 en pesos colombianos (no incluyen el seguro obligatorio de accidentes): Sector Menor de 25 años ✅ Residente en Colombia ✅ Nacional ✅ Miembro de la Comunidad Andina de Naciones (CAN) ✅ Extranjero residente Mayor de 25 años ✅ Residente en Colombia ✅ Adulto nacional ✅ Miembro de la Comunidad Andina de Naciones (CAN) ✅ Extranjero residente Extranjero no residente Valor por ingreso de vehículos Servicios ecoturísticos de interpretación y guianza Brisas-Kumanday *Estos valores no incluyen el seguro obligatorio de accidentes, que debe ser asumido por el visitante y pagado a través de la concesión Unión Temporal Operación Nevados (UTON). 12.500 24.500 68.000 Automóvil: 10.000 Colectivo: 27.500 Buseta: 56.000 (máximo 30 pasajeros) Moto: Prohibido el ingreso 22.000 *Este servicio es prestado por la Concesión Unión Temporal Operación Nevados (UTON). Ci"
+    },
+    {
+     "qid": "booking_fees/evidence/raw/resolucion-551-2025-pnn-2026-02.txt#18640",
+     "score": 2.129,
+     "text": "POR PAX IGUAL O MAYOR A 5 AÑOS $32.000 $30.000 POR PAX MENOR DE 5 AÑOS $26.000 $24.000 Página 9 de 16 RESOLUCIÓN 551 DE 19 DE DICIEMBRE DE 2025"
+    },
+    {
+     "qid": "booking_fees/evidence/raw/pnn_nevados.txt#20107",
+     "score": 1.891,
+     "text": "00 Bus $ 56.000 Moto PROHIBIDO Reservas y seguro Adquiere una póliza contra accidentes con las agencias y aseguradoras aliadas de Parques Nacionales Naturales de Colombia. Cuida de ti mientras disfrutas del Parque. El Parque Los Nevados es muy diverso. Las condiciones de reservas también dependen del sector ecoturístico que deseas visitar. Ingreso al sector Brisas-Kumanday: la reserva no es obligatoria. Sin embargo, para asegurar tu ingreso (ya que los cupos diarios son limitados), reserva con al menos un día de anticipación. Reserva para este atractivo en: www.reservasnevados.com Ingreso a los demás sectores : la reserva sí es obligatoria."
+    }
+   ]
+  },
+  {
+   "entry_id": "booking_fees.guide_price_cisne_otun",
+   "section": "booking_fees",
+   "kind": "fact",
+   "label": "guianza en Cisne y Otún: precio",
+   "all_key_forced": false,
+   "L0": "En Cisne-Poleka Kasue y Laguna del Otún no hay un valor fijo de guianza: depende del guía o la agencia registrada que elijas. Pide el precio a tu agencia antes de confirmar la visita.",
+   "answer": {
+    "short": "En Cisne-Poleka Kasue y Laguna del Otún no hay un valor fijo de guianza: depende del guía o la agencia registrada que elijas. Pide el precio a tu agencia antes de confirmar la visita.",
+    "variants": [
+     "En Cisne-Poleka Kasue y Laguna del Otún, la ficha de PNN no fija un valor de guianza: depende del guía o la agencia registrada que elijas. Pide el precio a tu agencia antes de confirmar la visita."
+    ]
+   },
+   "questions": [
+    "cuanto cuesta el guia para cisne",
+    "precio del guia en la laguna del otun",
+    "guianza en el sector cisne cuanto vale",
+    "cuanto cobra el guia para el santa isabel",
+    "what does a guide cost at Cisne?",
+    "guia para la laguna del otun cuanto cobran",
+    "precio de la guianza en otun",
+    "valor del guia en poleka kasue",
+    "el guia en cisne lo pongo yo cuanto",
+    "cuanto vale contratar guia en otun",
+    "guianza en cisne cuanto es",
+    "tarifa de guia en la cabana potosi",
+    "ey parce cuanto cuesta el guia pa el cisne",
+    "mano cuanto cobran por guia en la laguna del otun",
+    "qué más, hay precio fijo del guia en Otún",
+    "pa' ir al Cisne con guia cuanto toca pagar",
+    "cuanto bale el guia pa cisne",
+    "precio guia laguna del otun",
+    "el guia en otun tiene tarifa fija",
+    "cuanto cobra la agensia por guiar al cisne",
+    "guía Cisne precio",
+    "guianza Otún",
+    "Quiero ir a Cisne-Poleka Kasue con guía, ¿cuánto debo presupuestar por la guianza?",
+    "Estoy comparando agencias para la Laguna del Otún, ¿el valor del guía es el mismo en todas?"
+   ],
+   "evidence_windows": [
+    {
+     "qid": "booking_fees/evidence/raw/pnn_nevados.txt#20755",
+     "score": 3.949,
+     "text": "La puedes gestionar a través de la agencia operadora registrada que elegiste para tu viaje. Visita a los atractivos de los sectores Cisne-Poleka Kasue y Otún: realiza las reservas con tres (3) días hábiles de anticipación. Sector Quindío-Dulima: haz tu reserva con cinco (5) días hábiles antes del día de tu ingreso al Parque. Para visitar el Parque siempre debes adquirir un seguro obligatorio de accidentes otorgado por una compañía aseguradora avalada por Parques Nacionales. Lo debes pagar a través de la Unión Temporal Operación Nevados (UTON) en el sector Brisas-Kumanday, o a través de la agencia operadora de tu elección en los demás atractivos. Guías y operadores turísticos autorizados En el Parque Nacional Natural Los Nevados es obligatorio el servicio de acompañamiento y guianza en todos los sectores."
+    },
+    {
+     "qid": "booking_fees/evidence/raw/pnn_nevados.txt#19207",
+     "score": 3.029,
+     "text": "sne-Poleka Kasue y Laguna del Otún *Estos valores no incluyen el seguro obligatorio de accidentes, que debe ser asumido por el visitante y pagado a través de la agencia o guía ecoturístico de su elección. 12.500 24.500 68.000 No aplica Según el guía o la agencia operadora registrada elegida. Quindío-Dulima *Estos valores no incluyen el seguro obligatorio de accidentes, que debe ser asumido por el visitante y pagado a través de la agencia o guía ecoturístico de su elección. 0 0 0 No aplica Según el guía o la agencia operadora registrada que se elija. Excepciones de pago Según la Resolución de tarifas de ingreso de Parques Nacionales, algunas personas naturales acceden a la exención del derecho de ingreso a las áreas protegidas. Consulta en este documento las condiciones para aplicar. Cobro por transporte terrestre Ingreso vehículos Vehículo tipo automóvil $ 10.000 Microbús o buseta $ 27.5"
+    },
+    {
+     "qid": "booking_fees/evidence/raw/pnn_nevados.txt#13928",
+     "score": 2.834,
+     "text": "Todas son carreteras terciarias destapadas, por lo que te recomendamos planear y reservar tu viaje con anticipación y con prestadores autorizados. Sector Otún (acceso a los atractivos en inmediaciones de la Laguna del Otún): puedes llegar por carretera hasta la cabaña Potosí, siguiendo las rutas descritas para el sector Cisne-Poleka Kasue."
+    },
+    {
+     "qid": "booking_fees/evidence/raw/pnn_nevados.txt#26434",
+     "score": 2.669,
+     "text": "El acceso se realiza a través del centro de visitantes El Cisne, ubicado a 4100 metros de altitud aproximadamente, y también desde las cabañas La Cueva y Potosí. Parques Nacionales cuenta en este sector con un contrato de concesión vigente con la UTON específicamente para los servicios de alojamiento en el centro de visitantes El Cisne y el ingreso al área. Los servicios de reserva, guianza y transporte se gestionan a través de la agencia operadora registrada de tu elección. Sector Laguna del Otún Accede a este sector por la cabaña Potosí, ubicada a 3920 metros de altitud aproximadamente, o desde el municipio de Pereira, a través de la vereda El Bosque. Aquí puedes conocer la Laguna del Otún, la más grande del Parque, rodeada por los paramillos del Quindío y Santa Rosa."
+    },
+    {
+     "qid": "booking_fees/evidence/raw/pnn_nevados.txt#11276",
+     "score": 2.308,
+     "text": "El área protegida cuenta con cuatro sectores ecoturísticos, con distintos puntos de acceso en los departamentos de Caldas, Risaralda, Quindío y Tolima: Brisas-Kumanday, Cisne-Poleka Kasue, Laguna del Otún y Quindío-Dulima. Cada sector del parque tiene sus propias tarifas, horarios de acceso, edades mínimas de ingreso, número máximo de turistas permitidos, formas de reservar, cierres por temporadas y reglamentaciones generales. Cada sector cuenta con diversas actividades. Por ejemplo, considera visitar el sector Brisas-Kumanday si buscas una visita esporádica y caminatas cortas. Si buscas travesías de varios días, cumbres técnicas o mayor conexión con la naturaleza, considera visitar los demás sectores. El Parque no cuenta con servicio de transporte al interior."
+    },
+    {
+     "qid": "booking_fees/evidence/raw/pnn_nevados.txt#25687",
+     "score": 2.083,
+     "text": "Los servicios de reserva, ingreso, guianza, transporte, alojamiento y tienda se gestionan directamente con este operador de servicios ecoturísticos. Te recomendamos visitar su página web https://www.operacionnevados.co si deseas visitar este sector. Brisas-Kumanday. Foto Magda Ximena Acevedo Paramillo del Cisne. Foto: Walter Valencia Sector Cisne – Poleka Kasue En este sector entras en contacto con el ecosistema de páramo y con algunos de los paisajes más representativos de Los Nevados. Desde aquí observas los nevados del Ruiz (Kumanday) y Santa Isabel (Poleka Kasue), junto con el paramillo del Cisne. Puedes recorrer el borde glaciar, ascender a la cumbre del Nevado Santa Isabel o caminar hacia la Laguna Verde por un sendero habilitado."
+    },
+    {
+     "qid": "booking_fees/evidence/raw/pnn_nevados.txt#900",
+     "score": 1.876,
+     "text": "ención Formulario PQRSDF Cooperación Participa Normativa Prensa y Editorial Portada » Nuestros Parques » Parque Nacional Natural Los Nevados Parque Nacional Natural Los Nevados Estado del parque: Abierto Declaratoria 30/04/1974 Distribución en departamentos Caldas, Quindío, Risaralda, Tolima Extensión total 61.388,24 ha Multimedia Fotos videos Región Andes Occidentales Descripción general Ficha del área protegida Visita el parque Actividades Conservación Multimedia RUNAP Descripción general Descripción general Nevado del Ruiz. Foto: Juan Felipe García Situado en el corazón del Eje Cafetero, este parque se destaca por las cumbres nevadas de sus tres montañas principales, que forman parte de un complejo volcánico: los Nevados del Ruiz (Kumanday), Santa Isabel (Poleka Kasue) y Tolima (Dulima)."
+    },
+    {
+     "qid": "booking_fees/evidence/raw/pnn_nevados.txt#24021",
+     "score": 1.668,
+     "text": "Por esa razón, las actividades que realices están pensadas para que no tengan efectos negativos sobre los ecosistemas y la biodiversidad: En el sector Brisas-Kumanday puedes realizar observación geológica, observación de fauna y flora o fotografía no comercial. En los sectores Cisne-Poleka Kasue y Otún puedes disfrutar de senderismo, montañismo, observación de aves, observación geológica, observación de fauna y flora. En el sector Quindío-Dulima puedes disfrutar de las actividades de los anteriores sectores, pero aquí el terreno es más exigente, por lo que la actividad principal es el montañismo. Ecoturismo. Foto: Magda Ximena Acevedo Ecoturismo. Foto: Magda Ximena Acevedo Si deseas realizar tomas audiovisuales o fotografías con fines comerciales, eventos, actividades deportivas o actividades de investigación o educación ambiental, debes solicitar la autorización correspondiente."
+    }
+   ]
+  },
+  {
+   "entry_id": "preparation.layering_system",
+   "section": "preparation",
+   "kind": "procedure",
+   "label": "sistema de capas de ropa para montaña",
+   "all_key_forced": false,
+   "L0": "Lleva ropa abrigada e impermeable y vístete en capas, para ponerte o quitarte prendas según el clima. En el parque hay frío por debajo de 0 ºC y también lluvia, y el parque pide esa ropa para el senderismo.",
+   "answer": {
+    "short": "Para Los Nevados lleva ropa abrigada e impermeable: hace falta para senderismo, con climas fríos inferiores a 0 ºC y lluviosos (Resolución 207 de 2023). Vístete en capas para quitarte o ponerte prendas según el clima.",
+    "variants": [
+     "Lleva ropa abrigada e impermeable para el frío y la lluvia del parque. Empaca en capas para regular el calor."
+    ],
+    "detail": "Resolución 207 de 2023, numeral 6.1: ropa impermeable y ropa abrigada. Ficha oficial: ropa y calzado apropiado para climas fríos inferiores a 0 ºC y lluviosos."
+   },
+   "questions": [
+    "cómo vestirme para ir al nevado",
+    "qué ropa empaco pal nevado?",
+    "cómo funciona el sistema de capas",
+    "qué ropa me pongo para no pasar frío",
+    "qué ropa me llevo, que hace harto frío",
+    "llevo varias capas o con una sola chaqueta basta?",
+    "cómo vestir por capas en el páramo",
+    "qué me pongo para subir al nevado",
+    "toca vestirse por capas o cómo?",
+    "que ropa llevar para el frio",
+    "como vestirse para el parque",
+    "what clothes should I wear to Los Nevados",
+    "how should I dress in layers for the park",
+    "qué ropa empaco para la visita",
+    "ey parce como me visto pa subir al nevado que dicen que hay harto frio",
+    "mano q ropa me toca llevar pa esa montaña, me quiero abrigar bien",
+    "qué más, ¿cómo es eso de ir por capas con la ropa en el páramo?",
+    "uy pa' donde voy hace un frío berraco, ¿cómo me arropo?",
+    "como me bisto pa el parque nebados",
+    "q ropa yebo pal paramo ase mucho frio",
+    "ropa x capas en el nebado como es",
+    "como me abrigo pa los nebados sin morirme de frio",
+    "ropa para el frío",
+    "vestirse por capas",
+    "voy a ir el sábado y me dijeron que puede llover y helar, ¿con qué ropa debería llegar?",
+    "¿qué tipo de prendas conviene combinar para estar cómodo en el parque durante todo el día?"
+   ],
+   "evidence_windows": [
+    {
+     "qid": "preparation/evidence/raw/pnn_nevados_ficha_2026-11-21.txt#14869",
+     "score": 5.127,
+     "text": "Foto: Magda Ximena Acevedo Prepara tu visita al Parque Nacional Natural Los Nevados Recomendaciones generales para ingresar a todos los sectores Equipamiento básico y cuidados de salud Lleva ropa y calzado apropiado para climas fríos inferiores a 0 ºC y lluviosos. Si vas a acampar en las zonas permitidas, lleva carpa, sleeping, material de cocina y alimentación apropiada para bajas temperaturas. Evita ingresar al área protegida si presentas alguna de las condiciones de salud indicadas abajo. Debido a las condiciones de frío, a la disminución de la presión atmosférica, al esfuerzo físico y al ascenso, tu salud puede verse afectada. Ten una buena hidratación antes, durante y después de la actividad. Aliméntate bien y come snacks energéticos. Realiza paradas periódicas de 10 minutos a medida que vayas ascendiendo, para lograr una aclimatación adecuada. Aplícate bloqueador solar cada dos"
+    },
+    {
+     "qid": "preparation/evidence/raw/pnn_nevados_pdf_oficial_2026-11-21.txt#17697",
+     "score": 2.46,
+     "text": "Certificación médica estado de salud para la realización de actividades en alta montaña. Morral de asalto para recorridos cortos, Linterna, navaja, libreta de Vestuario sugerido y/o Implementos y/o objetos necesarios campo, Sleeping y lencería personal, artículos de aseo, Gorra o Ropa para clima frio, térmica e impermeable, botas de cuero cómodas y botas plásticas sombreo, guantes, cantimplora, gafas con protección UV 90, Protector recomendaciones en relación a el solar y repelente. medicamentos si la persona requiere su uso (manténgalos a la mano)"
+    },
+    {
+     "qid": "preparation/evidence/raw/lineamientos_montana_2018_2026-11-21.txt#81568",
+     "score": 2.41,
+     "text": "● En montañismo: ● Vestimenta térmica e impermeable adecuada para climas fríos y húmedos. ● Botas de alta montaña ● Casco ● Guantes, pasamontañas ● Lentes de sol con protección UV, linterna, protector solar. ● Sistema de navegación tal como GPS, brújula y mapa. ● Sistema de comunicación para emergencias. ● En recorrido glaciar: Además del equipo mínimo para montañismo, ● Arnés ● Sistema de descenso Actividades deportivas de montaña y escalada en Parques Nacionales Naturales de Colombia - Lineamientos ● Cuerda de escalada o recorrido glaciar ● Piolet de travesía ● Crampones ● Mosquetones de seguridad ● Estacas o anclajes para nieve. ● Cordinos para nudo autobloqueante"
+    },
+    {
+     "qid": "preparation/evidence/raw/pnn_semana_santa_2018_2026-11-21.txt#3048",
+     "score": 2.106,
+     "text": "Duerma bien la noche anterior a su visita. No se recomienda el ingreso de menores de 5 años, adultos mayores de 65 años, mujeres embarazadas, personas con afecciones cardíacas o respiratorias. Consuma carbohidratos y líquido en la dieta antes de la visita. Porte botiquín de primeros auxilios, mapa, GPS o brújula, linterna y pilas de repuesto, celular con suficiente batería y minutos, teléfonos de organismos de socorro y familiares. Lleve estufa portable para acampar de gas para la preparación de alimentos y bolsas plásticas para retornar la basura. Lleve equipos, carpa y sleeping especial para alta montaña y bajas temperaturas, ropa adecuada para clima frío, impermeable y suficiente hidratación. Se recomienda estar acompañado por un guía profesional y con experiencia en la zona."
+    },
+    {
+     "qid": "preparation/evidence/raw/res098_2021_cumbres_2026-11-21.txt#20806",
+     "score": 1.621,
+     "text": " Como elementos mínimos para el ascenso a Cumbres Nevadas o Cimas los solicitantes deben portar ropa adecuada para alta montaña, preferiblemente segunda y tercera capa térmica impermeable y/o rompevientos, guantes, gafas con filtro UV, pasamontañas o gorro, calzado de buen agarre y suela gruesa. Equipo mínimo para cada 5 personas: cuerda de mínimo 40 metros, arnés, casco, descendedor, mosquetón de seguridad tipo pera, dos cintas express, dos cordinos de dos metros, gafas de montaña, linterna frontal, banderines, dos tornillos para hielo, una cinta tubular de seis metros, una polea, bastones telescópicos, anclaje para nieve “dead man” y/o perfiles de aluminio, un piolet largo, piolet de escalada, teléfono móvil, chemlight."
+    },
+    {
+     "qid": "preparation/evidence/raw/res098_2021_cumbres_2026-11-21.txt#46856",
+     "score": 1.609,
+     "text": "Como elementos mínimos para el ascenso a Cumbres Nevadas o Cimas los solicitantes de- ben portar ropa adecuada para alta montaña, preferiblemente segunda y tercera capa térmica impermeable y/o rompevientos, guantes, gafas con filtro UV, pasamontañas o gorro, calzado de buen agarre y suela gruesa. Equipo mínimo para cada 5 personas: cuerda de mínimo 40 metros, arnés, casco, descendedor, mosquetón de seguridad tipo pera, dos cintas express, dos cordinos de dos metros, gafas de montaña, linterna frontal, banderines, dos tornillos para hielo, una cinta tubular de seis metros, una polea, bastones telescópicos, anclaje para nieve “dead man” y/o perfiles de aluminio, un piolet largo, piolet de escalada, teléfono móvil, chem- light. 11."
+    },
+    {
+     "qid": "preparation/evidence/raw/res098_2021_cumbres_2026-11-21.txt#28194",
+     "score": 1.594,
+     "text": "Para las actividades de Senderismo – Montañismo en el sendero hasta el glaciar Nevado Santa Isabel, el visitante debe ingresar por La Cueva o Potosí desde las 8:00 am máximo hasta las 10:00 a.m; es obligatorio el acompañamiento de guía o intérprete avalado, la capacidad máxima de visitantes por guía profesional avalado es de 6 personas; el guía debe portar botiquín y dotación adicional para cima; la salida y descenso del glaciar es máximo a la 1:00 pm y el guía deberá tomar la decisión de cance- lación de la actividad ante condiciones climáticas adversas. 10. Como elementos mínimos para el ascenso a Cumbres Nevadas o Cimas los solicitantes deben portar ropa adecuada para alta montaña, preferiblemente segunda y tercera capa térmica impermeable y/o rompevientos, guantes, gafas con filtro UV, pasamontañas o gorro, calzado de buen agarre y suela gruesa. Equipo mínimo para cada 5 personas: cuerda de mínimo 40 metros, arnés, casco, descendedor, mosquetón de seguridad tipo pera, dos cintas express, dos cordinos de dos metros, gafas de montaña, linterna frontal, banderines, dos tornillos para hielo, una cinta tubular de seis metros, una polea, bastones telescópicos, anclaje para nieve “dead man” y/o perfiles de aluminio, un piolet largo, piolet de escalada, teléfono móvil, chemlight."
+    },
+    {
+     "qid": "preparation/evidence/raw/colombia_travel_paramos_2026-11-21.txt#76510",
+     "score": 1.304,
+     "text": "De igual forma, en algunas regiones cercanas a estos santuarios naturales puedes complementar esta actividad con otras como el parapente. Qué llevar a las caminatas por los páramos de Colombia Se recomienda llevar: Bloqueador solar Lentes de sol Ropa térmica y un cambio extra por si llueve. Abrigo grueso impermeable Pasamontaña o protector para la cabeza Zapatos cómodos para senderismo o botas tipo outdoor. A continuación te compartimos los mejores destinos para caminatas y senderismo para tu viaje de turismo de altura en Colombia. Te puede interesar: Visitar las reservas naturales en Colombia: un plan imperdible Parque Nacional Natural Chingaza, uno de los páramos de Colombia que no te puedes perder &nbsp; El Páramo de Ocetá, destaca por su herencia geológica &nbsp; - También te puede interesar Gran Malecón de Barranquilla: arte, gastronomía, naturaleza y diversión Soy de Colombia y"
+    }
+   ]
+  },
+  {
+   "entry_id": "preparation.first_layer_thermal",
+   "section": "preparation",
+   "kind": "procedure",
+   "label": "ropa térmica, impermeable y de repuesto",
+   "all_key_forced": false,
+   "L0": "Lleva ropa térmica, impermeable y un cambio extra por si llueve. Tiene que ser adecuada para clima frío.",
+   "answer": {
+    "short": "Lleva ropa térmica, impermeable y un cambio extra por si llueve. Tiene que ser adecuada para clima frío e impermeable (guía de Semana Santa 2018).",
+    "variants": [
+     "Empaca ropa térmica y un cambio extra por si llueve: así lo recomienda Colombia.travel para los páramos."
+    ],
+    "detail": "Guía de Semana Santa 2018 del PNN (dato de 2018): ropa adecuada para clima frío, impermeable. Lineamientos PNN de montaña (2018, nacional): vestimenta térmica e impermeable. Colombia.travel: ropa térmica y un cambio extra por si llueve."
+   },
+   "questions": [
+    "qué es la primera capa térmica",
+    "qué camiseta térmica llevar al nevado",
+    "para qué sirve la ropa interior térmica",
+    "qué material debe ser la primera capa",
+    "puedo llevar licra térmica a los nevados",
+    "qué me pongo de primera capa?",
+    "necesito licras térmicas para el frío",
+    "camiseta interior para el páramo",
+    "mallas térmicas para caminar en montaña",
+    "que tipo de camiseta termica empacar",
+    "la camiseta de abajo, ¿qué tiene que ser?",
+    "what base layer should I wear",
+    "thermal underwear for high altitude hike",
+    "sirve la licra pa' el frío?",
+    "parce y la camiseta termica si sirve pa debajo de la ropa?",
+    "ey mano una licra pegada al cuerpo sirve pal frio del nevado",
+    "qué más, ¿toca llevar ropa interior térmica o con cualquiera sirve?",
+    "pa' ir al parque me llevo una muda extra por si me mojo?",
+    "camiseta termica pal nebado q tal",
+    "ropa interior termica es necesaria o no",
+    "llebo muda de repuesto x si yueve",
+    "q tela debe ser la primera capa pa el frio",
+    "ropa térmica",
+    "muda extra",
+    "si me llueve en el camino, ¿qué debería tener guardado para cambiarme?",
+    "¿qué conviene ponerme pegado a la piel antes del resto de la ropa?"
+   ],
+   "evidence_windows": [
+    {
+     "qid": "preparation/evidence/raw/colombia_travel_paramos_2026-11-21.txt#76510",
+     "score": 4.617,
+     "text": "De igual forma, en algunas regiones cercanas a estos santuarios naturales puedes complementar esta actividad con otras como el parapente. Qué llevar a las caminatas por los páramos de Colombia Se recomienda llevar: Bloqueador solar Lentes de sol Ropa térmica y un cambio extra por si llueve. Abrigo grueso impermeable Pasamontaña o protector para la cabeza Zapatos cómodos para senderismo o botas tipo outdoor. A continuación te compartimos los mejores destinos para caminatas y senderismo para tu viaje de turismo de altura en Colombia. Te puede interesar: Visitar las reservas naturales en Colombia: un plan imperdible Parque Nacional Natural Chingaza, uno de los páramos de Colombia que no te puedes perder &nbsp; El Páramo de Ocetá, destaca por su herencia geológica &nbsp; - También te puede interesar Gran Malecón de Barranquilla: arte, gastronomía, naturaleza y diversión Soy de Colombia y"
+    },
+    {
+     "qid": "preparation/evidence/raw/pnn_semana_santa_2018_2026-11-21.txt#3048",
+     "score": 4.194,
+     "text": "Duerma bien la noche anterior a su visita. No se recomienda el ingreso de menores de 5 años, adultos mayores de 65 años, mujeres embarazadas, personas con afecciones cardíacas o respiratorias. Consuma carbohidratos y líquido en la dieta antes de la visita. Porte botiquín de primeros auxilios, mapa, GPS o brújula, linterna y pilas de repuesto, celular con suficiente batería y minutos, teléfonos de organismos de socorro y familiares. Lleve estufa portable para acampar de gas para la preparación de alimentos y bolsas plásticas para retornar la basura. Lleve equipos, carpa y sleeping especial para alta montaña y bajas temperaturas, ropa adecuada para clima frío, impermeable y suficiente hidratación. Se recomienda estar acompañado por un guía profesional y con experiencia en la zona."
+    },
+    {
+     "qid": "preparation/evidence/raw/lineamientos_montana_2018_2026-11-21.txt#81568",
+     "score": 3.044,
+     "text": "● En montañismo: ● Vestimenta térmica e impermeable adecuada para climas fríos y húmedos. ● Botas de alta montaña ● Casco ● Guantes, pasamontañas ● Lentes de sol con protección UV, linterna, protector solar. ● Sistema de navegación tal como GPS, brújula y mapa. ● Sistema de comunicación para emergencias. ● En recorrido glaciar: Además del equipo mínimo para montañismo, ● Arnés ● Sistema de descenso Actividades deportivas de montaña y escalada en Parques Nacionales Naturales de Colombia - Lineamientos ● Cuerda de escalada o recorrido glaciar ● Piolet de travesía ● Crampones ● Mosquetones de seguridad ● Estacas o anclajes para nieve. ● Cordinos para nudo autobloqueante"
+    },
+    {
+     "qid": "preparation/evidence/raw/pnn_nevados_pdf_oficial_2026-11-21.txt#17697",
+     "score": 3.019,
+     "text": "Certificación médica estado de salud para la realización de actividades en alta montaña. Morral de asalto para recorridos cortos, Linterna, navaja, libreta de Vestuario sugerido y/o Implementos y/o objetos necesarios campo, Sleeping y lencería personal, artículos de aseo, Gorra o Ropa para clima frio, térmica e impermeable, botas de cuero cómodas y botas plásticas sombreo, guantes, cantimplora, gafas con protección UV 90, Protector recomendaciones en relación a el solar y repelente. medicamentos si la persona requiere su uso (manténgalos a la mano)"
+    },
+    {
+     "qid": "preparation/evidence/raw/lineamientos_montana_2018_2026-11-21.txt#39695",
+     "score": 2.492,
+     "text": "Cuadro 5. Ingreso de visitantes Semana Santa 2018 al PNN Farallones de Cali Ingreso Visitantes Puesto de Atención a Visitantes PNN Farallones de Cali Topacio - Pico de Loro 201 Pato – Burbujas 2637 Total 2838 Fuente: PNN Farallones de Cali 2018."
+    },
+    {
+     "qid": "preparation/evidence/raw/pnn_semana_santa_2018_2026-11-21.txt#0",
+     "score": 2.439,
+     "text": "Recomendaciones para ingresar al PNN Los Nevados esta temporada de Semana Santa 2018 | Parques Nacionales Naturales de Colombia --> --> Buscar Inicio Sistema de Parques Nacionales Naturales Parques Nacionales Sistema Nacional de Áreas Protegidas SINAP English Español In-Situ Radio Organización Participa Normatividad Contratación Trámites y Servicios Ecoturismo Valor de Ingreso Servicio al ciudadano Inicio Sistema de Parques Nacionales Naturales Parques Nacionales Sistema Nacional de Áreas Protegidas SINAP English Español In-Situ Radio Organización Participa Normatividad Contratación Trámites y Servicios Ecoturismo Valor de Ingreso Servicio al ciudadano Parques Nacionales Naturales de Colombia > Noticias > Recomendaciones para ingresar al PNN Los Nevados esta temporada de Semana Santa 2018 Recomendaciones para ingresar al PNN Los Nevados esta temporada de Semana Santa 2018 A"
+    },
+    {
+     "qid": "preparation/evidence/raw/lineamientos_montana_2018_2026-11-21.txt#38990",
+     "score": 2.38,
+     "text": "Al igual que las demás áreas protegidas de alta montaña mencionadas, el PNN Farallones de Cali, restringió el acceso a los sectores altos del área protegida, como medida preventiva por la fuerte temporada invernal presentada en la Semana Santa del 2018; mecanismo puesto en marcha a través de dos puestos de atención a visitantes durante las 24 horas apoyados por el grupo de Guías e Intérpretes Ambientales de Pance y la Policía Nacional. (Cuadro 5). Actividades deportivas de montaña y escalada en Parques Nacionales Naturales de Colombia - Lineamientos En los dos puestos de atención a visitantes se registraron 2838 personas que ingresaron al área protegida en la Semana Santa de 2018."
+    },
+    {
+     "qid": "preparation/evidence/raw/pnn_semana_santa_2018_2026-11-21.txt#900",
+     "score": 2.185,
+     "text": "ctualizado2018-02-23 21:42:26 El Parque Los Nevados es una ventana abierta a la exploración de la alta montaña andina, una oportunidad única de observar los glaciares tropicales, rodeados de páramos, humedales y bosques altoandinos. El equipo del Parque Nacional Natural está a su disposición para brindar más información y todas las recomendaciones para que su visita sea placentera. ¡Hagamos parte de su conservación! A todas aquellas personas que deseen visitar el PNN Los Nevados la próxima semana santa 2018, les recomendamos tener en cuenta los siguientes horarios: Sector de Brisas: ingreso a partir de las 8:00 a.m. hasta las 2:00 p.m. hora de cierre del Área Protegida. Sectores de Potosí y la Cueva, que conducen hacia el Volcán Nevado Santa Isabel, el ingreso se hace a partir de las 5:00 a.m."
+    }
+   ]
+  },
+  {
+   "entry_id": "preparation.second_layer_fleece",
+   "section": "preparation",
+   "kind": "procedure",
+   "label": "segunda capa de abrigo térmico polar",
+   "all_key_forced": false,
+   "L0": "Como segunda capa, de abrigo, lleva un buzo o chaqueta de forro polar o micropolar. El parque exige ropa abrigada para soportar el frío extremo en cabeza, tórax y extremidades.",
+   "answer": {
+    "short": "La Resolución 207 de 2023 exige ropa abrigada para soportar temperaturas extremas de frío en cabeza, tórax y extremidades. Como segunda capa intermedia se recomienda, por ejemplo, un buzo o chaqueta de forro polar o micropolar.",
+    "variants": [
+     "Debes contar con ropa abrigada para frío extremo según la reglamentación del parque; como segunda capa de abrigo es aconsejable usar un forro polar o micropolar."
+    ],
+    "detail": "La Resolución 207 de 2023 incluye ropa abrigada para soportar temperaturas extremas de frío en cabeza, tórax y extremidades dentro del equipo mínimo obligatorio para senderismo."
+   },
+   "questions": [
+    "qué buzo o forro polar llevar",
+    "para qué sirve la segunda capa de ropa",
+    "qué chaqueta intermedia usar en el nevado",
+    "sirve un buzo térmico para el frío",
+    "chaqueta de forro polar para páramo",
+    "qué saco de abrigo me pongo",
+    "segunda capa para caminar en el parque",
+    "el buzo sí sirve pa' el nevado?",
+    "buzo de lana o fleece, ¿cuál llevo?",
+    "que tipo de abrigo intermedio empacar",
+    "qué chaqueta de abrigo sirve pa' el sendero?",
+    "what mid layer fleece should I wear",
+    "warm fleece jacket for cold weather",
+    "cuál chaqueta térmica intermedia llevar",
+    "ey parce el buso de polar sirve pa la segunda capa?",
+    "mano q chaqueta me pongo entre la camiseta y el impermeable",
+    "qué más, ¿un forro polar o micropolar es lo que toca pa el frío?",
+    "pa' el frio del nevado me llevo un buzo grueso o con una polar basta",
+    "q chaketa polar yebo al paramo",
+    "el buso de micropolar sirve pal nebado",
+    "para q sirve la segunda capa de ropa",
+    "ropa abrigada obligatoria pal frio estremo cual es",
+    "forro polar",
+    "buzo micropolar",
+    "tengo una chaqueta de fleece en casa, ¿me sirve para el parque?",
+    "¿qué prenda abrigadora va en el medio, entre la camiseta y la chaqueta de lluvia?"
+   ],
+   "evidence_windows": [
+    {
+     "qid": "preparation/evidence/raw/colombia_travel_paramos_2026-11-21.txt#76510",
+     "score": 2.767,
+     "text": "De igual forma, en algunas regiones cercanas a estos santuarios naturales puedes complementar esta actividad con otras como el parapente. Qué llevar a las caminatas por los páramos de Colombia Se recomienda llevar: Bloqueador solar Lentes de sol Ropa térmica y un cambio extra por si llueve. Abrigo grueso impermeable Pasamontaña o protector para la cabeza Zapatos cómodos para senderismo o botas tipo outdoor. A continuación te compartimos los mejores destinos para caminatas y senderismo para tu viaje de turismo de altura en Colombia. Te puede interesar: Visitar las reservas naturales en Colombia: un plan imperdible Parque Nacional Natural Chingaza, uno de los páramos de Colombia que no te puedes perder &nbsp; El Páramo de Ocetá, destaca por su herencia geológica &nbsp; - También te puede interesar Gran Malecón de Barranquilla: arte, gastronomía, naturaleza y diversión Soy de Colombia y"
+    },
+    {
+     "qid": "preparation/evidence/raw/res098_2021_cumbres_2026-11-21.txt#28194",
+     "score": 2.476,
+     "text": "Para las actividades de Senderismo – Montañismo en el sendero hasta el glaciar Nevado Santa Isabel, el visitante debe ingresar por La Cueva o Potosí desde las 8:00 am máximo hasta las 10:00 a.m; es obligatorio el acompañamiento de guía o intérprete avalado, la capacidad máxima de visitantes por guía profesional avalado es de 6 personas; el guía debe portar botiquín y dotación adicional para cima; la salida y descenso del glaciar es máximo a la 1:00 pm y el guía deberá tomar la decisión de cance- lación de la actividad ante condiciones climáticas adversas. 10. Como elementos mínimos para el ascenso a Cumbres Nevadas o Cimas los solicitantes deben portar ropa adecuada para alta montaña, preferiblemente segunda y tercera capa térmica impermeable y/o rompevientos, guantes, gafas con filtro UV, pasamontañas o gorro, calzado de buen agarre y suela gruesa. Equipo mínimo para cada 5 personas: cuerda de mínimo 40 metros, arnés, casco, descendedor, mosquetón de seguridad tipo pera, dos cintas express, dos cordinos de dos metros, gafas de montaña, linterna frontal, banderines, dos tornillos para hielo, una cinta tubular de seis metros, una polea, bastones telescópicos, anclaje para nieve “dead man” y/o perfiles de aluminio, un piolet largo, piolet de escalada, teléfono móvil, chemlight."
+    },
+    {
+     "qid": "preparation/evidence/raw/res098_2021_cumbres_2026-11-21.txt#20806",
+     "score": 2.314,
+     "text": " Como elementos mínimos para el ascenso a Cumbres Nevadas o Cimas los solicitantes deben portar ropa adecuada para alta montaña, preferiblemente segunda y tercera capa térmica impermeable y/o rompevientos, guantes, gafas con filtro UV, pasamontañas o gorro, calzado de buen agarre y suela gruesa. Equipo mínimo para cada 5 personas: cuerda de mínimo 40 metros, arnés, casco, descendedor, mosquetón de seguridad tipo pera, dos cintas express, dos cordinos de dos metros, gafas de montaña, linterna frontal, banderines, dos tornillos para hielo, una cinta tubular de seis metros, una polea, bastones telescópicos, anclaje para nieve “dead man” y/o perfiles de aluminio, un piolet largo, piolet de escalada, teléfono móvil, chemlight."
+    },
+    {
+     "qid": "preparation/evidence/raw/res098_2021_cumbres_2026-11-21.txt#46856",
+     "score": 2.298,
+     "text": "Como elementos mínimos para el ascenso a Cumbres Nevadas o Cimas los solicitantes de- ben portar ropa adecuada para alta montaña, preferiblemente segunda y tercera capa térmica impermeable y/o rompevientos, guantes, gafas con filtro UV, pasamontañas o gorro, calzado de buen agarre y suela gruesa. Equipo mínimo para cada 5 personas: cuerda de mínimo 40 metros, arnés, casco, descendedor, mosquetón de seguridad tipo pera, dos cintas express, dos cordinos de dos metros, gafas de montaña, linterna frontal, banderines, dos tornillos para hielo, una cinta tubular de seis metros, una polea, bastones telescópicos, anclaje para nieve “dead man” y/o perfiles de aluminio, un piolet largo, piolet de escalada, teléfono móvil, chem- light. 11."
+    },
+    {
+     "qid": "preparation/evidence/raw/pnn_semana_santa_2018_2026-11-21.txt#3048",
+     "score": 2.178,
+     "text": "Duerma bien la noche anterior a su visita. No se recomienda el ingreso de menores de 5 años, adultos mayores de 65 años, mujeres embarazadas, personas con afecciones cardíacas o respiratorias. Consuma carbohidratos y líquido en la dieta antes de la visita. Porte botiquín de primeros auxilios, mapa, GPS o brújula, linterna y pilas de repuesto, celular con suficiente batería y minutos, teléfonos de organismos de socorro y familiares. Lleve estufa portable para acampar de gas para la preparación de alimentos y bolsas plásticas para retornar la basura. Lleve equipos, carpa y sleeping especial para alta montaña y bajas temperaturas, ropa adecuada para clima frío, impermeable y suficiente hidratación. Se recomienda estar acompañado por un guía profesional y con experiencia en la zona."
+    },
+    {
+     "qid": "preparation/evidence/raw/res098_2021_cumbres_2026-11-21.txt#20061",
+     "score": 2.068,
+     "text": " De acuerdo con la resolución 092 del 06 de marzo de 2018, emitida por la dirección de Parques Nacionales Naturales de Colombia, por medio de la cual se exige una póliza de seguro y de rescate como requisito para el ingreso de visitantes a las áreas protegidas del Sistema de Parques Nacionales Naturales de Colombia con vocación ecoturística, es obligatorio adquirirla con las aseguradoras que ofrecen el servicio: Colasistencia, Seguros Médicos Internacional o AVIA seguros. Esta póliza se debe adquirir para todas las personas que ingresen al área protegida y se debe presentar al Parque con mínimo 24 horas de anticipación a la visita."
+    },
+    {
+     "qid": "preparation/evidence/raw/lineamientos_montana_2018_2026-11-21.txt#78827",
+     "score": 1.833,
+     "text": "2.8. Equipos e implementos para las actividades deportivas de montaña y escalada 2.8.1. Equipos para campamento El montañista que desee acampar deberá portar un equipo mínimo obligatorio de camping. Para el cumplimiento de este requisito, los funcionarios de Parques o personas autorizadas podrán realizar el control del equipo mínimo donde se verifiquen al menos los siguientes implementos:"
+    },
+    {
+     "qid": "preparation/evidence/raw/pnn_semana_santa_2018_2026-11-21.txt#5708",
+     "score": 1.753,
+     "text": "Este se manifiesta con dolor de cabeza intenso, mareo, náuseas, vómito, dificultad para respirar, fatiga intensa, sangrado e inconsciencia, entre otros. Regrese TODA la basura con usted y dispóngala en los sitios de acopio en las cabeceras municipales. Acate las recomendaciones de los funcionarios de Parques Nacionales Naturales de Colombia, organismos de socorro, guías y la señalización establecida. Tenga en cuenta el equipo necesario según la distancia y dificultad del recorrido que va a realizar."
+    }
+   ]
+  },
+  {
+   "entry_id": "preparation.third_layer_waterproof",
+   "section": "preparation",
+   "kind": "procedure",
+   "label": "chaqueta impermeable y cortavientos para lluvia",
+   "all_key_forced": false,
+   "L0": "Como capa exterior, lleva una chaqueta impermeable y cortavientos con capucha. La ropa impermeable va en el equipo mínimo para recorrer los senderos.",
+   "answer": {
+    "short": "Como capa exterior, lleva una chaqueta impermeable y cortavientos con capucha. La Resolución 207 de 2023 exige ropa impermeable en el equipo mínimo para recorrer los senderos.",
+    "variants": [
+     "Lleva chaqueta impermeable con capucha por si llueve en el sendero: la Resolución 207 la incluye en el equipo mínimo."
+    ]
+   },
+   "questions": [
+    "qué chaqueta impermeable llevar al parque",
+    "sirve una chaqueta cortavientos para el nevado",
+    "toca llevar impermeable o no?",
+    "chaqueta para protegerse de la lluvia y el viento",
+    "qué tipo de impermeable llevar a la montaña",
+    "necesito chaqueta con membrana impermeable",
+    "chaqueta con capucha para el páramo",
+    "el impermeable sirve pa' ese aguacero?",
+    "chaqueta para tormenta y frío en los nevados",
+    "que chaqueta corta viento comprar",
+    "chaqueta pa' la lluvia y el viento, ¿cuál?",
+    "what waterproof jacket do I need",
+    "rain jacket and windbreaker for páramo",
+    "cómo debe ser la chaqueta exterior",
+    "parce toca chaqueta impermeable pa entrar o con cualquiera paso",
+    "ey mano la cortavientos con capucha sirve pa la lluvia del nevado",
+    "qué más, ¿qué chaqueta me recomiendas pa el viento y el agua allá arriba?",
+    "pa' el aguacero del paramo qué me pongo encima",
+    "chaketa inpermeable pal parque nesesito",
+    "cortabientos con capucha sirve pal nebado",
+    "q capa de afuera yebo si yueve",
+    "la resolucion pide impermeable en el equipo",
+    "chaqueta cortavientos",
+    "impermeable con capucha",
+    "dicen que en el sendero llueve de repente y hay mucho viento, ¿qué me pongo por encima?",
+    "¿qué prenda exterior me protege del agua y del viento en la montaña?"
+   ],
+   "evidence_windows": [
+    {
+     "qid": "preparation/evidence/raw/res098_2021_cumbres_2026-11-21.txt#20806",
+     "score": 2.217,
+     "text": " Como elementos mínimos para el ascenso a Cumbres Nevadas o Cimas los solicitantes deben portar ropa adecuada para alta montaña, preferiblemente segunda y tercera capa térmica impermeable y/o rompevientos, guantes, gafas con filtro UV, pasamontañas o gorro, calzado de buen agarre y suela gruesa. Equipo mínimo para cada 5 personas: cuerda de mínimo 40 metros, arnés, casco, descendedor, mosquetón de seguridad tipo pera, dos cintas express, dos cordinos de dos metros, gafas de montaña, linterna frontal, banderines, dos tornillos para hielo, una cinta tubular de seis metros, una polea, bastones telescópicos, anclaje para nieve “dead man” y/o perfiles de aluminio, un piolet largo, piolet de escalada, teléfono móvil, chemlight."
+    },
+    {
+     "qid": "preparation/evidence/raw/res098_2021_cumbres_2026-11-21.txt#46856",
+     "score": 2.201,
+     "text": "Como elementos mínimos para el ascenso a Cumbres Nevadas o Cimas los solicitantes de- ben portar ropa adecuada para alta montaña, preferiblemente segunda y tercera capa térmica impermeable y/o rompevientos, guantes, gafas con filtro UV, pasamontañas o gorro, calzado de buen agarre y suela gruesa. Equipo mínimo para cada 5 personas: cuerda de mínimo 40 metros, arnés, casco, descendedor, mosquetón de seguridad tipo pera, dos cintas express, dos cordinos de dos metros, gafas de montaña, linterna frontal, banderines, dos tornillos para hielo, una cinta tubular de seis metros, una polea, bastones telescópicos, anclaje para nieve “dead man” y/o perfiles de aluminio, un piolet largo, piolet de escalada, teléfono móvil, chem- light. 11."
+    },
+    {
+     "qid": "preparation/evidence/raw/res098_2021_cumbres_2026-11-21.txt#28194",
+     "score": 2.111,
+     "text": "Para las actividades de Senderismo – Montañismo en el sendero hasta el glaciar Nevado Santa Isabel, el visitante debe ingresar por La Cueva o Potosí desde las 8:00 am máximo hasta las 10:00 a.m; es obligatorio el acompañamiento de guía o intérprete avalado, la capacidad máxima de visitantes por guía profesional avalado es de 6 personas; el guía debe portar botiquín y dotación adicional para cima; la salida y descenso del glaciar es máximo a la 1:00 pm y el guía deberá tomar la decisión de cance- lación de la actividad ante condiciones climáticas adversas. 10. Como elementos mínimos para el ascenso a Cumbres Nevadas o Cimas los solicitantes deben portar ropa adecuada para alta montaña, preferiblemente segunda y tercera capa térmica impermeable y/o rompevientos, guantes, gafas con filtro UV, pasamontañas o gorro, calzado de buen agarre y suela gruesa. Equipo mínimo para cada 5 personas: cuerda de mínimo 40 metros, arnés, casco, descendedor, mosquetón de seguridad tipo pera, dos cintas express, dos cordinos de dos metros, gafas de montaña, linterna frontal, banderines, dos tornillos para hielo, una cinta tubular de seis metros, una polea, bastones telescópicos, anclaje para nieve “dead man” y/o perfiles de aluminio, un piolet largo, piolet de escalada, teléfono móvil, chemlight."
+    },
+    {
+     "qid": "preparation/evidence/raw/colombia_travel_paramos_2026-11-21.txt#76510",
+     "score": 1.655,
+     "text": "De igual forma, en algunas regiones cercanas a estos santuarios naturales puedes complementar esta actividad con otras como el parapente. Qué llevar a las caminatas por los páramos de Colombia Se recomienda llevar: Bloqueador solar Lentes de sol Ropa térmica y un cambio extra por si llueve. Abrigo grueso impermeable Pasamontaña o protector para la cabeza Zapatos cómodos para senderismo o botas tipo outdoor. A continuación te compartimos los mejores destinos para caminatas y senderismo para tu viaje de turismo de altura en Colombia. Te puede interesar: Visitar las reservas naturales en Colombia: un plan imperdible Parque Nacional Natural Chingaza, uno de los páramos de Colombia que no te puedes perder &nbsp; El Páramo de Ocetá, destaca por su herencia geológica &nbsp; - También te puede interesar Gran Malecón de Barranquilla: arte, gastronomía, naturaleza y diversión Soy de Colombia y"
+    },
+    {
+     "qid": "preparation/evidence/raw/res098_2021_cumbres_2026-11-21.txt#20061",
+     "score": 1.566,
+     "text": " De acuerdo con la resolución 092 del 06 de marzo de 2018, emitida por la dirección de Parques Nacionales Naturales de Colombia, por medio de la cual se exige una póliza de seguro y de rescate como requisito para el ingreso de visitantes a las áreas protegidas del Sistema de Parques Nacionales Naturales de Colombia con vocación ecoturística, es obligatorio adquirirla con las aseguradoras que ofrecen el servicio: Colasistencia, Seguros Médicos Internacional o AVIA seguros. Esta póliza se debe adquirir para todas las personas que ingresen al área protegida y se debe presentar al Parque con mínimo 24 horas de anticipación a la visita."
+    },
+    {
+     "qid": "preparation/evidence/raw/lineamientos_montana_2018_2026-11-21.txt#81568",
+     "score": 1.358,
+     "text": "● En montañismo: ● Vestimenta térmica e impermeable adecuada para climas fríos y húmedos. ● Botas de alta montaña ● Casco ● Guantes, pasamontañas ● Lentes de sol con protección UV, linterna, protector solar. ● Sistema de navegación tal como GPS, brújula y mapa. ● Sistema de comunicación para emergencias. ● En recorrido glaciar: Además del equipo mínimo para montañismo, ● Arnés ● Sistema de descenso Actividades deportivas de montaña y escalada en Parques Nacionales Naturales de Colombia - Lineamientos ● Cuerda de escalada o recorrido glaciar ● Piolet de travesía ● Crampones ● Mosquetones de seguridad ● Estacas o anclajes para nieve. ● Cordinos para nudo autobloqueante"
+    },
+    {
+     "qid": "preparation/evidence/raw/res098_2021_cumbres_2026-11-21.txt#15596",
+     "score": 1.283,
+     "text": "Descripción: La zona corresponde a 10 senderos y 5 rutas de acceso a cimas en los que se desarrollan actividades relacionadas con visitancia, de acuerdo con la reglamentación específica. Sector / Cuenca Jurisdicción Nº Sendero 2. Centro Cuenca Chinchiná – 3 Cisne - Conejeras - borde del Glaciar Nevado Santa Isabel (cara Villamaría (Caldas). centro). Resolución No. 098 del 10 de agosto de 2021 Hoja No. 5 “POR MEDIO DE LA CUAL SE OTORGA UN PERMISO PARA LA REALIZACIÓN DE OBRAS AUDIOVISUALES Y TOMA DE FOTOGRAFÍAS EN EL PARQUE NACIONAL NATURAL LOS NEVADOS Y SE TOMAN OTRAS DETERMINACIONES - EXPEDIENTE PFFO-026-2021”"
+    }
+   ]
+  }
+ ]
+}

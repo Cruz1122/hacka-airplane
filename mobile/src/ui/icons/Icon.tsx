@@ -158,6 +158,65 @@ const GLYPHS = {
       'M18.375 2.625a1 1 0 0 1 3 3l-9.013 9.014a2 2 0 0 1-.853.505l-2.873.84a.5.5 0 0 1-.62-.62l.84-2.873a2 2 0 0 1 .506-.852z',
     ],
   },
+  minus: { paths: ['M5 12h14'] },
+  plus: { paths: ['M5 12h14', 'M12 5v14'] },
+  chevronsUpDown: { paths: ['m7 15 5 5 5-5', 'm7 9 5-5 5 5'] },
+  settings: {
+    paths: [
+      'M9.671 4.136a2.34 2.34 0 0 1 4.659 0 2.34 2.34 0 0 0 3.319 1.915 2.34 2.34 0 0 1 2.33 4.033 2.34 2.34 0 0 0 0 3.831 2.34 2.34 0 0 1-2.33 4.033 2.34 2.34 0 0 0-3.319 1.915 2.34 2.34 0 0 1-4.659 0 2.34 2.34 0 0 0-3.32-1.915 2.34 2.34 0 0 1-2.33-4.033 2.34 2.34 0 0 0 0-3.831A2.34 2.34 0 0 1 6.35 6.051a2.34 2.34 0 0 0 3.319-1.915',
+    ],
+    rings: [[12, 12, 3]],
+  },
+  accessibility: {
+    paths: ['m9 20 3-6 3 6', 'm6 8 6 2 6-2', 'M12 10v4'],
+    rings: [[12, 5, 1]],
+  },
+  clock: {
+    paths: ['M12 6v6l4 2'],
+    rings: [[12, 12, 10]],
+  },
+  star: {
+    paths: [
+      'M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z',
+    ],
+  },
+  // Accessibility and settings sheet glyphs, verbatim from Lucide 24x24 icons.
+  type: {
+    paths: ['M4 7V4h16v3', 'M9 20h6', 'M12 4v16'],
+  },
+  contrast: {
+    paths: ['M12 18a6 6 0 0 0 0-12v12z'],
+    rings: [[12, 12, 10]],
+  },
+  eye: {
+    paths: [
+      'M2.062 12.348a1 1 0 0 1 0-.696 10.75 10.75 0 0 1 19.876 0 1 1 0 0 1 0 .696 10.75 10.75 0 0 1-19.876 0',
+    ],
+    rings: [[12, 12, 3]],
+  },
+  circlePause: {
+    paths: ['M10 15V9', 'M14 15V9'],
+    rings: [[12, 12, 10]],
+  },
+  circleCheck: {
+    paths: ['m9 12 2 2 4-4'],
+    rings: [[12, 12, 10]],
+  },
+  info: {
+    paths: ['M12 16v-4', 'M12 8h.01'],
+    rings: [[12, 12, 10]],
+  },
+  wifiOff: {
+    paths: [
+      'M12 20h.01',
+      'M8.5 16.429a5 5 0 0 1 7 0',
+      'M5 12.859a10 10 0 0 1 5.17-2.69',
+      'M19 12.859a10 10 0 0 0-2.007-1.523',
+      'M2 8.82a15 15 0 0 1 4.177-2.643',
+      'M22 8.82a15 15 0 0 0-11.288-3.764',
+      'm2 2 20 20',
+    ],
+  },
 } satisfies Record<string, Glyph>;
 
 export type IconName = keyof typeof GLYPHS;
@@ -168,10 +227,17 @@ export interface IconProps {
   size?: number;
   color: string;
   strokeWidth?: number;
+  fill?: string;
 }
 
 /** Decorative by default: the control that holds it carries the accessibility label. */
-export const Icon = memo(function Icon({ name, size = 20, color, strokeWidth = 2 }: IconProps) {
+export const Icon = memo(function Icon({
+  name,
+  size = 20,
+  color,
+  strokeWidth = 2,
+  fill = 'none',
+}: IconProps) {
   const g: Glyph = GLYPHS[name];
   return (
     <Svg
@@ -186,7 +252,7 @@ export const Icon = memo(function Icon({ name, size = 20, color, strokeWidth = 2
         <Path
           key={d}
           d={d}
-          fill="none"
+          fill={fill}
           stroke={color}
           strokeWidth={strokeWidth}
           strokeLinecap="round"

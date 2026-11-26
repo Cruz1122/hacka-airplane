@@ -1,6 +1,8 @@
 # System map
 
-How every part of the repo connects: which file feeds which, through what script, and what breaks downstream when something changes. Each edge names the script or code that creates it. Verified against the code on 2026-11-23.
+How every part of the repo connects: which file feeds which, through what script, and what breaks downstream when something changes. Each edge names the script or code that creates it. Last broad verification: 2026-11-23. Knowledge counts, training-payload paths, and scene renderers were checked on 2026-11-25.
+
+For task-first navigation to individual modules and tests, see the [agent index](agent-index/README.md).
 
 Legend: solid arrow = a script or code reads/writes it; dotted = manual or off-repo step; `[ignored]` = not in git.
 
@@ -32,14 +34,14 @@ flowchart TB
 
   subgraph K["Knowledge base (data/knowledge/)"]
     CONTRACT["docs/knowledge-contract.md<br/>docs/schemas/"]
-    SEC["sections/*.json<br/>843 entries, 15 sections"]
-    APP["app/*.json<br/>natural replies, aug queries,<br/>hubs, redirects"]
+    SEC["sections/*.json<br/>806 entries, 15 sections"]
+    APP["app/*.json<br/>natural replies, aug queries,<br/>37 hubs, redirects"]
     EVAL["eval_v2/<br/>sealed splits"]
   end
 
   subgraph T["Training and evaluation (experiments/)"]
     NLUW["nlu/work/<br/>queries_raw, labels, blind_v2/v3"]
-    COLAB["Colab: colab_train.py<br/>payload not committed"]
+    COLAB["Colab: colab_train.py<br/>ft4 payload not pinned"]
     EVALS["evaluate, gguf_eval,<br/>context_eval, gate_sweep"]
     DSF["research_notes/dataset_final/<br/>Laya dataset"]
     LAYAT["Colab: Laya training"]
@@ -57,7 +59,7 @@ flowchart TB
     ASSETS["assets/data/knowledge/<br/>catalog, sections, policy, index"]
     FIX["core/knowledge/__fixtures__<br/>retrieval, clean, laya_io"]
     RUNTIME["knowledge runtime<br/>safety, e5, scorer, top-1"]
-    UI["onboarding + chat UI<br/>Skia native, SVG web"]
+    UI["onboarding + chat UI<br/>Skia native, Canvas2D web,<br/>SVG reference"]
     APK["APK (Gradle)"]
     PHONE(("Phone files dir"))
   end
@@ -145,7 +147,7 @@ Exact export command: [`architecture.md`](architecture.md#regenerating-the-asset
 
 ### 4. The embedder (`e5-nlu-ft4-f16.gguf`)
 
-multilingual-e5-base fine-tuned on park queries in Colab (`experiments/nlu/colab_train.py` pasted into a cell, reading an uploaded payload), converted to GGUF with llama.cpp in Colab. The payload builder is not committed and `experiments/nlu/work/colab_payload.b64` is ignored. Result: this file is the one node of the web that cannot be rebuilt from git. Everything downstream (vectors, scorer, fixtures) is rebuilt from it by the exporter.
+multilingual-e5-base fine-tuned on park queries in Colab (`experiments/nlu/colab_train.py` is pasted into a cell and reads an uploaded payload), then converted to GGUF with llama.cpp in Colab. The payload builder `experiments/nlu/build_payload.py` is committed. Its usage writes `experiments/nlu/work/payload_ft5.json` and reads `research_notes/depth_v1/blind_v4/`, which is not tracked. The exact payload used for the shipped `e5-nlu-ft4-f16.gguf` is not pinned; `experiments/nlu/work/colab_payload.b64` is ignored. A clean checkout cannot recreate the trained GGUF and its original training inputs. The exporter rebuilds vectors, the scorer, and fixtures from an available GGUF.
 
 ### 5. Evaluation and policy tuning
 
@@ -162,7 +164,7 @@ Sealed splits are read for final numbers only; tuning on them invalidates them.
 
 ### 7. Onboarding scene
 
-`mobile/src/onboarding/scene/preset.ts` (the `SceneDoc`) -> `NevadoScene.tsx` (SVG, web and Lab) and `skia/drawScene.ts` (native). The Lab (`/lab`, web) edits a copy in `localStorage`; edits return to the code through "Copiar JSON" by hand. `src/chat/headerScene.ts` derives the chat header from the same preset.
+`mobile/src/onboarding/scene/preset.ts` (the `SceneDoc`) -> `SceneCanvas.tsx` with `canvas2d/drawScene2d.ts` (web onboarding) and `SceneCanvas.native.tsx` with `skia/drawScene.ts` (native). `NevadoScene.tsx` is the SVG reference used by the web Lab and design previews. The Lab (`/lab`, web) edits a copy in `localStorage`; edits return to the code through "Copiar JSON" by hand. `src/chat/headerScene.ts` derives the chat header from the same preset.
 
 ### 8. Legacy (LLM era, still wired to one screen)
 
@@ -178,7 +180,7 @@ Sealed splits are read for final numbers only; tuning on them invalidates them.
 | `policy.json` values | export with the new flags (never edit the generated file) -> `npm test` |
 | `experiments/laya/export_knowledge.py` | it is a library of `export_nlu.py`: rerun the export and compare fixtures. Never run its `main()` (writes the old `e5-top1-v1` format) |
 | `docs/knowledge-contract.md` or `docs/schemas/` | `uv run pytest`, `kb.py validate`, `validate_knowledge.py`; keep the paths (code reads them) |
-| A new scene body kind | both renderers (`NevadoScene.tsx`, `skia/drawScene.ts`) and the Lab's `params.ts` |
+| A new scene body kind | `canvas2d/drawScene2d.ts`, `skia/drawScene.ts`, `NevadoScene.tsx`, and the Lab's `params.ts` |
 | A native dependency | rebuild the APK; check the whitelist in the `mobile-offline-stack` skill |
 | `src/nevados_bench/` | `uv run pytest`; `world.json` regen if the settings screen still needs it |
 

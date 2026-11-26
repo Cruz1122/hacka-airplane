@@ -11,7 +11,6 @@ import type { GroupInput } from '@/core/group/groupState';
 import { memberId, type GuideMember } from '@/core/group/types';
 import type { GroupTransport } from '@/group/transport';
 import { fill, t } from '@/i18n';
-import { AppNavBar } from '@/ui/AppNavBar';
 import { PET_NAME } from '@/ui/pet/petCore';
 
 import TabsLayout from '../../../../app/(tabs)/_layout';
@@ -103,12 +102,7 @@ function makeTransport() {
 }
 
 function ChatStub() {
-  return (
-    <>
-      <Text>chat stub</Text>
-      <AppNavBar active="chat" />
-    </>
-  );
+  return <Text>chat stub</Text>;
 }
 
 function Path() {

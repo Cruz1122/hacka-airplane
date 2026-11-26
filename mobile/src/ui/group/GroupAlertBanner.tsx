@@ -8,6 +8,7 @@ import { fill, t } from '@/i18n';
 
 import { Icon } from '../icons/Icon';
 import { brand, spacing, type } from '../theme/tokens';
+import { useAccessibilityTheme } from '../useAccessibilityTheme';
 import { useReducedMotion } from '../useReducedMotion';
 
 const ALERT_COPY: Record<Alert['kind'], string> = {
@@ -25,6 +26,7 @@ export interface GroupAlertBannerProps {
 }
 
 export function GroupAlertBanner({ alerts, nameOf }: GroupAlertBannerProps) {
+  const { palette, scaled } = useAccessibilityTheme();
   const reduced = useReducedMotion();
   const [glow] = useState(() => new Animated.Value(1));
   const active = alerts.length > 0;
@@ -43,14 +45,22 @@ export function GroupAlertBanner({ alerts, nameOf }: GroupAlertBannerProps) {
   if (!active) return null;
   const [first, ...rest] = alerts;
   return (
-    <View style={styles.root} accessibilityRole="alert" accessibilityLiveRegion="assertive">
+    <View
+      style={[styles.root, { backgroundColor: palette.alert, borderColor: palette.alert }]}
+      accessibilityRole="alert"
+      accessibilityLiveRegion="assertive"
+    >
       <Animated.View style={[styles.icon, { opacity: glow }]}>
-        <Icon name="triangleAlert" size={22} color={brand.onPrimary} />
+        <Icon name="triangleAlert" size={22} color={palette.onPrimary} />
       </Animated.View>
       <View style={styles.texts}>
-        <Text style={styles.title}>{alertText(first, nameOf(first))}</Text>
+        <Text style={[styles.title, scaled.label, { color: palette.onPrimary }]}>
+          {alertText(first, nameOf(first))}
+        </Text>
         {rest.length > 0 && (
-          <Text style={styles.more}>{fill(t.group.alertsMore, { n: rest.length })}</Text>
+          <Text style={[styles.more, scaled.caption, { color: palette.onPrimary }]}>
+            {fill(t.group.alertsMore, { n: rest.length })}
+          </Text>
         )}
       </View>
     </View>

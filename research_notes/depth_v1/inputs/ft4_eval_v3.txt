@@ -1,0 +1,3 @@
+split=dev n=300 gguf=e5-nlu-ft4-f16.gguf k=3 T=0.5 followup={'mode': 'concat', 'w': 5.0, 'max_words': 5, 'below': 0.7, 'cue': '^[¿¡\\s]*(?:y|e|o|pero|entonces|eso|esa|ese|esos|esas|ahí|ahi|allá|alla|con|sin|para|pa|en|también|tambien)(?=[\\s?,.!]|$)'}
+acc (hub credit) 0.830   strict 0.607
+{'colloquial': 0.84, 'followup': 0.487, 'general': 0.767, 'normal': 0.961, 'offtopic': 0.8, 'short': 0.917, 'typo': 0.924}

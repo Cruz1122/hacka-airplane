@@ -1,12 +1,21 @@
 // Group sync: a phone is a guide (sees every synced visitor on a line, alerted when one drifts)
 // or a visitor (sees its own link to the guides) over the native BLE beacon radio on Android.
 import { useFocusEffect } from 'expo-router';
-import { type RefObject, useCallback, useEffect, useMemo, useRef, useState } from 'react';
+import {
+  type RefObject,
+  useCallback,
+  useEffect,
+  useMemo,
+  useRef,
+  useState,
+  useSyncExternalStore,
+} from 'react';
 import {
   Animated,
   BackHandler,
   Easing,
   Platform,
+  Pressable,
   ScrollView,
   StyleSheet,
   Text,
@@ -23,22 +32,22 @@ import { createBleTransport, ensureRadioPermissions } from '@/group/bleTransport
 import { guideSession, newMemberId, visitorSession, type Session } from '@/group/session';
 import type { GroupTransport } from '@/group/transport';
 import { useGroup } from '@/group/useGroup';
+import { createWebPreviewSim, type WebPreviewSim } from '@/group/webPreviewSim';
 import { fill, t } from '@/i18n';
 import { setAlertDistance, useAlertDistance } from '@/state/alertDistance';
-import { setPetLook, usePetLooks, wornBy, type PetRole } from '@/state/petLook';
-import { AppNavBar } from '@/ui/AppNavBar';
+import { memberLookOf, setPetLook, usePetLooks, wornBy, type PetRole } from '@/state/petLook';
 import { NAV_BAR_HEIGHT } from '@/ui/CloudNavBar';
-import { AlertDistance } from '@/ui/group/AlertDistance';
 import { EmptyLane } from '@/ui/group/EmptyLane';
 import { GroupAlertBanner } from '@/ui/group/GroupAlertBanner';
 import { GroupLane, laneHeightFor, ZoneLegend } from '@/ui/group/GroupLane';
 import { RoleChoices } from '@/ui/group/RoleChoices';
 import { SignalPulse } from '@/ui/group/SignalPulse';
 import { Icon } from '@/ui/icons/Icon';
-import type { PetEmotion } from '@/ui/pet/petCore';
+import { PET_FACE_VIEWBOX, type PetEmotion } from '@/ui/pet/petCore';
 import { Pet } from '@/ui/pet/Pet';
 import { SecondaryButton } from '@/ui/SecondaryButton';
-import { brand, spacing, type } from '@/ui/theme/tokens';
+import { brand, radius, spacing, type } from '@/ui/theme/tokens';
+import { useAccessibilityTheme } from '@/ui/useAccessibilityTheme';
 import { useReducedMotion } from '@/ui/useReducedMotion';
 
 import { GroupRadio } from '../../modules/group-radio';
@@ -83,6 +92,12 @@ const VISITOR_SCREEN: Record<
 };
 
 export default function GroupRoute() {
+  const { palette } = useAccessibilityTheme();
+  // TEMPORARY web-only preview simulator when native GroupRadio is absent.
+  const webSim = useMemo(
+    () => (Platform.OS === 'web' && !GroupRadio ? createWebPreviewSim() : null),
+    [],
+  );
   const transport = useMemo(
     () =>
       GroupRadio
@@ -90,8 +105,8 @@ export default function GroupRoute() {
             defaultGuideName: g.defaultGuide,
             defaultVisitorName: g.defaultVisitor,
           })
-        : IDLE_TRANSPORT,
-    [],
+        : (webSim?.transport ?? IDLE_TRANSPORT),
+    [webSim],
   );
   const prepareRadio = useCallback(async (): Promise<string | null> => {
     if (!GroupRadio) return null;
@@ -129,50 +144,52 @@ export default function GroupRoute() {
   );
 
   return (
-    <View style={styles.screen}>
-      {session.kind === 'visitor' ? (
-        <VisitorView
-          key={session.self.id}
-          transport={transport}
-          session={session}
-          onPaired={() => setSession({ ...session, link: 'paired' })}
-          onCancel={leaveSession}
-          top={below}
-          bottom={insets.bottom + spacing.xl}
-          width={column}
-        />
-      ) : (
-        <ScrollView
-          style={styles.scroll}
-          contentContainerStyle={[
-            styles.content,
-            { paddingTop: below, paddingBottom: insets.bottom + spacing.xl },
-          ]}
-          keyboardShouldPersistTaps="handled"
-        >
-          <View style={[styles.column, { width: column }]}>
-            {session.kind === 'choosing' && (
-              <ChooseRole
-                transport={transport}
-                prepareRadio={prepareRadio}
-                onChosen={setSession}
-                backRef={chooseBackRef}
-                width={column}
-              />
-            )}
-            {session.kind === 'guide' && (
-              <GuideView
-                key={session.self.id}
-                transport={transport}
-                session={session}
-                width={column}
-                onCancel={leaveSession}
-              />
-            )}
-          </View>
-        </ScrollView>
-      )}
-      <AppNavBar active="group" />
+    <View style={[styles.screen, { backgroundColor: palette.card }]}>
+      <View style={styles.main}>
+        {session.kind === 'visitor' ? (
+          <VisitorView
+            key={session.self.id}
+            transport={transport}
+            session={session}
+            onPaired={() => setSession({ ...session, link: 'paired' })}
+            onCancel={leaveSession}
+            top={below}
+            bottom={insets.bottom + spacing.xl}
+            width={column}
+          />
+        ) : (
+          <ScrollView
+            style={styles.scroll}
+            contentContainerStyle={[
+              styles.content,
+              { paddingTop: below, paddingBottom: insets.bottom + spacing.xl },
+            ]}
+            keyboardShouldPersistTaps="handled"
+          >
+            <View style={[styles.column, { width: column }]}>
+              {session.kind === 'choosing' && (
+                <ChooseRole
+                  transport={transport}
+                  prepareRadio={prepareRadio}
+                  onChosen={setSession}
+                  backRef={chooseBackRef}
+                  width={column}
+                />
+              )}
+              {session.kind === 'guide' && (
+                <GuideView
+                  key={session.self.id}
+                  transport={transport}
+                  session={session}
+                  width={column}
+                  onCancel={leaveSession}
+                />
+              )}
+            </View>
+          </ScrollView>
+        )}
+      </View>
+      {webSim && <WebSimBar sim={webSim} session={session} />}
     </View>
   );
 }
@@ -287,7 +304,14 @@ function ChooseRole({
       (found) => {
         if (ctrl.signal.aborted) return;
         searchAbort.current = null;
-        onChosen(guideSession(name.trim() || g.defaultGuide, newMemberId(), found));
+        onChosen(
+          guideSession(
+            name.trim() || g.defaultGuide,
+            newMemberId(),
+            found,
+            memberLookOf(looks.guide, 'guide'),
+          ),
+        );
       },
       (e: unknown) => {
         if (ctrl.signal.aborted) return;
@@ -306,7 +330,13 @@ function ChooseRole({
       setRadioError(err);
       return;
     }
-    onChosen(visitorSession(name.trim() || g.defaultVisitor, newMemberId()));
+    onChosen(
+      visitorSession(
+        name.trim() || g.defaultVisitor,
+        newMemberId(),
+        memberLookOf(looks.visitor, 'visitor'),
+      ),
+    );
   };
 
   const handleChoose = (role: PetRole) => {
@@ -328,17 +358,34 @@ function ChooseRole({
     }, PICK_BEAT_MS);
   };
 
+  const { palette, scaled, highContrast, borderWidth } = useAccessibilityTheme();
   const busy = searching || picking !== null;
 
   return (
     <Animated.View style={[styles.block, styles.fill, entrance]}>
       <View style={[styles.heading, styles.chooseHeading]}>
-        <Text style={styles.display} accessibilityRole="header">
+        <Text style={[styles.display, scaled.display, { color: palette.ink }]} accessibilityRole="header">
           {g.chooseTitle}
         </Text>
-        <Text style={styles.body}>{g.chooseBody}</Text>
+        <Text style={[styles.body, scaled.body, { color: palette.inkMuted }]}>{g.chooseBody}</Text>
       </View>
-      <View style={[styles.inputShell, nameFocused && styles.inputShellFocused]}>
+      <View
+        style={[
+          styles.inputShell,
+          {
+            borderColor: nameFocused
+              ? palette.primary
+              : highContrast
+                ? palette.ink
+                : palette.primarySoft,
+            borderWidth: highContrast ? borderWidth : 1.5,
+            backgroundColor: palette.card,
+            boxShadow: `0 4px 14px ${palette.glow}`,
+            outlineColor: palette.primary,
+          },
+          nameFocused && styles.inputShellFocused,
+        ]}
+      >
         <TextInput
           value={name}
           onChangeText={setName}
@@ -346,18 +393,18 @@ function ChooseRole({
           onFocus={() => setNameFocused(true)}
           onBlur={() => setNameFocused(false)}
           placeholder={g.namePlaceholder}
-          placeholderTextColor={brand.inkMuted}
+          placeholderTextColor={palette.inkMuted}
           accessibilityLabel={g.nameLabel}
           accessibilityHint={g.nameHint}
           autoCapitalize="words"
           returnKeyType="done"
           maxLength={24}
-          style={styles.input}
+          style={[styles.input, scaled.body, { color: palette.ink }]}
         />
       </View>
       {radioError && (
         <Text
-          style={styles.errorText}
+          style={[styles.errorText, scaled.caption, { color: palette.alert }]}
           accessibilityRole="alert"
           accessibilityLiveRegion="assertive"
         >
@@ -424,32 +471,43 @@ function GuideView({
   }
   const laneHeight = Math.max(
     laneHeightFor(count, view.bottom !== null),
-    // What the screen leaves under the bar, the banner, the count and the distance card.
-    Math.min(640, Math.max(360, height - 420)),
+    // What the screen leaves under the bar, the header row and the inline legend.
+    Math.min(640, Math.max(360, height - 270)),
   );
   return (
-    <Animated.View style={[styles.block, entrance]}>
+    <Animated.View style={[styles.block, styles.guideBlock, entrance]}>
       <GroupAlertBanner alerts={alerts} nameOf={nameOf} />
-      <View style={styles.countRow} accessible accessibilityLiveRegion="polite">
-        <Icon name="users" size={18} color={brand.ink} />
-        <Text style={styles.label}>
-          {count === 1 ? g.visitorsOne : fill(g.visitorsMany, { n: count })}
-        </Text>
+      <View style={styles.guideHeader}>
+        <Pressable
+          onPress={onCancel}
+          accessibilityRole="button"
+          accessibilityLabel={g.leaveGroup}
+          accessibilityHint={g.leaveGroupHint}
+          hitSlop={6}
+          style={({ pressed }) => [styles.headerPill, pressed && styles.headerPillPressed]}
+        >
+          <Icon name="chevronLeft" size={15} color={brand.primary} />
+          <Text style={styles.headerPillText}>{g.leaveShort}</Text>
+        </Pressable>
+        <View style={styles.headerPill} accessible accessibilityLiveRegion="polite">
+          <Icon name="users" size={15} color={brand.primary} />
+          <Text style={styles.headerPillText}>
+            {count === 1 ? g.visitorsOne : fill(g.visitorsMany, { n: count })}
+          </Text>
+        </View>
       </View>
-      <AlertDistance meters={alertMeters} onChange={setAlertDistance} />
       <View style={styles.lanePanel}>
         <GroupLane
           lane={view}
           selfId={session.self.id}
           selfWears={wornBy(look, 'guide')}
-          width={width - 2}
+          alertMeters={alertMeters}
+          onAlertMetersChange={setAlertDistance}
+          width={width - 4}
           height={laneHeight}
         />
       </View>
       <ZoneLegend />
-      <View style={styles.guideFooter}>
-        <SecondaryButton label={g.leaveGroup} hint={g.leaveGroupHint} onPress={onCancel} />
-      </View>
     </Animated.View>
   );
 }
@@ -474,10 +532,15 @@ function useErrorFade(on: boolean) {
 
 /** Full-screen wine wash behind the visitor's error states. */
 function ErrorBackdrop({ shown }: { shown: Animated.Value }) {
+  const { palette } = useAccessibilityTheme();
   return (
     <Animated.View
       pointerEvents="none"
-      style={[StyleSheet.absoluteFill, styles.errorWash, { opacity: shown }]}
+      style={[
+        StyleSheet.absoluteFill,
+        styles.errorWash,
+        { backgroundColor: palette.wineSoft, opacity: shown },
+      ]}
     />
   );
 }
@@ -500,6 +563,7 @@ function VisitorView({
   bottom: number;
   width: number;
 }) {
+  const { palette, scaled } = useAccessibilityTheme();
   const entrance = useEntrance();
   const { state } = useGroup(transport, session.self, false);
   const worn = wornBy(usePetLooks().visitor, 'visitor');
@@ -536,22 +600,30 @@ function VisitorView({
               importantForAccessibility="no-hide-descendants"
             >
               {screen ? (
-                <View style={styles.petCircle}>
-                  <View pointerEvents="none" style={[StyleSheet.absoluteFill, styles.petRim]} />
+                <View style={[styles.petCircle, { backgroundColor: palette.primary }]}>
+                  <View
+                    pointerEvents="none"
+                    style={[
+                      StyleSheet.absoluteFill,
+                      styles.petRim,
+                      { borderColor: palette.primarySoft },
+                    ]}
+                  />
                   {/* The circle, rim included, turns wine with the background. */}
                   <Animated.View
                     pointerEvents="none"
                     style={[
                       StyleSheet.absoluteFill,
                       styles.petCircleError,
-                      { opacity: errorFade },
+                      { backgroundColor: palette.wine, opacity: errorFade },
                     ]}
                   />
                   <Pet
-                    size={118}
+                    size={144}
                     emotion={screen.emotion}
                     accessory={worn.accessory}
                     tint={worn.tint}
+                    crop={PET_FACE_VIEWBOX}
                   />
                 </View>
               ) : (
@@ -563,15 +635,25 @@ function VisitorView({
               accessibilityLiveRegion={error ? 'assertive' : 'polite'}
             >
               <View style={styles.titleRow}>
-                {error && <Icon name="triangleAlert" size={26} color={brand.wine} />}
+                {error && <Icon name="triangleAlert" size={26} color={palette.wine} />}
                 <Text
-                  style={[styles.display, error && styles.displayError]}
+                  style={[
+                    styles.display,
+                    scaled.display,
+                    { color: error ? palette.wine : palette.ink },
+                  ]}
                   accessibilityRole={error ? 'alert' : 'header'}
                 >
                   {screen ? screen.title : g.visitor.searchingTitle}
                 </Text>
               </View>
-              <Text style={[styles.body, error && styles.bodyError]}>
+              <Text
+                style={[
+                  styles.body,
+                  scaled.body,
+                  { color: error ? palette.ink : palette.inkMuted },
+                ]}
+              >
                 {screen ? screen.body : g.visitor.searchingBody}
               </Text>
             </View>
@@ -587,8 +669,98 @@ function VisitorView({
   );
 }
 
+// TEMPORARY web-only simulator strip for testing guide, visitor, and second-guide states in web.
+function WebSimBar({ sim, session }: { sim: WebPreviewSim; session: Session }) {
+  const snap = useSyncExternalStore(sim.subscribe, sim.snapshot, sim.snapshot);
+  const s = t.dev.groupSim;
+  return (
+    <View style={styles.simBar} accessibilityLabel={s.barLabel}>
+      <Text style={styles.simCaption}>{s.barLabel}</Text>
+      <View style={styles.simRow}>
+        {session.kind === 'choosing' && (
+          <SimChip
+            label={snap.guideNearby ? s.guideNearbyOn : s.guideNearbyOff}
+            active={snap.guideNearby}
+            onPress={sim.toggleGuideNearby}
+          />
+        )}
+        {session.kind === 'guide' && (
+          <>
+            <SimChip
+              label={
+                snap.visitorCount > 0
+                  ? fill(s.addVisitorCount, { n: snap.visitorCount })
+                  : s.addVisitor
+              }
+              active={snap.visitorCount > 0}
+              onPress={sim.addVisitor}
+            />
+            <SimChip
+              label={snap.hasOtherGuide ? s.removeOtherGuide : s.addOtherGuide}
+              active={snap.hasOtherGuide}
+              onPress={sim.toggleOtherGuide}
+            />
+            {(snap.visitorCount > 0 || snap.hasOtherGuide) && (
+              <SimChip label={s.clear} onPress={sim.clearPeers} />
+            )}
+          </>
+        )}
+        {session.kind === 'visitor' &&
+          (session.link === 'searching' ? (
+            <SimChip label={s.simulateGuide} onPress={() => sim.setVisitorLink('near')} />
+          ) : (
+            <>
+              <SimChip
+                label={s.near}
+                active={snap.visitorLink === 'near'}
+                onPress={() => sim.setVisitorLink('near')}
+              />
+              <SimChip
+                label={s.away}
+                active={snap.visitorLink === 'away'}
+                onPress={() => sim.setVisitorLink('away')}
+              />
+              <SimChip
+                label={s.lost}
+                active={snap.visitorLink === 'lost'}
+                onPress={() => sim.setVisitorLink('lost')}
+              />
+            </>
+          ))}
+      </View>
+    </View>
+  );
+}
+
+function SimChip({
+  label,
+  active = false,
+  onPress,
+}: {
+  label: string;
+  active?: boolean;
+  onPress: () => void;
+}) {
+  return (
+    <Pressable
+      onPress={onPress}
+      accessibilityRole="button"
+      accessibilityLabel={label}
+      accessibilityState={{ selected: active }}
+      style={({ pressed }) => [
+        styles.simChip,
+        active && styles.simChipActive,
+        pressed && styles.simChipPressed,
+      ]}
+    >
+      <Text style={[styles.simChipText, active && styles.simChipTextActive]}>{label}</Text>
+    </Pressable>
+  );
+}
+
 const styles = StyleSheet.create({
   screen: { flex: 1, backgroundColor: brand.card },
+  main: { flex: 1 },
   scroll: { flex: 1 },
   // Grows to the screen so empty/visitor views centre vertically and role cards share spare height.
   content: { flexGrow: 1, alignItems: 'center' },
@@ -655,14 +827,35 @@ const styles = StyleSheet.create({
   },
   errorText: { ...type.caption, color: brand.alert, textAlign: 'center' },
   label: { ...type.label, color: brand.ink },
-  countRow: { flexDirection: 'row', alignItems: 'center', gap: spacing.sm },
+  guideBlock: { paddingTop: spacing.md },
+  guideHeader: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    gap: spacing.sm,
+  },
+  headerPill: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+    gap: spacing.xs,
+    minHeight: 36,
+    paddingHorizontal: spacing.md,
+    borderRadius: radius.pill,
+    borderWidth: 1.5,
+    borderColor: brand.primarySoft,
+    backgroundColor: brand.card,
+    boxShadow: `0 2px 8px ${brand.glow}`,
+  },
+  headerPillPressed: { backgroundColor: brand.cardShade },
+  headerPillText: { ...type.caption, color: brand.ink },
   lanePanel: {
     borderRadius: 28,
-    borderWidth: 1,
-    borderColor: brand.cardShade,
+    borderWidth: 2,
+    borderColor: brand.primarySoft,
     backgroundColor: brand.card,
+    boxShadow: `0 6px 18px ${brand.glow}`,
   },
-  guideFooter: { alignItems: 'center', paddingTop: spacing.xs },
   searching: { alignItems: 'center', justifyContent: 'center', gap: spacing.md },
   searchingRow: {
     flexDirection: 'row',
@@ -670,4 +863,35 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     gap: spacing.sm,
   },
+  simBar: {
+    borderTopWidth: 1,
+    borderColor: brand.cardShade,
+    backgroundColor: brand.card,
+    paddingHorizontal: spacing.md,
+    paddingVertical: spacing.sm,
+    gap: spacing.xs,
+    alignItems: 'center',
+  },
+  simCaption: { ...type.caption, color: brand.inkMuted },
+  simRow: {
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    justifyContent: 'center',
+    gap: spacing.xs,
+  },
+  simChip: {
+    minHeight: 36,
+    paddingHorizontal: spacing.md,
+    paddingVertical: spacing.xs,
+    borderRadius: 999,
+    borderWidth: 1.5,
+    borderColor: brand.primarySoft,
+    backgroundColor: brand.card,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  simChipActive: { backgroundColor: brand.primary, borderColor: brand.primary },
+  simChipPressed: { backgroundColor: brand.cardShade },
+  simChipText: { ...type.caption, color: brand.ink },
+  simChipTextActive: { color: brand.onPrimary },
 });

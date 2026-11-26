@@ -1,0 +1,739 @@
+{
+ "shard": "T5b_U20",
+ "entries": [
+  {
+   "entry_id": "rules.damage_park_infrastructure",
+   "kind": "rule",
+   "section": "rules",
+   "emergency": false,
+   "label": "Prohibición de dañar instalaciones o infraestructura",
+   "canonical_L0": "No dañes las instalaciones, los equipos ni las estructuras del parque. Si ves algo roto o averiado, avísale al personal y no lo manipules.",
+   "key_facts": [
+    {
+     "fid": "f1",
+     "text": "No se deben dañar las instalaciones, los equipos ni las estructuras del parque."
+    },
+    {
+     "fid": "f2",
+     "text": "Si se ve algo roto o averiado, hay que avisarle al personal del parque."
+    },
+    {
+     "fid": "f3",
+     "text": "Lo que está roto o averiado no se debe manipular."
+    },
+    {
+     "fid": "f4",
+     "text": "Una instalación o estructura averiada en el sendero se reporta al personal del Parque sin manipularla."
+    }
+   ],
+   "complements": [],
+   "max_atoms": 0,
+   "numbers_required": [],
+   "need": 4,
+   "approved": [
+    {
+     "pid": "rules.damage_park_infrastructure#p01",
+     "structure": "direct",
+     "atoms": [],
+     "text": "Cuida las instalaciones, los equipos y las estructuras del parque: está prohibido dañarlos. Cuando encuentres algo roto o averiado, informa al personal del parque y déjalo tal cual, sin manipularlo. Si la avería está en una estructura del sendero, se reporta igual."
+    },
+    {
+     "pid": "rules.damage_park_infrastructure#p04",
+     "structure": "question_back",
+     "atoms": [],
+     "text": "¿Encontraste algo averiado o roto? Repórtalo al personal del parque y no lo manipules. Recuerda además que no está permitido dañar instalaciones, equipos ni estructuras del parque, y que una instalación averiada en el sendero se informa igual, sin tocarla."
+    },
+    {
+     "pid": "rules.damage_park_infrastructure#p05",
+     "structure": "direct",
+     "atoms": [],
+     "text": "Prohibido dañar instalaciones, equipos y estructuras del parque. Lo roto o averiado se avisa al personal, sin manipularlo; en el sendero, lo mismo: se reporta al personal del Parque sin tocar."
+    },
+    {
+     "pid": "rules.damage_park_infrastructure#p06",
+     "structure": "direct",
+     "atoms": [],
+     "text": "Las instalaciones, los equipos y las estructuras del parque no se pueden dañar. Si ves algo roto o averiado, se le avisa al personal del parque y no se manipula; igual con una instalación averiada en el sendero, que se reporta al personal del Parque sin manipularla."
+    },
+    {
+     "pid": "rules.damage_park_infrastructure#p08",
+     "structure": "question_back",
+     "atoms": [],
+     "text": "¿Ves algo roto a lo largo del camino? Cuéntaselo al personal del parque y no lo manipules. Tratar con cuidado lo del parque significa no dañar instalaciones, equipos ni estructuras. Para una instalación averiada del sendero, reporta al personal del Parque sin manipularla."
+    },
+    {
+     "pid": "rules.damage_park_infrastructure#p09",
+     "structure": "advice",
+     "atoms": [],
+     "text": "Si notas una avería, avisa al personal del parque y evita manipular lo que está roto o averiado. Dañar las instalaciones, los equipos o las estructuras del parque no está permitido. Una instalación del sendero con avería se reporta al personal del Parque, sin manipularla."
+    },
+    {
+     "pid": "rules.damage_park_infrastructure#p10",
+     "structure": "advice",
+     "atoms": [],
+     "text": "Nada de dañar instalaciones, equipos ni estructuras del parque. Algo roto o averiado: se avisa al personal y no se manipula. Averías en el sendero: reporte al personal del Parque, sin tocar."
+    }
+   ]
+  },
+  {
+   "entry_id": "rules.agro_industrial_mining_ban",
+   "kind": "rule",
+   "section": "rules",
+   "emergency": false,
+   "label": "Prohibición de actividades agropecuarias, hoteleras o mineras",
+   "canonical_L0": "No puedes hacer ganadería, agricultura, hotelería, minería ni actividad petrolera dentro del parque. Si quieres ofrecer un servicio a visitantes, pregunta primero a Parques Nacionales qué servicios ecoturísticos están permitidos.",
+   "key_facts": [
+    {
+     "fid": "f1",
+     "text": "Dentro del parque no se permite la ganadería, la agricultura, la hotelería, la minería ni la actividad petrolera."
+    },
+    {
+     "fid": "f2",
+     "text": "Quien quiera ofrecer un servicio a visitantes debe preguntar primero a Parques Nacionales."
+    },
+    {
+     "fid": "f3",
+     "text": "Parques Nacionales indica qué servicios ecoturísticos están permitidos."
+    },
+    {
+     "fid": "f4",
+     "text": "Dentro del área protegida no se autorizan explotaciones agropecuarias, mineras, petroleras ni hoteleras."
+    }
+   ],
+   "complements": [],
+   "max_atoms": 0,
+   "numbers_required": [],
+   "need": 8,
+   "approved": [
+    {
+     "pid": "rules.agro_industrial_mining_ban#p04",
+     "structure": "direct",
+     "atoms": [],
+     "text": "Prohibidas dentro del parque: ganadería, agricultura, hotelería, minería y actividad petrolera; en el área protegida no se autorizan explotaciones agropecuarias, mineras, petroleras ni hoteleras. Servicios a visitantes: se pregunta primero a Parques Nacionales, que indica los ecoturísticos permitidos."
+    },
+    {
+     "pid": "rules.agro_industrial_mining_ban#p05",
+     "structure": "context",
+     "atoms": [],
+     "text": "No se autorizan explotaciones agropecuarias, mineras, petroleras ni hoteleras en el área protegida. Dentro del parque tampoco se permiten la ganadería, la agricultura, la hotelería, la minería ni la actividad petrolera. Si quieres ofrecer un servicio a visitantes, pregunta primero a Parques Nacionales; ellos indican qué servicios ecoturísticos están permitidos."
+    },
+    {
+     "pid": "rules.agro_industrial_mining_ban#p06",
+     "structure": "direct",
+     "atoms": [],
+     "text": "Dentro del parque no hay espacio para ganadería, agricultura, hotelería, minería ni actividad petrolera, ni se autorizan en el área protegida explotaciones agropecuarias, mineras, petroleras u hoteleras. Si deseas ofrecer algún servicio a los visitantes, tu primer paso es preguntar a Parques Nacionales, entidad que indica qué servicios ecoturísticos están permitidos."
+    }
+   ]
+  },
+  {
+   "entry_id": "rules.authorized_stay_duration",
+   "kind": "rule",
+   "section": "rules",
+   "emergency": false,
+   "label": "Permanecer solo durante el tiempo autorizado",
+   "canonical_L0": "Quédate solo el tiempo que dice tu permiso de ingreso: no alargues la caminata ni sumes noches de campamento sin una autorización nueva del parque. Si necesitas más tiempo, pide otra autorización antes.",
+   "key_facts": [
+    {
+     "fid": "f1",
+     "text": "Solo se puede permanecer en el parque el tiempo que dice el permiso de ingreso."
+    },
+    {
+     "fid": "f2",
+     "text": "No se debe alargar la caminata sin una autorización nueva del parque."
+    },
+    {
+     "fid": "f3",
+     "text": "No se deben sumar noches de campamento sin una autorización nueva del parque."
+    },
+    {
+     "fid": "f4",
+     "text": "Hay que salir del parque dentro del tiempo que dice el permiso."
+    },
+    {
+     "fid": "f5",
+     "text": "Si se necesita más tiempo, hay que pedir otra autorización antes."
+    }
+   ],
+   "complements": [],
+   "max_atoms": 0,
+   "numbers_required": [],
+   "need": 4,
+   "approved": [
+    {
+     "pid": "rules.authorized_stay_duration#p01",
+     "structure": "direct",
+     "atoms": [],
+     "text": "Tu permanencia en el parque se limita al tiempo que indica el permiso de ingreso, y debes salir dentro de ese plazo. Ni la caminata se alarga ni se suman noches de campamento sin una autorización nueva del parque; si requieres más tiempo, solicita otra autorización antes."
+    },
+    {
+     "pid": "rules.authorized_stay_duration#p03",
+     "structure": "advice",
+     "atoms": [],
+     "text": "Planea tu visita según el permiso de ingreso: solo puedes permanecer el tiempo que dice, y toca salir del parque dentro de ese margen. Si piensas extender la caminata o añadir noches de campamento, necesitas una autorización nueva del parque; para más tiempo, pide otra autorización antes."
+    },
+    {
+     "pid": "rules.authorized_stay_duration#p04",
+     "structure": "direct",
+     "atoms": [],
+     "text": "Permanencia: solo el tiempo del permiso de ingreso, y salida dentro de ese tiempo. Sin autorización nueva del parque, ni se alarga la caminata ni se suman noches de campamento. ¿Más tiempo? Otra autorización, antes."
+    },
+    {
+     "pid": "rules.authorized_stay_duration#p05",
+     "structure": "context",
+     "atoms": [],
+     "text": "Tu permiso de ingreso marca cuánto puedes quedarte: solo ese tiempo, y dentro de él hay que salir del parque. Alargar la caminata o sumar noches de campamento no es opción sin una autorización nueva del parque, así que si necesitas más tiempo, consigue otra autorización antes."
+    },
+    {
+     "pid": "rules.authorized_stay_duration#p06",
+     "structure": "direct",
+     "atoms": [],
+     "text": "El permiso de ingreso fija la duración de tu visita. Solo se permanece en el parque durante ese tiempo y la salida debe darse dentro de él. Por eso no se debe alargar la caminata ni sumar noches de campamento a menos que el parque dé una autorización nueva; si hace falta más tiempo, esa otra autorización se pide antes."
+    },
+    {
+     "pid": "rules.authorized_stay_duration#p08",
+     "structure": "direct",
+     "atoms": [],
+     "text": "Sal del parque dentro del tiempo que marca tu permiso, pues solo se puede permanecer el que dice el permiso de ingreso. Alargar la caminata o sumar noches de campamento requiere una autorización nueva del parque. Si necesitas más tiempo, solicita otra autorización antes."
+    },
+    {
+     "pid": "rules.authorized_stay_duration#p09",
+     "structure": "advice",
+     "atoms": [],
+     "text": "Respeta el tiempo del permiso: no alargues la caminata, no sumes noches de campamento y sal del parque dentro de ese tiempo, salvo con una autorización nueva del parque. Solo puedes permanecer lo que dice el permiso de ingreso; para más tiempo, pide otra autorización antes."
+    }
+   ]
+  },
+  {
+   "entry_id": "rules.show_entry_permit_on_request",
+   "kind": "rule",
+   "section": "rules",
+   "emergency": false,
+   "label": "Obligación de portar y exhibir el permiso",
+   "canonical_L0": "Sí, lleva siempre el permiso de ingreso y tu documento, y muéstralos cuando el personal o una autoridad te los pidan; pueden hacerlo en cualquier punto del recorrido. Tenlos a la mano y protegidos durante toda la visita.",
+   "key_facts": [
+    {
+     "fid": "f1",
+     "text": "Se debe llevar siempre el permiso de ingreso y el documento de identidad."
+    },
+    {
+     "fid": "f2",
+     "text": "El permiso y el documento se muestran cuando el personal o una autoridad los pidan."
+    },
+    {
+     "fid": "f3",
+     "text": "Los guardaparques y las autoridades pueden pedir la autorización de ingreso en cualquier punto del recorrido."
+    },
+    {
+     "fid": "f4",
+     "text": "El permiso debe estar a la mano y protegido durante toda la visita."
+    }
+   ],
+   "complements": [],
+   "max_atoms": 0,
+   "numbers_required": [],
+   "need": 6,
+   "approved": [
+    {
+     "pid": "rules.show_entry_permit_on_request#p02",
+     "structure": "question_back",
+     "atoms": [],
+     "text": "¿Te pueden pedir el permiso en medio del sendero? Sí: los guardaparques y las autoridades pueden exigir la autorización de ingreso en cualquier punto del recorrido. Por eso carga siempre el permiso y tu documento de identidad, muéstralos cuando los soliciten y mantenlos a la mano y protegidos toda la visita."
+    },
+    {
+     "pid": "rules.show_entry_permit_on_request#p03",
+     "structure": "direct",
+     "atoms": [],
+     "text": "Lo que te piden es llevar siempre el permiso de ingreso y el documento de identidad, y enseñarlos si el personal o una autoridad lo solicita. Guardaparques y autoridades pueden pedir la autorización de ingreso en cualquier punto del recorrido, y el permiso debe permanecer a la mano y protegido durante toda la visita."
+    },
+    {
+     "pid": "rules.show_entry_permit_on_request#p06",
+     "structure": "direct",
+     "atoms": [],
+     "text": "Lleva siempre contigo el permiso de ingreso y el documento de identidad. Si el personal o una autoridad los pide, muéstralos; guardaparques y autoridades pueden solicitar la autorización en cualquier punto del recorrido. El permiso debe estar a la mano y protegido durante toda la visita."
+    },
+    {
+     "pid": "rules.show_entry_permit_on_request#p07",
+     "structure": "direct",
+     "atoms": [],
+     "text": "Sí: el permiso de ingreso y el documento de identidad se llevan siempre y se muestran cuando el personal o una autoridad lo pidan. Guardaparques y autoridades pueden pedir la autorización en cualquier punto del recorrido, así que tenla a la mano y protegida durante toda la visita."
+    },
+    {
+     "pid": "rules.show_entry_permit_on_request#p09",
+     "structure": "question_back",
+     "atoms": [],
+     "text": "¿Qué papeles llevar? Permiso de ingreso y documento de identidad, siempre. Si el personal o una autoridad te los solicita, los exhibes; en cualquier punto del recorrido pueden pedir la autorización los guardaparques y las autoridades. El permiso, a la mano y protegido toda la visita."
+    }
+   ]
+  },
+  {
+   "entry_id": "rules.respect_carrying_capacity_limits",
+   "kind": "rule",
+   "section": "rules",
+   "emergency": false,
+   "label": "Deber de respetar la capacidad de carga",
+   "canonical_L0": "Respeta el cupo del sendero y el máximo de personas de tu grupo: no entres sin cupo ni armes un grupo más grande que el autorizado. Confirma el cupo con tu operador antes de salir.",
+   "key_facts": [
+    {
+     "fid": "f1",
+     "text": "Hay que respetar el cupo del sendero."
+    },
+    {
+     "fid": "f2",
+     "text": "Hay que respetar el máximo de personas autorizado para el grupo."
+    },
+    {
+     "fid": "f3",
+     "text": "No se debe entrar a un sendero sin cupo."
+    },
+    {
+     "fid": "f4",
+     "text": "No se debe armar un grupo más grande que el autorizado."
+    },
+    {
+     "fid": "f5",
+     "text": "El cupo se confirma con el operador antes de salir."
+    }
+   ],
+   "complements": [],
+   "max_atoms": 0,
+   "numbers_required": [],
+   "need": 6,
+   "approved": [
+    {
+     "pid": "rules.respect_carrying_capacity_limits#p01",
+     "structure": "direct",
+     "atoms": [],
+     "text": "El cupo del sendero se respeta, igual que el máximo de personas autorizado para tu grupo. Eso significa no entrar a un sendero sin cupo y no armar un grupo más grande que el autorizado. Antes de salir, el cupo se confirma con el operador."
+    },
+    {
+     "pid": "rules.respect_carrying_capacity_limits#p04",
+     "structure": "direct",
+     "atoms": [],
+     "text": "Dos límites: el cupo del sendero y el máximo de personas autorizado para el grupo. Sin cupo, no se entra; un grupo más grande que el autorizado, no se arma. Con el operador, confirma el cupo antes de salir."
+    },
+    {
+     "pid": "rules.respect_carrying_capacity_limits#p05",
+     "structure": "context",
+     "atoms": [],
+     "text": "En los senderos manda el cupo: toca respetarlo, y respetar también el máximo de personas autorizado para el grupo. No entres a un sendero sin cupo ni armes un grupo más grande que el autorizado, y pregúntale a tu operador por el cupo antes de salir."
+    },
+    {
+     "pid": "rules.respect_carrying_capacity_limits#p06",
+     "structure": "direct",
+     "atoms": [],
+     "text": "Hay dos límites que debes tener presentes: el cupo del sendero y el máximo de personas autorizado para tu grupo. Con el primero, no se debe entrar a un sendero sin cupo; con el segundo, no se debe armar un grupo más grande que el autorizado. Ese cupo se confirma con el operador antes de salir."
+    },
+    {
+     "pid": "rules.respect_carrying_capacity_limits#p09",
+     "structure": "context",
+     "atoms": [],
+     "text": "Los senderos funcionan con cupo, y cada grupo tiene un máximo de personas autorizado; ambos límites se respetan. Eso quiere decir no entrar sin cupo y no armar un grupo más grande que el autorizado. Antes de salir, el cupo se confirma con el operador."
+    }
+   ]
+  },
+  {
+   "entry_id": "rules.visitor_risk_assumption",
+   "kind": "rule",
+   "section": "rules",
+   "emergency": false,
+   "label": "Asunción de riesgos y cuidado de pertenencias",
+   "canonical_L0": "Los riesgos de la visita los asumes tú y cada quien responde por sus cosas: el parque no responde si se te pierde algo ni por lo que te pase por entrar. Cuida tu equipo y no lo dejes solo.",
+   "key_facts": [
+    {
+     "fid": "f1",
+     "text": "El visitante asume los riesgos de la visita."
+    },
+    {
+     "fid": "f2",
+     "text": "Cada quien responde por sus cosas."
+    },
+    {
+     "fid": "f3",
+     "text": "El parque no responde si se pierde algo."
+    },
+    {
+     "fid": "f4",
+     "text": "Entrar no hace responsable al parque por los riesgos de la visita."
+    },
+    {
+     "fid": "f5",
+     "text": "No se debe soltar el equipaje ni dejarlo solo."
+    }
+   ],
+   "complements": [],
+   "max_atoms": 0,
+   "numbers_required": [],
+   "need": 4,
+   "approved": [
+    {
+     "pid": "rules.visitor_risk_assumption#p01",
+     "structure": "direct",
+     "atoms": [],
+     "text": "Quien visita el parque asume los riesgos de la visita, y cada quien responde por sus cosas. El parque no responde si se pierde algo, y entrar no lo hace responsable por esos riesgos. Por eso no sueltes tu equipaje ni lo dejes solo."
+    },
+    {
+     "pid": "rules.visitor_risk_assumption#p03",
+     "structure": "question_back",
+     "atoms": [],
+     "text": "¿Quién responde si se pierde algo? Cada quien por sus cosas; el parque no. Tú, como visitante, asumes los riesgos de la visita, y entrar no hace responsable al parque por ellos. Tu equipaje no se suelta ni se deja solo."
+    },
+    {
+     "pid": "rules.visitor_risk_assumption#p04",
+     "structure": "direct",
+     "atoms": [],
+     "text": "Riesgos de la visita: del visitante. Cada quien responde por sus cosas; el parque no responde si se pierde algo ni se hace responsable por entrar. Equipaje: sin soltarlo ni dejarlo solo."
+    },
+    {
+     "pid": "rules.visitor_risk_assumption#p05",
+     "structure": "context",
+     "atoms": [],
+     "text": "Al entrar al parque aceptas que los riesgos de la visita corren por tu cuenta y que cada quien responde por sus cosas. Si se pierde algo, el parque no responde, y entrar no lo hace responsable de esos riesgos. Mantén tu equipaje contigo: no lo sueltes ni lo dejes solo."
+    },
+    {
+     "pid": "rules.visitor_risk_assumption#p07",
+     "structure": "direct",
+     "atoms": [],
+     "text": "El riesgo de ir al parque es tuyo: lo asumes como visitante. Responde cada quien por lo suyo; si algo se pierde, el parque no responde, ni queda obligado por los riesgos de la visita solo porque entraste. Equipaje: ni soltarlo, ni dejarlo solo."
+    },
+    {
+     "pid": "rules.visitor_risk_assumption#p09",
+     "structure": "context",
+     "atoms": [],
+     "text": "Visitar un área protegida implica riesgos, y los asume el visitante. Cada quien responde por sus cosas, así que el parque no responde si se pierde algo y entrar no lo hace responsable por esos riesgos. Evita soltar el equipaje o dejarlo solo."
+    },
+    {
+     "pid": "rules.visitor_risk_assumption#p10",
+     "structure": "question_back",
+     "atoms": [],
+     "text": "¿Y si se te pierde algo? El parque no responde: cada quien responde por sus cosas. Quien visita asume los riesgos de la visita, y entrar no hace responsable al parque por ellos. Por eso no se debe soltar el equipaje ni dejarlo solo."
+    }
+   ]
+  },
+  {
+   "entry_id": "rules.report_environmental_infractions",
+   "kind": "rule",
+   "section": "rules",
+   "emergency": false,
+   "label": "Obligación de denunciar infracciones en el parque",
+   "canonical_L0": "Si ves que alguien incumple las normas, denúncialo a los funcionarios del parque o a la autoridad. Anota el lugar y avisa en el control, o a tu guía si vas con uno.",
+   "key_facts": [
+    {
+     "fid": "f1",
+     "text": "Si se ve que alguien incumple las normas, hay que denunciarlo a los funcionarios del parque o a la autoridad."
+    },
+    {
+     "fid": "f2",
+     "text": "Hay que anotar el lugar de la infracción."
+    },
+    {
+     "fid": "f3",
+     "text": "Se avisa en el control del parque."
+    },
+    {
+     "fid": "f4",
+     "text": "Quien va con guía le avisa también a su guía."
+    }
+   ],
+   "complements": [],
+   "max_atoms": 0,
+   "numbers_required": [],
+   "need": 5,
+   "approved": [
+    {
+     "pid": "rules.report_environmental_infractions#p01",
+     "structure": "direct",
+     "atoms": [],
+     "text": "Cuando veas a alguien incumplir las normas, denúncialo ante los funcionarios del parque o ante la autoridad. Apunta el lugar de la infracción y avisa en el control del parque; si vas con guía, avísale también a él."
+    },
+    {
+     "pid": "rules.report_environmental_infractions#p03",
+     "structure": "question_back",
+     "atoms": [],
+     "text": "¿Viste a alguien incumpliendo las normas? Hay que denunciarlo a los funcionarios del parque o a la autoridad. Anota el lugar de la infracción y avisa en el control del parque; con guía, avísale también."
+    },
+    {
+     "pid": "rules.report_environmental_infractions#p04",
+     "structure": "direct",
+     "atoms": [],
+     "text": "Infracción vista: denuncia a funcionarios del parque o autoridad, anota el lugar y avisa en el control del parque. Con guía, avísale también a tu guía."
+    },
+    {
+     "pid": "rules.report_environmental_infractions#p05",
+     "structure": "context",
+     "atoms": [],
+     "text": "Si durante tu recorrido notas que alguien no cumple las normas, ayuda a cuidar el parque denunciándolo ante los funcionarios del parque o la autoridad. Fíjate bien en el lugar de la infracción y anótalo; el aviso se da en el control del parque, y quien va con guía se lo cuenta a su guía también."
+    },
+    {
+     "pid": "rules.report_environmental_infractions#p07",
+     "structure": "direct",
+     "atoms": [],
+     "text": "Ante alguien que incumple las normas, la respuesta es denunciarlo con los funcionarios del parque o con la autoridad. Se anota el lugar de la infracción, se avisa en el control del parque y, si vas con un guía, también a él."
+    },
+    {
+     "pid": "rules.report_environmental_infractions#p10",
+     "structure": "question_back",
+     "atoms": [],
+     "text": "¿Qué hacer si alguien rompe las normas? Denunciarlo a los funcionarios del parque o a la autoridad. Tienes que anotar el lugar de la infracción, avisar en el control del parque y, si te acompaña un guía, avisarle a tu guía."
+    }
+   ]
+  },
+  {
+   "entry_id": "rules.no_discrimination_scandals",
+   "kind": "rule",
+   "section": "rules",
+   "emergency": false,
+   "label": "Prohibición de escándalos y actos de discriminación",
+   "canonical_L0": "No armes escándalos ni te metas en peleas dentro del parque. Si hay un conflicto, aléjate y avísale al personal del parque.",
+   "key_facts": [
+    {
+     "fid": "f1",
+     "text": "No se deben armar escándalos dentro del parque."
+    },
+    {
+     "fid": "f2",
+     "text": "No se debe participar en peleas dentro del parque."
+    },
+    {
+     "fid": "f3",
+     "text": "Si hay un conflicto, hay que alejarse."
+    },
+    {
+     "fid": "f4",
+     "text": "Ante un conflicto se le avisa al personal del parque."
+    }
+   ],
+   "complements": [],
+   "max_atoms": 0,
+   "numbers_required": [],
+   "need": 6,
+   "approved": [
+    {
+     "pid": "rules.no_discrimination_scandals#p01",
+     "structure": "direct",
+     "atoms": [],
+     "text": "Dentro del parque no se arman escándalos ni se participa en peleas. Si surge un conflicto, hay que alejarse y avisarle al personal del parque."
+    },
+    {
+     "pid": "rules.no_discrimination_scandals#p04",
+     "structure": "direct",
+     "atoms": [],
+     "text": "Sin escándalos ni peleas dentro del parque. Si hay un conflicto: alejarse y avisar al personal del parque."
+    },
+    {
+     "pid": "rules.no_discrimination_scandals#p05",
+     "structure": "context",
+     "atoms": [],
+     "text": "Cuando estés en el parque, evita armar escándalos y no participes en peleas dentro de él. Si hay un conflicto, retírate del lugar y cuéntaselo al personal del parque."
+    },
+    {
+     "pid": "rules.no_discrimination_scandals#p06",
+     "structure": "direct",
+     "atoms": [],
+     "text": "Armar escándalos dentro del parque no está permitido, y tampoco participar en peleas. Si se presenta un conflicto, lo que corresponde es alejarse del lugar y luego avisarle al personal del parque."
+    },
+    {
+     "pid": "rules.no_discrimination_scandals#p07",
+     "structure": "direct",
+     "atoms": [],
+     "text": "Evita los escándalos y las peleas dentro del parque: ni se arman ni se participa en ellas. Si ocurre un conflicto, te alejas y le avisas al personal del parque."
+    }
+   ]
+  },
+  {
+   "entry_id": "rules.written_reprimand_mandatory_course",
+   "kind": "rule",
+   "section": "rules",
+   "emergency": false,
+   "label": "Amonestación pública escrita y curso ambiental obligatorio",
+   "canonical_L0": "La amonestación es un llamado de atención por escrito: la publican en la web de la autoridad y en la alcaldía, y te manda a un curso ambiental o a servicio comunitario. Si no cumples, la multa puede llegar a 5 salarios mínimos mensuales, así que asiste a lo que te asignen.",
+   "key_facts": [
+    {
+     "fid": "f1",
+     "text": "La amonestación es un llamado de atención por escrito."
+    },
+    {
+     "fid": "f2",
+     "text": "La amonestación se publica en la web de la autoridad y en la alcaldía."
+    },
+    {
+     "fid": "f3",
+     "text": "La amonestación envía a un curso ambiental o a servicio comunitario."
+    },
+    {
+     "fid": "f4",
+     "text": "Si no se cumple, la multa puede llegar a 5 salarios mínimos mensuales."
+    },
+    {
+     "fid": "f5",
+     "text": "Hay que asistir al curso o a la jornada asignada."
+    }
+   ],
+   "complements": [],
+   "max_atoms": 0,
+   "numbers_required": [
+    "5"
+   ],
+   "need": 5,
+   "approved": [
+    {
+     "pid": "rules.written_reprimand_mandatory_course#p02",
+     "structure": "context",
+     "atoms": [],
+     "text": "Si recibes una amonestación, esto es lo que implica: un llamado de atención por escrito, publicado en la web de la autoridad y en la alcaldía, que te asigna un curso ambiental o servicio comunitario. Asiste a lo asignado, pues incumplir puede costarte una multa de hasta 5 salarios mínimos mensuales."
+    },
+    {
+     "pid": "rules.written_reprimand_mandatory_course#p05",
+     "structure": "direct",
+     "atoms": [],
+     "text": "Amonestación: llamado de atención escrito, publicado en la web de la autoridad y en la alcaldía, con curso ambiental o servicio comunitario. Si no se cumple: multa de hasta 5 salarios mínimos mensuales. Asiste al curso o a la jornada asignada."
+    },
+    {
+     "pid": "rules.written_reprimand_mandatory_course#p06",
+     "structure": "context",
+     "atoms": [],
+     "text": "La amonestación funciona así: primero es un llamado de atención por escrito, que se hace público en la web de la autoridad y en la alcaldía. Luego te envía a un curso ambiental o a servicio comunitario, y debes asistir al curso o a la jornada asignada. Si no se cumple, la multa puede llegar a 5 salarios mínimos mensuales."
+    },
+    {
+     "pid": "rules.written_reprimand_mandatory_course#p07",
+     "structure": "direct",
+     "atoms": [],
+     "text": "Te pueden mandar a un curso ambiental o a servicio comunitario mediante una amonestación, que es un llamado de atención por escrito y se publica en la web de la autoridad y en la alcaldía. Ve al curso o a la jornada asignada: no cumplir puede acarrear una multa de hasta 5 salarios mínimos mensuales."
+    },
+    {
+     "pid": "rules.written_reprimand_mandatory_course#p09",
+     "structure": "question_back",
+     "atoms": [],
+     "text": "¿Dónde se publica una amonestación? En la web de la autoridad y en la alcaldía. Es un llamado de atención por escrito que te envía a un curso ambiental o a servicio comunitario; debes asistir a lo asignado, pues si no se cumple la multa puede llegar a 5 salarios mínimos mensuales."
+    },
+    {
+     "pid": "rules.written_reprimand_mandatory_course#p10",
+     "structure": "context",
+     "atoms": [],
+     "text": "Sobre la amonestación: consiste en un llamado de atención por escrito, expuesto en la web de la autoridad y en la alcaldía, con envío a un curso ambiental o a servicio comunitario. Hay que asistir al curso o a la jornada asignada; el incumplimiento puede traer una multa de hasta 5 salarios mínimos mensuales."
+    }
+   ]
+  },
+  {
+   "entry_id": "history_culture.subject_of_rights",
+   "kind": "fact",
+   "section": "history_culture",
+   "emergency": false,
+   "label": "parque como sujeto de derechos",
+   "canonical_L0": "El 25 de noviembre de 2020 la Corte Suprema declaró al parque sujeto de derechos a la vida, la salud y un ambiente sano, y ordenó un plan conjunto de recuperación. Si quieres entrar hoy, pregunta en el sector: eso lo define el parque.",
+   "key_facts": [
+    {
+     "fid": "f1",
+     "text": "El 25 de noviembre de 2020 la Corte Suprema declaró al parque sujeto de derechos a la vida, la salud y un ambiente sano."
+    },
+    {
+     "fid": "f2",
+     "text": "La Corte ordenó un plan conjunto de recuperación."
+    },
+    {
+     "fid": "f3",
+     "text": "El parque lo representa legalmente el Presidente de la República, como Jefe de Estado."
+    },
+    {
+     "fid": "f4",
+     "text": "Si se quiere entrar hoy, hay que preguntar en el sector, porque eso lo define el parque."
+    },
+    {
+     "fid": "f5",
+     "text": "El texto con que la Corte reemplazó el numeral primero declara los derechos y ordena el plan conjunto, y no repite la frase de cero presencia humana, agropecuaria e industrial."
+    },
+    {
+     "fid": "f6",
+     "text": "La sentencia no debe usarse como si la visita regulada estuviera prohibida."
+    }
+   ],
+   "complements": [
+    {
+     "fid": "f7",
+     "text": "La primera instancia, el 13 de octubre de 2020, incluyó en el numeral primero una directriz de cero presencia humana, agropecuaria e industrial, que la Corte modificó."
+    },
+    {
+     "fid": "f8",
+     "text": "En el proceso judicial, un texto declara que el parque es Sujeto Especial de Derechos para su protección, recuperación y conservación con enfoque integral."
+    },
+    {
+     "fid": "f9",
+     "text": "Ese texto tutela los derechos del parque por la omisión de entidades nacionales, territoriales y corporaciones autónomas en sus deberes de cuidado, mantenimiento y conservación."
+    },
+    {
+     "fid": "f10",
+     "text": "El Decreto 1270 del 18 de septiembre de 2020 designa al representante legal de los derechos del parque en cumplimiento de la Sentencia T-2020-000091-00 del 28 de agosto de 2020 del Tribunal Superior de Ibagué."
+    },
+    {
+     "fid": "f11",
+     "text": "El Decreto 1270 es otro documento, distinto de la sentencia de noviembre de 2020."
+    }
+   ],
+   "max_atoms": 2,
+   "numbers_required": [
+    "2020",
+    "25"
+   ],
+   "need": 4,
+   "approved": [
+    {
+     "pid": "history_culture.subject_of_rights#p01",
+     "structure": "direct",
+     "atoms": [
+      "f7"
+     ],
+     "text": "La Corte Suprema declaró, el 25 de noviembre de 2020, que el parque es sujeto de derechos a la vida, la salud y un ambiente sano, y ordenó un plan conjunto de recuperación. Lo representa legalmente el Presidente de la República, como Jefe de Estado. La primera instancia, el 13 de octubre de 2020, había incluido en el numeral primero una directriz de cero presencia humana, agropecuaria e industrial, que la Corte modificó: el texto con que lo reemplazó declara los derechos y ordena el plan conjunto, sin repetir esa frase. Por eso la sentencia no debe usarse como si la visita regulada estuviera prohibida. Para entrar hoy, pregunta en el sector, porque eso lo define el parque."
+    },
+    {
+     "pid": "history_culture.subject_of_rights#p02",
+     "structure": "context",
+     "atoms": [
+      "f8"
+     ],
+     "text": "Con el texto que puso en lugar del numeral primero, la Corte Suprema declaró el 25 de noviembre de 2020 al parque sujeto de derechos a la vida, la salud y un ambiente sano, y ordenó un plan conjunto de recuperación, sin repetir la frase de cero presencia humana, agropecuaria e industrial. En el proceso judicial, un texto declara que el parque es Sujeto Especial de Derechos para su protección, recuperación y conservación con enfoque integral. Su representante legal es el Presidente de la República, como Jefe de Estado. No uses la sentencia como si la visita regulada estuviera prohibida; si quieres entrar hoy, pregunta en el sector, que es el parque quien lo define."
+    },
+    {
+     "pid": "history_culture.subject_of_rights#p03",
+     "structure": "advice",
+     "atoms": [
+      "f9"
+     ],
+     "text": "Antes de planear tu entrada, pregunta en el sector: lo que hoy se puede hacer lo define el parque, y la sentencia no debe usarse como si la visita regulada estuviera prohibida. El 25 de noviembre de 2020, la Corte Suprema declaró sujeto de derechos a la vida, la salud y un ambiente sano al parque y ordenó un plan conjunto de recuperación; lo representa legalmente el Presidente de la República, como Jefe de Estado. El texto con que reemplazó el numeral primero declara los derechos y ordena el plan conjunto, y no repite la frase de cero presencia humana, agropecuaria e industrial. Ese texto tutela los derechos del parque por la omisión de entidades nacionales, territoriales y corporaciones autónomas en sus deberes de cuidado, mantenimiento y conservación."
+    },
+    {
+     "pid": "history_culture.subject_of_rights#p04",
+     "structure": "direct",
+     "atoms": [
+      "f8",
+      "f11"
+     ],
+     "text": "Con fecha 25 de noviembre de 2020, la Corte Suprema declaró al parque sujeto de derechos a la vida, la salud y un ambiente sano, y ordenó un plan conjunto de recuperación; lo representa legalmente el Presidente de la República, como Jefe de Estado. Un texto del proceso lo llama Sujeto Especial de Derechos para su protección, recuperación y conservación con enfoque integral. El numeral primero, en su versión de reemplazo, declara los derechos y ordena el plan conjunto, sin repetir la frase de cero presencia humana, agropecuaria e industrial, y la sentencia no debe usarse como si la visita regulada estuviera prohibida. El Decreto 1270 es otro documento, distinto de la sentencia de noviembre de 2020. Para entrar hoy, pregunta en el sector: lo define el parque."
+    },
+    {
+     "pid": "history_culture.subject_of_rights#p05",
+     "structure": "question_back",
+     "atoms": [
+      "f7",
+      "f9"
+     ],
+     "text": "¿La Corte prohibió entrar? No, y conviene leer bien el fallo. Se tutelaron los derechos del parque ante la omisión de entidades nacionales, territoriales y corporaciones autónomas en sus deberes de cuidado, mantenimiento y conservación, y el 25 de noviembre de 2020 la Corte Suprema declaró al parque sujeto de derechos a la vida, la salud y un ambiente sano y ordenó un plan conjunto de recuperación. En primera instancia, el 13 de octubre de 2020, el numeral primero incluía una directriz de cero presencia humana, agropecuaria e industrial, que la Corte modificó; el texto que la reemplazó declara los derechos y ordena el plan conjunto, sin repetirla. Por eso la sentencia no debe usarse como si la visita regulada estuviera prohibida. El Presidente de la República, como Jefe de Estado, representa legalmente al parque. Para entrar hoy, pregunta en el sector: lo define el parque."
+    },
+    {
+     "pid": "history_culture.subject_of_rights#p06",
+     "structure": "advice",
+     "atoms": [
+      "f10"
+     ],
+     "text": "Antes de citar este fallo, ten claro qué es qué. El Decreto 1270 del 18 de septiembre de 2020 designa al representante legal de los derechos del parque en cumplimiento de la Sentencia T-2020-000091-00 del 28 de agosto de 2020 del Tribunal Superior de Ibagué. Aparte, el 25 de noviembre de 2020, la Corte Suprema declaró al parque sujeto de derechos a la vida, la salud y un ambiente sano, y ordenó un plan conjunto de recuperación; el parque lo representa legalmente el Presidente de la República, como Jefe de Estado. El numeral primero de reemplazo declara los derechos y ordena el plan conjunto, sin la frase de cero presencia humana, agropecuaria e industrial; no uses la sentencia como si la visita regulada estuviera prohibida. Para entrar hoy, pregunta en el sector: eso lo define el parque."
+    },
+    {
+     "pid": "history_culture.subject_of_rights#p09",
+     "structure": "question_back",
+     "atoms": [
+      "f11"
+     ],
+     "text": "¿Cómo se representa al parque? Legalmente, lo hace el Presidente de la República, como Jefe de Estado. La Corte Suprema, el 25 de noviembre de 2020, lo declaró sujeto de derechos a la vida, la salud y un ambiente sano y ordenó un plan conjunto de recuperación. El texto que reemplazó el numeral primero declara esos derechos y ordena el plan, sin la frase de cero presencia humana, agropecuaria e industrial, y la sentencia no debe usarse como si la visita regulada estuviera prohibida. No confundas esto con el Decreto 1270, que es otro documento. Para entrar hoy, pregunta en el sector: lo define el parque."
+    }
+   ]
+  }
+ ]
+}

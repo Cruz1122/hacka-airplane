@@ -47,7 +47,6 @@ The script uses `run-as`, so it needs a debuggable build. A release APK installe
 | `/onboarding` | Three-screen onboarding, then the hand-off into the chat |
 | `/history` | Past conversations (no entry in the UI; deep link only) |
 | `/group` (`app/(tabs)/group.tsx`) | Group sync: a guide sees every synced visitor on a line and is alerted when one drifts; a visitor sees its own link. The second tab ("Grupo" in the cloud bar): it stays mounted, so a session survives a trip to the chat; Android back steps back inside Grupo before returning to Chat, and back from Chat leaves the app. Uses BLE beacons on Android |
-| `/settings` | Legacy LLM settings (the knowledge chat ignores them; deep link only) |
 | `/design` | Design system catalog: tokens, components, Pet |
 | `/lab` | Onboarding scene editor (web only; `lab.tsx` is the native fallback) |
 | `/spike` | Dev-only device check of the knowledge runtime against the Python fixtures (`nevados://spike`) |
@@ -60,13 +59,13 @@ The script uses `run-as`, so it needs a debuggable build. A release APK installe
 | `src/llm/` | Native loaders: `embedder.ts` (e5 on llama.rn), `scorer.ts` + `ort.ts` (onnxruntime), `knowledgeRuntime.ts`, `laya.ts` (off). Legacy: `llamaRn.ts`, `modelManager.ts`, `models.ts` |
 | `src/core/group/` | Group-sync core, pure TS: `types.ts`, `policy.ts` (every threshold, uncalibrated), `signal.ts` (per-edge median, EMA, hysteresis, pocket dwell), `groupState.ts` (reducer, `presence`, `alerts`), `lane.ts` (dot placement); `testing.ts` drives the tests |
 | `src/group/` | Group-sync wiring: `transport.ts` (radio seam), `bleTransport.ts` (Android BLE + NFC transport), `session.ts` (role flow), `useGroup.ts` (reducer, 1 s tick, vibration) |
-| `src/state/` | `useKnowledge` + `knowledgeChat` (chat state), `knowledgeRows`, `messageSources`, `history`, `settings` (expo-sqlite kv-store) |
+| `src/state/` | `useKnowledge` + `knowledgeChat` (chat state), `knowledgeRows`, `messageSources`, `history` (expo-sqlite kv-store) |
 | `src/chat/` | Chat screen: `ChatView`, `ChatBackdrop` + `headerScene.ts` (header scene), `chatLayout.ts`, `PetCircle.tsx`, `handoff.ts` (onboarding exit) |
-| `src/onboarding/` | Scene data (`scene/`), renderers (`SceneCanvas.native.tsx` + `skia/` on native, `NevadoScene.tsx` on web), `OnboardingOverlay.tsx`, `usePlayback.ts`, `layout.ts` |
+| `src/onboarding/` | Scene data (`scene/`), renderers (`SceneCanvas.native.tsx` + `skia/` on native, `SceneCanvas.tsx` + `canvas2d/` for web onboarding, `NevadoScene.tsx` as the SVG reference for Lab/design), `OnboardingOverlay.tsx`, `usePlayback.ts`, `layout.ts` |
 | `src/ui/` | Design system: `theme/tokens.ts`, components, `pet/` (Pet geometry `petCore.ts`, `Pet.tsx`, SVG and Skia figures), `skia/` helpers ([README](src/ui/README.md)) |
 | `src/design/`, `src/lab/` | `/design` catalog and the web-only scene editor |
 | `src/i18n/` | UI copy (`es.ts` is the source; the locale is fixed to `es`) |
-| `src/core/*.ts` (outside `knowledge/`) | Legacy FSM port, still compiled for `/settings` and the debug panel types |
+| `src/core/*.ts` (outside `knowledge/`) | Legacy FSM port and debug panel types |
 | `src/web-stubs/` | Web stand-ins for `llama.rn` and `onnxruntime-react-native` (`metro.config.js`) |
 | `src/llm/knowledgeRuntime.web.ts` | Web chat runtime: the same e5 GGUF on `@wllama/wllama` (llama.cpp in WebAssembly) plus the JS scorer; the dev server serves `../models/knowledge` at `/knowledge-files/` (`metro.config.js`) |
 
@@ -74,7 +73,7 @@ Generated, never edit by hand: `assets/data/knowledge/*.json`, `src/core/knowled
 
 ## Onboarding scene
 
-One JSON document (`SceneDoc`, `src/onboarding/scene/`) describes layers, objects, palette and a timeline keyed by progress (0 = screen 1, 2 = screen 3). Native draws it on one Skia canvas; web (Lab, `/design`) draws it with react-native-svg. The SVG renderer is the reference, so a new body kind goes into both `NevadoScene.tsx` and `skia/drawScene.ts`.
+One JSON document (`SceneDoc`, `src/onboarding/scene/`) describes layers, objects, palette and a timeline keyed by progress (0 = screen 1, 2 = screen 3). Native onboarding draws it on one Skia canvas. Web onboarding uses Canvas2D layers. The Lab and `/design` previews use the SVG reference, `NevadoScene.tsx`. Add a new body kind to `skia/drawScene.ts`, `canvas2d/drawScene2d.ts`, and `NevadoScene.tsx`.
 
 - Transitions: "Siguiente", the dots and a swipe animate progress (`transitionMs` 900, ease-out). Layer blur is keyed per screen (`layer.<id>.blur`); on Skia it is drawn at half resolution.
 - Idle motions (drift, bob, sway, breathe, rise, live) run on wall-clock time and stop under the OS reduce-motion setting.

@@ -1,0 +1,792 @@
+{
+ "shard": "T30_054",
+ "entries": [
+  {
+   "entry_id": "access.covered_vehicle_required",
+   "section": "access",
+   "kind": "rule",
+   "label": "vehículo cubierto hacia el valle",
+   "all_key_forced": true,
+   "L0": "Del centro Brisas al valle se va en vehículo cubierto, propio o contratado. No está aclarado si un carro sin techo cuenta, así que confírmalo con UTON antes de subir; la moto no entra.",
+   "answer": {
+    "short": "Del centro Brisas al valle se va en vehículo cubierto, propio o contratado. No está aclarado si un carro sin techo cuenta; la moto no entra. Confírmalo con UTON antes de subir.",
+    "variants": [
+     "El tramo del valle es en vehículo cubierto. No está aclarado el carro sin techo; pregúntale a UTON y no cuentes con la moto."
+    ],
+    "detail": "Si entras a Brisas en noviembre, un fin de semana o puente, revisa el pico y placa ambiental del Tolima, Resolución 1815 del 24 de julio de 2026, de 5:00 a. m. a 4:00 p. m."
+   },
+   "questions": [
+    "¿el valle pide carro con techo?",
+    "puedo seguir en carro destapado",
+    "un convertible pasa de brisas a tumbas",
+    "¿un carro sin techo sí sirve pa' el valle?",
+    "el mío tiene techo, sirve",
+    "does the valley require a covered vehicle",
+    "is an open jeep allowed past Brisas",
+    "propio o contratado, los dos sirven si van cubiertos",
+    "¿la moto sirve en vez del carro cubierto?",
+    "¿vehículo cubierto es el que tiene techo?",
+    "contratar el carro alla mismo",
+    "antes de subir pregunto si el mío vale",
+    "ey parce el valle exige carro con techo?",
+    "mano un carro destapado pasa pal valle",
+    "qué más, mi camioneta tiene techo, sirve?",
+    "vos sabés si un convertible sube a Tumbas",
+    "ay q tener carro cubierto",
+    "carro sin techo puede subir al balle",
+    "q es vehiculo cubierto",
+    "el mio es destapado sirve",
+    "¿vehículo cubierto?",
+    "carro descapotable",
+    "Tengo un carro sin techo, ¿me sirve para ir de Brisas al valle?",
+    "¿Qué tipo de vehículo piden para el tramo hasta el valle?"
+   ],
+   "evidence_windows": []
+  },
+  {
+   "entry_id": "access.parking_at_brisas",
+   "section": "access",
+   "kind": "fact",
+   "label": "dejar el carro en el centro",
+   "all_key_forced": false,
+   "L0": "No tengo publicado un parqueadero, cupos ni plano de Brisas. Puedes llegar en tu vehículo y el valle se recorre en vehículo cubierto; pregunta a UTON dónde dejar el carro. Si vas un fin de semana o puente de noviembre, revisa el pico y placa de ese acceso.",
+   "answer": {
+    "short": "No tengo publicado un parqueadero, cupos ni plano de Brisas. Puedes llegar en tu vehículo y el valle se recorre en vehículo cubierto: pregunta a UTON dónde dejar el carro. Si vas un fin de semana o puente de noviembre, revisa el pico y placa de ese acceso.",
+    "variants": [
+     "No hay parqueadero, cupos ni plano publicados. Llegas en tu vehículo y el valle sigue en vehículo cubierto; pregunta a UTON dónde dejarlo."
+    ],
+    "detail": "Si entras a Brisas en noviembre, un fin de semana o puente, revisa el pico y placa ambiental del Tolima, Resolución 1815 del 24 de julio de 2026, de 5:00 a. m. a 4:00 p. m."
+   },
+   "questions": [
+    "¿en Brisas hay dónde dejar el carro?",
+    "dejo el carro en el centro de visitantes",
+    "cuántos cupos hay para parquear",
+    "plano de celdas en brisas",
+    "puedo dejar el carro y seguir en otro",
+    "is there a parking lot at Brisas",
+    "how many parking spaces are published",
+    "llego en el mío y lo dejo en la caseta",
+    "no encuentro un mapa del parqueadero",
+    "el carro se queda en brisas mientras subo al valle",
+    "¿dónde me parqueo cuando llegue a Brisas?",
+    "¿y el parqueadero del centro, cómo es?",
+    "ey parce dónde dejo el carro en Brisas",
+    "mano hay parqueadero en el centro de visitantes?",
+    "qué más, cuántos cupos hay pa parquear arriba",
+    "vos sabés si puedo dejar la camioneta ahí mientras subo",
+    "ay parqueadero en brisas",
+    "donde parkeo el carro",
+    "cuantos cupos ay pa dejar el carro",
+    "puedo dejar el carro en la porteria y subir en otro",
+    "parqueadero Brisas",
+    "¿dónde parquear?",
+    "Voy a llegar en carro particular, ¿dónde lo dejo mientras hago el recorrido?",
+    "¿Hay plano o zona de parqueo en la entrada norte?"
+   ],
+   "evidence_windows": [
+    {
+     "qid": "access/evidence/raw/pnn_nevados.txt#2430",
+     "score": 6.12,
+     "text": "Si vas a visitar el atractivo Brisas–Valle de las Tumbas del Parque Nacional Natural Los Nevados, durante el mes de noviembre ten presente el Pico y Placa Ambiental emitido por la Secretaría de Tránsito y Transporte del Tolima, mediante la Resolución No. 1815 del 24 de julio de 2026, el cual aplica para fines de semana y puentes festivos con horario de restricción de 5:00 a. m. a 4:00 p. m. Esta medida busca proteger los ecosistemas de páramo y mejorar la movilidad en el acceso norte del Parque. Es importante que revises el cronograma de placas autorizadas para circular al realizar la reserva para ingreso al atractivo, la cual se debe hacer con al menos un día de anticipación en www.reservasnevados.com Consulta la Resolución No. 1815 del 24 de julio de 2026 aquí y conoce el cronograma de placas autorizadas en el marco del Pico y Placa Ambiental. Plan de necesidades asistencia"
+    },
+    {
+     "qid": "access/evidence/raw/tolima-via-murillo-la-esperanza.txt#3486",
+     "score": 3.082,
+     "text": "La medida aplicará durante fines de semana, puentes festivos y temporada de Semana Santa, con el propósito de regular el flujo vehicular hacia esta zona de alta sensibilidad ambiental y turística. La Gobernación del Tolima, a través de su Secretaría de Tránsito y Transporte, dio a conocer el calendario oficial de pico y placa para el corredor vial Murillo – La Esperanza correspondiente al segundo trimestre de 2026. Esta medida se implementa en cumplimiento de la orden judicial emitida por el Tribunal Superior del Distrito Judicial de Ibagué, mediante la cual se dispuso una restricción vehicular para regular el ingreso hacia el área de influencia del Parque Nacional Natural Los Nevados, con el fin de mitigar los impactos ambientales derivados del alto flujo de visitantes."
+    },
+    {
+     "qid": "access/evidence/raw/tolima-via-murillo-la-esperanza.txt#5835",
+     "score": 3.076,
+     "text": "El director operativo de tránsito del Tolima, Miguel Bermúdez, explicó que la medida busca garantizar una movilidad organizada y proteger el entorno natural de este importante corredor turístico del departamento. “La medida de pico y placa en la vía Murillo – La Esperanza se mantiene en cumplimiento de lo ordenado por el Tribunal Superior de Ibagué y permite regular el ingreso de vehículos durante temporadas de alta afluencia, contribuyendo a la movilidad segura y a la protección del ecosistema del Parque Nacional Natural Los Nevados”, señaló el funcionario. La restricción aplica para vehículos particulares y motocicletas, de acuerdo con el último dígito de la placa y según el calendario establecido para cada fin de semana y puente festivo."
+    },
+    {
+     "qid": "access/evidence/raw/pnn_nevados.txt#13991",
+     "score": 2.8,
+     "text": "Puedes llegar a Brisas en tu vehículo, pero no se permite el ingreso de motos al atractivo. Puedes hacer el recorrido en un vehículo cubierto, propio o contratado allí mismo o con anterioridad. Sector Cisne-Poleka Kasue (acceso a los atractivos en inmediaciones del volcán Nevado Santa Isabel y el paramillo del Cisne): puedes llegar desde Villamaría (Caldas) hacia las veredas El Páramo o Potosí, o desde Santa Rosa de Cabal (Risaralda) por la vereda Páramo Santa Rosa. Las tres vías arriban a los puntos de control de la cabaña Potosí y el alto de Santa Bárbara. Todas son carreteras terciarias destapadas, por lo que te recomendamos planear y reservar tu viaje con anticipación y con prestadores autorizados."
+    },
+    {
+     "qid": "access/evidence/raw/tolima-via-murillo-la-esperanza.txt#2667",
+     "score": 2.367,
+     "text": "Viabilidad Financiera de los Municipios Multimedia Imagenes Videos Descargas Información de interés Acción Comunal Banco de Proyectos Información Adicional Información general Georeferenciación Historia Bunde del Tolima Mapas de los Municipios Portales de las Alcaldías del Tolima Turismo Calendario de fiestas y eventos Está aquí: Noticias Conozca el pico y placa para la vía Murillo - La Esperanza durante el segundo trimestre de 2026 Noticias Conozca el pico y placa para la vía Murillo - La Esperanza durante el segundo trimestre de 2026 Detalles 17 Marzo 2026 Visto: 26954"
+    },
+    {
+     "qid": "access/evidence/raw/pnn_nevados.txt#17990",
+     "score": 2.322,
+     "text": "Sector Otún (acceso a los atractivos en inmediaciones de la Laguna del Otún): el horario de atención en la cabaña Potosí es de 7:00 a. m. a 12:00 p. m. Sector Quindío-Dulima (acceso a los atractivos en inmediaciones del volcán Nevado del Tolima): el horario en el punto de atención Valle del Cocora es de 6:00 a. m. a 10:00 a. m., mientras que en Juntas y Anzoátegui es de 6:00 a. m. a 11:00 a. m. (bajo reserva previa) Importante: el área protegida tiene establecidos algunos cierres como una estrategia ambiental para liberar de carga estos lugares naturales y hacer trabajos de monitoreo. Son tres (3) cierres al año con una duración de cinco (5) días, así: Lunes inmediatamente posterior a Semana Santa hasta el viernes de esa misma semana. Cuarto lunes de septiembre hasta el viernes de esa misma semana. Cuarto lunes de noviembre hasta el viernes de esa misma semana."
+    },
+    {
+     "qid": "access/evidence/raw/pnn_nevados.txt#17203",
+     "score": 2.269,
+     "text": "Sector Brisas-Kumanday (por la entrada del centro de visitantes Brisas): abierto todos los días del año en horario de 8:00 a. m. a 2:00 p. m., pero ten presente que la última charla de inducción obligatoria se realiza a la 1:30 p. m. Sector Cisne-Poleka Kasue (acceso a los atractivos en inmediaciones del volcán Nevado Santa Isabel y el paramillo del Cisne): puedes llegar a los puntos de registro del Parque Nacional (cabaña Potosí – alto de Santa Bárbara) desde las 7:30 a. m. hasta las 10:00 a. m. Sin embargo, si vas para el atractivo sendero Conejeras (cumbre del Nevado Santa Isabel), el registro o paso por los sitios de control se hace el día anterior al ingreso programado para la cima. Además, el sendero Laguna Verde tiene un horario de 8:00 a. m. a 2:00 p. m."
+    },
+    {
+     "qid": "access/evidence/raw/anexo-reglamentacion-2023.txt#28835",
+     "score": 2.224,
+     "text": "Temporalidad: Se considera temporada alta los puentes festivos (desde el día jueves que los antecede) y los periodos de vacaciones del 15 de diciembre al 30 de enero, 15 junio al 15 de julio, semana santa y la semana de receso escolar (octubre). En cuanto al cierre del Área Protegida será durante cinco días (5) de lunes a viernes en cada una de las siguientes fechas sin incluir la vía de la zona norte del PNN Los Nevados (carreteable Brisas – Valle de las Tumbas), así: - Cierre después de semana santa: Semana inmediatamente después de semana santa, de lunes a viernes. - Cierre de mayo: Tercer lunes de mayo hasta el viernes de esa semana. - Cierre mes de septiembre: Cuatro lunes de septiembre hasta el viernes de esa semana. - Cierre mes de noviembre: Cuarto lunes de noviembre hasta el viernes de esa semana. 3. ACTIVIDADES PERMITIDAS"
+    }
+   ]
+  },
+  {
+   "entry_id": "access.hire_vehicle_brisas",
+   "section": "access",
+   "kind": "procedure",
+   "label": "contratar vehículo en Brisas",
+   "all_key_forced": false,
+   "L0": "Sí, en Brisas puedes contratar el vehículo cubierto para el valle, allí mismo o con anticipación. La concesión UTON gestiona ese transporte y no hay un cupo numerado publicado. Confirma con UTON las restricciones de circulación.",
+   "answer": {
+    "short": "En Brisas puedes contratar el vehículo cubierto para el valle, allí mismo o con anticipación. La concesión UTON gestiona ese transporte, y no hay un cupo numerado publicado. Confirma con UTON las restricciones de circulación de noviembre de 2026.",
+    "variants": [
+     "Puedes contratar el vehículo del valle con UTON, allí o por adelantado. No hay un cupo publicado. Confirma con UTON las restricciones de circulación de noviembre de 2026."
+    ],
+    "detail": "Si entras a Brisas en noviembre, un fin de semana o puente, revisa el pico y placa ambiental del Tolima, Resolución 1815 del 24 de julio de 2026, de 5:00 a. m. a 4:00 p. m."
+   },
+   "questions": [
+    "contrato el carro en brisas",
+    "¿en la portería consigo carro pal valle?",
+    "lo puedo reservar antes de subir",
+    "uton alquila el recorrido",
+    "propio o contratado allí mismo",
+    "can I hire the valley vehicle at Brisas",
+    "should I book the car before I arrive",
+    "no llevo carro, ¿allá arriba se consigue uno?",
+    "el transporte del norte lo gestiona la concesion",
+    "quiero el carro del valle con la uton",
+    "¿lo contrato antes o ya en la caseta?",
+    "¿es bus público o el carro del recorrido?",
+    "ey parce en Brisas consigo carro pal valle?",
+    "mano puedo contratar el vehículo allá mismo o toca antes",
+    "qué más, UTON alquila el recorrido al valle?",
+    "vos sabés si reservo el carro antes de subir",
+    "se puede contratar carro en brisas",
+    "ay carro pa contratar en la porteria",
+    "como reservo el behiculo pal balle",
+    "contratar bejiculo cubierto donde",
+    "contratar vehículo Brisas",
+    "¿reservar carro del valle?",
+    "No tengo vehículo cubierto, ¿cómo hago para llegar al valle desde Brisas?",
+    "¿El transporte hasta el valle se consigue allá o se pide antes?"
+   ],
+   "evidence_windows": [
+    {
+     "qid": "access/evidence/raw/pnn_nevados.txt#2430",
+     "score": 6.0,
+     "text": "Si vas a visitar el atractivo Brisas–Valle de las Tumbas del Parque Nacional Natural Los Nevados, durante el mes de noviembre ten presente el Pico y Placa Ambiental emitido por la Secretaría de Tránsito y Transporte del Tolima, mediante la Resolución No. 1815 del 24 de julio de 2026, el cual aplica para fines de semana y puentes festivos con horario de restricción de 5:00 a. m. a 4:00 p. m. Esta medida busca proteger los ecosistemas de páramo y mejorar la movilidad en el acceso norte del Parque. Es importante que revises el cronograma de placas autorizadas para circular al realizar la reserva para ingreso al atractivo, la cual se debe hacer con al menos un día de anticipación en www.reservasnevados.com Consulta la Resolución No. 1815 del 24 de julio de 2026 aquí y conoce el cronograma de placas autorizadas en el marco del Pico y Placa Ambiental. Plan de necesidades asistencia"
+    },
+    {
+     "qid": "access/evidence/raw/pnn_nevados.txt#13991",
+     "score": 3.456,
+     "text": "Puedes llegar a Brisas en tu vehículo, pero no se permite el ingreso de motos al atractivo. Puedes hacer el recorrido en un vehículo cubierto, propio o contratado allí mismo o con anterioridad. Sector Cisne-Poleka Kasue (acceso a los atractivos en inmediaciones del volcán Nevado Santa Isabel y el paramillo del Cisne): puedes llegar desde Villamaría (Caldas) hacia las veredas El Páramo o Potosí, o desde Santa Rosa de Cabal (Risaralda) por la vereda Páramo Santa Rosa. Las tres vías arriban a los puntos de control de la cabaña Potosí y el alto de Santa Bárbara. Todas son carreteras terciarias destapadas, por lo que te recomendamos planear y reservar tu viaje con anticipación y con prestadores autorizados."
+    },
+    {
+     "qid": "access/evidence/raw/tolima-via-murillo-la-esperanza.txt#3486",
+     "score": 3.437,
+     "text": "La medida aplicará durante fines de semana, puentes festivos y temporada de Semana Santa, con el propósito de regular el flujo vehicular hacia esta zona de alta sensibilidad ambiental y turística. La Gobernación del Tolima, a través de su Secretaría de Tránsito y Transporte, dio a conocer el calendario oficial de pico y placa para el corredor vial Murillo – La Esperanza correspondiente al segundo trimestre de 2026. Esta medida se implementa en cumplimiento de la orden judicial emitida por el Tribunal Superior del Distrito Judicial de Ibagué, mediante la cual se dispuso una restricción vehicular para regular el ingreso hacia el área de influencia del Parque Nacional Natural Los Nevados, con el fin de mitigar los impactos ambientales derivados del alto flujo de visitantes."
+    },
+    {
+     "qid": "access/evidence/raw/tolima-via-murillo-la-esperanza.txt#5835",
+     "score": 3.076,
+     "text": "El director operativo de tránsito del Tolima, Miguel Bermúdez, explicó que la medida busca garantizar una movilidad organizada y proteger el entorno natural de este importante corredor turístico del departamento. “La medida de pico y placa en la vía Murillo – La Esperanza se mantiene en cumplimiento de lo ordenado por el Tribunal Superior de Ibagué y permite regular el ingreso de vehículos durante temporadas de alta afluencia, contribuyendo a la movilidad segura y a la protección del ecosistema del Parque Nacional Natural Los Nevados”, señaló el funcionario. La restricción aplica para vehículos particulares y motocicletas, de acuerdo con el último dígito de la placa y según el calendario establecido para cada fin de semana y puente festivo."
+    },
+    {
+     "qid": "access/evidence/raw/pnn_nevados.txt#26157",
+     "score": 2.437,
+     "text": "Recorrido carreteable desde donde puedes observar el volcán Nevado del Ruiz o Kumanday. El trayecto inicia en el centro de inducción Brisas, a 4100 metros de altitud aproximadamente, y continúa en vehículo por la zona de Arenales hasta el Valle del Silencio o Valle de las Tumbas. A lo largo del recorrido verás paisajes de superpáramo y formaciones que evocan paisajes análogos a Marte, junto con vestigios del pasado geológico del Parque. En este sector, Parques Nacionales cuenta con un contrato de concesión vigente con la Unión Temporal Operación Nevados (UTON). Los servicios de reserva, ingreso, guianza, transporte, alojamiento y tienda se gestionan directamente con este operador de servicios ecoturísticos. Te recomendamos visitar su página web https://www.operacionnevados.co si deseas visitar este sector. Brisas-Kumanday. Foto Magda Ximena Acevedo"
+    },
+    {
+     "qid": "access/evidence/raw/tolima-via-murillo-la-esperanza.txt#2667",
+     "score": 2.367,
+     "text": "Viabilidad Financiera de los Municipios Multimedia Imagenes Videos Descargas Información de interés Acción Comunal Banco de Proyectos Información Adicional Información general Georeferenciación Historia Bunde del Tolima Mapas de los Municipios Portales de las Alcaldías del Tolima Turismo Calendario de fiestas y eventos Está aquí: Noticias Conozca el pico y placa para la vía Murillo - La Esperanza durante el segundo trimestre de 2026 Noticias Conozca el pico y placa para la vía Murillo - La Esperanza durante el segundo trimestre de 2026 Detalles 17 Marzo 2026 Visto: 26954"
+    },
+    {
+     "qid": "access/evidence/raw/pnn_nevados.txt#23641",
+     "score": 2.347,
+     "text": "Para subir progresivamente a un glaciar: tu grupo debe ser liderado solamente por guías especializados en alta montaña. Por tu seguridad, únicamente acepta ofertas que cumplan con esta condición. Consulta y descarga aquí la información de las agencias operadoras, intérpretes y guías registrados La concesión Unión Temporal Operación Nevados (UTON) es el operador autorizado por Parques Nacionales para el sector Brisas. Gestiona directamente servicios ecoturísticos como reservas, ingreso, guianza, transporte, alojamiento y tienda. Contacto UTON 📍 Oficinas en Manizales • Carrera 26A #68-44, barrio Palermo • Calle 70 #27-70 🕒 Horario de atención: lunes a viernes, 8:00 a. m. a 12:00 m. y 2:00 p. m. a 5:00 p. m. 📱 321 506 6031 – 322 360 3637 ✉️ [email protected] ✉️ [email protected]"
+    },
+    {
+     "qid": "access/evidence/raw/anexo-reglamentacion-2023.txt#28835",
+     "score": 2.224,
+     "text": "Temporalidad: Se considera temporada alta los puentes festivos (desde el día jueves que los antecede) y los periodos de vacaciones del 15 de diciembre al 30 de enero, 15 junio al 15 de julio, semana santa y la semana de receso escolar (octubre). En cuanto al cierre del Área Protegida será durante cinco días (5) de lunes a viernes en cada una de las siguientes fechas sin incluir la vía de la zona norte del PNN Los Nevados (carreteable Brisas – Valle de las Tumbas), así: - Cierre después de semana santa: Semana inmediatamente después de semana santa, de lunes a viernes. - Cierre de mayo: Tercer lunes de mayo hasta el viernes de esa semana. - Cierre mes de septiembre: Cuatro lunes de septiembre hasta el viernes de esa semana. - Cierre mes de noviembre: Cuarto lunes de noviembre hasta el viernes de esa semana. 3. ACTIVIDADES PERMITIDAS"
+    }
+   ]
+  },
+  {
+   "entry_id": "access.bus_or_van_entry",
+   "section": "access",
+   "kind": "fact",
+   "label": "bus o buseta hacia Brisas",
+   "all_key_forced": false,
+   "L0": "Que las tarifas de Brisas nombren bus o buseta no autoriza el ingreso de hoy: el valle pide vehículo cubierto. Confírmalo con UTON antes de ir.",
+   "answer": {
+    "short": "Las tarifas de Brisas nombran bus o buseta, pero eso no autoriza el ingreso de hoy: el valle pide vehículo cubierto. Confírmalo con UTON antes de ir.",
+    "variants": [
+     "Que haya una categoría de bus en la tarifa no autoriza el ingreso de hoy. El valle pide vehículo cubierto, y UTON confirma el vehículo."
+    ],
+    "detail": "En el bloque de Brisas la página lista automóvil, colectivo y buseta, y en otro cuadro automóvil, microbús o buseta, y bus. La moto figura prohibida en ambos. Los valores en pesos están en la tabla de 2026 y no se responden aquí. Ninguno de los dos cuadros dice que el vehículo esté autorizado en la vía durante el pico y placa de noviembre. Si entras a Brisas en noviembre, un fin de semana o puente, revisa el pico y placa ambiental del Tolima, Resolución 1815 del 24 de julio de 2026, de 5:00 a. m. a 4:00 p. m."
+   },
+   "questions": [
+    "puedo entrar en bus",
+    "¿una buseta sí sube hasta Brisas?",
+    "un microbus entra al valle",
+    "¿el colectivo me deja en la portería?",
+    "¿pagando la tarifa del bus ya me dejan subir?",
+    "does a fee category mean my bus can enter",
+    "is a van allowed on the Brisas road today",
+    "bus o buseta, ¿cuál sí entra?",
+    "quiero subir un bus de 30 y no se si cabe",
+    "la moto no, pero el bus si o no",
+    "¿Pagar la tarifa del bus garantiza que lo dejen entrar?",
+    "¿Qué debo confirmar antes de subir una buseta?",
+    "ey parce una buseta sube hasta Brisas?",
+    "mano puedo entrar en bus al valle",
+    "qué más, un microbús pasa al valle o no",
+    "vos sabés si el colectivo me deja en la portería",
+    "se puede entrar en bus",
+    "una buseta sube al balle",
+    "pagando tarifa de bus ya me dejan subir",
+    "microbus entra a brisas",
+    "bus a Brisas",
+    "¿buseta al valle?",
+    "Somos un grupo grande y queremos ir en buseta, ¿nos dejan entrar?",
+    "Vi que la tarifa dice bus o buseta, ¿eso significa que puedo subir en uno?"
+   ],
+   "evidence_windows": [
+    {
+     "qid": "access/evidence/raw/pnn_nevados.txt#2430",
+     "score": 6.096,
+     "text": "Si vas a visitar el atractivo Brisas–Valle de las Tumbas del Parque Nacional Natural Los Nevados, durante el mes de noviembre ten presente el Pico y Placa Ambiental emitido por la Secretaría de Tránsito y Transporte del Tolima, mediante la Resolución No. 1815 del 24 de julio de 2026, el cual aplica para fines de semana y puentes festivos con horario de restricción de 5:00 a. m. a 4:00 p. m. Esta medida busca proteger los ecosistemas de páramo y mejorar la movilidad en el acceso norte del Parque. Es importante que revises el cronograma de placas autorizadas para circular al realizar la reserva para ingreso al atractivo, la cual se debe hacer con al menos un día de anticipación en www.reservasnevados.com Consulta la Resolución No. 1815 del 24 de julio de 2026 aquí y conoce el cronograma de placas autorizadas en el marco del Pico y Placa Ambiental. Plan de necesidades asistencia"
+    },
+    {
+     "qid": "access/evidence/raw/pnn_nevados.txt#20301",
+     "score": 5.66,
+     "text": "*Estos valores no incluyen el seguro obligatorio de accidentes, que debe ser asumido por el visitante y pagado a través de la agencia o guía ecoturístico de su elección. 0 0 0 No aplica Según el guía o la agencia operadora registrada que se elija. Excepciones de pago Según la Resolución de tarifas de ingreso de Parques Nacionales, algunas personas naturales acceden a la exención del derecho de ingreso a las áreas protegidas. Consulta en este documento las condiciones para aplicar. Cobro por transporte terrestre Ingreso vehículos Vehículo tipo automóvil $ 10.000 Microbús o buseta $ 27.500 Bus $ 56.000 Moto PROHIBIDO Reservas y seguro Adquiere una póliza contra accidentes con las agencias y aseguradoras aliadas de Parques Nacionales Naturales de Colombia. Cuida de ti mientras disfrutas del Parque."
+    },
+    {
+     "qid": "access/evidence/raw/pnn_nevados.txt#19591",
+     "score": 4.769,
+     "text": "*Estos valores no incluyen el seguro obligatorio de accidentes, que debe ser asumido por el visitante y pagado a través de la concesión Unión Temporal Operación Nevados (UTON). 12.500 24.500 68.000 Automóvil: 10.000 Colectivo: 27.500 Buseta: 56.000 (máximo 30 pasajeros) Moto: Prohibido el ingreso 22.000 *Este servicio es prestado por la Concesión Unión Temporal Operación Nevados (UTON). Cisne-Poleka Kasue y Laguna del Otún *Estos valores no incluyen el seguro obligatorio de accidentes, que debe ser asumido por el visitante y pagado a través de la agencia o guía ecoturístico de su elección. 12.500 24.500 68.000 No aplica Según el guía o la agencia operadora registrada elegida. Quindío-Dulima"
+    },
+    {
+     "qid": "access/evidence/raw/tolima-via-murillo-la-esperanza.txt#5835",
+     "score": 3.963,
+     "text": "El director operativo de tránsito del Tolima, Miguel Bermúdez, explicó que la medida busca garantizar una movilidad organizada y proteger el entorno natural de este importante corredor turístico del departamento. “La medida de pico y placa en la vía Murillo – La Esperanza se mantiene en cumplimiento de lo ordenado por el Tribunal Superior de Ibagué y permite regular el ingreso de vehículos durante temporadas de alta afluencia, contribuyendo a la movilidad segura y a la protección del ecosistema del Parque Nacional Natural Los Nevados”, señaló el funcionario. La restricción aplica para vehículos particulares y motocicletas, de acuerdo con el último dígito de la placa y según el calendario establecido para cada fin de semana y puente festivo."
+    },
+    {
+     "qid": "access/evidence/raw/tolima-via-murillo-la-esperanza.txt#3486",
+     "score": 3.959,
+     "text": "La medida aplicará durante fines de semana, puentes festivos y temporada de Semana Santa, con el propósito de regular el flujo vehicular hacia esta zona de alta sensibilidad ambiental y turística. La Gobernación del Tolima, a través de su Secretaría de Tránsito y Transporte, dio a conocer el calendario oficial de pico y placa para el corredor vial Murillo – La Esperanza correspondiente al segundo trimestre de 2026. Esta medida se implementa en cumplimiento de la orden judicial emitida por el Tribunal Superior del Distrito Judicial de Ibagué, mediante la cual se dispuso una restricción vehicular para regular el ingreso hacia el área de influencia del Parque Nacional Natural Los Nevados, con el fin de mitigar los impactos ambientales derivados del alto flujo de visitantes."
+    },
+    {
+     "qid": "access/evidence/raw/tolima-via-murillo-la-esperanza.txt#2667",
+     "score": 3.748,
+     "text": "Viabilidad Financiera de los Municipios Multimedia Imagenes Videos Descargas Información de interés Acción Comunal Banco de Proyectos Información Adicional Información general Georeferenciación Historia Bunde del Tolima Mapas de los Municipios Portales de las Alcaldías del Tolima Turismo Calendario de fiestas y eventos Está aquí: Noticias Conozca el pico y placa para la vía Murillo - La Esperanza durante el segundo trimestre de 2026 Noticias Conozca el pico y placa para la vía Murillo - La Esperanza durante el segundo trimestre de 2026 Detalles 17 Marzo 2026 Visto: 26954"
+    },
+    {
+     "qid": "access/evidence/raw/tolima-via-murillo-la-esperanza.txt#0",
+     "score": 3.441,
+     "text": "Conozca el pico y placa para la vía Murillo - La Esperanza durante el segundo trimestre de 2026 Gobernación del Tolima Inicio Gobernación del Tolima Transparencia . Atención a la ciudadanía Trámites y Servicios Horarios y Protocolos de atención Certificados Pasaporte Impuesto de vehículos Salud Sistema Humano Aplicativos en Línea Trámites (No + Filas) Todos los trámites y servicios Ayuda en línea Antes de empezar a utilizar el módulo de trámites y servicios Norma de trámites y servicios Preguntas frecuentes PQRSDF Participa Información Carta por un trato digno Ayudas Calendario de eventos"
+    },
+    {
+     "qid": "access/evidence/raw/pnn_nevados.txt#18876",
+     "score": 3.203,
+     "text": "Tarifas de ingreso al área protegida Las tarifas de ingreso dependen del sector ecoturístico que deseas visitar y además Parques Nacionales cuenta con diversas categorías. Estos son los valores de ingreso para el 2026 en pesos colombianos (no incluyen el seguro obligatorio de accidentes): Sector Menor de 25 años ✅ Residente en Colombia ✅ Nacional ✅ Miembro de la Comunidad Andina de Naciones (CAN) ✅ Extranjero residente Mayor de 25 años ✅ Residente en Colombia ✅ Adulto nacional ✅ Miembro de la Comunidad Andina de Naciones (CAN) ✅ Extranjero residente Extranjero no residente Valor por ingreso de vehículos Servicios ecoturísticos de interpretación y guianza Brisas-Kumanday"
+    }
+   ]
+  },
+  {
+   "entry_id": "access.taxi_not_published",
+   "section": "access",
+   "kind": "fact",
+   "label": "taxi hasta la portería",
+   "all_key_forced": false,
+   "L0": "No tengo una ruta de taxi publicada hasta la portería, ni está descrita como servicio del parque. A Brisas llegas en tu vehículo o con el transporte que gestiona UTON. Confirma con UTON las restricciones de circulación.",
+   "answer": {
+    "short": "No tengo una ruta de taxi publicada hasta la portería, ni está descrita como servicio del parque. A Brisas llegas en tu vehículo o con el transporte que gestiona UTON. Confirma con UTON las restricciones de circulación de noviembre de 2026.",
+    "variants": [
+     "No hay un taxi oficial escrito en cómo llegar. Si un carro particular sube a Brisas, no queda exento del pico y placa de noviembre. Confirma con UTON las restricciones de circulación de noviembre de 2026."
+    ],
+    "detail": "Si entras a Brisas en noviembre, un fin de semana o puente, revisa el pico y placa ambiental del Tolima, Resolución 1815 del 24 de julio de 2026, de 5:00 a. m. a 4:00 p. m."
+   },
+   "questions": [
+    "hay taxi hasta brisas",
+    "un taxi me deja en la portería",
+    "tomo un taxi en manizales al parque",
+    "¿hay una ruta de taxi publicada pa' el parque?",
+    "el taxi cuenta como transporte del parque",
+    "is there an official taxi to the gate",
+    "can a taxi drive me to Brisas",
+    "¿y taxi pa' Brisas, sí o no?",
+    "uber o taxi hasta el centro de visitantes",
+    "si el taxi sube, igual mira el pico y placa",
+    "el taxi lo pone la concesion o lo consigo yo",
+    "¿se puede llegar a Brisas en taxi?",
+    "ey parce hay taxi hasta Brisas?",
+    "mano un taxi me sube al parque desde Manizales",
+    "qué más, el taxi es transporte oficial del parque?",
+    "vos sabés si hay ruta de taxi pa la portería",
+    "ay taxi asta brisas",
+    "tomo un taksi en manisales al parke",
+    "taxi oficial del parque existe",
+    "el taxi me deja en la porteria",
+    "taxi a Brisas",
+    "¿taxi oficial?",
+    "No tengo carro, ¿puedo coger un taxi hasta la portería del parque?",
+    "¿Algún taxi está publicado como servicio para ir al parque?"
+   ],
+   "evidence_windows": [
+    {
+     "qid": "access/evidence/raw/pnn_nevados.txt#2430",
+     "score": 5.227,
+     "text": "Si vas a visitar el atractivo Brisas–Valle de las Tumbas del Parque Nacional Natural Los Nevados, durante el mes de noviembre ten presente el Pico y Placa Ambiental emitido por la Secretaría de Tránsito y Transporte del Tolima, mediante la Resolución No. 1815 del 24 de julio de 2026, el cual aplica para fines de semana y puentes festivos con horario de restricción de 5:00 a. m. a 4:00 p. m. Esta medida busca proteger los ecosistemas de páramo y mejorar la movilidad en el acceso norte del Parque. Es importante que revises el cronograma de placas autorizadas para circular al realizar la reserva para ingreso al atractivo, la cual se debe hacer con al menos un día de anticipación en www.reservasnevados.com Consulta la Resolución No. 1815 del 24 de julio de 2026 aquí y conoce el cronograma de placas autorizadas en el marco del Pico y Placa Ambiental. Plan de necesidades asistencia"
+    },
+    {
+     "qid": "access/evidence/raw/tolima-via-murillo-la-esperanza.txt#3486",
+     "score": 3.922,
+     "text": "La medida aplicará durante fines de semana, puentes festivos y temporada de Semana Santa, con el propósito de regular el flujo vehicular hacia esta zona de alta sensibilidad ambiental y turística. La Gobernación del Tolima, a través de su Secretaría de Tránsito y Transporte, dio a conocer el calendario oficial de pico y placa para el corredor vial Murillo – La Esperanza correspondiente al segundo trimestre de 2026. Esta medida se implementa en cumplimiento de la orden judicial emitida por el Tribunal Superior del Distrito Judicial de Ibagué, mediante la cual se dispuso una restricción vehicular para regular el ingreso hacia el área de influencia del Parque Nacional Natural Los Nevados, con el fin de mitigar los impactos ambientales derivados del alto flujo de visitantes."
+    },
+    {
+     "qid": "access/evidence/raw/tolima-via-murillo-la-esperanza.txt#5835",
+     "score": 3.076,
+     "text": "El director operativo de tránsito del Tolima, Miguel Bermúdez, explicó que la medida busca garantizar una movilidad organizada y proteger el entorno natural de este importante corredor turístico del departamento. “La medida de pico y placa en la vía Murillo – La Esperanza se mantiene en cumplimiento de lo ordenado por el Tribunal Superior de Ibagué y permite regular el ingreso de vehículos durante temporadas de alta afluencia, contribuyendo a la movilidad segura y a la protección del ecosistema del Parque Nacional Natural Los Nevados”, señaló el funcionario. La restricción aplica para vehículos particulares y motocicletas, de acuerdo con el último dígito de la placa y según el calendario establecido para cada fin de semana y puente festivo."
+    },
+    {
+     "qid": "access/evidence/raw/tolima-via-murillo-la-esperanza.txt#2667",
+     "score": 2.367,
+     "text": "Viabilidad Financiera de los Municipios Multimedia Imagenes Videos Descargas Información de interés Acción Comunal Banco de Proyectos Información Adicional Información general Georeferenciación Historia Bunde del Tolima Mapas de los Municipios Portales de las Alcaldías del Tolima Turismo Calendario de fiestas y eventos Está aquí: Noticias Conozca el pico y placa para la vía Murillo - La Esperanza durante el segundo trimestre de 2026 Noticias Conozca el pico y placa para la vía Murillo - La Esperanza durante el segundo trimestre de 2026 Detalles 17 Marzo 2026 Visto: 26954"
+    },
+    {
+     "qid": "access/evidence/raw/anexo-reglamentacion-2023.txt#28835",
+     "score": 2.23,
+     "text": "Temporalidad: Se considera temporada alta los puentes festivos (desde el día jueves que los antecede) y los periodos de vacaciones del 15 de diciembre al 30 de enero, 15 junio al 15 de julio, semana santa y la semana de receso escolar (octubre). En cuanto al cierre del Área Protegida será durante cinco días (5) de lunes a viernes en cada una de las siguientes fechas sin incluir la vía de la zona norte del PNN Los Nevados (carreteable Brisas – Valle de las Tumbas), así: - Cierre después de semana santa: Semana inmediatamente después de semana santa, de lunes a viernes. - Cierre de mayo: Tercer lunes de mayo hasta el viernes de esa semana. - Cierre mes de septiembre: Cuatro lunes de septiembre hasta el viernes de esa semana. - Cierre mes de noviembre: Cuarto lunes de noviembre hasta el viernes de esa semana. 3. ACTIVIDADES PERMITIDAS"
+    },
+    {
+     "qid": "access/evidence/ANEXO-PNN-NEVADOS-2023.txt#28835",
+     "score": 2.23,
+     "text": "Temporalidad: Se considera temporada alta los puentes festivos (desde el día jueves que los antecede) y los periodos de vacaciones del 15 de diciembre al 30 de enero, 15 junio al 15 de julio, semana santa y la semana de receso escolar (octubre). En cuanto al cierre del Área Protegida será durante cinco días (5) de lunes a viernes en cada una de las siguientes fechas sin incluir la vía de la zona norte del PNN Los Nevados (carreteable Brisas – Valle de las Tumbas), así: - Cierre después de semana santa: Semana inmediatamente después de semana santa, de lunes a viernes. - Cierre de mayo: Tercer lunes de mayo hasta el viernes de esa semana. - Cierre mes de septiembre: Cuatro lunes de septiembre hasta el viernes de esa semana. - Cierre mes de noviembre: Cuarto lunes de noviembre hasta el viernes de esa semana. 3. ACTIVIDADES PERMITIDAS"
+    },
+    {
+     "qid": "access/evidence/raw/tolima-via-murillo-la-esperanza.txt#0",
+     "score": 2.215,
+     "text": "Conozca el pico y placa para la vía Murillo - La Esperanza durante el segundo trimestre de 2026 Gobernación del Tolima Inicio Gobernación del Tolima Transparencia . Atención a la ciudadanía Trámites y Servicios Horarios y Protocolos de atención Certificados Pasaporte Impuesto de vehículos Salud Sistema Humano Aplicativos en Línea Trámites (No + Filas) Todos los trámites y servicios Ayuda en línea Antes de empezar a utilizar el módulo de trámites y servicios Norma de trámites y servicios Preguntas frecuentes PQRSDF Participa Información Carta por un trato digno Ayudas Calendario de eventos"
+    },
+    {
+     "qid": "access/evidence/raw/resolucion-207-2023.txt#39560",
+     "score": 2.018,
+     "text": "Temporalidad: Se considera temporada alta los puentes festivos (desde el día jueves que los antecede) y los periodos de vacaciones del 15 de diciembre al 30 de enero, 15 junio al 15 de julio, semana santa y la semana de receso escolar (octubre). En cuanto al cierre del Área Protegida se establecen las siguientes fechas para el cierre que tendrán una duración de siete (7) días después de las temporadas altas; esto con el fin de permitir el descanso y conservación de los ecosistemas. 1. La segunda semana de febrero después de la temporada correspondiente a los meses de diciembre y enero. 2. Después de la temporada de Semana Santa según corresponda al mes de marzo o abril. 3. La cuarta semana del mes de julio, después de la temporada alta de mitad de año. 4. La primera semana del mes de noviembre."
+    }
+   ]
+  },
+  {
+   "entry_id": "access.no_park_shuttle",
+   "section": "access",
+   "kind": "fact",
+   "label": "el parque no opera transporte interno",
+   "all_key_forced": false,
+   "L0": "No, el parque no ofrece transporte entre sectores. En Brisas lo gestiona UTON; en los demás sectores, coordina tú mismo o con un operador registrado.",
+   "answer": {
+    "short": "El parque no ofrece transporte entre sectores: en Brisas lo gestiona UTON; en los demás, coordina tú mismo o con un operador registrado.",
+    "variants": [
+     "No hay un shuttle del parque entre porterías. Brisas se mueve con UTON; los otros sectores, con un operador registrado o por tu cuenta."
+    ],
+    "detail": "Si entras a Brisas en noviembre, un fin de semana o puente, revisa el pico y placa ambiental del Tolima, Resolución 1815 del 24 de julio de 2026, de 5:00 a. m. a 4:00 p. m."
+   },
+   "questions": [
+    "hay bus interno del parque",
+    "¿el parque me lleva de un sector a otro?",
+    "hay shuttle de brisas al valle",
+    "¿la buseta del parque me sube al valle?",
+    "transporte al interior lo pone el parque",
+    "does the park run an internal shuttle",
+    "is there a park bus between gates",
+    "quien opera el transporte si el parque no",
+    "en brisas es la uton, en los otros un operador",
+    "no hay carro oficial de un sector a otro",
+    "tengo que coordinar el transporte yo",
+    "¿hay buseta que lo lleve de la portería al atractivo?",
+    "ey parce hay bus interno del parque?",
+    "mano el parque lo lleva a uno de un sector a otro?",
+    "qué más, hay shuttle de Brisas al valle",
+    "vos sabés si el parque pone transporte adentro",
+    "ay bus interno en el parke",
+    "el parque me lleva de un sector a otro",
+    "ay shutle de brisas al balle",
+    "transporte interno del parque kien lo pone",
+    "¿shuttle del parque?",
+    "transporte interno",
+    "Quiero ir de una portería a otra, ¿el parque ofrece transporte entre sectores?",
+    "¿Quién pone el transporte dentro del parque?"
+   ],
+   "evidence_windows": [
+    {
+     "qid": "access/evidence/raw/pnn_nevados.txt#2430",
+     "score": 5.227,
+     "text": "Si vas a visitar el atractivo Brisas–Valle de las Tumbas del Parque Nacional Natural Los Nevados, durante el mes de noviembre ten presente el Pico y Placa Ambiental emitido por la Secretaría de Tránsito y Transporte del Tolima, mediante la Resolución No. 1815 del 24 de julio de 2026, el cual aplica para fines de semana y puentes festivos con horario de restricción de 5:00 a. m. a 4:00 p. m. Esta medida busca proteger los ecosistemas de páramo y mejorar la movilidad en el acceso norte del Parque. Es importante que revises el cronograma de placas autorizadas para circular al realizar la reserva para ingreso al atractivo, la cual se debe hacer con al menos un día de anticipación en www.reservasnevados.com Consulta la Resolución No. 1815 del 24 de julio de 2026 aquí y conoce el cronograma de placas autorizadas en el marco del Pico y Placa Ambiental. Plan de necesidades asistencia"
+    },
+    {
+     "qid": "access/evidence/raw/tolima-via-murillo-la-esperanza.txt#3486",
+     "score": 3.437,
+     "text": "La medida aplicará durante fines de semana, puentes festivos y temporada de Semana Santa, con el propósito de regular el flujo vehicular hacia esta zona de alta sensibilidad ambiental y turística. La Gobernación del Tolima, a través de su Secretaría de Tránsito y Transporte, dio a conocer el calendario oficial de pico y placa para el corredor vial Murillo – La Esperanza correspondiente al segundo trimestre de 2026. Esta medida se implementa en cumplimiento de la orden judicial emitida por el Tribunal Superior del Distrito Judicial de Ibagué, mediante la cual se dispuso una restricción vehicular para regular el ingreso hacia el área de influencia del Parque Nacional Natural Los Nevados, con el fin de mitigar los impactos ambientales derivados del alto flujo de visitantes."
+    },
+    {
+     "qid": "access/evidence/raw/tolima-via-murillo-la-esperanza.txt#5835",
+     "score": 3.076,
+     "text": "El director operativo de tránsito del Tolima, Miguel Bermúdez, explicó que la medida busca garantizar una movilidad organizada y proteger el entorno natural de este importante corredor turístico del departamento. “La medida de pico y placa en la vía Murillo – La Esperanza se mantiene en cumplimiento de lo ordenado por el Tribunal Superior de Ibagué y permite regular el ingreso de vehículos durante temporadas de alta afluencia, contribuyendo a la movilidad segura y a la protección del ecosistema del Parque Nacional Natural Los Nevados”, señaló el funcionario. La restricción aplica para vehículos particulares y motocicletas, de acuerdo con el último dígito de la placa y según el calendario establecido para cada fin de semana y puente festivo."
+    },
+    {
+     "qid": "access/evidence/raw/tolima-via-murillo-la-esperanza.txt#2667",
+     "score": 2.367,
+     "text": "Viabilidad Financiera de los Municipios Multimedia Imagenes Videos Descargas Información de interés Acción Comunal Banco de Proyectos Información Adicional Información general Georeferenciación Historia Bunde del Tolima Mapas de los Municipios Portales de las Alcaldías del Tolima Turismo Calendario de fiestas y eventos Está aquí: Noticias Conozca el pico y placa para la vía Murillo - La Esperanza durante el segundo trimestre de 2026 Noticias Conozca el pico y placa para la vía Murillo - La Esperanza durante el segundo trimestre de 2026 Detalles 17 Marzo 2026 Visto: 26954"
+    },
+    {
+     "qid": "access/evidence/raw/pnn_nevados.txt#23641",
+     "score": 2.301,
+     "text": "Para subir progresivamente a un glaciar: tu grupo debe ser liderado solamente por guías especializados en alta montaña. Por tu seguridad, únicamente acepta ofertas que cumplan con esta condición. Consulta y descarga aquí la información de las agencias operadoras, intérpretes y guías registrados La concesión Unión Temporal Operación Nevados (UTON) es el operador autorizado por Parques Nacionales para el sector Brisas. Gestiona directamente servicios ecoturísticos como reservas, ingreso, guianza, transporte, alojamiento y tienda. Contacto UTON 📍 Oficinas en Manizales • Carrera 26A #68-44, barrio Palermo • Calle 70 #27-70 🕒 Horario de atención: lunes a viernes, 8:00 a. m. a 12:00 m. y 2:00 p. m. a 5:00 p. m. 📱 321 506 6031 – 322 360 3637 ✉️ [email protected] ✉️ [email protected]"
+    },
+    {
+     "qid": "access/evidence/raw/tolima-via-murillo-la-esperanza.txt#0",
+     "score": 2.215,
+     "text": "Conozca el pico y placa para la vía Murillo - La Esperanza durante el segundo trimestre de 2026 Gobernación del Tolima Inicio Gobernación del Tolima Transparencia . Atención a la ciudadanía Trámites y Servicios Horarios y Protocolos de atención Certificados Pasaporte Impuesto de vehículos Salud Sistema Humano Aplicativos en Línea Trámites (No + Filas) Todos los trámites y servicios Ayuda en línea Antes de empezar a utilizar el módulo de trámites y servicios Norma de trámites y servicios Preguntas frecuentes PQRSDF Participa Información Carta por un trato digno Ayudas Calendario de eventos"
+    },
+    {
+     "qid": "access/evidence/raw/pnn_nevados.txt#12297",
+     "score": 2.157,
+     "text": "Cada sector cuenta con diversas actividades. Por ejemplo, considera visitar el sector Brisas-Kumanday si buscas una visita esporádica y caminatas cortas. Si buscas travesías de varios días, cumbres técnicas o mayor conexión con la naturaleza, considera visitar los demás sectores. El Parque no cuenta con servicio de transporte al interior. El transporte, porteo y el acceso al área protegida deben ser gestionados de manera propia o coordinada con alguno de los guías o agencias operadoras registradas y autorizadas, según el sector de ingreso. Para el recorrido Brisas–Valle de las Tumbas (zona norte del Parque Nacional Natural Los Nevados) en fines de semana y puentes festivos, es indispensable reservar con al menos un día de anticipación para asegurar tu ingreso. Hazlo en: www.reservasnevados.com 📌 Si necesitas más información, comunícate directamente con el Parque en: [email protected]"
+    },
+    {
+     "qid": "access/evidence/raw/pnn_nevados.txt#13197",
+     "score": 2.11,
+     "text": "Para más detalles, continúa leyendo esta sección y prepárate para una experiencia única. Cómo llegar Para llegar al Parque se toma siempre transporte terrestre, pero ten en cuenta que cada uno de los cuatro sectores tiene condiciones particulares: Sector Brisas-Kumanday (acceso al atractivo carreteable Valle del Silencio o Tumbas en inmediaciones del volcán Nevado del Ruiz): puedes acceder por el corredor vial La Esperanza-Murillo. Desde Manizales (Caldas), toma por la carretera hacia Bogotá (vía Letras) y luego toma el corredor hasta la entrada al área protegida. También puedes llegar desde la cabecera municipal de Murillo (Tolima) para después tomar el mismo corredor vial hasta el centro de visitantes Brisas. Ingreso a Los Nevados. Danilo Arenas"
+    }
+   ]
+  },
+  {
+   "entry_id": "access.no_public_bus",
+   "section": "access",
+   "kind": "fact",
+   "label": "bus público hasta la portería",
+   "all_key_forced": false,
+   "L0": "No tengo una ruta de bus urbano ni intermunicipal publicada hasta una portería, ni empresa ni horario. Que la tarifa de Brisas nombre bus o buseta no crea esa línea. Confirma con UTON las restricciones de circulación.",
+   "answer": {
+    "short": "No tengo una ruta de bus urbano ni intermunicipal publicada hasta una portería, ni empresa ni horario. Que la tarifa de Brisas nombre bus o buseta no crea esa línea. Confirma con UTON las restricciones de circulación de noviembre de 2026.",
+    "variants": [
+     "No hay un bus público escrito hasta la caseta. La categoría de la tarifa es otra cosa. Confirma con UTON las restricciones de circulación de noviembre de 2026."
+    ],
+    "detail": "Si entras a Brisas en noviembre, un fin de semana o puente, revisa el pico y placa ambiental del Tolima, Resolución 1815 del 24 de julio de 2026, de 5:00 a. m. a 4:00 p. m."
+   },
+   "questions": [
+    "hay bus urbano hasta brisas",
+    "qué bus intermunicipal llega a la portería",
+    "ruta de bus público al parque",
+    "me bajo del bus en la caseta",
+    "¿de la terminal sale bus pal nevado?",
+    "is there a public bus to the gate",
+    "which city bus stops at Brisas",
+    "¿cuál empresa de bus sí sube al parque?",
+    "si hay tarifa de buseta, entonces hay ruta de bus",
+    "como llego en transporte publico al sector norte",
+    "hay colectivo de pueblo en pueblo hasta la entrada",
+    "¿cada cuánto pasa el bus pa' la portería?",
+    "ey parce sale bus de la terminal pal nevado?",
+    "mano qué bus me deja en la portería",
+    "qué más, hay bus urbano hasta Brisas",
+    "vos sabés si hay ruta de bus pal parque",
+    "q bus yega a la porteria",
+    "ay buses intermunisipales al parke",
+    "de la terminal sale bus pal nevado",
+    "me bajo del bus en la caseta",
+    "bus público al parque",
+    "¿bus a Brisas?",
+    "Sin carro propio, ¿hay alguna línea de bus que llegue hasta una entrada del parque?",
+    "¿Qué empresa de bus y horarios hay para llegar a la portería?"
+   ],
+   "evidence_windows": [
+    {
+     "qid": "access/evidence/raw/pnn_nevados.txt#2430",
+     "score": 5.235,
+     "text": "Si vas a visitar el atractivo Brisas–Valle de las Tumbas del Parque Nacional Natural Los Nevados, durante el mes de noviembre ten presente el Pico y Placa Ambiental emitido por la Secretaría de Tránsito y Transporte del Tolima, mediante la Resolución No. 1815 del 24 de julio de 2026, el cual aplica para fines de semana y puentes festivos con horario de restricción de 5:00 a. m. a 4:00 p. m. Esta medida busca proteger los ecosistemas de páramo y mejorar la movilidad en el acceso norte del Parque. Es importante que revises el cronograma de placas autorizadas para circular al realizar la reserva para ingreso al atractivo, la cual se debe hacer con al menos un día de anticipación en www.reservasnevados.com Consulta la Resolución No. 1815 del 24 de julio de 2026 aquí y conoce el cronograma de placas autorizadas en el marco del Pico y Placa Ambiental. Plan de necesidades asistencia"
+    },
+    {
+     "qid": "access/evidence/raw/tolima-via-murillo-la-esperanza.txt#3486",
+     "score": 3.082,
+     "text": "La medida aplicará durante fines de semana, puentes festivos y temporada de Semana Santa, con el propósito de regular el flujo vehicular hacia esta zona de alta sensibilidad ambiental y turística. La Gobernación del Tolima, a través de su Secretaría de Tránsito y Transporte, dio a conocer el calendario oficial de pico y placa para el corredor vial Murillo – La Esperanza correspondiente al segundo trimestre de 2026. Esta medida se implementa en cumplimiento de la orden judicial emitida por el Tribunal Superior del Distrito Judicial de Ibagué, mediante la cual se dispuso una restricción vehicular para regular el ingreso hacia el área de influencia del Parque Nacional Natural Los Nevados, con el fin de mitigar los impactos ambientales derivados del alto flujo de visitantes."
+    },
+    {
+     "qid": "access/evidence/raw/tolima-via-murillo-la-esperanza.txt#5835",
+     "score": 3.076,
+     "text": "El director operativo de tránsito del Tolima, Miguel Bermúdez, explicó que la medida busca garantizar una movilidad organizada y proteger el entorno natural de este importante corredor turístico del departamento. “La medida de pico y placa en la vía Murillo – La Esperanza se mantiene en cumplimiento de lo ordenado por el Tribunal Superior de Ibagué y permite regular el ingreso de vehículos durante temporadas de alta afluencia, contribuyendo a la movilidad segura y a la protección del ecosistema del Parque Nacional Natural Los Nevados”, señaló el funcionario. La restricción aplica para vehículos particulares y motocicletas, de acuerdo con el último dígito de la placa y según el calendario establecido para cada fin de semana y puente festivo."
+    },
+    {
+     "qid": "access/evidence/raw/tolima-via-murillo-la-esperanza.txt#0",
+     "score": 2.785,
+     "text": "Conozca el pico y placa para la vía Murillo - La Esperanza durante el segundo trimestre de 2026 Gobernación del Tolima Inicio Gobernación del Tolima Transparencia . Atención a la ciudadanía Trámites y Servicios Horarios y Protocolos de atención Certificados Pasaporte Impuesto de vehículos Salud Sistema Humano Aplicativos en Línea Trámites (No + Filas) Todos los trámites y servicios Ayuda en línea Antes de empezar a utilizar el módulo de trámites y servicios Norma de trámites y servicios Preguntas frecuentes PQRSDF Participa Información Carta por un trato digno Ayudas Calendario de eventos"
+    },
+    {
+     "qid": "access/evidence/raw/pnn_nevados.txt#17990",
+     "score": 2.381,
+     "text": "Sector Otún (acceso a los atractivos en inmediaciones de la Laguna del Otún): el horario de atención en la cabaña Potosí es de 7:00 a. m. a 12:00 p. m. Sector Quindío-Dulima (acceso a los atractivos en inmediaciones del volcán Nevado del Tolima): el horario en el punto de atención Valle del Cocora es de 6:00 a. m. a 10:00 a. m., mientras que en Juntas y Anzoátegui es de 6:00 a. m. a 11:00 a. m. (bajo reserva previa) Importante: el área protegida tiene establecidos algunos cierres como una estrategia ambiental para liberar de carga estos lugares naturales y hacer trabajos de monitoreo. Son tres (3) cierres al año con una duración de cinco (5) días, así: Lunes inmediatamente posterior a Semana Santa hasta el viernes de esa misma semana. Cuarto lunes de septiembre hasta el viernes de esa misma semana. Cuarto lunes de noviembre hasta el viernes de esa misma semana."
+    },
+    {
+     "qid": "access/evidence/raw/tolima-via-murillo-la-esperanza.txt#2667",
+     "score": 2.367,
+     "text": "Viabilidad Financiera de los Municipios Multimedia Imagenes Videos Descargas Información de interés Acción Comunal Banco de Proyectos Información Adicional Información general Georeferenciación Historia Bunde del Tolima Mapas de los Municipios Portales de las Alcaldías del Tolima Turismo Calendario de fiestas y eventos Está aquí: Noticias Conozca el pico y placa para la vía Murillo - La Esperanza durante el segundo trimestre de 2026 Noticias Conozca el pico y placa para la vía Murillo - La Esperanza durante el segundo trimestre de 2026 Detalles 17 Marzo 2026 Visto: 26954"
+    },
+    {
+     "qid": "access/evidence/raw/anexo-reglamentacion-2023.txt#28835",
+     "score": 2.23,
+     "text": "Temporalidad: Se considera temporada alta los puentes festivos (desde el día jueves que los antecede) y los periodos de vacaciones del 15 de diciembre al 30 de enero, 15 junio al 15 de julio, semana santa y la semana de receso escolar (octubre). En cuanto al cierre del Área Protegida será durante cinco días (5) de lunes a viernes en cada una de las siguientes fechas sin incluir la vía de la zona norte del PNN Los Nevados (carreteable Brisas – Valle de las Tumbas), así: - Cierre después de semana santa: Semana inmediatamente después de semana santa, de lunes a viernes. - Cierre de mayo: Tercer lunes de mayo hasta el viernes de esa semana. - Cierre mes de septiembre: Cuatro lunes de septiembre hasta el viernes de esa semana. - Cierre mes de noviembre: Cuarto lunes de noviembre hasta el viernes de esa semana. 3. ACTIVIDADES PERMITIDAS"
+    },
+    {
+     "qid": "access/evidence/ANEXO-PNN-NEVADOS-2023.txt#28835",
+     "score": 2.23,
+     "text": "Temporalidad: Se considera temporada alta los puentes festivos (desde el día jueves que los antecede) y los periodos de vacaciones del 15 de diciembre al 30 de enero, 15 junio al 15 de julio, semana santa y la semana de receso escolar (octubre). En cuanto al cierre del Área Protegida será durante cinco días (5) de lunes a viernes en cada una de las siguientes fechas sin incluir la vía de la zona norte del PNN Los Nevados (carreteable Brisas – Valle de las Tumbas), así: - Cierre después de semana santa: Semana inmediatamente después de semana santa, de lunes a viernes. - Cierre de mayo: Tercer lunes de mayo hasta el viernes de esa semana. - Cierre mes de septiembre: Cuatro lunes de septiembre hasta el viernes de esa semana. - Cierre mes de noviembre: Cuarto lunes de noviembre hasta el viernes de esa semana. 3. ACTIVIDADES PERMITIDAS"
+    }
+   ]
+  },
+  {
+   "entry_id": "access.uton_brisas_transport",
+   "section": "access",
+   "kind": "procedure",
+   "label": "transporte de Brisas con UTON",
+   "all_key_forced": false,
+   "L0": "En Brisas–Kumanday el transporte lo pides a UTON, la concesión autorizada: gestiona reservas, ingreso, guianza, transporte y tienda. Su sitio es https://www.operacionnevados.co. Confirma con UTON las restricciones de circulación.",
+   "answer": {
+    "short": "En Brisas–Kumanday el operador autorizado es la concesión UTON: gestiona reservas, ingreso, guianza, transporte y tienda. Su sitio es https://www.operacionnevados.co. Confirma con UTON las restricciones de circulación de noviembre de 2026.",
+    "variants": [
+     "El transporte del sector norte se pide a UTON, la concesión de Brisas. Su web es https://www.operacionnevados.co. Confirma con UTON las restricciones de circulación de noviembre de 2026."
+    ],
+    "detail": "Si entras a Brisas en noviembre, un fin de semana o puente, revisa el pico y placa ambiental del Tolima, Resolución 1815 del 24 de julio de 2026, de 5:00 a. m. a 4:00 p. m."
+   },
+   "questions": [
+    "en brisas el transporte lo maneja uton o lo pone el parque?",
+    "uton es la concesión del norte",
+    "operacion nevados organiza el carro",
+    "la uton gestiona transporte y guianza allá",
+    "pa' Brisas, ¿UTON es la que me lleva?",
+    "who runs transport at Brisas",
+    "is UTON the north operator",
+    "¿la concesión del norte tiene página en internet?",
+    "reservas ingreso y transporte van con la concesion",
+    "¿quién mueve la gente en Brisas, la UTON?",
+    "¿en el Cisne también me sirve UTON?",
+    "brisa kumanday se coordina con uton",
+    "ey parce en Brisas el transporte lo pone UTON?",
+    "mano UTON es la concesión del norte?",
+    "qué más, quién me lleva al valle, el parque o UTON",
+    "vos sabés si UTON organiza la guianza y el carro",
+    "uton es kien maneja el transporte",
+    "operasion nevados es la concesion",
+    "la uton ase guianza y transporte",
+    "kien lleva al valle desde brisas",
+    "UTON Brisas",
+    "concesión del norte",
+    "¿Quién gestiona el transporte y los guías en el sector norte?",
+    "¿Dónde encuentro la página de la concesión que opera Brisas?"
+   ],
+   "evidence_windows": [
+    {
+     "qid": "access/evidence/raw/pnn_nevados.txt#22834",
+     "score": 6.883,
+     "text": "Por eso, acompáñate siempre de un guía o del personal de una agencia registrada. Consulta aquí los prestadores autorizados que hacen parte del Registro para Prestadores de Servicios Asociados al Ecoturismo (REPSE) del Parque Los Nevados. No todos los prestadores están autorizados para guiarte en todos los atractivos. Es importante que veas la categoría del prestador y que contactes a una agencia operadora local según el sector que deseas visitar. Ten en cuenta: Para visitar el sector Brisas-Kumanday: el operador autorizado por Parques Nacionales es la concesión Unión Temporal Operación Nevados (UTON). Ellos gestionan directamente los servicios ecoturísticos como reservas, ingreso, guianza, transporte y tienda. Visita su página web https://www.operacionnevados.co si deseas visitar este sector."
+    },
+    {
+     "qid": "access/evidence/raw/pnn_nevados.txt#2430",
+     "score": 5.929,
+     "text": "Si vas a visitar el atractivo Brisas–Valle de las Tumbas del Parque Nacional Natural Los Nevados, durante el mes de noviembre ten presente el Pico y Placa Ambiental emitido por la Secretaría de Tránsito y Transporte del Tolima, mediante la Resolución No. 1815 del 24 de julio de 2026, el cual aplica para fines de semana y puentes festivos con horario de restricción de 5:00 a. m. a 4:00 p. m. Esta medida busca proteger los ecosistemas de páramo y mejorar la movilidad en el acceso norte del Parque. Es importante que revises el cronograma de placas autorizadas para circular al realizar la reserva para ingreso al atractivo, la cual se debe hacer con al menos un día de anticipación en www.reservasnevados.com Consulta la Resolución No. 1815 del 24 de julio de 2026 aquí y conoce el cronograma de placas autorizadas en el marco del Pico y Placa Ambiental. Plan de necesidades asistencia"
+    },
+    {
+     "qid": "access/evidence/raw/pnn_nevados.txt#26157",
+     "score": 5.506,
+     "text": "Recorrido carreteable desde donde puedes observar el volcán Nevado del Ruiz o Kumanday. El trayecto inicia en el centro de inducción Brisas, a 4100 metros de altitud aproximadamente, y continúa en vehículo por la zona de Arenales hasta el Valle del Silencio o Valle de las Tumbas. A lo largo del recorrido verás paisajes de superpáramo y formaciones que evocan paisajes análogos a Marte, junto con vestigios del pasado geológico del Parque. En este sector, Parques Nacionales cuenta con un contrato de concesión vigente con la Unión Temporal Operación Nevados (UTON). Los servicios de reserva, ingreso, guianza, transporte, alojamiento y tienda se gestionan directamente con este operador de servicios ecoturísticos. Te recomendamos visitar su página web https://www.operacionnevados.co si deseas visitar este sector. Brisas-Kumanday. Foto Magda Ximena Acevedo"
+    },
+    {
+     "qid": "access/evidence/raw/pnn_nevados.txt#23641",
+     "score": 4.948,
+     "text": "Para subir progresivamente a un glaciar: tu grupo debe ser liderado solamente por guías especializados en alta montaña. Por tu seguridad, únicamente acepta ofertas que cumplan con esta condición. Consulta y descarga aquí la información de las agencias operadoras, intérpretes y guías registrados La concesión Unión Temporal Operación Nevados (UTON) es el operador autorizado por Parques Nacionales para el sector Brisas. Gestiona directamente servicios ecoturísticos como reservas, ingreso, guianza, transporte, alojamiento y tienda. Contacto UTON 📍 Oficinas en Manizales • Carrera 26A #68-44, barrio Palermo • Calle 70 #27-70 🕒 Horario de atención: lunes a viernes, 8:00 a. m. a 12:00 m. y 2:00 p. m. a 5:00 p. m. 📱 321 506 6031 – 322 360 3637 ✉️ [email protected] ✉️ [email protected]"
+    },
+    {
+     "qid": "access/evidence/raw/pnn_nevados.txt#24472",
+     "score": 3.979,
+     "text": "🌐 https://ecoturismonevados.com.co/uton-union-temporal-operador-nevados/ 🌐 https://www.operacionnevados.co/ También puedes escribir al correo del Parque para saber más sobre la visita al área protegida: [email protected] Actividades Ecoturismo Montañismo Observación aves Senderismo terrestre Observación geológica Observación fauna y flora Investigación educación ambiental Fotografía no comercial En el Parque Nacional Natural Los Nevados favorecemos el ecoturismo como estrategia de conservación. Por esa razón, las actividades que realices están pensadas para que no tengan efectos negativos sobre los ecosistemas y la biodiversidad: En el sector Brisas-Kumanday puedes realizar observación geológica, observación de fauna y flora o fotografía no comercial."
+    },
+    {
+     "qid": "access/evidence/raw/tolima-via-murillo-la-esperanza.txt#3486",
+     "score": 3.631,
+     "text": "La medida aplicará durante fines de semana, puentes festivos y temporada de Semana Santa, con el propósito de regular el flujo vehicular hacia esta zona de alta sensibilidad ambiental y turística. La Gobernación del Tolima, a través de su Secretaría de Tránsito y Transporte, dio a conocer el calendario oficial de pico y placa para el corredor vial Murillo – La Esperanza correspondiente al segundo trimestre de 2026. Esta medida se implementa en cumplimiento de la orden judicial emitida por el Tribunal Superior del Distrito Judicial de Ibagué, mediante la cual se dispuso una restricción vehicular para regular el ingreso hacia el área de influencia del Parque Nacional Natural Los Nevados, con el fin de mitigar los impactos ambientales derivados del alto flujo de visitantes."
+    },
+    {
+     "qid": "access/evidence/raw/tolima-via-murillo-la-esperanza.txt#5835",
+     "score": 3.275,
+     "text": "El director operativo de tránsito del Tolima, Miguel Bermúdez, explicó que la medida busca garantizar una movilidad organizada y proteger el entorno natural de este importante corredor turístico del departamento. “La medida de pico y placa en la vía Murillo – La Esperanza se mantiene en cumplimiento de lo ordenado por el Tribunal Superior de Ibagué y permite regular el ingreso de vehículos durante temporadas de alta afluencia, contribuyendo a la movilidad segura y a la protección del ecosistema del Parque Nacional Natural Los Nevados”, señaló el funcionario. La restricción aplica para vehículos particulares y motocicletas, de acuerdo con el último dígito de la placa y según el calendario establecido para cada fin de semana y puente festivo."
+    },
+    {
+     "qid": "access/evidence/raw/tolima-via-murillo-la-esperanza.txt#2667",
+     "score": 2.367,
+     "text": "Viabilidad Financiera de los Municipios Multimedia Imagenes Videos Descargas Información de interés Acción Comunal Banco de Proyectos Información Adicional Información general Georeferenciación Historia Bunde del Tolima Mapas de los Municipios Portales de las Alcaldías del Tolima Turismo Calendario de fiestas y eventos Está aquí: Noticias Conozca el pico y placa para la vía Murillo - La Esperanza durante el segundo trimestre de 2026 Noticias Conozca el pico y placa para la vía Murillo - La Esperanza durante el segundo trimestre de 2026 Detalles 17 Marzo 2026 Visto: 26954"
+    }
+   ]
+  },
+  {
+   "entry_id": "access.uton_offices_manizales",
+   "section": "access",
+   "kind": "fact",
+   "label": "oficinas de UTON en Manizales",
+   "all_key_forced": false,
+   "L0": "Las oficinas de UTON en Manizales están en la carrera 26A #68-44 (barrio Palermo) y en la calle 70 #27-70. Atienden de lunes a viernes de 8:00 a. m. a 12:00 m. y de 2:00 p. m. a 5:00 p. m.; los celulares son 321 506 6031 y 322 360 3637. Pueden cambiar, así que confírmalos antes de ir.",
+   "answer": {
+    "short": "Las oficinas de UTON en Manizales están en la carrera 26A #68-44 (barrio Palermo) y en la calle 70 #27-70; atienden de lunes a viernes de 8:00 a. m. a 12:00 m. y de 2:00 p. m. a 5:00 p. m. Celulares: 321 506 6031 y 322 360 3637. Pueden cambiar: confírmalos antes de ir.",
+    "variants": [
+     "Son dos sedes en Manizales, en Palermo y la calle 70, con horario entre semana y celulares publicados. Confírmalos antes de ir, porque pueden cambiar."
+    ]
+   },
+   "questions": [
+    "dónde queda la oficina de uton",
+    "dirección de la concesión en manizales",
+    "carrera 26a 68-44 es de uton",
+    "calle 70 27-70 también es oficina",
+    "barrio palermo, la concesion atiende ahi",
+    "UTON office addresses in Manizales",
+    "what phone numbers can I call UTON in Manizales",
+    "¿hasta qué hora atienden en las oficinas de UTON?",
+    "¿UTON tiene oficina por el lado de Palermo?",
+    "celulares 321 506 6031 y 322 360 3637",
+    "atienden lunes a viernes mañana y tarde",
+    "¿la oficina de UTON en Manizales abre hoy?",
+    "ey parce dónde queda la oficina de UTON",
+    "mano en Manizales dónde atienden los de la concesión",
+    "qué más, a qué hora abre UTON en Manizales",
+    "vos sabés el cel de UTON pa llamar",
+    "direccion de uton en manisales",
+    "oficina de uton en palermo",
+    "q orario tiene uton",
+    "telefono de uton manizales",
+    "oficina UTON Manizales",
+    "teléfono UTON",
+    "Quiero pasar por la oficina de la concesión en Manizales antes de subir, ¿dónde queda y qué horario tiene?",
+    "¿Qué números de celular tiene UTON para consultar?"
+   ],
+   "evidence_windows": [
+    {
+     "qid": "access/evidence/raw/pnn_nevados.txt#23641",
+     "score": 8.891,
+     "text": "Para subir progresivamente a un glaciar: tu grupo debe ser liderado solamente por guías especializados en alta montaña. Por tu seguridad, únicamente acepta ofertas que cumplan con esta condición. Consulta y descarga aquí la información de las agencias operadoras, intérpretes y guías registrados La concesión Unión Temporal Operación Nevados (UTON) es el operador autorizado por Parques Nacionales para el sector Brisas. Gestiona directamente servicios ecoturísticos como reservas, ingreso, guianza, transporte, alojamiento y tienda. Contacto UTON 📍 Oficinas en Manizales • Carrera 26A #68-44, barrio Palermo • Calle 70 #27-70 🕒 Horario de atención: lunes a viernes, 8:00 a. m. a 12:00 m. y 2:00 p. m. a 5:00 p. m. 📱 321 506 6031 – 322 360 3637 ✉️ [email protected] ✉️ [email protected]"
+    },
+    {
+     "qid": "access/evidence/raw/resolucion-207-2023.txt#33787",
+     "score": 3.172,
+     "text": "Se podrá solicitar información en las oficinas de Parques Nacionales Naturales de Colombia distribuidas a nivel regional y local, así: Oficina en Manizales: Calle 69 A No. 24 – 69 Barrio La Camelia – sector Palermo. Tel: (606) 887 16 11 - 887 22 73 Correo electrónico: nevados@parquesnacionales.gov.co Horario: lunes a viernes de 8:00 a.m. a 12:00 m. y de 2:00 p.m. a 5:00 p.m. ________________________________________________________________________ Parque Nacional Natural Los Nevados Página | 7 Calle 69 A No 24-69 Barrio la Camelia Sector Palermo - Manizales Teléfono: 8871611-8872273 nevados@parquesnacionales.gov.co www.parquesnacionales.gov.co 2.3 Acceso al Área Protegida:"
+    },
+    {
+     "qid": "access/evidence/raw/anexo-reglamentacion-2023.txt#23037",
+     "score": 3.172,
+     "text": "Se podrá solicitar información en las oficinas de Parques Nacionales Naturales de Colombia distribuidas a nivel regional y local, así: Oficina en Manizales: Calle 69 A No. 24 – 69 Barrio La Camelia – sector Palermo. Tel: (606) 887 16 11 - 887 22 73 Correo electrónico: nevados@parquesnacionales.gov.co Horario: lunes a viernes de 8:00 a.m. a 12:00 m. y de 2:00 p.m. a 5:00 p.m. ________________________________________________________________________ Parque Nacional Natural Los Nevados Página | 7 Calle 69 A No 24-69 Barrio la Camelia Sector Palermo - Manizales Teléfono: 8871611-8872273 nevados@parquesnacionales.gov.co www.parquesnacionales.gov.co 2.3 Acceso al Área Protegida:"
+    },
+    {
+     "qid": "access/evidence/ANEXO-PNN-NEVADOS-2023.txt#23037",
+     "score": 3.172,
+     "text": "Se podrá solicitar información en las oficinas de Parques Nacionales Naturales de Colombia distribuidas a nivel regional y local, así: Oficina en Manizales: Calle 69 A No. 24 – 69 Barrio La Camelia – sector Palermo. Tel: (606) 887 16 11 - 887 22 73 Correo electrónico: nevados@parquesnacionales.gov.co Horario: lunes a viernes de 8:00 a.m. a 12:00 m. y de 2:00 p.m. a 5:00 p.m. ________________________________________________________________________ Parque Nacional Natural Los Nevados Página | 7 Calle 69 A No 24-69 Barrio la Camelia Sector Palermo - Manizales Teléfono: 8871611-8872273 nevados@parquesnacionales.gov.co www.parquesnacionales.gov.co 2.3 Acceso al Área Protegida:"
+    },
+    {
+     "qid": "access/evidence/raw/resolucion-207-2023.txt#38682",
+     "score": 2.075,
+     "text": "● Centro de Inducción Brisas: Horario de atención de lunes a domingo de 8:00 a.m. a 2:00 p.m. N 04°56’0’’ W 075°20’59’’ – 4.107 m.s.n.m ● Cabaña Potosí: Horario de atención de lunes a domingo de 7:00 a.m. hasta las 12:00 m. N 04°49’52’’ W 075°24’58’’ – 3.920 m.s.n.m ● Valle de Cocora (Salento-Quindío): Puerta azul ingreso a la truchera, kilómetro 11 sobre la vía Salento - Cocora. N 04°38’17.5’’ W 075°29´11.3’’ – 2.400 m.s.n.m ● Anzoátegui (Tolima): Punto de Información Turística (PIT) Calle 13 entre Carrera 2 y 3 barrio centro Horario: martes a sábado de 8:00 a.m. a 5:00 p.m. ● La Punta (Vereda La Cascada) Anzoátegui-Tolima: (este sitio se establece como punto de control flotante) Horario: jueves a sábado de 8:00 a.m. a 5:00 p.m. Coordenadas: N 04°38’10.7’’ W 075°12’43.7’’ - 3100 m.s.n.m 2.5. Temporadas"
+    },
+    {
+     "qid": "access/evidence/raw/anexo-reglamentacion-2023.txt#27935",
+     "score": 2.075,
+     "text": "● Centro de Inducción Brisas: Horario de atención de lunes a domingo de 8:00 a.m. a 2:00 p.m. N 04°56’0’’ W 075°20’59’’ – 4.107 m.s.n.m ● Cabaña Potosí: Horario de atención de lunes a domingo de 7:00 a.m. hasta las 12:00 m. N 04°49’52’’ W 075°24’58’’ – 3.920 m.s.n.m ● Valle de Cocora (Salento-Quindío): Puerta azul ingreso a la truchera, kilómetro 11 sobre la vía Salento - Cocora. N 04°38’17.5’’ W 075°29´11.3’’ – 2.400 m.s.n.m ● Anzoátegui (Tolima): Punto de Información Turística (PIT) Calle 13 entre Carrera 2 y 3 barrio centro Horario: martes a sábado de 8:00 a.m. a 5:00 p.m. ● La Punta (Vereda La Cascada) Anzoátegui-Tolima: (este sitio se establece como punto de control flotante) Horario: jueves a sábado de 8:00 a.m. a 5:00 p.m. Coordenadas: N 04°38’10.7’’ W 075°12’43.7’’ - 3100 m.s.n.m 2.5. Temporadas"
+    },
+    {
+     "qid": "access/evidence/ANEXO-PNN-NEVADOS-2023.txt#27935",
+     "score": 2.075,
+     "text": "● Centro de Inducción Brisas: Horario de atención de lunes a domingo de 8:00 a.m. a 2:00 p.m. N 04°56’0’’ W 075°20’59’’ – 4.107 m.s.n.m ● Cabaña Potosí: Horario de atención de lunes a domingo de 7:00 a.m. hasta las 12:00 m. N 04°49’52’’ W 075°24’58’’ – 3.920 m.s.n.m ● Valle de Cocora (Salento-Quindío): Puerta azul ingreso a la truchera, kilómetro 11 sobre la vía Salento - Cocora. N 04°38’17.5’’ W 075°29´11.3’’ – 2.400 m.s.n.m ● Anzoátegui (Tolima): Punto de Información Turística (PIT) Calle 13 entre Carrera 2 y 3 barrio centro Horario: martes a sábado de 8:00 a.m. a 5:00 p.m. ● La Punta (Vereda La Cascada) Anzoátegui-Tolima: (este sitio se establece como punto de control flotante) Horario: jueves a sábado de 8:00 a.m. a 5:00 p.m. Coordenadas: N 04°38’10.7’’ W 075°12’43.7’’ - 3100 m.s.n.m 2.5. Temporadas"
+    },
+    {
+     "qid": "access/evidence/raw/sgc-generalidades.txt#10207",
+     "score": 1.937,
+     "text": "Línea anticorrupción y de atención al ciudadano y denuncias: 01 - 8000 - 110842 Línea de atención 24 horas para emergencias radiológicas: +57 ​317 366 2793 Correo Institucional: radicacioncorrespondencia@sgc.gov.co Correo de notificaciones judiciales: notificacionesjudiciales@sgc.gov.co Correo información relacionada con medios de comunicación: medios@sgc.gov.co X Instagram Facebook LinkedIn YouTube1 Nuestras sedes Políticas y cumplimiento legal Mapa del sitio Trabaja con nosotros Inicio de sesión Servicio Geológico Colombiano Sede Principal Dirección: Diagonal 53 No. 34 - 53 Bogotá D.C. Colombia Código Postal: 111321 Horario de Atención Sedes SGC: Lunes a viernes 8:00 a.m. a 5:00 p.m."
+    }
+   ]
+  },
+  {
+   "entry_id": "access.park_email_routes",
+   "section": "access",
+   "kind": "fact",
+   "label": "correo del parque para la visita",
+   "all_key_forced": false,
+   "L0": "El correo publicado del área protegida para dudas de la visita es nevados@parquesnacionales.gov.co. No es el de la concesión UTON. Si el mensaje rebota, revisa la página oficial.",
+   "answer": {
+    "short": "Para dudas de la visita, el correo publicado del área protegida es nevados@parquesnacionales.gov.co. No es el de la concesión UTON. Si el mensaje rebota, revisa la página oficial.",
+    "variants": [
+     "El correo visible del área es nevados@parquesnacionales.gov.co. Úsalo para la visita, y confírmalo en la página oficial si cambia."
+    ]
+   },
+   "questions": [
+    "correo del parque los nevados",
+    "nevados@parquesnacionales.gov.co",
+    "a qué mail escribo por la vía",
+    "email del area protegida",
+    "escribir al parque antes de salir",
+    "what email can I use to write to the park",
+    "is nevados@parquesnacionales.gov.co the visit address",
+    "no es el correo de la concesion",
+    "dudas de la visita al area protegida",
+    "cual es el correo que si es del parque",
+    "¿y el correo de UTON pa' el norte cuál es?",
+    "¿a qué correo mando el mensaje al parque?",
+    "ey parce cuál es el correo del parque",
+    "mano a qué mail le escribo pa preguntar por la visita",
+    "qué más, hay email del área protegida?",
+    "vos sabés a dónde escribirle al parque antes de ir",
+    "corero del parke los nevados",
+    "a ke email escribo x la bia",
+    "mail del parque nevados",
+    "kiero escribirle al parque antes de salir",
+    "correo del parque",
+    "email Nevados",
+    "Tengo dudas sobre mi visita, ¿a qué correo le escribo?",
+    "¿Cuál es el correo oficial del área protegida?"
+   ],
+   "evidence_windows": [
+    {
+     "qid": "access/evidence/raw/pnn_nevados.txt#24472",
+     "score": 1.856,
+     "text": "🌐 https://ecoturismonevados.com.co/uton-union-temporal-operador-nevados/ 🌐 https://www.operacionnevados.co/ También puedes escribir al correo del Parque para saber más sobre la visita al área protegida: [email protected] Actividades Ecoturismo Montañismo Observación aves Senderismo terrestre Observación geológica Observación fauna y flora Investigación educación ambiental Fotografía no comercial En el Parque Nacional Natural Los Nevados favorecemos el ecoturismo como estrategia de conservación. Por esa razón, las actividades que realices están pensadas para que no tengan efectos negativos sobre los ecosistemas y la biodiversidad: En el sector Brisas-Kumanday puedes realizar observación geológica, observación de fauna y flora o fotografía no comercial."
+    },
+    {
+     "qid": "access/evidence/raw/pnn_nevados.txt#22834",
+     "score": 1.731,
+     "text": "Por eso, acompáñate siempre de un guía o del personal de una agencia registrada. Consulta aquí los prestadores autorizados que hacen parte del Registro para Prestadores de Servicios Asociados al Ecoturismo (REPSE) del Parque Los Nevados. No todos los prestadores están autorizados para guiarte en todos los atractivos. Es importante que veas la categoría del prestador y que contactes a una agencia operadora local según el sector que deseas visitar. Ten en cuenta: Para visitar el sector Brisas-Kumanday: el operador autorizado por Parques Nacionales es la concesión Unión Temporal Operación Nevados (UTON). Ellos gestionan directamente los servicios ecoturísticos como reservas, ingreso, guianza, transporte y tienda. Visita su página web https://www.operacionnevados.co si deseas visitar este sector."
+    },
+    {
+     "qid": "access/evidence/raw/resolucion-207-2023.txt#33787",
+     "score": 1.648,
+     "text": "Se podrá solicitar información en las oficinas de Parques Nacionales Naturales de Colombia distribuidas a nivel regional y local, así: Oficina en Manizales: Calle 69 A No. 24 – 69 Barrio La Camelia – sector Palermo. Tel: (606) 887 16 11 - 887 22 73 Correo electrónico: nevados@parquesnacionales.gov.co Horario: lunes a viernes de 8:00 a.m. a 12:00 m. y de 2:00 p.m. a 5:00 p.m. ________________________________________________________________________ Parque Nacional Natural Los Nevados Página | 7 Calle 69 A No 24-69 Barrio la Camelia Sector Palermo - Manizales Teléfono: 8871611-8872273 nevados@parquesnacionales.gov.co www.parquesnacionales.gov.co 2.3 Acceso al Área Protegida:"
+    },
+    {
+     "qid": "access/evidence/raw/anexo-reglamentacion-2023.txt#23037",
+     "score": 1.648,
+     "text": "Se podrá solicitar información en las oficinas de Parques Nacionales Naturales de Colombia distribuidas a nivel regional y local, así: Oficina en Manizales: Calle 69 A No. 24 – 69 Barrio La Camelia – sector Palermo. Tel: (606) 887 16 11 - 887 22 73 Correo electrónico: nevados@parquesnacionales.gov.co Horario: lunes a viernes de 8:00 a.m. a 12:00 m. y de 2:00 p.m. a 5:00 p.m. ________________________________________________________________________ Parque Nacional Natural Los Nevados Página | 7 Calle 69 A No 24-69 Barrio la Camelia Sector Palermo - Manizales Teléfono: 8871611-8872273 nevados@parquesnacionales.gov.co www.parquesnacionales.gov.co 2.3 Acceso al Área Protegida:"
+    },
+    {
+     "qid": "access/evidence/ANEXO-PNN-NEVADOS-2023.txt#23037",
+     "score": 1.648,
+     "text": "Se podrá solicitar información en las oficinas de Parques Nacionales Naturales de Colombia distribuidas a nivel regional y local, así: Oficina en Manizales: Calle 69 A No. 24 – 69 Barrio La Camelia – sector Palermo. Tel: (606) 887 16 11 - 887 22 73 Correo electrónico: nevados@parquesnacionales.gov.co Horario: lunes a viernes de 8:00 a.m. a 12:00 m. y de 2:00 p.m. a 5:00 p.m. ________________________________________________________________________ Parque Nacional Natural Los Nevados Página | 7 Calle 69 A No 24-69 Barrio la Camelia Sector Palermo - Manizales Teléfono: 8871611-8872273 nevados@parquesnacionales.gov.co www.parquesnacionales.gov.co 2.3 Acceso al Área Protegida:"
+    },
+    {
+     "qid": "access/evidence/raw/resolucion-207-2023.txt#24132",
+     "score": 1.487,
+     "text": "SENDERO: Rutas desarrolladas para el uso de los visitantes que muestran los aspectos más destacados de un área y a la vez transmiten un mensaje significativo y de gran recordación para quienes lo recorren. Estévez, 2005. ________________________________________________________________________ Parque Nacional Natural Los Nevados Página | 4 Calle 69 A No 24-69 Barrio la Camelia Sector Palermo - Manizales Teléfono: 8871611-8872273 nevados@parquesnacionales.gov.co www.parquesnacionales.gov.co SERVICIOS ASOCIADOS AL ECOTURISMO: Son aquellos dirigidos a la atención del visitante que realiza actividades ecoturísticas en las áreas del Sistema de Parques, tales como alojamiento, transporte, alimentación, guianza e interpretación del patrimonio natural (Res. 538 del 2013)."
+    },
+    {
+     "qid": "access/evidence/raw/anexo-reglamentacion-2023.txt#13382",
+     "score": 1.487,
+     "text": "SENDERO: Rutas desarrolladas para el uso de los visitantes que muestran los aspectos más destacados de un área y a la vez transmiten un mensaje significativo y de gran recordación para quienes lo recorren. Estévez, 2005. ________________________________________________________________________ Parque Nacional Natural Los Nevados Página | 4 Calle 69 A No 24-69 Barrio la Camelia Sector Palermo - Manizales Teléfono: 8871611-8872273 nevados@parquesnacionales.gov.co www.parquesnacionales.gov.co SERVICIOS ASOCIADOS AL ECOTURISMO: Son aquellos dirigidos a la atención del visitante que realiza actividades ecoturísticas en las áreas del Sistema de Parques, tales como alojamiento, transporte, alimentación, guianza e interpretación del patrimonio natural (Res. 538 del 2013)."
+    },
+    {
+     "qid": "access/evidence/ANEXO-PNN-NEVADOS-2023.txt#13382",
+     "score": 1.487,
+     "text": "SENDERO: Rutas desarrolladas para el uso de los visitantes que muestran los aspectos más destacados de un área y a la vez transmiten un mensaje significativo y de gran recordación para quienes lo recorren. Estévez, 2005. ________________________________________________________________________ Parque Nacional Natural Los Nevados Página | 4 Calle 69 A No 24-69 Barrio la Camelia Sector Palermo - Manizales Teléfono: 8871611-8872273 nevados@parquesnacionales.gov.co www.parquesnacionales.gov.co SERVICIOS ASOCIADOS AL ECOTURISMO: Son aquellos dirigidos a la atención del visitante que realiza actividades ecoturísticas en las áreas del Sistema de Parques, tales como alojamiento, transporte, alimentación, guianza e interpretación del patrimonio natural (Res. 538 del 2013)."
+    }
+   ]
+  }
+ ]
+}

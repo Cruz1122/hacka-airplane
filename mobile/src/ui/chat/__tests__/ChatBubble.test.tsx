@@ -152,7 +152,7 @@ describe('ChatBubble', () => {
     expect(mine.text()).toBe('Cita [fuente: EST-D-01]');
   });
 
-  it('types a reply out word by word, then shows its meta and source button', () => {
+  it('types a reply out word by word, then shows its meta and source badge', () => {
     const text = 'Abre a las 06:10 en Quelital.';
     const id = scheduled(text);
     const b = mount({
@@ -169,8 +169,30 @@ describe('ChatBubble', () => {
     advance(MS * 2);
     expect(b.text()).toBe('Abre a las ');
     advance(MS * 3);
-    expect(b.text()).toBe(`${text}|0.6 s`);
+    expect(b.text()).toBe(`${text}|E|P|${t.chatScreen.sources.title}|0.6 s`);
     expect(b.buttons()).toHaveLength(1);
+  });
+
+  it('deduplicates up to three favicon previews by source domain', () => {
+    const b = mount({
+      role: 'assistant',
+      text: 'Respuesta con varias fuentes.',
+      sources: [
+        { id: 's1', title: 'PNN', excerpt: 'a', url: 'https://www.parquesnacionales.gov.co/a' },
+        { id: 's2', title: 'PNN 2', excerpt: 'b', url: 'https://parquesnacionales.gov.co/b' },
+        { id: 's3', title: 'SGC', excerpt: 'c', url: 'https://www.sgc.gov.co/volcan' },
+        { id: 's4', title: 'IDEAM', excerpt: 'd', url: 'https://www.ideam.gov.co/clima' },
+        { id: 's5', title: 'Ramsar', excerpt: 'e', url: 'https://www.ramsar.org/otun' },
+      ],
+      onOpenSources: jest.fn(),
+    });
+    const favicons = b.root.container
+      .queryAll((n) => n.type === 'Image')
+      .map((n) => n.props.source?.uri);
+    expect(favicons).toHaveLength(3);
+    expect(favicons[0]).toContain('parquesnacionales.gov.co');
+    expect(favicons[1]).toContain('sgc.gov.co');
+    expect(favicons[2]).toContain('ideam.gov.co');
   });
 
   it('shows nothing until the chat schedules it or its turn comes', () => {
@@ -201,6 +223,16 @@ describe('ChatBubble', () => {
     act(() => first.root.unmount());
     advance(MS * 10);
     expect(mount({ role: 'assistant', text, revealId: id }).text()).toBe(text);
+  });
+
+  it('renders the welcome message with the same keyword emphasis as answers', () => {
+    const b = mount({
+      role: 'assistant',
+      text: fill(t.chatScreen.greeting, { pet: 'Laya' }),
+      keywords: t.chatScreen.greetingKeywords.map((keyword) => fill(keyword, { pet: 'Laya' })),
+    });
+    expect(b.bold()).toEqual(['Laya', 'Los Nevados', 'qué llevar al páramo', 'una foto']);
+    expect(b.text()).not.toContain('**');
   });
 
   it('sets keywords in bold and lists as items', () => {
@@ -238,5 +270,22 @@ describe('ChatBubble', () => {
     advance(MS * 3);
     expect(renders.done - before.done).toBe(0);
     expect(renders.live - before.live).toBe(3);
+  });
+
+  it('renders user-attached photos standalone without a bubble, and puts any message in a bubble below', () => {
+    const isBubble = (n: TestInstance) =>
+      n.type === 'View' && StyleSheet.flatten(n.props.style)?.borderRadius === 22;
+    const photoOnly = mount({ role: 'user', text: '', photoUri: 'file:///condor.jpg' });
+    expect(photoOnly.root.container.queryAll((n) => n.type === 'Image')).toHaveLength(1);
+    expect(photoOnly.root.container.queryAll(isBubble)).toHaveLength(0);
+
+    const withText = mount({ role: 'user', text: '¿Qué ave es?', photoUri: 'file:///condor.jpg' });
+    const [img] = withText.root.container.queryAll((n) => n.type === 'Image');
+    const bubbles = withText.root.container.queryAll(isBubble);
+    expect(bubbles).toHaveLength(1);
+    // The photo lives outside the bubble, not nested inside it.
+    expect(bubbles[0].queryAll((n) => n.type === 'Image')).toHaveLength(0);
+    expect(img).toBeDefined();
+    expect(withText.text()).toBe('¿Qué ave es?');
   });
 });

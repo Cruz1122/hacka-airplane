@@ -4,6 +4,7 @@ import { useState } from 'react';
 import { Pressable, StyleSheet, Text } from 'react-native';
 
 import { brand, spacing, type } from './theme/tokens';
+import { useAccessibilityTheme } from './useAccessibilityTheme';
 
 export const SECONDARY_BUTTON_HEIGHT = 44;
 
@@ -15,6 +16,7 @@ export interface SecondaryButtonProps {
 }
 
 export function SecondaryButton({ label, onPress, hint }: SecondaryButtonProps) {
+  const { palette, scaled } = useAccessibilityTheme();
   const [focused, setFocused] = useState(false);
   return (
     <Pressable
@@ -25,9 +27,17 @@ export function SecondaryButton({ label, onPress, hint }: SecondaryButtonProps) 
       onFocus={() => setFocused(true)}
       onBlur={() => setFocused(false)}
       hitSlop={2}
-      style={({ pressed }) => [styles.root, focused && styles.focused, pressed && styles.pressed]}
+      style={({ pressed }) => [
+        styles.root,
+        {
+          borderColor: palette.ink,
+          backgroundColor: pressed ? palette.cardShade : palette.card,
+          outlineColor: palette.primary,
+        },
+        focused && styles.focused,
+      ]}
     >
-      <Text style={styles.label}>{label}</Text>
+      <Text style={[styles.label, scaled.label, { color: palette.ink }]}>{label}</Text>
     </Pressable>
   );
 }

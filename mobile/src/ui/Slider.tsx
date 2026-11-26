@@ -14,6 +14,8 @@ import {
 import Animated, { useAnimatedStyle, useSharedValue, withTiming } from 'react-native-reanimated';
 
 import { brand } from './theme/tokens';
+import { useAccessibilityTheme } from './useAccessibilityTheme';
+import { useReducedMotion } from './useReducedMotion';
 
 /** Touch target and thumb box; the visible knob is smaller. */
 export const SLIDER_THUMB = 44;
@@ -66,6 +68,8 @@ export function Slider({
   hint,
   split,
 }: SliderProps) {
+  const { palette } = useAccessibilityTheme();
+  const reduced = useReducedMotion();
   const range = { min, max, step };
   const [width, setWidth] = useState(0);
   const x = useSharedValue(0);
@@ -80,9 +84,9 @@ export function Slider({
     if (dragging.current || width === 0) return;
     last.current = value;
     const to = sliderX(value, width, { min, max, step });
-    x.set(placed.current ? withTiming(to, { duration: SETTLE_MS }) : to);
+    x.set(placed.current && !reduced ? withTiming(to, { duration: SETTLE_MS }) : to);
     placed.current = true;
-  }, [value, width, min, max, step, x]);
+  }, [value, width, min, max, step, x, reduced]);
 
   const follow = (px: number) => {
     x.set(clamp(px, SLIDER_THUMB / 2, Math.max(SLIDER_THUMB / 2, width - SLIDER_THUMB / 2)));
@@ -106,8 +110,10 @@ export function Slider({
     onUpdate: (e) => follow(e.x),
     onFinalize: () => {
       dragging.current = false;
-      if (width > 0)
-        x.set(withTiming(sliderX(last.current, width, range), { duration: SETTLE_MS }));
+      if (width > 0) {
+        const to = sliderX(last.current, width, range);
+        x.set(reduced ? to : withTiming(to, { duration: SETTLE_MS }));
+      }
     },
   });
 
@@ -147,12 +153,36 @@ export function Slider({
           accessibilityActions={[{ name: 'increment' }, { name: 'decrement' }]}
           onAccessibilityAction={onAction}
         >
-          <View style={[styles.track, split !== undefined && styles.trackBeyond]}>
-            <Animated.View style={[styles.fill, styles.fillMid, fillStyle]} />
-            {split !== undefined && <Animated.View style={[styles.fill, nearStyle]} />}
+          <View
+            style={[
+              styles.track,
+              { backgroundColor: split !== undefined ? palette.wineSoft : palette.cardShade },
+            ]}
+          >
+            <Animated.View
+              style={[
+                styles.fill,
+                { backgroundColor: split !== undefined ? palette.primarySoft : palette.primary },
+                fillStyle,
+              ]}
+            />
+            {split !== undefined && (
+              <Animated.View
+                style={[styles.fill, { backgroundColor: palette.primary }, nearStyle]}
+              />
+            )}
           </View>
           <Animated.View style={[styles.thumb, thumbStyle]} pointerEvents="none">
-            <View style={styles.knob} />
+            <View
+              style={[
+                styles.knob,
+                {
+                  backgroundColor: palette.card,
+                  borderColor: palette.ink,
+                  boxShadow: `0 2px 8px ${palette.glow}`,
+                },
+              ]}
+            />
           </Animated.View>
         </View>
       </GestureDetector>

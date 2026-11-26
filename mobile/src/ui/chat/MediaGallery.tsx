@@ -1,26 +1,31 @@
 // Photos under an answer (src/core/media), across the bubble's whole inner width: one wide photo,
 // a list of rows, or portrait cards sharing the width (a list instead when they would be too
-// narrow). The credit sits on each photo as a small pill. Laid out from the bubble's first frame
-// (the width the window predicts, then its own measured width) so nothing jumps while the text
-// types out; once the text ends the cards rise in one after another and their captions type out
-// like the reply, as one more reveal.ts stream (`mediaRevealId`) queued right after it.
-import { useEffect, useMemo, useState } from 'react';
+// narrow). The credit sits on each photo as a small clickable pill with a camera icon. Laid out
+// from the bubble's first frame (the width the window predicts, then its own measured width) so
+// nothing jumps while the text types out; once the text ends the cards rise in one after another
+// and their captions type out like the reply, as one more reveal.ts stream (`mediaRevealId`)
+// queued right after it.
+import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import {
   Animated,
   Easing,
   Image,
   type LayoutChangeEvent,
+  Linking,
+  Platform,
+  Pressable,
   StyleSheet,
   Text,
   View,
 } from 'react-native';
-import Svg, { Circle, Path } from 'react-native-svg';
 
 import { photoSource } from '@/core/media/bundled';
-import type { MediaPhoto, MediaPick, MediaPickItem } from '@/core/media/media';
+import type { MediaPick, MediaPickItem } from '@/core/media/media';
 import { fill, t } from '@/i18n';
 
+import { Icon } from '../icons/Icon';
 import { brand, fonts, radius, spacing, type } from '../theme/tokens';
+import { useReducedMotion } from '../useReducedMotion';
 
 import { useRevealedWords, type RevealRow } from './reveal';
 
@@ -32,15 +37,21 @@ const CARD_RATIO = 1.25; // 4:5
 const CARD_GAP = spacing.sm;
 /**
  * Columns never scroll or clip: under this card width they fall back to a list of rows. Two
- * cards fit from a 360 pt phone (about 107 pt each beside the source button); three need a
- * tablet.
+ * cards fit from a 360 pt phone; three need a tablet.
  */
 const MIN_CARD_WIDTH = 100;
-const CARD_MS = 280;
+const CARD_MS = 360;
 const STAGGER_MS = 90;
+const IMAGE_FADE_MS = 260;
+const PULSE_MS = 850;
 const RISE = 8;
 const CREDIT_INSET = 6;
-const MARK = 11;
+const CAMERA_ICON = 11;
+const USE_NATIVE_DRIVER = Platform.OS !== 'web';
+const WEB_LINK = /^https?:\/\/\S+$/i;
+
+/** Bundled photo files already decoded this session, so recycled/scrolled cells show without flicker. */
+const loadedPhotos = new Set<string>();
 
 /** The reveal.ts stream of row `id`'s captions. */
 export const mediaRevealId = (id: string) => `${id}:media`;
@@ -68,11 +79,18 @@ function splitWords(captions: readonly Word[][], words: number): number[] {
 }
 
 const captionLabel = ({ common, scientific }: MediaPickItem) =>
-  scientific ? `${common} (${scientific})` : common;
+  scientific ? `${common}, ${scientific}` : common;
 
-/** The glyph a photo's credit wears: every licence media.json allows is CC or public domain. */
+/** The glyph family a photo's licence belongs to: CC or public domain. */
 export const licenseFamily = (license: string): 'cc' | 'publicDomain' =>
   /^CC/i.test(license) ? 'cc' : 'publicDomain';
+
+/** Web URL for a photo's attribution source: its explicit link, or its Wikimedia Commons search. */
+export function photoSourceUrl(item: MediaPickItem): string {
+  if (item.photo.url && WEB_LINK.test(item.photo.url)) return item.photo.url;
+  const query = `${item.scientific ?? item.common} ${item.photo.author}`.trim();
+  return `https://commons.wikimedia.org/w/index.php?search=${encodeURIComponent(query)}&title=Special:MediaSearch&type=image`;
+}
 
 /**
  * The rows to hand `replyReveal.schedule`: each reply with photos is followed by its captions'
@@ -116,11 +134,12 @@ export function MediaGallery({ media, width: predicted, revealId }: MediaGallery
   const width = measured ?? predicted;
   const onLayout = (e: LayoutChangeEvent) => {
     const w = Math.floor(e.nativeEvent.layout.width);
-    if (w > 0) setMeasured(w);
+    if (w > 0) setMeasured((prev) => (prev !== null && Math.abs(prev - w) <= 2 ? prev : w));
   };
-  // Hidden only when this mount saw the stream before it started; a row already read shows whole.
+  // Cascade only when this mount arrived while captions are still streaming; an already-read row
+  // (or reduced motion) has `words === Infinity` and shows whole at once.
   const [cards] = useState(() => {
-    const cascade = words === 0;
+    const cascade = words < Infinity;
     return { cascade, shown: media.items.map(() => new Animated.Value(cascade ? 0 : 1)) };
   });
   const started = words > 0;
@@ -131,8 +150,8 @@ export function MediaGallery({ media, width: predicted, revealId }: MediaGallery
         toValue: 1,
         duration: CARD_MS,
         delay: i * STAGGER_MS,
-        easing: Easing.out(Easing.quad),
-        useNativeDriver: true,
+        easing: Easing.out(Easing.cubic),
+        useNativeDriver: USE_NATIVE_DRIVER,
       }),
     );
     runs.forEach((r) => r.start());
@@ -156,7 +175,7 @@ export function MediaGallery({ media, width: predicted, revealId }: MediaGallery
     const height = Math.min(Math.round(width * SINGLE_RATIO), SINGLE_MAX_HEIGHT);
     return (
       <Animated.View style={[styles.gallery, style]} onLayout={onLayout}>
-        <Photo item={item} width={width} height={height} />
+        <Photo key={item.photo.file} item={item} width={width} height={height} />
         <Caption words={caption} shown={shown} />
       </Animated.View>
     );
@@ -168,7 +187,7 @@ export function MediaGallery({ media, width: predicted, revealId }: MediaGallery
       <View style={styles.gallery} onLayout={onLayout}>
         {items.map(({ item, caption, shown, style }, i) => (
           <Animated.View key={item.id} style={[styles.row, i > 0 && styles.rowDivider, style]}>
-            <Photo item={item} width={THUMB} height={THUMB} />
+            <Photo key={item.photo.file} item={item} width={THUMB} height={THUMB} />
             <View style={styles.rowText}>
               <Caption words={caption} shown={shown} />
             </View>
@@ -181,7 +200,12 @@ export function MediaGallery({ media, width: predicted, revealId }: MediaGallery
     <View style={[styles.gallery, styles.strip]} onLayout={onLayout}>
       {items.map(({ item, caption, shown, style }) => (
         <Animated.View key={item.id} style={[{ width: cardWidth }, style]}>
-          <Photo item={item} width={cardWidth} height={Math.round(cardWidth * CARD_RATIO)} />
+          <Photo
+            key={item.photo.file}
+            item={item}
+            width={cardWidth}
+            height={Math.round(cardWidth * CARD_RATIO)}
+          />
           <Caption words={caption} shown={shown} />
         </Animated.View>
       ))}
@@ -191,111 +215,198 @@ export function MediaGallery({ media, width: predicted, revealId }: MediaGallery
 
 const rise = (shown: Animated.Value) => ({
   opacity: shown,
-  transform: [{ translateY: shown.interpolate({ inputRange: [0, 1], outputRange: [RISE, 0] }) }],
+  transform: [
+    { translateY: shown.interpolate({ inputRange: [0, 1], outputRange: [RISE, 0] }) },
+    { scale: shown.interpolate({ inputRange: [0, 1], outputRange: [0.985, 1] }) },
+  ],
 });
 
 function Photo({ item, width, height }: { item: MediaPickItem; width: number; height: number }) {
+  const reduced = useReducedMotion();
+  const file = item.photo.file;
+  const [loaded, setLoaded] = useState(() => loadedPhotos.has(file));
+  const [imageOpacity] = useState(() => new Animated.Value(loadedPhotos.has(file) ? 1 : 0));
+  const [pulse] = useState(() => new Animated.Value(0.45));
+  const doneRef = useRef(loaded);
+
+  useEffect(() => {
+    if (loaded || reduced) return;
+    const loop = Animated.loop(
+      Animated.sequence([
+        Animated.timing(pulse, {
+          toValue: 0.72,
+          duration: PULSE_MS,
+          easing: Easing.inOut(Easing.sin),
+          useNativeDriver: USE_NATIVE_DRIVER,
+        }),
+        Animated.timing(pulse, {
+          toValue: 0.34,
+          duration: PULSE_MS,
+          easing: Easing.inOut(Easing.sin),
+          useNativeDriver: USE_NATIVE_DRIVER,
+        }),
+      ]),
+    );
+    loop.start();
+    return () => loop.stop();
+  }, [loaded, pulse, reduced]);
+
+  const onImageReady = useCallback(() => {
+    if (doneRef.current) return;
+    doneRef.current = true;
+    loadedPhotos.add(file);
+    setLoaded(true);
+    if (reduced) {
+      imageOpacity.setValue(1);
+      return;
+    }
+    Animated.timing(imageOpacity, {
+      toValue: 1,
+      duration: IMAGE_FADE_MS,
+      easing: Easing.out(Easing.cubic),
+      useNativeDriver: USE_NATIVE_DRIVER,
+    }).start();
+  }, [file, imageOpacity, reduced]);
+
   return (
-    <View>
-      <Image
-        source={photoSource(item.photo.file)}
-        style={[styles.photo, { width, height }]}
-        resizeMode="cover"
-        accessible
-        accessibilityRole="image"
-        accessibilityLabel={captionLabel(item)}
-      />
-      <Credit photo={item.photo} maxWidth={width - 2 * CREDIT_INSET} />
+    <View style={[styles.photoFrame, { width, height }]}>
+      {!loaded ? (
+        <Animated.View
+          pointerEvents="none"
+          style={[StyleSheet.absoluteFill, styles.photoSkeleton, { opacity: pulse }]}
+        />
+      ) : null}
+      <Animated.View style={{ opacity: imageOpacity }}>
+        <Image
+          source={photoSource(file)}
+          style={[styles.photo, { width, height }]}
+          resizeMode="cover"
+          onLoad={onImageReady}
+          onLoadEnd={onImageReady}
+          accessible
+          accessibilityRole="image"
+          accessibilityLabel={captionLabel(item)}
+        />
+      </Animated.View>
+      <View pointerEvents="none" style={[StyleSheet.absoluteFill, styles.photoBorder]} />
+      <Animated.View
+        style={[styles.creditWrap, { opacity: imageOpacity }]}
+        pointerEvents={loaded ? 'box-none' : 'none'}
+      >
+        <Credit item={item} maxWidth={width - 2 * CREDIT_INSET} />
+      </Animated.View>
     </View>
   );
 }
 
-/** The whole caption is laid out from the first frame; words not typed yet are transparent. */
+/**
+ * Common name on top; scientific name underneath in a smaller italic font without parentheses.
+ * Words not typed yet are transparent so layout never shifts while streaming.
+ */
 function Caption({ words, shown }: { words: Word[]; shown: number }) {
-  const last = words.length - 1;
-  const firstItalic = words.findIndex((w) => w.italic);
+  const split = words.findIndex((w) => w.italic);
+  const common = split === -1 ? words : words.slice(0, split);
+  const scientific = split === -1 ? [] : words.slice(split);
   return (
-    <Text style={styles.caption}>
-      {words.map((w, i) => (
-        <Text key={i} style={i >= shown ? styles.untyped : undefined}>
-          {i === firstItalic ? '(' : ''}
-          <Text style={w.italic ? styles.italic : undefined}>{w.text}</Text>
-          {w.italic && i === last ? ')' : ''}
-          {i < last ? ' ' : ''}
+    <View style={styles.captionWrap}>
+      <Text style={styles.caption}>
+        {common.map((w, i) => (
+          <Text key={i} style={i >= shown ? styles.untyped : undefined}>
+            {w.text}
+            {i < common.length - 1 ? ' ' : ''}
+          </Text>
+        ))}
+      </Text>
+      {scientific.length > 0 ? (
+        <Text style={styles.scientific}>
+          {scientific.map((w, i) => (
+            <Text key={i} style={common.length + i >= shown ? styles.untyped : undefined}>
+              {w.text}
+              {i < scientific.length - 1 ? ' ' : ''}
+            </Text>
+          ))}
         </Text>
-      ))}
-    </Text>
+      ) : null}
+    </View>
   );
 }
 
-/** Licence glyph and author on the photo's corner; screen readers hear the full licence. */
-function Credit({ photo, maxWidth }: { photo: MediaPhoto; maxWidth: number }) {
+/** Camera icon and author on the photo's corner; tapping opens the photo's source. */
+function Credit({ item, maxWidth }: { item: MediaPickItem; maxWidth: number }) {
+  const { photo } = item;
+  const openSource = () => {
+    const url = photoSourceUrl(item);
+    Linking.openURL(url).catch((e: unknown) =>
+      console.warn(`Could not open photo source for ${item.id} (${url})`, e),
+    );
+  };
   return (
-    <View
-      style={[styles.credit, { maxWidth }]}
+    <Pressable
+      onPress={openSource}
+      hitSlop={6}
       accessible
+      accessibilityRole="link"
       accessibilityLabel={fill(t.chatScreen.media.credit, {
         author: photo.author,
         license: photo.license,
       })}
+      style={({ pressed }) => [styles.credit, { maxWidth }, pressed && styles.creditPressed]}
     >
-      <LicenseMark license={photo.license} />
+      <Icon name="camera" size={CAMERA_ICON} color={brand.onPrimary} strokeWidth={2.2} />
       <Text style={styles.author} numberOfLines={1} ellipsizeMode="tail">
         {photo.author}
       </Text>
-    </View>
-  );
-}
-
-// 24-unit glyphs drawn as strokes: a ring around "cc" (Creative Commons) or around a struck-through
-// "c" (the Public Domain Mark).
-const CC_LETTERS = 'M11.22 9.88A3 3 0 1 0 11.22 14.12M17.82 9.88A3 3 0 1 0 17.82 14.12';
-const PD_LETTER = 'M15.25 8.75A4.6 4.6 0 1 0 15.25 15.25M5.2 5.2L18.8 18.8';
-
-function LicenseMark({ license }: { license: string }) {
-  const family = licenseFamily(license);
-  return (
-    <Svg
-      width={MARK}
-      height={MARK}
-      viewBox="0 0 24 24"
-      testID={`license-${family}`}
-    >
-      <Circle cx={12} cy={12} r={10.5} stroke={brand.onPrimary} strokeWidth={2.2} fill="none" />
-      <Path
-        d={family === 'cc' ? CC_LETTERS : PD_LETTER}
-        stroke={brand.onPrimary}
-        strokeWidth={2.4}
-        strokeLinecap="round"
-        fill="none"
-      />
-    </Svg>
+    </Pressable>
   );
 }
 
 const styles = StyleSheet.create({
   gallery: { marginTop: spacing.md },
-  photo: { borderRadius: radius.md, backgroundColor: brand.primarySoft },
+  photoFrame: {
+    borderRadius: radius.md,
+    overflow: 'hidden',
+    backgroundColor: brand.card,
+  },
+  photoSkeleton: {
+    backgroundColor: brand.primarySoft,
+  },
+  photo: { borderRadius: radius.md },
+  photoBorder: {
+    borderRadius: radius.md,
+    borderWidth: 1,
+    borderColor: brand.primarySoft,
+  },
   row: { flexDirection: 'row', alignItems: 'center', paddingVertical: spacing.sm },
   rowDivider: { borderTopWidth: StyleSheet.hairlineWidth, borderTopColor: brand.primarySoft },
   rowText: { flex: 1, marginLeft: spacing.md },
   strip: { flexDirection: 'row', gap: CARD_GAP },
-  caption: { ...type.caption, fontFamily: fonts.semibold, color: brand.ink, marginTop: spacing.xs },
-  italic: { fontStyle: 'italic', fontFamily: fonts.medium },
+  captionWrap: { marginTop: spacing.xs },
+  caption: { ...type.caption, fontFamily: fonts.semibold, color: brand.ink },
+  scientific: {
+    fontFamily: fonts.medium,
+    fontStyle: 'italic',
+    fontSize: 11,
+    lineHeight: 15,
+    color: brand.inkMuted,
+    marginTop: 1,
+  },
   untyped: { color: 'transparent' },
-  credit: {
+  creditWrap: {
     position: 'absolute',
     left: CREDIT_INSET,
     bottom: CREDIT_INSET,
+  },
+  credit: {
     flexDirection: 'row',
     alignItems: 'center',
     gap: spacing.xs,
-    paddingLeft: 5,
-    paddingRight: 7,
+    paddingLeft: 6,
+    paddingRight: 8,
     paddingVertical: 3,
     borderRadius: radius.pill,
     backgroundColor: brand.photoScrim,
   },
+  creditPressed: { opacity: 0.8 },
   author: {
     flexShrink: 1,
     fontFamily: fonts.bold,

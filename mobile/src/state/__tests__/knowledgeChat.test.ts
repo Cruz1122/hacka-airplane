@@ -152,15 +152,14 @@ describe('KnowledgeChat photos', () => {
     expect(media(chat)[0]).toMatchObject({ layout: 'single' });
   });
 
-  it('lowers the chance right after a reply with photos', async () => {
-    // 0.3 clears 0.5 but not the 0.2 that follows a reply with photos.
+  it('keeps showing photos on consecutive replies without a per-chat cooldown', async () => {
     const chat = new KnowledgeChat(async () => ({ engine: replying(condor) }), {
       media: MEDIA,
-      rng: () => 0.3,
+      rng: () => 0.99,
     });
     await chat.ask('háblame del cóndor');
     await chat.ask('¿y dónde vive?');
-    expect(media(chat).map((m) => m?.layout ?? null)).toEqual(['single', null]);
+    expect(media(chat).map((m) => m?.layout ?? null)).toEqual(['single', 'single']);
   });
 
   it('shows photos when asked for them, whatever the dice say', async () => {
@@ -170,7 +169,7 @@ describe('KnowledgeChat photos', () => {
     });
     await chat.ask('háblame del cóndor');
     await chat.ask('muéstrame una foto del cóndor');
-    expect(media(chat).map((m) => m?.layout ?? null)).toEqual([null, 'single']);
+    expect(media(chat).map((m) => m?.layout ?? null)).toEqual(['single', 'single']);
   });
 
   it('never shows photos under an urgent banner', async () => {

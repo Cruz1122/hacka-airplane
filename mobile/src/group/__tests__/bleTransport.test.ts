@@ -586,7 +586,7 @@ describe('createBleTransport', () => {
       expect(joins(events)).toHaveLength(1);
 
       // The guide moves the slider: re-join with the new distance, keeping the card's full name
-      // (the beacon only carries "Marta Vale").
+      // (the v3 beacon reserves 1 byte for the Pet skin, so it carries 9 bytes: "Marta Val").
       radio.emitSighting({ payload: guideFrame(90), rssi: -60, atMs: 3000, phy: 'coded' });
       expect(joins(events)).toEqual([
         { ...marta, alertMeters: 60 },
@@ -609,7 +609,7 @@ describe('createBleTransport', () => {
       const events: GroupInput[] = [];
       const stop = createBleTransport(radio.module).start(ana, (e) => events.push(e));
       radio.emitSighting({ payload: guideFrame(25), rssi: -45, atMs: 1000 });
-      expect(joins(events)).toEqual([{ ...marta, name: 'Marta Vale', alertMeters: 25 }]);
+      expect(joins(events)).toEqual([{ ...marta, name: 'Marta Val', alertMeters: 25 }]);
       stop();
     });
 
@@ -628,6 +628,75 @@ describe('createBleTransport', () => {
       radio.emitSighting({ payload: guideFrame(30, { syncing: false }), rssi: -70, atMs: 2000 });
       radio.emitSighting({ payload: guideFrame(50, { syncing: false }), rssi: -70, atMs: 3000 });
       expect(joins(events).map((m) => m.role === 'guide' && m.alertMeters)).toEqual([30, 50]);
+      stop();
+    });
+  });
+
+  describe('pet look', () => {
+    it('broadcasts self.look in beacons and NFC cards and propagates peer looks', () => {
+      const radio = makeFakeRadio('on');
+      const transport = createBleTransport(radio.module, { nextGroupId: () => 0x4242 });
+      const guide: GuideMember = {
+        id: shortIdToMemberId(0x00e6),
+        role: 'guide',
+        name: 'Marta',
+        slot: 'front',
+        look: { accessory: 'guideHat', tint: 'sun' },
+      };
+      const events: GroupInput[] = [];
+      const joinedMembers = () => events.flatMap((e) => (e.kind === 'joined' ? [e.member] : []));
+      const stop = transport.start(guide, (e) => events.push(e));
+
+      expect(decodeBeacon(radio.started[0].payloadHex)?.look).toEqual({
+        accessory: 'guideHat',
+        tint: 'sun',
+      });
+      expect(decodePairing(radio.cards.at(-1)!)?.look).toEqual({
+        accessory: 'guideHat',
+        tint: 'sun',
+      });
+
+      const visitorFrame = (look: GuideMember['look']) =>
+        encodeBeacon({
+          groupId: 0x4242,
+          senderId: 0x00a1,
+          role: 'visitor',
+          slot: 'front',
+          syncing: false,
+          nfcCard: false,
+          echoFrontRssi: null,
+          echoRearRssi: null,
+          name: 'Sofía',
+          look,
+          tag: 0,
+        });
+
+      radio.emitSighting({
+        payload: visitorFrame({ accessory: 'flower', tint: 'lupine' }),
+        rssi: -62,
+        atMs: 1000,
+      });
+      expect(joinedMembers()).toEqual([
+        {
+          id: shortIdToMemberId(0x00a1),
+          role: 'visitor',
+          name: 'Sofía',
+          look: { accessory: 'flower', tint: 'lupine' },
+        },
+      ]);
+
+      // Changing skin on the peer's next beacon updates the member via a fresh joined event.
+      radio.emitSighting({
+        payload: visitorFrame({ accessory: 'beanie', tint: 'sky' }),
+        rssi: -62,
+        atMs: 2000,
+      });
+      expect(joinedMembers().at(-1)).toEqual({
+        id: shortIdToMemberId(0x00a1),
+        role: 'visitor',
+        name: 'Sofía',
+        look: { accessory: 'beanie', tint: 'sky' },
+      });
       stop();
     });
   });

@@ -1,0 +1,460 @@
+{
+"shard": "T4_027",
+"mix": {
+"colloquial": 6,
+"misspelled": 4,
+"fragment": 3,
+"situational": 3,
+"english": 2,
+"specific_fact": 2
+},
+"per_entry": 24,
+"entries": [
+{
+"entry_id": "access.covered_vehicle_required",
+"label": "vehículo cubierto hacia el valle",
+"kind": "rule",
+"key_facts": [
+"Del centro Brisas al valle se va en vehículo cubierto, propio o contratado.",
+"No está aclarado si un carro sin techo cuenta como vehículo cubierto.",
+"La moto no entra al valle.",
+"Conviene confirmar con UTON antes de subir si el vehículo sirve.",
+"Si se entra a Brisas en noviembre, un fin de semana o puente, hay que revisar el pico y placa ambiental del Tolima.",
+"Ese pico y placa ambiental está en la Resolución 1815 del 24 de julio de 2026.",
+"La restricción del pico y placa ambiental rige de 5:00 a. m. a 4:00 p. m."
+],
+"examples": [
+"¿el valle pide carro con techo?",
+"puedo seguir en carro destapado",
+"un convertible pasa de brisas a tumbas"
+],
+"do_not_ask": [
+"carreteable de Brisas a Tumbas",
+"contratar vehículo en Brisas",
+"horarios del pico y placa ambiental Murillo"
+]
+},
+{
+"entry_id": "access.parking_at_brisas",
+"label": "dejar el carro en el centro",
+"kind": "fact",
+"key_facts": [
+"No hay parqueadero, cupos ni plano de Brisas publicados.",
+"Se puede llegar a Brisas en vehículo propio.",
+"El valle se recorre en vehículo cubierto.",
+"Para saber dónde dejar el carro hay que preguntar a UTON.",
+"Si se va un fin de semana o puente de noviembre, hay que revisar el pico y placa de ese acceso."
+],
+"examples": [
+"¿en Brisas hay dónde dejar el carro?",
+"dejo el carro en el centro de visitantes",
+"cuántos cupos hay para parquear"
+],
+"do_not_ask": [
+"llegar en carro propio a Brisas",
+"contratar vehículo en Brisas",
+"horarios del pico y placa ambiental Murillo"
+]
+},
+{
+"entry_id": "access.hire_vehicle_brisas",
+"label": "contratar vehículo en Brisas",
+"kind": "procedure",
+"key_facts": [
+"En Brisas se puede contratar el vehículo cubierto para el valle, allí mismo o con anticipación.",
+"La concesión UTON gestiona ese transporte.",
+"No hay un cupo numerado publicado para ese transporte.",
+"Conviene confirmar con UTON las restricciones de circulación de noviembre de 2026.",
+"Si se entra a Brisas en noviembre, un fin de semana o puente, hay que revisar el pico y placa ambiental del Tolima."
+],
+"examples": [
+"contrato el carro en brisas",
+"¿en la portería consigo carro pal valle?",
+"lo puedo reservar antes de subir"
+],
+"do_not_ask": [
+"transporte de Brisas con UTON",
+"vehículo cubierto hacia el valle",
+"oficinas de UTON en Manizales"
+]
+},
+{
+"entry_id": "access.bus_or_van_entry",
+"label": "bus o buseta hacia Brisas",
+"kind": "fact",
+"key_facts": [
+"Las tarifas de Brisas nombran bus o buseta, pero eso no autoriza el ingreso de hoy.",
+"El valle pide vehículo cubierto.",
+"Conviene confirmar con UTON antes de ir si el vehículo puede entrar.",
+"Ninguno de los dos cuadros de tarifas dice que el vehículo esté autorizado en la vía durante el pico y placa de noviembre.",
+"Si se entra a Brisas en noviembre, un fin de semana o puente, hay que revisar el pico y placa ambiental del Tolima.",
+"En una de las tablas de tarifas, la buseta figura con un máximo de 30 pasajeros.",
+"La moto figura prohibida en ambos cuadros de tarifas."
+],
+"examples": [
+"puedo entrar en bus",
+"¿una buseta sí sube hasta Brisas?",
+"un microbus entra al valle"
+],
+"do_not_ask": [
+"las motos no entran a Brisas",
+"bus público hasta la portería",
+"horarios del pico y placa ambiental Murillo"
+]
+},
+{
+"entry_id": "access.taxi_not_published",
+"label": "taxi hasta la portería",
+"kind": "fact",
+"key_facts": [
+"No hay una ruta de taxi publicada hasta la portería.",
+"El taxi no está descrito como un servicio del parque.",
+"A Brisas se llega en vehículo propio o con el transporte que gestiona UTON.",
+"Conviene confirmar con UTON las restricciones de circulación de noviembre de 2026.",
+"Un carro particular que suba a Brisas no queda exento del pico y placa de noviembre."
+],
+"examples": [
+"hay taxi hasta brisas",
+"un taxi me deja en la portería",
+"tomo un taxi en manizales al parque"
+],
+"do_not_ask": [
+"contratar vehículo en Brisas",
+"bus público hasta la portería",
+"vehículo cubierto hacia el valle"
+]
+},
+{
+"entry_id": "access.no_park_shuttle",
+"label": "el parque no opera transporte interno",
+"kind": "fact",
+"key_facts": [
+"El parque no ofrece transporte entre sectores.",
+"En Brisas el transporte lo gestiona UTON.",
+"En los demás sectores el transporte se coordina por cuenta propia o con un operador registrado.",
+"El transporte, el porteo y el acceso deben gestionarse de manera propia o con guías o agencias operadoras registradas y autorizadas, según el sector de ingreso.",
+"Si se entra a Brisas en noviembre, un fin de semana o puente, hay que revisar el pico y placa ambiental del Tolima."
+],
+"examples": [
+"hay bus interno del parque",
+"¿el parque me lleva de un sector a otro?",
+"hay shuttle de brisas al valle"
+],
+"do_not_ask": [
+"bus público hasta la portería",
+"transporte de Brisas con UTON",
+"horarios del pico y placa ambiental Murillo"
+]
+},
+{
+"entry_id": "access.no_public_bus",
+"label": "bus público hasta la portería",
+"kind": "fact",
+"key_facts": [
+"No hay una ruta de bus urbano ni intermunicipal publicada hasta una portería.",
+"Tampoco hay una empresa ni un horario publicados para esa ruta.",
+"Que la tarifa de Brisas nombre bus o buseta no crea una línea de bus.",
+"Conviene confirmar con UTON las restricciones de circulación de noviembre de 2026.",
+"Si se entra a Brisas en noviembre, un fin de semana o puente, hay que revisar el pico y placa ambiental del Tolima."
+],
+"examples": [
+"hay bus urbano hasta brisas",
+"qué bus intermunicipal llega a la portería",
+"ruta de bus público al parque"
+],
+"do_not_ask": [
+"el parque no opera transporte interno",
+"al parque solo se llega por tierra",
+"llegar con un tour organizado"
+]
+},
+{
+"entry_id": "access.uton_brisas_transport",
+"label": "transporte de Brisas con UTON",
+"kind": "procedure",
+"key_facts": [
+"En Brisas–Kumanday el operador autorizado por Parques Nacionales es la concesión Unión Temporal Operación Nevados (UTON).",
+"UTON gestiona directamente reservas, ingreso, guianza, transporte y tienda.",
+"El sitio web de UTON es https://www.operacionnevados.co.",
+"Conviene confirmar con UTON las restricciones de circulación de noviembre de 2026.",
+"Si se entra a Brisas en noviembre, un fin de semana o puente, hay que revisar el pico y placa ambiental del Tolima."
+],
+"examples": [
+"en brisas el transporte lo maneja uton o lo pone el parque?",
+"uton es la concesión del norte",
+"operacion nevados organiza el carro"
+],
+"do_not_ask": [
+"oficinas de UTON en Manizales",
+"contratar vehículo en Brisas",
+"transporte con operador en otros sectores"
+]
+},
+{
+"entry_id": "access.uton_offices_manizales",
+"label": "oficinas de UTON en Manizales",
+"kind": "fact",
+"key_facts": [
+"Las oficinas de UTON en Manizales están en la carrera 26A #68-44 (barrio Palermo) y en la calle 70 #27-70.",
+"Atienden de lunes a viernes, de 8:00 a. m. a 12:00 m. y de 2:00 p. m. a 5:00 p. m.",
+"Los celulares de UTON son 321 506 6031 y 322 360 3637.",
+"Estos datos pueden cambiar, así que conviene confirmarlos antes de ir."
+],
+"examples": [
+"dónde queda la oficina de uton",
+"dirección de la concesión en manizales",
+"carrera 26a 68-44 es de uton"
+],
+"do_not_ask": [
+"transporte de Brisas con UTON",
+"correo del parque para la visita",
+"parque o concesión, a quién escribir"
+]
+},
+{
+"entry_id": "access.park_email_routes",
+"label": "correo del parque para la visita",
+"kind": "fact",
+"key_facts": [
+"El correo publicado del área protegida para dudas de la visita es nevados@parquesnacionales.gov.co.",
+"Ese correo no es el de la concesión UTON.",
+"Si el mensaje rebota, hay que revisar la página oficial.",
+"El Parque invita a escribirle por correo para saber más sobre la visita al área protegida."
+],
+"examples": [
+"correo del parque los nevados",
+"nevados@parquesnacionales.gov.co",
+"a qué mail escribo por la vía"
+],
+"do_not_ask": [
+"parque o concesión, a quién escribir",
+"confirmar el estado de la vía",
+"oficinas de UTON en Manizales"
+]
+},
+{
+"entry_id": "access.park_or_concession_contact",
+"label": "parque o concesión, a quién escribir",
+"kind": "procedure",
+"key_facts": [
+"Para Brisas, el ingreso y el transporte se coordinan con UTON.",
+"En los demás sectores, el ingreso y el transporte se coordinan con un operador registrado.",
+"El correo nevados@parquesnacionales.gov.co es del parque, no de UTON."
+],
+"examples": [
+"escribo a uton o al parque",
+"¿con quién hablo pa' Brisas, UTON o el parque?",
+"los otros sectores no son uton"
+],
+"do_not_ask": [
+"correo del parque para la visita",
+"transporte de Brisas con UTON",
+"horarios del pico y placa ambiental Murillo"
+]
+},
+{
+"entry_id": "access.stay_on_official_gate",
+"label": "usar la portería publicada",
+"kind": "rule",
+"key_facts": [
+"Se entra solo por la portería publicada del sector que se visita y ahí mismo se hace el registro.",
+"Un trazo en un mapa no es una entrada verificada.",
+"Brisas, Potosí y Santa Bárbara, El Cedral, Cocora, Juntas y Palomar no se intercambian entre sí.",
+"No se debe tomar un atajo que no esté publicado."
+],
+"examples": [
+"¿me puedo meter por un hueco que vi en el mapa?",
+"¿hay atajo sin caseta pa' subir más rápido?",
+"entro por donde salen los de la vereda"
+],
+"do_not_ask": [
+"centro de visitantes Brisas",
+"el circuito interno no es un paseo",
+"corredor vial La Esperanza Murillo"
+]
+},
+{
+"entry_id": "access.ignore_single_kilometer",
+"label": "no fiarse de un solo kilómetro",
+"kind": "explanation",
+"key_facts": [
+"No hay que guiarse por un solo poste kilométrico, sino por los nombres del recorrido.",
+"Los nombres que se repiten sobre la vía Manizales–Bogotá son La Esperanza, El Ocho, Murillo y Brisas.",
+"Las cifras publicadas de kilómetros no coinciden, así que conviene confirmarlas con el operador antes de salir.",
+"La guía en inglés de abril de 2016 pone el giro en el kilómetro 23 de La Esperanza.",
+"La guía en inglés de abril de 2016 pone 14 km desde el giro hasta el cruce de Murillo.",
+"La reglamentación transitoria de diciembre de 2023 ubica el desvío en el kilómetro 45, en La Esperanza o El Ocho.",
+"La reglamentación transitoria de diciembre de 2023 pone 1 km entre el cruce de Murillo y Brisas.",
+"El Servicio Geológico, en una página sin fecha de publicación visible, habla de unos 18 km por la vía La Esperanza–Murillo antes del desvío.",
+"La página actual del parque nombra el corredor y no publica un poste kilométrico."
+],
+"examples": [
+"en qué kilómetro me desvío",
+"¿me desvío en el poste 23 o en el 45?",
+"cuantos kilometros hay antes de brisas"
+],
+"do_not_ask": [
+"corredor vial La Esperanza Murillo",
+"cómo llegar desde Manizales",
+"horarios del pico y placa ambiental Murillo"
+]
+},
+{
+"entry_id": "access.manizales_brisas_distance",
+"label": "distancia Manizales hasta Brisas",
+"kind": "fact",
+"key_facts": [
+"No hay kilometraje vigente publicado por carretera de Manizales a Brisas.",
+"La distancia en línea recta al volcán no sirve como recorrido por carretera.",
+"Se deben confirmar con UTON las restricciones de circulación de noviembre de 2026.",
+"La reglamentación transitoria de diciembre de 2023 anota 40 km para Manizales–La Esperanza–cabaña Brisas.",
+"El Servicio Geológico indica 28 km al sureste de Manizales como posición del volcán, en una página sin fecha de publicación visible.",
+"Los 40 km y los 28 km no son la misma medida, y la página actual no repite los 40 km."
+],
+"examples": [
+"cuántos kilómetros de manizales a brisas",
+"¿cuántos kilómetros son de Manizales pa' Brisas?",
+"¿los 28 km al volcán son la carretera a Brisas?"
+],
+"do_not_ask": [
+"cómo llegar desde Manizales",
+"ruta alterna por La Enea",
+"no fiarse de un solo kilómetro"
+]
+},
+{
+"entry_id": "access.from_bogota",
+"label": "cómo llegar desde Bogotá",
+"kind": "procedure",
+"key_facts": [
+"Desde Bogotá no hay una portería propia.",
+"Para Brisas se sigue la vía Bogotá–Manizales por Letras y se gira al corredor La Esperanza–Murillo.",
+"Para Brisas no hace falta cruzar la ciudad de Manizales.",
+"Para el Cisne, el Otún o el Tolima se usa la puerta de ese sector, sin desviarse a Manizales.",
+"Cocora, Juntas, Palomar, Pereira, Villamaría y Santa Rosa son otras puertas.",
+"Esa distancia del volcán es su posición, no los kilómetros de carretera hasta una portería.",
+"Desde Salento (Quindío) se llega por la vereda Cocora, a 14 km del límite del Parque.",
+"En noviembre, en fines de semana y puentes, rige para Brisas el pico y placa ambiental del Tolima, Resolución 1815 del 24 de julio de 2026, de 5:00 a. m. a 4:00 p. m."
+],
+"examples": [
+"cómo llego desde bogotá al parque",
+"salgo de bogotá, por cuál puerta",
+"¿la ruta de Bogotá pa' Manizales pasa por Letras?"
+],
+"do_not_ask": [
+"carretera Manizales Bogotá por Letras",
+"desde Ibagué hay varias entradas",
+"horarios del pico y placa ambiental Murillo"
+]
+},
+{
+"entry_id": "access.from_medellin",
+"label": "cómo llegar desde Medellín",
+"kind": "procedure",
+"key_facts": [
+"Desde Medellín no hay una ruta oficial completa publicada.",
+"Para Brisas se va por Letras y La Esperanza.",
+"Para el Cisne se va por Villamaría o Santa Rosa.",
+"Para el Otún se va por Potosí o El Cedral.",
+"Para el sur se va por Cocora, Juntas o Palomar.",
+"El traslado hasta el sector elegido se coordina con el operador.",
+"Quien vaya a Brisas debe confirmar las restricciones de noviembre de 2026."
+],
+"examples": [
+"cómo llego desde medellín",
+"¿hay vía oficial de Medellín pal parque?",
+"salgo de medellín, cuál portería"
+],
+"do_not_ask": [
+"cómo llegar desde Manizales",
+"desde Pereira hay que elegir puerta",
+"al parque solo se llega por tierra"
+]
+},
+{
+"entry_id": "access.no_official_travel_time",
+"label": "sin tiempo oficial de viaje",
+"kind": "fact",
+"key_facts": [
+"En la ficha oficial consultada el 22/11/2026 no se publica un tiempo de recorrido por sector.",
+"La duración estimada se consulta directamente con el operador o guía registrado.",
+"El recorrido en Brisas continúa en vehículo por la zona de Arenales hasta el Valle del Silencio o Valle de las Tumbas."
+],
+"examples": [
+"cuánto me demoro en carro",
+"hay un tiempo de viaje oficial desde manizales hasta brisas o nadie lo publica?",
+"cuanto es la caminata a la laguna"
+],
+"do_not_ask": [
+"distancia y tiempo desde El Cedral",
+"confirmar el estado de la vía",
+"horarios del pico y placa ambiental Murillo"
+]
+},
+{
+"entry_id": "access.from_villamaria",
+"label": "cómo llegar desde Villamaría",
+"kind": "procedure",
+"key_facts": [
+"Desde Villamaría se sale por las veredas El Páramo o Potosí.",
+"Esas vías llegan a la cabaña Potosí y al alto de Santa Bárbara.",
+"Las vías de Villamaría y de Santa Rosa son carreteras terciarias destapadas del sector Cisne–Poleka Kasue.",
+"No se debe tomar el corredor de Brisas.",
+"Se recomienda planear y reservar el viaje con anticipación y con prestadores autorizados."
+],
+"examples": [
+"cómo llego desde villamaria",
+"¿de Villamaría pa' Potosí, cuál vereda?",
+"la via del cisne sale de villamaria"
+],
+"do_not_ask": [
+"Villamaría no es la vía de Brisas",
+"cabaña Potosí como control",
+"vías destapadas hacia el Cisne"
+]
+},
+{
+"entry_id": "access.villamaria_not_brisas_road",
+"label": "Villamaría no es la vía de Brisas",
+"kind": "explanation",
+"key_facts": [
+"Villamaría lleva al Cisne, por El Páramo o Potosí, hasta Potosí y Santa Bárbara.",
+"Para Brisas se usa el corredor La Esperanza–Murillo, desde Manizales o Murillo, no las veredas de Villamaría.",
+"La vía de Villamaría va al sector del Cisne y de Santa Isabel, no a Brisas."
+],
+"examples": [
+"¿de Villamaría uno llega a Brisas?",
+"por villamaria llego al ruiz en carro",
+"la via de villamaria es la del norte"
+],
+"do_not_ask": [
+"cómo llegar desde Villamaría",
+"cómo llegar desde Manizales",
+"el circuito interno no es un paseo"
+]
+},
+{
+"entry_id": "access.la_cueva_on_the_road",
+"label": "La Cueva en la vía del Cisne",
+"kind": "fact",
+"key_facts": [
+"La Cueva es una cabaña del sector Cisne, sobre la vía de Villamaría hacia Santa Bárbara.",
+"Desde La Cueva y desde Potosí también se llega al centro El Cisne.",
+"La Cueva no es una portería de Brisas.",
+"Potosí y Santa Bárbara son los controles que nombra la guía de cómo llegar.",
+"La reglamentación transitoria de diciembre de 2023 describe el ingreso desde Villamaría hasta La Cueva–Santa Bárbara, o por La Telaraña–Hortensias–Potosí.",
+"La página actual no repite los kilómetros de esa tabla."
+],
+"examples": [
+"la cueva queda de camino",
+"cabaña la cueva es control",
+"¿paso por La Cueva pa' Santa Bárbara?"
+],
+"do_not_ask": [
+"cómo llegar desde Villamaría",
+"alto de Santa Bárbara",
+"cómo llegar al centro El Cisne"
+]
+}
+]
+}

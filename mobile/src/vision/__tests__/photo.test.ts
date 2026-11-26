@@ -1,3 +1,5 @@
+import { toChatRows } from '@/state/knowledgeRows';
+import { replyDoc } from '@/ui/chat/markdown';
 import classes from '@/../assets/vision/classes.json';
 import references from '@/../assets/vision/index.json';
 import { degradedKnowledgeEngine } from '@/llm/knowledgeAssets';
@@ -54,8 +56,14 @@ test.each(['', '¿Qué ves aquí?', 'Mira', 'Mírame', 'Míranos en esta foto'])
   const reference = references.find((row) => row.classId === 'persona')!;
   await chat.askPhoto('file:///selfie.jpg', caption, async () => matchPhoto(Float32Array.from(reference.vector)));
   expect(chat.snapshot().rows.at(-1)).toMatchObject({
-    reply: { text: '¡Te identifico a ti pasándola muy bien en nuestro parque!' },
+    keywords: ['una persona', 'una planta, un animal o un paisaje del parque'],
+    reply: { text: 'Parece que hay una persona en la foto. ¿Qué tal si exploramos lo que la rodea? Envíame una foto de una planta, un animal o un paisaje del parque.' },
   });
+  const row = toChatRows(chat.snapshot().rows, 'ERR').at(-1)!;
+  const doc = replyDoc(row.text, row.keywords ?? []);
+  expect(doc.blocks.flatMap((block) => block.spans.filter((span) => span.bold).map((span) => span.text)))
+    .toEqual(['una persona', 'una planta, un animal o un paisaje del parque']);
+  expect(doc.text).not.toContain('**');
   expect(engine.ask).not.toHaveBeenCalled();
 });
 

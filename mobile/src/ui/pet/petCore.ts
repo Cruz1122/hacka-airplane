@@ -1491,3 +1491,9 @@ function accessoryFrame(
 
 /** PET_VIEWBOX with room above the head for an accessory's crown. */
 export const PET_ACCESSORY_VIEWBOX = { x: -162, y: -190, width: 324, height: 400 } as const;
+
+/**
+ * Square portrait crop centred on the Pet's round head and face (-24, -10), ignoring the tail
+ * below while keeping full headroom and side margin for every head accessory inside circular avatars.
+ */
+export const PET_FACE_VIEWBOX = { x: -192, y: -178, width: 336, height: 336 } as const;

@@ -9,7 +9,7 @@ This page reflects the live checkout on 2026-11-25. The Recorrido tab and the `C
 ## Start here
 
 - [`mobile/app/_layout.tsx`](../../../mobile/app/_layout.tsx): `RootLayout` waits for `FONT_FILES`, then renders the root `Stack`.
-- [`mobile/app/(tabs)/_layout.tsx`](../../../mobile/app/(tabs)/_layout.tsx): `TabsLayout` redirects to `/onboarding` through `needsOnboarding` in [`src/state/launchGate.ts`](../../../mobile/src/state/launchGate.ts). The navigator's own tab bar is hidden.
+- [`mobile/app/(tabs)/_layout.tsx`](../../../mobile/app/%28tabs%29/_layout.tsx): `TabsLayout` redirects to `/onboarding` through `needsOnboarding` in [`src/state/launchGate.ts`](../../../mobile/src/state/launchGate.ts). The navigator's own tab bar is hidden.
 - [`mobile/src/ui/AppNavBar.tsx`](../../../mobile/src/ui/AppNavBar.tsx): maps `NavTab` to route names in `ROUTE` and calls `navigation.navigate({ name, merge: true })`, so a switch keeps the tab's params.
 - [`mobile/src/ui/CloudNavBar.tsx`](../../../mobile/src/ui/CloudNavBar.tsx): router-free bar exporting `NavTab` and `NAV_BAR_HEIGHT`. It reports taps through `onSelect`.
 - [`mobile/src/ui/theme/tokens.ts`](../../../mobile/src/ui/theme/tokens.ts): `brand`, `fonts`, `type`, `colors`, `spacing`, and `radius`. [`theme/fonts.ts`](../../../mobile/src/ui/theme/fonts.ts) maps families to TTF files. [`theme.ts`](../../../mobile/src/ui/theme.ts) exports `useColors()`.

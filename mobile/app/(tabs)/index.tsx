@@ -7,7 +7,6 @@ import { ChatView, type ChatModel } from '@/chat/ChatView';
 import { t } from '@/i18n';
 import { toChatRows } from '@/state/knowledgeRows';
 import { useKnowledge } from '@/state/useKnowledge';
-import { AppNavBar } from '@/ui/AppNavBar';
 import { classifyPhoto } from '@/vision/classifyPhoto';
 
 // The onboarding gate lives in the tabs layout (app/(tabs)/_layout.tsx).
@@ -83,7 +82,6 @@ export default function ChatScreen() {
         removePhoto();
         reset();
       }}
-      nav={<AppNavBar active="chat" />}
     />
   );
 }

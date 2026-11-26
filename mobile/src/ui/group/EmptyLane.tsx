@@ -7,7 +7,7 @@ import { Animated, Easing, Platform, StyleSheet, Text, View } from 'react-native
 
 import { t } from '@/i18n';
 
-import type { PetAccessory, PetTint } from '../pet/petCore';
+import { PET_FACE_VIEWBOX, type PetAccessory, type PetTint } from '../pet/petCore';
 import { Pet } from '../pet/Pet';
 import { SecondaryButton } from '../SecondaryButton';
 import { brand, spacing, type } from '../theme/tokens';
@@ -113,10 +113,11 @@ export function EmptyLane({ wears, onCancel }: EmptyLaneProps) {
         <Pulse />
         <View style={styles.circle}>
           <Pet
-            size={CIRCLE * 0.74}
+            size={CIRCLE * 0.9}
             emotion="curious"
             accessory={wears.accessory}
             tint={wears.tint}
+            crop={PET_FACE_VIEWBOX}
             lookAround
           />
         </View>

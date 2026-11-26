@@ -5,6 +5,9 @@ import type { KnowledgeReply } from '@/core/knowledge/types';
 
 import type { KnowledgeRow } from './knowledgeChat';
 
+/** Placeholder attribution attached to smalltalk/editorial catalog entries; not a real source. */
+const EDITORIAL_SOURCE = /^\s*texto editorial del asistente\b/i;
+
 // Only the reply itself: the curated title stays out of the bubble (it read as a pasted heading),
 // and the natural reply already carries the steps that matter.
 function replyText(r: KnowledgeReply): string {
@@ -32,18 +35,22 @@ export function toChatRows(rows: readonly KnowledgeRow[], errorText: string): Ch
           },
         ]
       : [];
-    const sources =
-      reply.type === 'answer' && reply.sources.length
-        ? reply.sources.map((s, i) => ({ id: `${reply.id}#${i}`, ...s }))
-        : undefined;
+    const realSources =
+      reply.type === 'answer'
+        ? reply.sources
+            .filter((s) => !EDITORIAL_SOURCE.test(s.title))
+            .map((s, i) => ({ id: `${reply.id}#${i}`, ...s }))
+        : [];
+    const sources = realSources.length ? realSources : undefined;
     return [
       ...banner,
       {
         id: row.id,
         role: 'assistant',
         text: replyText(reply),
+        ...(row.keywords ? { keywords: row.keywords } : {}),
         ...(reply.type === 'answer' ? { entryId: reply.id } : {}),
-        ...(row.timing ? { latencyMs: Math.round(row.timing.totalMs) } : {}),
+        ...(row.timing ? { latencyMs: Math.max(1, Math.round(row.timing.totalMs)) } : {}),
         ...(sources ? { sources } : {}),
         ...(row.media ? { media: row.media } : {}),
       },

@@ -12,6 +12,7 @@ import { Icon } from '@/ui/icons/Icon';
 import { Pet } from '@/ui/pet/Pet';
 import { PET_PRESET, type PetEmotion, type VoiceState } from '@/ui/pet/petCore';
 import { brand } from '@/ui/theme/tokens';
+import { useAccessibilityTheme } from '@/ui/useAccessibilityTheme';
 import { useReducedMotion } from '@/ui/useReducedMotion';
 
 import { type GazeChannel, useGaze } from './gaze';
@@ -27,6 +28,33 @@ const EMOTION: Record<VoiceState, PetEmotion> = {
   thinking: 'thinking',
   speaking: 'speaking',
 };
+const IDLE_GESTURES: readonly PetEmotion[] = ['curious', 'surprised', 'excited'];
+
+function useIdleEmotion(enabled: boolean): PetEmotion {
+  const [gesture, setGesture] = useState<{ enabled: boolean; emotion: PetEmotion }>({
+    enabled, emotion: 'happy',
+  });
+  if (gesture.enabled !== enabled) setGesture({ enabled, emotion: 'happy' });
+  useEffect(() => {
+    if (!enabled) return;
+    let timer: ReturnType<typeof setTimeout>;
+    let next = Math.floor(Math.random() * IDLE_GESTURES.length);
+    const schedule = () => {
+      timer = setTimeout(() => {
+        setGesture({ enabled, emotion: IDLE_GESTURES[next] ?? 'curious' });
+        next = (next + 1) % IDLE_GESTURES.length;
+        timer = setTimeout(() => {
+          setGesture({ enabled, emotion: 'happy' });
+          schedule();
+        }, 2200);
+      }, 12000 + Math.random() * 10000);
+    };
+    schedule();
+    return () => clearTimeout(timer);
+  }, [enabled]);
+  return enabled && gesture.enabled ? gesture.emotion : 'happy';
+}
+
 // Square window on the Pet with teal room around it, as in the chat mock; the circle cuts the
 // tail below its first curl.
 const b = PET_PRESET.body;
@@ -39,6 +67,7 @@ const TURN_MS = 1100;
 
 /** The loading badge: turns on the native driver; still under reduced motion or out of focus. */
 function LoadingBadge({ spinning }: { spinning: boolean }) {
+  const { palette } = useAccessibilityTheme();
   const [turn] = useState(() => new Animated.Value(0));
   useEffect(() => {
     if (!spinning) return;
@@ -58,13 +87,13 @@ function LoadingBadge({ spinning }: { spinning: boolean }) {
   );
   return (
     <View
-      style={styles.loading}
+      style={[styles.loading, { backgroundColor: palette.card }]}
       accessible
       accessibilityRole="progressbar"
       accessibilityLabel={t.modelLoading}
     >
       <Animated.View style={{ transform: [{ rotate }] }}>
-        <Icon name="refreshCw" size={14} color={brand.primary} strokeWidth={2.5} />
+        <Icon name="refreshCw" size={14} color={palette.primary} strokeWidth={2.5} />
       </Animated.View>
     </View>
   );
@@ -77,6 +106,7 @@ export const PetCircle = memo(function PetCircle({
   voice,
   ready,
   loading = false,
+  hidden = false,
   gaze,
 }: {
   x: number;
@@ -87,34 +117,51 @@ export const PetCircle = memo(function PetCircle({
   ready: boolean;
   /** The spinning arrow while the model loads; the dot wins if both are set. */
   loading?: boolean;
+  /** Hidden while the mist is raised over the header in a long chat. */
+  hidden?: boolean;
   /** While the visitor types, the Pet looks at the last character. */
   gaze?: GazeChannel;
 }) {
+  const { palette } = useAccessibilityTheme();
   const lookAt = useGaze(gaze);
   const focused = useIsFocused();
   const reduced = useReducedMotion();
+  const active = focused && !hidden;
+  const idleEmotion = useIdleEmotion(active && !reduced && voice === 'idle');
   return (
     <View
       style={[styles.root, { left: x - r, top: y - r, width: r * 2, height: r * 2 }]}
       pointerEvents="none"
     >
-      <View style={[styles.clip, { borderRadius: r }]}>
+      <View
+        style={[
+          styles.clip,
+          { borderRadius: r, borderColor: palette.card, backgroundColor: palette.primary },
+        ]}
+      >
         <Pet
           size={r * 2 - RING * 2}
           crop={CROP}
           // The scene's mist colors: the same vapor Pet that rose out of the crater.
           fill={DEFAULT_PALETTE.mist}
           shade={DEFAULT_PALETTE.cloudShade}
-          emotion={EMOTION[voice]}
+          emotion={voice === 'idle' ? idleEmotion : EMOTION[voice]}
           voice={voice}
           audioLevel={voice === 'speaking' ? 0.7 : 0}
           lookAt={lookAt}
-          paused={!focused}
-          lookAround={focused}
+          paused={!active}
+          lookAround={active}
         />
       </View>
-      {ready && <View style={styles.online} />}
-      {loading && !ready && <LoadingBadge spinning={focused && !reduced} />}
+      {ready && (
+        <View
+          style={[
+            styles.online,
+            { borderColor: palette.card, backgroundColor: palette.online },
+          ]}
+        />
+      )}
+      {loading && !ready && <LoadingBadge spinning={active && !reduced} />}
     </View>
   );
 });
