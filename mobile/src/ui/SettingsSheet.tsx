@@ -236,7 +236,6 @@ function SettingsContent({
             >
               <SwitchRow
                 title={copy.verifiedOnly.title}
-                body={copy.verifiedOnly.body}
                 value={verifiedOnly}
                 onToggle={() => setVerifiedOnly(!verifiedOnly)}
                 reduced={reduced}

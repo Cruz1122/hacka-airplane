@@ -65,7 +65,7 @@ export function SwitchRow({
   reduced,
 }: {
   title: string;
-  body: string;
+  body?: string;
   note?: string;
   value: boolean;
   onToggle: () => void;
@@ -102,9 +102,11 @@ export function SwitchRow({
     >
       <View style={styles.switchTexts}>
         <Text style={[styles.sectionTitle, scaled.label, { color: palette.ink }]}>{title}</Text>
-        <Text style={[styles.sectionBody, scaled.caption, { color: palette.inkMuted }]}>
-          {body}
-        </Text>
+        {body ? (
+          <Text style={[styles.sectionBody, scaled.caption, { color: palette.inkMuted }]}>
+            {body}
+          </Text>
+        ) : null}
         {note ? (
           <Text style={[styles.note, scaled.caption, { color: palette.primary }]}>{note}</Text>
         ) : null}

@@ -411,8 +411,7 @@ export const es = {
     back: 'Volver a configuración',
     // The knowledge chat's verified-only switch (src/state/verifiedOnly.ts).
     verifiedOnly: {
-      title: 'Solo información verificada por UTON',
-      body: 'El chat responde solo con el guion oficial de la Unión Temporal Operación Nevados (2024).',
+      title: 'Responder SÓLO con información validada',
     },
     savedSources: {
       title: 'Fuentes guardadas',
