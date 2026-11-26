@@ -8,7 +8,8 @@ import { NAV_BAR_HEIGHT } from '@/ui/CloudNavBar';
 import { brand, spacing } from '@/ui/theme/tokens';
 import { useAccessibilityTheme } from '@/ui/useAccessibilityTheme';
 
-import { STATION_NODES } from './stations';
+import { STATION_NODES, type StationId } from './stations';
+import { StationSheet } from './StationSheet';
 import { markExtent, trailMapHeight, TrailPath } from './TrailPath';
 import { TRAIL_BASE_COLOR } from './TrailTerrain';
 
@@ -75,6 +76,7 @@ export function RecorridoScreen() {
   const window = useWindowDimensions();
   const insets = useSafeAreaInsets();
   const [size, setSize] = useState<{ w: number; h: number } | null>(null);
+  const [open, setOpen] = useState<StationId | null>(null);
   const vw = size?.w ?? window.width;
   const vh = size?.h ?? window.height;
   // The tab navigator draws the cloud bar over the top; the route starts below it.
@@ -95,8 +97,17 @@ export function RecorridoScreen() {
         <View style={[StyleSheet.absoluteFill, { backgroundColor: TRAIL_BASE_COLOR }]} />
       ) : null}
       <View style={[styles.map, { left: frame.x, top: frame.y }]}>
-        <TrailPath width={frame.width} onStationPress={(id) => router.push(`/estacion/${id}`)} />
+        <TrailPath width={frame.width} onStationPress={setOpen} />
       </View>
+      <StationSheet
+        id={open}
+        bottom={insets.bottom}
+        onClose={() => setOpen(null)}
+        onMore={(id) => {
+          setOpen(null);
+          router.push(`/estacion/${id}`);
+        }}
+      />
     </View>
   );
 }
