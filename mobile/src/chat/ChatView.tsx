@@ -1,12 +1,23 @@
 // The chat screen as plain props (app/index.tsx wires it to the assistant), so the design catalog
 // can show every state on web, where the model never loads.
 import { FlashList } from '@shopify/flash-list';
-import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
+import {
+  type RefObject,
+  useCallback,
+  useEffect,
+  useLayoutEffect,
+  useMemo,
+  useRef,
+  useState,
+  useSyncExternalStore,
+} from 'react';
 import {
   Animated,
   Easing,
   Keyboard,
   type LayoutChangeEvent,
+  type NativeScrollEvent,
+  type NativeSyntheticEvent,
   Platform,
   StyleSheet,
   Text,
@@ -18,10 +29,12 @@ import Svg, { Defs, LinearGradient, Rect, Stop } from 'react-native-svg';
 
 import type { StepResult } from '@/core/driver';
 import { fill, t } from '@/i18n';
-import { ChatBubble } from '@/ui/chat/ChatBubble';
+import { ChatBubble, markEntered } from '@/ui/chat/ChatBubble';
 import type { ChatSource } from '@/ui/chat/citations';
 import { ChatComposer, DOCK } from '@/ui/chat/ChatComposer';
 import { ChatMenu } from '@/ui/chat/ChatMenu';
+import { keywordsFor } from '@/ui/chat/keywords';
+import { replyReveal } from '@/ui/chat/reveal';
 import { SourcesSheet } from '@/ui/chat/SourcesSheet';
 import { TypingBubble } from '@/ui/chat/TypingBubble';
 import { DebugPanel } from '@/ui/DebugPanel';
@@ -41,6 +54,8 @@ export interface ChatRow {
   role: 'user' | 'assistant';
   /** As written, citation markers included (the bubble hides them). */
   text: string;
+  /** The catalog entry whose `short` this text is; picks the keywords set in bold. */
+  entryId?: string;
   latencyMs?: number;
   /** Validated references of an assistant reply; none means no source button. */
   sources?: ChatSource[];
@@ -95,22 +110,30 @@ function TopFade() {
 }
 
 /**
- * What the Pet is doing: thinking while an answer is worked out, then talking while it arrives
- * (each streamed chunk extends it) and for a moment per character after, as if reading it out.
+ * Rows on screen when the chat mounts show whole and without an entry (read before, or arrived
+ * while it was away); each later assistant row types itself out after the one before it.
  */
-function usePetVoice(messages: ChatRow[], busy: boolean): VoiceState {
+function useReplyReveal(messages: ChatRow[]): ReadonlySet<string> {
+  const [seen] = useState(() => {
+    const ids = new Set(messages.map((m) => m.id));
+    markEntered(ids);
+    return ids;
+  });
+  // Before paint, in data order: a banner always types out before its reply.
+  useLayoutEffect(() => replyReveal.schedule(messages, seen, performance.now()), [messages, seen]);
+  return seen;
+}
+
+/**
+ * What the Pet is doing: thinking while an answer is worked out, then talking while it types
+ * itself out (a reply not scheduled yet counts, unless it was there when the chat mounted).
+ */
+function usePetVoice(messages: ChatRow[], busy: boolean, seen: ReadonlySet<string>): VoiceState {
   const last = messages.at(-1);
-  const length = last?.role === 'assistant' ? last.text.length : 0;
-  const key = length > 0 && last ? `${last.id}:${length}` : null;
-  // The reply (or chunk) the Pet has finished saying; any newer key means it is still talking.
-  const [said, setSaid] = useState<string | null>(null);
-  useEffect(() => {
-    if (!key) return;
-    const ms = Math.min(6000, Math.max(1500, length * 40));
-    const timer = setTimeout(() => setSaid(key), ms);
-    return () => clearTimeout(timer);
-  }, [key, length]);
-  if (key !== null && key !== said) return 'speaking';
+  const id = last?.role === 'assistant' ? last.id : undefined;
+  const read = () => id !== undefined && (replyReveal.revealing(id) ?? !seen.has(id));
+  const talking = useSyncExternalStore(replyReveal.subscribe, read, read);
+  if (talking) return 'speaking';
   return busy ? 'thinking' : 'idle';
 }
 
@@ -167,35 +190,139 @@ export function ChatView(p: ChatViewProps) {
   );
 }
 
-/** Points of keyboard after which the mist is fully raised (the keyboard is never this short). */
-const RAISED_AT = 80;
+/**
+ * Android reports its keyboard with no duration. AOSP's InsetsController runs an IME animation the
+ * app does not drive in 200 ms; the curves (decelerate in, accelerate out) are a guess, not yet
+ * tuned against the A24's keyboard.
+ */
+const KEYBOARD_IN = { duration: 200, easing: Easing.bezier(0, 0, 0.2, 1) };
+const KEYBOARD_OUT = { duration: 200, easing: Easing.bezier(0.4, 0, 1, 1) };
 
 /**
- * The keyboard's occlusion as an animated value, eased in both directions so the composer rises
- * with the keyboard and settles back; the JS driver, because it moves layout (the list's bottom).
+ * Follows the keyboard with transforms on the native driver, so no frame lays anything out: the
+ * composer rises by the whole occlusion, the sheet, circle and conversation by at most `maxRise`.
+ * The list instead gets end padding for the part of it the composer then covers, so its last
+ * row can scroll above the composer.
  */
-function useKeyboardMotion(bottom: number) {
+function useKeyboardMotion(occlusion: number, maxRise: number) {
   const still = useReducedMotion();
-  const [value] = useState(() => new Animated.Value(bottom));
+  const rise = Math.min(occlusion, maxRise);
+  const covered = occlusion - rise;
+  const [composerY] = useState(() => new Animated.Value(-occlusion));
+  const [sheetY] = useState(() => new Animated.Value(-rise));
+  // A closing keyboard's padding stays until the composer is down: dropped at once, the scroll
+  // offset would clamp and the rows would jump down by it in one frame.
+  const [pad, setPad] = useState({ covered, held: 0 });
+  if (pad.covered !== covered) {
+    const held = covered < pad.covered && !still ? Math.max(pad.covered, pad.held) : 0;
+    setPad({ covered, held });
+  }
   useEffect(() => {
-    if (still) return value.setValue(bottom);
-    const anim = Animated.timing(value, {
-      toValue: bottom,
-      duration: 220,
-      easing: Easing.out(Easing.cubic),
-      useNativeDriver: false,
+    if (still) {
+      composerY.setValue(-occlusion);
+      sheetY.setValue(-rise);
+      return;
+    }
+    const curve = occlusion > 0 ? KEYBOARD_IN : KEYBOARD_OUT;
+    const anim = Animated.parallel([
+      Animated.timing(composerY, { toValue: -occlusion, ...curve, useNativeDriver: true }),
+      Animated.timing(sheetY, { toValue: -rise, ...curve, useNativeDriver: true }),
+    ]);
+    anim.start(({ finished }) => {
+      if (finished) setPad((p) => (p.held ? { ...p, held: 0 } : p));
     });
-    anim.start();
     return () => anim.stop();
-  }, [bottom, still, value]);
-  return value;
+  }, [occlusion, rise, still, composerY, sheetY]);
+  return {
+    composerY,
+    sheetY,
+    listPad: Math.max(pad.covered, pad.held),
+    /** Padding about to go once the keyboard is down (0 when none is). */
+    dropping: Math.max(0, pad.held - pad.covered),
+  };
+}
+
+/** Within this many points of its end the list counts as at the end. */
+const NEAR_END = 24;
+/** How long our own scroll back may report offsets moving up (Android smooth scroll: 250 ms). */
+const OWN_SCROLL_MS = 400;
+
+type ListRef = RefObject<React.ComponentRef<typeof FlashList<ChatRow>> | null>;
+
+/**
+ * Keeps the newest row in view while the reader is at the end, with one scroll per frame however
+ * often the content grows: while a reply types out each new line jumps into view, as an animated
+ * scroll per line would stack. Reading back (dragging, or the offset moving up away from the end)
+ * stops it until the reader is near the end again or sends a message.
+ */
+function useListFollow(list: ListRef) {
+  const following = useRef(true);
+  const dragging = useRef(false);
+  const scroll = useRef({ offset: 0, gap: 0, ownUntil: -Infinity });
+  const frame = useRef<number | null>(null);
+  useEffect(
+    () => () => {
+      if (frame.current !== null) cancelAnimationFrame(frame.current);
+    },
+    [],
+  );
+  const toEnd = useCallback(() => {
+    if (!following.current || dragging.current || frame.current !== null) return;
+    frame.current = requestAnimationFrame(() => {
+      frame.current = null;
+      // Re-checked: the reader may have scrolled up between the request and this frame.
+      if (following.current && !dragging.current) {
+        list.current?.scrollToEnd({ animated: !replyReveal.busy() });
+      }
+    });
+  }, [list]);
+  return useMemo(
+    () => ({
+      toEnd,
+      /** The reader's own message: follow it whatever they were reading. */
+      rearm: () => {
+        following.current = true;
+      },
+      /**
+       * End padding of `px` is about to go. At the end, scroll back by it now, so the rows move
+       * down with the composer instead of dropping when the padding goes and the offset clamps.
+       */
+      release: (px: number) => {
+        const s = scroll.current;
+        if (!following.current || s.offset <= 0) return;
+        s.ownUntil = performance.now() + OWN_SCROLL_MS;
+        list.current?.scrollToOffset({ offset: Math.max(0, s.offset - px), animated: true });
+      },
+      onScroll: (e: NativeSyntheticEvent<NativeScrollEvent>) => {
+        const { contentOffset, contentSize, layoutMeasurement } = e.nativeEvent;
+        const s = scroll.current;
+        const offset = contentOffset.y;
+        s.gap = contentSize.height - layoutMeasurement.height - offset;
+        if (s.gap <= NEAR_END) {
+          following.current = true;
+        } else if (offset < s.offset - 1 && performance.now() > s.ownUntil) {
+          // Moving up, and not by our own scroll back: web has no drag events for a wheel.
+          following.current = false;
+        }
+        s.offset = offset;
+      },
+      onScrollBeginDrag: () => {
+        dragging.current = true;
+      },
+      // A drag that left the list away from its end is reading back; one that moved nothing is not.
+      onScrollEndDrag: () => {
+        dragging.current = false;
+        if (scroll.current.gap > NEAR_END) following.current = false;
+      },
+    }),
+    [list, toEnd],
+  );
 }
 
 function ChatContent(p: ChatViewProps & { width: number; tall: number; viewBottom: number }) {
   const { tall } = p;
   const insets = useSafeAreaInsets();
   const keyboard = useChatKeyboard(p.viewBottom);
-  const occluded = useKeyboardMotion(keyboard.bottom);
   const [gaze] = useState(() => new GazeChannel());
   const layout = useMemo(
     () => chatLayout(headerScene, p.width, tall, { top: insets.top, bottom: insets.bottom }),
@@ -214,6 +341,9 @@ function ChatContent(p: ChatViewProps & { width: number; tall: number; viewBotto
       <ChatBubble
         role={item.role}
         text={item.text}
+        keywords={keywordsFor(item.entryId)}
+        revealId={item.role === 'assistant' ? item.id : undefined}
+        entryId={item.id}
         sources={item.sources}
         onOpenSources={openSheet}
         meta={
@@ -226,25 +356,47 @@ function ChatContent(p: ChatViewProps & { width: number; tall: number; viewBotto
     [openSheet],
   );
   const list = useRef<React.ComponentRef<typeof FlashList<ChatRow>>>(null);
-  const toEnd = useCallback(() => list.current?.scrollToEnd({ animated: true }), []);
-  const voice = usePetVoice(p.messages, p.busy);
+  const follow = useListFollow(list);
+  // Keyboard open: the mist, the circle and the conversation rise over the ranges together.
+  const motion = useKeyboardMotion(keyboard.bottom, layout.keyboardLift);
+  const { release, toEnd } = follow;
+  useEffect(() => {
+    if (motion.dropping > 0) release(motion.dropping);
+  }, [motion.dropping, release]);
+  // The end padding moved the end (a web ScrollView reports no content size change for padding).
+  useEffect(toEnd, [motion.listPad, toEnd]);
+  const listContent = useMemo(
+    () => [styles.listContent, { paddingBottom: motion.listPad }],
+    [motion.listPad],
+  );
+  const { onSend } = p;
+  const send = useCallback(
+    (text: string) => {
+      follow.rearm();
+      onSend(text);
+    },
+    [follow, onSend],
+  );
+  const seen = useReplyReveal(p.messages);
+  const voice = usePetVoice(p.messages, p.busy, seen);
+  const still = useReducedMotion();
   const [shown] = useState(() => new Animated.Value(p.fadeIn ? 0 : 1));
   useEffect(() => {
     if (!p.fadeIn) return;
-    const anim = Animated.timing(shown, { toValue: 1, duration: 280, useNativeDriver: true });
+    if (still) return shown.setValue(1);
+    const anim = Animated.timing(shown, {
+      toValue: 1,
+      duration: 280,
+      easing: Easing.out(Easing.quad),
+      useNativeDriver: true,
+    });
     anim.start();
     return () => anim.stop();
-  }, [p.fadeIn, shown]);
+  }, [p.fadeIn, shown, still]);
   const status = statusText(p.model);
   const ready = p.model.status === 'ready';
   // The docked composer's base strip covers the home indicator, so the sheet needs no padding.
   const floor = keyboard.open ? DOCK.floor : Math.max(insets.bottom, DOCK.floor);
-  // Keyboard open: the mist, the circle and the conversation rise over the ranges together.
-  const rise = occluded.interpolate({
-    inputRange: [0, RAISED_AT],
-    outputRange: [0, -layout.keyboardLift],
-    extrapolate: 'clamp',
-  });
   return (
     <>
       <ChatBackdrop
@@ -252,10 +404,10 @@ function ChatContent(p: ChatViewProps & { width: number; tall: number; viewBotto
         height={tall}
         layout={layout}
         time={p.sceneTime}
-        rise={rise}
+        rise={motion.sheetY}
       />
       <Animated.View
-        style={[StyleSheet.absoluteFill, { transform: [{ translateY: rise }] }]}
+        style={[StyleSheet.absoluteFill, { transform: [{ translateY: motion.sheetY }] }]}
         pointerEvents="none"
       >
         <PetCircle
@@ -268,58 +420,66 @@ function ChatContent(p: ChatViewProps & { width: number; tall: number; viewBotto
         />
       </Animated.View>
       <Animated.View style={[StyleSheet.absoluteFill, { opacity: shown }]} pointerEvents="box-none">
-        <Animated.View
-          style={[styles.body, { top: Animated.add(layout.listTop, rise), bottom: occluded }]}
-        >
-          {status && (
-            <View style={styles.column}>
-              <Text style={styles.status} numberOfLines={3}>
-                {status}
-              </Text>
-            </View>
-          )}
-          <View style={[styles.column, styles.list]}>
-            <FlashList
-              ref={list}
-              data={p.messages}
-              renderItem={renderItem}
-              keyExtractor={keyExtractor}
-              ListHeaderComponent={greeting}
-              ListFooterComponent={
-                p.busy ? (
-                  <TypingBubble
-                    label={fill(t.chatScreen.typing, { pet: PET_NAME })}
-                    detail={debug ? p.draft || t.thinking : undefined}
-                  />
-                ) : null
-              }
-              onContentSizeChange={toEnd}
-              keyboardShouldPersistTaps="handled"
-              contentContainerStyle={styles.listContent}
-            />
-            <TopFade />
-          </View>
-          {debug && (
-            <View style={styles.column}>
-              <DebugPanel steps={p.steps} state={p.state} />
-            </View>
-          )}
-          <View>
-            {/* Past the reading column the base strip still runs along the whole bottom edge. */}
-            <View style={[styles.dockBase, { height: floor + 1 }]} />
-            <View style={styles.column}>
-              <ChatComposer
-                variant="docked"
-                floor={floor}
-                disabled={p.busy || !ready}
-                placeholder={t.inputPlaceholder}
-                sendLabel={t.send}
-                onSend={p.onSend}
-                onCaret={gaze.set}
+        <View style={[styles.body, { top: layout.listTop }]}>
+          <Animated.View
+            style={[styles.conversation, { transform: [{ translateY: motion.sheetY }] }]}
+          >
+            {status && (
+              <View style={styles.column}>
+                <Text style={styles.status} numberOfLines={3}>
+                  {status}
+                </Text>
+              </View>
+            )}
+            <View style={[styles.column, styles.list]}>
+              <FlashList
+                ref={list}
+                data={p.messages}
+                renderItem={renderItem}
+                keyExtractor={keyExtractor}
+                ListHeaderComponent={greeting}
+                ListFooterComponent={
+                  p.busy ? (
+                    <TypingBubble
+                      label={fill(t.chatScreen.typing, { pet: PET_NAME })}
+                      detail={debug ? p.draft || t.thinking : undefined}
+                    />
+                  ) : null
+                }
+                onContentSizeChange={follow.toEnd}
+                onScroll={follow.onScroll}
+                onScrollBeginDrag={follow.onScrollBeginDrag}
+                onScrollEndDrag={follow.onScrollEndDrag}
+                keyboardShouldPersistTaps="handled"
+                contentContainerStyle={listContent}
               />
+              <TopFade />
             </View>
-          </View>
-        </Animated.View>
+          </Animated.View>
+          <Animated.View style={{ transform: [{ translateY: motion.composerY }] }}>
+            {debug && (
+              <View style={styles.column}>
+                <DebugPanel steps={p.steps} state={p.state} />
+              </View>
+            )}
+            <View>
+              {/* Past the reading column the base strip still runs along the whole bottom edge,
+                  and a screen further down, so no row shows under the composer as it rises. */}
+              <View style={[styles.dockBase, { height: floor + 1 + tall, bottom: -tall }]} />
+              <View style={styles.column}>
+                <ChatComposer
+                  variant="docked"
+                  floor={floor}
+                  disabled={p.busy || !ready}
+                  placeholder={t.inputPlaceholder}
+                  sendLabel={t.send}
+                  onSend={send}
+                  onCaret={gaze.set}
+                />
+              </View>
+            </View>
+          </Animated.View>
+        </View>
         <ChatMenu
           label={t.chatScreen.more}
           top={insets.top + 10}
@@ -346,13 +506,8 @@ const styles = StyleSheet.create({
   // Tablets keep a phone-like reading column under the wide header.
   column: { width: '100%', maxWidth: MAX_COLUMN, alignSelf: 'center' },
   list: { flex: 1 },
-  dockBase: {
-    position: 'absolute',
-    left: 0,
-    right: 0,
-    bottom: 0,
-    backgroundColor: brand.cardShade,
-  },
+  conversation: { flex: 1 },
+  dockBase: { position: 'absolute', left: 0, right: 0, backgroundColor: brand.cardShade },
   listContent: { paddingTop: 10 },
   fade: { position: 'absolute', top: 0, left: 0, right: 0, height: 22 },
   status: {

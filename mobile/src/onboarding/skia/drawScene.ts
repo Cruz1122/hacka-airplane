@@ -26,6 +26,7 @@ import {
 
 import { craterOf, resolveColor, ventOf, volcanoOf } from '../scene/doc';
 import {
+  affineValues,
   cloudPuffs,
   craterPaths,
   flowerPetals,
@@ -33,7 +34,7 @@ import {
   frailejonShape,
   lupineShape,
   mistPuffs,
-  parallaxMatrix,
+  parallaxAffine,
   ridgeGrass,
   ridgePath,
   ridgeShadePaths,
@@ -41,16 +42,24 @@ import {
   sceneViewBox,
   snowPaths,
   steamPuffs,
-  transformMatrix,
+  transformValues,
   tuftBlades,
   volcanoErosion,
   volcanoPath,
   volcanoShadeAxis,
   volcanoShadePath,
 } from '../scene/geometry';
-import type { Body, Color, CraterBody, SceneDoc, SceneObject, VolcanoBody } from '../scene/types';
+import type {
+  Body,
+  Color,
+  CraterBody,
+  SceneDoc,
+  SceneObject,
+  Transform,
+  VolcanoBody,
+} from '../scene/types';
 import { skColor, svgPath, toSkMatrix } from '@/ui/skia/primitives';
-import { multiply, parseTransform, type Mat } from '@/ui/skia/svgTransform';
+import { multiply, type Mat } from '@/ui/skia/svgTransform';
 
 // ---------------------------------------------------------------- primitives
 
@@ -488,6 +497,9 @@ interface CacheKey {
   picture: SkPicture;
 }
 
+// Bodies and the Pet live around their own origin, with negative coordinates; the recorder's
+// default cull rect is (0, 0, 2e6, 2e6), and a picture whose cull rect misses the clip is skipped
+// whole.
 const BODY_BOUNDS = Skia.XYWHRect(-1e5, -1e5, 2e5, 2e5);
 
 // Keyed by body: idle motions and tracks give objects new transforms but keep their bodies.
@@ -507,12 +519,9 @@ export function bodyPicture(
     hit.strokeWidth === o.strokeWidth
   )
     return hit.picture;
-  const recorder = Skia.PictureRecorder();
-  // Bodies live around their own origin, with negative coordinates; the recorder's default cull
-  // rect is (0, 0, 2e6, 2e6), and a picture whose cull rect misses the clip is skipped whole.
-  const canvas = recorder.beginRecording(BODY_BOUNDS);
-  drawBody(canvas, o.body, { ...ctx, stroke: o.stroke, strokeWidth: o.strokeWidth });
-  const picture = recorder.finishRecordingAsPicture();
+  const picture = recordPicture((canvas) =>
+    drawBody(canvas, o.body, { ...ctx, stroke: o.stroke, strokeWidth: o.strokeWidth }),
+  );
   pictures.set(o.body, { ...ctx, stroke: o.stroke, strokeWidth: o.strokeWidth, picture });
   return picture;
 }
@@ -538,25 +547,49 @@ export interface Frame {
   }[];
 }
 
+// Keyed by transform: an object keeps its transform object until a track or an idle motion moves
+// it, so a frame computes the matrices of moving objects only.
+const transformMats = new WeakMap<Transform, Mat>();
+
+function transformMat(t: Transform): Mat {
+  let m = transformMats.get(t);
+  if (!m) {
+    m = transformValues(t);
+    transformMats.set(t, m);
+  }
+  return m;
+}
+
 /**
  * Lays out one frame of `doc` for a w x h canvas: the matrix and picture of every visible object,
- * in draw order. Pure apart from the picture cache, so it can run on every frame.
+ * in draw order. Pure apart from the picture and matrix caches, so it can run on every frame.
+ * Matrices carry the same rounded values as the SVG renderer's transform strings.
  */
 export function layoutFrame(doc: SceneDoc, w: number, h: number): Frame {
   const vb = sceneViewBox(w, h);
   const s = w / vb.width;
   const view: Mat = [s, 0, 0, s, -vb.x * s, -vb.y * s];
   const layers: Frame['layers'] = [];
+  // One camera matrix per depth and frame, shared by every object at that depth.
+  const cameras = new Map<number, Mat>();
+  const cameraAt = (depth: number) => {
+    let m = cameras.get(depth);
+    if (!m) {
+      m = affineValues(parallaxAffine(doc.camera, depth));
+      cameras.set(depth, m);
+    }
+    return m;
+  };
   for (const layer of doc.layers) {
     if (!layer.visible || layer.id === 'uiOverlay') continue;
     const items: Frame['layers'][number]['items'] = [];
     for (const o of layer.objects) {
       const host = volcanoOf(doc, o.body);
       const depth = host ? host.layer.parallax : layer.parallax;
-      let m = parseTransform(parallaxMatrix(doc.camera, depth));
+      let m = cameraAt(depth);
       let crater: CraterBody | null = null;
       if (host) {
-        m = multiply(m, parseTransform(transformMatrix(host.object.transform)));
+        m = multiply(m, transformMat(host.object.transform));
         if (o.body.kind === 'steam' || o.body.kind === 'pet')
           crater = craterOf(doc, host.object.id);
         if (o.body.kind === 'pet') {
@@ -564,7 +597,7 @@ export function layoutFrame(doc: SceneDoc, w: number, h: number): Frame {
           m = multiply(m, [1, 0, 0, 1, vent.x, vent.y]);
         }
       }
-      m = multiply(m, parseTransform(transformMatrix(o.transform)));
+      m = multiply(m, transformMat(o.transform));
       const pet = o.body.kind === 'pet';
       items.push({
         matrix: m,
@@ -595,6 +628,25 @@ function halfResBlur(sigma: number) {
   return ImageFilter.MakeMatrixTransform(DOUBLE, FilterMode.Linear, MipmapMode.None, blur);
 }
 
+// The blur a layer used last: rack-focus sigmas hold still between transitions, and each filter is
+// three native objects.
+const blurs = new Map<string, { sigma: number; filter: ReturnType<typeof halfResBlur> }>();
+
+function layerBlur(layerId: string, sigma: number) {
+  const hit = blurs.get(layerId);
+  if (hit?.sigma === sigma) return hit.filter;
+  const filter = halfResBlur(sigma);
+  blurs.set(layerId, { sigma, filter });
+  return filter;
+}
+
+/** Records `draw` (in its own coordinates, any sign) as a picture to replay under a matrix. */
+export function recordPicture(draw: (canvas: SkCanvas) => void): SkPicture {
+  const recorder = Skia.PictureRecorder();
+  draw(recorder.beginRecording(BODY_BOUNDS));
+  return recorder.finishRecordingAsPicture();
+}
+
 /** Replays a laid-out frame; `drawPet` draws the Pet in its own coordinates. */
 export function drawFrame(canvas: SkCanvas, frame: Frame, drawPet: (canvas: SkCanvas) => void) {
   canvas.save();
@@ -608,7 +660,7 @@ export function drawFrame(canvas: SkCanvas, frame: Frame, drawPet: (canvas: SkCa
       // Skia scales a layer's blur by the current matrix, so the sigma stays in scene units here
       // (the view scale is already applied), matching the points the SVG renderer converts to.
       const sigma = layer.blur / frame.view[0];
-      if (blurred) p.setImageFilter(halfResBlur(sigma));
+      if (blurred) p.setImageFilter(layerBlur(layer.id, sigma));
       canvas.saveLayer(p);
     } else canvas.save();
     for (const it of layer.items) {
