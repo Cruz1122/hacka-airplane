@@ -3,9 +3,10 @@
 // `lookAt` point, the pointer on web; otherwise it looks around on its own). Every frame comes from petFrame(), the
 // same function the onboarding scene uses, and is drawn as vapor like the scene's Pet.
 // The loop runs outside React: it hands each drawn frame to the canvas alone (frameLoop.ts), draws
-// slow motion at AMBIENT_HZ, and sleeps when nothing is left to move.
+// slow motion at AMBIENT_HZ, sleeps when nothing is left to move and stops in the background.
 import { useEffect, useId, useMemo, useRef, useState } from 'react';
 import {
+  AppState,
   Dimensions,
   Platform,
   View,
@@ -248,14 +249,23 @@ export function Pet({
       if (!settled) raf = requestAnimationFrame(tick);
     };
     const wake = () => {
-      if (raf) return;
+      if (raf || AppState.currentState === 'background' || AppState.currentState === 'inactive') {
+        return;
+      }
       e.last = 0;
       raf = requestAnimationFrame(tick);
     };
     e.wake = wake;
     wake();
+    // Nobody sees a backgrounded app: stop drawing until it is active again.
+    const app = AppState.addEventListener('change', (state) => {
+      if (state === 'active') return wake();
+      cancelAnimationFrame(raf);
+      raf = 0;
+    });
     return () => {
       cancelAnimationFrame(raf);
+      app.remove();
       e.wake = undefined;
     };
   }, [cfg, paused, reduced, lookAround, frames]);
