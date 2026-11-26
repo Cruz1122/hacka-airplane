@@ -1,7 +1,7 @@
 [project]
 name = "nevados-bench"
 version = "0.1.0"
-description = "Stress benchmark of small language models for an offline park assistant (latency, TPS, function calling, grounding)."
+description = "Python tooling for the Los Nevados offline assistant: knowledge validation and the legacy world/FSM export still read by the mobile settings screen."
 requires-python = ">=3.12"
 dependencies = [
     "httpx>=0.27",
@@ -9,9 +9,6 @@ dependencies = [
     "pydantic>=2.9",
     "pyyaml>=6.0",
 ]
-
-[project.scripts]
-nevados-bench = "nevados_bench.cli:main"
 
 [dependency-groups]
 dev = ["pytest>=8.3", "ruff>=0.8"]
