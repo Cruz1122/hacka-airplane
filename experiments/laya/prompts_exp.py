@@ -64,7 +64,16 @@ def score(instr: str, state_fn, levels: list[str]):
 
 
 QA_STATE = lambda q, e: {"pregunta del visitante": q, "respuesta candidata": e.answer}  # noqa: E731
-QL_STATE = lambda q, e: {"pregunta del visitante": q, "tema": e.label, "respuesta": first_sentence(e.answer)}  # noqa: E731
+
+
+def QL_STATE(q, e):
+    return {
+        "pregunta del visitante": q,
+        "tema": e.label,
+        "respuesta": first_sentence(e.answer),
+    }
+
+
 LEVELS4 = [
     "no tiene relación con la pregunta",
     "es del mismo tema pero no contesta la pregunta",
@@ -75,7 +84,9 @@ LEVELS4 = [
 PER_CANDIDATE = {
     "nli_label": nli(lambda q, e: q, lambda q, e: f"El visitante pregunta sobre {e.label}."),
     "nli_quiere_saber": nli(lambda q, e: q, lambda q, e: f"El visitante quiere saber {e.label}."),
-    "nli_answer_premise": nli(lambda q, e: e.answer, lambda q, e: f"Este texto responde la pregunta «{q}»."),
+    "nli_answer_premise": nli(
+        lambda q, e: e.answer, lambda q, e: f"Este texto responde la pregunta «{q}»."
+    ),
     "nli_qa_pair": nli(
         lambda q, e: f"Pregunta del visitante: {q}\nRespuesta: {e.answer}",
         lambda q, e: "La respuesta contesta lo que pregunta el visitante.",
@@ -92,8 +103,14 @@ PER_CANDIDATE = {
         "trata de otra cosa",
         "trata exactamente de este tema",
     ),
-    "score_answer": score("¿Qué tan bien contesta la respuesta candidata la pregunta del visitante?", QA_STATE, LEVELS4),
-    "score_label": score("¿Qué tan bien corresponde el tema a la pregunta del visitante?", QL_STATE, LEVELS4),
+    "score_answer": score(
+        "¿Qué tan bien contesta la respuesta candidata la pregunta del visitante?",
+        QA_STATE,
+        LEVELS4,
+    ),
+    "score_label": score(
+        "¿Qué tan bien corresponde el tema a la pregunta del visitante?", QL_STATE, LEVELS4
+    ),
 }
 
 
@@ -115,9 +132,11 @@ def cand_score(kind: str, ans: dict) -> float:
         return float(ans["noul"]) if "noul" in ans else float(ans["probabilities"]["true"])
     # score: expected level in [0, 1]
     probs = ans["probabilities"]
-    vals = [float(probs[k]) for k in sorted(probs, key=lambda x: int(x))] if all(
-        str(k).isdigit() for k in probs
-    ) else list(map(float, probs.values()))
+    vals = (
+        [float(probs[k]) for k in sorted(probs, key=lambda x: int(x))]
+        if all(str(k).isdigit() for k in probs)
+        else list(map(float, probs.values()))
+    )
     return float(sum(i * p for i, p in enumerate(vals)) / (len(vals) - 1))
 
 
@@ -132,7 +151,10 @@ def main() -> None:
     e0 = entries[0]
     for name in ("noul_answers", "score_answer"):
         st, qd = PER_CANDIDATE[name]["build"]("hola", e0)
-        print(name, json.dumps(agent.system_one(st, {"x": qd})["answers"]["x"], ensure_ascii=False)[:300])
+        print(
+            name,
+            json.dumps(agent.system_one(st, {"x": qd})["answers"]["x"], ensure_ascii=False)[:300],
+        )
 
     rows = []
     lat: dict[str, list[float]] = {}
@@ -140,8 +162,13 @@ def main() -> None:
         s = entry_scores(index, v)
         top = list(np.argsort(-s)[:K])
         cands = [entries[i] for i in top]
-        row = {"set": set_name, "q": r["q"], "expected": r["expected"], "pool": [e.id for e in cands],
-               "emb": [float(s[i]) for i in top]}
+        row = {
+            "set": set_name,
+            "q": r["q"],
+            "expected": r["expected"],
+            "pool": [e.id for e in cands],
+            "emb": [float(s[i]) for i in top],
+        }
         for name, spec in PER_CANDIDATE.items():
             # One call per candidate state (states differ), timed as a batch over the pool.
             built = [spec["build"](r["q"], e) for e in cands]
@@ -167,9 +194,13 @@ def main() -> None:
                 row[f"{kind}_k{k}"] = [float(out[e.id]) for e in cands[:k]]
                 row[f"{kind}_k{k}_none"] = float(out["none"])
         rows.append(row)
-    (OUT / "prompt_rows.jsonl").write_text("".join(json.dumps(x, ensure_ascii=False) + "\n" for x in rows))
-    report = {"latency_ms_p50_k5": {k: round(1000 * float(np.median(v)), 1) for k, v in lat.items()},
-              "results": summarize(rows)}
+    (OUT / "prompt_rows.jsonl").write_text(
+        "".join(json.dumps(x, ensure_ascii=False) + "\n" for x in rows)
+    )
+    report = {
+        "latency_ms_p50_k5": {k: round(1000 * float(np.median(v)), 1) for k, v in lat.items()},
+        "results": summarize(rows),
+    }
     (OUT / "prompts.json").write_text(json.dumps(report, ensure_ascii=False, indent=2))
     print_table(report)
 
@@ -182,7 +213,10 @@ def summarize(rows: list[dict]) -> dict:
         variants += [(name, name, None), (name + "+emb", name, "emb")]
     for kind in ("choice_label", "choice_answer"):
         for k in (3, 5):
-            variants += [(f"{kind}_k{k}", f"{kind}_k{k}", None), (f"{kind}_k{k}+emb", f"{kind}_k{k}", "emb")]
+            variants += [
+                (f"{kind}_k{k}", f"{kind}_k{k}", None),
+                (f"{kind}_k{k}+emb", f"{kind}_k{k}", "emb"),
+            ]
     for name, key, add in variants:
         for k in (3, 5):
             if key.startswith("choice") and not key.endswith(f"k{k}"):
@@ -197,7 +231,10 @@ def summarize(rows: list[dict]) -> dict:
             tagged = [dict(r, _p=pick(r), _c=float(max(sc(r)))) for r in rows]
             ab = abstention(tagged, conf=lambda r: r["_c"], pick=lambda r: r["_p"])
             res[f"{name}@k{k}"] = {"top1": top1["rate"], "lo": top1["lo"], "hi": top1["hi"], **ab}
-    ceil = {k: round(np.mean([bool(set(r["pool"][:k]) & set(r["expected"])) for r in para]), 4) for k in (3, 5)}
+    ceil = {
+        k: round(np.mean([bool(set(r["pool"][:k]) & set(r["expected"])) for r in para]), 4)
+        for k in (3, 5)
+    }
     res["_ceiling_correct_in_pool"] = ceil
     return res
 
@@ -209,7 +246,9 @@ def print_table(report: dict) -> None:
         if k.startswith("_"):
             print(k, v)
             continue
-        print(f"{k:34s} {v['top1']:.3f}  {v['auroc_in_vs_out']:.3f}  {v['cv_correct_coverage']:.3f}  {v['cv_wrong_rate']:.3f}")
+        print(
+            f"{k:34s} {v['top1']:.3f}  {v['auroc_in_vs_out']:.3f}  {v['cv_correct_coverage']:.3f}  {v['cv_wrong_rate']:.3f}"
+        )
 
 
 if __name__ == "__main__":

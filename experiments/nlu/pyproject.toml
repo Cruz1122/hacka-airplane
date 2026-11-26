@@ -1,0 +1,23 @@
+[project]
+name = "nevados-nlu"
+version = "0.1.0"
+description = "Experiments: retrieval accuracy for the Los Nevados knowledge assistant (embeddings + data)"
+requires-python = ">=3.12,<3.13"
+dependencies = [
+  "torch>=2.6",
+  "sentence-transformers>=3.0",
+  "transformers>=4.48",
+  "scikit-learn>=1.5",
+  "numpy>=1.26",
+  "datasets>=3.0",
+  "accelerate>=1.0",
+  "onnx>=1.16",
+]
+
+[tool.uv.sources]
+torch = { index = "pytorch-cu126" }
+
+[[tool.uv.index]]
+name = "pytorch-cu126"
+url = "https://download.pytorch.org/whl/cu126"
+explicit = true
