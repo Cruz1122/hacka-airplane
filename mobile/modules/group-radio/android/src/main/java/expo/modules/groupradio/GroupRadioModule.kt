@@ -7,6 +7,7 @@ import android.os.Build
 import android.util.Log
 import androidx.core.content.ContextCompat
 import androidx.core.os.bundleOf
+import expo.modules.kotlin.Promise
 import expo.modules.kotlin.exception.Exceptions
 import expo.modules.kotlin.modules.Module
 import expo.modules.kotlin.modules.ModuleDefinition
@@ -22,10 +23,23 @@ class GroupRadioModule : Module() {
   private val context: Context
     get() = appContext.reactContext ?: throw Exceptions.ReactContextLost()
 
+  private var linkInstance: KnowledgeLink? = null
+  private val link: KnowledgeLink
+    get() = linkInstance ?: KnowledgeLink(
+      context,
+      onOffer = { address, count, session, rssi ->
+        sendEvent(
+          "onShareOffer",
+          bundleOf("address" to address, "count" to count, "session" to session, "rssi" to rssi)
+        )
+      },
+      onSent = { receivers -> sendEvent("onShareSent", bundleOf("receivers" to receivers)) },
+    ).also { linkInstance = it }
+
   override fun definition() = ModuleDefinition {
     Name("GroupRadio")
 
-    Events("onSighting", "onTick", "onNfcCard")
+    Events("onSighting", "onTick", "onNfcCard", "onShareOffer", "onShareSent")
 
     Function("capabilities") {
       val adapter = (context.getSystemService(Context.BLUETOOTH_SERVICE) as BluetoothManager).adapter
@@ -38,7 +52,8 @@ class GroupRadioModule : Module() {
         "running" to GroupRadioService.running,
         "lastError" to GroupRadioService.lastError,
         "nfc" to GroupNfcReader.state(context),
-        "codedPhy" to GroupRadioService.codedPhySupported(adapter)
+        "codedPhy" to GroupRadioService.codedPhySupported(adapter),
+        "knowledgeLink" to KnowledgeLink.supported()
       )
     }
 
@@ -80,6 +95,36 @@ class GroupRadioModule : Module() {
       nfcReader.resume(appContext.currentActivity)
     }
 
+    AsyncFunction("shareStart") { payload: String, count: Int, promise: Promise ->
+      link.share(payload.toByteArray(Charsets.UTF_8), count) { error ->
+        if (error == null) promise.resolve(null) else promise.reject("ERR_SHARE", error, null)
+      }
+    }
+
+    Function("shareStop") {
+      link.stopShare()
+    }
+
+    Function("findShares") {
+      link.find()
+    }
+
+    Function("stopFindShares") {
+      link.stopFind()
+    }
+
+    AsyncFunction("receiveShare") { address: String, promise: Promise ->
+      // The L2CAP read blocks; keep it off the module queue other calls share.
+      Thread({
+        try {
+          promise.resolve(link.receive(address))
+        } catch (e: Exception) {
+          Log.w(GroupRadioService.TAG, "SHARE receive failed: ${e.javaClass.simpleName}: ${e.message}")
+          promise.reject("ERR_RECEIVE", e.message ?: "No se pudo recibir la actualización.", e)
+        }
+      }, "KnowledgeLinkReceive").start()
+    }
+
     Function("log") { message: String ->
       Log.i(GroupRadioService.TAG, "JS $message")
     }
@@ -118,6 +163,7 @@ class GroupRadioModule : Module() {
     }
 
     OnDestroy {
+      linkInstance?.stop()
       // A JS reload must not leave a stale card answering taps or the reader polling.
       GroupNfcCardService.record = null
       nfcReader.stop()

@@ -30,6 +30,7 @@ import Svg, { Defs, LinearGradient, Rect, Stop } from 'react-native-svg';
 import type { MediaPick } from '@/core/media/media';
 import { fill, t } from '@/i18n';
 import { ChatBubble, markEntered } from '@/ui/chat/ChatBubble';
+import { Greeting } from '@/ui/chat/Greeting';
 import type { ChatSource } from '@/ui/chat/citations';
 import { ChatComposer, DOCK } from '@/ui/chat/ChatComposer';
 import { keywordsFor } from '@/ui/chat/keywords';
@@ -87,6 +88,10 @@ export interface ChatViewProps {
   onRemovePhoto?: () => void;
   /** Starts a new conversation. */
   onReset: () => void;
+  /** The knowledge chat waits for a station QR: the greeting asks for it, with `onScan` inside. */
+  locked?: boolean;
+  /** Opens the station QR scanner. */
+  onScan?: () => void;
   /** The cloud navigation bar, drawn over the header and under the sources sheet. */
   nav?: ReactNode;
 }
@@ -102,13 +107,7 @@ const COLLAPSE_MIN_OVERFLOW = 36;
 const MIST_COLLAPSE = { duration: 240, easing: Easing.out(Easing.cubic) };
 const FLASHLIST_DISABLE_MVCP = { disabled: true } as const;
 const keyExtractor = (m: ChatRow) => m.id;
-const greeting = (
-  <ChatBubble
-    role="assistant"
-    text={fill(t.chatScreen.greeting, { pet: PET_NAME })}
-    keywords={t.chatScreen.greetingKeywords.map((keyword) => fill(keyword, { pet: PET_NAME }))}
-  />
-);
+
 
 /** Formats response time without rounding fast offline answers down to "0.0 s". */
 export function formatLatency(ms: number): string {
@@ -348,12 +347,7 @@ function useListFollow(
  * Raises the mist to the bottom limit of the top nav bar during a long scrolled chat and unmounts
  * the mountains once covered; remounts the mountains immediately when scrolling back to the top.
  */
-function useMistCollapse(
-  collapsed: boolean,
-  sheetLift: number,
-  convLift: number,
-  still: boolean,
-) {
+function useMistCollapse(collapsed: boolean, sheetLift: number, convLift: number, still: boolean) {
   const [progress] = useState(() => new Animated.Value(collapsed ? 1 : 0));
   const [phase, setPhase] = useState({
     collapsed,
@@ -435,6 +429,8 @@ function useMistCollapse(
 }
 
 function ChatContent(p: ChatViewProps & { width: number; tall: number; viewBottom: number }) {
+  const { locked, onScan } = p;
+  const greeting = useMemo(() => <Greeting locked={locked} onScan={onScan} />, [locked, onScan]);
   const { tall } = p;
   const insets = useSafeAreaInsets();
   const keyboard = useChatKeyboard(p.viewBottom);
@@ -487,17 +483,17 @@ function ChatContent(p: ChatViewProps & { width: number; tall: number; viewBotto
   const renderItem = useCallback(
     ({ item }: { item: ChatRow }) => (
       <ChatBubble
-        role={item.role}
-        text={item.text}
-        photoUri={item.photoUri}
-        keywords={item.keywords ?? keywordsFor(item.entryId)}
-        revealId={item.role === 'assistant' ? item.id : undefined}
-        entryId={item.id}
-        sources={item.sources}
-        onOpenSources={openSheet}
-        media={item.media}
-        meta={item.latencyMs != null ? formatLatency(item.latencyMs) : undefined}
-      />
+          role={item.role}
+          text={item.text}
+          photoUri={item.photoUri}
+          keywords={item.keywords ?? keywordsFor(item.entryId)}
+          revealId={item.role === 'assistant' ? item.id : undefined}
+          entryId={item.id}
+          sources={item.sources}
+          onOpenSources={openSheet}
+          media={item.media}
+          meta={item.latencyMs != null ? formatLatency(item.latencyMs) : undefined}
+        />
     ),
     [openSheet],
   );

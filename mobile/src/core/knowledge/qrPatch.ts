@@ -206,9 +206,30 @@ function seriesId(packed: string): string {
   return (hash >>> 0).toString(16).padStart(8, '0') + packed.length.toString(16).padStart(8, '0');
 }
 
-export function encodeKnowledgeQrSeries(patches: readonly KnowledgePatch[]): string[] {
+/** The whole update as one compressed text. Bluetooth sends it as is; QR series split it. */
+export function encodeKnowledgeBundle(patches: readonly KnowledgePatch[]): string {
   if (!patches.length) throw new Error('Todavía no hay cambios guardados para compartir.');
-  const payload = packCode(compactJson(patches.map(validateKnowledgePatch)), MAX_SERIES_BYTES);
+  return packCode(compactJson(patches.map(validateKnowledgePatch)), MAX_SERIES_BYTES);
+}
+
+/** Reads a bundle from any transport; the zlib checksum rejects damaged transfers. */
+export function decodeKnowledgeBundle(payload: string): KnowledgePatch[] {
+  let entries: unknown;
+  try {
+    entries = JSON.parse(unpackCode(payload, MAX_SERIES_BYTES));
+  } catch {
+    throw new Error('La actualización está incompleta o dañada.');
+  }
+  if (!Array.isArray(entries) || !entries.length) throw new Error('La actualización no contiene fichas.');
+  const patches = entries.map(validateKnowledgePatch);
+  if (new Set(patches.map(({ id }) => id)).size !== patches.length) {
+    throw new Error('La actualización contiene fichas repetidas.');
+  }
+  return patches;
+}
+
+export function encodeKnowledgeQrSeries(patches: readonly KnowledgePatch[]): string[] {
+  const payload = encodeKnowledgeBundle(patches);
   const total = Math.ceil(payload.length / PART_SIZE);
   if (total > MAX_PARTS) {
     throw new Error('La actualización supera el tamaño de una serie. Comparte las fichas por separado.');
@@ -247,16 +268,5 @@ export function collectKnowledgeQr(
 
   const payload = Array.from({ length: total }, (_, i) => parts.get(i + 1)).join('');
   if (seriesId(payload) !== id) throw new Error('La serie está incompleta o dañada.');
-  let entries: unknown;
-  try {
-    entries = JSON.parse(unpackCode(payload, MAX_SERIES_BYTES));
-  } catch {
-    throw new Error('La serie está incompleta o dañada.');
-  }
-  if (!Array.isArray(entries) || !entries.length) throw new Error('La serie no contiene fichas.');
-  const patches = entries.map(validateKnowledgePatch);
-  if (new Set(patches.map(({ id }) => id)).size !== patches.length) {
-    throw new Error('La serie contiene fichas repetidas.');
-  }
-  return { patches };
+  return { patches: decodeKnowledgeBundle(payload) };
 }

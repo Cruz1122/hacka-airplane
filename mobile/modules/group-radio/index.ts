@@ -15,6 +15,18 @@ export interface RadioCapabilities {
   /** LE Coded PHY + extended advertising: the service adds a long-range coded beacon and scans
    *  both PHYs. False while Bluetooth is off. */
   codedPhy: boolean;
+  /** Android 10+: knowledge updates can travel over an LE L2CAP channel. Absent on older builds. */
+  knowledgeLink?: boolean;
+}
+
+/** A nearby phone offering a knowledge update over Bluetooth. */
+export interface ShareOffer {
+  address: string;
+  /** Entries in the update. */
+  count: number;
+  /** Random per share, so two offers from one phone are told apart. */
+  session: string;
+  rssi: number;
 }
 
 export interface RadioSighting {
@@ -53,11 +65,21 @@ export interface GroupRadioModule {
   /** Polls for a guide's card while this app's activity is in the foreground; emits onNfcCard. */
   startNfcReader(): void;
   stopNfcReader(): void;
+  /** Advertises `payload` (ASCII) and serves it to every receiver until shareStop. */
+  shareStart(payload: string, count: number): Promise<void>;
+  shareStop(): void;
+  /** Starts scanning for offers (onShareOffer); returns an error message or null. */
+  findShares(): string | null;
+  stopFindShares(): void;
+  /** Connects to an offer heard by findShares and returns its payload. */
+  receiveShare(address: string): Promise<string>;
   /** Writes to logcat (tag GroupRadio): Metro is not reachable on an untethered phone. */
   log(message: string): void;
   addListener(event: 'onSighting', listener: (s: RadioSighting) => void): { remove(): void };
   addListener(event: 'onTick', listener: (t: RadioTick) => void): { remove(): void };
   addListener(event: 'onNfcCard', listener: (c: RadioNfcCard) => void): { remove(): void };
+  addListener(event: 'onShareOffer', listener: (o: ShareOffer) => void): { remove(): void };
+  addListener(event: 'onShareSent', listener: (s: { receivers: number }) => void): { remove(): void };
 }
 
 export const GroupRadio = requireOptionalNativeModule<GroupRadioModule>('GroupRadio');

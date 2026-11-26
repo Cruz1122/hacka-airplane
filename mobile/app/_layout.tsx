@@ -26,6 +26,7 @@ export default function RootLayout() {
       <Stack.Screen name="(tabs)" options={{ headerShown: false, animation: 'none' }} />
       <Stack.Screen name="administrar-informacion" options={{ title: t.knowledgeAdmin.heading }} />
       <Stack.Screen name="actualizar" options={{ title: t.qrUpdate.nav }} />
+      <Stack.Screen name="validar" options={{ title: t.parkAccess.validate.nav }} />
       <Stack.Screen name="history" options={{ title: t.history }} />
       <Stack.Screen name="onboarding" options={{ headerShown: false }} />
       <Stack.Screen name="lab" options={{ headerShown: false, title: t.dev.lab }} />

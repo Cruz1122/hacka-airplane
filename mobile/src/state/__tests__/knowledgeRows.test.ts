@@ -24,7 +24,7 @@ describe('toChatRows', () => {
         },
       },
     ];
-    expect(toChatRows(rows, 'ERR')).toEqual([
+    expect(toChatRows(rows, 'ERR', 'LOCK')).toEqual([
       { id: 'k1', role: 'user', text: 'cómo llego desde Manizales' },
       {
         id: 'k2',
@@ -49,7 +49,7 @@ describe('toChatRows', () => {
         },
       },
     ];
-    expect(toChatRows(rows, 'ERR')).toEqual([
+    expect(toChatRows(rows, 'ERR', 'LOCK')).toEqual([
       { id: 'k3:banner', role: 'assistant', text: 'Llama al 123' },
       { id: 'k3', role: 'assistant', text: 'No encontré ese tema.' },
     ]);
@@ -75,7 +75,7 @@ describe('toChatRows', () => {
         },
       },
     ];
-    expect(toChatRows(rows, 'ERR')).toEqual([
+    expect(toChatRows(rows, 'ERR', 'LOCK')).toEqual([
       {
         id: 'k5:banner',
         role: 'assistant',
@@ -119,7 +119,7 @@ describe('toChatRows', () => {
         },
       },
     ];
-    const [banner, reply] = toChatRows(rows, 'ERR');
+    const [banner, reply] = toChatRows(rows, 'ERR', 'LOCK');
     expect(banner.media).toBeUndefined();
     expect(reply.media).toBe(media);
   });
@@ -163,7 +163,7 @@ describe('toChatRows', () => {
         },
       },
     ];
-    const [hello, caps] = toChatRows(rows, 'ERR');
+    const [hello, caps] = toChatRows(rows, 'ERR', 'LOCK');
     expect(hello.sources).toBeUndefined();
     expect(caps.sources).toEqual([
       {
@@ -186,6 +186,7 @@ describe('toChatRows', () => {
     const [banner, verified] = toChatRows(
       [{ id: 'k6', role: 'assistant', reply: { ...reply, verified: true } }],
       'ERR',
+      'LOCK',
     );
     expect(banner).not.toHaveProperty('sources');
     expect(verified.sources).toEqual([
@@ -199,13 +200,20 @@ describe('toChatRows', () => {
     const [, plain] = toChatRows(
       [{ id: 'k7', role: 'assistant', reply: { ...reply, verified: false } }],
       'ERR',
+      'LOCK',
     );
     expect(plain.sources?.[0]).not.toHaveProperty('verified');
   });
 
   it('shows the i18n error text, never the raw error', () => {
-    expect(toChatRows([{ id: 'k4', role: 'assistant', error: 'embedder gone' }], 'ERR')).toEqual([
-      { id: 'k4', role: 'assistant', text: 'ERR' },
+    expect(
+      toChatRows([{ id: 'k4', role: 'assistant', error: 'embedder gone' }], 'ERR', 'LOCK'),
+    ).toEqual([{ id: 'k4', role: 'assistant', text: 'ERR' }]);
+  });
+
+  it('maps the locked row to the i18n text', () => {
+    expect(toChatRows([{ id: 'k8', role: 'assistant', locked: true }], 'ERR', 'LOCK')).toEqual([
+      { id: 'k8', role: 'assistant', text: 'LOCK' },
     ]);
   });
 });

@@ -12,33 +12,46 @@ const parkClasses = Object.entries(classes).flatMap(([id, expected]) =>
   'entryId' in expected ? [{ id, expected }] : [],
 );
 
-test.each(parkClasses)('a $id reference retrieves the corresponding curated answer', async ({ id, expected }) => {
-  const image = references.find((row) => row.classId === id)!;
-  const match = matchPhoto(Float32Array.from(image.vector));
-  expect(match).toEqual(expected);
-  const engine = degradedKnowledgeEngine('text embedder not loaded');
-  const ask = jest.spyOn(engine, 'ask');
-  const chat = new KnowledgeChat(async () => ({ engine }));
-  await chat.askPhoto("file:///foto.jpg", "", async () => match);
-  expect(ask).toHaveBeenCalledWith(`dime que es esto ${expected.label}`, {
-    visualEntryId: expected.entryId,
-    preferCaption: false,
-    verifiedOnly: false,
-  });
-  expect(chat.snapshot().rows.at(-1)).toMatchObject({
-    role: 'assistant',
-    reply: { type: 'answer', id: expected.entryId, text: expect.stringContaining(expected.label) },
-  });
-});
+test.each(parkClasses)(
+  'a $id reference retrieves the corresponding curated answer',
+  async ({ id, expected }) => {
+    const image = references.find((row) => row.classId === id)!;
+    const match = matchPhoto(Float32Array.from(image.vector));
+    expect(match).toEqual(expected);
+    const engine = degradedKnowledgeEngine('text embedder not loaded');
+    const ask = jest.spyOn(engine, 'ask');
+    const chat = new KnowledgeChat(async () => ({ engine }));
+    await chat.askPhoto('file:///foto.jpg', '', async () => match);
+    expect(ask).toHaveBeenCalledWith(`dime que es esto ${expected.label}`, {
+      visualEntryId: expected.entryId,
+      preferCaption: false,
+      verifiedOnly: false,
+    });
+    expect(chat.snapshot().rows.at(-1)).toMatchObject({
+      role: 'assistant',
+      reply: {
+        type: 'answer',
+        id: expected.entryId,
+        text: expect.stringContaining(expected.label),
+      },
+    });
+  },
+);
 
 test('an unrecognizable photo leaves the chat ready without an invented label', async () => {
   const engine = { ask: jest.fn() };
   const chat = new KnowledgeChat(async () => ({ engine }));
-  await chat.askPhoto("file:///foto.jpg", "", async () => matchPhoto(new Float32Array(1024)));
+  await chat.askPhoto('file:///foto.jpg', '', async () => matchPhoto(new Float32Array(1024)));
   expect(engine.ask).not.toHaveBeenCalled();
   expect(chat.snapshot()).toMatchObject({
     busy: false,
-    rows: [expect.anything(), { role: 'assistant', reply: { type: 'abstain', text: expect.stringContaining('guía turístico') } }],
+    rows: [
+      expect.anything(),
+      {
+        role: 'assistant',
+        reply: { type: 'abstain', text: expect.stringContaining('guía turístico') },
+      },
+    ],
   });
 });
 
@@ -54,27 +67,38 @@ test('keeps the real caption and photo visible while passing the inferred class 
     verifiedOnly: false,
   });
   expect(chat.snapshot().rows[0]).toMatchObject({
-    role: 'user', photoUri: 'file:///foto.jpg', text: '¿Qué altura alcanza?',
+    role: 'user',
+    photoUri: 'file:///foto.jpg',
+    text: '¿Qué altura alcanza?',
   });
 });
 
-
-test.each(['', '¿Qué ves aquí?', 'Mira', 'Mírame', 'Míranos en esta foto'])('unlocks the selfie reply only after the visual match for %s', async (caption) => {
-  const engine = { ask: jest.fn() };
-  const chat = new KnowledgeChat(async () => ({ engine }));
-  const reference = references.find((row) => row.classId === 'persona')!;
-  await chat.askPhoto('file:///selfie.jpg', caption, async () => matchPhoto(Float32Array.from(reference.vector)));
-  expect(chat.snapshot().rows.at(-1)).toMatchObject({
-    keywords: ['una persona', 'una planta, un animal o un paisaje del parque'],
-    reply: { text: 'Parece que hay una persona en la foto. ¿Qué tal si exploramos lo que la rodea? Envíame una foto de una planta, un animal o un paisaje del parque.' },
-  });
-  const row = toChatRows(chat.snapshot().rows, 'ERR').at(-1)!;
-  const doc = replyDoc(row.text, row.keywords ?? []);
-  expect(doc.blocks.flatMap((block) => block.spans.filter((span) => span.bold).map((span) => span.text)))
-    .toEqual(['una persona', 'una planta, un animal o un paisaje del parque']);
-  expect(doc.text).not.toContain('**');
-  expect(engine.ask).not.toHaveBeenCalled();
-});
+test.each(['', '¿Qué ves aquí?', 'Mira', 'Mírame', 'Míranos en esta foto'])(
+  'unlocks the selfie reply only after the visual match for %s',
+  async (caption) => {
+    const engine = { ask: jest.fn() };
+    const chat = new KnowledgeChat(async () => ({ engine }));
+    const reference = references.find((row) => row.classId === 'persona')!;
+    await chat.askPhoto('file:///selfie.jpg', caption, async () =>
+      matchPhoto(Float32Array.from(reference.vector)),
+    );
+    expect(chat.snapshot().rows.at(-1)).toMatchObject({
+      keywords: ['una persona', 'una planta, un animal o un paisaje del parque'],
+      reply: {
+        text: 'Parece que hay una persona en la foto. ¿Qué tal si exploramos lo que la rodea? Envíame una foto de una planta, un animal o un paisaje del parque.',
+      },
+    });
+    const row = toChatRows(chat.snapshot().rows, 'ERR', 'LOCK').at(-1)!;
+    const doc = replyDoc(row.text, row.keywords ?? []);
+    expect(
+      doc.blocks.flatMap((block) =>
+        block.spans.filter((span) => span.bold).map((span) => span.text),
+      ),
+    ).toEqual(['una persona', 'una planta, un animal o un paisaje del parque']);
+    expect(doc.text).not.toContain('**');
+    expect(engine.ask).not.toHaveBeenCalled();
+  },
+);
 
 test('a selfie caption alone never triggers the easter egg for a non-person photo', async () => {
   const engine = degradedKnowledgeEngine('text embedder not loaded');
@@ -85,7 +109,13 @@ test('a selfie caption alone never triggers the easter egg for a non-person phot
   });
 });
 
-test.each(['Cambia el fondo', '¿Puedes recortar la foto?', 'Ponme un sombrero', 'Quiero editar la imagen', 'Quiero que le quites el fondo'])('declines %s before attempting photo classification', async (caption) => {
+test.each([
+  'Cambia el fondo',
+  '¿Puedes recortar la foto?',
+  'Ponme un sombrero',
+  'Quiero editar la imagen',
+  'Quiero que le quites el fondo',
+])('declines %s before attempting photo classification', async (caption) => {
   const engine = { ask: jest.fn() };
   const chat = new KnowledgeChat(async () => ({ engine }));
   const classify = jest.fn(async () => classes.persona);
@@ -128,16 +158,21 @@ const sourcedClasses = Object.entries(classes).flatMap(([id, expected]) =>
   'id' in expected ? [{ id, expected }] : [],
 );
 
-test.each(sourcedClasses)('answers with a local source when $id is detected', async ({ id, expected }) => {
-  const engine = { ask: jest.fn() };
-  const chat = new KnowledgeChat(async () => ({ engine }));
-  const reference = references.find((row) => row.classId === id)!;
-  await chat.askPhoto('file:///insecto.jpg', '', async () => matchPhoto(Float32Array.from(reference.vector)));
-  expect(chat.snapshot().rows.at(-1)).toMatchObject({
-    reply: { type: 'answer', id: expected.id, sources: [expected.source] },
-  });
-  expect(engine.ask).not.toHaveBeenCalled();
-});
+test.each(sourcedClasses)(
+  'answers with a local source when $id is detected',
+  async ({ id, expected }) => {
+    const engine = { ask: jest.fn() };
+    const chat = new KnowledgeChat(async () => ({ engine }));
+    const reference = references.find((row) => row.classId === id)!;
+    await chat.askPhoto('file:///insecto.jpg', '', async () =>
+      matchPhoto(Float32Array.from(reference.vector)),
+    );
+    expect(chat.snapshot().rows.at(-1)).toMatchObject({
+      reply: { type: 'answer', id: expected.id, sources: [expected.source] },
+    });
+    expect(engine.ask).not.toHaveBeenCalled();
+  },
+);
 
 test('no UTON seal over the vision description, even on a verified entry', async () => {
   const match = classes.roca;

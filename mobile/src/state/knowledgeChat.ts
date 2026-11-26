@@ -2,6 +2,7 @@
 // without React; useKnowledge.ts subscribes to it. Never touches modelManager: e5 has its own context.
 import type { AskOptions, AskResult, KnowledgeEngine } from '@/core/knowledge';
 import type { KnowledgePatch } from '@/core/knowledge/qrPatch';
+import { placeQuestion } from '@/core/knowledge/place';
 import { detectSafety } from '@/core/knowledge/safety';
 import type { KnowledgeReply, KnowledgeTiming } from '@/core/knowledge/types';
 import { pickMedia, type MediaCatalog, type MediaPick } from '@/core/media/media';
@@ -18,7 +19,9 @@ export type KnowledgeRow =
       /** Photos under the answer, decided once when the reply arrived. */
       media?: MediaPick;
     }
-  | { id: string; role: 'assistant'; error: string };
+  | { id: string; role: 'assistant'; error: string }
+  /** The chat is closed until a station QR is scanned (see core/access/parkAccess). */
+  | { id: string; role: 'assistant'; locked: true };
 
 export interface KnowledgeChatState {
   rows: KnowledgeRow[];
@@ -28,7 +31,8 @@ export interface KnowledgeChatState {
   error?: string;
 }
 
-type Engine = Pick<KnowledgeEngine, 'ask'> & Partial<Pick<KnowledgeEngine, 'resetContext' | 'applyPatches'>>;
+type Engine = Pick<KnowledgeEngine, 'ask'> &
+  Partial<Pick<KnowledgeEngine, 'resetContext' | 'applyPatches'>>;
 export interface LoadedEngine {
   engine: Engine;
   degraded?: string;
@@ -41,6 +45,8 @@ export interface KnowledgeChatOptions {
   rng?: () => number;
   /** The Settings switch, read at each question: answer only from UTON-verified entries. */
   verifiedOnly?: () => boolean;
+  /** Read at each question: false answers with the "scan a station QR" row, urgent safety aside. */
+  knowledgeOpen?: () => boolean;
 }
 
 const message = (e: unknown) => (e instanceof Error ? e.message : String(e));
@@ -115,6 +121,7 @@ export class KnowledgeChat {
   private readonly media: MediaCatalog | undefined;
   private readonly rng: () => number;
   private readonly verifiedOnly: () => boolean;
+  private readonly knowledgeOpen: () => boolean;
   /** The switch as the engine last saw it; undefined before the first question. */
   private askedVerifiedOnly: boolean | undefined;
   private seq = 0;
@@ -123,11 +130,17 @@ export class KnowledgeChat {
 
   constructor(
     load: () => Promise<LoadedEngine>,
-    { media, rng = Math.random, verifiedOnly = () => false }: KnowledgeChatOptions = {},
+    {
+      media,
+      rng = Math.random,
+      verifiedOnly = () => false,
+      knowledgeOpen = () => true,
+    }: KnowledgeChatOptions = {},
   ) {
     this.media = media;
     this.rng = rng;
     this.verifiedOnly = verifiedOnly;
+    this.knowledgeOpen = knowledgeOpen;
     this.engine = load().then(({ engine, degraded }) => {
       this.set({
         status: degraded ? 'degraded' : 'ready',
@@ -145,13 +158,16 @@ export class KnowledgeChat {
   };
 
   async applyPatches(patches: readonly KnowledgePatch[], ignoreOlder = true): Promise<number> {
-    if (this.state.busy) throw new Error('Espera a que el asistente termine la operación en curso.');
+    if (this.state.busy)
+      throw new Error('Espera a que el asistente termine la operación en curso.');
     this.updating = true;
     this.set({ busy: true });
     try {
       const engine = await this.engine;
       if (!engine.applyPatches || this.state.status === 'degraded') {
-        throw new Error('El modelo local de Tumak no está disponible. Comprueba que sus archivos estén instalados.');
+        throw new Error(
+          'El modelo local de Tumak no está disponible. Comprueba que sus archivos estén instalados.',
+        );
       }
       return await engine.applyPatches(patches, ignoreOlder);
     } finally {
@@ -160,14 +176,19 @@ export class KnowledgeChat {
     }
   }
 
-  async ask(text: string, context?: string): Promise<void> {
+  /** @param place the stage a stage chat asks from; it replaces the question's "aquí" for retrieval. */
+  async ask(text: string, place?: string): Promise<void> {
     const q = text.trim();
     if (!q || this.state.busy) return;
-    const note = context?.trim();
-    // The bubble keeps the typed question. The note only steers retrieval.
-    const prompt = note ? `${q} ${note}` : q;
+    // The bubble keeps the typed question. The place only steers retrieval.
+    const prompt = place ? placeQuestion(q, place) : q;
     const startedAt = now();
     this.push({ id: this.id(), role: 'user', text: q }, true);
+    // An emergency (123) is never hidden behind the lock.
+    if (!this.knowledgeOpen() && !detectSafety(q).urgent) {
+      this.push({ id: this.id(), role: 'assistant', locked: true }, false);
+      return;
+    }
     const lastUser = this.state.rows.slice(0, -1).findLast((row) => row.role === 'user');
     const capability =
       requestsPhotoEdit(normalizeRequest(q), !!lastUser?.photoUri) && !detectSafety(q).urgent
@@ -217,6 +238,10 @@ export class KnowledgeChat {
     const text = caption.trim();
     const words = normalizeRequest(text);
     this.push({ id: this.id(), role: 'user', text, photoUri }, true);
+    if (!this.knowledgeOpen() && !(text && detectSafety(text).urgent)) {
+      this.push({ id: this.id(), role: 'assistant', locked: true }, false);
+      return;
+    }
     try {
       if (text && detectSafety(text).urgent) {
         const result = await this.askEngine(await this.engine, text);

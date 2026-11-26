@@ -6,7 +6,7 @@ import { zlibSync } from 'fflate';
 import type { CatalogEntry, KnowledgeAssets } from '../assets';
 import { KnowledgeEngine } from '../engine';
 import {
-  collectKnowledgeQr, encodeKnowledgePatch, encodeKnowledgeQrSeries, parseKnowledgePatch,
+  collectKnowledgeQr, decodeKnowledgeBundle, encodeKnowledgeBundle, encodeKnowledgePatch, encodeKnowledgeQrSeries, parseKnowledgePatch,
   utf8Bytes, type KnowledgePatch,
 } from '../qrPatch';
 
@@ -181,4 +181,14 @@ test('does not save a partial batch and updates the answer behind existing query
   expect((await engine.ask('pregunta anterior')).reply).toMatchObject({ text: 'original' });
   await expect(engine.applyPatches([edit])).resolves.toBe(1);
   expect((await engine.ask('pregunta anterior')).reply).toMatchObject({ text: 'La respuesta editada.' });
+});
+
+test('a Bluetooth bundle round-trips a batch and rejects damaged or repeated payloads', () => {
+  const entries: KnowledgePatch[] = [patch, { id: 'geography.original', revision: 2, op: 'remove' }];
+  const bundle = encodeKnowledgeBundle(entries);
+  expect(decodeKnowledgeBundle(bundle)).toEqual(entries);
+  const flipped = (bundle[10] === 'A' ? 'B' : 'A');
+  expect(() => decodeKnowledgeBundle(bundle.slice(0, 10) + flipped + bundle.slice(11))).toThrow('dañada');
+  expect(() => decodeKnowledgeBundle(bundle.slice(0, -8))).toThrow('dañada');
+  expect(() => decodeKnowledgeBundle(encodeKnowledgeBundle([patch, patch]))).toThrow('repetidas');
 });

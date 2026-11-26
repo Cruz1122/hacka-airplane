@@ -24,6 +24,14 @@ import { useReducedMotion } from '../useReducedMotion';
 const mockPush = jest.fn();
 jest.mock('expo-router', () => ({ router: { push: (to: unknown) => mockPush(to) } }));
 
+const mockVerifyPassword = jest.fn(async (password: string) => password === 'cisco123');
+const mockSetPassword = jest.fn(async (_password: string) => {});
+jest.mock('@/state/knowledgeAdminPassword', () => ({
+  validAdminPassword: (password: string) => Array.from(password).length >= 8,
+  verifyAdminPassword: (password: string) => mockVerifyPassword(password),
+  setAdminPassword: (password: string) => mockSetPassword(password),
+}));
+
 jest.mock('expo-sqlite/kv-store', () => ({
   __esModule: true,
   default: {
@@ -259,10 +267,7 @@ describe('SettingsSheet', () => {
     expect(ui.hasText(copy.about.creditsTitle)).toBe(true);
   });
 
-  it.each([
-    ['knowledge administration', t.knowledgeAdmin.heading, '/administrar-informacion'],
-    ['QR knowledge update', t.qrUpdate.nav, '/actualizar'],
-  ])('opens the %s screen from the root menu and closes the sheet', async (_, title, route) => {
+  it('opens knowledge administration inside the bottom sheet with an 8-slot OTP input', async () => {
     mockPush.mockClear();
     const onClose = jest.fn();
     const root = createRoot();
@@ -270,9 +275,34 @@ describe('SettingsSheet', () => {
     await act(async () => {
       root.render(<SettingsSheet open onClose={onClose} reducedMotion />);
     });
-    await createHarness(root).pressText(title);
+    const ui = createHarness(root);
+    await ui.pressText(t.knowledgeAdmin.heading);
+    expect(onClose).not.toHaveBeenCalled();
+    expect(mockPush).not.toHaveBeenCalled();
+    expect(ui.hasText(t.knowledgeAdmin.password)).toBe(true);
+    expect(ui.hasText(t.knowledgeAdmin.unlock)).toBe(true);
+
+    const inputs = ui.all(
+      (n) => n.props.accessibilityLabel === t.knowledgeAdmin.password && n.props.maxLength === 8,
+    );
+    expect(inputs.length).toBeGreaterThan(0);
+
+    // Back returns to the root settings menu.
+    await ui.pressButton(t.settingsPanel.back);
+    expect(ui.hasText(t.settingsPanel.savedSources.title)).toBe(true);
+  });
+
+  it('opens the QR knowledge update screen from the root menu and closes the sheet', async () => {
+    mockPush.mockClear();
+    const onClose = jest.fn();
+    const root = createRoot();
+    mounted.push(root);
+    await act(async () => {
+      root.render(<SettingsSheet open onClose={onClose} reducedMotion />);
+    });
+    await createHarness(root).pressText(t.qrUpdate.nav);
     expect(onClose).toHaveBeenCalled();
-    expect(mockPush).toHaveBeenCalledWith(route);
+    expect(mockPush).toHaveBeenCalledWith('/actualizar');
   });
 
   it('lists saved sources, opens web links, removes with inline Undo, and restores on Undo', async () => {

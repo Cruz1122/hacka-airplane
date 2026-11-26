@@ -33,6 +33,7 @@ const PULSE_PERIOD_MS = 3800;
 const HALO_ROOM = 1.25;
 /** Pressed: the disc sinks a little. */
 const PRESSED = 0.92;
+const LOCKED_OPACITY = 0.4;
 
 /** Height of the map drawn at `width`, from the traced chunks' grid. */
 export function trailMapHeight(width: number): number {
@@ -72,9 +73,12 @@ function routeLegs(w: number, h: number): { p1: Pt; c1: Pt; c2: Pt; p2: Pt }[] {
 export function TrailPath({
   width,
   onStationPress,
+  isLocked = () => false,
 }: {
   width: number;
   onStationPress: (id: StationId) => void;
+  /** Stations still waiting for their QR: drawn dim, and the press tells which QR to scan. */
+  isLocked?: (id: StationId) => boolean;
 }) {
   const { palette } = useAccessibilityTheme();
   const w = Math.max(width, 1);
@@ -116,6 +120,7 @@ export function TrailPath({
           x={node.x * w}
           y={node.y * h}
           size={d}
+          locked={isLocked(node.id)}
           onPress={onStationPress}
         />
       ))}
@@ -131,10 +136,12 @@ function StationDisc({
   x,
   y,
   size,
+  locked,
   onPress,
 }: {
   id: StationId;
   index: number;
+  locked: boolean;
   x: number;
   y: number;
   size: number;
@@ -147,20 +154,25 @@ function StationDisc({
       pointerEvents="box-none"
       style={[styles.slot, { left: x - size / 2, top: y - size / 2, width: size, height: size }]}
     >
-      <Halo color={sceneSky(id)} delay={index * PULSE_STAGGER_MS} radius={size / 2} />
+      {locked ? null : (
+        <Halo color={sceneSky(id)} delay={index * PULSE_STAGGER_MS} radius={size / 2} />
+      )}
       <Pressable
         accessibilityRole="button"
-        accessibilityLabel={fill(t.trail.stationA11y, {
-          n: index + 1,
-          name: t.trail.stations[id].name,
-          mark: t.trail.marks[id],
-        })}
+        accessibilityLabel={
+          fill(t.trail.stationA11y, {
+            n: index + 1,
+            name: t.trail.stations[id].name,
+            mark: t.trail.marks[id],
+          }) + (locked ? ` ${t.trail.locked.a11y}` : '')
+        }
         onPress={() => onPress(id)}
         style={({ pressed }) => [
           styles.disc,
           {
             borderRadius: size / 2,
             borderColor: palette.card,
+            opacity: locked ? LOCKED_OPACITY : 1,
             transform: [{ scale: pressed ? PRESSED : 1 }],
           },
         ]}

@@ -89,11 +89,17 @@ function makeFakeRadio(nfc: RadioCapabilities['nfc'] = 'none'): FakeRadio {
     log(message) {
       logs.push(message);
     },
-    addListener(event: keyof typeof listeners, listener: Listener) {
+    // Knowledge sharing shares the module but not the group transport.
+    shareStart: () => Promise.reject(new Error('unused')),
+    shareStop() {},
+    findShares: () => 'unused',
+    stopFindShares() {},
+    receiveShare: () => Promise.reject(new Error('unused')),
+    addListener: ((event: keyof typeof listeners, listener: Listener) => {
       const set = listeners[event] as Set<Listener>;
       set.add(listener);
       return { remove: () => set.delete(listener) };
-    },
+    }) as unknown as GroupRadioModule['addListener'],
   };
 
   return {

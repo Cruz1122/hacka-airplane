@@ -23,13 +23,16 @@ import {
 import { fill, t } from '@/i18n';
 import { knowledgeAssets } from '@/llm/knowledgeAssets';
 import { readAdminCatalog, type AdminEntry } from '@/state/knowledgeAdminCatalog';
+import { bluetoothShareAvailable, startBluetoothShare } from '@/state/knowledgeShare';
 import { applyKnowledgePatch } from '@/state/useKnowledge';
 
 import { AdminButton, AdminField, AdminPanel, adminStyles as styles } from './KnowledgeAdminFields';
 import { KnowledgeEntryPicker } from './KnowledgeEntryPicker';
+import { SignalPulse } from './group/SignalPulse';
 import { KnowledgeQr } from './KnowledgeQr';
 
 const labels = t.knowledgeAdmin;
+const pulseStyle = { alignItems: 'center' } as const;
 const sections = knowledgeAssets.sections
   .filter(
     (section) =>
@@ -49,7 +52,9 @@ const bundledTitles = new Map(
 );
 
 type ViewMode = 'catalog' | 'edit' | 'remove' | 'result';
-type Publication = { codes: string[]; count: number };
+type Publication =
+  | { kind: 'qr'; codes: string[]; count: number }
+  | { kind: 'bluetooth'; count: number; receivers: number; ready: boolean };
 const message = (cause: unknown) => (cause instanceof Error ? cause.message : labels.error);
 
 export function KnowledgeManager({ goTop }: { goTop: () => void }) {
@@ -70,6 +75,9 @@ export function KnowledgeManager({ goTop }: { goTop: () => void }) {
   const [status, setStatus] = useState('');
   const [error, setError] = useState('');
   const latest = useRef(0);
+  // Bumped on every share or exit, so a share that opens late stops instead of lingering.
+  const shareRun = useRef(0);
+  const stopShare = useRef<() => void>(undefined);
 
   useEffect(() => {
     let active = true;
@@ -86,6 +94,7 @@ export function KnowledgeManager({ goTop }: { goTop: () => void }) {
   }, []);
 
   useEffect(goTop, [goTop, mode]);
+  useEffect(() => endShare, []);
 
   const visible = useMemo(
     () => catalog.filter((row) => (row.patch?.op === 'remove') === removed),
@@ -132,10 +141,40 @@ export function KnowledgeManager({ goTop }: { goTop: () => void }) {
     setMode('edit');
   }
 
+  function endShare() {
+    shareRun.current += 1;
+    stopShare.current?.();
+    stopShare.current = undefined;
+  }
+
+  function shareBluetooth(patches: readonly KnowledgePatch[]) {
+    endShare();
+    const run = shareRun.current;
+    setPublication({ kind: 'bluetooth', count: patches.length, receivers: 0, ready: false });
+    setError('');
+    setStatus('');
+    setMode('result');
+    const sent = (receivers: number) =>
+      setPublication((p) => (p?.kind === 'bluetooth' ? { ...p, receivers } : p));
+    startBluetoothShare(patches, sent).then(
+      (stop) => {
+        if (run !== shareRun.current) return stop();
+        stopShare.current = stop;
+        setPublication((p) => (p?.kind === 'bluetooth' ? { ...p, ready: true } : p));
+      },
+      (cause: unknown) => {
+        if (run !== shareRun.current) return;
+        setError(message(cause));
+        setMode('catalog');
+      },
+    );
+  }
+
   function share(patches: readonly KnowledgePatch[]) {
+    if (bluetoothShareAvailable()) return shareBluetooth(patches);
     try {
       const codes = encodeKnowledgeQrSeries(patches);
-      setPublication({ codes, count: patches.length });
+      setPublication({ kind: 'qr', codes, count: patches.length });
       setPage(0);
       setError('');
       setStatus('');
@@ -199,7 +238,7 @@ export function KnowledgeManager({ goTop }: { goTop: () => void }) {
   }
 
   async function copyCode() {
-    if (!publication) return;
+    if (publication?.kind !== 'qr') return;
     try {
       if (!(await setStringAsync(publication.codes[page]))) throw new Error(labels.copyError);
       setError('');
@@ -210,6 +249,7 @@ export function KnowledgeManager({ goTop }: { goTop: () => void }) {
   }
 
   function backToCatalog() {
+    endShare();
     setError('');
     setMode('catalog');
   }
@@ -389,7 +429,27 @@ export function KnowledgeManager({ goTop }: { goTop: () => void }) {
           <AdminButton label={t.qrUpdate.cancel} disabled={saving} onPress={backToCatalog} />
         </AdminPanel>
       )}
-      {mode === 'result' && publication && (
+      {mode === 'result' && publication?.kind === 'bluetooth' && (
+        <AdminPanel>
+          <Text accessibilityRole="header" style={styles.title}>
+            {labels.bluetoothResult}
+          </Text>
+          {publication.ready && (
+            <View style={pulseStyle} aria-hidden>
+              <SignalPulse size={96} />
+            </View>
+          )}
+          <Text style={styles.body}>{fill(labels.shareCount, { count: publication.count })}</Text>
+          <Text accessibilityLiveRegion="polite" style={styles.body}>
+            {publication.ready
+              ? fill(labels.bluetoothSent, { count: publication.receivers })
+              : labels.bluetoothStarting}
+          </Text>
+          <Text style={styles.note}>{labels.bluetoothHint}</Text>
+          <AdminButton primary label={labels.stopShare} onPress={backToCatalog} />
+        </AdminPanel>
+      )}
+      {mode === 'result' && publication?.kind === 'qr' && (
         <AdminPanel>
           <Text accessibilityRole="header" style={styles.title}>
             {labels.result}

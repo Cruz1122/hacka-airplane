@@ -8,8 +8,11 @@ import {
   Platform,
   Pressable,
   StyleSheet,
+  useWindowDimensions,
   View,
 } from 'react-native';
+
+import { useChatKeyboard } from '@/chat/useChatKeyboard';
 
 import { brand } from './theme/tokens';
 import { useAccessibilityTheme } from './useAccessibilityTheme';
@@ -44,6 +47,10 @@ function OpenBottomSheet({
   const { palette, highContrast, borderWidth } = useAccessibilityTheme();
   const [shown] = useState(() => new Animated.Value(reduced ? 1 : 0));
   const [closing, setClosing] = useState(false);
+  // Edge to edge, the keyboard no longer shrinks the window: lift the sheet above it ourselves,
+  // or a short sheet (the admin password) sits entirely under the keyboard.
+  const { height } = useWindowDimensions();
+  const keyboard = useChatKeyboard(height);
 
   useEffect(() => {
     if (closing) {
@@ -101,7 +108,7 @@ function OpenBottomSheet({
 
   return (
     <View
-      style={[StyleSheet.absoluteFill, styles.overlay]}
+      style={[StyleSheet.absoluteFill, styles.overlay, { paddingBottom: keyboard.bottom }]}
       pointerEvents={closing ? 'none' : 'auto'}
     >
       <Animated.View
@@ -122,7 +129,8 @@ function OpenBottomSheet({
         style={[
           styles.sheet,
           {
-            paddingBottom: bottom + 16,
+            paddingBottom: (keyboard.open ? 0 : bottom) + 16,
+            maxHeight: keyboard.open ? (height - keyboard.bottom) * 0.84 : '84%',
             backgroundColor: palette.card,
             borderTopWidth: highContrast ? borderWidth : 0,
             borderColor: palette.ink,

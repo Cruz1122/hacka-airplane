@@ -1,6 +1,8 @@
 import type { KnowledgeReply } from '@/core/knowledge/types';
 import type { MediaCatalog } from '@/core/media/media';
 
+import { es } from '@/i18n/es';
+
 import { KnowledgeChat, type LoadedEngine } from '../knowledgeChat';
 
 const answer: KnowledgeReply = {
@@ -255,13 +257,14 @@ test.each(['¿Puedo enviarte una foto?', '¿Dónde está la cámara?', '¿Qué p
   },
 );
 
-test('a stage question keeps the typed text and appends its context for retrieval', async () => {
+test('a stage question keeps the typed text and names its place for retrieval', async () => {
   const engine = fakeEngine();
   const chat = new KnowledgeChat(async () => ({ engine }));
-  const note = 'Estamos en el contexto de la etapa Aguacerales: el filtro de la montaña.';
-  await chat.ask('qué es esto', note);
-  expect(chat.snapshot().rows[0]).toMatchObject({ role: 'user', text: 'qué es esto' });
-  expect(engine.ask).toHaveBeenCalledWith(`qué es esto ${note}`, { verifiedOnly: false });
+  await chat.ask('qué hay aquí', 'Aguacerales');
+  expect(chat.snapshot().rows[0]).toMatchObject({ role: 'user', text: 'qué hay aquí' });
+  expect(engine.ask).toHaveBeenCalledWith('qué hay en Aguacerales', { verifiedOnly: false });
+  await chat.ask('cuánto cuesta la entrada', 'Aguacerales');
+  expect(engine.ask).toHaveBeenLastCalledWith('cuánto cuesta la entrada', { verifiedOnly: false });
 });
 
 test('a park photography question still goes to the knowledge engine', async () => {
@@ -270,4 +273,65 @@ test('a park photography question still goes to the knowledge engine', async () 
   const question = '¿Puedo tomar fotos en el parque?';
   await chat.ask(question);
   expect(engine.ask).toHaveBeenCalledWith(question, { verifiedOnly: false });
+});
+
+describe('closed knowledge window', () => {
+  const closed = { knowledgeOpen: () => false };
+  const urgentText = 'Mi amigo se cayó en el sendero y no se puede mover, necesito ayuda urgente';
+
+  it('uses the agreed locked copy', () => {
+    expect(es.knowledge.lockedIntro).toBe(
+      'Necesitamos validar que estás en el parque. Ve al punto de información más cercano y escanea el QR.',
+    );
+    expect(es.knowledge.scan).toBe('Escanear QR');
+  });
+
+  it('answers a text question with the locked row and never calls the engine', async () => {
+    const engine = fakeEngine();
+    const chat = new KnowledgeChat(async () => ({ engine }), closed);
+    await chat.ask('como llego');
+    expect(engine.ask).not.toHaveBeenCalled();
+    expect(chat.snapshot().rows[1]).toEqual({
+      id: expect.any(String),
+      role: 'assistant',
+      locked: true,
+    });
+    expect(chat.snapshot().busy).toBe(false);
+  });
+
+  it('locks a photo question too, without classifying it', async () => {
+    const engine = fakeEngine();
+    const classify = jest.fn(async () => undefined);
+    const chat = new KnowledgeChat(async () => ({ engine }), closed);
+    await chat.askPhoto('file://p.jpg', 'que es esto', classify);
+    expect(classify).not.toHaveBeenCalled();
+    expect(chat.snapshot().rows[1]).toMatchObject({ role: 'assistant', locked: true });
+  });
+
+  it('still answers an urgent safety question while locked', async () => {
+    const engine = fakeEngine();
+    const chat = new KnowledgeChat(async () => ({ engine }), closed);
+    await chat.ask(urgentText);
+    expect(engine.ask).toHaveBeenCalledTimes(1);
+    expect(chat.snapshot().rows[1]).toMatchObject({ reply: answer });
+    expect(chat.snapshot().rows.some((r) => 'locked' in r)).toBe(false);
+  });
+
+  it('still answers an urgent photo caption while locked', async () => {
+    const engine = fakeEngine();
+    const chat = new KnowledgeChat(async () => ({ engine }), closed);
+    await chat.askPhoto('file://p.jpg', urgentText, async () => undefined);
+    expect(engine.ask).toHaveBeenCalledTimes(1);
+    expect(chat.snapshot().rows.some((r) => 'locked' in r)).toBe(false);
+  });
+
+  it('reads the window at each question', async () => {
+    let open = false;
+    const engine = fakeEngine();
+    const chat = new KnowledgeChat(async () => ({ engine }), { knowledgeOpen: () => open });
+    await chat.ask('uno');
+    open = true;
+    await chat.ask('dos');
+    expect(engine.ask).toHaveBeenCalledTimes(1);
+  });
 });

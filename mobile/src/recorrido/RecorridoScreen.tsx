@@ -3,8 +3,13 @@ import { useState } from 'react';
 import { StyleSheet, useWindowDimensions, View } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
-import { t } from '@/i18n';
+import { isStationUnlocked, stationToScan, type CountedStation } from '@/core/access/parkAccess';
+import { fill, t } from '@/i18n';
+import { useParkAccess } from '@/state/parkAccess';
 import { NAV_BAR_HEIGHT } from '@/ui/CloudNavBar';
+import { InfoCard } from '@/ui/InfoCard';
+import { PrimaryButton } from '@/ui/PrimaryButton';
+import { SecondaryButton } from '@/ui/SecondaryButton';
 import { brand, spacing } from '@/ui/theme/tokens';
 import { useAccessibilityTheme } from '@/ui/useAccessibilityTheme';
 
@@ -77,6 +82,17 @@ export function RecorridoScreen() {
   const insets = useSafeAreaInsets();
   const [size, setSize] = useState<{ w: number; h: number } | null>(null);
   const [open, setOpen] = useState<StationId | null>(null);
+  const { access } = useParkAccess();
+  // The station whose QR is needed, when a locked one was pressed.
+  const [needs, setNeeds] = useState<CountedStation | null>(null);
+  const press = (id: StationId) => {
+    if (isStationUnlocked(access, id)) {
+      setNeeds(null);
+      setOpen(id);
+    } else {
+      setNeeds(stationToScan(id as CountedStation));
+    }
+  };
   const vw = size?.w ?? window.width;
   const vh = size?.h ?? window.height;
   // The tab navigator draws the cloud bar over the top; the route starts below it.
@@ -97,8 +113,24 @@ export function RecorridoScreen() {
         <View style={[StyleSheet.absoluteFill, { backgroundColor: TRAIL_BASE_COLOR }]} />
       ) : null}
       <View style={[styles.map, { left: frame.x, top: frame.y }]}>
-        <TrailPath width={frame.width} onStationPress={setOpen} />
+        <TrailPath
+          width={frame.width}
+          onStationPress={press}
+          isLocked={(id) => !isStationUnlocked(access, id)}
+        />
       </View>
+      {needs ? (
+        <View style={[styles.needs, { bottom: insets.bottom + spacing.lg }]}>
+          <InfoCard
+            icon="lock"
+            title={t.trail.locked.title}
+            body={fill(t.trail.locked.needs, { name: t.trail.stations[needs].name })}
+          >
+            <PrimaryButton label={t.knowledge.scan} onPress={() => router.push('/validar')} />
+            <SecondaryButton label={t.trail.locked.close} onPress={() => setNeeds(null)} />
+          </InfoCard>
+        </View>
+      ) : null}
       <StationSheet
         id={open}
         bottom={insets.bottom}
@@ -115,4 +147,5 @@ export function RecorridoScreen() {
 const styles = StyleSheet.create({
   root: { flex: 1, backgroundColor: brand.card, overflow: 'hidden' },
   map: { position: 'absolute' },
+  needs: { position: 'absolute', left: spacing.lg, right: spacing.lg },
 });

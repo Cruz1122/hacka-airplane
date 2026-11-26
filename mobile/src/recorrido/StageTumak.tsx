@@ -1,14 +1,16 @@
 // Tumak as a floating bubble: the same chat as the Chat tab, opened from a stage without leaving it.
-import { useEffect, useMemo, useRef, useState, type ComponentRef } from 'react';
+import { router } from 'expo-router';
+import { useCallback, useEffect, useMemo, useRef, useState, type ComponentRef } from 'react';
 import { Pressable, ScrollView, StyleSheet, Text, View } from 'react-native';
 
 import { fill, t } from '@/i18n';
-import { es } from '@/i18n/es';
 import { toChatRows } from '@/state/knowledgeRows';
+import { useKnowledgeOpen } from '@/state/parkAccess';
 import { useKnowledge } from '@/state/useKnowledge';
 import { BottomSheet } from '@/ui/BottomSheet';
 import { ChatBubble } from '@/ui/chat/ChatBubble';
 import { ChatComposer } from '@/ui/chat/ChatComposer';
+import { Greeting } from '@/ui/chat/Greeting';
 import { TypingBubble } from '@/ui/chat/TypingBubble';
 import { Icon } from '@/ui/icons/Icon';
 import { PET_FACE_VIEWBOX, PET_NAME } from '@/ui/pet/petCore';
@@ -16,7 +18,7 @@ import { PetStill } from '@/ui/pet/PetStill';
 import { spacing, type } from '@/ui/theme/tokens';
 import { useAccessibilityTheme } from '@/ui/useAccessibilityTheme';
 
-import type { StationId } from './stations';
+import { STATION_PLACE, type StationId } from './stations';
 
 export const STAGE_FAB = 64;
 
@@ -53,13 +55,16 @@ export function StageTumak({ id, insetBottom }: { id: StationId; insetBottom: nu
 function StageChat({ id, onClose }: { id: StationId; onClose: () => void }) {
   const { palette, scaled } = useAccessibilityTheme();
   const { rows, busy, status, ask } = useKnowledge();
-  const messages = useMemo(() => toChatRows(rows, t.knowledge.error), [rows]);
+  const messages = useMemo(() => toChatRows(rows, t.knowledge.error, t.knowledge.locked), [rows]);
   const scroll = useRef<ComponentRef<typeof ScrollView>>(null);
   useEffect(() => {
     scroll.current?.scrollToEnd({ animated: true });
   }, [messages.length, busy]);
-  const greeting = fill(t.chatScreen.greeting, { pet: PET_NAME });
-  const keywords = t.chatScreen.greetingKeywords.map((keyword) => fill(keyword, { pet: PET_NAME }));
+  const open = useKnowledgeOpen();
+  const scan = useCallback(() => {
+    onClose();
+    router.push('/validar');
+  }, [onClose]);
   return (
     <View style={styles.chat}>
       <View style={styles.head}>
@@ -84,7 +89,7 @@ function StageChat({ id, onClose }: { id: StationId; onClose: () => void }) {
         style={styles.transcript}
         contentContainerStyle={styles.transcriptContent}
       >
-        <ChatBubble role="assistant" text={greeting} keywords={keywords} />
+        <Greeting locked={!open} onScan={scan} />
         {messages.map((item) => (
           <ChatBubble
             key={item.id}
@@ -103,9 +108,7 @@ function StageChat({ id, onClose }: { id: StationId; onClose: () => void }) {
         disabled={busy || status === 'loading'}
         placeholder={t.inputPlaceholder}
         sendLabel={t.send}
-        onSend={(text) =>
-          void ask(text, fill(es.trail.tumak.context, { place: es.trail.stations[id].name }))
-        }
+        onSend={(text) => void ask(text, STATION_PLACE[id])}
       />
     </View>
   );

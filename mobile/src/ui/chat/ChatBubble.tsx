@@ -66,6 +66,8 @@ export interface ChatBubbleProps {
   entryId?: string;
   /** Assistant only: photos under the text, shown once it has typed out. */
   media?: MediaPick;
+  /** Assistant only: a control inside the bubble under the text (the greeting's "Escanear QR"). */
+  action?: ReactNode;
 }
 
 /** A slow, short rise: the message settles in instead of popping. */
@@ -105,6 +107,7 @@ export const ChatBubble = memo(function ChatBubble({
   revealId,
   entryId,
   media,
+  action,
 }: ChatBubbleProps) {
   const { palette, scaled, autoSpeakReplies } = useAccessibilityTheme();
   const mine = role === 'user';
@@ -177,6 +180,7 @@ export const ChatBubble = memo(function ChatBubble({
               revealId={streamId}
             />
           ) : null}
+          {action != null && !mine && done ? <View style={styles.action}>{action}</View> : null}
         </>
       ) : null}
     </BubbleRow>
@@ -544,6 +548,7 @@ export function BubbleRow({
 }
 
 const styles = StyleSheet.create({
+  action: { marginTop: 14 },
   row: { flexDirection: 'row', paddingHorizontal: ROW_PADDING, paddingVertical: 8 },
   photoFrame: { maxWidth: '100%', borderRadius: 18, overflow: 'hidden' },
   photo: { width: '100%', height: '100%' },

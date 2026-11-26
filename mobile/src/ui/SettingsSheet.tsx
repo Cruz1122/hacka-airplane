@@ -2,7 +2,7 @@
 // Open saved sources, knowledge administration, the QR knowledge update or the app information.
 import Constants from 'expo-constants';
 import { router } from 'expo-router';
-import { useCallback, useMemo, useState } from 'react';
+import { useCallback, useMemo, useRef, useState, type ComponentRef } from 'react';
 import { Linking, Pressable, ScrollView, StyleSheet, Text, View } from 'react-native';
 
 import { fill, t } from '@/i18n';
@@ -17,6 +17,7 @@ import { SwitchRow } from './AccessibilitySheet';
 import { BottomSheet } from './BottomSheet';
 import { formatSourceLink, SourceFaviconBall, sourcePreviewFor } from './chat/SourceFavicon';
 import { Icon, type IconName } from './icons/Icon';
+import { KnowledgeAdminPanel } from './KnowledgeAdminPanel';
 import { ParkEmblem } from './ParkEmblem';
 import { brand, fonts, radius, spacing, type } from './theme/tokens';
 import { scaleSize, useAccessibilityTheme } from './useAccessibilityTheme';
@@ -27,7 +28,7 @@ const sourceCopy = t.chatScreen.sources;
 /** Web pages only: a saved source never opens another app or runs a script. */
 const WEB_LINK = /^https?:\/\/\S+$/i;
 
-type SettingsView = 'menu' | 'savedSources' | 'about';
+type SettingsView = 'menu' | 'savedSources' | 'knowledgeAdmin' | 'about';
 
 const APP_VERSION = Constants.expoConfig?.version ?? '1.0.0';
 
@@ -127,13 +128,17 @@ function SettingsContent({
   const favorites = useFavoriteSources();
   const verifiedOnly = useVerifiedOnly();
   const reduced = useReducedMotion() || reducedMotion;
+  const scrollRef = useRef<ComponentRef<typeof ScrollView>>(null);
+  const goTop = useCallback(() => scrollRef.current?.scrollTo({ y: 0, animated: false }), []);
 
   const headerTitle =
     view === 'savedSources'
       ? copy.savedSources.title
-      : view === 'about'
-        ? copy.about.title
-        : copy.title;
+      : view === 'knowledgeAdmin'
+        ? t.knowledgeAdmin.heading
+        : view === 'about'
+          ? copy.about.title
+          : copy.title;
 
   const savedSubtitle =
     favorites.length === 0
@@ -210,9 +215,11 @@ function SettingsContent({
       </View>
 
       <ScrollView
+        ref={scrollRef}
         style={styles.list}
         contentContainerStyle={styles.listContent}
         showsVerticalScrollIndicator={false}
+        keyboardShouldPersistTaps="handled"
       >
         {view === 'menu' && (
           <>
@@ -246,10 +253,7 @@ function SettingsContent({
               icon="bookOpen"
               title={t.knowledgeAdmin.heading}
               subtitle={t.knowledgeAdmin.subtitle}
-              onPress={() => {
-                onClose();
-                router.push('/administrar-informacion');
-              }}
+              onPress={() => onNavigate('knowledgeAdmin')}
             />
             <MenuRow
               icon="camera"
@@ -268,6 +272,8 @@ function SettingsContent({
             />
           </>
         )}
+
+        {view === 'knowledgeAdmin' && <KnowledgeAdminPanel goTop={goTop} />}
 
         {view === 'savedSources' && (
           <>
@@ -604,15 +610,7 @@ function SavedSourceCard({
   );
 }
 
-function AboutInfoCard({
-  icon,
-  title,
-  body,
-}: {
-  icon: IconName;
-  title: string;
-  body: string;
-}) {
+function AboutInfoCard({ icon, title, body }: { icon: IconName; title: string; body: string }) {
   const { palette, scaled, highContrast, borderWidth } = useAccessibilityTheme();
   return (
     <View

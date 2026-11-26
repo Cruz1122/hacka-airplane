@@ -2,6 +2,10 @@ import { Asset } from 'expo-asset';
 import { useIsFocused } from 'expo-router';
 import jsQR from 'jsqr';
 import { useEffect, useRef } from 'react';
+import { StyleSheet, View } from 'react-native';
+
+import { ScanFrame } from './ScanFrame';
+import { radius } from './theme/tokens';
 
 function imagePixels(
   canvas: HTMLCanvasElement,
@@ -29,7 +33,12 @@ export async function readQrImage(uri: string) {
   const image = new Image();
   image.src = uri;
   await image.decode();
-  const frame = imagePixels(document.createElement('canvas'), image, image.naturalWidth, image.naturalHeight);
+  const frame = imagePixels(
+    document.createElement('canvas'),
+    image,
+    image.naturalWidth,
+    image.naturalHeight,
+  );
   const code = decodeFrame(frame);
   if (code || !frame) return code;
   const { prepareZXingModule, readBarcodes } = await import('zxing-wasm/reader');
@@ -42,7 +51,13 @@ export async function readQrImage(uri: string) {
   return results.find(({ isValid }) => isValid)?.text;
 }
 
-export function QrCamera({ onCode, onError }: { onCode: (code: string) => void; onError: () => void }) {
+export function QrCamera({
+  onCode,
+  onError,
+}: {
+  onCode: (code: string) => void;
+  onError: () => void;
+}) {
   const video = useRef<HTMLVideoElement>(null);
   const focused = useIsFocused();
   useEffect(() => {
@@ -61,7 +76,8 @@ export function QrCamera({ onCode, onError }: { onCode: (code: string) => void; 
       clearInterval(timer);
       stream?.getTracks().forEach((track) => track.stop());
     };
-    void navigator.mediaDevices.getUserMedia({ video: { facingMode: { ideal: 'environment' } }, audio: false })
+    void navigator.mediaDevices
+      .getUserMedia({ video: { facingMode: { ideal: 'environment' } }, audio: false })
       .then(async (media) => {
         stream = media;
         if (!active) return stop();
@@ -71,7 +87,9 @@ export function QrCamera({ onCode, onError }: { onCode: (code: string) => void; 
         timer = setInterval(() => {
           if (!preview.videoWidth) return;
           try {
-            const code = decodeFrame(imagePixels(canvas, preview, preview.videoWidth, preview.videoHeight));
+            const code = decodeFrame(
+              imagePixels(canvas, preview, preview.videoWidth, preview.videoHeight),
+            );
             if (code) {
               stop();
               onCode(code);
@@ -82,9 +100,27 @@ export function QrCamera({ onCode, onError }: { onCode: (code: string) => void; 
           }
         }, 260);
       })
-      .catch(() => { if (active) { stop(); onError(); } });
+      .catch(() => {
+        if (active) {
+          stop();
+          onError();
+        }
+      });
     return stop;
   }, [focused, onCode, onError]);
-  return <video ref={video} playsInline muted style={{ width: '100%', aspectRatio: '4 / 3', objectFit: 'cover', borderRadius: 16 }} />;
+  return (
+    <View style={styles.preview}>
+      <video
+        ref={video}
+        playsInline
+        muted
+        style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+      />
+      <ScanFrame />
+    </View>
+  );
 }
 
+const styles = StyleSheet.create({
+  preview: { aspectRatio: 4 / 3, borderRadius: radius.lg, overflow: 'hidden' },
+});

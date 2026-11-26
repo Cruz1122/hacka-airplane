@@ -1,17 +1,20 @@
 import * as ImagePicker from 'expo-image-picker';
-import { useLocalSearchParams } from 'expo-router';
+import { router, useLocalSearchParams } from 'expo-router';
 import { useCallback, useMemo, useRef, useState } from 'react';
 import { Alert, Platform } from 'react-native';
 
 import { ChatView, type ChatModel } from '@/chat/ChatView';
 import { t } from '@/i18n';
 import { toChatRows } from '@/state/knowledgeRows';
+import { useKnowledgeOpen } from '@/state/parkAccess';
 import { useKnowledge } from '@/state/useKnowledge';
 import { classifyPhoto } from '@/vision/classifyPhoto';
 
 // The onboarding gate lives in the tabs layout (app/(tabs)/_layout.tsx).
 export default function ChatScreen() {
   const { rows, ask, askPhoto, reset, busy, status } = useKnowledge();
+  const open = useKnowledgeOpen();
+  const onScan = useCallback(() => router.push('/validar'), []);
   const picking = useRef(false);
   const [photoUri, setPhotoUri] = useState<string>();
   const removePhoto = () => {
@@ -64,7 +67,7 @@ export default function ChatScreen() {
     },
     [ask, askPhoto, photoUri],
   );
-  const messages = useMemo(() => toChatRows(rows, t.knowledge.error), [rows]);
+  const messages = useMemo(() => toChatRows(rows, t.knowledge.error, t.knowledge.locked), [rows]);
   // Degraded still answers urgent questions (safety rules need no model), so sending stays on.
   const model: ChatModel = { id: 'e5-base', status: status === 'loading' ? 'loading' : 'ready' };
   return (
@@ -76,6 +79,8 @@ export default function ChatScreen() {
       fadeIn={sceneTime !== undefined}
       onSend={onSend}
       onPhoto={onPhoto}
+      locked={!open}
+      onScan={onScan}
       photoUri={photoUri}
       onRemovePhoto={removePhoto}
       onReset={() => {

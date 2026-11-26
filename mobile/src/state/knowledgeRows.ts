@@ -14,12 +14,26 @@ function replyText(r: KnowledgeReply): string {
   return r.text;
 }
 
-/** `errorText` is the i18n copy for a failed question (the raw error stays out of the bubble). */
-export function toChatRows(rows: readonly KnowledgeRow[], errorText: string): ChatRow[] {
+/**
+ * `errorText` is the i18n copy for a failed question (the raw error stays out of the bubble);
+ * `lockedText` the copy of the closed-chat row (the greeting holds the scan button).
+ */
+export function toChatRows(
+  rows: readonly KnowledgeRow[],
+  errorText: string,
+  lockedText: string,
+): ChatRow[] {
   return rows.flatMap((row): ChatRow[] => {
-    if (row.role === 'user') return [{
-      id: row.id, role: 'user', text: row.text, ...(row.photoUri ? { photoUri: row.photoUri } : {}),
-    }];
+    if (row.role === 'user')
+      return [
+        {
+          id: row.id,
+          role: 'user',
+          text: row.text,
+          ...(row.photoUri ? { photoUri: row.photoUri } : {}),
+        },
+      ];
+    if ('locked' in row) return [{ id: row.id, role: 'assistant', text: lockedText }];
     if ('error' in row) return [{ id: row.id, role: 'assistant', text: errorText }];
     const { reply } = row;
     // An urgent banner is the emergency entry's `short`, under its one source id; a policy

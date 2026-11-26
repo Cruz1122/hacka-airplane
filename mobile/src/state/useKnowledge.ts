@@ -8,6 +8,7 @@ import { MEDIA } from '@/core/media/bundled';
 import { degradedKnowledgeEngine, loadKnowledgeRuntime } from '@/llm/knowledgeRuntime';
 
 import { KnowledgeChat, type KnowledgeChatState } from './knowledgeChat';
+import { isKnowledgeOpenNow, loadParkAccess } from './parkAccess';
 import { getVerifiedOnly, loadVerifiedOnly } from './verifiedOnly';
 
 let store: KnowledgeChat | null = null;
@@ -16,6 +17,7 @@ function getStore(): KnowledgeChat {
   if (store) return store;
   // The saved switch loads with the models, so the first question already sees it.
   loadVerifiedOnly();
+  loadParkAccess();
   store = new KnowledgeChat(
     () =>
       loadKnowledgeRuntime().then(
@@ -28,7 +30,7 @@ function getStore(): KnowledgeChat {
           };
         },
       ),
-    { media: MEDIA, verifiedOnly: getVerifiedOnly },
+    { media: MEDIA, verifiedOnly: getVerifiedOnly, knowledgeOpen: isKnowledgeOpenNow },
   );
   return store;
 }
@@ -47,7 +49,7 @@ export function applyKnowledgePatches(patches: readonly KnowledgePatch[]) {
 }
 
 export function useKnowledge(): KnowledgeChatState & {
-  ask: (text: string, context?: string) => Promise<void>;
+  ask: (text: string, place?: string) => Promise<void>;
   askPhoto: KnowledgeChat['askPhoto'];
   reset: () => void;
 } {
@@ -55,7 +57,7 @@ export function useKnowledge(): KnowledgeChatState & {
   const state = useSyncExternalStore(s.subscribe, s.snapshot);
   return {
     ...state,
-    ask: (t, context) => s.ask(t, context),
+    ask: (t, place) => s.ask(t, place),
     askPhoto: (uri, caption, classify) => s.askPhoto(uri, caption, classify),
     reset: () => s.reset(),
   };
