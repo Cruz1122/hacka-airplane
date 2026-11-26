@@ -1,7 +1,10 @@
 // Sample content for the /design workshop. On web the model never loads, so these fixtures are
 // the only way to see the chat's states; they are samples, not product copy.
+import catalog from '@/../assets/data/knowledge/catalog.json';
 import type { ChatModel, ChatRow } from '@/chat/ChatView';
 import { loadWorld } from '@/core/world';
+import { t } from '@/i18n';
+import { toChatRows } from '@/state/knowledgeRows';
 import { messageSources } from '@/state/messageSources';
 
 export const READY: ChatModel = { id: 'gemma4-e2b', status: 'ready' };
@@ -66,6 +69,7 @@ export const SOURCED: ChatRow[] = [
     id: 's2',
     role: 'assistant',
     text: CATALOG_ANSWER.short,
+    entryId: CATALOG_ANSWER.id,
     latencyMs: 640,
     sources: CATALOG_ANSWER.sources.map((s, i) => ({
       id: `${CATALOG_ANSWER.id}#${i}`,
@@ -85,6 +89,43 @@ export const SOURCED: ChatRow[] = [
   },
 ];
 
+function catalogEntry(id: string) {
+  const entry = catalog.find((e) => e.id === id);
+  if (!entry) throw new Error(`No knowledge catalog entry ${id}`);
+  return entry;
+}
+
+const EMERGENCY_LINE = catalogEntry('health_safety.national_emergency_number_123');
+const REPORT = catalogEntry('actions.report_emergency_general');
+
+/**
+ * An urgent question as the live chat maps it (toChatRows): the 123 banner, then a catalog answer
+ * with a list, both with their keywords in bold.
+ */
+export const URGENT: ChatRow[] = toChatRows(
+  [
+    { id: 'u1', role: 'user', text: 'Mi amigo se cayó en el sendero y no se puede mover.' },
+    {
+      id: 'u2',
+      role: 'assistant',
+      timing: { rulesMs: 1, embedMs: 0, retrieveMs: 0, rerankMs: 0, totalMs: 12 },
+      reply: {
+        type: 'answer',
+        id: REPORT.id,
+        title: REPORT.label,
+        text: REPORT.short,
+        sources: REPORT.sources.map((s) => ({ title: s.label, url: s.url, date: s.retrieved_at })),
+        banner: {
+          kind: 'urgent_safety',
+          text: EMERGENCY_LINE.short,
+          sourceIds: [EMERGENCY_LINE.id],
+        },
+      },
+    },
+  ],
+  t.knowledge.error,
+);
+
 export interface ChatScreenState {
   label: string;
   messages: ChatRow[];
@@ -95,6 +136,7 @@ export interface ChatScreenState {
 export const CHAT_STATES: ChatScreenState[] = [
   { label: 'Conversación', messages: TALK },
   { label: 'Fuentes', messages: SOURCED },
+  { label: 'Urgencia', messages: URGENT },
   { label: 'Pensando', messages: TALK.slice(0, 3), busy: true },
   {
     label: 'Larga',
