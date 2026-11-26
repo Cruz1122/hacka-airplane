@@ -68,20 +68,20 @@ export const en: Labels = {
         blurb: 'Check-in, required briefing and departure. About 4,100 m a.s.l.',
       },
       aguacerales: {
-        name: 'Aguacerales sector',
-        blurb: 'First interpretation stop: páramo and volcanic remains.',
+        name: 'Aguacerales: where the water is born',
+        blurb: 'About 4,160 m: a superpáramo wetland that feeds Quebrada Azufrales.',
       },
       arenales: {
-        name: 'Arenales',
-        blurb: 'Volcanic ground, ash and moon-like formations.',
+        name: 'Arenales: the volcano’s desert',
+        blurb: 'At 4,230 m: volcanic-sand dunes facing Ruiz.',
       },
       valleLunar: {
-        name: 'Valle Lunar',
-        blurb: 'A panoramic stop of high landscape value on the route.',
+        name: 'Valle Lunar: a landscape from another world',
+        blurb: 'Sand, ash and wind between Arenales and Valle de las Tumbas.',
       },
       valleTumbas: {
-        name: 'Valle de las Tumbas / Valle del Silencio',
-        blurb: 'End of the vehicle route. Furthest access when Ruiz is at yellow alert.',
+        name: 'Valle de las Tumbas: the silence of the mountain',
+        blurb: 'At 4,450 m: end of the Brisas route. Also called Desert of Solitude.',
       },
     },
     back: 'Back',
@@ -99,71 +99,71 @@ export const en: Labels = {
       brisas: [
         {
           subtitle: 'Induction centre',
-          body: 'The **Brisas** visitor centre is the gateway to the superpáramos. You must register and hear a briefing on the rules; a **guide** is assigned there to accompany you to Valle de las Tumbas.\n\nIn the northern sector the route runs from the induction centre to Valle de Tumbas, with entry between **8:00 a.m.** and **2:00 p.m.**',
+          body: 'The **Brisas** induction centre is the entry point to the northern sector of **Los Nevados National Natural Park**. You must register and take a mandatory induction talk on the rules and conditions of entry; a **professional guide** endorsed by the park and authorised by a licensed tour operator is required.\n\nIn the northern sector, the authorised route is the **Brisas–Arenales–Valle de las Tumbas** dirt road. The Brisas induction centre receives visitors between **8:00 a.m.** and **2:00 p.m.**',
         },
         {
           subtitle: 'How to get there',
-          body: 'Access to the northern zone, on the western slope of **Nevado del Ruiz**, follows the road from La Esperanza–El Ocho (Manizales) to **Murillo** (Tolima).\n\nAfter about 18 km a turnoff leads to Brisas at **4,100 m a.s.l.** From there the authorised visitor route continues to Valle de las Tumbas at **4,450 m**.',
+          body: 'Access to the northern zone, on the western slope of **Nevado del Ruiz**, is by the road that links the La Esperanza or El Ocho sector in Manizales with **Murillo**, Tolima. After about 18 km a turnoff leads to the park entrance at Brisas, about **4,100 m a.s.l.** From there the authorised visitor route continues to Valle de las Tumbas, about **4,450 m a.s.l.**',
         },
         {
           subtitle: 'The park',
-          body: '**Los Nevados National Natural Park** was declared a protected area in **1974** (Inderena agreement 015 of 1973 and resolution 148 of 30 April 1974).\n\nIt began at about 38,000 hectares and by the end of 2023 covered **61,377.49 ha**: 47.1% in Tolima, 35.6% in Risaralda, 13.5% in Caldas and 3.8% in Quindío.',
+          body: 'The boundaries of **Los Nevados National Natural Park** were set by Inderena Agreement **015** of 28 March **1973** and approved by Resolution **148** of 30 April **1974**.\n\nIt began at about **38,000** hectares and by the end of **2023** covered **61,377.49** hectares. The park spans the departments of Caldas, Risaralda, Tolima and Quindío.',
         },
       ],
       aguacerales: [
         {
-          subtitle: 'Superpáramo',
-          body: 'From Brisas the dirt track crosses **superpáramos**: belts of glacial retreat, with mosses, lichens and hardy herbs.\n\n**Aguacerales** is among the first stops on that route: mosses that drink from the ice, before the ashes of Arenales and Valle Lunar.',
+          subtitle: 'Where the water is born',
+          body: 'At about 4,160 metres above sea level, Aguacerales looks like a small landscape, but it does enormous work. It is a superpáramo wetland where water filters through mosses, cushions and vegetation adapted to the cold.\n\nThese plants act as a living sponge: they hold rain and moisture, then release them slowly. Through that process, Aguacerales helps regulate the water that feeds Quebrada Azufrales and, farther down, the Chinchiná river basin.',
         },
         {
-          subtitle: 'Frailejones',
-          body: 'Above **3,000 m**, cloud forest and meadows give way to páramo, ruled by **frailejones** endemic to the northern Andes.\n\nThe plant captures fog water and carries it to the soil; **condors** and tiny chivito hummingbirds are seen among the frailejones at these heights.',
+          subtitle: 'Drop by drop',
+          body: 'Here the water does not appear all at once: it is born drop by drop, among mosses that can take years to grow. Walking through Aguacerales is therefore to understand that an apparently silent landscape sustains rivers, communities and cities far below.',
         },
         {
-          subtitle: 'Water and glaciers',
-          body: 'The páramo is the region’s main **water regulator**. The park holds **50%** of Colombia’s snow-capped mountains: Kumanday (Ruiz), Poleka Kasue (Santa Isabel) and Dulima (Tolima).\n\nClimate change has sped glacier melt over the last **70 years**.',
+          subtitle: 'Cumanday',
+          body: 'The place is also part of the high mountain of Nevado del Ruiz, known in Indigenous traditions as Cumanday. In Andean worldviews, water is a living element that connects mountains, páramos, rivers and communities. Aguacerales invites another way of seeing the landscape: not as a mere wetland, but as the silent origin of an essential resource.',
         },
       ],
       arenales: [
         {
-          subtitle: 'Ash fields',
-          body: '**Arenales** is the volcanic-ash stretch on the dirt route toward Valle de las Tumbas.\n\nTogether with Aguacerales and Valle Lunar it forms the otherworldly volcanic landscape of this superpáramo of Ruiz.',
+          subtitle: 'The volcano’s desert',
+          body: 'At 4,230 metres above sea level, Arenales looks like a small desert in the middle of the Andes. Its volcanic-sand dunes formed from ash and material ejected by Nevado del Ruiz, an active volcano whose main crater is called Arenas.\n\nThe wind that runs along the range has shaped these deposits for decades, creating a landscape that changes with time. There are no trees or wide meadows here: sand, rock, lichens and a few plants able to survive the cold, the radiation and the scarcity of water predominate.',
         },
         {
-          subtitle: 'The volcano',
-          body: 'Ruiz is an active **stratovolcano** **5,321 m** high, 28 km southeast of Manizales. It has two parasitic cones, **La Olleta** and La Piraña, and the active **Arenas** crater, 870 × 830 m across and 247 m deep.\n\nIn pre-Columbian times it was called Cumanday (White Hill), Tabuchía (fire) or Tama (Great Father).',
+          subtitle: 'Cumanday',
+          body: 'From Arenales you can see the edge of the Nevado del Ruiz glacier and understand the relationship between fire, ice and life. For the region’s Indigenous peoples this mountain was known as Cumanday, a name that recalls that the territory has stories older than maps and colonial names.',
         },
         {
-          subtitle: 'Activity',
-          body: 'The volcano covers more than **200 km²**. Arenas crater is about 1 km wide. Eruptions have been documented since **1570**; the current eruption began in November **2014**, with gas-and-ash emissions and seismicity.\n\nThe Colombian Geological Survey keeps the alert at **yellow**, the second of four levels.',
+          subtitle: 'A living volcano',
+          body: 'Arenales is a reminder that Ruiz is not a static mountain: it is a living volcano. Its history includes eruptions documented since 1570 and, especially, the 1985 tragedy, which changed how Colombia understands volcanic risk. Visiting it is to admire an extraordinary landscape, but also to recognise the force of nature and the importance of conserving these high-mountain ecosystems.',
         },
       ],
       valleLunar: [
         {
-          subtitle: 'The stop',
-          body: '**Valle Lunar** is one of the highest-value landscape stops on the superpáramo road, between the ashes of Arenales and the end at Valle de las Tumbas.',
+          subtitle: 'A landscape from another world',
+          body: 'Between Arenales and Valle de las Tumbas lies Valle Lunar, a place where sand, ash and wind have created a landscape that looks like another planet. Its undulating forms and grey tone evoke the surface of the Moon, hence the name.\n\nBut this “desert” is not an ordinary one: it is a cold high-mountain desert, shaped by the activity of Nevado del Ruiz. For centuries, the volcano’s eruptions and emissions have deposited ash and volcanic material on the slopes; the wind has redistributed and carved them, creating the dunes and undulations seen today.',
         },
         {
-          subtitle: 'Four nevados',
-          body: 'On this high plateau stand **Ruiz**, **Santa Isabel**, **Quindío** and **Tolima**, among fumaroles, craters, high-mountain lakes and páramos.\n\nThe lunar landscape of Nevado del Ruiz is one of the most cited views on this route.',
+          subtitle: 'A living volcano',
+          body: 'Valle Lunar is a reminder that Ruiz is a living volcano. Its landscape changes with time, and each layer of sand tells part of the mountain’s geological history.\n\nAlthough it looks inhospitable, Valle Lunar is part of the superpáramo, an ecosystem where life adapts to extreme conditions. Mosses, lichens and hardy plants find spaces to grow, showing the silent force of nature.',
         },
         {
-          subtitle: 'Ecosystems',
-          body: 'The park, on the Central Cordillera, protects **páramos**, superpáramos, high-Andean wetlands, Andean forests and glaciers.\n\nRuiz offers glaciers, volcanic rock and tectonic and geothermal terrain.',
+          subtitle: 'Sacred territory',
+          body: 'For some Indigenous communities this territory has spiritual value and is a setting for practices such as Indigenous pagamentos. In the Andean worldview the mountain is a living being and a source of water; Valle Lunar invites us to connect with that idea and to admire a landscape that is at once fragile, dynamic and sacred.',
         },
       ],
       valleTumbas: [
         {
-          subtitle: 'End of the route',
-          body: 'This is the end of the authorised visitor route, at **4,450 m a.s.l.** **Valle de las Tumbas** is a desolate place above 4,000 m, with lunar landscapes, geysers and waterfalls.\n\nIt is the usual destination of visits that leave from Brisas.',
+          subtitle: 'The silence of the mountain',
+          body: 'At 4,450 metres above sea level, Valle de las Tumbas is the end of the route through the Brisas sector of Los Nevados National Natural Park. Also known as the Desert of Solitude, it is a landscape of rock, ash and volcanic sediment where vegetation almost disappears.\n\nThis valley is not an ordinary place: it is a cold high-mountain desert, shaped by the force of Nevado del Ruiz. For centuries, the volcano’s eruptions and emissions have deposited ash and pyroclastic material on the slopes; wind and time have turned them into the landscape seen today.',
         },
         {
-          subtitle: 'The name',
-          body: 'The name comes from volcanic formations and fumaroles that look like a cemetery. The **Quimbaya** were not buried here, but it was a pilgrimage site: ceramics interpreted as offerings have been found.',
+          subtitle: 'A living volcano',
+          body: 'Valle de las Tumbas is a reminder that Ruiz is a living volcano. From there you can see part of the volcano’s slope and, at times, fumaroles from Arenas crater, a reminder that the mountain is still active.',
         },
         {
-          subtitle: '13 November 1985',
-          body: 'On **13 November 1985** the Ruiz eruption sent lahars that destroyed **Armero**, killing about **25,000** people.\n\nThe volcano remains active; in 2012 a mini-eruption felt from the Brisas cabin closed the park for nine months, and the alert remains **yellow**.',
+          subtitle: 'Sacred place',
+          body: 'But Valle de las Tumbas is not only geology: it is also a sacred place. For the Indigenous Puya and Quimbaya peoples it was a pilgrimage destination and a space of spiritual connection with nature. In the Andean worldview the mountain —known as Cumanday— is a living being and a source of water.\n\nVisiting Valle de las Tumbas is to admire an extraordinary landscape, but also to recognise the force of nature, the memory of Indigenous peoples and the importance of conserving these high-mountain ecosystems.',
         },
       ],
     },

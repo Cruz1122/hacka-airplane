@@ -61,7 +61,7 @@ function spansOf(source: string): { text: string; bold: boolean }[] {
 function Para({ text, web }: { text: string; web: boolean }) {
   const { palette, scaled } = useAccessibilityTheme();
   return (
-    <Text style={[web ? styles.bodyWeb : styles.body, scaled.body, { color: palette.ink }]} selectable={false}>
+    <Text style={[web ? styles.bodyWeb : styles.body, scaled.body, { color: palette.ink }]} selectable>
       {spansOf(text).map((s, j) => (
         <Text key={j} style={s.bold ? styles.bold : undefined}>
           {s.text}
@@ -118,7 +118,7 @@ function Card({ item, index }: { item: MediaRowItem; index: number }) {
     </View>
   );
   const subtitle = (
-    <Text style={[styles.subtitle, scaled.title, { color: palette.ink }]} selectable={false}>
+    <Text style={[styles.subtitle, scaled.title, { color: palette.ink }]} selectable>
       {item.subtitle}
     </Text>
   );
