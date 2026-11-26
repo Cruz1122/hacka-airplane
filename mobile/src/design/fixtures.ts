@@ -36,7 +36,7 @@ export const TALK: ChatRow[] = [
 export const CATALOG_ANSWER = {
   id: 'access.brisas_entry_altitude',
   short:
-    'El centro de inducción Brisas está a unos 4100 m. Tómala como la altura de la entrada, no como la de la cima ni la del final del carreteable.',
+    'El centro de inducción Brisas está a unos 4100 m. Es la altura de la entrada, no la de la cima ni la del final del carreteable.',
   sources: [
     {
       label: 'Parques Nacionales Naturales de Colombia — Parque Nacional Natural Los Nevados',
