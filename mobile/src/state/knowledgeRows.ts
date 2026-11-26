@@ -14,7 +14,9 @@ function replyText(r: KnowledgeReply): string {
 /** `errorText` is the i18n copy for a failed question (the raw error stays out of the bubble). */
 export function toChatRows(rows: readonly KnowledgeRow[], errorText: string): ChatRow[] {
   return rows.flatMap((row): ChatRow[] => {
-    if (row.role === 'user') return [{ id: row.id, role: 'user', text: row.text }];
+    if (row.role === 'user') return [{
+      id: row.id, role: 'user', text: row.text, ...(row.photoUri ? { photoUri: row.photoUri } : {}),
+    }];
     if ('error' in row) return [{ id: row.id, role: 'assistant', text: errorText }];
     const { reply } = row;
     const banner: ChatRow[] = reply.banner

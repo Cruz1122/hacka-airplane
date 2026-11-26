@@ -23,6 +23,7 @@ function getStore(): KnowledgeChat {
 
 export function useKnowledge(): KnowledgeChatState & {
   ask: (text: string) => Promise<void>;
+  askPhoto: KnowledgeChat['askPhoto'];
   reset: () => void;
 } {
   const s = getStore();
@@ -30,6 +31,7 @@ export function useKnowledge(): KnowledgeChatState & {
   return {
     ...state,
     ask: (t) => s.ask(t),
+    askPhoto: (uri, caption, classify) => s.askPhoto(uri, caption, classify),
     reset: () => s.reset(),
   };
 }

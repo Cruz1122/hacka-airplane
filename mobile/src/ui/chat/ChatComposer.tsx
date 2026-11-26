@@ -5,6 +5,7 @@ import { memo, useCallback, useEffect, useRef, useState } from 'react';
 import {
   Animated,
   Easing,
+  Image,
   Pressable,
   StyleSheet,
   Text,
@@ -21,11 +22,14 @@ import { useReducedMotion } from '../useReducedMotion';
 export type ComposerVariant = 'floating' | 'docked';
 
 export interface ChatComposerProps {
-  /** Sending is blocked (model busy or not ready); typing still works. */
+  /** Sending is blocked while a turn is being processed; typing still works. */
   disabled: boolean;
   placeholder: string;
   sendLabel: string;
   onSend: (text: string) => void;
+  onPhoto?: () => void;
+  photoUri?: string;
+  onRemovePhoto?: () => void;
   /** Reports empty/non-empty changes without lifting every keystroke into the parent. */
   onHasTextChange?: (hasText: boolean) => void;
   /** Default 'floating'. */
@@ -63,16 +67,17 @@ export const ChatComposer = memo(function ChatComposer(props: ChatComposerProps)
   );
 });
 
-/** Clears the field after a send; empty text or a blocked send does nothing. */
+/** Clears the field after sending text or an attachment. */
 function useDraft(
   initialText: string | undefined,
   disabled: boolean,
   onSend: (t: string) => void,
   onHasTextChange?: (hasText: boolean) => void,
+  hasAttachment = false,
 ) {
   const [text, setText] = useState(initialText ?? '');
   const hasText = text.trim() !== '';
-  const canSend = !disabled && hasText;
+  const canSend = !disabled && (hasText || hasAttachment);
   useEffect(() => onHasTextChange?.(hasText), [hasText, onHasTextChange]);
   const submit = () => {
     if (!canSend) return;
@@ -138,6 +143,9 @@ function DockedComposer({
   onSend,
   initialText,
   onHasTextChange,
+  onPhoto,
+  photoUri,
+  onRemovePhoto,
   floor = DOCK.floor,
   reducedMotion = false,
   onCaret,
@@ -147,6 +155,7 @@ function DockedComposer({
     disabled,
     onSend,
     onHasTextChange,
+    !!photoUri,
   );
   const [focused, setFocused] = useState(false);
   const { field, onMirrorLayout } = useCaret(text, focused, onCaret);
@@ -172,15 +181,39 @@ function DockedComposer({
   };
   return (
     <View>
+      {photoUri && (
+        <View style={docked.attachment}>
+          <Image source={{ uri: photoUri }} accessible accessibilityLabel="Foto adjunta" style={docked.thumbnail} />
+          <Pressable
+            accessibilityRole="button"
+            accessibilityLabel="Quitar foto"
+            onPress={onRemovePhoto}
+            style={docked.removePhoto}
+          >
+            <Icon name="x" color={brand.ink} size={18} />
+          </Pressable>
+        </View>
+      )}
       <View style={[docked.row, { paddingHorizontal: DOCK.inset - DOCK.fillet }]}>
         <Shoulder side="left" />
         <View style={docked.tab}>
+          {onPhoto && (
+            <Pressable
+              accessibilityRole="button"
+              accessibilityLabel="Identificar una foto"
+              disabled={disabled}
+              onPress={onPhoto}
+              style={docked.photo}
+            >
+              <Icon name="camera" color={disabled ? brand.inkMuted : brand.primary} />
+            </Pressable>
+          )}
           <View style={docked.fieldBox}>
             <TextInput
               ref={field}
               value={text}
               onChangeText={setText}
-              placeholder={placeholder}
+              placeholder={photoUri ? "Escribe sobre la foto" : placeholder}
               placeholderTextColor={brand.inkMuted}
               selectionColor={brand.primarySoft}
               onSubmitEditing={submit}
@@ -347,6 +380,10 @@ const docked = StyleSheet.create({
     borderTopRightRadius: DOCK.radius,
     backgroundColor: brand.cardShade,
   },
+  attachment: { alignSelf: 'flex-start', flexDirection: 'row', marginLeft: DOCK.inset, marginBottom: 6, borderRadius: 14, padding: 6, backgroundColor: brand.cardShade },
+  thumbnail: { width: 72, height: 60, borderRadius: 8 },
+  removePhoto: { width: 44, height: 44, alignItems: 'center', justifyContent: 'center' },
+  photo: { width: 44, height: 44, alignItems: 'center', justifyContent: 'center' },
   fieldBox: { flex: 1, minWidth: 0 },
   mirror: {
     ...type.body,

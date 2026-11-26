@@ -91,3 +91,26 @@ describe('KnowledgeChat', () => {
     expect(chat.snapshot().rows).toEqual([]);
   });
 });
+
+test.each([
+  '¿Puedo enviarte una foto?',
+  '¿Dónde está la cámara?',
+  '¿Qué puedes hacer?',
+])('answers app help without calling the text retriever for %s', async (question) => {
+  const engine = fakeEngine();
+  const chat = new KnowledgeChat(async () => ({ engine, degraded: 'modelo ausente' }));
+  await chat.ask(question);
+  expect(engine.ask).not.toHaveBeenCalled();
+  expect(chat.snapshot().rows.at(-1)).toMatchObject({
+    role: 'assistant',
+    reply: { text: expect.stringContaining('cámara a la izquierda') },
+  });
+});
+
+test('a park photography question still goes to the knowledge engine', async () => {
+  const engine = fakeEngine();
+  const chat = new KnowledgeChat(async () => ({ engine }));
+  const question = '¿Puedo tomar fotos en el parque?';
+  await chat.ask(question);
+  expect(engine.ask).toHaveBeenCalledWith(question);
+});

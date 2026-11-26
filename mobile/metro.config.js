@@ -10,17 +10,21 @@ const config = getDefaultConfig(__dirname);
 // expo-sqlite on web (settings live in its kv-store): its worker imports a .wasm file and needs
 // SharedArrayBuffer, which the browser allows only with these headers (Expo SDK 58 "Web setup").
 // Without them the settings read never resolves and the chat stays on "loading model".
-config.resolver.assetExts.push('wasm');
+config.resolver.assetExts.push('wasm', 'onnx');
 
 // The web chat (src/llm/knowledgeRuntime.web.ts) fetches the e5 GGUF and the index vectors from
 // here, plus wllama's wasm. Only these exact names are served: no path from the URL reaches the disk.
-// Dev server only; a static `expo export` has no models.
+// Local development server for the browser preview.
 const manifest = require('./assets/data/knowledge/index.json');
 const MODELS = path.resolve(__dirname, '../models/knowledge');
 const KNOWLEDGE_FILES = {
   [manifest.embedder.file]: path.join(MODELS, manifest.embedder.file),
   [manifest.vectors.file]: path.join(MODELS, manifest.vectors.file),
   'wllama.wasm': path.resolve(__dirname, 'node_modules/@wllama/wllama/esm/wasm/wllama.wasm'),
+  'vision-encoder.onnx': path.resolve(__dirname, 'assets/vision/encoder.onnx'),
+  'ort.wasm.min.js': path.resolve(__dirname, 'node_modules/onnxruntime-web/dist/ort.wasm.min.js'),
+  'ort-wasm-simd-threaded.wasm': path.resolve(__dirname, 'node_modules/onnxruntime-web/dist/ort-wasm-simd-threaded.wasm'),
+  'ort-wasm-simd-threaded.mjs': path.resolve(__dirname, 'node_modules/onnxruntime-web/dist/ort-wasm-simd-threaded.mjs'),
 };
 
 function serveKnowledgeFile(req, res) {
@@ -31,10 +35,8 @@ function serveKnowledgeFile(req, res) {
     res.end(`not served: ${name}`);
     return;
   }
-  res.setHeader(
-    'Content-Type',
-    name.endsWith('.wasm') ? 'application/wasm' : 'application/octet-stream',
-  );
+  const contentTypes = { '.wasm': 'application/wasm', '.mjs': 'text/javascript', '.js': 'text/javascript' };
+  res.setHeader('Content-Type', contentTypes[path.extname(name)] ?? 'application/octet-stream');
   res.setHeader('Content-Length', fs.statSync(file).size);
   fs.createReadStream(file).pipe(res);
 }
