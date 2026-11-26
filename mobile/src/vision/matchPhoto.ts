@@ -11,7 +11,8 @@ export type PhotoMatch = (typeof classes)[ClassId] | typeof mountainMatch;
 
 type ReferenceId = ClassId | 'other';
 
-const thresholds: Record<ClassId, { minimum: number; margin: number }> = {
+const standardThreshold = { minimum: 0.45, margin: 0.05 };
+const thresholds: Partial<Record<ClassId, typeof standardThreshold>> = {
   frailejon: { minimum: 0.42, margin: 0.06 },
   otun: { minimum: 0.35, margin: 0.04 },
   roca: { minimum: 0.29, margin: 0.06 },
@@ -46,14 +47,16 @@ export function matchPhoto(vector: Float32Array): PhotoMatch | undefined {
     scores.sort((a, b) => b - a);
     const nearest = scores.slice(0, 3);
     const mean = nearest.reduce((sum, score) => sum + score, 0) / nearest.length;
-    // Landscape classes need support from several views, since one silhouette can be misleading.
-    const score = id === 'otun' || mountains.has(id) ? 0.80 * nearest[0] + 0.20 * mean : nearest[0];
+    // A second matching view keeps a similar background from dominating a newer class.
+    const needsSupport = id !== 'other' && !thresholds[id];
+    const support = needsSupport ? 0.30 : id === 'otun' || mountains.has(id) ? 0.20 : 0;
+    const score = (1 - support) * nearest[0] + support * mean;
     return { id, score };
   }).sort((a, b) => b.score - a.score);
   const [best, runnerUp] = ranked;
   if (!best || !runnerUp || best.id === 'other') return;
   // These empirical floors are similarities, not calibrated probabilities.
-  const { minimum, margin } = thresholds[best.id];
+  const { minimum, margin } = thresholds[best.id] ?? standardThreshold;
   if (best.score < minimum) return;
   if (best.score - runnerUp.score >= margin) return classes[best.id];
 
