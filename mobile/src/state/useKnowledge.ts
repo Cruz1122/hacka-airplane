@@ -38,7 +38,7 @@ export function preloadKnowledge(): void {
 }
 
 export function useKnowledge(): KnowledgeChatState & {
-  ask: (text: string) => Promise<void>;
+  ask: (text: string, context?: string) => Promise<void>;
   askPhoto: KnowledgeChat['askPhoto'];
   reset: () => void;
 } {
@@ -46,7 +46,7 @@ export function useKnowledge(): KnowledgeChatState & {
   const state = useSyncExternalStore(s.subscribe, s.snapshot);
   return {
     ...state,
-    ask: (t) => s.ask(t),
+    ask: (t, context) => s.ask(t, context),
     askPhoto: (uri, caption, classify) => s.askPhoto(uri, caption, classify),
     reset: () => s.reset(),
   };

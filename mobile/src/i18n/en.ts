@@ -88,6 +88,12 @@ export const en: Labels = {
     back: 'Back',
     photo: 'Image {n} of this stage',
     source: 'Source: UTON ecotourism script, 2024',
+    tumak: {
+      open: 'Open {pet}’s chat',
+      title: '{pet}',
+      close: 'Close {pet}’s chat',
+      context: 'We are in the context of the stage {place}.',
+    },
     sheet: {
       more: 'Learn more!',
       close: 'Close',

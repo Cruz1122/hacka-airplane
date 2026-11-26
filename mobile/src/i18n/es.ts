@@ -93,6 +93,12 @@ export const es = {
     back: 'Volver',
     photo: 'Imagen {n} de la etapa',
     source: 'Fuente: Guion ecoturístico UTON, 2024',
+    tumak: {
+      open: 'Abrir el chat de {pet}',
+      title: '{pet}',
+      close: 'Cerrar el chat de {pet}',
+      context: 'Estamos en el contexto de la etapa {place}.',
+    },
     sheet: {
       more: '¡Saber más!',
       close: 'Cerrar',

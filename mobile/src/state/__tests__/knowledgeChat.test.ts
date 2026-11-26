@@ -48,15 +48,24 @@ describe('KnowledgeChat', () => {
   });
 
   it('shows an engine failure as an error row instead of throwing', async () => {
-    const engine = fakeEngine({ ask: jest.fn(async () => Promise.reject(new Error('embedder gone'))) });
+    const engine = fakeEngine({
+      ask: jest.fn(async () => Promise.reject(new Error('embedder gone'))),
+    });
     const chat = new KnowledgeChat(async () => ({ engine }));
     await chat.ask('hola');
-    expect(chat.snapshot().rows[1]).toEqual({ id: expect.any(String), role: 'assistant', error: 'embedder gone' });
+    expect(chat.snapshot().rows[1]).toEqual({
+      id: expect.any(String),
+      role: 'assistant',
+      error: 'embedder gone',
+    });
     expect(chat.snapshot().busy).toBe(false);
   });
 
   it('reports a degraded runtime', async () => {
-    const chat = new KnowledgeChat(async () => ({ engine: fakeEngine(), degraded: 'e5-base-f16.gguf not found' }));
+    const chat = new KnowledgeChat(async () => ({
+      engine: fakeEngine(),
+      degraded: 'e5-base-f16.gguf not found',
+    }));
     await chat.ask('hola');
     const s = chat.snapshot();
     expect(s.status).toBe('degraded');
@@ -232,19 +241,27 @@ describe('KnowledgeChat photos', () => {
   });
 });
 
-test.each([
-  '¿Puedo enviarte una foto?',
-  '¿Dónde está la cámara?',
-  '¿Qué puedes hacer?',
-])('answers app help without calling the text retriever for %s', async (question) => {
+test.each(['¿Puedo enviarte una foto?', '¿Dónde está la cámara?', '¿Qué puedes hacer?'])(
+  'answers app help without calling the text retriever for %s',
+  async (question) => {
+    const engine = fakeEngine();
+    const chat = new KnowledgeChat(async () => ({ engine, degraded: 'modelo ausente' }));
+    await chat.ask(question);
+    expect(engine.ask).not.toHaveBeenCalled();
+    expect(chat.snapshot().rows.at(-1)).toMatchObject({
+      role: 'assistant',
+      reply: { text: expect.stringContaining('cámara a la izquierda') },
+    });
+  },
+);
+
+test('a stage question keeps the typed text and appends its context for retrieval', async () => {
   const engine = fakeEngine();
-  const chat = new KnowledgeChat(async () => ({ engine, degraded: 'modelo ausente' }));
-  await chat.ask(question);
-  expect(engine.ask).not.toHaveBeenCalled();
-  expect(chat.snapshot().rows.at(-1)).toMatchObject({
-    role: 'assistant',
-    reply: { text: expect.stringContaining('cámara a la izquierda') },
-  });
+  const chat = new KnowledgeChat(async () => ({ engine }));
+  const note = 'Estamos en el contexto de la etapa Aguacerales: el filtro de la montaña.';
+  await chat.ask('qué es esto', note);
+  expect(chat.snapshot().rows[0]).toMatchObject({ role: 'user', text: 'qué es esto' });
+  expect(engine.ask).toHaveBeenCalledWith(`qué es esto ${note}`, { verifiedOnly: false });
 });
 
 test('a park photography question still goes to the knowledge engine', async () => {
