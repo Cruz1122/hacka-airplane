@@ -138,20 +138,32 @@ function DetailShapes({
   }
 }
 
-/** The stop's setting in a `size` square, its ground at `ground` (where the animal's feet are). */
+/**
+ * The stop's setting in a `size` square, its ground at `ground` (where the animal's feet are).
+ * A wider `width` stretches the landscape sideways; the flat shapes take it, the animal is drawn apart.
+ */
 export function StationScene({
   id,
   size: s,
   ground: g,
+  width = s,
 }: {
   id: StationId;
   size: number;
   ground: number;
+  width?: number;
 }) {
   const scene = SCENES[id];
   const horizon = g - s * 0.04;
   return (
-    <Svg width={s} height={s} style={{ position: 'absolute' }} pointerEvents="none">
+    <Svg
+      width={width}
+      height={s}
+      viewBox={`0 0 ${s} ${s}`}
+      preserveAspectRatio="none"
+      style={{ position: 'absolute' }}
+      pointerEvents="none"
+    >
       <Rect width={s} height={s} fill={scene.sky} />
       <Path d={farPath(scene.far, s, horizon)} fill={scene.farColor} />
       {scene.far === 'volcano' ? <Path d={snowCap(s, horizon)} fill={p.snow} /> : null}

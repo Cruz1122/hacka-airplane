@@ -149,13 +149,6 @@ function StationDisc({
 }) {
   const { palette } = useAccessibilityTheme();
   const inner = size - RING * 2;
-  const box = FIGURE_BOX[id];
-  const facing = facingOf(index);
-  const boxH = box.h + GROUND_ROOM;
-  const scale = (inner * FILL) / Math.hypot(box.w, boxH);
-  // Centre the box: mirroring flips x about the feet, so the offset flips with it.
-  const cx = inner / 2 - facing * (box.x + box.w / 2) * scale;
-  const ground = inner / 2 - (box.y + boxH / 2) * scale;
   return (
     <View
       pointerEvents="box-none"
@@ -179,18 +172,46 @@ function StationDisc({
           },
         ]}
       >
-        <StationScene id={id} size={inner} ground={ground} />
-        {/* Positioned like the scene: on web an absolute sibling stacks over one in normal flow. */}
-        <View style={StyleSheet.absoluteFill} pointerEvents="none">
-          <TrailMarkSvg
-            id={id}
-            width={inner}
-            height={inner}
-            sink={{ dy: 0, sy: 1, cx, ground, scale }}
-            facing={facing}
-          />
-        </View>
+        <StationArt id={id} size={inner} facing={facingOf(index)} />
       </Pressable>
+    </View>
+  );
+}
+
+/**
+ * A stop's animal standing in its setting, filling a `size` square (its circle), or a `width`-wide
+ * band `size` tall (its sheet) with the animal in the middle.
+ */
+export function StationArt({
+  id,
+  size,
+  width = size,
+  facing = 1,
+}: {
+  id: StationId;
+  size: number;
+  width?: number;
+  facing?: 1 | -1;
+}) {
+  const box = FIGURE_BOX[id];
+  const boxH = box.h + GROUND_ROOM;
+  const scale = (size * FILL) / Math.hypot(box.w, boxH);
+  // Centre the box: mirroring flips x about the feet, so the offset flips with it.
+  const cx = width / 2 - facing * (box.x + box.w / 2) * scale;
+  const ground = size / 2 - (box.y + boxH / 2) * scale;
+  return (
+    <View style={{ width, height: size }} pointerEvents="none">
+      <StationScene id={id} size={size} ground={ground} width={width} />
+      {/* Positioned like the scene: on web an absolute sibling stacks over one in normal flow. */}
+      <View style={StyleSheet.absoluteFill}>
+        <TrailMarkSvg
+          id={id}
+          width={width}
+          height={size}
+          sink={{ dy: 0, sy: 1, cx, ground, scale }}
+          facing={facing}
+        />
+      </View>
     </View>
   );
 }
