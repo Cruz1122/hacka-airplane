@@ -20,11 +20,14 @@ function mount(sources: ChatSource[] | null) {
   const onClose = jest.fn();
   const root = createRoot();
   act(() => root.render(<SourcesSheet sources={sources} onClose={onClose} />));
+  const show = (next: ChatSource[]) =>
+    act(() => root.render(<SourcesSheet sources={next} onClose={onClose} />));
   const all = (pred: (n: TestInstance) => boolean) => root.container.queryAll(pred);
   const byLabel = (label: string) =>
     all((n) => n.type === 'View' && n.props.accessibilityLabel === label);
   return {
     onClose,
+    show,
     byLabel,
     /** Whether the overlay still takes touches. */
     blocking: () => all((n) => n.type === 'View')[0].props.pointerEvents !== 'none',
@@ -85,6 +88,33 @@ describe('SourcesSheet', () => {
     expect(s.blocking()).toBe(false);
     act(() => done.forEach((f) => f()));
     expect(s.onClose).toHaveBeenCalledTimes(1);
+  });
+
+  it('keeps sources asked for while it slides out', () => {
+    mockReduced = false;
+    const anims: { done?: (r: { finished: boolean }) => void; stopped: boolean }[] = [];
+    jest.spyOn(Animated, 'timing').mockImplementation(() => {
+      const a: (typeof anims)[number] = { stopped: false };
+      anims.push(a);
+      return {
+        start: (cb?: (r: { finished: boolean }) => void) => {
+          a.done = cb;
+        },
+        stop: () => {
+          if (!a.stopped) a.done?.({ finished: false });
+          a.stopped = true;
+        },
+        reset: () => {},
+      };
+    });
+    const s = mount([{ id: 'a', title: 'Estación Refugio Quelital' }]);
+    s.press(s.byLabel(copy.close)[0]);
+    const exit = anims.at(-1)!;
+    s.show([{ id: 'b', title: 'Parque' }]);
+    act(() => exit.done?.({ finished: true }));
+    expect(s.onClose).not.toHaveBeenCalled();
+    expect(s.blocking()).toBe(true);
+    expect(s.texts()).toContain('Parque');
   });
 
   it('closes from its close button', () => {
