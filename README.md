@@ -44,7 +44,7 @@ Needs Node 22, JDK 21, the Android SDK (with `ndk;27.1.12297006` and `platforms;
 
 1. **Get the model files.** They are not in git. Ask a maintainer for the `models/` folder (about 1.4 GB) and put it at the repo root, so the layout matches the table below. Check it: `sha256sum -c models.sha256`
 2. **Install JS dependencies:** `cd mobile && npm install`
-3. **Generate the Android project** (ignored by git): `npx expo prebuild --platform android`, then point Gradle at your SDK with `export ANDROID_HOME=<your sdk path>` or `sdk.dir=<your sdk path>` in `android/local.properties`.
+3. **Generate the Android project** (ignored by git): `npx expo prebuild --platform android`, then point Gradle at your SDK: write `sdk.dir=<your sdk path>` in `mobile/android/local.properties`. If `ANDROID_HOME` and `ANDROID_SDK_ROOT` are both set to different paths, Gradle refuses to build; unset one.
 4. **Build and install the debug app:** `cd android && ./gradlew assembleDebug -PreactNativeArchitectures=arm64-v8a && adb install -r app/build/outputs/apk/debug/app-debug.apk`
 5. **Copy the models to the phone and start the app:** from `mobile/`, run `scripts/push-knowledge.sh`, then `npx expo start` and `adb reverse tcp:8081 tcp:8081`, and open the app.
 
