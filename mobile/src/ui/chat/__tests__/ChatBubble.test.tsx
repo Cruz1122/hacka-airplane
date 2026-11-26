@@ -97,9 +97,9 @@ describe('ChatBubble', () => {
   it('enters once and not again while the streamed answer grows', () => {
     const b = mount({ role: 'assistant', text: 'Abre' });
     b.render({ role: 'assistant', text: 'Abre a las 06:10 [fue' });
-    expect(b.text()).toBe(`Abre a las 06:10|${t.chatScreen.voice.speakLabel}`);
+    expect(b.text()).toBe('Abre a las 06:10');
     b.render({ role: 'assistant', text: 'Abre a las 06:10 [fuente: EST-D-01].' });
-    expect(b.text()).toBe(`Abre a las 06:10.|${t.chatScreen.voice.speakLabel}`);
+    expect(b.text()).toBe('Abre a las 06:10.');
     expect(timing).toHaveBeenCalledTimes(1);
   });
 
@@ -194,7 +194,7 @@ describe('ChatBubble', () => {
     expect(b.text()).toBe('Abre a las ');
     advance(MS * 3);
     expect(b.text()).toBe(
-      `${text}|${t.chatScreen.voice.speakLabel}|E|P|${t.chatScreen.sources.title}|0.6 s`,
+      `${text}|E|P|${t.chatScreen.sources.title}|0.6 s`,
     );
     expect(b.buttons()).toHaveLength(2);
   });
@@ -237,7 +237,7 @@ describe('ChatBubble', () => {
     mockReduced = true;
     const id = scheduled('Abre a las 06:10.');
     const b = mount({ role: 'assistant', text: 'Abre a las 06:10.', meta: '1.0 s', revealId: id });
-    expect(b.text()).toBe(`Abre a las 06:10.|${t.chatScreen.voice.speakLabel}|1.0 s`);
+    expect(b.text()).toBe('Abre a las 06:10.|1.0 s');
   });
 
   it('does not replay a reply when the chat mounts again, even one left mid-way', () => {
@@ -248,9 +248,7 @@ describe('ChatBubble', () => {
     expect(first.text()).toBe('uno dos ');
     act(() => first.root.unmount());
     advance(MS * 10);
-    expect(mount({ role: 'assistant', text, revealId: id }).text()).toBe(
-      `${text}|${t.chatScreen.voice.speakLabel}`,
-    );
+    expect(mount({ role: 'assistant', text, revealId: id }).text()).toBe(text);
   });
 
   it('renders the welcome message with the same keyword emphasis as answers', () => {
@@ -270,9 +268,7 @@ describe('ChatBubble', () => {
       keywords: ['marca el 123', 'tu guía'],
     });
     expect(b.bold()).toEqual(['marca el 123', 'tu guía']);
-    expect(b.text()).toBe(
-      `Si hay peligro, marca el 123.|•|Avisa a tu guía.|${t.chatScreen.voice.speakLabel}`,
-    );
+    expect(b.text()).toBe('Si hay peligro, marca el 123.|•|Avisa a tu guía.');
   });
 
   it('re-renders only the bubble that is typing out', () => {

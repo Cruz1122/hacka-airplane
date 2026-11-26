@@ -234,7 +234,6 @@ export const en: Labels = {
       error: 'I could not transcribe. Try again.',
       speak: 'Listen to this answer',
       speakStop: 'Stop the voice',
-      speakLabel: 'Voice',
       speakError: 'I could not read the answer aloud.',
     },
   },

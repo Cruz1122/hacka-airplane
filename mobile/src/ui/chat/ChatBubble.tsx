@@ -285,7 +285,7 @@ function spans(block: Block): ReactNode[] {
 }
 
 function SpeakButton({ speakId, text }: { speakId: string; text: string }) {
-  const { palette, textScale, highContrast, borderWidth } = useAccessibilityTheme();
+  const { palette, highContrast, borderWidth } = useAccessibilityTheme();
   const speaking = useSyncExternalStore(subscribeSpeak, getSpeakingKey) === speakId;
   const onPress = useCallback(() => {
     toggleSpeak(speakId, text, () => {
@@ -293,16 +293,21 @@ function SpeakButton({ speakId, text }: { speakId: string; text: string }) {
     });
   }, [speakId, text]);
   const copy = t.chatScreen.voice;
+  // Same content height as Fuentes: 18 pt glyph + 4 pt vertical padding + the shared edge.
+  const badgeSize = 18 + 8 + 2 * borderWidth;
   return (
     <Pressable
       onPress={onPress}
-      hitSlop={8}
+      hitSlop={10}
       accessibilityRole="button"
       accessibilityLabel={speaking ? copy.speakStop : copy.speak}
       accessibilityState={{ busy: speaking }}
       style={({ pressed }) => [
         styles.speakBadge,
         {
+          width: badgeSize,
+          height: badgeSize,
+          borderRadius: badgeSize / 2,
           borderColor: pressed ? palette.primary : highContrast ? palette.ink : palette.primarySoft,
           borderWidth,
           backgroundColor: pressed ? palette.cardShade : palette.card,
@@ -313,22 +318,10 @@ function SpeakButton({ speakId, text }: { speakId: string; text: string }) {
     >
       <Icon
         name={speaking ? 'circlePause' : 'volume2'}
-        size={16}
+        size={18}
         color={palette.ink}
         strokeWidth={2.1}
       />
-      <Text
-        style={[
-          styles.sourceLabel,
-          {
-            color: palette.ink,
-            fontSize: scaleSize(12, textScale),
-            lineHeight: scaleSize(16, textScale),
-          },
-        ]}
-      >
-        {copy.speakLabel}
-      </Text>
     </Pressable>
   );
 }
@@ -593,14 +586,8 @@ const styles = StyleSheet.create({
     gap: 6,
   },
   speakBadge: {
-    minHeight: 44,
-    flexDirection: 'row',
     alignItems: 'center',
-    gap: 6,
-    paddingLeft: 10,
-    paddingRight: 10,
-    paddingVertical: 4,
-    borderRadius: radius.pill,
+    justifyContent: 'center',
     borderWidth: 1,
     borderColor: brand.primarySoft,
     backgroundColor: brand.card,

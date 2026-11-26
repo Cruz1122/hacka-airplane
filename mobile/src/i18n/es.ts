@@ -240,7 +240,6 @@ export const es = {
       error: 'No pude transcribir. Intenta de nuevo.',
       speak: 'Escuchar esta respuesta',
       speakStop: 'Detener la voz',
-      speakLabel: 'Voz',
       speakError: 'No pude leer la respuesta en voz alta.',
     },
   },
