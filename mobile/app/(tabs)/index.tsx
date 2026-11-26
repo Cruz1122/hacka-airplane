@@ -1,22 +1,14 @@
-import { Redirect, router, useLocalSearchParams } from 'expo-router';
+import { useLocalSearchParams } from 'expo-router';
 import { useCallback, useMemo } from 'react';
 
 import { ChatView, type ChatModel } from '@/chat/ChatView';
 import { t } from '@/i18n';
-import { onboardingDone } from '@/onboarding/launch';
 import { toChatRows } from '@/state/knowledgeRows';
 import { useKnowledge } from '@/state/useKnowledge';
+import { AppNavBar } from '@/ui/AppNavBar';
 
-// The knowledge engine has no routing steps or live draft; ChatView's debug props stay empty.
-const NO_STEPS: never[] = [];
-
-export default function ChatRoute() {
-  // Each launch starts on the onboarding, which replaces itself with this route when it ends.
-  if (!onboardingDone()) return <Redirect href="/onboarding" />;
-  return <ChatScreen />;
-}
-
-function ChatScreen() {
+// The onboarding gate lives in the tabs layout (app/(tabs)/_layout.tsx).
+export default function ChatScreen() {
   const { rows, ask, reset, busy, status } = useKnowledge();
   // Set by the onboarding so the header continues its last frame exactly.
   const { sceneTime } = useLocalSearchParams<{ sceneTime?: string }>();
@@ -28,16 +20,12 @@ function ChatScreen() {
     <ChatView
       messages={messages}
       busy={busy}
-      draft=""
       model={model}
-      steps={NO_STEPS}
-      state=""
       sceneTime={sceneTime ? Number(sceneTime) : null}
       fadeIn={sceneTime !== undefined}
       onSend={onSend}
       onReset={reset}
-      onSettings={() => router.push('/settings')}
-      onHistory={() => router.push('/history')}
+      nav={<AppNavBar active="chat" />}
     />
   );
 }

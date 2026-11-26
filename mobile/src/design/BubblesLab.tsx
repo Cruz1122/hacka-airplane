@@ -9,6 +9,7 @@ import { fill, t } from '@/i18n';
 import { ChatBubble } from '@/ui/chat/ChatBubble';
 import type { ChatSource } from '@/ui/chat/citations';
 import { keywordsFor } from '@/ui/chat/keywords';
+import { revealRows } from '@/ui/chat/MediaGallery';
 import { replyReveal } from '@/ui/chat/reveal';
 import { SourcesSheet } from '@/ui/chat/SourcesSheet';
 import { TypingBubble } from '@/ui/chat/TypingBubble';
@@ -24,18 +25,20 @@ import {
   Toggle,
   type LabProps,
 } from './chrome';
-import { CHAT_STATES, READY, ROUTER_DRAFT, SOURCED, TALK, URGENT } from './fixtures';
+import { CHAT_STATES, PHOTO_THREADS, READY, SOURCED, TALK, URGENT } from './fixtures';
 
 const w = t.dev.workshop;
 const seconds = (ms?: number) =>
   ms != null ? fill(t.chatScreen.seconds, { s: (ms / 1000).toFixed(1) }) : undefined;
 const noop = () => {};
-const THREADS = { talk: TALK, sources: SOURCED, urgent: URGENT };
+const THREADS = { talk: TALK, sources: SOURCED, urgent: URGENT, photos: PHOTO_THREADS.single };
 const NOTHING_SEEN = new Set<string>();
 
 export function BubblesLab({ wide, reducedMotion }: LabProps) {
   const [view, setView] = useState<'bubbles' | 'screen'>('bubbles');
   const [thread, setThread] = useState<keyof typeof THREADS>('talk');
+  // The photos thread shows one gallery layout at a time, so its turn fits the frame and replays.
+  const [gallery, setGallery] = useState<keyof typeof PHOTO_THREADS>('single');
   const [sheet, setSheet] = useState<ChatSource[] | null>(null);
   const [thinking, setThinking] = useState(false);
   // 0 shows the thread as read; each replay types its last turn out again under fresh row ids.
@@ -43,18 +46,22 @@ export function BubblesLab({ wide, reducedMotion }: LabProps) {
   const [screen, setScreen] = useState(CHAT_STATES[0].label);
   const state = CHAT_STATES.find((s) => s.label === screen) ?? CHAT_STATES[0];
 
-  const messages = THREADS[thread];
+  const messages = thread === 'photos' ? PHOTO_THREADS[gallery] : THREADS[thread];
   // The last turn: the assistant rows after the last question (a banner and its reply).
   const turn = messages.findLastIndex((m) => m.role === 'user') + 1;
   const replayId = (m: ChatRow, n: number) => `lab/${thread}/${m.id}/${n}`;
   const replayTurn = () => {
     const n = replay + 1;
     const rows = messages.slice(turn).map((m) => ({ ...m, id: replayId(m, n) }));
-    replyReveal.schedule(rows, NOTHING_SEEN, performance.now());
+    replyReveal.schedule(revealRows(rows), NOTHING_SEEN, performance.now());
     setReplay(n);
   };
   const pickThread = (next: keyof typeof THREADS) => {
     setThread(next);
+    setReplay(0);
+  };
+  const pickGallery = (next: keyof typeof PHOTO_THREADS) => {
+    setGallery(next);
     setReplay(0);
   };
   const bubble = (m: ChatRow, revealId?: string) => (
@@ -67,6 +74,7 @@ export function BubblesLab({ wide, reducedMotion }: LabProps) {
       onOpenSources={setSheet}
       keywords={keywordsFor(m.entryId)}
       revealId={revealId}
+      media={m.media}
     />
   );
   const preview =
@@ -74,7 +82,7 @@ export function BubblesLab({ wide, reducedMotion }: LabProps) {
       <PhoneFrame height={wide ? 620 : 540}>
         <View style={styles.thread}>
           {messages.slice(0, turn).map((m) => bubble(m))}
-          <Entrance key={`${thread}-${replay}`} reducedMotion={reducedMotion}>
+          <Entrance key={`${thread}-${gallery}-${replay}`} reducedMotion={reducedMotion}>
             {messages
               .slice(turn)
               .map((m) => bubble(m, replay > 0 ? replayId(m, replay) : undefined))}
@@ -94,15 +102,10 @@ export function BubblesLab({ wide, reducedMotion }: LabProps) {
           key={screen}
           messages={state.messages}
           busy={!!state.busy}
-          draft={ROUTER_DRAFT}
           model={state.model ?? READY}
-          steps={[]}
-          state="ROUTER"
           sceneTime={null}
           onSend={noop}
           onReset={noop}
-          onSettings={noop}
-          onHistory={noop}
         />
       </PhoneFrame>
     );
@@ -129,9 +132,23 @@ export function BubblesLab({ wide, reducedMotion }: LabProps) {
                 { value: 'talk', label: w.threadTalk },
                 { value: 'sources', label: w.threadSources },
                 { value: 'urgent', label: w.threadUrgent },
+                { value: 'photos', label: w.threadPhotos },
               ]}
             />
           </Field>
+          {thread === 'photos' && (
+            <Field label={w.gallery}>
+              <Choices
+                value={gallery}
+                onChange={pickGallery}
+                options={[
+                  { value: 'single', label: w.gallerySingle },
+                  { value: 'rows', label: w.galleryRows },
+                  { value: 'columns', label: w.galleryColumns },
+                ]}
+              />
+            </Field>
+          )}
           <Toggle label={w.thinking} value={thinking} onChange={setThinking} />
           <ActionButton icon="play" label={w.replayReply} onPress={replayTurn} />
         </>

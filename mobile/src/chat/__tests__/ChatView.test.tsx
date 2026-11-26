@@ -4,7 +4,10 @@ import { initialWindowMetrics } from 'react-native-safe-area-context';
 // Ships with jest-expo (its replacement for the deprecated react-test-renderer).
 import { createRoot, type TestInstance } from 'test-renderer';
 
+import type { MediaPick } from '@/core/media/media';
 import { READY } from '@/design/fixtures';
+import { mediaRevealId } from '@/ui/chat/MediaGallery';
+import { replyReveal } from '@/ui/chat/reveal';
 
 import { chatLayout } from '../chatLayout';
 import { ChatView, type ChatRow, type ChatViewProps } from '../ChatView';
@@ -62,15 +65,10 @@ const noop = () => {};
 const PROPS: ChatViewProps = {
   messages: ROWS,
   busy: false,
-  draft: '',
   model: READY,
-  steps: [],
-  state: '',
   sceneTime: null,
   onSend: noop,
   onReset: noop,
-  onSettings: noop,
-  onHistory: noop,
 };
 
 /** Each Animated.timing runs only when a test finishes it, so motion is stepped by hand. */
@@ -309,6 +307,42 @@ describe('ChatView follow', () => {
     act(() => mockList.props.onContentSizeChange(0, 1540));
     nextFrame();
     expect(mockList.scrollToEnd).toHaveBeenCalledTimes(1);
+    chat.unmount();
+  });
+});
+
+describe('ChatView photos', () => {
+  const MEDIA: MediaPick = {
+    layout: 'single',
+    items: [
+      {
+        id: 'condor',
+        common: 'Cóndor de los Andes',
+        scientific: 'Vultur gryphus',
+        photo: { file: 'condor.1.webp', author: 'Ana', license: 'CC BY 2.0' },
+      },
+    ],
+  };
+  const withPhotos = (id: string): ChatRow => ({
+    id,
+    role: 'assistant',
+    text: 'El cóndor anida en los riscos.',
+    media: MEDIA,
+  });
+
+  it('shows the photos of a reopened chat whole and queues a new reply’s after its text', () => {
+    const before = [ROWS[0], withPhotos('p2')];
+    const chat = mount({ messages: before });
+    expect(replyReveal.revealing(mediaRevealId('p2'))).toBe(false);
+    const next = [
+      ...before,
+      { id: 'p3', role: 'user' as const, text: '¿Y el oso?' },
+      withPhotos('p4'),
+    ];
+    act(() => chat.root.render(<ChatView {...PROPS} messages={next} />));
+    expect(replyReveal.revealing('p4')).toBe(true);
+    expect(replyReveal.revealing(mediaRevealId('p4'))).toBe(true);
+    expect(replyReveal.shown(mediaRevealId('p4'))).toBe(0); // its captions wait for the text
     chat.unmount();
   });
 });

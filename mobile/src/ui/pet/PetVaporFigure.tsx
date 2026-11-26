@@ -105,6 +105,13 @@ export function PetVaporFigure({ config, frame: f, fill, shade, prefix }: PetVap
           </G>
           {stroke(f.mouth)}
         </G>
+        {f.accessory && (
+          <G transform={f.accessory.transform}>
+            {f.accessory.shapes.map((a) => (
+              <Path key={a.d} d={a.d} fill={a.fill} fillOpacity={a.opacity ?? 1} />
+            ))}
+          </G>
+        )}
       </G>
     </G>
   );

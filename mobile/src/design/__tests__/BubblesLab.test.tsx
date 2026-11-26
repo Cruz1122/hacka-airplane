@@ -9,7 +9,7 @@ import { keywordsFor } from '@/ui/chat/keywords';
 import { fonts } from '@/ui/theme/tokens';
 
 import { BubblesLab } from '../BubblesLab';
-import { CATALOG_ANSWER } from '../fixtures';
+import { CATALOG_ANSWER, PHOTO_THREADS } from '../fixtures';
 
 jest.mock('@/ui/useReducedMotion', () => ({ useReducedMotion: () => true }));
 // The bubbles view never draws the chat screen, and jest cannot load FlashList's ESM build.
@@ -32,6 +32,7 @@ function mount() {
     texts: () => all((n) => n.type === 'Text' && n.parent?.type !== 'Text').map(flat),
     bold: () => all((n) => n.type === 'Text' && n.props.style?.fontFamily === fonts.bold).map(flat),
     press: (node: TestInstance) => act(() => node.props.onClick(PRESS)),
+    images: () => all((n) => n.type === 'Image'),
   };
 }
 
@@ -88,5 +89,35 @@ describe('BubblesLab urgent thread', () => {
     lab.press(lab.byLabel(w.replayReply)[0]);
     expect(lab.texts()).toEqual(before);
     raf.mockRestore();
+  });
+});
+
+describe('BubblesLab photos thread', () => {
+  it('builds one real answer per gallery layout', () => {
+    const layouts = Object.entries(PHOTO_THREADS).map(([k, rows]) => [
+      k,
+      rows.at(-1)?.media?.layout,
+    ]);
+    expect(layouts).toEqual([
+      ['single', 'single'],
+      ['rows', 'rows'],
+      ['columns', 'columns'],
+    ]);
+  });
+
+  it('shows the chosen layout’s photos with their captions', () => {
+    const lab = mount();
+    lab.press(lab.byLabel(w.threadPhotos)[0]);
+    for (const [label, layout] of [
+      [w.gallerySingle, 'single'],
+      [w.galleryRows, 'rows'],
+      [w.galleryColumns, 'columns'],
+    ] as const) {
+      lab.press(lab.byLabel(label)[0]);
+      const { items } = PHOTO_THREADS[layout].at(-1)!.media!;
+      expect(lab.images().map((i) => i.props.accessibilityLabel)).toEqual(
+        items.map((i) => (i.scientific ? `${i.common} (${i.scientific})` : i.common)),
+      );
+    }
   });
 });

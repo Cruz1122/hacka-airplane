@@ -1,6 +1,6 @@
 import { router } from 'expo-router';
 import { memo, useCallback, useEffect, useMemo, useState } from 'react';
-import { Animated, StyleSheet, useWindowDimensions, View } from 'react-native';
+import { Animated, BackHandler, Platform, StyleSheet, useWindowDimensions, View } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 import { headerScene } from '@/chat/headerScene';
@@ -102,7 +102,16 @@ export default function OnboardingScreen() {
     anim.start(({ finished }) => finished && openChat(exit.time));
     return () => anim.stop();
   }, [exit, t]);
-  const { timeNow } = clock;
+  const { timeNow, goTo } = clock;
+  useEffect(() => {
+    if (Platform.OS !== 'android') return;
+    const sub = BackHandler.addEventListener('hardwareBackPress', () => {
+      if (exit || index <= 0) return false;
+      goTo(index - 1);
+      return true;
+    });
+    return () => sub.remove();
+  }, [exit, index, goTo]);
   const leave = useCallback(() => {
     if (exit) return;
     const time = timeNow();

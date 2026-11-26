@@ -1,13 +1,17 @@
 import {
   blinkAt,
   interpolateFaceState,
+  PET_ACCESSORIES,
+  PET_ACCESSORY_VIEWBOX,
   PET_EMOTIONS,
   PET_PRESET,
   petFrame,
   petVaporPuffs,
   transitionFace,
   VOICE_STATES,
+  type PetAccessory,
 } from '../petCore';
+import { parseTransform } from '@/ui/skia/svgTransform';
 
 const finite = (value: unknown) => !/NaN|Infinity/.test(JSON.stringify(value));
 
@@ -103,5 +107,28 @@ describe('pet', () => {
     const from = cfg.poses.sad;
     expect(transitionFace(cfg, from, 0)).toEqual(interpolateFaceState(from, cfg.poses.happy, 0));
     expect(transitionFace(cfg, from, cfg.motion.transition)).toBe(cfg.poses.happy);
+  });
+});
+
+describe('pet accessory', () => {
+  const face = PET_PRESET.poses.idle;
+  const at = (accessory: PetAccessory | undefined, mirror: number) =>
+    petFrame({ ...PET_PRESET, accessory }, { time: 0, face, blink: 1, mirror });
+
+  it('adds nothing to a Pet that wears none', () => {
+    expect('accessory' in at(undefined, 0)).toBe(false);
+  });
+
+  it('sits on the head and turns with it', () => {
+    for (const kind of PET_ACCESSORIES) {
+      const ahead = parseTransform(at(kind, 0).accessory!.transform);
+      const turned = parseTransform(at(kind, 1).accessory!.transform);
+      // Facing right, then mirrored to face left: the x axis flips, the y axis does not.
+      expect(Math.sign(ahead[0])).toBe(1);
+      expect(Math.sign(turned[0])).toBe(-1);
+      // Its origin is on the head's top, inside the accessory viewBox.
+      expect(ahead[5]).toBeGreaterThan(PET_ACCESSORY_VIEWBOX.y);
+      expect(ahead[5]).toBeLessThan(PET_PRESET.body.y);
+    }
   });
 });
