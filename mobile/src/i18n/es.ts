@@ -133,6 +133,7 @@ export const es = {
       denied: 'Sin permiso de cámara. Actívalo en ajustes para fotografiar esta estación.',
       unavailable: 'La cámara no está disponible aquí.',
       capturedA11y: 'Foto tomada en esta estación',
+      memory: 'Tu recuerdo',
     },
     pages: {
       brisas: [

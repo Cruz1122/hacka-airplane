@@ -4,7 +4,7 @@ import { useMemo, useState } from 'react';
 import { Image, Pressable, StyleSheet, Text, View } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
-import { t } from '@/i18n';
+import { LOCALE, t } from '@/i18n';
 import { Icon } from '@/ui/icons/Icon';
 import { MediaRowList, type MediaRowItem } from '@/ui/MediaRowList';
 import { brand, spacing, type } from '@/ui/theme/tokens';
@@ -18,11 +18,21 @@ function goTrail() {
   router.replace('/recorrido');
 }
 
+function memoryWhen(at: number): string {
+  return new Intl.DateTimeFormat(LOCALE, {
+    day: 'numeric',
+    month: 'long',
+    year: 'numeric',
+    hour: '2-digit',
+    minute: '2-digit',
+  }).format(at);
+}
+
 export function StationPage({ id }: { id: StationId }) {
   const { palette, scaled } = useAccessibilityTheme();
   const insets = useSafeAreaInsets();
   const paras = t.trail.pages[id];
-  const [shot, setShot] = useState<string | null>(null);
+  const [shot, setShot] = useState<{ uri: string; at: number } | null>(null);
   const [camMsg, setCamMsg] = useState<string | null>(null);
 
   const items = useMemo<MediaRowItem[]>(
@@ -58,7 +68,7 @@ export function StationPage({ id }: { id: StationId }) {
         setCamMsg(t.trail.camera.unavailable);
         return;
       }
-      setShot(uri);
+      setShot({ uri, at: Date.now() });
       setCamMsg(null);
     } catch {
       setCamMsg(t.trail.camera.unavailable);
@@ -110,7 +120,7 @@ function CameraBlock({
   camMsg,
   onTake,
 }: {
-  shot: string | null;
+  shot: { uri: string; at: number } | null;
   camMsg: string | null;
   onTake: () => void;
 }) {
@@ -118,13 +128,24 @@ function CameraBlock({
   return (
     <View style={styles.cam}>
       {shot ? (
-        <Image
-          source={{ uri: shot }}
-          style={[styles.shot, { backgroundColor: palette.cardShade }]}
-          resizeMode="cover"
-          accessibilityRole="image"
-          accessibilityLabel={t.trail.camera.capturedA11y}
-        />
+        <View style={styles.memory}>
+          <Text
+            accessibilityRole="header"
+            style={[styles.memoryTitle, scaled.title, { color: palette.ink }]}
+          >
+            {t.trail.camera.memory}
+          </Text>
+          <Text style={[styles.memoryWhen, scaled.caption, { color: palette.inkMuted }]}>
+            {memoryWhen(shot.at)}
+          </Text>
+          <Image
+            source={{ uri: shot.uri }}
+            style={[styles.shot, { backgroundColor: palette.cardShade }]}
+            resizeMode="cover"
+            accessibilityRole="image"
+            accessibilityLabel={t.trail.camera.capturedA11y}
+          />
+        </View>
       ) : null}
       <Pressable
         accessibilityRole="button"
@@ -175,6 +196,9 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     gap: spacing.sm,
   },
+  memory: { width: '100%', gap: spacing.sm },
+  memoryTitle: { ...type.title, color: brand.ink, textAlign: 'center' },
+  memoryWhen: { ...type.caption, color: brand.inkMuted, textAlign: 'center' },
   shot: {
     width: '100%',
     aspectRatio: 1,

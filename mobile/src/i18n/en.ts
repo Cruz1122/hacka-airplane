@@ -127,6 +127,7 @@ export const en: Labels = {
       denied: 'No camera permission. Turn it on in settings to photograph this station.',
       unavailable: 'The camera is not available here.',
       capturedA11y: 'Photo taken at this station',
+      memory: 'Your memory',
     },
     pages: {
       brisas: [
