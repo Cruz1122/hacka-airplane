@@ -269,3 +269,29 @@ Reused from `activities/evidence/raw/` (already on disk; URLs recorded in `quote
 > 12. Mirador Laguna del Otún
 > Pereira, Risaralda
 > Se encuentra actualmente en condiciones regulares
+
+
+## Updated entry: activities.cloudy_visit_landscape
+
+- Reason: Corregir la descripción del recorrido Brisas-Valle de las Tumbas según la ficha oficial, retirando la afirmación negativa sin cita.
+- Changed fields: answer, last_verified, sources
+
+- https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/ (checked 2026-11-22); evidence: `research_notes/curation_v2/evidence/activities/pnn-ficha.txt`
+
+> Recorrido carreteable desde donde puedes observar el volcán Nevado del Ruiz o Kumanday. El trayecto inicia en el centro de inducción Brisas, a 4100 metros de altitud aproximadamente, y continúa en vehículo por la zona de Arenales hasta el Valle del Silencio o Valle de las Tumbas.
+
+- https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/ (checked 2026-11-22); evidence: `research_notes/curation_v2/evidence/activities/pnn-ficha.txt`
+
+> A lo largo del recorrido verás paisajes de superpáramo y formaciones que evocan paisajes análogos a Marte, junto con vestigios del pasado geológico del Parque.
+
+
+## Updated entry: activities.special_permit_activities
+
+- Reason: Ajustar la exigencia de permisos a proyectos de investigación o académicos según la Resolución 207 de 2023, retirando sobregeneralizaciones.
+- Changed fields: answer, last_verified, sources
+
+- https://www.parquesnacionales.gov.co/wp-content/uploads/2023/08/Resolucion_207_2023_ReglamentacionNevados.pdf (checked 2026-11-22); evidence: `research_notes/curation_v2/evidence/activities/resolucion-207-2023.txt`
+
+> Cuando
+>          se trate de proyectos de investigación o académicos, se debe contar con el permiso debidamente autorizado por
+>          Parques Nacionales Naturales de Colombia.

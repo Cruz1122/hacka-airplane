@@ -1048,3 +1048,45 @@ Los tres temas asignados a este espacio fueron preservados, corregidos y expandi
 - https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/ (checked 2026-11-22); evidence: `research_notes/Conocimiento turístico de Los Nevados/hours_status/evidence/raw/pnn_nevados.txt`
 
 > el área protegida tiene establecidos algunos cierres como una estrategia ambiental para liberar de carga estos lugares naturales y hacer trabajos de monitoreo.
+
+
+## Updated entry: hours_status.park_open_today
+
+- Reason: Correct claim about SGC bulletin index and clarify dated status of publications.
+- Changed fields: answer
+
+- https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/ (checked 2026-11-22); evidence: `research_notes/Conocimiento turístico de Los Nevados/hours_status/evidence/raw/pnn_nevados.html`
+
+> article:modified_time" content="2026-10-31T00:11:49+00:00"
+
+- https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/ (checked 2026-11-22); evidence: `research_notes/Conocimiento turístico de Los Nevados/hours_status/evidence/raw/pnn_nevados.txt`
+
+> @ParquesColombia
+> @parquescolombia
+> @ParquesNaturales
+> +573229471031
+> @parquescolombia
+> Parques
+
+- https://www2.sgc.gov.co/Noticias/Paginas/Boletines-semanales.aspx (checked 2026-11-22); evidence: `research_notes/Conocimiento turístico de Los Nevados/hours_status/evidence/raw/sgc_boletines.html`
+
+> "FileLeafRef": "Boletin_semanal_de_actividad_del_volcan_Nevado_del_Ruiz_del_10_de_noviembre_al_16_de_noviembre_de_2026.pdf",
+
+
+## Updated entry: hours_status.night_entry_prohibition
+
+- Reason: Limitar la exigencia de permiso especial estrictamente a actividades nocturnas en los sectores Brisas y Cisne según el informe 2024, precisando que la Resolución 207 de 2023 no impone una prohibición general para todo el parque.
+- Changed fields: answer, last_verified, sources
+
+- https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/ (checked 2026-11-22); evidence: `research_notes/Conocimiento turístico de Los Nevados/hours_status/evidence/raw/pnn_nevados.txt`
+
+> abierto todos los días del año en horario de 8:00 a. m. a 2:00 p. m., pero ten presente que la última charla de inducción obligatoria se realiza a la 1:30 p. m.
+
+- https://www.parquesnacionales.gov.co/wp-content/uploads/2023/08/Resolucion_207_2023_ReglamentacionNevados_.pdf (checked 2026-11-22); evidence: `research_notes/Conocimiento turístico de Los Nevados/hours_status/evidence/raw/resolucion_207_2023.txt`
+
+> Respetar los horarios establecidos para realizar cada una de las actividades turísticas.
+
+- https://www.parquesnacionales.gov.co/wp-content/uploads/2024/12/Informe-de-necesidades-de-asistencia-PNN-Los-Nevados-2024.docx (checked 2026-11-22); evidence: `research_notes/Conocimiento turístico de Los Nevados/activities/evidence/raw/pnn_informe_necesidades_2024.txt`
+
+> Estas actividades requieren un permiso especial para realizarlas en el PNN Los Nevados.
+> 1.Actividad nocturna: Sector Brisas y Cisne

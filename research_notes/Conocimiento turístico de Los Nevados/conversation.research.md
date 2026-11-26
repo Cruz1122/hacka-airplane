@@ -335,3 +335,17 @@ Entradas 29 → 30; ejemplos 362 → 376; hard negatives 83 → 86.
 
 - Reason: Restore label from snapshot per review: leer en voz alta o dictar. Maintain contrastive hard negatives.
 - Changed fields: hard_negatives
+
+
+## Updated entry: conversation.info_source_trust
+
+- Reason: Ajustar la respuesta sobre fuentes oficiales de PNN y SGC eliminando afirmaciones no respaldadas sobre la visualización en la interfaz móvil.
+- Changed fields: answer, last_verified, sources
+
+- https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/ (checked 2026-11-22); evidence: `research_notes/Conocimiento turístico de Los Nevados/conversation/evidence/www_parquesnacionales_gov_co_nuestros-parques_parque-nacional-natural-los-nevados_.txt`
+
+> Parque Nacional Natural Los Nevados • Parques Nacionales Naturales de Colombia
+
+- https://www2.sgc.gov.co/Noticias/Paginas/Boletines-semanales.aspx (checked 2026-11-22); evidence: `research_notes/Conocimiento turístico de Los Nevados/conversation/evidence/www2_sgc_gov_co_Noticias_Paginas_Boletines-semanales_aspx.txt`
+
+> Boletines de actividad volcánica

@@ -1101,3 +1101,336 @@ Verificación final: `check_quotes.py` → `Quotes checked: 139; failed: 0` y `E
 
 > PARÁGRAFO 2: El valor por factor medio de transporte no constituye un servicio
 > de parqueo o alquiler de estacionamiento
+
+
+## Updated entry: booking_fees.adult_resident_admission_fee
+
+- Reason: Mostrar explícitamente ambos valores para Quindío-Dulima: ficha PNN consultada el 22-11-2026 = $0 frente a Resolución 551 del 19-12-2025 (vigente desde 01-01-2026) = $24.500 COP, remitiendo a confirmar con el canal oficial.
+- Changed fields: answer, last_verified
+
+- https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/ (checked 2026-11-22); evidence: `research_notes/Conocimiento turístico de Los Nevados/booking_fees/evidence/raw/pnn_nevados.txt`
+
+> Quindío-Dulima
+> *Estos valores no incluyen el seguro obligatorio de accidentes, que debe ser asumido por el visitante y pagado a través de la agencia o guía ecoturístico de su elección.
+> 0
+> 0
+> 0
+> No aplica
+> Según el guía o la agencia operadora registrada que se elija.
+
+- https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/ (checked 2026-11-22); evidence: `research_notes/Conocimiento turístico de Los Nevados/booking_fees/evidence/raw/pnn_nevados.txt`
+
+> Cisne-Poleka Kasue y Laguna del Otún
+> *Estos valores no incluyen el seguro obligatorio de accidentes, que debe ser asumido por el visitante y pagado a través de la agencia o guía ecoturístico de su elección.
+> 12.500
+> 24.500
+> 68.000
+
+- https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/ (checked 2026-11-22); evidence: `research_notes/Conocimiento turístico de Los Nevados/booking_fees/evidence/raw/pnn_nevados.txt`
+
+> Brisas-Kumanday
+> *Estos valores no incluyen el seguro obligatorio de accidentes, que debe ser asumido por el visitante y pagado a través de la concesión Unión Temporal Operación Nevados (UTON).
+> 12.500
+> 24.500
+> 68.000
+
+- https://www.parquesnacionales.gov.co/wp-content/uploads/2026/02/RESOLUCION-551-DE-2025-ACTUALIZA-EL-VALOR-DERECHOS-DE-INGRESO-Y-SERVICIOS-COMPLEMENTARIOS-A-LAS-AREAS-PROTEGIDAS.pdf (checked 2026-11-22); evidence: `research_notes/Conocimiento turístico de Los Nevados/booking_fees/evidence/raw/resolucion-551-2025-pnn-2026-02.txt`
+
+> RESOLUCIÓN 551
+> 
+> DE 19 DE DICIEMBRE DE 2025
+> 
+> “Por medio de la cual se actualiza el valor de los derechos de ingreso y
+> servicios complementarios a las áreas protegidas del Sistema de Parques
+> Nacionales Naturales de Colombia y se unifican disposiciones.”
+
+- https://www.parquesnacionales.gov.co/wp-content/uploads/2026/02/RESOLUCION-551-DE-2025-ACTUALIZA-EL-VALOR-DERECHOS-DE-INGRESO-Y-SERVICIOS-COMPLEMENTARIOS-A-LAS-AREAS-PROTEGIDAS.pdf (checked 2026-11-22); evidence: `research_notes/Conocimiento turístico de Los Nevados/booking_fees/evidence/raw/resolucion-551-2025-pnn-2026-02.txt`
+
+> ARTÍCULO 22. – La presente resolución rige a partir del primero de enero de
+> 2026 y deroga a partir de esta fecha las disposiciones que le sean contrarias,
+> entre éstas, la Resolución 695 de 2024 .
+> Dada en Bogotá D.C., a los 19
+> 
+> días del mes de diciembre de 2025.
+
+- https://www.parquesnacionales.gov.co/wp-content/uploads/2026/02/RESOLUCION-551-DE-2025-ACTUALIZA-EL-VALOR-DERECHOS-DE-INGRESO-Y-SERVICIOS-COMPLEMENTARIOS-A-LAS-AREAS-PROTEGIDAS.pdf (checked 2026-11-22); evidence: `research_notes/Conocimiento turístico de Los Nevados/booking_fees/evidence/raw/resolucion-551-2025-pnn-2026-02.txt`
+
+> $12.500
+> 
+> $24.500
+> 
+> $68.000
+> 
+> Vía Parque Isla de Salamanca.
+> Parque Nacional Naturales Los
+> Nevados.
+
+
+## Updated entry: booking_fees.brisas_guide_price
+
+- Reason: Indicar que la ficha PNN consultada el 22-11-2026 publica $22.000 sin año de vigencia ni unidad (persona o grupo), sin presentarlo como tarifa vigente fija a pagar.
+- Changed fields: answer, last_verified
+
+- https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/ (checked 2026-11-22); evidence: `research_notes/Conocimiento turístico de Los Nevados/booking_fees/evidence/raw/pnn_nevados.txt`
+
+> 22.000
+> *Este servicio es prestado por la Concesión Unión Temporal Operación Nevados (UTON).
+
+
+## Updated entry: booking_fees.foreign_nonresident_admission_fee
+
+- Reason: Mostrar explícitamente ambos valores para Quindío-Dulima: ficha PNN consultada el 22-11-2026 = $0 frente a Resolución 551 del 19-12-2025 (vigente desde 01-01-2026) = $68.000 COP, remitiendo a confirmar con el canal oficial.
+- Changed fields: answer, last_verified
+
+- https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/ (checked 2026-11-22); evidence: `research_notes/Conocimiento turístico de Los Nevados/booking_fees/evidence/raw/pnn_nevados.txt`
+
+> Quindío-Dulima
+> *Estos valores no incluyen el seguro obligatorio de accidentes, que debe ser asumido por el visitante y pagado a través de la agencia o guía ecoturístico de su elección.
+> 0
+> 0
+> 0
+> No aplica
+> Según el guía o la agencia operadora registrada que se elija.
+
+- https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/ (checked 2026-11-22); evidence: `research_notes/Conocimiento turístico de Los Nevados/booking_fees/evidence/raw/pnn_nevados.txt`
+
+> Cisne-Poleka Kasue y Laguna del Otún
+> *Estos valores no incluyen el seguro obligatorio de accidentes, que debe ser asumido por el visitante y pagado a través de la agencia o guía ecoturístico de su elección.
+> 12.500
+> 24.500
+> 68.000
+
+- https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/ (checked 2026-11-22); evidence: `research_notes/Conocimiento turístico de Los Nevados/booking_fees/evidence/raw/pnn_nevados.txt`
+
+> Brisas-Kumanday
+> *Estos valores no incluyen el seguro obligatorio de accidentes, que debe ser asumido por el visitante y pagado a través de la concesión Unión Temporal Operación Nevados (UTON).
+> 12.500
+> 24.500
+> 68.000
+
+- https://www.parquesnacionales.gov.co/wp-content/uploads/2026/02/RESOLUCION-551-DE-2025-ACTUALIZA-EL-VALOR-DERECHOS-DE-INGRESO-Y-SERVICIOS-COMPLEMENTARIOS-A-LAS-AREAS-PROTEGIDAS.pdf (checked 2026-11-22); evidence: `research_notes/Conocimiento turístico de Los Nevados/booking_fees/evidence/raw/resolucion-551-2025-pnn-2026-02.txt`
+
+> RESOLUCIÓN 551
+> 
+> DE 19 DE DICIEMBRE DE 2025
+> 
+> “Por medio de la cual se actualiza el valor de los derechos de ingreso y
+> servicios complementarios a las áreas protegidas del Sistema de Parques
+> Nacionales Naturales de Colombia y se unifican disposiciones.”
+
+- https://www.parquesnacionales.gov.co/wp-content/uploads/2026/02/RESOLUCION-551-DE-2025-ACTUALIZA-EL-VALOR-DERECHOS-DE-INGRESO-Y-SERVICIOS-COMPLEMENTARIOS-A-LAS-AREAS-PROTEGIDAS.pdf (checked 2026-11-22); evidence: `research_notes/Conocimiento turístico de Los Nevados/booking_fees/evidence/raw/resolucion-551-2025-pnn-2026-02.txt`
+
+> ARTÍCULO 22. – La presente resolución rige a partir del primero de enero de
+> 2026 y deroga a partir de esta fecha las disposiciones que le sean contrarias,
+> entre éstas, la Resolución 695 de 2024 .
+> Dada en Bogotá D.C., a los 19
+> 
+> días del mes de diciembre de 2025.
+
+- https://www.parquesnacionales.gov.co/wp-content/uploads/2026/02/RESOLUCION-551-DE-2025-ACTUALIZA-EL-VALOR-DERECHOS-DE-INGRESO-Y-SERVICIOS-COMPLEMENTARIOS-A-LAS-AREAS-PROTEGIDAS.pdf (checked 2026-11-22); evidence: `research_notes/Conocimiento turístico de Los Nevados/booking_fees/evidence/raw/resolucion-551-2025-pnn-2026-02.txt`
+
+> $12.500
+> 
+> $24.500
+> 
+> $68.000
+> 
+> Vía Parque Isla de Salamanca.
+> Parque Nacional Naturales Los
+> Nevados.
+
+
+## Updated entry: booking_fees.sector_entry_fee_difference
+
+- Reason: Mostrar explícitamente los valores en conflicto para Quindío-Dulima: ficha PNN consultada el 22-11-2026 = $0 frente a los montos de la Resolución 551 del 19-12-2025 (vigente desde 01-01-2026) de $12.500, $24.500 y $68.000 COP, fechando la consulta web.
+- Changed fields: answer, last_verified
+
+- https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/ (checked 2026-11-22); evidence: `research_notes/Conocimiento turístico de Los Nevados/booking_fees/evidence/raw/pnn_nevados.txt`
+
+> Quindío-Dulima
+> *Estos valores no incluyen el seguro obligatorio de accidentes, que debe ser asumido por el visitante y pagado a través de la agencia o guía ecoturístico de su elección.
+> 0
+> 0
+> 0
+> No aplica
+> Según el guía o la agencia operadora registrada que se elija.
+
+- https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/ (checked 2026-11-22); evidence: `research_notes/Conocimiento turístico de Los Nevados/booking_fees/evidence/raw/pnn_nevados.txt`
+
+> Cisne-Poleka Kasue y Laguna del Otún
+> *Estos valores no incluyen el seguro obligatorio de accidentes, que debe ser asumido por el visitante y pagado a través de la agencia o guía ecoturístico de su elección.
+> 12.500
+> 24.500
+> 68.000
+
+- https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/ (checked 2026-11-22); evidence: `research_notes/Conocimiento turístico de Los Nevados/booking_fees/evidence/raw/pnn_nevados.txt`
+
+> Brisas-Kumanday
+> *Estos valores no incluyen el seguro obligatorio de accidentes, que debe ser asumido por el visitante y pagado a través de la concesión Unión Temporal Operación Nevados (UTON).
+> 12.500
+> 24.500
+> 68.000
+
+- https://www.parquesnacionales.gov.co/wp-content/uploads/2026/02/RESOLUCION-551-DE-2025-ACTUALIZA-EL-VALOR-DERECHOS-DE-INGRESO-Y-SERVICIOS-COMPLEMENTARIOS-A-LAS-AREAS-PROTEGIDAS.pdf (checked 2026-11-22); evidence: `research_notes/Conocimiento turístico de Los Nevados/booking_fees/evidence/raw/resolucion-551-2025-pnn-2026-02.txt`
+
+> RESOLUCIÓN 551
+> 
+> DE 19 DE DICIEMBRE DE 2025
+> 
+> “Por medio de la cual se actualiza el valor de los derechos de ingreso y
+> servicios complementarios a las áreas protegidas del Sistema de Parques
+> Nacionales Naturales de Colombia y se unifican disposiciones.”
+
+- https://www.parquesnacionales.gov.co/wp-content/uploads/2026/02/RESOLUCION-551-DE-2025-ACTUALIZA-EL-VALOR-DERECHOS-DE-INGRESO-Y-SERVICIOS-COMPLEMENTARIOS-A-LAS-AREAS-PROTEGIDAS.pdf (checked 2026-11-22); evidence: `research_notes/Conocimiento turístico de Los Nevados/booking_fees/evidence/raw/resolucion-551-2025-pnn-2026-02.txt`
+
+> ARTÍCULO 22. – La presente resolución rige a partir del primero de enero de
+> 2026 y deroga a partir de esta fecha las disposiciones que le sean contrarias,
+> entre éstas, la Resolución 695 de 2024 .
+> Dada en Bogotá D.C., a los 19
+> 
+> días del mes de diciembre de 2025.
+
+- https://www.parquesnacionales.gov.co/wp-content/uploads/2024/02/Protocolo-de-reservas-nevado-del-Tolima.pdf (checked 2026-11-22); evidence: `research_notes/Conocimiento turístico de Los Nevados/booking_fees/evidence/raw/protocolo_reservas_tolima_2024.txt`
+
+> sin realizar el cobro de derecho de ingreso, hasta tanto se cuente con la
+>          infraestructura necesaria para el cobro
+
+- https://www.parquesnacionales.gov.co/wp-content/uploads/2026/02/RESOLUCION-551-DE-2025-ACTUALIZA-EL-VALOR-DERECHOS-DE-INGRESO-Y-SERVICIOS-COMPLEMENTARIOS-A-LAS-AREAS-PROTEGIDAS.pdf (checked 2026-11-22); evidence: `research_notes/Conocimiento turístico de Los Nevados/booking_fees/evidence/raw/resolucion-551-2025-pnn-2026-02.txt`
+
+> $12.500
+> 
+> $24.500
+> 
+> $68.000
+> 
+> Vía Parque Isla de Salamanca.
+> Parque Nacional Naturales Los
+> Nevados.
+
+
+## Updated entry: booking_fees.under25_admission_fee
+
+- Reason: Mostrar explícitamente el conflicto de Quindío-Dulima: ficha PNN consultada el 22-11-2026 = $0 frente a Resolución 551 del 19-12-2025 (vigente desde 01-01-2026) = $12.500 COP, remitiendo a confirmar con el canal oficial.
+- Changed fields: answer, last_verified
+
+- https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/ (checked 2026-11-22); evidence: `research_notes/Conocimiento turístico de Los Nevados/booking_fees/evidence/raw/pnn_nevados.txt`
+
+> Quindío-Dulima
+> *Estos valores no incluyen el seguro obligatorio de accidentes, que debe ser asumido por el visitante y pagado a través de la agencia o guía ecoturístico de su elección.
+> 0
+> 0
+> 0
+> No aplica
+> Según el guía o la agencia operadora registrada que se elija.
+
+- https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/ (checked 2026-11-22); evidence: `research_notes/Conocimiento turístico de Los Nevados/booking_fees/evidence/raw/pnn_nevados.txt`
+
+> Cisne-Poleka Kasue y Laguna del Otún
+> *Estos valores no incluyen el seguro obligatorio de accidentes, que debe ser asumido por el visitante y pagado a través de la agencia o guía ecoturístico de su elección.
+> 12.500
+> 24.500
+> 68.000
+
+- https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/ (checked 2026-11-22); evidence: `research_notes/Conocimiento turístico de Los Nevados/booking_fees/evidence/raw/pnn_nevados.txt`
+
+> Brisas-Kumanday
+> *Estos valores no incluyen el seguro obligatorio de accidentes, que debe ser asumido por el visitante y pagado a través de la concesión Unión Temporal Operación Nevados (UTON).
+> 12.500
+> 24.500
+> 68.000
+
+- https://www.parquesnacionales.gov.co/wp-content/uploads/2026/02/RESOLUCION-551-DE-2025-ACTUALIZA-EL-VALOR-DERECHOS-DE-INGRESO-Y-SERVICIOS-COMPLEMENTARIOS-A-LAS-AREAS-PROTEGIDAS.pdf (checked 2026-11-22); evidence: `research_notes/Conocimiento turístico de Los Nevados/booking_fees/evidence/raw/resolucion-551-2025-pnn-2026-02.txt`
+
+> RESOLUCIÓN 551
+> 
+> DE 19 DE DICIEMBRE DE 2025
+> 
+> “Por medio de la cual se actualiza el valor de los derechos de ingreso y
+> servicios complementarios a las áreas protegidas del Sistema de Parques
+> Nacionales Naturales de Colombia y se unifican disposiciones.”
+
+- https://www.parquesnacionales.gov.co/wp-content/uploads/2026/02/RESOLUCION-551-DE-2025-ACTUALIZA-EL-VALOR-DERECHOS-DE-INGRESO-Y-SERVICIOS-COMPLEMENTARIOS-A-LAS-AREAS-PROTEGIDAS.pdf (checked 2026-11-22); evidence: `research_notes/Conocimiento turístico de Los Nevados/booking_fees/evidence/raw/resolucion-551-2025-pnn-2026-02.txt`
+
+> ARTÍCULO 22. – La presente resolución rige a partir del primero de enero de
+> 2026 y deroga a partir de esta fecha las disposiciones que le sean contrarias,
+> entre éstas, la Resolución 695 de 2024 .
+> Dada en Bogotá D.C., a los 19
+> 
+> días del mes de diciembre de 2025.
+
+- https://www.parquesnacionales.gov.co/wp-content/uploads/2026/02/RESOLUCION-551-DE-2025-ACTUALIZA-EL-VALOR-DERECHOS-DE-INGRESO-Y-SERVICIOS-COMPLEMENTARIOS-A-LAS-AREAS-PROTEGIDAS.pdf (checked 2026-11-22); evidence: `research_notes/Conocimiento turístico de Los Nevados/booking_fees/evidence/raw/resolucion-551-2025-pnn-2026-02.txt`
+
+> $12.500
+> 
+> $24.500
+> 
+> $68.000
+> 
+> Vía Parque Isla de Salamanca.
+> Parque Nacional Naturales Los
+> Nevados.
+
+
+## Updated entry: booking_fees.vehicle_entry_fee
+
+- Reason: Presentar ambas filas incompatibles de la ficha PNN consultada el 22-11-2026 para vehículos en Brisas (colectivo $27.500 y buseta $56.000 vs microbús/buseta $27.500 y bus $56.000) y contrastar con Resolución 551 de 2025, remitiendo a confirmar.
+- Changed fields: answer, last_verified
+
+- https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/ (checked 2026-11-22); evidence: `research_notes/Conocimiento turístico de Los Nevados/booking_fees/evidence/raw/pnn_nevados.txt`
+
+> Automóvil:
+> 10.000
+> Colectivo:
+> 27.500
+> Buseta:
+> 56.000
+> (máximo 30 pasajeros)
+> Moto:
+> Prohibido el ingreso
+
+- https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/ (checked 2026-11-22); evidence: `research_notes/Conocimiento turístico de Los Nevados/booking_fees/evidence/raw/pnn_nevados.txt`
+
+> Vehículo tipo automóvil
+> $ 10.000
+> Microbús o buseta
+> $ 27.500
+> Bus
+> $ 56.000
+> Moto
+> PROHIBIDO
+
+- https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/ (checked 2026-11-22); evidence: `research_notes/Conocimiento turístico de Los Nevados/booking_fees/evidence/raw/pnn_nevados.txt`
+
+> Cisne-Poleka Kasue y Laguna del Otún
+> *Estos valores no incluyen el seguro obligatorio de accidentes, que debe ser asumido por el visitante y pagado a través de la agencia o guía ecoturístico de su elección.
+> 12.500
+> 24.500
+> 68.000
+> No aplica
+
+- https://www.parquesnacionales.gov.co/wp-content/uploads/2026/02/RESOLUCION-551-DE-2025-ACTUALIZA-EL-VALOR-DERECHOS-DE-INGRESO-Y-SERVICIOS-COMPLEMENTARIOS-A-LAS-AREAS-PROTEGIDAS.pdf (checked 2026-11-22); evidence: `research_notes/Conocimiento turístico de Los Nevados/booking_fees/evidence/raw/resolucion-551-2025-pnn-2026-02.txt`
+
+> Parque Nacional Natural Los
+> $10.000
+> $27.500
+> $56.000
+> Nevados
+
+- https://www.parquesnacionales.gov.co/wp-content/uploads/2026/02/RESOLUCION-551-DE-2025-ACTUALIZA-EL-VALOR-DERECHOS-DE-INGRESO-Y-SERVICIOS-COMPLEMENTARIOS-A-LAS-AREAS-PROTEGIDAS.pdf (checked 2026-11-22); evidence: `research_notes/Conocimiento turístico de Los Nevados/booking_fees/evidence/raw/resolucion-551-2025-pnn-2026-02.txt`
+
+> RESOLUCIÓN 551
+> 
+> DE 19 DE DICIEMBRE DE 2025
+> 
+> “Por medio de la cual se actualiza el valor de los derechos de ingreso y
+> servicios complementarios a las áreas protegidas del Sistema de Parques
+> Nacionales Naturales de Colombia y se unifican disposiciones.”
+
+- https://www.parquesnacionales.gov.co/wp-content/uploads/2026/02/RESOLUCION-551-DE-2025-ACTUALIZA-EL-VALOR-DERECHOS-DE-INGRESO-Y-SERVICIOS-COMPLEMENTARIOS-A-LAS-AREAS-PROTEGIDAS.pdf (checked 2026-11-22); evidence: `research_notes/Conocimiento turístico de Los Nevados/booking_fees/evidence/raw/resolucion-551-2025-pnn-2026-02.txt`
+
+> ARTÍCULO 22. – La presente resolución rige a partir del primero de enero de
+> 2026 y deroga a partir de esta fecha las disposiciones que le sean contrarias,
+> entre éstas, la Resolución 695 de 2024 .
+> Dada en Bogotá D.C., a los 19
+> 
+> días del mes de diciembre de 2025.
