@@ -11,7 +11,7 @@ import {
   type ViewStyle,
 } from 'react-native';
 
-import { fill, t } from '@/i18n';
+import { PHOTO_CREDIT_INSET, PhotoCredit } from '@/ui/PhotoCredit';
 import { brand, fonts, radius, spacing, type } from '@/ui/theme/tokens';
 import { useAccessibilityTheme } from '@/ui/useAccessibilityTheme';
 
@@ -21,6 +21,8 @@ export type MediaRowItem = {
   description: string;
   creditAuthor: string;
   creditLicense: string;
+  /** The photo's source page; its credit links there. */
+  creditUrl?: string;
 };
 
 const IMAGE = 168;
@@ -61,7 +63,10 @@ function spansOf(source: string): { text: string; bold: boolean }[] {
 function Para({ text, web }: { text: string; web: boolean }) {
   const { palette, scaled } = useAccessibilityTheme();
   return (
-    <Text style={[web ? styles.bodyWeb : styles.body, scaled.body, { color: palette.ink }]} selectable>
+    <Text
+      style={[web ? styles.bodyWeb : styles.body, scaled.body, { color: palette.ink }]}
+      selectable
+    >
       {spansOf(text).map((s, j) => (
         <Text key={j} style={s.bold ? styles.bold : undefined}>
           {s.text}
@@ -86,16 +91,6 @@ function RichBody({ text }: { text: string }) {
   );
 }
 
-function Credit({ author, license }: { author: string; license: string }) {
-  return (
-    <View style={styles.credit} accessible accessibilityLabel={fill(t.trail.photoCredit, { author })}>
-      <Text style={styles.creditText} selectable={false} numberOfLines={1}>
-        {`${author} · ${license}`}
-      </Text>
-    </View>
-  );
-}
-
 function Card({ item, index }: { item: MediaRowItem; index: number }) {
   const { palette, scaled } = useAccessibilityTheme();
   const imageLeft = index % 2 === 0;
@@ -114,7 +109,14 @@ function Card({ item, index }: { item: MediaRowItem; index: number }) {
         accessibilityRole="image"
         accessibilityLabel={item.subtitle}
       />
-      <Credit author={item.creditAuthor} license={item.creditLicense} />
+      <View style={styles.credit} pointerEvents="box-none">
+        <PhotoCredit
+          author={item.creditAuthor}
+          license={item.creditLicense}
+          url={item.creditUrl}
+          maxWidth={IMAGE - PHOTO_CREDIT_INSET * 2}
+        />
+      </View>
     </View>
   );
   const subtitle = (
@@ -207,17 +209,7 @@ const styles = StyleSheet.create({
     marginLeft: spacing.lg,
     marginBottom: spacing.xs,
   } as unknown as ViewStyle,
-  credit: {
-    position: 'absolute',
-    right: spacing.xs,
-    bottom: spacing.xs,
-    maxWidth: IMAGE - spacing.xs * 2,
-    borderRadius: radius.pill,
-    paddingHorizontal: spacing.sm,
-    paddingVertical: spacing.xs,
-    backgroundColor: brand.photoScrim,
-  },
-  creditText: { ...type.caption, fontFamily: fonts.bold, color: brand.onPrimary, flexShrink: 1 },
+  credit: { position: 'absolute', left: PHOTO_CREDIT_INSET, bottom: PHOTO_CREDIT_INSET },
   copy: { flex: 1, gap: spacing.sm },
   subtitle: { ...type.title, color: brand.ink, marginBottom: spacing.sm },
   bodyStack: { gap: spacing.sm },
