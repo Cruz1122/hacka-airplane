@@ -161,6 +161,8 @@ export interface KnowledgeAssets {
 export interface LoadedIndex {
   dims: number;
   textRows: number;
+  /** A small mutable layer scored by JS after the base ONNX/JS matrix. */
+  overlay?: { vectors: Float32Array; sections: Int32Array };
   vectors: Float32Array; // (textRows + sectionIds.length) x dims, row-major
   rowEntry: Int32Array; // text row -> entry
   rowSection: Int32Array; // text row -> section

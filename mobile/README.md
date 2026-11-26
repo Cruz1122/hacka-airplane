@@ -102,6 +102,14 @@ Format touched files with `npx prettier --single-quote --print-width 100 --write
 - `valid_until` on knowledge entries is not enforced.
 - Hermes support for `String.prototype.normalize` and `Intl` is unverified, so text folding uses explicit maps.
 
+## Actualizar el conocimiento por QR
+
+Al abrir la app o en la parte superior del chat, toca **Actualízame · Escanea el QR**. Usa la cámara, elige la imagen del QR o pega el código. Si hay una serie numerada, escanea todos sus QR y después confirma una sola vez. La app también lee los QR de versiones anteriores. Los cambios se guardan por dispositivo. Las fichas de seguridad requieren actualizar la app.
+
+En **Ajustes → Administración de información**, el guía puede buscar fichas, agregarlas, editarlas o darlas de baja. La contraseña inicial es `cisco123`. Puedes cambiarla por una de al menos ocho caracteres. Se guarda localmente como un hash con sal y el panel se bloquea al salir.
+
+Pulsa **Guardar** después de editar o agregar una ficha, o **Guardar retirada** para darla de baja. El Tumak del guía usa el cambio desde ese momento y lo conserva al cerrar la app. En el catálogo, pulsa **Compartir cambios guardados** para compartir todas las revisiones locales, o abre una ficha guardada para compartirla individualmente. La aplicación comprime los cambios sin internet y, si hace falta, los divide en varios QR menos densos. Al guardar o recibir fichas, la aplicación genera los embeddings de las preguntas con el modelo e5 local y actualiza el buscador y los seguimientos «sigue» y «por qué». La cámara en Android o iOS requiere una compilación que incluya `expo-camera`.
+
 ## Identificar imágenes sin internet
 
 Toca la cámara a la izquierda del cuadro del chat. En la app nativa puedes tomar una foto o abrir la galería. En la vista web de Metro se abre el selector de archivos y la clasificación corre en el navegador con WebAssembly. Metro sirve el codificador y WebAssembly desde el mismo origen; el navegador procesa la foto seleccionada localmente. MobileNetV3 y ONNX Runtime convierten el recorte central de la foto en un vector de 1024 dimensiones. La app compara ese vector por coseno con el índice incluido. Si las mejores clases quedan demasiado cerca o la similitud es baja, pide otra toma. La coincidencia es orientativa, especialmente entre paisajes parecidos.

@@ -91,15 +91,31 @@ export function retrieve(
     }
   }
 
-  // Section score: max over its description row and every text row of its entries.
+  if (idx.overlay?.sections.length) {
+    const { vectors: extra, sections } = idx.overlay;
+    const combined = new Float32Array(nRows + sections.length);
+    combined.set(rowSim);
+    for (let r = 0; r < sections.length; r++) {
+      let dot = 0;
+      for (let j = 0; j < dims; j++) dot += extra[r * dims + j] * queryVec[j];
+      combined[nRows + r] = dot;
+    }
+    rowSim = combined;
+  }
+
+  // Section score: max over its description row and every visible text row of its entries.
   const sec = new Float32Array(nSec).fill(-Infinity);
   for (let r = 0; r < textRows; r++) {
     const s = rowSection[r];
-    if (rowSim[r] > sec[s]) sec[s] = rowSim[r];
+    if (s >= 0 && rowSim[r] > sec[s]) sec[s] = rowSim[r];
   }
   for (let s = 0; s < nSec; s++) {
     if (rowSim[textRows + s] > sec[s]) sec[s] = rowSim[textRows + s];
   }
+
+  idx.overlay?.sections.forEach((s, i) => {
+    if (rowSim[nRows + i] > sec[s]) sec[s] = rowSim[nRows + i];
+  });
 
   // Entry score: mean of its best `scoreTopK` row cosines in float32, summed best-first one fround
   // at a time (numpy's float32 mean over <= 8 values is that sequential sum). k = 1 is the max.

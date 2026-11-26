@@ -3,6 +3,7 @@
 // the onboarding plays; the chat reads the same store.
 import { useSyncExternalStore } from 'react';
 
+import type { KnowledgePatch } from '@/core/knowledge/qrPatch';
 import { MEDIA } from '@/core/media/bundled';
 import { degradedKnowledgeEngine, loadKnowledgeRuntime } from '@/llm/knowledgeRuntime';
 
@@ -35,6 +36,14 @@ function getStore(): KnowledgeChat {
 /** Starts loading the knowledge runtime; later calls (and the chat) share that one load. */
 export function preloadKnowledge(): void {
   getStore();
+}
+
+export function applyKnowledgePatch(patch: KnowledgePatch) {
+  return getStore().applyPatches([patch], false);
+}
+
+export function applyKnowledgePatches(patches: readonly KnowledgePatch[]) {
+  return getStore().applyPatches(patches);
 }
 
 export function useKnowledge(): KnowledgeChatState & {
