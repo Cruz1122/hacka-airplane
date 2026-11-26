@@ -369,13 +369,20 @@ function ChatContent(p: ChatViewProps & { width: number; tall: number; viewBotto
   );
   const seen = useReplyReveal(p.messages);
   const voice = usePetVoice(p.messages, p.busy, seen);
+  const still = useReducedMotion();
   const [shown] = useState(() => new Animated.Value(p.fadeIn ? 0 : 1));
   useEffect(() => {
     if (!p.fadeIn) return;
-    const anim = Animated.timing(shown, { toValue: 1, duration: 280, useNativeDriver: true });
+    if (still) return shown.setValue(1);
+    const anim = Animated.timing(shown, {
+      toValue: 1,
+      duration: 280,
+      easing: Easing.out(Easing.quad),
+      useNativeDriver: true,
+    });
     anim.start();
     return () => anim.stop();
-  }, [p.fadeIn, shown]);
+  }, [p.fadeIn, shown, still]);
   const status = statusText(p.model);
   const ready = p.model.status === 'ready';
   // The docked composer's base strip covers the home indicator, so the sheet needs no padding.
