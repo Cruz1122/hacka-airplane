@@ -1,5 +1,5 @@
 // Configuration bottom-sheet panel opened from the right button of CloudNavBar.
-// Open saved sources, knowledge administration or the app information.
+// Open saved sources, knowledge administration, the QR knowledge update or the app information.
 import Constants from 'expo-constants';
 import { router } from 'expo-router';
 import { useCallback, useMemo, useState } from 'react';
@@ -249,6 +249,15 @@ function SettingsContent({
               onPress={() => {
                 onClose();
                 router.push('/administrar-informacion');
+              }}
+            />
+            <MenuRow
+              icon="camera"
+              title={t.qrUpdate.nav}
+              subtitle={t.qrUpdate.subtitle}
+              onPress={() => {
+                onClose();
+                router.push('/actualizar');
               }}
             />
             <MenuRow

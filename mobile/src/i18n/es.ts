@@ -96,7 +96,7 @@ export const es = {
   },
   qrUpdate: {
     nav: 'Actualízame',
-    launch: 'Actualízame · Escanea el QR',
+    subtitle: 'Escanea los QR de tu guía para actualizar a Tumak.',
     heading: 'Escanea el QR',
     body: "Escanea los QR de tu guía para actualizar el conocimiento de Tumak en este dispositivo.",
     failed: 'No se pudo aplicar el cambio.',

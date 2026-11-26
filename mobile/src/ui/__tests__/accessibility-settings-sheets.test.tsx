@@ -21,6 +21,9 @@ import { AccessibilitySheet } from '../AccessibilitySheet';
 import { SettingsSheet } from '../SettingsSheet';
 import { useReducedMotion } from '../useReducedMotion';
 
+const mockPush = jest.fn();
+jest.mock('expo-router', () => ({ router: { push: (to: unknown) => mockPush(to) } }));
+
 jest.mock('expo-sqlite/kv-store', () => ({
   __esModule: true,
   default: {
@@ -254,6 +257,22 @@ describe('SettingsSheet', () => {
     expect(ui.hasText(copy.about.offlineTitle)).toBe(true);
     expect(ui.hasText(copy.about.sourcesTitle)).toBe(true);
     expect(ui.hasText(copy.about.creditsTitle)).toBe(true);
+  });
+
+  it.each([
+    ['knowledge administration', t.knowledgeAdmin.heading, '/administrar-informacion'],
+    ['QR knowledge update', t.qrUpdate.nav, '/actualizar'],
+  ])('opens the %s screen from the root menu and closes the sheet', async (_, title, route) => {
+    mockPush.mockClear();
+    const onClose = jest.fn();
+    const root = createRoot();
+    mounted.push(root);
+    await act(async () => {
+      root.render(<SettingsSheet open onClose={onClose} reducedMotion />);
+    });
+    await createHarness(root).pressText(title);
+    expect(onClose).toHaveBeenCalled();
+    expect(mockPush).toHaveBeenCalledWith(route);
   });
 
   it('lists saved sources, opens web links, removes with inline Undo, and restores on Undo', async () => {
