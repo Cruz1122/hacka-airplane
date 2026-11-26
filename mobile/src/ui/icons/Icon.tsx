@@ -45,6 +45,14 @@ const GLYPHS = {
     paths: ['M14 4h-4L8 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-4z'],
     rings: [[12, 13, 3]],
   },
+  // Lucide `mic` 24×24, verbatim from lucide icons/mic.svg.
+  mic: {
+    paths: [
+      'M12 2a3 3 0 0 1 3 3v7a3 3 0 0 1-6 0V5a3 3 0 0 1 3-3z',
+      'M19 10v2a7 7 0 0 1-14 0v-2',
+      'M12 19v3',
+    ],
+  },
   circleDot: {
     paths: [],
     rings: [[12, 12, 10]],

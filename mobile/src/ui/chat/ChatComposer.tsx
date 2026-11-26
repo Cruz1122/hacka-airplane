@@ -3,6 +3,7 @@
 // with concave shoulders, and 'floating', a soft pill.
 import { memo, useCallback, useEffect, useRef, useState } from 'react';
 import {
+  Alert,
   Animated,
   Easing,
   Image,
@@ -17,6 +18,7 @@ import {
 import Svg, { Path } from 'react-native-svg';
 
 import { t } from '@/i18n';
+import { cancelDictate, startDictate, stopDictate, type VoiceError } from '@/speech/dictate';
 import { Icon } from '../icons/Icon';
 import { brand, type } from '../theme/tokens';
 import { useAccessibilityTheme } from '../useAccessibilityTheme';
@@ -82,14 +84,97 @@ function useDraft(
 ) {
   const [text, setText] = useState(initialText ?? '');
   const hasText = text.trim() !== '';
-  const canSend = !disabled && (hasText || hasAttachment);
+  const hasContent = hasText || hasAttachment;
+  const canSend = !disabled && hasContent;
   useEffect(() => onHasTextChange?.(hasText), [hasText, onHasTextChange]);
   const submit = () => {
     if (!canSend) return;
     onSend(text);
     setText('');
   };
-  return { text, setText, canSend, submit };
+  return { text, setText, canSend, hasContent, submit };
+}
+
+function appendTranscript(prev: string, spoken: string) {
+  const clip = spoken.trim();
+  if (!clip) return prev;
+  const cur = prev.trimEnd();
+  return cur ? `${cur} ${clip}` : clip;
+}
+
+function voiceMessage(reason: VoiceError): string | null {
+  switch (reason) {
+    case 'no-speech':
+      return null;
+    case 'unavailable':
+      return t.chatScreen.voice.unavailable;
+    case 'permission':
+      return t.chatScreen.voice.permissionDenied;
+    case 'busy':
+      return t.chatScreen.voice.busy;
+    case 'failed':
+      return t.chatScreen.voice.error;
+    default: {
+      const _never: never = reason;
+      return _never;
+    }
+  }
+}
+
+function useDictate(setText: (update: (prev: string) => string) => void, enabled: boolean) {
+  const [recording, setRecording] = useState(false);
+  const holding = useRef(false);
+  const pending = useRef('');
+  const committed = useRef(false);
+
+  const commit = useCallback(
+    (spoken: string) => {
+      if (committed.current) return;
+      const clip = spoken.trim();
+      if (!clip) return;
+      committed.current = true;
+      setText((prev) => appendTranscript(prev, clip));
+    },
+    [setText],
+  );
+
+  useEffect(() => () => cancelDictate(), []);
+
+  const onMicIn = useCallback(() => {
+    if (!enabled) return;
+    holding.current = true;
+    pending.current = '';
+    committed.current = false;
+    setRecording(true);
+    void startDictate({
+      onPartial: (text) => {
+        pending.current = text;
+      },
+      onResult: (text) => {
+        pending.current = text;
+        if (!holding.current) commit(text);
+      },
+      onError: (reason) => {
+        setRecording(false);
+        const message = voiceMessage(reason);
+        if (message) Alert.alert(t.chatScreen.voice.errorTitle, message);
+      },
+      onEnd: () => {
+        setRecording(false);
+        if (!holding.current) commit(pending.current);
+      },
+    }).then(() => {
+      if (!holding.current) stopDictate();
+    });
+  }, [commit, enabled]);
+
+  const onMicOut = useCallback(() => {
+    holding.current = false;
+    setRecording(false);
+    stopDictate();
+  }, []);
+
+  return { recording, onMicIn, onMicOut };
 }
 
 function FloatingComposer({
@@ -101,19 +186,15 @@ function FloatingComposer({
   onHasTextChange,
 }: ChatComposerProps) {
   const { palette, scaled } = useAccessibilityTheme();
-  const { text, setText, canSend, submit } = useDraft(
+  const { text, setText, canSend, hasContent, submit } = useDraft(
     initialText,
     disabled,
     onSend,
     onHasTextChange,
   );
+  const { recording, onMicIn, onMicOut } = useDictate(setText, !disabled);
   return (
-    <View
-      style={[
-        floating.bar,
-        { backgroundColor: palette.card, borderColor: palette.cardShade },
-      ]}
-    >
+    <View style={[floating.bar, { backgroundColor: palette.card, borderColor: palette.cardShade }]}>
       <TextInput
         value={text}
         onChangeText={setText}
@@ -132,28 +213,49 @@ function FloatingComposer({
           },
         ]}
       />
-      <Pressable
-        onPress={submit}
-        disabled={!canSend}
-        accessibilityRole="button"
-        accessibilityLabel={sendLabel}
-        accessibilityState={{ disabled: !canSend }}
-        style={({ pressed }) => [
-          floating.send,
-          { backgroundColor: palette.ink, opacity: !canSend ? 0.45 : pressed ? 0.85 : 1 },
-        ]}
-      >
-        <Svg width={20} height={20} viewBox="0 0 24 24">
-          <Path
-            d="M4 12 H18 M12 5.5 L18.5 12 L12 18.5"
-            stroke={palette.onPrimary}
-            strokeWidth={2.4}
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            fill="none"
-          />
-        </Svg>
-      </Pressable>
+      {hasContent ? (
+        <Pressable
+          onPress={submit}
+          disabled={!canSend}
+          accessibilityRole="button"
+          accessibilityLabel={sendLabel}
+          accessibilityState={{ disabled: !canSend }}
+          style={({ pressed }) => [
+            floating.send,
+            { backgroundColor: palette.ink, opacity: !canSend ? 0.45 : pressed ? 0.85 : 1 },
+          ]}
+        >
+          <Svg width={20} height={20} viewBox="0 0 24 24">
+            <Path
+              d="M4 12 H18 M12 5.5 L18.5 12 L12 18.5"
+              stroke={palette.onPrimary}
+              strokeWidth={2.4}
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              fill="none"
+            />
+          </Svg>
+        </Pressable>
+      ) : (
+        <Pressable
+          onPressIn={onMicIn}
+          onPressOut={onMicOut}
+          disabled={disabled}
+          accessibilityRole="button"
+          accessibilityLabel={recording ? t.chatScreen.voice.recording : t.chatScreen.voice.mic}
+          accessibilityHint={t.chatScreen.voice.micHint}
+          accessibilityState={{ disabled, busy: recording }}
+          style={({ pressed }) => [
+            floating.send,
+            {
+              backgroundColor: recording ? palette.primary : palette.ink,
+              opacity: disabled ? 0.45 : pressed || recording ? 0.85 : 1,
+            },
+          ]}
+        >
+          <Icon name="mic" size={22} color={palette.onPrimary} strokeWidth={2.4} />
+        </Pressable>
+      )}
     </View>
   );
 }
@@ -173,13 +275,14 @@ function DockedComposer({
   onCaret,
 }: ChatComposerProps) {
   const { palette, scaled, highContrast } = useAccessibilityTheme();
-  const { text, setText, canSend, submit } = useDraft(
+  const { text, setText, canSend, hasContent, submit } = useDraft(
     initialText,
     disabled,
     onSend,
     onHasTextChange,
     !!photoUri,
   );
+  const { recording, onMicIn, onMicOut } = useDictate(setText, !disabled);
   const [focused, setFocused] = useState(false);
   const [photoFocused, setPhotoFocused] = useState(false);
   const { field, onMirrorLayout } = useCaret(text, focused, onCaret);
@@ -248,7 +351,10 @@ function DockedComposer({
                     },
                     pressed &&
                       (hasPhoto
-                        ? { backgroundColor: palette.primaryLight, borderColor: palette.primaryLight }
+                        ? {
+                            backgroundColor: palette.primaryLight,
+                            borderColor: palette.primaryLight,
+                          }
                         : { backgroundColor: palette.primarySoft, borderColor: palette.primary }),
                     photoFocused && docked.photoFocused,
                     disabled && docked.photoDisabled,
@@ -308,30 +414,61 @@ function DockedComposer({
               )}
             </View>
             <Animated.View
-              style={{
-                opacity: ready.interpolate({ inputRange: [0, 1], outputRange: [0.4, 1] }),
-                transform: [
-                  {
-                    scale: Animated.multiply(
-                      ready.interpolate({ inputRange: [0, 1], outputRange: [0.9, 1] }),
-                      press,
-                    ),
-                  },
-                ],
-              }}
+              style={
+                hasContent
+                  ? {
+                      opacity: ready.interpolate({ inputRange: [0, 1], outputRange: [0.4, 1] }),
+                      transform: [
+                        {
+                          scale: Animated.multiply(
+                            ready.interpolate({ inputRange: [0, 1], outputRange: [0.9, 1] }),
+                            press,
+                          ),
+                        },
+                      ],
+                    }
+                  : { transform: [{ scale: press }] }
+              }
             >
-              <Pressable
-                onPress={submit}
-                onPressIn={() => pressTo(0.92, 120)}
-                onPressOut={() => pressTo(1, 160)}
-                disabled={!canSend}
-                accessibilityRole="button"
-                accessibilityLabel={sendLabel}
-                accessibilityState={{ disabled: !canSend }}
-                style={[docked.send, { backgroundColor: palette.ink }]}
-              >
-                <Icon name="arrowUp" size={22} color={palette.onPrimary} strokeWidth={2.4} />
-              </Pressable>
+              {hasContent ? (
+                <Pressable
+                  onPress={submit}
+                  onPressIn={() => pressTo(0.92, 120)}
+                  onPressOut={() => pressTo(1, 160)}
+                  disabled={!canSend}
+                  accessibilityRole="button"
+                  accessibilityLabel={sendLabel}
+                  accessibilityState={{ disabled: !canSend }}
+                  style={[docked.send, { backgroundColor: palette.ink }]}
+                >
+                  <Icon name="arrowUp" size={22} color={palette.onPrimary} strokeWidth={2.4} />
+                </Pressable>
+              ) : (
+                <Pressable
+                  onPressIn={() => {
+                    pressTo(0.92, 120);
+                    onMicIn();
+                  }}
+                  onPressOut={() => {
+                    pressTo(1, 160);
+                    onMicOut();
+                  }}
+                  disabled={disabled}
+                  accessibilityRole="button"
+                  accessibilityLabel={
+                    recording ? t.chatScreen.voice.recording : t.chatScreen.voice.mic
+                  }
+                  accessibilityHint={t.chatScreen.voice.micHint}
+                  accessibilityState={{ disabled, busy: recording }}
+                  style={[
+                    docked.send,
+                    { backgroundColor: recording ? palette.primary : palette.ink },
+                    disabled && docked.photoDisabled,
+                  ]}
+                >
+                  <Icon name="mic" size={22} color={palette.onPrimary} strokeWidth={2.4} />
+                </Pressable>
+              )}
             </Animated.View>
           </View>
         </View>
@@ -433,11 +570,7 @@ function PhotoAttachment({
  * text in the field's font; a single-line field scrolls once the text is wider, so the point stops
  * at the field's right padding.
  */
-function useCaret(
-  text: string,
-  focused: boolean,
-  onCaret: ChatComposerProps['onCaret'],
-) {
+function useCaret(text: string, focused: boolean, onCaret: ChatComposerProps['onCaret']) {
   const field = useRef<React.ComponentRef<typeof TextInput>>(null);
   const [textWidth, setTextWidth] = useState(0);
   const onMirrorLayout = useCallback((e: TextLayoutEvent) => {

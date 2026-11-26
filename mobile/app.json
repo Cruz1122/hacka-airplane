@@ -48,7 +48,15 @@
           }
         }
       ],
-      "expo-asset"
+      "expo-asset",
+      [
+        "expo-speech-recognition",
+        {
+          "microphonePermission": "Permite usar el micrófono para dictar preguntas en el chat.",
+          "speechRecognitionPermission": "Permite convertir tu voz a texto en el chat.",
+          "androidSpeechServicePackages": ["com.google.android.googlequicksearchbox"]
+        }
+      ]
     ],
     "experiments": {
       "typedRoutes": true,

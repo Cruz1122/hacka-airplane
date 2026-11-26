@@ -42,7 +42,7 @@ Do not run `experiments/laya/export_knowledge.py` directly: it writes the older 
 
 - Expo SDK 58, RN 0.88 new arch, Hermes, TypeScript strict, `expo-router`, development build (`expo-dev-client`, CNG). Not Expo Go. Android arm64 first; npm only.
 - `mobile/android` is generated: never edit; change `app.json` or plugins. Release: `cd mobile/android && ./gradlew assembleRelease -PreactNativeArchitectures=arm64-v8a`.
-- Dependency whitelist: expo + its template deps, expo-router, expo-dev-client, expo-file-system, expo-sqlite (and kv-store), llama.rn, onnxruntime-react-native (patched by `scripts/patch-ort.js` on postinstall), @shopify/flash-list, @shopify/react-native-skia, react-native-svg, react-native-web, @wllama/wllama (web chat only, approved 2026-11-23). Dev: jest-expo, @types/*, prettier. Anything else needs the user's approval.
+- Dependency whitelist: expo + its template deps, expo-router, expo-dev-client, expo-file-system, expo-sqlite (and kv-store), llama.rn, onnxruntime-react-native (patched by `scripts/patch-ort.js` on postinstall), @shopify/flash-list, @shopify/react-native-skia, react-native-svg, react-native-web, @wllama/wllama (web chat only, approved 2026-11-23), expo-speech-recognition (chat hold-to-dictate, approved 2026-11-26). Dev: jest-expo, @types/*, prettier. Anything else needs the user's approval.
 - Web: `metro.config.js` swaps `llama.rn` and `onnxruntime-react-native` for `src/web-stubs/`. The web chat runs the same e5 GGUF on wllama (`src/llm/knowledgeRuntime.web.ts`), fetched with the vectors from the dev server's `/knowledge-files/` (an allowlist in `metro.config.js`); no ONNX scorer (JS loop), Laya off. A static `expo export` has no models.
 
 ## Renderers
