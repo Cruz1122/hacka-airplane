@@ -270,7 +270,10 @@ function useListFollow(list: ListRef) {
     if (!following.current || dragging.current || frame.current !== null) return;
     frame.current = requestAnimationFrame(() => {
       frame.current = null;
-      if (!dragging.current) list.current?.scrollToEnd({ animated: !replyReveal.busy() });
+      // Re-checked: the reader may have scrolled up between the request and this frame.
+      if (following.current && !dragging.current) {
+        list.current?.scrollToEnd({ animated: !replyReveal.busy() });
+      }
     });
   }, [list]);
   return useMemo(
