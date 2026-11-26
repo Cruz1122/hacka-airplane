@@ -11,7 +11,7 @@ import { ChatBubble } from '@/ui/chat/ChatBubble';
 import { ChatComposer } from '@/ui/chat/ChatComposer';
 import { TypingBubble } from '@/ui/chat/TypingBubble';
 import { Icon } from '@/ui/icons/Icon';
-import { PET_NAME } from '@/ui/pet/petCore';
+import { PET_FACE_VIEWBOX, PET_NAME } from '@/ui/pet/petCore';
 import { PetStill } from '@/ui/pet/PetStill';
 import { spacing, type } from '@/ui/theme/tokens';
 import { useAccessibilityTheme } from '@/ui/useAccessibilityTheme';
@@ -40,7 +40,7 @@ export function StageTumak({ id, insetBottom }: { id: StationId; insetBottom: nu
             },
           ]}
         >
-          <PetStill size={46} emotion="curious" />
+          <PetStill size={46} emotion="curious" crop={PET_FACE_VIEWBOX} mirror={1} />
         </Pressable>
       )}
       <BottomSheet open={open} onClose={() => setOpen(false)} bottom={insetBottom}>
