@@ -423,3 +423,149 @@ Entries 90 → 67. Examples 1191 → 863. The first 38 entries were left as they
 > damenta en su integridad ecológica y, además, en funciones como la re-
 > gulación hídrica que son condicionadas por la conexión de estos ecosiste-
 > mas
+
+
+## Additive entry: flora_ecosystems.uton_paramo_water_sponge
+
+- research_notes/uton_guion_2024/guion_ecoturistico_uton_2024.txt (checked 2026-11-26); evidence: `research_notes/uton_guion_2024/guion_ecoturistico_uton_2024.txt`
+
+> Actúan como esponjas gigantes, regulando el suministro de agua y capturando carbono, lo que ayuda a mitigar el cambio climático.
+
+- research_notes/uton_guion_2024/guion_ecoturistico_uton_2024.txt (checked 2026-11-26); evidence: `research_notes/uton_guion_2024/guion_ecoturistico_uton_2024.txt`
+
+> Aquí se puede apreciar, como el agua contenida en las nubes es capturada por la vegetación (condensación) y pasa a formar pequeñas gotas
+
+- research_notes/uton_guion_2024/guion_turistico_zona_norte.txt (checked 2026-11-26); evidence: `research_notes/uton_guion_2024/guion_turistico_zona_norte.txt`
+
+> gracias a su origen volcánico, funciona como una esponja que retiene hasta 40 veces su peso en agua. Es una fábrica natural donde la niebla se transforma en líquido vital.
+
+- research_notes/uton_guion_2024/guion_turistico_zona_norte.txt (checked 2026-11-26); evidence: `research_notes/uton_guion_2024/guion_turistico_zona_norte.txt`
+
+> aquí presenciamos la intercepción de niebla o condensación por contacto. A diferencia de una selva donde llueve, aquí el agua 'se atrapa'.
+
+- research_notes/uton_guion_2024/guion_turistico_zona_norte.txt (checked 2026-11-26); evidence: `research_notes/uton_guion_2024/guion_turistico_zona_norte.txt`
+
+> Ese suelo, compuesto por ceniza volcánica y materia orgánica, funciona como una esponja que libera el agua lentamente hacia las cuencas de los ríos Chinchiná y Gualí.
+
+
+## Additive entry: flora_ecosystems.uton_frailejon_adaptations
+
+- research_notes/uton_guion_2024/guion_ecoturistico_uton_2024.txt (checked 2026-11-26); evidence: `research_notes/uton_guion_2024/guion_ecoturistico_uton_2024.txt`
+
+> Los frailejones, como muchas plantas de paramo han desarrollado adaptaciones, como hojas gruesas y vellosidades (pubescencia), para sobrevivir en este clima extremo, forman una “chaqueta” de materia muerta (necromasa) que les ayuda a protegerse de las inclementes condiciones del clima.
+
+- research_notes/uton_guion_2024/guion_turistico_zona_norte.txt (checked 2026-11-26); evidence: `research_notes/uton_guion_2024/guion_turistico_zona_norte.txt`
+
+> sus hojas peludas atrapan la humedad y su 'necromasa' (hojas muertas que cubren el tallo) actúa como un aislante térmico para que el agua en su interior no se congele.
+
+- research_notes/uton_guion_2024/guion_turistico_zona_norte.txt (checked 2026-11-26); evidence: `research_notes/uton_guion_2024/guion_turistico_zona_norte.txt`
+
+> Sus hojas están cubiertas de pubescencia (pelos blancos) es una adaptación evolutiva para protegerse de la alta radiación UV y retener calor.
+
+
+## Additive entry: flora_ecosystems.uton_espeletia_hartwegiana
+
+- research_notes/uton_guion_2024/guion_ecoturistico_uton_2024.txt (checked 2026-11-26); evidence: `research_notes/uton_guion_2024/guion_ecoturistico_uton_2024.txt`
+
+> Existen más de 100 especies de frailejones, en Colombia se tienen cerca de 60 de estas especies y para el PNNN se encuentra reportada únicamente la especie de Frailejón Espeletia hartwegiana.
+
+- research_notes/uton_guion_2024/guion_ecoturistico_uton_2024.txt (checked 2026-11-26); evidence: `research_notes/uton_guion_2024/guion_ecoturistico_uton_2024.txt`
+
+> El nombre genérico “Espeletia” fue nombrado en honor a José Manuel de Ezpeleta, el virrey del Nuevo Reino de Granada.
+
+
+## Additive entry: flora_ecosystems.uton_loricaria_coral
+
+- research_notes/uton_guion_2024/guion_ecoturistico_uton_2024.txt (checked 2026-11-26); evidence: `research_notes/uton_guion_2024/guion_ecoturistico_uton_2024.txt`
+
+> Las loricarias, son llamadas cacho de venado, o coral de paramo.
+
+- research_notes/uton_guion_2024/guion_ecoturistico_uton_2024.txt (checked 2026-11-26); evidence: `research_notes/uton_guion_2024/guion_ecoturistico_uton_2024.txt`
+
+> La escasez de vegetación, salvo por especies resistentes como la loricaria, resalta la dureza de las condiciones ambientales.
+
+- research_notes/uton_guion_2024/guion_ecoturistico_uton_2024.txt (checked 2026-11-26); evidence: `research_notes/uton_guion_2024/guion_ecoturistico_uton_2024.txt`
+
+> La loricaria, una especie restringida a estas condiciones, es un ejemplo de la adaptación de la vida a entornos extremos.
+
+- research_notes/uton_guion_2024/guion_ecoturistico_uton_2024.txt (checked 2026-11-26); evidence: `research_notes/uton_guion_2024/guion_ecoturistico_uton_2024.txt`
+
+> Loricaria colombiana: Se encuentra en el superpáramo alto de la cordillera Central.
+
+- research_notes/uton_guion_2024/guion_ecoturistico_uton_2024.txt (checked 2026-11-26); evidence: `research_notes/uton_guion_2024/guion_ecoturistico_uton_2024.txt`
+
+> Estos arbustos forman parte de las comunidades vegetales que cubren los suelos bien drenados y arenosos en altitudes entre los 4,000 y 4,400 msnm.
+
+- research_notes/uton_guion_2024/guion_ecoturistico_uton_2024.txt (checked 2026-11-26); evidence: `research_notes/uton_guion_2024/guion_ecoturistico_uton_2024.txt`
+
+> Arenales Altura aren 4.290 msnm aproximadamente. Ubicación Flanco occidental edificio volcánico, a 4.7 Km aproximadamente del Cráter Arenas Ecosistema o Bioma Transición Paramo a Superparamo. Fauna: Conejos, huellas de tigrillo, águilas. Pantas Características Pajonal, loricarias, Colchones de agua.
+
+- research_notes/uton_guion_2024/guion_ecoturistico_uton_2024.txt (checked 2026-11-26); evidence: `research_notes/uton_guion_2024/guion_ecoturistico_uton_2024.txt`
+
+> Lunares Altura 4.350 msnm aproximadamente. Ubicación Flanco occidental edificio volcánico, a 4.8 Km aproximadamente del Cráter Arenas Ecosistema o Bioma Superáramo Fauna Característica: Cóndor, águila (Zona de paso) Pantas Características Pajonales, “Coral de paramo”
+
+- research_notes/uton_guion_2024/guion_ecoturistico_uton_2024.txt (checked 2026-11-26); evidence: `research_notes/uton_guion_2024/guion_ecoturistico_uton_2024.txt`
+
+> según “El gran libro de los páramos”, las loricarias son arbustos que crecen en las zonas más húmedas del superpáramo alto de la cordillera Central.
+
+
+## Additive entry: flora_ecosystems.uton_paramo_bands
+
+- research_notes/uton_guion_2024/guion_ecoturistico_uton_2024.txt (checked 2026-11-26); evidence: `research_notes/uton_guion_2024/guion_ecoturistico_uton_2024.txt`
+
+> Es un ecosistema de alta montaña con una temperatura promedio de 5°C. La vegetación predominante incluye frailejones y pajonales, con turberas y pastizales. Se encuentra entre el subpáramo y el superpáramo
+
+- research_notes/uton_guion_2024/guion_ecoturistico_uton_2024.txt (checked 2026-11-26); evidence: `research_notes/uton_guion_2024/guion_ecoturistico_uton_2024.txt`
+
+> Se encuentra en la parte más baja del ecosistema de páramo, justo por encima del bosque montano. La temperatura promedio es de 10°C y está caracterizado por la presencia de árboles pequeños y arbustos.
+
+- research_notes/uton_guion_2024/guion_ecoturistico_uton_2024.txt (checked 2026-11-26); evidence: `research_notes/uton_guion_2024/guion_ecoturistico_uton_2024.txt`
+
+> Superpáramo: Es el espacio más recientemente abandonado por el hielo, donde la temperatura oscila entre 0º C y 6º C.
+
+- research_notes/uton_guion_2024/guion_ecoturistico_uton_2024.txt (checked 2026-11-26); evidence: `research_notes/uton_guion_2024/guion_ecoturistico_uton_2024.txt`
+
+> Este ecosistema presenta condiciones extremas, como cambios diarios de temperatura de -2º C a 25º C y fuertes vientos, lo que ha generado el desarrollo de varias especies endémicas altamente especializadas.
+
+- research_notes/uton_guion_2024/guion_ecoturistico_uton_2024.txt (checked 2026-11-26); evidence: `research_notes/uton_guion_2024/guion_ecoturistico_uton_2024.txt`
+
+> Otras datos y definiciones según el gran libro de los páramos
+
+- research_notes/uton_guion_2024/guion_ecoturistico_uton_2024.txt (checked 2026-11-26); evidence: `research_notes/uton_guion_2024/guion_ecoturistico_uton_2024.txt`
+
+> Aguacerales Altura 4.160 msnm aproximadamente. Ubicación Flanco occidental edificio volcánico, a 5.2 Km aproximadamente del Cráter Arenas. Ecosistema o Bioma Paramo propiamente dicho. Fauna Característica: Conejo, águila, cusumbos, taira, venados, colibríes, dantas, comadreja, guagua, zorro, puma, patos.
+
+- research_notes/uton_guion_2024/guion_ecoturistico_uton_2024.txt (checked 2026-11-26); evidence: `research_notes/uton_guion_2024/guion_ecoturistico_uton_2024.txt`
+
+> Arenales Altura aren 4.290 msnm aproximadamente. Ubicación Flanco occidental edificio volcánico, a 4.7 Km aproximadamente del Cráter Arenas Ecosistema o Bioma Transición Paramo a Superparamo. Fauna: Conejos, huellas de tigrillo, águilas. Pantas Características Pajonal, loricarias, Colchones de agua.
+
+- research_notes/uton_guion_2024/guion_ecoturistico_uton_2024.txt (checked 2026-11-26); evidence: `research_notes/uton_guion_2024/guion_ecoturistico_uton_2024.txt`
+
+> Lunares Altura 4.350 msnm aproximadamente. Ubicación Flanco occidental edificio volcánico, a 4.8 Km aproximadamente del Cráter Arenas Ecosistema o Bioma Superáramo Fauna Característica: Cóndor, águila (Zona de paso) Pantas Características Pajonales, “Coral de paramo”
+
+- research_notes/uton_guion_2024/guion_ecoturistico_uton_2024.txt (checked 2026-11-26); evidence: `research_notes/uton_guion_2024/guion_ecoturistico_uton_2024.txt`
+
+> Valle de las tumbas Altura 4.460 msnm aproximadamente. Ubicación Flanco occidental edificio volcánico, a 4.1 Km aproximadamente del Cráter Arenas, a un costado del Cañón del rio Molinos. Ecosistema o Bioma Superparamo con transición a zona nival Fauna Característica: Cóndor, águila (Zona de paso).
+
+
+## Additive entry: flora_ecosystems.uton_park_biomes
+
+- research_notes/uton_guion_2024/guion_ecoturistico_uton_2024.txt (checked 2026-11-26); evidence: `research_notes/uton_guion_2024/guion_ecoturistico_uton_2024.txt`
+
+> el PNN Los Nevados tiene características naturales de Bosque Húmedo Altoandino, Humedales y cuerpos de agua
+
+- research_notes/uton_guion_2024/guion_ecoturistico_uton_2024.txt (checked 2026-11-26); evidence: `research_notes/uton_guion_2024/guion_ecoturistico_uton_2024.txt`
+
+> vegetación de páramo Altoandino y Glaciar. El bioma con mayor representatividad en el Área Protegida es el Páramo, seguido por el bosque Altoandino y finalmente el Glaciar.
+
+- research_notes/uton_guion_2024/guion_ecoturistico_uton_2024.txt (checked 2026-11-26); evidence: `research_notes/uton_guion_2024/guion_ecoturistico_uton_2024.txt`
+
+> Fue posible diferenciar 19 tipos de vegetación con varias estructuras. Nueve tipos pertenecen a ecosistemas de páramo y superpáramo, y diez pertenecen a bosques altoandinos.
+
+- research_notes/uton_guion_2024/guion_ecoturistico_uton_2024.txt (checked 2026-11-26); evidence: `research_notes/uton_guion_2024/guion_ecoturistico_uton_2024.txt`
+
+> se identifican para el Área Protegida los Orobiomas de Bosque Andino que según Hernández Camacho & Sánchez Páez (1992) van desde los 3000 – 4000 m.s.n.m., Orobioma de Páramo ubicado hacia las cimas de montañas elevadas y Orobioma nival (4700-5100 m.s.n.m.).
+
+- research_notes/uton_guion_2024/guion_ecoturistico_uton_2024.txt (checked 2026-11-26); evidence: `research_notes/uton_guion_2024/guion_ecoturistico_uton_2024.txt`
+
+> Dentro del Orobioma de Páramo se encuentran los Suborobioma de Subpáramo, Páramo Propiamente Dicho y Superpáramo.

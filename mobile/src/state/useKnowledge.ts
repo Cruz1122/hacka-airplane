@@ -7,11 +7,15 @@ import { MEDIA } from '@/core/media/bundled';
 import { degradedKnowledgeEngine, loadKnowledgeRuntime } from '@/llm/knowledgeRuntime';
 
 import { KnowledgeChat, type KnowledgeChatState } from './knowledgeChat';
+import { getVerifiedOnly, loadVerifiedOnly } from './verifiedOnly';
 
 let store: KnowledgeChat | null = null;
 
 function getStore(): KnowledgeChat {
-  store ??= new KnowledgeChat(
+  if (store) return store;
+  // The saved switch loads with the models, so the first question already sees it.
+  loadVerifiedOnly();
+  store = new KnowledgeChat(
     () =>
       loadKnowledgeRuntime().then(
         (rt) => ({ engine: rt.engine }),
@@ -23,7 +27,7 @@ function getStore(): KnowledgeChat {
           };
         },
       ),
-    { media: MEDIA },
+    { media: MEDIA, verifiedOnly: getVerifiedOnly },
   );
   return store;
 }

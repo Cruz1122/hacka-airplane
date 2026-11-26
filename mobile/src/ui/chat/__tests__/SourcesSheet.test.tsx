@@ -61,6 +61,15 @@ describe('SourcesSheet', () => {
     jest.restoreAllMocks();
   });
 
+  it('marks only the sources validated by UTON', () => {
+    const mark = t.chatScreen.verified.source;
+    const s = mount([
+      { id: 'g#0', title: 'Guion UTON', verified: true },
+      { id: 'w#0', title: 'Parques Nacionales', url: URL },
+    ]);
+    expect(s.texts().filter((x) => x === mark)).toHaveLength(1);
+  });
+
   it('stays closed without sources', () => {
     expect(mount(null).texts()).toEqual([]);
     expect(mount([]).texts()).toEqual([]);

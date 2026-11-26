@@ -1,3 +1,4 @@
+import type { KnowledgeReply } from '@/core/knowledge/types';
 import { toChatRows } from '@/state/knowledgeRows';
 import { replyDoc } from '@/ui/chat/markdown';
 import classes from '@/../assets/vision/classes.json';
@@ -19,7 +20,11 @@ test.each(parkClasses)('a $id reference retrieves the corresponding curated answ
   const ask = jest.spyOn(engine, 'ask');
   const chat = new KnowledgeChat(async () => ({ engine }));
   await chat.askPhoto("file:///foto.jpg", "", async () => match);
-  expect(ask).toHaveBeenCalledWith(`dime que es esto ${expected.label}`, expected.entryId);
+  expect(ask).toHaveBeenCalledWith(`dime que es esto ${expected.label}`, {
+    visualEntryId: expected.entryId,
+    preferCaption: false,
+    verifiedOnly: false,
+  });
   expect(chat.snapshot().rows.at(-1)).toMatchObject({
     role: 'assistant',
     reply: { type: 'answer', id: expected.entryId, text: expect.stringContaining(expected.label) },
@@ -43,7 +48,11 @@ test('keeps the real caption and photo visible while passing the inferred class 
   const ask = jest.spyOn(engine, 'ask');
   const chat = new KnowledgeChat(async () => ({ engine }));
   await chat.askPhoto('file:///foto.jpg', '¿Qué altura alcanza?', async () => match);
-  expect(ask).toHaveBeenCalledWith('¿Qué altura alcanza? frailejón', match.entryId, true);
+  expect(ask).toHaveBeenCalledWith('¿Qué altura alcanza? frailejón', {
+    visualEntryId: match.entryId,
+    preferCaption: true,
+    verifiedOnly: false,
+  });
   expect(chat.snapshot().rows[0]).toMatchObject({
     role: 'user', photoUri: 'file:///foto.jpg', text: '¿Qué altura alcanza?',
   });
@@ -128,4 +137,79 @@ test.each(sourcedClasses)('answers with a local source when $id is detected', as
     reply: { type: 'answer', id: expected.id, sources: [expected.source] },
   });
   expect(engine.ask).not.toHaveBeenCalled();
+});
+
+test('no UTON seal over the vision description, even on a verified entry', async () => {
+  const match = classes.roca;
+  const engine = {
+    ask: jest.fn(async () => ({
+      reply: {
+        type: 'answer' as const,
+        id: match.entryId,
+        title: 'Geología',
+        text: 'Texto del guion.',
+        sources: [],
+        verified: true,
+      },
+      timing: { rulesMs: 0, embedMs: 1, retrieveMs: 1, rerankMs: 0, totalMs: 2 },
+      safety: { urgent: false } as never,
+      contextUsed: false,
+    })),
+  };
+  const chat = new KnowledgeChat(async () => ({ engine }));
+  await chat.askPhoto('file:///roca.jpg', '', async () => match);
+  expect(chat.snapshot().rows.at(-1)).toMatchObject({
+    reply: { text: expect.stringContaining(match.description), verified: false },
+  });
+});
+
+describe('with the verified-only switch on', () => {
+  const timing = { rulesMs: 0, embedMs: 1, retrieveMs: 1, rerankMs: 0, totalMs: 2 };
+  const replying = (reply: KnowledgeReply) => ({
+    ask: jest.fn(async () => ({
+      reply,
+      timing,
+      safety: { urgent: false } as never,
+      contextUsed: false,
+    })),
+  });
+  const verifiedOnly = () => true;
+
+  test('a photo the vision index describes itself goes to the engine instead', async () => {
+    const [{ id, expected }] = sourcedClasses;
+    const engine = replying({ type: 'abstain', text: 'no está en el guion' });
+    const chat = new KnowledgeChat(async () => ({ engine }), { verifiedOnly });
+    const reference = references.find((row) => row.classId === id)!;
+    const vector = Float32Array.from(reference.vector);
+    await chat.askPhoto('file:///insecto.jpg', '', async () => matchPhoto(vector));
+    expect(engine.ask).toHaveBeenCalledWith(`dime que es esto ${expected.label}`, {
+      visualEntryId: undefined,
+      preferCaption: false,
+      verifiedOnly: true,
+    });
+    expect(chat.snapshot().rows.at(-1)).toMatchObject({
+      reply: { type: 'abstain', text: 'no está en el guion' },
+    });
+  });
+
+  test('a verified photo entry keeps the guion text, without the vision description or source', async () => {
+    const match = classes.roca;
+    const engine = replying({
+      type: 'answer',
+      id: match.entryId,
+      title: 'Geología',
+      text: 'Texto del guion.',
+      sources: [],
+      verified: true,
+    });
+    const chat = new KnowledgeChat(async () => ({ engine }), { verifiedOnly });
+    await chat.askPhoto('file:///roca.jpg', '', async () => match);
+    expect(chat.snapshot().rows.at(-1)).toMatchObject({
+      reply: {
+        text: `La foto se parece a ${match.label}.\n\nTexto del guion.`,
+        sources: [],
+        verified: true,
+      },
+    });
+  });
 });

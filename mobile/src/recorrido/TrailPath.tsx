@@ -50,13 +50,6 @@ export function markExtent(width: number): { above: number; below: number } {
   return { above: r, below: r };
 }
 
-/** Each animal faces the next stop, the last one the previous stop. */
-function facingOf(index: number): 1 | -1 {
-  const here = STATION_NODES[index]!;
-  const toward = STATION_NODES[index + 1] ?? STATION_NODES[index - 1]!;
-  return toward.x >= here.x ? 1 : -1;
-}
-
 type Pt = { x: number; y: number };
 
 /** Catmull-Rom through every stop, as one cubic Bézier per leg. */
@@ -130,7 +123,7 @@ export function TrailPath({
   );
 }
 
-/** A stop: its animal in its setting, in a circle with a card ring, centred on the stop, like the
+/** A stop: its icon in its setting, in a circle with a card ring, centred on the stop, like the
  * Pet's circle. */
 function StationDisc({
   id,
@@ -172,45 +165,36 @@ function StationDisc({
           },
         ]}
       >
-        <StationArt id={id} size={inner} facing={facingOf(index)} />
+        <StationArt id={id} size={inner} />
       </Pressable>
     </View>
   );
 }
 
 /**
- * A stop's animal standing in its setting, filling a `size` square (its circle), or a `width`-wide
- * band `size` tall (its sheet) with the animal in the middle.
+ * A stop's icon standing in its setting, filling a `size` square (its circle), or a `width`-wide
+ * band `size` tall (its sheet) with the icon in the middle.
  */
 export function StationArt({
   id,
   size,
   width = size,
-  facing = 1,
 }: {
   id: StationId;
   size: number;
   width?: number;
-  facing?: 1 | -1;
 }) {
   const box = FIGURE_BOX[id];
   const boxH = box.h + GROUND_ROOM;
   const scale = (size * FILL) / Math.hypot(box.w, boxH);
-  // Centre the box: mirroring flips x about the feet, so the offset flips with it.
-  const cx = width / 2 - facing * (box.x + box.w / 2) * scale;
+  const cx = width / 2 - (box.x + box.w / 2) * scale;
   const ground = size / 2 - (box.y + boxH / 2) * scale;
   return (
     <View style={{ width, height: size }} pointerEvents="none">
       <StationScene id={id} size={size} ground={ground} width={width} />
       {/* Positioned like the scene: on web an absolute sibling stacks over one in normal flow. */}
       <View style={StyleSheet.absoluteFill}>
-        <TrailMarkSvg
-          id={id}
-          width={width}
-          height={size}
-          sink={{ dy: 0, sy: 1, cx, ground, scale }}
-          facing={facing}
-        />
+        <TrailMarkSvg id={id} width={width} height={size} cx={cx} ground={ground} scale={scale} />
       </View>
     </View>
   );

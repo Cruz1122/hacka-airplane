@@ -56,139 +56,141 @@ export const en: Labels = {
     subtitle: 'Vehicle route to Valle de las Tumbas',
     stationA11y: 'Station {n}: {name}. {mark}',
     marks: {
-      brisas: 'Frailejón',
-      aguacerales: 'Spectacled bear',
-      arenales: 'Puma',
-      valleLunar: 'Páramo fox',
-      valleTumbas: 'Andean condor',
+      brisas: 'Gateway',
+      aguacerales: 'Where water begins',
+      arenales: 'Memory and climate change',
+      valleLunar: 'Geological forces',
+      valleTumbas: 'Respect and risk',
     },
     stations: {
       brisas: {
-        name: 'Brisas induction centre',
-        blurb: 'Check-in, required briefing and departure. About 4,100 m a.s.l.',
+        name: 'Brisas: the gateway',
+        blurb:
+          'Entrance to the park’s northern sector, on the north flank of the Nevado del Ruiz Volcanic Complex.',
       },
       aguacerales: {
-        name: 'Aguacerales: where the water is born',
-        blurb: 'About 4,160 m: a superpáramo wetland that feeds Quebrada Azufrales.',
+        name: 'Aguacerales: the mountain’s filter',
+        blurb: 'About 4,160 m a.s.l.: true páramo, where fog turns into water.',
       },
       arenales: {
-        name: 'Arenales: the volcano’s desert',
-        blurb: 'At 4,230 m: volcanic-sand dunes facing Ruiz.',
+        name: 'Arenales: geology and memory',
+        blurb: 'About 4,290 m a.s.l.: from páramo to super-páramo, among volcanic-sand dunes.',
       },
       valleLunar: {
-        name: 'Valle Lunar: a landscape from another world',
-        blurb: 'Sand, ash and wind between Arenales and Valle de las Tumbas.',
+        name: 'Valle Lunar: the force of the elements',
+        blurb: 'About 4,350 m a.s.l.: super-páramo of rocks split by ice.',
       },
       valleTumbas: {
-        name: 'Valle de las Tumbas: the silence of the mountain',
-        blurb: 'At 4,450 m: end of the Brisas route. Also called Desert of Solitude.',
+        name: 'Valle de las Tumbas: spirit and risk',
+        blurb: 'About 4,460 m a.s.l.: end of the route, between super-páramo and the snow zone.',
       },
     },
     back: 'Back',
     photo: 'Image {n} of this stage',
+    source: 'Source: UTON ecotourism script, 2024',
     sheet: {
       more: 'Learn more!',
       close: 'Close',
       blurbs: {
         brisas:
-          'The gateway to the super-páramo, at 4,100 m on the slopes of the Nevado del Ruiz. Here you sign in, hear the briefing and meet the guide who will take you to the Valley of the Tombs.',
+          'Here you enter Los Nevados National Natural Park, on the north flank of the Nevado del Ruiz Volcanic Complex. A páramo vital to regulating the Coffee Region’s water.',
         aguacerales:
-          'The first stop in the super-páramo: mosses and lichens drinking from the ice on the ground the glacier left behind. A páramo that stores the water of the whole region.',
+          'At about 4,160 m, in the heart of the páramo, fog gets caught in the plants and turns into water. This is where the cycle that feeds the rivers below begins.',
         arenales:
-          'Here the ground is volcanic ash. You are at the foot of the Ruiz, an active 5,321 m volcano whose Arenas crater is almost a kilometre wide.',
+          'At about 4,290 m the landscape turns from green to grey: volcanic-sand dunes and the memory of ski slopes the thaw wiped out.',
         valleLunar:
-          'It looks like another planet: a plateau of ash and rock with the Ruiz, Santa Isabel, Quindío and Tolima peaks on the horizon. One of the most striking views on the route.',
+          'At about 4,350 m, in the super-páramo, there are hardly any plants. Ice splits the rocks and rust stains them reddish.',
         valleTumbas:
-          'The end of the road, at 4,450 m. Its volcanic formations and fumaroles look like a graveyard, and the Quimbaya climbed up here on pilgrimage to leave offerings.',
+          'At about 4,460 m the route ends. A sacred place for Indigenous peoples and the limit of the climb in front of the volcano.',
       },
-      species: {
+      concepts: {
         brisas:
-          'It grows barely a centimetre a year. Its furry leaves catch the fog and turn it into water.',
+          '86% of the park is páramo: about 53,532 protected hectares that regulate the region’s water.',
         aguacerales:
-          'The only bear in South America. The pale markings on its face are unique to each one, like a fingerprint.',
-        arenales: 'So elusive it is almost never seen, even when it is watching you.',
+          'Without the fog that condenses here, drop by drop, the cities below would have no drinking water.',
+        arenales: 'Where there was once permanent snow for skiing, there is now a high desert.',
         valleLunar:
-          'Despite its name, it is not a true fox: it is closer kin to wolves and jackals.',
+          'Water freezes in the cracks, expands and splits the rock from inside: this is frost shattering.',
         valleTumbas:
-          'Wings over three metres wide: it can glide for hours over these valleys without a single flap.',
+          'Nobody climbs beyond this point, mainly because of the risk of lahars: flows of volcanic mud and debris.',
       },
     },
     camera: {
       prompt: 'Take a photo of this station.',
       take: 'Take photo',
-      denied: 'Camera permission denied. Enable it in settings to photograph this station.',
+      denied: 'No camera permission. Turn it on in settings to photograph this station.',
       unavailable: 'The camera is not available here.',
       capturedA11y: 'Photo taken at this station',
     },
     pages: {
       brisas: [
         {
-          subtitle: 'Induction centre',
-          body: 'The **Brisas** induction centre is the entry point to the northern sector of **Los Nevados National Natural Park**. You must register and take a mandatory induction talk on the rules and conditions of entry; a **professional guide** endorsed by the park and authorised by a licensed tour operator is required.\n\nIn the northern sector, the authorised route is the **Brisas–Arenales–Valle de las Tumbas** dirt road. The Brisas induction centre receives visitors between **8:00 a.m.** and **2:00 p.m.**',
+          subtitle: 'Gateway',
+          body: 'You are entering **Los Nevados National Natural Park**, a protected area of about **62,000 hectares**. You arrive on the north flank of the **Nevado del Ruiz Volcanic Complex**, made up of four structures: **Nereidas**, **Olleta**, **Piraña** and **Arenas**, the active crater.\n\nThe rock you will see most along the way is **andesite**, a volcanic rock very common in the Andes. The Nevado del Ruiz is that whole complex, although people usually give the name to the cone that holds the Arenas crater.',
         },
         {
-          subtitle: 'How to get there',
-          body: 'Access to the northern zone, on the western slope of **Nevado del Ruiz**, is by the road that links the La Esperanza or El Ocho sector in Manizales with **Murillo**, Tolima. After about 18 km a turnoff leads to the park entrance at Brisas, about **4,100 m a.s.l.** From there the authorised visitor route continues to Valle de las Tumbas, about **4,450 m a.s.l.**',
+          subtitle: 'Kumanday',
+          body: 'Long before it was called Ruiz, this mountain was called **Kumanday**. That is how the Indigenous communities who lived here named it, and tradition gives it meanings such as **“White Hill”** or **“White Father”**. For them the volcano was a living being, a sacred sentinel between earth and sky.\n\nThat white is a **summit glacier**: snow that over hundreds of years piles up, compacts, loses its air and becomes ice. In dry seasons it releases water little by little and keeps the rivers flowing, like a savings account of solid water. Today that glacier is **retreating** fast because of global warming.',
         },
         {
-          subtitle: 'The park',
-          body: 'The boundaries of **Los Nevados National Natural Park** were set by Inderena Agreement **015** of 28 March **1973** and approved by Resolution **148** of 30 April **1974**.\n\nIt began at about **38,000** hectares and by the end of **2023** covered **61,377.49** hectares. The park spans the departments of Caldas, Risaralda, Tolima and Quindío.',
+          subtitle: 'Water for the Coffee Region',
+          body: 'This páramo is a **water regulator**: the park’s water supplies **37 municipalities** and benefits about **3 million people** in Caldas, Risaralda, Quindío, Tolima and northern Valle del Cauca.\n\nThe soil, volcanic in origin, works like a sponge that can hold up to **40 times its weight in water**. The climate is **bimodal**: two rainy and two dry seasons set the mountain’s rhythm. As you climb you will feel stronger sunlight and colder winds.',
         },
       ],
       aguacerales: [
         {
-          subtitle: 'Where the water is born',
-          body: 'At about 4,160 metres above sea level, Aguacerales looks like a small landscape, but it does enormous work. It is a superpáramo wetland where water filters through mosses, cushions and vegetation adapted to the cold.\n\nThese plants act as a living sponge: they hold rain and moisture, then release them slowly. Through that process, Aguacerales helps regulate the water that feeds Quebrada Azufrales and, farther down, the Chinchiná river basin.',
+          subtitle: 'Where water gets caught',
+          body: 'Welcome to **Aguacerales**, at about **4,160 m a.s.l.**, in true páramo. Here it does not just rain: water from the fog **gets caught**. Plants intercept the clouds and the water **condenses** into drops that run down to the mosses growing on the rock.\n\nThose drops join into threads of water that form a stream on its way to the creek. It happens **24 hours a day, every day of the year**, and that never-ending fall of water gives the place its name. On cold nights, especially in the dry season, the threads freeze into **icicles**.',
         },
         {
-          subtitle: 'Drop by drop',
-          body: 'Here the water does not appear all at once: it is born drop by drop, among mosses that can take years to grow. Walking through Aguacerales is therefore to understand that an apparently silent landscape sustains rivers, communities and cities far below.',
+          subtitle: 'The frailejón, a water engineer',
+          body: 'Look at the frailejones: only one species is recorded in the park, **Espeletia hartwegiana**. Its leaves are covered in fine white hairs, the **pubescence**, which shield it from strong UV radiation and keep in heat. The dead leaves covering the trunk, the **necromass**, are a jacket that stops the water inside from freezing.\n\nThere are more than 100 species of frailejón and about 60 grow in Colombia. The name **Espeletia** honours José Manuel de Ezpeleta, viceroy of the New Kingdom of Granada.',
         },
         {
-          subtitle: 'Cumanday',
-          body: 'The place is also part of the high mountain of Nevado del Ruiz, known in Indigenous traditions as Cumanday. In Andean worldviews, water is a living element that connects mountains, páramos, rivers and communities. Aguacerales invites another way of seeing the landscape: not as a mere wetland, but as the silent origin of an essential resource.',
+          subtitle: 'A sponge of ash',
+          body: 'The ground under your feet is made of **volcanic ash** and organic matter. It works like a sponge that slowly releases water into the basins of the **Chinchiná** and **Gualí** rivers.\n\nThis whole ecosystem grew on what the **glacier** left behind as it retreated. As the ice pulled back it cut through the lava like a giant knife, shaped the cliffs around the station and left a **U-shaped valley** to the west. The rocks around you are **andesites** about **100,000 years** old.',
         },
       ],
       arenales: [
         {
-          subtitle: 'The volcano’s desert',
-          body: 'At 4,230 metres above sea level, Arenales looks like a small desert in the middle of the Andes. Its volcanic-sand dunes formed from ash and material ejected by Nevado del Ruiz, an active volcano whose main crater is called Arenas.\n\nThe wind that runs along the range has shaped these deposits for decades, creating a landscape that changes with time. There are no trees or wide meadows here: sand, rock, lichens and a few plants able to survive the cold, the radiation and the scarcity of water predominate.',
+          subtitle: 'Volcanic-sand dunes',
+          body: 'At **Arenales**, about **4,290 m a.s.l.**, páramo gives way to **super-páramo** and the landscape turns from green to grey. The wind builds the **dunes** you see: it carries volcanic ash, particles it scours off the rocks and material from rock that wears away, until everything hits the wall of rocks behind the cabin.\n\nThese dunes are thought to be **200 to 400 years** old, since they formed after the glacier retreated, though more studies are needed to confirm it. They are **intangible geological heritage**: a footprint can last for months, so please do not step on them.',
         },
         {
-          subtitle: 'Cumanday',
-          body: 'From Arenales you can see the edge of the Nevado del Ruiz glacier and understand the relationship between fire, ice and life. For the region’s Indigenous peoples this mountain was known as Cumanday, a name that recalls that the territory has stories older than maps and colonial names.',
+          subtitle: 'From skiing to the thaw',
+          body: 'Arenales has always welcomed visitors: from a potato store in **1937** to the **Chalet Arenales**, designed by architect **Simón Vélez**, which burned down in **2010**. Today’s cabin tells the story of **skiing** on the Ruiz: in the **1950s and 60s** it hosted South American championships, which led to the Manizales Ski Club.\n\nSkiing ended because of the **thaw**. Where there was once permanent snow, there is now a high desert: the glacier’s retreat is one of the clearest signs of **climate change** in Colombia.',
         },
         {
-          subtitle: 'A living volcano',
-          body: 'Arenales is a reminder that Ruiz is not a static mountain: it is a living volcano. Its history includes eruptions documented since 1570 and, especially, the 1985 tragedy, which changed how Colombia understands volcanic risk. Visiting it is to admire an extraordinary landscape, but also to recognise the force of nature and the importance of conserving these high-mountain ecosystems.',
+          subtitle: 'Life on the edge',
+          body: 'The sand is not just dust: it is **pyroclastic material** and ash moved around again by the wind. On the ground you can see pyroclasts from the **1989** eruption. And the huge rocks behind the cabin were not thrown by the volcano: the **glacier** left them as it retreated.\n\nLook at the **pioneer plants**: they are tiny and try to settle on **poor, acidic** soil. They prove that life holds on even at the limit of survival.',
         },
       ],
       valleLunar: [
         {
-          subtitle: 'A landscape from another world',
-          body: 'Between Arenales and Valle de las Tumbas lies Valle Lunar, a place where sand, ash and wind have created a landscape that looks like another planet. Its undulating forms and grey tone evoke the surface of the Moon, hence the name.\n\nBut this “desert” is not an ordinary one: it is a cold high-mountain desert, shaped by the activity of Nevado del Ruiz. For centuries, the volcano’s eruptions and emissions have deposited ash and volcanic material on the slopes; the wind has redistributed and carved them, creating the dunes and undulations seen today.',
+          subtitle: 'Ice that breaks rock',
+          body: '**Valle Lunar**, also called **Lunares**, lies at about **4,350 m a.s.l.**, in the middle of the **super-páramo**. Its name comes from its barren, desolate look, like another planet. Here you can see the physical force of the climate.\n\nWater seeps into cracks in the rock and **freezes** at night. As it freezes it expands and acts like a wedge that splits the **andesite** into angular pieces. This process is called **frost shattering**, and it is why the rocks are full of cracks.',
         },
         {
-          subtitle: 'A living volcano',
-          body: 'Valle Lunar is a reminder that Ruiz is a living volcano. Its landscape changes with time, and each layer of sand tells part of the mountain’s geological history.\n\nAlthough it looks inhospitable, Valle Lunar is part of the superpáramo, an ecosystem where life adapts to extreme conditions. Mosses, lichens and hardy plants find spaces to grow, showing the silent force of nature.',
+          subtitle: 'Scratches and rust',
+          body: 'Some rocks have marks that look like scratches. These are **glacial striations**: the glacier left them as it moved and scraped the rock, and they show which way it was flowing.\n\nThe **reddish tones** are another kind of wear, this time chemical: the **iron** in minerals such as hornblende **oxidises** with oxygen and moisture. In the andesite you can tell two minerals apart with the naked eye: the light ones are **plagioclase** and the black ones **hornblende**. You are walking on old lava that the atmosphere keeps transforming.',
         },
         {
-          subtitle: 'Sacred territory',
-          body: 'For some Indigenous communities this territory has spiritual value and is a setting for practices such as Indigenous pagamentos. In the Andean worldview the mountain is a living being and a source of water; Valle Lunar invites us to connect with that idea and to admire a landscape that is at once fragile, dynamic and sacred.',
+          subtitle: 'Pioneer life',
+          body: 'There is hardly any vegetation, but what grows here is tough. **Loricaria**, also called **cacho de venado** or **coral de páramo**, shows how life adapts to extreme conditions.\n\nThe cracks in the rock slowly build a sandy soil where pioneer plants arrive. About **100 years** ago there were no plants here, and in another 100 there will surely be many more. From this point to Valle de las Tumbas, dunes cover much of the rock.',
         },
       ],
       valleTumbas: [
         {
-          subtitle: 'The silence of the mountain',
-          body: 'At 4,450 metres above sea level, Valle de las Tumbas is the end of the route through the Brisas sector of Los Nevados National Natural Park. Also known as the Desert of Solitude, it is a landscape of rock, ash and volcanic sediment where vegetation almost disappears.\n\nThis valley is not an ordinary place: it is a cold high-mountain desert, shaped by the force of Nevado del Ruiz. For centuries, the volcano’s eruptions and emissions have deposited ash and pyroclastic material on the slopes; wind and time have turned them into the landscape seen today.',
+          subtitle: 'Why it has this name',
+          body: 'You have reached about **4,460 m a.s.l.**, the end of the route, where super-páramo gives way to the **snow zone**. The name comes from long, flat rocks, **slabs** that look like coffins. Nearby communities used rocks like these to build **slab-lined tombs**, but that does not mean they took them from the Ruiz: it is only a resemblance.\n\nToday those slabs are covered in sand. The name came down by oral tradition and was already in use in the 1980s. The place is also called the **Desert of Solitude**.',
         },
         {
-          subtitle: 'A living volcano',
-          body: 'Valle de las Tumbas is a reminder that Ruiz is a living volcano. From there you can see part of the volcano’s slope and, at times, fumaroles from Arenas crater, a reminder that the mountain is still active.',
+          subtitle: 'A sacred place',
+          body: 'In pre-Columbian times this was a sacred place. The **Quimbaya**, **Carrapa**, **Gualí**, **Panche**, **Anserma** and **Pijao** peoples made pilgrimages here to pay tribute to the sacred mountain, **Kumanday**. It was a place of **offerings** and respect, not of conquest, and some Indigenous communities still hold rituals here.\n\nWe know little about those practices: the closest sources are the colonial chronicles and some archaeological research. For Indigenous peoples, lakes, glaciers and volcanoes are sacred places.',
         },
         {
-          subtitle: 'Sacred place',
-          body: 'But Valle de las Tumbas is not only geology: it is also a sacred place. For the Indigenous Puya and Quimbaya peoples it was a pilgrimage destination and a space of spiritual connection with nature. In the Andean worldview the mountain —known as Cumanday— is a living being and a source of water.\n\nVisiting Valle de las Tumbas is to admire an extraordinary landscape, but also to recognise the force of nature, the memory of Indigenous peoples and the importance of conserving these high-mountain ecosystems.',
+          subtitle: 'The limit before the volcano',
+          body: 'The Ruiz is an **active volcano**: it is never “extinct”, it only has periods of rest. The **Colombian Geological Survey** watches it around the clock, and the Arenas crater, about **4.1 km** from here, gives off gases constantly. Nobody climbs beyond this point, mainly because of the risk of **lahars**, flows of volcanic mud and debris, and also to protect the fragile super-páramo.\n\nOn **13 November 1985**, the heat of an eruption melted the glacier and lahars rushed down the Gualí, Azufrado, Lagunillas and Molinos rivers. They devastated Armero, in Tolima, as well as Villamaría and Chinchiná: **more than 23,000 people** died.',
         },
       ],
     },
@@ -235,6 +237,11 @@ export const en: Labels = {
       speak: 'Listen to this answer',
       speakStop: 'Stop the voice',
       speakError: 'I could not read the answer aloud.',
+    },
+    verified: {
+      badge: 'Validated source',
+      label: 'Source validated by UTON. Show the source',
+      source: 'Validated by UTON',
     },
   },
   // Knowledge chat (top-1 curated answers, src/state/useKnowledge.ts).
@@ -376,6 +383,10 @@ export const en: Labels = {
     title: 'Settings',
     close: 'Close settings',
     back: 'Back to settings',
+    verifiedOnly: {
+      title: 'UTON-verified information only',
+      body: 'The chat answers only from the official guide script of Unión Temporal Operación Nevados (2024).',
+    },
     savedSources: {
       title: 'Saved sources',
       countZero: 'No saved sources yet',

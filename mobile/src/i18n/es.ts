@@ -59,61 +59,66 @@ export const es = {
     subtitle: 'Ruta vehicular hasta el Valle de las Tumbas',
     stationA11y: 'Estación {n}: {name}. {mark}',
     marks: {
-      brisas: 'Frailejón',
-      aguacerales: 'Oso de anteojos',
-      arenales: 'Puma',
-      valleLunar: 'Zorro de páramo',
-      valleTumbas: 'Cóndor de los Andes',
+      brisas: 'Puerta de entrada',
+      aguacerales: 'Génesis hídrica',
+      arenales: 'Memoria y cambio climático',
+      valleLunar: 'Fuerzas geológicas',
+      valleTumbas: 'Respeto y riesgo',
     },
     stations: {
       brisas: {
-        name: 'Centro de Inducción Brisas',
-        blurb: 'Punto de registro, charla obligatoria y salida. Unos 4.100 m s. n. m.',
+        name: 'Brisas: la puerta de entrada',
+        blurb:
+          'Entrada al sector norte del parque, por el flanco norte del Complejo Volcánico Nevado del Ruiz.',
       },
       aguacerales: {
-        name: 'Aguacerales: donde nace el agua',
-        blurb: 'A unos 4.160 m: humedal de superpáramo que alimenta la quebrada Azufrales.',
+        name: 'Aguacerales: el filtro de la montaña',
+        blurb: 'A unos 4.160 m s. n. m.: páramo propiamente dicho, donde la niebla se vuelve agua.',
       },
       arenales: {
-        name: 'Arenales: el desierto del volcán',
-        blurb: 'A 4.230 m: dunas de arena volcánica frente al Ruiz.',
+        name: 'Arenales: geología y memoria',
+        blurb:
+          'A unos 4.290 m s. n. m.: del páramo al superpáramo, entre dunas de arena volcánica.',
       },
       valleLunar: {
-        name: 'Valle Lunar: un paisaje de otro mundo',
-        blurb: 'Arena, ceniza y viento entre Arenales y el Valle de las Tumbas.',
+        name: 'Valle Lunar: la fuerza de los elementos',
+        blurb: 'A unos 4.350 m s. n. m.: superpáramo de rocas partidas por el hielo.',
       },
       valleTumbas: {
-        name: 'Valle de las Tumbas: el silencio de la montaña',
-        blurb: 'A 4.450 m: final del recorrido Brisas. También llamado Desierto de la Soledad.',
+        name: 'Valle de las Tumbas: espiritualidad y riesgo',
+        blurb:
+          'A unos 4.460 m s. n. m.: final del recorrido, entre el superpáramo y la zona nival.',
       },
     },
     back: 'Volver',
     photo: 'Imagen {n} de la etapa',
+    source: 'Fuente: Guion ecoturístico UTON, 2024',
     sheet: {
       more: '¡Saber más!',
       close: 'Cerrar',
       blurbs: {
         brisas:
-          'La puerta de los superpáramos, a 4.100 m sobre la ladera del Nevado del Ruiz. Aquí te inscribes, escuchas la charla y conoces al guía que te llevará hasta el Valle de las Tumbas.',
+          'Aquí entras al Parque Nacional Natural Los Nevados, por el flanco norte del Complejo Volcánico Nevado del Ruiz. Un páramo vital para regular el agua del Eje Cafetero.',
         aguacerales:
-          'Primera parada del superpáramo: musgos y líquenes que beben del hielo en las franjas que el glaciar fue dejando atrás. Un páramo que guarda el agua de toda la región.',
+          'A unos 4.160 m, en pleno páramo, la niebla se queda atrapada en las plantas y se vuelve agua. Aquí empieza el ciclo que alimenta los ríos de abajo.',
         arenales:
-          'Aquí el suelo es ceniza volcánica. Caminas al pie del Ruiz, un volcán activo de 5.321 m cuyo cráter Arenas mide casi un kilómetro de ancho.',
+          'A unos 4.290 m el paisaje pasa de verde a gris: dunas de arena volcánica y el recuerdo de las pistas de esquí que borró el deshielo.',
         valleLunar:
-          'Parece otro planeta: un altiplano de cenizas y rocas desde donde se asoman el Ruiz, Santa Isabel, el Quindío y el Tolima. Una de las vistas más imponentes de la ruta.',
+          'A unos 4.350 m, en el superpáramo, casi no hay plantas. El hielo parte las rocas y el óxido las tiñe de tonos rojizos.',
         valleTumbas:
-          'El final del camino, a 4.450 m. Sus formaciones volcánicas y fumarolas parecen un cementerio, y los Quimbaya subían hasta aquí en peregrinación a dejar ofrendas.',
+          'A unos 4.460 m termina el recorrido. Un lugar sagrado para los pueblos indígenas y el límite de ascenso frente al volcán.',
       },
-      species: {
+      concepts: {
         brisas:
-          'Crece apenas un centímetro al año. Sus hojas peludas atrapan la niebla y la convierten en agua.',
+          'El 86 % del parque es páramo: unas 53.532 hectáreas protegidas que regulan el agua de la región.',
         aguacerales:
-          'El único oso de Suramérica. Las manchas claras de su cara son únicas en cada individuo, como una huella digital.',
-        arenales: 'Tan esquivo que casi nunca se deja ver, aunque él sí te esté mirando.',
+          'Sin la niebla que se condensa aquí, gota a gota, no habría agua potable en las ciudades de abajo.',
+        arenales:
+          'Donde antes hubo nieve permanente para esquiar, hoy queda un desierto de altura.',
         valleLunar:
-          'Pese a su nombre, no es un zorro verdadero: es pariente más cercano de los lobos y los chacales.',
+          'El agua se congela en las grietas, aumenta su volumen y parte la roca desde adentro: es la gelifracción.',
         valleTumbas:
-          'Más de tres metros de alas: puede planear horas sobre estos valles sin un solo aleteo.',
+          'No se sube más allá de este punto, sobre todo por el riesgo de lahares: flujos de lodo y escombros volcánicos.',
       },
     },
     camera: {
@@ -126,72 +131,72 @@ export const es = {
     pages: {
       brisas: [
         {
-          subtitle: 'Centro de inducción',
-          body: 'El centro de inducción de **Brisas** es el punto de ingreso al sector norte del **PNN Los Nevados**. Hay que inscribirse y recibir obligatoriamente una charla de inducción sobre las normas y condiciones de ingreso; allí se debe contar con un **guía profesional** avalado por el PNN Los Nevados y autorizado por una operadora de turismo habilitada.\n\nEn la zona norte, el recorrido autorizado comprende el carreteable **Brisas–Arenales–Valle de las Tumbas**. El centro de inducción Brisas atiende y recibe ingresos entre las **8:00 a. m.** y las **2:00 p. m.**',
+          subtitle: 'Puerta de entrada',
+          body: 'Estás entrando al **Parque Nacional Natural Los Nevados**, un área protegida de cerca de **62.000 hectáreas**. Llegas por el flanco norte del **Complejo Volcánico Nevado del Ruiz**, formado por cuatro estructuras: **Nereidas**, **Olleta**, **Piraña** y **Arenas**, el cráter activo.\n\nLa roca que más vas a ver en el camino es la **andesita**, una roca volcánica muy común en los Andes. El Nevado del Ruiz es todo ese complejo, aunque en el día a día se le dice así sobre todo al edificio que guarda el cráter Arenas.',
         },
         {
-          subtitle: 'Cómo llegar',
-          body: 'El acceso a la zona norte, ubicada en la ladera occidental del volcán **Nevado del Ruiz**, se realiza por la vía que conecta el sector de La Esperanza o El Ocho, en Manizales, con **Murillo**, Tolima. Tras aproximadamente 18 km se toma el desvío que conduce a la entrada del parque, en el sector de Brisas, a unos **4.100 m s. n. m.** Desde este punto, el recorrido autorizado para visitantes llega hasta el Valle de las Tumbas, a unos **4.450 m s. n. m.**',
+          subtitle: 'Kumanday',
+          body: 'Mucho antes de llamarse Ruiz, esta montaña se llamaba **Kumanday**. Así la nombraban las comunidades indígenas que vivían aquí, y la tradición le da significados como **“Cerro Blanco”** o **“Padre Blanco”**. Para ellas, el volcán era un ser vivo, un centinela sagrado entre la tierra y el cielo.\n\nEse blanco es un **glaciar de cumbre**: nieve que durante cientos de años se acumula, se compacta, pierde el aire y se vuelve hielo. En las épocas secas suelta agua poco a poco y mantiene el caudal de los ríos, como una cuenta de ahorros de agua sólida. Hoy ese glaciar **retrocede** rápido por el calentamiento global.',
         },
         {
-          subtitle: 'El parque',
-          body: 'Los linderos del **Parque Nacional Natural Los Nevados** fueron fijados mediante el Acuerdo **015** del 28 de marzo de **1973** del Inderena y aprobados mediante la Resolución **148** del 30 de abril de **1974**.\n\nEmpezó con cerca de **38.000** hectáreas y, a cierre de **2023**, sumaba **61.377,49** hectáreas. El parque se extiende por los departamentos de Caldas, Risaralda, Tolima y Quindío.',
+          subtitle: 'Agua para el Eje Cafetero',
+          body: 'Este páramo es un **regulador hídrico**: el agua del parque abastece a **37 municipios** y beneficia a cerca de **3 millones de personas** en Caldas, Risaralda, Quindío, Tolima y el norte del Valle del Cauca.\n\nEl suelo, de origen volcánico, funciona como una esponja que puede retener hasta **40 veces su peso en agua**. El clima es **bimodal**: dos temporadas de lluvia y dos secas marcan el ritmo de la montaña. A medida que subas vas a notar más radiación solar y vientos más fríos.',
         },
       ],
       aguacerales: [
         {
-          subtitle: 'Donde nace el agua',
-          body: 'A unos 4.160 metros sobre el nivel del mar, Aguacerales parece un paisaje pequeño, pero cumple una función enorme. Es un humedal de superpáramo donde el agua se filtra entre musgos, cojines y vegetación adaptada al frío.\n\nEstas plantas actúan como una esponja viva: retienen la lluvia y la humedad, y luego las liberan lentamente. Gracias a ese proceso, Aguacerales ayuda a regular el agua que alimenta la quebrada Azufrales y, más adelante, la cuenca del río Chinchiná.',
+          subtitle: 'Donde el agua se atrapa',
+          body: 'Te damos la bienvenida a **Aguacerales**, a unos **4.160 m s. n. m.**, en el páramo propiamente dicho. Aquí no solo llueve: el agua de la niebla **se atrapa**. Las plantas interceptan las nubes y el agua se **condensa** en gotas que bajan hasta los musgos que crecen sobre la roca.\n\nEsas gotas se juntan en hilos de agua que forman un riachuelo rumbo a la quebrada. Pasa las **24 horas del día, todos los días del año**, y esa caída de agua que no para le da su nombre al lugar. En las noches frías, sobre todo en temporada seca, los hilos se congelan y forman **carámbanos**.',
         },
         {
-          subtitle: 'Gota a gota',
-          body: 'Aquí el agua no aparece de golpe: nace gota a gota, entre musgos que pueden tardar años en crecer. Por eso, caminar por Aguacerales es comprender que un paisaje aparentemente silencioso sostiene ríos, comunidades y ciudades mucho más abajo.',
+          subtitle: 'El frailejón, ingeniero del agua',
+          body: 'Mira los frailejones: en el parque solo está reportada una especie, **Espeletia hartwegiana**. Sus hojas están cubiertas de pelitos blancos, la **pubescencia**, que lo protegen de la fuerte radiación UV y guardan calor. Las hojas muertas que cubren el tallo, la **necromasa**, son una chaqueta que evita que el agua de su interior se congele.\n\nExisten más de 100 especies de frailejones y cerca de 60 crecen en Colombia. El nombre **Espeletia** honra a José Manuel de Ezpeleta, virrey del Nuevo Reino de Granada.',
         },
         {
-          subtitle: 'Cumanday',
-          body: 'El lugar también forma parte de la alta montaña del Nevado del Ruiz, conocida en tradiciones indígenas como Cumanday. En las cosmovisiones andinas, el agua es un elemento vivo que conecta montañas, páramos, ríos y comunidades. Aguacerales invita a mirar el paisaje con otra mirada: no como un simple humedal, sino como el origen silencioso de un recurso esencial.',
+          subtitle: 'Una esponja de ceniza',
+          body: 'El suelo que pisas está hecho de **ceniza volcánica** y materia orgánica. Funciona como una esponja que suelta el agua despacio hacia las cuencas de los ríos **Chinchiná** y **Gualí**.\n\nTodo este ecosistema creció sobre lo que dejó el **glaciar** al retirarse. Al retroceder, el hielo cortó las lavas como un cuchillo gigante, formó los escarpes que rodean la estación y dejó un **valle en U** al occidente. Las rocas que ves alrededor son **andesitas** de cerca de **100.000 años**.',
         },
       ],
       arenales: [
         {
-          subtitle: 'El desierto del volcán',
-          body: 'A 4.230 metros sobre el nivel del mar, Arenales parece un pequeño desierto en medio de los Andes. Sus dunas de arena volcánica se formaron con cenizas y materiales expulsados por el Nevado del Ruiz, un volcán activo cuyo cráter principal se llama Arenas.\n\nEl viento que recorre la cordillera ha moldeado estos depósitos durante décadas, creando un paisaje que cambia con el tiempo. Aquí no hay árboles ni praderas extensas: predominan la arena, las rocas, los líquenes y algunas plantas capaces de sobrevivir al frío, a la radiación y a la escasez de agua.',
+          subtitle: 'Dunas de arena volcánica',
+          body: 'En **Arenales**, a unos **4.290 m s. n. m.**, el páramo da paso al **superpáramo** y el paisaje cambia de verde a gris. Las **dunas** que ves las forma el viento: arrastra ceniza del volcán, partículas que arranca de las rocas y el material de la roca que se desgasta, hasta que todo choca con la barrera de rocas detrás de la cabaña.\n\nSe estima que estas dunas tienen entre **200 y 400 años**, porque se formaron después de que el glaciar se retiró, aunque faltan estudios para confirmarlo. Son **patrimonio geológico intangible**: una huella puede durar meses, así que no las pises.',
         },
         {
-          subtitle: 'Cumanday',
-          body: 'Desde Arenales se puede observar el borde del glaciar del Nevado del Ruiz y comprender la relación entre fuego, hielo y vida. Para los pueblos indígenas de la región, esta montaña era conocida como Cumanday, un nombre que recuerda que el territorio tiene historias anteriores a los mapas y a los nombres coloniales.',
+          subtitle: 'Del esquí al deshielo',
+          body: 'Arenales siempre ha recibido visitantes: desde una bodega de papa en **1937** hasta el **Chalet Arenales**, diseñado por el arquitecto **Simón Vélez**, que se incendió en **2010**. La cabaña actual cuenta la historia del **esquí** en el Ruiz: en los años **50 y 60** hubo campeonatos sudamericanos y de ahí nació el Club de Ski de Manizales.\n\nEl esquí se acabó por el **deshielo**. Donde antes había nieve permanente, hoy queda un desierto de altura: el retroceso del glaciar es uno de los testimonios más claros del **cambio climático** en Colombia.',
         },
         {
-          subtitle: 'Un volcán vivo',
-          body: 'Arenales es un recordatorio de que el Ruiz no es una montaña estática: es un volcán vivo. Su historia incluye erupciones documentadas desde 1570 y, especialmente, la tragedia de 1985, que transformó la manera en que Colombia entiende el riesgo volcánico. Visitarlo es admirar un paisaje extraordinario, pero también reconocer la fuerza de la naturaleza y la importancia de conservar estos ecosistemas de alta montaña.',
+          subtitle: 'Vida en el límite',
+          body: 'La arena no es solo polvo: es **material piroclástico** y ceniza que el viento ha vuelto a mover. En el suelo puedes ver piroclastos de la erupción de **1989**. Y las rocas enormes detrás de la cabaña no las lanzó el volcán: las dejó el **glaciar** al retirarse.\n\nFíjate en las **plantas pioneras**: son muy pequeñas e intentan colonizar un suelo **pobre y ácido**. Son la prueba de que la vida resiste incluso en el límite de la supervivencia.',
         },
       ],
       valleLunar: [
         {
-          subtitle: 'Un paisaje de otro mundo',
-          body: 'Entre Arenales y el Valle de las Tumbas se encuentra el Valle Lunar, un espacio donde la arena, la ceniza y el viento han creado un paisaje que parece de otro planeta. Sus formas onduladas y su tono gris evocan la superficie de la Luna, de ahí su nombre.\n\nPero este “desierto” no es común: es un desierto frío de alta montaña, moldeado por la actividad del Nevado del Ruiz. Durante siglos, las erupciones y emisiones del volcán han depositado ceniza y materiales volcánicos en las laderas; el viento los ha redistribuido y tallado, creando las dunas y ondulaciones que se ven hoy.',
+          subtitle: 'El hielo que rompe la roca',
+          body: 'El **Valle Lunar**, también llamado **Lunares**, está a unos **4.350 m s. n. m.**, en pleno **superpáramo**. Su nombre viene de su aspecto estéril y desolado, que recuerda a otro planeta. Aquí se entiende la fuerza física del clima.\n\nEl agua se mete en las grietas de la roca y de noche se **congela**. Al congelarse aumenta su volumen y actúa como una cuña que parte las **andesitas** en pedazos angulares. Este proceso se llama **gelifracción**, y por eso las rocas están llenas de grietas.',
         },
         {
-          subtitle: 'Un volcán vivo',
-          body: 'El Valle Lunar es un recordatorio de que el Ruiz es un volcán vivo. Su paisaje cambia con el tiempo, y cada capa de arena cuenta una parte de la historia geológica de la montaña.\n\nAunque parece inhóspito, el Valle Lunar forma parte del superpáramo, un ecosistema donde la vida se adapta a condiciones extremas. Musgos, líquenes y plantas resistentes encuentran espacios para crecer, mostrando la fuerza silenciosa de la naturaleza.',
+          subtitle: 'Arañazos y óxido',
+          body: 'Algunas rocas tienen marcas que parecen arañazos. Son **estrías glaciares**: las dejó el glaciar al moverse y raspar la roca, y muestran hacia dónde avanzaba.\n\nLos **tonos rojizos** son otra forma de desgaste, esta vez química: el **hierro** de minerales como la hornblenda se **oxida** con el oxígeno y la humedad. En la andesita puedes distinguir dos minerales a simple vista: los claros son **plagioclasas** y los negros, **hornblendas**. Estás caminando sobre lavas antiguas que la atmósfera sigue transformando.',
         },
         {
-          subtitle: 'Territorio sagrado',
-          body: 'Para algunas comunidades indígenas, este territorio tiene un valor espiritual y es escenario de prácticas como los pagamentos indígenas. En la cosmovisión andina, la montaña es un ser vivo y una fuente de agua; el Valle Lunar invita a conectar con esa idea y a admirar un paisaje que es a la vez frágil, dinámico y sagrado.',
+          subtitle: 'Vida pionera',
+          body: 'Casi no hay vegetación, pero la que hay resiste. La **loricaria**, también llamada **cacho de venado** o **coral de páramo**, muestra cómo la vida se adapta a condiciones extremas.\n\nLas fracturas de la roca van formando un suelo arenoso al que llega la vegetación pionera. Hace unos **100 años** aquí no había plantas, y dentro de otros 100 seguramente habrá muchas más. Desde este punto y hasta el Valle de las Tumbas, las dunas cubren buena parte de las rocas.',
         },
       ],
       valleTumbas: [
         {
-          subtitle: 'El silencio de la montaña',
-          body: 'A 4.450 metros sobre el nivel del mar, el Valle de las Tumbas es el punto final del recorrido por el sector Brisas del PNN Los Nevados. También conocido como el Desierto de la Soledad, es un paisaje de rocas, cenizas y sedimentos volcánicos donde la vegetación casi desaparece.\n\nEste valle no es un lugar común: es un desierto frío de alta montaña, moldeado por la fuerza del Nevado del Ruiz. Durante siglos, las erupciones y emisiones del volcán han depositado ceniza y materiales piroclásticos en las laderas; el viento y el tiempo los han transformado en el paisaje que se ve hoy.',
+          subtitle: 'Por qué se llama así',
+          body: 'Llegaste a unos **4.460 m s. n. m.**, el final del recorrido, donde el superpáramo da paso a la **zona nival**. El nombre viene de unas rocas largas y planas, las **lajas**, que parecen ataúdes. Comunidades cercanas usaban rocas así para construir **tumbas de cancel**, aunque eso no quiere decir que las sacaran del Ruiz: es solo un parecido.\n\nHoy esas lajas están cubiertas de arena. El nombre llegó por tradición oral y ya se usaba en los años 80. A este lugar también lo llaman **Desierto de la Soledad**.',
         },
         {
-          subtitle: 'Un volcán vivo',
-          body: 'El Valle de las Tumbas es un recordatorio de que el Ruiz es un volcán vivo. Desde allí se puede observar parte de la ladera del volcán y, en algunos momentos, fumarolas del cráter Arenas, recordando que la montaña sigue activa.',
+          subtitle: 'Un lugar sagrado',
+          body: 'En la época precolombina, este era un lugar sagrado. Los **Quimbayas**, **Carrapas**, **Gualíes**, **Panches**, **Ansermas** y **Pijaos** peregrinaban hasta aquí para rendir tributo a la montaña sagrada, **Kumanday**. Era un lugar de **pagamentos** y respeto, no de conquista, y algunas comunidades indígenas todavía hacen rituales aquí.\n\nSabemos poco de esas prácticas: lo más cercano son las crónicas de Indias y algunas investigaciones arqueológicas. Para los pueblos indígenas, las lagunas, los glaciares y los volcanes son lugares sagrados.',
         },
         {
-          subtitle: 'Lugar sagrado',
-          body: 'Pero el Valle de las Tumbas no es solo geología: es también un lugar sagrado. Para los pueblos indígenas Puyas y Quimbayas, era un destino de peregrinación y un espacio de conexión espiritual con la naturaleza. En la cosmovisión andina, la montaña —conocida como Cumanday— es un ser vivo y una fuente de agua.\n\nVisitar el Valle de las Tumbas es admirar un paisaje extraordinario, pero también reconocer la fuerza de la naturaleza, la memoria de los pueblos indígenas y la importancia de conservar estos ecosistemas de alta montaña.',
+          subtitle: 'El límite frente al volcán',
+          body: 'El Ruiz es un **volcán activo**: nunca está “apagado”, solo tiene periodos de reposo. El **Servicio Geológico Colombiano** lo vigila las 24 horas, y el cráter Arenas, a unos **4,1 km** de aquí, emite gases constantemente. No se sube más allá de este punto, sobre todo por el riesgo de **lahares**, flujos de lodo y escombros volcánicos, y también para cuidar el frágil superpáramo.\n\nEl **13 de noviembre de 1985**, el calor de una erupción derritió el glaciar y los lahares bajaron por los ríos Gualí, Azufrado, Lagunillas y Molinos. Devastaron Armero, en el Tolima, y también Villamaría y Chinchiná: murieron **más de 23.000 personas**.',
         },
       ],
     },
@@ -241,6 +246,13 @@ export const es = {
       speak: 'Escuchar esta respuesta',
       speakStop: 'Detener la voz',
       speakError: 'No pude leer la respuesta en voz alta.',
+    },
+    // The gold sources badge of an answer taken from the official UTON guion
+    // (src/ui/chat/ChatBubble.tsx) and the mark on each of its sources (SourcesSheet.tsx).
+    verified: {
+      badge: 'Fuente validada',
+      label: 'Fuente validada por UTON. Ver la fuente',
+      source: 'Validada por UTON',
     },
   },
   // Knowledge chat (top-1 curated answers, src/state/useKnowledge.ts).
@@ -387,6 +399,11 @@ export const es = {
     title: 'Configuración',
     close: 'Cerrar configuración',
     back: 'Volver a configuración',
+    // The knowledge chat's verified-only switch (src/state/verifiedOnly.ts).
+    verifiedOnly: {
+      title: 'Solo información verificada por UTON',
+      body: 'El chat responde solo con el guion oficial de la Unión Temporal Operación Nevados (2024).',
+    },
     savedSources: {
       title: 'Fuentes guardadas',
       countZero: 'Aún no has guardado fuentes',

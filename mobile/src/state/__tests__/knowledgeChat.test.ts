@@ -9,6 +9,7 @@ const answer: KnowledgeReply = {
   title: 'Cómo llegar desde Manizales',
   text: 'Por la vía...',
   sources: [],
+  verified: false,
 };
 const timing = { rulesMs: 0, embedMs: 1, retrieveMs: 1, rerankMs: 0, totalMs: 2 };
 
@@ -32,7 +33,7 @@ describe('KnowledgeChat', () => {
     await chat.ask('  como llego  ');
     const s = chat.snapshot();
     expect(s.status).toBe('ready');
-    expect(engine.ask).toHaveBeenCalledWith('como llego');
+    expect(engine.ask).toHaveBeenCalledWith('como llego', { verifiedOnly: false });
     expect(s.rows.map((r) => r.role)).toEqual(['user', 'assistant']);
     expect(s.rows[1]).toMatchObject({ reply: answer, timing });
     expect(s.busy).toBe(false);
@@ -82,6 +83,32 @@ describe('KnowledgeChat', () => {
     await Promise.resolve(); // the engine is behind a promise
     expect(engine.resetContext).toHaveBeenCalledTimes(1);
     expect(chat.snapshot().rows).toEqual([]);
+  });
+
+  it('asks under the verified-only switch as it is at each question', async () => {
+    let on = false;
+    const engine = fakeEngine();
+    const chat = new KnowledgeChat(async () => ({ engine }), { verifiedOnly: () => on });
+    await chat.ask('uno');
+    on = true;
+    await chat.ask('dos');
+    expect(engine.ask).toHaveBeenNthCalledWith(1, 'uno', { verifiedOnly: false });
+    expect(engine.ask).toHaveBeenNthCalledWith(2, 'dos', { verifiedOnly: true });
+  });
+
+  it('a flipped switch drops the follow-up context but keeps the conversation', async () => {
+    let on = false;
+    const engine = { ...fakeEngine(), resetContext: jest.fn() };
+    const chat = new KnowledgeChat(async () => ({ engine }), { verifiedOnly: () => on });
+    await chat.ask('uno');
+    await chat.ask('dos');
+    expect(engine.resetContext).not.toHaveBeenCalled();
+    on = true;
+    await chat.ask('tres');
+    expect(engine.resetContext).toHaveBeenCalledTimes(1);
+    await chat.ask('cuatro');
+    expect(engine.resetContext).toHaveBeenCalledTimes(1);
+    expect(chat.snapshot().rows).toHaveLength(8);
   });
 
   it('reset works with an engine that has no context to clear', async () => {
@@ -225,5 +252,5 @@ test('a park photography question still goes to the knowledge engine', async () 
   const chat = new KnowledgeChat(async () => ({ engine }));
   const question = '¿Puedo tomar fotos en el parque?';
   await chat.ask(question);
-  expect(engine.ask).toHaveBeenCalledWith(question);
+  expect(engine.ask).toHaveBeenCalledWith(question, { verifiedOnly: false });
 });

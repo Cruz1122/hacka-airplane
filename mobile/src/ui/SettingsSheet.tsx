@@ -10,13 +10,16 @@ import {
   useFavoriteSources,
   type FavoriteSource,
 } from '@/state/favoriteSources';
+import { setVerifiedOnly, useVerifiedOnly } from '@/state/verifiedOnly';
 
+import { SwitchRow } from './AccessibilitySheet';
 import { BottomSheet } from './BottomSheet';
 import { formatSourceLink, SourceFaviconBall, sourcePreviewFor } from './chat/SourceFavicon';
 import { Icon, type IconName } from './icons/Icon';
 import { ParkEmblem } from './ParkEmblem';
 import { brand, fonts, radius, spacing, type } from './theme/tokens';
 import { scaleSize, useAccessibilityTheme } from './useAccessibilityTheme';
+import { useReducedMotion } from './useReducedMotion';
 
 const copy = t.settingsPanel;
 const sourceCopy = t.chatScreen.sources;
@@ -97,6 +100,7 @@ function BottomSheetInner({
           lastRemoved={lastRemoved}
           onLastRemoved={setLastRemoved}
           onClose={close}
+          reducedMotion={reducedMotion}
         />
       )}
     </BottomSheet>
@@ -109,15 +113,19 @@ function SettingsContent({
   lastRemoved,
   onLastRemoved,
   onClose,
+  reducedMotion,
 }: {
   view: SettingsView;
   onNavigate: (next: SettingsView) => void;
   lastRemoved: FavoriteSource | null;
   onLastRemoved: (source: FavoriteSource | null) => void;
   onClose: () => void;
+  reducedMotion: boolean;
 }) {
   const { palette, scaled, textScale, highContrast, borderWidth } = useAccessibilityTheme();
   const favorites = useFavoriteSources();
+  const verifiedOnly = useVerifiedOnly();
+  const reduced = useReducedMotion() || reducedMotion;
 
   const headerTitle =
     view === 'savedSources'
@@ -215,6 +223,25 @@ function SettingsContent({
               badge={favorites.length > 0 ? String(favorites.length) : undefined}
               onPress={() => onNavigate('savedSources')}
             />
+            <View
+              style={[
+                styles.switchCard,
+                {
+                  backgroundColor: palette.card,
+                  borderColor: highContrast ? palette.ink : palette.cardShade,
+                  borderWidth,
+                  boxShadow: `0 2px 10px ${palette.glow}`,
+                },
+              ]}
+            >
+              <SwitchRow
+                title={copy.verifiedOnly.title}
+                body={copy.verifiedOnly.body}
+                value={verifiedOnly}
+                onToggle={() => setVerifiedOnly(!verifiedOnly)}
+                reduced={reduced}
+              />
+            </View>
             <MenuRow
               icon="info"
               title={copy.about.title}
@@ -657,6 +684,12 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     gap: 12,
+  },
+  // The switch row brings its own padding and pressed shade; the card only frames it.
+  switchCard: {
+    borderRadius: 18,
+    paddingHorizontal: 14,
+    overflow: 'hidden',
   },
   menuIcon: {
     width: 38,

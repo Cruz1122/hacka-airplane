@@ -334,3 +334,66 @@ def test_replay_matches_live_on_full_and_scratch_rebuilds(root: Path) -> None:
     scratch_activities = copy.deepcopy(live)
     scratch_activities["activities"] = copy.deepcopy(original["activities"])
     assert mod.replay(scratch_activities, registry) == live
+
+
+GUION = "research_notes/uton_guion_2024/guion_fixture.txt"
+GUION_QUOTE = "Aguacerales está a 4.160 msnm aproximadamente, en el páramo propiamente dicho."
+
+
+def guion_record(eid: str, word: str, related: list[str]) -> dict:
+    rec = record(eid, word, related)
+    rec["entry"]["answer"]["short"] = "Aguacerales está a unos 4.160 metros, en pleno páramo."
+    rec["entry"]["sources"] = [{"label": "Guion ecoturístico UTON 2024", "document": GUION,
+                                "retrieved_at": "2026-11-26"}]
+    rec["entry"]["verified_by_uton"] = True
+    rec["evidence"] = [{"document": GUION, "path": GUION, "quote": GUION_QUOTE,
+                        "checked_on": "2026-11-26"}]
+    return rec
+
+
+@pytest.fixture
+def guion_root(root: Path) -> Path:
+    path = root / GUION
+    path.parent.mkdir(parents=True)
+    # pdftotext wraps lines: the quote is split across a line break in the extract.
+    path.write_text("Intro.\nAguacerales está a 4.160 msnm aproximadamente,\nen el páramo "
+                    "propiamente dicho.\n", encoding="utf-8")
+    return root
+
+
+def test_guion_document_source_backs_a_verified_numeric_answer(guion_root: Path) -> None:
+    code, result, out = stage(guion_root, guion_record("rules.zz_guion", "guion", ["rules.pets"]),
+                              "guion")
+    assert code == 0, result
+    assert tool(guion_root, "apply", "--stage", str(out))[0] == 0
+    entry = next(e for e in load_sections(guion_root)["rules"]["entries"]
+                 if e["id"] == "rules.zz_guion")
+    assert entry["verified_by_uton"] is True
+    log = (guion_root / f"{NOTES}/rules.research.md").read_text(encoding="utf-8")
+    assert GUION in log
+
+
+def test_verified_entry_must_cite_only_the_guion(guion_root: Path) -> None:
+    rec = guion_record("rules.zz_guion", "guion", ["rules.pets"])
+    rec["entry"]["sources"].append({"label": "PNN", "url": URL, "retrieved_at": "2026-11-21"})
+    rec["evidence"].append({"url": URL, "path": EVIDENCE, "quote": QUOTE, "checked_on": "2026-11-21"})
+    code, result, _ = stage(guion_root, rec, "mixed")
+    assert code == 1 and "document" in result["detail"]
+
+
+def test_document_source_outside_the_guion_folder_is_rejected(guion_root: Path) -> None:
+    rec = guion_record("rules.zz_guion", "guion", ["rules.pets"])
+    rec["entry"]["sources"][0]["document"] = "research_notes/otro/doc.txt"
+    code, _, _ = stage(guion_root, rec, "elsewhere")
+    assert code == 1
+
+
+def test_flipping_verified_flag_is_a_factual_change(guion_root: Path) -> None:
+    rec = guion_record("rules.zz_guion", "guion", ["rules.pets"])
+    _, _, out = stage(guion_root, rec, "guion")
+    assert tool(guion_root, "apply", "--stage", str(out))[0] == 0
+    flipped = copy.deepcopy(rec["entry"])
+    flipped["verified_by_uton"] = False
+    code, err, _ = stage(guion_root, {"op": "update", "entry": flipped, "reason": "Quitar el sello."},
+                         "flip")
+    assert code == 1 and "missing read-source evidence" in err["detail"]

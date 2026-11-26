@@ -10,6 +10,8 @@ export interface ChatSource extends Source {
   id: string;
   /** The passage the answer rests on, verbatim, when the source has no link to open. */
   excerpt?: string;
+  /** The source is the official UTON guion: its badge turns gold and the sheet marks it. */
+  verified?: boolean;
 }
 
 const ID = /^[A-Z]{2,5}(?:-[A-Z0-9]{1,4})+$/;

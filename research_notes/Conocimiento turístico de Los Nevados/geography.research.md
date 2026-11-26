@@ -274,3 +274,239 @@ Los `.txt` de HTML salen de `evidence/html_to_text.py`. Las citas se verifican c
 - https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/ (checked 2026-11-22); evidence: `research_notes/curation_v2/evidence/access/pnn-nevados-portal.txt`
 
 > Se ubica en la cordillera Central entre dos ríos principales del país —Magdalena y Cauca—
+
+
+## Additive entry: geography.uton_aguacerales_station
+
+- research_notes/uton_guion_2024/guion_ecoturistico_uton_2024.txt (checked 2026-11-26); evidence: `research_notes/uton_guion_2024/guion_ecoturistico_uton_2024.txt`
+
+> La caída de agua que observamos y escuchamos no para, de allí el nombre de Aguacerales.
+
+- research_notes/uton_guion_2024/guion_ecoturistico_uton_2024.txt (checked 2026-11-26); evidence: `research_notes/uton_guion_2024/guion_ecoturistico_uton_2024.txt`
+
+> Este fenómeno de condensación se da durante las 24 horas del día, todos los días del año, durante las noches frías, los hilos de agua se congelan y forman carámbanos (habitualmente ocurre en temporada seca).
+
+- research_notes/uton_guion_2024/guion_ecoturistico_uton_2024.txt (checked 2026-11-26); evidence: `research_notes/uton_guion_2024/guion_ecoturistico_uton_2024.txt`
+
+> 4.160 msnm aproximadamente.
+
+- research_notes/uton_guion_2024/guion_ecoturistico_uton_2024.txt (checked 2026-11-26); evidence: `research_notes/uton_guion_2024/guion_ecoturistico_uton_2024.txt`
+
+> Flanco occidental edificio volcánico, a 5.2 Km aproximadamente del Cráter Arenas.
+
+- research_notes/uton_guion_2024/guion_ecoturistico_uton_2024.txt (checked 2026-11-26); evidence: `research_notes/uton_guion_2024/guion_ecoturistico_uton_2024.txt`
+
+> Paramo propiamente dicho.
+
+
+## Additive entry: geography.uton_arenales_dunes
+
+- research_notes/uton_guion_2024/guion_ecoturistico_uton_2024.txt (checked 2026-11-26); evidence: `research_notes/uton_guion_2024/guion_ecoturistico_uton_2024.txt`
+
+> se estima que estas dunas deben de tener alrededor de unos 200 o 400 años aproximadamente puesto que se forman posterior al retroceso glaciar
+
+- research_notes/uton_guion_2024/guion_ecoturistico_uton_2024.txt (checked 2026-11-26); evidence: `research_notes/uton_guion_2024/guion_ecoturistico_uton_2024.txt`
+
+> si son pisadas, la huellas pueden perdurar meses
+
+- research_notes/uton_guion_2024/guion_ecoturistico_uton_2024.txt (checked 2026-11-26); evidence: `research_notes/uton_guion_2024/guion_ecoturistico_uton_2024.txt`
+
+> 4.290 msnm aproximadamente.
+
+- research_notes/uton_guion_2024/guion_ecoturistico_uton_2024.txt (checked 2026-11-26); evidence: `research_notes/uton_guion_2024/guion_ecoturistico_uton_2024.txt`
+
+> Transición Paramo a Superparamo.
+
+- research_notes/uton_guion_2024/guion_ecoturistico_uton_2024.txt (checked 2026-11-26); evidence: `research_notes/uton_guion_2024/guion_ecoturistico_uton_2024.txt`
+
+> Las dunas, están sobre Andesitas (lavas del viejo Ruiz/ older Ruiz) que tienen una edad aproximada de 100 mil años
+
+
+## Additive entry: geography.uton_lunares_station
+
+- research_notes/uton_guion_2024/guion_ecoturistico_uton_2024.txt (checked 2026-11-26); evidence: `research_notes/uton_guion_2024/guion_ecoturistico_uton_2024.txt`
+
+> Lunares Altura 4.350 msnm aproximadamente. Ubicación Flanco occidental edificio volcánico, a 4.8 Km aproximadamente del Cráter Arenas Ecosistema o Bioma Superáramo
+
+- research_notes/uton_guion_2024/guion_ecoturistico_uton_2024.txt (checked 2026-11-26); evidence: `research_notes/uton_guion_2024/guion_ecoturistico_uton_2024.txt`
+
+> Ofrece un paisaje único y desértico que evoca la superficie de otros planetas. Sus características geológicas, producto de la erosión glaciar y la meteorización, han esculpido rocas de tonalidades rojizas y fracturas profundas. La escasez de vegetación, salvo por especies resistentes como la loricaria, resalta la dureza de las condiciones ambientales.
+
+- research_notes/uton_guion_2024/guion_ecoturistico_uton_2024.txt (checked 2026-11-26); evidence: `research_notes/uton_guion_2024/guion_ecoturistico_uton_2024.txt`
+
+> Los visitantes pueden observar de cerca los procesos geológicos que han dado forma al paisaje, como las grietas producidas por el congelamiento y descongelamiento del agua en las rocas
+
+- research_notes/uton_guion_2024/guion_ecoturistico_uton_2024.txt (checked 2026-11-26); evidence: `research_notes/uton_guion_2024/guion_ecoturistico_uton_2024.txt`
+
+> Meteorización (gelifracción y oxidación)
+
+- research_notes/uton_guion_2024/guion_ecoturistico_uton_2024.txt (checked 2026-11-26); evidence: `research_notes/uton_guion_2024/guion_ecoturistico_uton_2024.txt`
+
+> Si pudiésemos viajar en el tiempo, unos 100 años atrás en esta estación no habría vegetación, y si pudiéramos ir en el futuro en unos 100 años seguramente esta estación tendría mucha más vegetación
+
+- research_notes/uton_guion_2024/guion_turistico_zona_norte.txt (checked 2026-11-26); evidence: `research_notes/uton_guion_2024/guion_turistico_zona_norte.txt`
+
+> Nodo 3: Valle Lunar (4.350 msnm)
+
+- research_notes/uton_guion_2024/guion_ecoturistico_uton_2024.txt (checked 2026-11-26); evidence: `research_notes/uton_guion_2024/guion_ecoturistico_uton_2024.txt`
+
+> un laboratorio natural para estudiar los efectos del cambio climático
+
+
+## Additive entry: geography.uton_gelifraccion
+
+- research_notes/uton_guion_2024/guion_ecoturistico_uton_2024.txt (checked 2026-11-26); evidence: `research_notes/uton_guion_2024/guion_ecoturistico_uton_2024.txt`
+
+> este proceso es conocido como gelifracción que es un tipo de meteorización, ocurre cuando el agua se congela, el agua tiene la propiedad de aumentar su volumen al congelarse, si el agua esta confinada a los poros o grietas previas de la roca, al congelarse va a someter a un desgaste o fracturamiento por el aumento en su volumen, por esta razón las rocas están llenas de grietas.
+
+- research_notes/uton_guion_2024/guion_turistico_zona_norte.txt (checked 2026-11-26); evidence: `research_notes/uton_guion_2024/guion_turistico_zona_norte.txt`
+
+> El agua se filtra en las grietas de la roca, se congela por la noche aumentando su volumen y las estalla desde adentro actúa como una cuña que rompe las rocas andesíticas en pedazos angulares.
+
+- research_notes/uton_guion_2024/guion_ecoturistico_uton_2024.txt (checked 2026-11-26); evidence: `research_notes/uton_guion_2024/guion_ecoturistico_uton_2024.txt`
+
+> Estas fracturas contribuyen a la formación de suelo arenoso y la llegada de vegetación pionera.
+
+
+## Additive entry: geography.uton_red_rocks_oxidation
+
+- research_notes/uton_guion_2024/guion_ecoturistico_uton_2024.txt (checked 2026-11-26); evidence: `research_notes/uton_guion_2024/guion_ecoturistico_uton_2024.txt`
+
+> el color rojizo obedece a otro tipo de meteorización, esta es de origen químico, acontece que las rocas están formadas por minerales, y a su vez lo minerales están formados por elementos químicos, algunos de estos elementos son susceptibles a reaccionar con el oxígeno, en este caso la oxidación del hierro (almacenado en minerales como las Hornblendas) deja en evidencia tonalidades rojizas sobre la roca.
+
+- research_notes/uton_guion_2024/guion_ecoturistico_uton_2024.txt (checked 2026-11-26); evidence: `research_notes/uton_guion_2024/guion_ecoturistico_uton_2024.txt`
+
+> Meteorización (gelifracción y oxidación)
+
+- research_notes/uton_guion_2024/guion_turistico_zona_norte.txt (checked 2026-11-26); evidence: `research_notes/uton_guion_2024/guion_turistico_zona_norte.txt`
+
+> Los tonos rojizos que observan son el resultado de la oxidación de minerales ferrosos es oxidación de hierro y azufre presentes en la lava vieja al entrar en contacto con el oxígeno y la humedad ambiental.
+
+
+## Additive entry: geography.uton_glacial_striae
+
+- research_notes/uton_guion_2024/guion_ecoturistico_uton_2024.txt (checked 2026-11-26); evidence: `research_notes/uton_guion_2024/guion_ecoturistico_uton_2024.txt`
+
+> También es común ver las rocas con marcas en superficies que parecen “arañazos” , esto estas son llamada estrías glaciares y son el resultado del movimiento del mismo, su acción abrasiva sobre la roca deja como evidencia estas marcas que sirven como herramienta para determinar la dirección del movimiento del glaciar.
+
+- research_notes/uton_guion_2024/guion_ecoturistico_uton_2024.txt (checked 2026-11-26); evidence: `research_notes/uton_guion_2024/guion_ecoturistico_uton_2024.txt`
+
+> Dunas, flujos granulares, depósitos eólicos y lavas, till, estrías, lavas con relieve invertido.
+
+- research_notes/uton_guion_2024/guion_ecoturistico_uton_2024.txt (checked 2026-11-26); evidence: `research_notes/uton_guion_2024/guion_ecoturistico_uton_2024.txt`
+
+> Pequeños abanicos, lavas superpuestas, estrías, lavas con relieve invertido, circo glaciar.
+
+
+## Additive entry: geography.uton_glacial_landforms
+
+- research_notes/uton_guion_2024/guion_ecoturistico_uton_2024.txt (checked 2026-11-26); evidence: `research_notes/uton_guion_2024/guion_ecoturistico_uton_2024.txt`
+
+> Un valle en U es una formación geológica caracterizada por lados altos y empinados y un fondo de valle redondeado o plano. Estos valles son el resultado de la erosión glacial, que transforma valles preexistentes en forma de V en valles más anchos y profundos con forma de U.
+
+- research_notes/uton_guion_2024/guion_ecoturistico_uton_2024.txt (checked 2026-11-26); evidence: `research_notes/uton_guion_2024/guion_ecoturistico_uton_2024.txt`
+
+> Un circo glacial es una depresión en forma de anfiteatro producida por la erosión glaciar en las paredes montañosas o en el nacimiento de los valles. Es la zona de acumulación del glaciar donde la masa de nieve comprimida se mueve por deslizamiento, formando una concavidad rocosa
+
+- research_notes/uton_guion_2024/guion_ecoturistico_uton_2024.txt (checked 2026-11-26); evidence: `research_notes/uton_guion_2024/guion_ecoturistico_uton_2024.txt`
+
+> Una morrena es una acumulación de sedimentos transportados por un glaciar, que puede incluir bloques, cantos y arena. Existen varios tipos de morrenas según su ubicación en relación con el glaciar: • Morrena de fondo: Se sitúa bajo el hielo, en contacto con el lecho. • Morrena lateral: Los derrubios se sitúan en los laterales del lecho glacial. • Morrena central: Formada por la unión de morrenas laterales en la confluencia de dos glaciares. • Morrena frontal o terminal: Depósitos de derrubios en la zona de deshielo del glaciar.
+
+- research_notes/uton_guion_2024/guion_ecoturistico_uton_2024.txt (checked 2026-11-26); evidence: `research_notes/uton_guion_2024/guion_ecoturistico_uton_2024.txt`
+
+> Pequeños abanicos, lavas superpuestas, estrías, lavas con relieve invertido, circo glaciar.
+
+
+## Additive entry: geography.uton_andesite_minerals
+
+- research_notes/uton_guion_2024/guion_turistico_zona_norte.txt (checked 2026-11-26); evidence: `research_notes/uton_guion_2024/guion_turistico_zona_norte.txt`
+
+> Las rocas predominantes son andesitas, típicas de volcanes de zona de subducción como el nuestro
+
+- research_notes/uton_guion_2024/guion_ecoturistico_uton_2024.txt (checked 2026-11-26); evidence: `research_notes/uton_guion_2024/guion_ecoturistico_uton_2024.txt`
+
+> Las andesitas del Ruiz dejan en evidencia dos minerales fáciles de identificar, los claros/incoloros son plagioclasas y los negros son Hornblendas, el resto de minerales es difícil de apreciar en muestra de mano, hay que usar microscopio.
+
+- research_notes/uton_guion_2024/guion_ecoturistico_uton_2024.txt (checked 2026-11-26); evidence: `research_notes/uton_guion_2024/guion_ecoturistico_uton_2024.txt`
+
+> Las dunas, están sobre Andesitas (lavas del viejo Ruiz/ older Ruiz) que tienen una edad aproximada de 100 mil años
+
+- research_notes/uton_guion_2024/guion_ecoturistico_uton_2024.txt (checked 2026-11-26); evidence: `research_notes/uton_guion_2024/guion_ecoturistico_uton_2024.txt`
+
+> Las Andesitas que se encuentran en el Valle de las Tumbas son principalmente del volcán Nereidas.
+
+
+## Additive entry: geography.uton_valle_tumbas_station
+
+- research_notes/uton_guion_2024/guion_ecoturistico_uton_2024.txt (checked 2026-11-26); evidence: `research_notes/uton_guion_2024/guion_ecoturistico_uton_2024.txt`
+
+> Valle de las tumbas Altura 4.460 msnm aproximadamente. Ubicación Flanco occidental edificio volcánico, a 4.1 Km aproximadamente del Cráter Arenas, a un costado del Cañón del rio Molinos. Ecosistema o Bioma Superparamo con transición a zona nival Fauna Característica: Cóndor, águila (Zona de paso). Pantas Características Algunas especies de pastos colonizadores y musgo. (Líquenes)
+
+- research_notes/uton_guion_2024/guion_ecoturistico_uton_2024.txt (checked 2026-11-26); evidence: `research_notes/uton_guion_2024/guion_ecoturistico_uton_2024.txt`
+
+> Pequeños abanicos, lavas superpuestas, estrías, lavas con relieve invertido, circo glaciar.
+
+- research_notes/uton_guion_2024/guion_turistico_zona_norte.txt (checked 2026-11-26); evidence: `research_notes/uton_guion_2024/guion_turistico_zona_norte.txt`
+
+> Importancia: Es el cierre del recorrido.
+
+
+## Additive entry: geography.uton_ruiz_four_structures
+
+- research_notes/uton_guion_2024/guion_ecoturistico_uton_2024.txt (checked 2026-11-26); evidence: `research_notes/uton_guion_2024/guion_ecoturistico_uton_2024.txt`
+
+> es un complejo volcánico compuesto por cuatro estructuras (Nereidas, Olleta, Piraña y Arenas), aunque comúnmente se le conoce como Nevado del Ruiz al edificio que alberga el cráter Arenas.
+
+- research_notes/uton_guion_2024/guion_ecoturistico_uton_2024.txt (checked 2026-11-26); evidence: `research_notes/uton_guion_2024/guion_ecoturistico_uton_2024.txt`
+
+> La Olleta: Volcán que comenzó su formación hace 107,000 años
+
+- research_notes/uton_guion_2024/guion_ecoturistico_uton_2024.txt (checked 2026-11-26); evidence: `research_notes/uton_guion_2024/guion_ecoturistico_uton_2024.txt`
+
+> Piraña y Nereidas: Surgieron nuevos volcanes como Piraña y Nereidas, y continuó la construcción del Volcán La Olleta.
+
+- research_notes/uton_guion_2024/guion_ecoturistico_uton_2024.txt (checked 2026-11-26); evidence: `research_notes/uton_guion_2024/guion_ecoturistico_uton_2024.txt`
+
+> Este período comenzó hace aproximadamente 66 ka con la construcción del volcán actual.
+
+- research_notes/uton_guion_2024/guion_ecoturistico_uton_2024.txt (checked 2026-11-26); evidence: `research_notes/uton_guion_2024/guion_ecoturistico_uton_2024.txt`
+
+> Nereidas: Situado 2 km al suroeste del VNR, con una altitud de 5000 msnm aprox,
+
+- research_notes/uton_guion_2024/guion_ecoturistico_uton_2024.txt (checked 2026-11-26); evidence: `research_notes/uton_guion_2024/guion_ecoturistico_uton_2024.txt`
+
+> Nereidas no tiene cráter visible como si lo tiene La olleta.
+
+- research_notes/uton_guion_2024/guion_ecoturistico_uton_2024.txt (checked 2026-11-26); evidence: `research_notes/uton_guion_2024/guion_ecoturistico_uton_2024.txt`
+
+> Piraña: Ubicado a 3.8 km al este del Arenas Crater
+
+- research_notes/uton_guion_2024/guion_turistico_zona_norte.txt (checked 2026-11-26); evidence: `research_notes/uton_guion_2024/guion_turistico_zona_norte.txt`
+
+> Geología base: El Complejo Volcánico Nevado del Ruiz (CVNR) está compuesto por cuatro estructuras: Nereidas, Olleta, Piraña y Arenas.
+
+
+## Additive entry: geography.uton_arenas_crater_size
+
+- research_notes/uton_guion_2024/guion_ecoturistico_uton_2024.txt (checked 2026-11-26); evidence: `research_notes/uton_guion_2024/guion_ecoturistico_uton_2024.txt`
+
+> El NRV es un volcán compuesto activo que alcanza un máximo de 5321 msnm y está coronado por el Cráter Arenas (aproximadamente 750 m de diámetro y 200 m de profundidad).
+
+- research_notes/uton_guion_2024/guion_ecoturistico_uton_2024.txt (checked 2026-11-26); evidence: `research_notes/uton_guion_2024/guion_ecoturistico_uton_2024.txt`
+
+> Actualmente tiene una cubierta glaciar de 9,3 km2” (CEBALLOS–HERNÁNDEZ et al., 2020)
+
+- research_notes/uton_guion_2024/guion_ecoturistico_uton_2024.txt (checked 2026-11-26); evidence: `research_notes/uton_guion_2024/guion_ecoturistico_uton_2024.txt`
+
+> entre los departamentos de Caldas y Tolima, y aproximadamente a 140 km al NO de Bogotá, capital de Colombia, y 28 km al SE de Manizales
+
+
+## Additive entry: geography.uton_park_water_supply
+
+- research_notes/uton_guion_2024/guion_ecoturistico_uton_2024.txt (checked 2026-11-26); evidence: `research_notes/uton_guion_2024/guion_ecoturistico_uton_2024.txt`
+
+> El Parque Nacional Natural Los Nevados tiene cerca de 62.000 (62.142) hectáreas de las cuales protege aproximadamente 53,532 hectáreas de páramos, lo que corresponde al 86% del área protegida, abastece de agua a 37 municipios y beneficia a cerca de 3 millones de personas en la región del eje cafetero
+
+- research_notes/uton_guion_2024/guion_ecoturistico_uton_2024.txt (checked 2026-11-26); evidence: `research_notes/uton_guion_2024/guion_ecoturistico_uton_2024.txt`
+
+> El agua del parque abastece a 37 municipios de la región cafetera, beneficiando a cerca de 3 millones de personas en los departamentos de Tolima, Risaralda, Caldas, Quindío y norte del Valle del Cauca.

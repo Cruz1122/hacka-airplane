@@ -116,7 +116,9 @@ def validate():
             if any(re.search(r"\d", value) for value in texts):
                 if not entry.get("last_verified"):
                     fail("number_last_verified")
-                if not any(official(s.get("url", "")) for s in entry.get("sources", [])):
+                # A document source is a UTON guion extract (schema-checked), official since 2026-11-26.
+                if not any("document" in s or official(s.get("url", ""))
+                           for s in entry.get("sources", [])):
                     fail("number_official_source")
             if entry.get("kind") == "action" and entry.get("action") not in (
                     "register_visit", "report_emergency"):

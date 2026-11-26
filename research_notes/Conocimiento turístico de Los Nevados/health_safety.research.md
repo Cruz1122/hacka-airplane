@@ -938,3 +938,65 @@ El generador quedó a medias (70 borradores, `check_quotes` ya en 207/207) y el 
 - https://www.cdc.gov/niosh/cold-stress/about/related-illness.html (checked 2026-11-22); evidence: `research_notes/Conocimiento turístico de Los Nevados/health_safety/evidence/raw/cdc_niosh_cold.html`
 
 > Remove their wet clothing.
+
+
+## Additive entry: health_safety.uton_ruiz_ams_study
+
+- research_notes/uton_guion_2024/guion_ecoturistico_uton_2024.txt (checked 2026-11-26); evidence: `research_notes/uton_guion_2024/guion_ecoturistico_uton_2024.txt`
+
+> tomado del estudio realizado por Eder Peña
+
+- research_notes/uton_guion_2024/guion_ecoturistico_uton_2024.txt (checked 2026-11-26); evidence: `research_notes/uton_guion_2024/guion_ecoturistico_uton_2024.txt`
+
+> Participantes: 129 turistas que visitaron el Nevado del Ruiz entre diciembre de 2008 y diciembre de 2009.
+
+- research_notes/uton_guion_2024/guion_ecoturistico_uton_2024.txt (checked 2026-11-26); evidence: `research_notes/uton_guion_2024/guion_ecoturistico_uton_2024.txt`
+
+> A 4,287 metros, el 1.6% de los turistas presentó síntomas graves de MAM.
+
+- research_notes/uton_guion_2024/guion_ecoturistico_uton_2024.txt (checked 2026-11-26); evidence: `research_notes/uton_guion_2024/guion_ecoturistico_uton_2024.txt`
+
+> A 4,816 metros, el 16% presentó síntomas graves de MAM.
+
+- research_notes/uton_guion_2024/guion_ecoturistico_uton_2024.txt (checked 2026-11-26); evidence: `research_notes/uton_guion_2024/guion_ecoturistico_uton_2024.txt`
+
+> Los turistas clasificados como sedentarios fueron más propensos a desarrollar síntomas del MAM
+
+- research_notes/uton_guion_2024/guion_ecoturistico_uton_2024.txt (checked 2026-11-26); evidence: `research_notes/uton_guion_2024/guion_ecoturistico_uton_2024.txt`
+
+> Además de la inactividad física, otros factores como la rapidez del ascenso, la edad (jóvenes son más susceptibles), y el sexo (mujeres más propensas) juegan un papel en la aparición de síntomas de MAM. La exposición a condiciones climáticas extremas como el frío también incrementa los riesgos.
+
+- research_notes/uton_guion_2024/guion_ecoturistico_uton_2024.txt (checked 2026-11-26); evidence: `research_notes/uton_guion_2024/guion_ecoturistico_uton_2024.txt`
+
+> La actividad física regular antes de la exposición a altitudes altas mejora el consumo máximo de oxígeno (VO2 máx.), lo que permite al organismo protegerse mejor y responder a las demandas físicas y mentales impuestas por la altitud.
+
+- research_notes/uton_guion_2024/guion_ecoturistico_uton_2024.txt (checked 2026-11-26); evidence: `research_notes/uton_guion_2024/guion_ecoturistico_uton_2024.txt`
+
+> Autocuidado y ayuda mutua: Se deben fomentar prácticas de autocuidado y asistencia mutua para identificar rápidamente los síntomas del MAM y actuar de manera preventiva.
+
+
+## Additive entry: health_safety.uton_ams_symptoms_descent
+
+- research_notes/uton_guion_2024/guion_ecoturistico_uton_2024.txt (checked 2026-11-26); evidence: `research_notes/uton_guion_2024/guion_ecoturistico_uton_2024.txt`
+
+> Esta es la forma más conocida y se manifiesta cuando una persona asciende rápidamente a gran altitud.
+
+- research_notes/uton_guion_2024/guion_ecoturistico_uton_2024.txt (checked 2026-11-26); evidence: `research_notes/uton_guion_2024/guion_ecoturistico_uton_2024.txt`
+
+> Los síntomas incluyen cefalea, náuseas, vómitos, fatiga y dificultades para dormir. Aparecen entre las 6 horas posteriores al ascenso y pueden durar hasta 4 días.
+
+- research_notes/uton_guion_2024/guion_ecoturistico_uton_2024.txt (checked 2026-11-26); evidence: `research_notes/uton_guion_2024/guion_ecoturistico_uton_2024.txt`
+
+> El tratamiento más efectivo es el retorno a niveles de presión normales (normobaria).
+
+- research_notes/uton_guion_2024/guion_ecoturistico_uton_2024.txt (checked 2026-11-26); evidence: `research_notes/uton_guion_2024/guion_ecoturistico_uton_2024.txt`
+
+> Existen complicaciones graves, como el edema pulmonar de altura y el edema cerebral de altura, que pueden ser mortales si no se tratan adecuadamente.
+
+- research_notes/uton_guion_2024/guion_ecoturistico_uton_2024.txt (checked 2026-11-26); evidence: `research_notes/uton_guion_2024/guion_ecoturistico_uton_2024.txt`
+
+> El diagnóstico de la enfermedad aguda de montaña se basa en la escala de Lake Louis, que evalúa los síntomas.
+
+- research_notes/uton_guion_2024/guion_ecoturistico_uton_2024.txt (checked 2026-11-26); evidence: `research_notes/uton_guion_2024/guion_ecoturistico_uton_2024.txt`
+
+> A mayor altitud, la prevalencia y severidad de los síntomas aumentaron

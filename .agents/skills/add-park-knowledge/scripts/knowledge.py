@@ -25,7 +25,8 @@ SCHEMA = Path("docs/schemas/knowledge-section.schema.json")
 OFFICIAL = ("gov.co", "humboldt.org.co", "sibcolombia.net", "cdc.gov", "medlineplus.gov",
             "who.int", "unesco.org", "ramsar.org", "iugs-geoheritage.org")
 ID_RE = re.compile(r"[a-z][a-z0-9_]*\.[a-z0-9_]+")
-FACTUAL_FIELDS = ("answer", "sources", "last_verified", "valid_until", "kind", "audience", "action")
+FACTUAL_FIELDS = ("answer", "sources", "last_verified", "valid_until", "kind", "audience", "action",
+                  "verified_by_uton")
 OP_ORDER = {"update": 0, "add": 1, "delete": 2}
 
 
@@ -211,16 +212,27 @@ def strings(value):
             yield from strings(item)
 
 
-def is_official(url):
-    host = (urlparse(url).hostname or "").lower()
+def source_ref(source):
+    """A source's identity: its URL, or the repo path of a UTON guion extract (schema-checked)."""
+    return source.get("url") or source["document"]
+
+
+def is_official(ref):
+    # The schema admits only UTON guion extracts as documents. The guion is the park
+    # concessionaire's reviewed script, which the operator made authoritative (2026-11-26).
+    if not re.match(r"^https?://", ref):
+        return True
+    host = (urlparse(ref).hostname or "").lower()
     return any(host == d or host.endswith("." + d) for d in OFFICIAL)
 
 
 def check_evidence_item(root, item, eid, today, allowed_urls=None):
-    require(isinstance(item, dict) and set(item) == {"url", "path", "quote", "checked_on"},
+    require(isinstance(item, dict) and len(set(item) & {"url", "document"}) == 1
+            and set(item) - {"url", "document"} == {"path", "quote", "checked_on"},
             f"{eid}: invalid evidence record")
-    url = item["url"]
-    require(isinstance(url, str) and re.match(r"^https?://", url), f"{eid}: invalid evidence URL")
+    url = source_ref(item)
+    require(isinstance(url, str) and ("document" in item or re.match(r"^https?://", url)),
+            f"{eid}: invalid evidence URL")
     if allowed_urls is not None:
         require(url in allowed_urls, f"{eid}: evidence URL is not an entry source")
     checked = dt.date.fromisoformat(item["checked_on"])
@@ -230,7 +242,9 @@ def check_evidence_item(root, item, eid, today, allowed_urls=None):
     quote = item["quote"]
     require(isinstance(quote, str) and len(quote.strip()) >= 20,
             f"{eid}: provide a meaningful verbatim quote")
-    require(quote in path.read_text(encoding="utf-8"), f"{eid}: quote absent from evidence")
+    # Whitespace-insensitive: PDF extracts wrap lines mid-sentence.
+    require(" ".join(quote.split()) in " ".join(path.read_text(encoding="utf-8").split()),
+            f"{eid}: quote absent from evidence")
     return path
 
 
@@ -246,7 +260,7 @@ def evidence_files(root, operations, before_entries):
                 files.add(check_evidence_item(root, item, eid, today))
             continue
         entry = record["entry"]
-        urls = {s["url"] for s in entry["sources"]}
+        urls = {source_ref(s) for s in entry["sources"]}
         before = before_entries.get(eid)
         factual_changed = (op == "add" or before is None
                            or any(entry.get(k) != before.get(k) for k in FACTUAL_FIELDS))
@@ -263,7 +277,7 @@ def evidence_files(root, operations, before_entries):
         covered = set()
         for item in evidence:
             files.add(check_evidence_item(root, item, eid, today, allowed_urls=urls))
-            covered.add(item["url"])
+            covered.add(source_ref(item))
         if factual_changed:
             require(urls <= covered, f"{eid}: every cited source needs a local quote")
             if has_digits:
@@ -388,7 +402,7 @@ def format_log_block(record, before_entries):
         if record.get("replace_with"):
             text += f"- Replaced references with: `{record['replace_with']}`\n"
     for source in record.get("evidence", []):
-        text += (f"\n- {source['url']} (checked {source['checked_on']}); "
+        text += (f"\n- {source_ref(source)} (checked {source['checked_on']}); "
                  f"evidence: `{source['path']}`\n\n> "
                  + source["quote"].replace("\n", "\n> ") + "\n")
     return text

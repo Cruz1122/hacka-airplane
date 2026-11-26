@@ -25,7 +25,7 @@ import {
 } from './continuation';
 import { answerFor, bannerFor, decide, policyContext, type PolicyContext } from './policy';
 import { canRerank, isReordering, type Reranker } from './rerank';
-import { retrieve, type RetrievalResult } from './retrieve';
+import { rankEntries, retrieve, type RetrievalResult } from './retrieve';
 import { clean } from './clean';
 import { detectSafety, type SafetyResult } from './safety';
 import type { Banner, KnowledgeReply, KnowledgeTiming } from './types';
@@ -62,6 +62,21 @@ function isFollowup(text: string, ownTopCos: number, f: KnowledgeFollowup): bool
   return short || ownTopCos < f.below;
 }
 
+export interface AskOptions {
+  /** A photo match's catalog entry: it answers unless `preferCaption`, then backs an abstain. */
+  visualEntryId?: string;
+  /** Retrieve on the caption first; the visual entry answers only when retrieval abstains. */
+  preferCaption?: boolean;
+  /**
+   * Answer only from entries with `verified_by_uton` (the Settings switch). Urgent turns and the
+   * 123 banner ignore it: an emergency answer is never suppressed.
+   */
+  verifiedOnly?: boolean;
+}
+
+/** What a turn may answer with: `verified` only the canonical text of UTON-verified entries. */
+type Turn = 'calm' | 'urgent' | 'verified';
+
 export interface KnowledgeEngineOptions {
   /** Seeds the paraphrase rotation and the tie-breaks (R7.7). Default: random per session. */
   seed?: number;
@@ -83,6 +98,8 @@ export class KnowledgeEngine {
   /** Paraphrase rotation: lives for the app session, so resetContext keeps it (R6.5). */
   private readonly rot: Rotation;
   private state: ContinuationState | undefined; // "sigue" conversation on one entry (R4)
+  /** Catalog indexes of the UTON-verified entries that have index rows. */
+  private readonly verifiedEntries: number[];
 
   /**
    * @param vectors side-loaded index.f32.bin, rows x dims as the manifest says.
@@ -106,13 +123,18 @@ export class KnowledgeEngine {
     this.cue = this.cont ? cueMatcher(this.cont) : null;
     this.depth = this.cont ? (assets.depth?.entries ?? {}) : {};
     this.rot = new Rotation(seededRandom(options.seed ?? Math.floor(Math.random() * 2 ** 32)));
+    this.verifiedEntries = assets.catalog.flatMap((e, n) =>
+      e.verified_by_uton === true && this.idx.entryRows[n].length > 0 ? [n] : [],
+    );
   }
 
-  async ask(text: string, visualEntryId?: string, preferCaption = false): Promise<AskResult> {
+  async ask(text: string, options: AskOptions = {}): Promise<AskResult> {
+    const { visualEntryId, preferCaption = false } = options;
     const t0 = now();
     // Rules first: they need no model, so a failing embedder cannot suppress the urgent notice.
     const safety = detectSafety(text);
     const banner = bannerFor(safety, this.ctx);
+    const turn: Turn = safety.urgent ? 'urgent' : options.verifiedOnly ? 'verified' : 'calm';
     const timing: KnowledgeTiming = {
       rulesMs: now() - t0,
       embedMs: 0,
@@ -126,17 +148,22 @@ export class KnowledgeEngine {
       return { ...r, timing, safety, contextUsed };
     };
 
-    if (text.trim() === '') return done({ reply: this.abstain(banner) });
-    const visualFallback = visualEntryId && this.ctx.byId.has(visualEntryId) && !safety.urgent
-      ? visualEntryId : undefined;
+    if (text.trim() === '') return done({ reply: this.abstain(banner, turn) });
+    const visualFallback =
+      visualEntryId &&
+      this.ctx.byId.has(visualEntryId) &&
+      turn !== 'urgent' &&
+      (turn !== 'verified' || this.isVerified(visualEntryId))
+        ? visualEntryId
+        : undefined;
     if (visualFallback) {
       this.resetContext();
-      if (!preferCaption) return done({ reply: this.answer(visualFallback, banner) });
+      if (!preferCaption) return done({ reply: this.answer(visualFallback, banner, turn) });
     }
 
     // Rules-only turn: no embedding. Urgent text never continues a conversation (R4.7).
-    const kind = this.cue && !safety.urgent ? this.cue.match(text) : null;
-    const cont = kind ? this.continuation(kind, banner) : undefined;
+    const kind = this.cue && turn !== 'urgent' ? this.cue.match(text) : null;
+    const cont = kind ? this.continuation(kind, banner, turn) : undefined;
     if (cont) return done({ reply: cont });
 
     let retrieval: RetrievalResult;
@@ -183,23 +210,30 @@ export class KnowledgeEngine {
         : text;
     } catch (cause) {
       const error = new KnowledgeEngineError('Knowledge retrieval failed', cause);
-      if (visualFallback) return done({ reply: this.answer(visualFallback, banner), error });
+      if (visualFallback) return done({ reply: this.answer(visualFallback, banner, turn), error });
       if (!banner) throw error;
       // Urgent without a model: the curated 123 entry under the urgent banner.
-      const reply = safety.urgent
-        ? this.answer(this.ctx.policy.emergency_line_id, banner, true)
-        : this.abstain(banner);
+      const reply =
+        turn === 'urgent'
+          ? this.answer(this.ctx.policy.emergency_line_id, banner, turn)
+          : this.abstain(banner, turn);
       return done({ reply, error });
     }
 
-    let order = retrieval.pool;
+    // Verified only: rank every verified entry by its final score. Cutting retrieval's k-pool
+    // instead would abstain on a verified entry ranked below k. The context keeps every entry.
+    const ranked =
+      turn === 'verified'
+        ? rankEntries(retrieval.scores, this.idx.ids, this.verifiedEntries, this.ctx.policy.k)
+        : retrieval;
+    let order = ranked.pool;
     let rerankedBy: string | undefined;
     let error: Error | undefined;
     const rr = this.reranker;
     if (rr && (!rr.catalogIds || canRerank(order, rr.catalogIds))) {
       const t3 = now();
       try {
-        const out = await rr.rerank(text, [...order], [...retrieval.cos]);
+        const out = await rr.rerank(text, [...order], [...ranked.cos]);
         if (isReordering(out, order)) {
           order = out;
           rerankedBy = rr.id;
@@ -215,10 +249,10 @@ export class KnowledgeEngine {
     }
 
     // T is the off-topic floor of a standalone message; a fused follow-up continues a park topic.
-    const topCos = contextUsed ? Number.POSITIVE_INFINITY : (retrieval.cos[0] ?? -1);
+    const topCos = contextUsed ? Number.POSITIVE_INFINITY : (ranked.cos[0] ?? -1);
     const d = decide(safety.urgent, order, topCos, this.ctx);
     const id = d.type === 'answer' ? d.id : visualFallback;
-    const reply = id ? this.answer(id, banner, safety.urgent) : this.abstain(banner);
+    const reply = id ? this.answer(id, banner, turn) : this.abstain(banner, turn);
     return done({
       reply,
       retrieval,
@@ -234,11 +268,16 @@ export class KnowledgeEngine {
     this.state = undefined;
   }
 
-  private answer(id: string, banner: Banner | undefined, urgent = false): KnowledgeReply {
+  private isVerified(id: string): boolean {
+    return this.ctx.byId.get(id)?.verified_by_uton === true;
+  }
+
+  private answer(id: string, banner: Banner | undefined, turn: Turn): KnowledgeReply {
     const base = { ...answerFor(this.ctx, id), ...(banner ? { banner } : {}) };
     if (!this.cont) return base;
-    const pick = this.l0(id);
-    if (urgent) this.state = undefined;
+    // L0 paraphrases are not guion text: a verified turn keeps the canonical answer.
+    const pick = turn === 'verified' ? undefined : this.l0(id);
+    if (turn === 'urgent') this.state = undefined;
     else {
       if (this.state?.id !== id) this.state = newState(id);
       this.markServed(this.state, id, pick?.atoms ?? []);
@@ -247,9 +286,10 @@ export class KnowledgeEngine {
   }
 
   /** Abstain or off-topic: the "sigue" conversation ends (R4.7). */
-  private abstain(banner: Banner | undefined): KnowledgeReply {
+  private abstain(banner: Banner | undefined, turn: Turn): KnowledgeReply {
     this.state = undefined;
-    return this.policyText(banner, this.ctx.policy.texts.abstain);
+    const { abstain, abstain_verified } = this.ctx.policy.texts;
+    return this.policyText(banner, turn === 'verified' ? (abstain_verified ?? abstain) : abstain);
   }
 
   private policyText(banner: Banner | undefined, text: string): KnowledgeReply {
@@ -280,7 +320,11 @@ export class KnowledgeEngine {
    * "sigue" / "por qué" without retrieval (R4.1-R4.5). undefined: not handled, take the normal
    * path (a "por qué" with no unserved why layer is an ordinary follow-up, R4.5).
    */
-  private continuation(kind: CueKind, banner: Banner | undefined): KnowledgeReply | undefined {
+  private continuation(
+    kind: CueKind,
+    banner: Banner | undefined,
+    turn: Turn,
+  ): KnowledgeReply | undefined {
     const c = this.cont;
     const st = this.state;
     if (!c) return undefined;
@@ -288,27 +332,31 @@ export class KnowledgeEngine {
     // R6.6: an emergency entry never continues into a depth layer. Those texts are not the
     // doubly approved paraphrase set. "por qué" falls through to retrieval; "sigue" may still walk.
     const emergency = !!st && this.ctx.emergencyDirect.has(st.id);
+    // Depth layers and L0 paraphrases are not guion text either: a verified turn serves neither
+    // and walks to verified entries' canonical answers only.
+    const verified = turn === 'verified';
     if (kind === 'why') {
-      if (emergency) return undefined;
+      if (emergency || verified) return undefined;
       const li = st && d ? d.layers.findIndex((l, i) => l.kind === 'why' && !st.layers.has(i)) : -1;
       return st && d && li >= 0 ? this.serveLayer(st, d, li, banner) : undefined;
     }
     if (!st) return this.policyText(banner, c.texts.no_state);
-    if (!emergency) {
+    if (!emergency && !verified) {
       const pick = d ? pickLayer(d, st, () => this.rot.random()) : undefined;
       if (d && pick) return this.serveLayer(st, d, pick.layer, banner, pick.texts);
     }
 
-    for (const w of d?.walk ?? []) {
+    const walk = (d?.walk ?? []).filter((w) => !verified || this.isVerified(w));
+    for (const w of walk) {
       if (st.walked.has(w)) continue;
       st.walked.add(w);
-      const t = this.l0(w);
+      const t = verified ? undefined : this.l0(w);
       const text = t?.text ?? this.ctx.byId.get(w)?.short ?? '';
       this.markServed(st, w, t?.atoms ?? []);
       const bridge = c.bridges[this.rot.take('bridges', c.bridges.length)];
       return this.reply(w, `${bridge} ${text}`, banner);
     }
-    const labels = (d?.walk ?? []).slice(0, 2).map((w) => this.ctx.byId.get(w)?.menu_label ?? w);
+    const labels = walk.slice(0, 2).map((w) => this.ctx.byId.get(w)?.menu_label ?? w);
     const related =
       c.texts.related && labels.length
         ? c.texts.related.replace('{topics}', joinTopics(labels))

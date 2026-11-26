@@ -1,6 +1,7 @@
 // Interactive tests for AccessibilitySheet and SettingsSheet bottom-sheet overlays.
 import { act } from 'react';
 import { AccessibilityInfo, Linking } from 'react-native';
+import Storage from 'expo-sqlite/kv-store';
 import { createRoot, type Root, type TestInstance } from 'test-renderer';
 
 import { fill, t } from '@/i18n';
@@ -14,6 +15,7 @@ import {
   toggleFavoriteSource,
   useFavoriteSources,
 } from '@/state/favoriteSources';
+import { setVerifiedOnly, useVerifiedOnly } from '@/state/verifiedOnly';
 
 import { AccessibilitySheet } from '../AccessibilitySheet';
 import { SettingsSheet } from '../SettingsSheet';
@@ -184,7 +186,44 @@ describe('AccessibilitySheet', () => {
 });
 
 describe('SettingsSheet', () => {
-  it('shows only Saved Sources and About in the root menu and handles empty Saved Sources', async () => {
+  it('toggles the verified-only switch, labelled and explained, and saves it', async () => {
+    let on: boolean | undefined;
+    function Probe() {
+      on = useVerifiedOnly();
+      return null;
+    }
+    const root = createRoot();
+    mounted.push(root);
+    await act(async () => {
+      root.render(
+        <>
+          <Probe />
+          <SettingsSheet open onClose={jest.fn()} reducedMotion />
+        </>,
+      );
+    });
+    const ui = createHarness(root);
+    const copy = t.settingsPanel.verifiedOnly;
+    const row = () =>
+      ui.all(
+        (n) => n.props.accessibilityRole === 'switch' && n.props.accessibilityLabel === copy.title,
+      )[0];
+    expect(on).toBe(false);
+    expect(ui.hasText(copy.body)).toBe(true);
+    expect(row().props.accessibilityHint).toBe(copy.body);
+    expect(row().props.accessibilityState).toEqual({ checked: false });
+
+    await ui.pressSwitch(copy.title);
+    expect(on).toBe(true);
+    expect(row().props.accessibilityState).toEqual({ checked: true });
+    expect(Storage.setItemAsync).toHaveBeenCalledWith('knowledge.verifiedOnly.v1', 'true');
+
+    await ui.pressSwitch(copy.title);
+    expect(on).toBe(false);
+    act(() => setVerifiedOnly(false));
+  });
+
+  it('shows Saved Sources and About in the root menu and handles empty Saved Sources', async () => {
     const root = createRoot();
     mounted.push(root);
     await act(async () => {

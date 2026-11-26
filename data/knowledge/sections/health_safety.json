@@ -3890,6 +3890,121 @@
         "plan de contingencias",
         "contacto de emergencia"
       ]
+    },
+    {
+      "id": "health_safety.uton_ruiz_ams_study",
+      "label": "estudio del soroche en turistas del Ruiz",
+      "kind": "fact",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "cuántos turistas se enferman de soroche en el Ruiz",
+        "qué porcentaje de visitantes tiene mal de altura en el nevado",
+        "hay estudios del mal de montaña en el Nevado del Ruiz",
+        "quiénes son más propensos al mal agudo de montaña",
+        "las mujeres sufren más el mal de altura?",
+        "los jóvenes son más susceptibles al soroche?",
+        "ser sedentario aumenta el riesgo de soroche",
+        "hacer ejercicio antes ayuda contra el mal de altura",
+        "a 4800 metros cuanta gente se siente mal",
+        "el estudio de eder peña sobre turistas en el ruiz",
+        "subir rapido aumenta el riesgo de mal de montaña",
+        "el frio influye en el mal de altura?",
+        "how many visitors get altitude sickness on the Ruiz"
+      ],
+      "hard_negatives": [
+        "a partir de qué altura da soroche",
+        "cómo me aclimato antes de subir",
+        "síntomas de soroche"
+      ],
+      "entities": {},
+      "needs": [],
+      "answer": {
+        "short": "Según el guion de UTON, un estudio de Eder Peña con 129 turistas que visitaron el Nevado del Ruiz entre diciembre de 2008 y diciembre de 2009 encontró síntomas graves de mal agudo de montaña en el 1,6 % a 4.287 m y en el 16 % a 4.816 m. Los turistas sedentarios fueron más propensos a sufrirlo. También aumentan el riesgo subir rápido, ser joven, ser mujer y el frío extremo.",
+        "variants": [
+          "En ese estudio, a 4.816 m el 16 % de los turistas tuvo síntomas graves, frente al 1,6 % a 4.287 m. Además de la falta de actividad física, cuentan como factores de riesgo la rapidez del ascenso, la edad, el sexo y la exposición al frío."
+        ],
+        "detail": "El estudio concluye que la actividad física regular antes de subir mejora la respuesta del cuerpo a la altura, y recomienda autocuidado y ayuda mutua para reconocer pronto los síntomas.",
+        "reflection": "Es información general del guion, no un diagnóstico."
+      },
+      "sources": [
+        {
+          "label": "Guion ecoturístico Zona Norte, UT Operación Nevados (2024)",
+          "document": "research_notes/uton_guion_2024/guion_ecoturistico_uton_2024.txt",
+          "retrieved_at": "2026-11-26"
+        }
+      ],
+      "last_verified": "2026-11-26",
+      "related": [
+        "health_safety.uton_ams_symptoms_descent",
+        "health_safety.altitude_sickness_symptoms",
+        "health_safety.acclimatization_plan"
+      ],
+      "tags": [
+        "mal de altura",
+        "guion_uton",
+        "soroche",
+        "estudio",
+        "ruiz"
+      ],
+      "verified_by_uton": true
+    },
+    {
+      "id": "health_safety.uton_ams_symptoms_descent",
+      "label": "mal agudo de montaña y cómo se trata",
+      "kind": "safety",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "qué es la enfermedad aguda de montaña",
+        "cuál es el mejor tratamiento para el mal de altura",
+        "cuánto puede durar el mal agudo de montaña según el guion",
+        "qué síntomas da la enfermedad aguda de montaña",
+        "por qué hay que bajar cuando da soroche",
+        "el soroche se cura bajando?",
+        "que tan grave puede ser el mal de altura",
+        "el mal de montaña puede ser mortal",
+        "con que escala se diagnostica el mal de montaña",
+        "que es la escala de lake louise",
+        "el mal de montaña quita el sueño?",
+        "subir muy rapido da mal de montaña?",
+        "what is the best treatment for acute mountain sickness"
+      ],
+      "hard_negatives": [
+        "qué medicamento sirve para el mal de altura",
+        "es mejor subir despacio la primera vez",
+        "mi compañero está confundido en el páramo"
+      ],
+      "entities": {},
+      "needs": [],
+      "answer": {
+        "short": "Según el guion de UTON, la enfermedad aguda de montaña aparece cuando una persona sube rápido a gran altitud y da dolor de cabeza, náuseas, vómitos, fatiga y dificultad para dormir, que pueden durar hasta 4 días. El tratamiento más efectivo es volver a una presión normal, es decir, bajar a menor altura.",
+        "variants": [
+          "El mal agudo de montaña puede complicarse con edema pulmonar o cerebral de altura, que pueden ser mortales si no se tratan adecuadamente. El guion dice que lo más efectivo es regresar a una presión atmosférica normal, o sea, descender."
+        ],
+        "detail": "El guion explica que el diagnóstico se basa en la escala de Lake Louise, que evalúa los síntomas, y que a mayor altitud aumentan la frecuencia y la gravedad de los síntomas.",
+        "reflection": "Es información general del guion, no un diagnóstico."
+      },
+      "sources": [
+        {
+          "label": "Guion ecoturístico Zona Norte, UT Operación Nevados (2024)",
+          "document": "research_notes/uton_guion_2024/guion_ecoturistico_uton_2024.txt",
+          "retrieved_at": "2026-11-26"
+        }
+      ],
+      "last_verified": "2026-11-26",
+      "related": [
+        "health_safety.uton_ruiz_ams_study",
+        "health_safety.descent_for_worsening_altitude",
+        "health_safety.severe_altitude_warning_signs"
+      ],
+      "tags": [
+        "mal de altura",
+        "guion_uton",
+        "soroche",
+        "descenso"
+      ],
+      "verified_by_uton": true
     }
   ]
 }

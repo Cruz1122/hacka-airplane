@@ -88,5 +88,6 @@ export function answerFor(
     ...(steps.length ? { steps } : {}),
     sources,
     ...(e.last_verified ? { reviewed: e.last_verified } : {}),
+    verified: e.verified_by_uton === true,
   };
 }
