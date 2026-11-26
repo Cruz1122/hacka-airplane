@@ -1,3 +1,5 @@
+import type { MediaPick } from '@/core/media/media';
+
 import type { KnowledgeRow } from '../knowledgeChat';
 import { toChatRows } from '../knowledgeRows';
 
@@ -85,6 +87,38 @@ describe('toChatRows', () => {
         entryId: 'actions.report_emergency_general',
       },
     ]);
+  });
+
+  it('carries the photos to the reply bubble, never to its banner', () => {
+    const media: MediaPick = {
+      layout: 'single',
+      items: [
+        {
+          id: 'condor',
+          common: 'Cóndor de los Andes',
+          scientific: 'Vultur gryphus',
+          photo: { file: 'condor.1.webp', author: 'Ana', license: 'CC BY 2.0' },
+        },
+      ],
+    };
+    const rows: KnowledgeRow[] = [
+      {
+        id: 'k6',
+        role: 'assistant',
+        media,
+        reply: {
+          type: 'answer',
+          id: 'fauna.condor',
+          title: 'Cóndor',
+          text: 'Anida en los riscos.',
+          sources: [],
+          banner: { kind: 'offline_current_status', text: 'Sin conexión.', sourceIds: [] },
+        },
+      },
+    ];
+    const [banner, reply] = toChatRows(rows, 'ERR');
+    expect(banner.media).toBeUndefined();
+    expect(reply.media).toBe(media);
   });
 
   it('shows the i18n error text, never the raw error', () => {
