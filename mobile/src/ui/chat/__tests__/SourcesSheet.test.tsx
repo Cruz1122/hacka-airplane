@@ -1,5 +1,5 @@
 import { act } from 'react';
-import { Linking } from 'react-native';
+import { Animated, Linking } from 'react-native';
 // Ships with jest-expo (its replacement for the deprecated react-test-renderer).
 import { createRoot, type TestInstance } from 'test-renderer';
 
@@ -8,7 +8,8 @@ import { fill, t } from '@/i18n';
 import type { ChatSource } from '../citations';
 import { SourcesSheet } from '../SourcesSheet';
 
-jest.mock('@/ui/useReducedMotion', () => ({ useReducedMotion: () => true }));
+let mockReduced = true;
+jest.mock('@/ui/useReducedMotion', () => ({ useReducedMotion: () => mockReduced }));
 
 const copy = t.chatScreen.sources;
 const PRESS = { nativeEvent: {}, stopPropagation: () => {}, preventDefault: () => {} };
@@ -25,6 +26,8 @@ function mount(sources: ChatSource[] | null) {
   return {
     onClose,
     byLabel,
+    /** Whether the overlay still takes touches. */
+    blocking: () => all((n) => n.type === 'View')[0].props.pointerEvents !== 'none',
     texts: () => all((n) => n.type === 'Text').map((n) => [n.props.children].flat().join('')),
     press: (node: TestInstance) => act(() => node.props.onClick(PRESS)),
   };
@@ -35,7 +38,10 @@ describe('SourcesSheet', () => {
   beforeEach(() => {
     open = jest.spyOn(Linking, 'openURL').mockResolvedValue(undefined);
   });
-  afterEach(() => open.mockRestore());
+  afterEach(() => {
+    mockReduced = true;
+    jest.restoreAllMocks();
+  });
 
   it('stays closed without sources', () => {
     expect(mount(null).texts()).toEqual([]);
@@ -62,6 +68,23 @@ describe('SourcesSheet', () => {
     const [link] = s.byLabel(fill(copy.openLabel, { title: 'Parques Nacionales' }));
     s.press(link);
     expect(open).toHaveBeenCalledWith(URL);
+  });
+
+  it('slides out before it tells the chat it closed, letting touches through meanwhile', () => {
+    mockReduced = false;
+    const done: (() => void)[] = [];
+    jest.spyOn(Animated, 'timing').mockImplementation(() => ({
+      start: (cb?: (r: { finished: boolean }) => void) => done.push(() => cb?.({ finished: true })),
+      stop: () => {},
+      reset: () => {},
+    }));
+    const s = mount([{ id: 'b', title: 'Estación Refugio Quelital' }]);
+    expect(s.blocking()).toBe(true);
+    s.press(s.byLabel(copy.close)[0]);
+    expect(s.onClose).not.toHaveBeenCalled();
+    expect(s.blocking()).toBe(false);
+    act(() => done.forEach((f) => f()));
+    expect(s.onClose).toHaveBeenCalledTimes(1);
   });
 
   it('closes from its close button', () => {
