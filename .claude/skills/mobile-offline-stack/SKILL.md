@@ -12,7 +12,7 @@ Human docs: `docs/retrieval-architecture.md` (gateway, gates, per-gate strategie
 - Real PNN Los Nevados. **No generative model, no router, no LLM** in the chat (2026-11-22). Every reply is a curated catalog answer or a policy text.
 - Top-1 policy: answer with the best entry when its score clears `policy.T`, else abstain. No menus.
 - Laya reorderer: kept as an option, `policy.laya.enabled` false. `src/llm/laya.ts` is a stub that throws until its tokenizer port passes `src/core/knowledge/laya/__fixtures__/laya_io.json`.
-- Native onboarding and Pet draw with `@shopify/react-native-skia` (2026-11-23, approved for perf); web keeps react-native-svg.
+- Native onboarding and Pet draw with `@shopify/react-native-skia` (2026-11-23, approved for perf). Web draws the onboarding and chat header scenes and the chat Pet on 2D canvases (2026-11-24, for perf); `NevadoScene` (react-native-svg) stays the reference look and the Lab's renderer.
 - No network at runtime.
 
 ## Pipeline (do not reorder)
@@ -47,8 +47,8 @@ Do not run `experiments/laya/export_knowledge.py` directly: it writes the older 
 
 ## Renderers
 
-- One `SceneDoc` (`src/onboarding/scene/`), two renderers: `SceneCanvas.native.tsx` + `skia/drawScene.ts` (native), `NevadoScene.tsx` (web, the reference). A new body kind goes into both.
-- Pet: `src/ui/pet/Pet.tsx` -> `PetVaporCanvas` (`.native.tsx` Skia via `drawPet.ts`, web SVG via `PetVaporFigure`).
+- One `SceneDoc` (`src/onboarding/scene/`), three renderers: `SceneCanvas.native.tsx` + `skia/drawScene.ts` (native, Skia), `SceneCanvas.tsx` + `canvas2d/drawScene2d.ts` (web app, one 2D canvas per layer, layer blur and opacity in CSS), `NevadoScene.tsx` (SVG, the reference: Lab, export). A new body kind goes into all three; `__tests__/canvas2dScene.test.ts` checks the web layout against the native one.
+- Pet: `src/ui/pet/Pet.tsx` -> `PetVaporCanvas` (`.native.tsx` Skia via `drawPet.ts`, web 2D canvas via `drawPetCanvas2d.ts`); `PetVaporFigure` (SVG) is the reference and the Lab's figure.
 - Skia pitfalls: always pass bounds to `PictureRecorder.beginRecording` (the default cull rect drops content at negative coordinates); Jest cannot load Skia, so data modules (e.g. `src/chat/headerScene.ts`) must not import renderers.
 - Measure perf on a release build on the phone (`adb shell dumpsys gfxinfo`), never from web or debug numbers.
 
