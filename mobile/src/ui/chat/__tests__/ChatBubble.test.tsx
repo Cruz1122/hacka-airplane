@@ -199,6 +199,27 @@ describe('ChatBubble', () => {
     expect(b.buttons()).toHaveLength(2);
   });
 
+  it('turns the sources badge into the validated one when every source is the UTON guion', () => {
+    const copy = t.chatScreen.verified;
+    const guion: ChatSource[] = [{ id: 'g#0', title: 'Guion UTON', verified: true }];
+    const onOpenSources = jest.fn();
+    const b = mount({ role: 'assistant', text: 'Dato.', sources: guion, onOpenSources });
+    const badge = b.buttons().find((n) => n.props.accessibilityLabel === copy.label);
+    expect(badge).toBeTruthy();
+    expect(b.text()).toContain(copy.badge);
+    act(() => badge!.props.onClick(PRESS));
+    expect(onOpenSources).toHaveBeenCalledWith(guion);
+    // One unvalidated source keeps the ordinary badge.
+    const mixed = mount({
+      role: 'assistant',
+      text: 'Dato.',
+      sources: [...guion, SOURCES[0]],
+      onOpenSources,
+    });
+    expect(mixed.text()).not.toContain(copy.badge);
+    expect(mixed.text()).toContain(t.chatScreen.sources.title);
+  });
+
   it('deduplicates up to three favicon previews by source domain', () => {
     const b = mount({
       role: 'assistant',

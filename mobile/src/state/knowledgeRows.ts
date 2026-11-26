@@ -39,7 +39,11 @@ export function toChatRows(rows: readonly KnowledgeRow[], errorText: string): Ch
       reply.type === 'answer'
         ? reply.sources
             .filter((s) => !EDITORIAL_SOURCE.test(s.title))
-            .map((s, i) => ({ id: `${reply.id}#${i}`, ...s }))
+            .map((s, i) => ({
+              id: `${reply.id}#${i}`,
+              ...s,
+              ...(reply.verified ? { verified: true } : {}),
+            }))
         : [];
     const sources = realSources.length ? realSources : undefined;
     return [

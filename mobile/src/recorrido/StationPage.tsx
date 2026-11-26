@@ -90,7 +90,14 @@ export function StationPage({ id }: { id: StationId }) {
             {t.trail.stations[id].name}
           </Text>
         }
-        ListFooterComponent={<CameraBlock shot={shot} camMsg={camMsg} onTake={takePhoto} />}
+        ListFooterComponent={
+          <>
+            <Text style={[styles.source, scaled.caption, { color: palette.inkMuted }]} selectable>
+              {t.trail.source}
+            </Text>
+            <CameraBlock shot={shot} camMsg={camMsg} onTake={takePhoto} />
+          </>
+        }
       />
     </View>
   );
@@ -160,6 +167,7 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     marginBottom: spacing.lg,
   },
+  source: { ...type.caption, color: brand.inkMuted, marginTop: spacing.lg },
   cam: {
     marginTop: spacing.xl,
     alignItems: 'center',

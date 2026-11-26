@@ -1,6 +1,6 @@
 // Chat state for the knowledge engine (top-1 curated answers). Plain store so it is testable
 // without React; useKnowledge.ts subscribes to it. Never touches modelManager: e5 has its own context.
-import type { KnowledgeEngine } from '@/core/knowledge';
+import type { AskOptions, AskResult, KnowledgeEngine } from '@/core/knowledge';
 import { detectSafety } from '@/core/knowledge/safety';
 import type { KnowledgeReply, KnowledgeTiming } from '@/core/knowledge/types';
 import { pickMedia, type MediaCatalog, type MediaPick } from '@/core/media/media';
@@ -38,6 +38,8 @@ export interface KnowledgeChatOptions {
   media?: MediaCatalog;
   /** The dice for photos, in [0, 1). */
   rng?: () => number;
+  /** The Settings switch, read at each question: answer only from UTON-verified entries. */
+  verifiedOnly?: () => boolean;
 }
 
 const message = (e: unknown) => (e instanceof Error ? e.message : String(e));
@@ -83,15 +85,19 @@ export class KnowledgeChat {
   private readonly engine: Promise<Engine>;
   private readonly media: MediaCatalog | undefined;
   private readonly rng: () => number;
+  private readonly verifiedOnly: () => boolean;
+  /** The switch as the engine last saw it; undefined before the first question. */
+  private askedVerifiedOnly: boolean | undefined;
   private seq = 0;
   private generation = 0;
 
   constructor(
     load: () => Promise<LoadedEngine>,
-    { media, rng = Math.random }: KnowledgeChatOptions = {},
+    { media, rng = Math.random, verifiedOnly = () => false }: KnowledgeChatOptions = {},
   ) {
     this.media = media;
     this.rng = rng;
+    this.verifiedOnly = verifiedOnly;
     this.engine = load().then(({ engine, degraded }) => {
       this.set({ status: degraded ? 'degraded' : 'ready', ...(degraded ? { error: degraded } : {}) });
       return engine;
@@ -126,7 +132,7 @@ export class KnowledgeChat {
       return;
     }
     try {
-      const r = await (await this.engine).ask(q);
+      const r = await this.askEngine(await this.engine, q);
       const media = this.mediaFor(r.reply, q);
       this.push(
         {
@@ -152,7 +158,7 @@ export class KnowledgeChat {
     this.push({ id: this.id(), role: 'user', text, photoUri }, true);
     try {
       if (text && detectSafety(text).urgent) {
-        const result = await (await this.engine).ask(text);
+        const result = await this.askEngine(await this.engine, text);
         if (generation === this.generation) {
           this.push({ id: this.id(), role: 'assistant', reply: result.reply, timing: result.timing }, false);
         }
@@ -169,7 +175,9 @@ export class KnowledgeChat {
         this.photoMessage(unknownPhoto, startedAt);
         return;
       }
-      if ('id' in match) {
+      // The vision index's own texts are not guion text: with the switch on, ask the engine.
+      const verifiedOnly = this.verifiedOnly();
+      if ('id' in match && !verifiedOnly) {
         const totalMs = Math.max(1, Math.round(classifyMs));
         this.push({
           id: this.id(),
@@ -180,13 +188,15 @@ export class KnowledgeChat {
             title: match.label,
             text: `La foto se parece a ${match.label}.\n\n${match.description}`,
             sources: [match.source],
+            verified: false,
           },
           timing: { rulesMs: 0, embedMs: 0, retrieveMs: totalMs, rerankMs: 0, totalMs },
         }, false);
         return;
       }
       const identify = /^(?:(?:dime )?que (?:es (?:esto|eso|lo que (?:encontre|vi))|(?:ves|hay)(?: (?:aqui|aca|en (?:esta |la )?(?:foto|imagen)))?)|(?:mira|mire)(?: (?:esto|eso|mi selfie|lo que (?:encontre|vi)))?|identifica (?:esto|la foto)|mirame(?: en (?:esta |la )?foto)?|miranos(?: en (?:esta |la )?foto)?)$/;
-      if ('kind' in match) {
+      // Sourced vision classes carry a kind too; only the person class has no id.
+      if ('kind' in match && !('id' in match)) {
         const describePerson = !words || identify.test(words);
         this.photoMessage(describePerson
           ? 'Parece que hay una persona en la foto. ¿Qué tal si exploramos lo que la rodea? Envíame una foto de una planta, un animal o un paisaje del parque.'
@@ -199,17 +209,22 @@ export class KnowledgeChat {
       const prompt = `${text.replace(/[:[\]{}]+/g, ' ').replace(/\s+/g, ' ').trim() || 'dime que es esto'} ${match.label}`;
       const engine = await this.engine;
       if (generation !== this.generation) return;
-      const result = useCaption
-        ? await engine.ask(prompt, match.entryId, true)
-        : await engine.ask(prompt, match.entryId);
+      const entryId = 'entryId' in match ? match.entryId : undefined;
+      const result = await this.askEngine(engine, prompt, {
+        visualEntryId: entryId,
+        preferCaption: useCaption,
+      });
       if (generation !== this.generation) return;
       const base = result.reply;
-      const usesVisualEntry = base.type === 'answer' && base.id === match.entryId;
-      const description = usesVisualEntry && 'description' in match ? match.description : undefined;
+      const usesVisualEntry = base.type === 'answer' && base.id === entryId;
+      const visionText = usesVisualEntry && !verifiedOnly;
+      const description = visionText && 'description' in match ? match.description : undefined;
       const reply: KnowledgeReply = {
         ...base,
         text: [usesVisualEntry ? `La foto se parece a ${match.label}.` : undefined, description, base.text].filter(Boolean).join('\n\n'),
-        ...(usesVisualEntry && 'source' in match ? { sources: [match.source, ...base.sources] } : {}),
+        ...(visionText && 'source' in match ? { sources: [match.source, ...base.sources] } : {}),
+        // The vision index's description is not guion text: no seal over it.
+        ...(description ? { verified: false } : {}),
       };
       this.push(
         {
@@ -224,6 +239,16 @@ export class KnowledgeChat {
       if (generation !== this.generation) return;
       this.photoMessage(unknownPhoto, startedAt);
     }
+  }
+
+  /** engine.ask under the switch as it is now; a flip since the last question drops the context. */
+  private askEngine(engine: Engine, text: string, options: AskOptions = {}): Promise<AskResult> {
+    const verifiedOnly = this.verifiedOnly();
+    if (this.askedVerifiedOnly !== undefined && verifiedOnly !== this.askedVerifiedOnly) {
+      engine.resetContext?.();
+    }
+    this.askedVerifiedOnly = verifiedOnly;
+    return engine.ask(text, { ...options, verifiedOnly });
   }
 
   /** Clears the chat and the engine's follow-up context, so the next question stands alone. */

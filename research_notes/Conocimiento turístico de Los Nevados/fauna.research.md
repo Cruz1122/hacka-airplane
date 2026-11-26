@@ -368,3 +368,64 @@ No official visitor protocol for an encounter with bear, puma or tapir in Los Ne
 
 - Reason: Etiqueta restaurada a "terlaque andino vulnerable en Colombia" según revisión v1; conserva mejoras de hard negatives y desambiguación.
 - Changed fields: hard_negatives
+
+
+## Additive entry: fauna.uton_fauna_by_station
+
+- research_notes/uton_guion_2024/guion_ecoturistico_uton_2024.txt (checked 2026-11-26); evidence: `research_notes/uton_guion_2024/guion_ecoturistico_uton_2024.txt`
+
+> Aguacerales Altura 4.160 msnm aproximadamente. Ubicación Flanco occidental edificio volcánico, a 5.2 Km aproximadamente del Cráter Arenas. Ecosistema o Bioma Paramo propiamente dicho. Fauna Característica: Conejo, águila, cusumbos, taira, venados, colibríes, dantas, comadreja, guagua, zorro, puma, patos.
+
+- research_notes/uton_guion_2024/guion_ecoturistico_uton_2024.txt (checked 2026-11-26); evidence: `research_notes/uton_guion_2024/guion_ecoturistico_uton_2024.txt`
+
+> Arenales Altura aren 4.290 msnm aproximadamente. Ubicación Flanco occidental edificio volcánico, a 4.7 Km aproximadamente del Cráter Arenas Ecosistema o Bioma Transición Paramo a Superparamo. Fauna: Conejos, huellas de tigrillo, águilas. Pantas Características Pajonal, loricarias, Colchones de agua.
+
+- research_notes/uton_guion_2024/guion_ecoturistico_uton_2024.txt (checked 2026-11-26); evidence: `research_notes/uton_guion_2024/guion_ecoturistico_uton_2024.txt`
+
+> Lunares Altura 4.350 msnm aproximadamente. Ubicación Flanco occidental edificio volcánico, a 4.8 Km aproximadamente del Cráter Arenas Ecosistema o Bioma Superáramo Fauna Característica: Cóndor, águila (Zona de paso) Pantas Características Pajonales, “Coral de paramo”
+
+- research_notes/uton_guion_2024/guion_ecoturistico_uton_2024.txt (checked 2026-11-26); evidence: `research_notes/uton_guion_2024/guion_ecoturistico_uton_2024.txt`
+
+> Valle de las tumbas Altura 4.460 msnm aproximadamente. Ubicación Flanco occidental edificio volcánico, a 4.1 Km aproximadamente del Cráter Arenas, a un costado del Cañón del rio Molinos. Ecosistema o Bioma Superparamo con transición a zona nival Fauna Característica: Cóndor, águila (Zona de paso).
+
+- research_notes/uton_guion_2024/guion_turistico_zona_norte.txt (checked 2026-11-26); evidence: `research_notes/uton_guion_2024/guion_turistico_zona_norte.txt`
+
+> Somos el territorio del Cóndor de los Andes, el ave que utiliza las corrientes térmicas generadas por el calor del volcán para planear sin esfuerzo.
+
+- research_notes/uton_guion_2024/guion_turistico_zona_norte.txt (checked 2026-11-26); evidence: `research_notes/uton_guion_2024/guion_turistico_zona_norte.txt`
+
+> con colibríes que entran en estado de hibernación nocturna para sobrevivir.
+
+
+## Additive entry: fauna.uton_tapir_seed_disperser
+
+- research_notes/uton_guion_2024/guion_turistico_zona_norte.txt (checked 2026-11-26); evidence: `research_notes/uton_guion_2024/guion_turistico_zona_norte.txt`
+
+> Compartimos este espacio con la danta de montaña, un mamífero lanudo que es el principal dispersor de semillas
+
+- research_notes/uton_guion_2024/guion_turistico_zona_norte.txt (checked 2026-11-26); evidence: `research_notes/uton_guion_2024/guion_turistico_zona_norte.txt`
+
+> hasta la danta de montaña, nuestra 'jardinera' lanuda que dispersa vida entre las rocas.
+
+- research_notes/uton_guion_2024/guion_ecoturistico_uton_2024.txt (checked 2026-11-26); evidence: `research_notes/uton_guion_2024/guion_ecoturistico_uton_2024.txt`
+
+> entre las especies más llamativas que se pueden observar en el PNN Los Nevados se encuentra la Danta de Páramo (Tapirus pinchaque)
+
+- research_notes/uton_guion_2024/guion_ecoturistico_uton_2024.txt (checked 2026-11-26); evidence: `research_notes/uton_guion_2024/guion_ecoturistico_uton_2024.txt`
+
+> Los grandes mamíferos son altamente vulnerables a la extinción dadas sus necesidades de un territorio extenso y por la presión ejercida sobre sus poblaciones por efecto de la cacería
+
+
+## Additive entry: fauna.uton_ruiz_parakeet_endemic
+
+- research_notes/uton_guion_2024/guion_ecoturistico_uton_2024.txt (checked 2026-11-26); evidence: `research_notes/uton_guion_2024/guion_ecoturistico_uton_2024.txt`
+
+> Una de las especies de aves restringidas estrictamente a los páramos es el periquito de los Nevados (Bolborhynchus ferrugineifrons) de la familia (Psittacidae), este es una especie endémica de nuestro país restringida a las Cordilleras Central y Oriental (Rodríguez-Mahecha y Hernández-Camacho 2002).
+
+- research_notes/uton_guion_2024/guion_ecoturistico_uton_2024.txt (checked 2026-11-26); evidence: `research_notes/uton_guion_2024/guion_ecoturistico_uton_2024.txt`
+
+> Verhelst y Renjifo (2002) consideran a la especie como vulnerable (VU), dado el caso de que su población se encuentra entre los 2.000 y 4.000 individuos.
+
+- research_notes/uton_guion_2024/guion_ecoturistico_uton_2024.txt (checked 2026-11-26); evidence: `research_notes/uton_guion_2024/guion_ecoturistico_uton_2024.txt`
+
+> En taxones más estudiados como aves, se señala que el área cuenta con un total de especies endémicas y casiendémicas de 30 especies. Se cuenta con 8 especies de aves endémicas, es decir cuya distribución se halla exclusivamente en Colombia y 22 más de distribución compartida con alguno de los países hermanos

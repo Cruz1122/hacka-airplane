@@ -35,6 +35,8 @@ export type KnowledgeReply =
       steps?: string[];
       sources: Source[];
       reviewed?: string; // last_verified date
+      /** The entry comes from the official UTON guion (catalog verified_by_uton): the chat shows a seal. */
+      verified: boolean;
     };
 
 export interface KnowledgeTiming {

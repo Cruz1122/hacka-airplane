@@ -413,3 +413,190 @@ Vacíos (no se rellenan): meses concretos de lluvia, totales en mm, humedad rela
 - https://www.parquesnacionales.gov.co/wp-content/uploads/2025/01/Res.-No.-268-del-22-de-octubre-de-2024-MODIFICA-PFFO-029-2024.pdf (checked 2026-11-22); evidence: `research_notes/Conocimiento turístico de Los Nevados/weather_volcano/evidence/raw/pnn-res-268-2024.txt`
 
 > Ascenso a cumbre o cima nevada (restringido por actividad volcánica).
+
+
+## Additive entry: weather_volcano.uton_tumbas_ascent_limit
+
+- research_notes/uton_guion_2024/guion_ecoturistico_uton_2024.txt (checked 2026-11-26); evidence: `research_notes/uton_guion_2024/guion_ecoturistico_uton_2024.txt`
+
+> Por seguridad, el ascenso a la parte alta del Nevado del Ruiz está restringido debido al alto riesgo de lahares, flujos de lodo y escombros volcánicos que podrían dificultar la evacuación en caso de erupción.
+
+- research_notes/uton_guion_2024/guion_ecoturistico_uton_2024.txt (checked 2026-11-26); evidence: `research_notes/uton_guion_2024/guion_ecoturistico_uton_2024.txt`
+
+> La razón de la restricción de continuar del Valle de las Tumbas es principalmente el riesgo de los lahares.
+
+- research_notes/uton_guion_2024/guion_turistico_zona_norte.txt (checked 2026-11-26); evidence: `research_notes/uton_guion_2024/guion_turistico_zona_norte.txt`
+
+> Técnicamente, estamos en la zona de influencia directa de lahares
+
+- research_notes/uton_guion_2024/guion_turistico_zona_norte.txt (checked 2026-11-26); evidence: `research_notes/uton_guion_2024/guion_turistico_zona_norte.txt`
+
+> el cráter Arenas está cerca y emite gases constantemente el ascenso más allá de este punto está restringido no solo por la actividad del volcán, sino por la fragilidad del ecosistema de superpáramo, donde la vida lucha por colonizar la roca desnuda tras el retiro del glaciar
+
+
+## Additive entry: weather_volcano.uton_eruptive_periods
+
+- research_notes/uton_guion_2024/guion_ecoturistico_uton_2024.txt (checked 2026-11-26); evidence: `research_notes/uton_guion_2024/guion_ecoturistico_uton_2024.txt`
+
+> la evolución geológica de la CVNR se divide en cuatro períodos eruptivos
+
+- research_notes/uton_guion_2024/guion_ecoturistico_uton_2024.txt (checked 2026-11-26); evidence: `research_notes/uton_guion_2024/guion_ecoturistico_uton_2024.txt`
+
+> Período Pre-Ruiz (1.8 - 0.97 millones de años atrás) • Actividad Volcánica: Este período fue dominado por el volcanismo efusivo que resultó en la construcción del volcán "Ancestral Ruiz".
+
+- research_notes/uton_guion_2024/guion_ecoturistico_uton_2024.txt (checked 2026-11-26); evidence: `research_notes/uton_guion_2024/guion_ecoturistico_uton_2024.txt`
+
+> La actividad efusiva comenzó hace menos de 0.97 millones de años y culminó con la formación de una caldera hace unos 95 mil años.
+
+- research_notes/uton_guion_2024/guion_ecoturistico_uton_2024.txt (checked 2026-11-26); evidence: `research_notes/uton_guion_2024/guion_ecoturistico_uton_2024.txt`
+
+> Descripción: Incluye la construcción del volcán La Olleta y otros centros eruptivos menores como los volcanes Nereidas y Piraña.
+
+- research_notes/uton_guion_2024/guion_ecoturistico_uton_2024.txt (checked 2026-11-26); evidence: `research_notes/uton_guion_2024/guion_ecoturistico_uton_2024.txt`
+
+> Segundo Período Eruptivo Ruiz (66 mil años atrás hasta el presente)
+
+- research_notes/uton_guion_2024/guion_ecoturistico_uton_2024.txt (checked 2026-11-26); evidence: `research_notes/uton_guion_2024/guion_ecoturistico_uton_2024.txt`
+
+> La actividad eruptiva durante este período ha sido predominantemente explosiva, con al menos catorce pulsos y fases eruptivas en los últimos 13,000 años.
+
+
+## Additive entry: weather_volcano.uton_eruption_1985
+
+- research_notes/uton_guion_2024/guion_ecoturistico_uton_2024.txt (checked 2026-11-26); evidence: `research_notes/uton_guion_2024/guion_ecoturistico_uton_2024.txt`
+
+> Erupción del Nevado del Ruiz: El 13 de noviembre de 1985, el volcán Nevado del Ruiz entró en erupción, provocando uno de los desastres volcánicos más catastróficos del siglo XX. El calor de la erupción derritió el glaciar del volcán, generando lahares (flujos de lodo volcánico) que descendieron rápidamente por los cañones de los ríos Gualí, Azufrado, Lagunillas y Molinos (Poa y Nereidas). Estos flujos devastaron las poblaciones de Armero, Tolima, Villamaría y Chinchiná, causando la muerte de más de 23,000 personas.
+
+- research_notes/uton_guion_2024/guion_ecoturistico_uton_2024.txt (checked 2026-11-26); evidence: `research_notes/uton_guion_2024/guion_ecoturistico_uton_2024.txt`
+
+> erupción freatomagmática de 1985, que tuvo un Índice de Explosividad Volcánica (VEI) de 3, y causó la muerte de más de 25,000 personas debido a la generación de lahares que afectaron a las localidades de Armero, Villamaría y Chinchiná.
+
+- research_notes/uton_guion_2024/guion_ecoturistico_uton_2024.txt (checked 2026-11-26); evidence: `research_notes/uton_guion_2024/guion_ecoturistico_uton_2024.txt`
+
+> La erupción comenzó a las 15:05 HL y generó una nube de gases y ceniza que alcanzó más de 5,000 metros sobre el cráter.
+
+- research_notes/uton_guion_2024/guion_ecoturistico_uton_2024.txt (checked 2026-11-26); evidence: `research_notes/uton_guion_2024/guion_ecoturistico_uton_2024.txt`
+
+> El material piroclástico se dispersó hacia el oriente debido a los vientos predominantes en las capas superiores, cubriendo extensas áreas del Tolima, incluyendo Armero, Mariquita y Honda.
+
+- research_notes/uton_guion_2024/guion_ecoturistico_uton_2024.txt (checked 2026-11-26); evidence: `research_notes/uton_guion_2024/guion_ecoturistico_uton_2024.txt`
+
+> Esta fue la segunda erupción volcánica más mortífera del siglo XX, apenas superada por la del monte Pelée en 1902, en la isla de Martinica
+
+
+## Additive entry: weather_volcano.uton_ruiz_glacier_2022
+
+- research_notes/uton_guion_2024/guion_ecoturistico_uton_2024.txt (checked 2026-11-26); evidence: `research_notes/uton_guion_2024/guion_ecoturistico_uton_2024.txt`
+
+> Está compuesto por una única masa de hielo, cuya área, para el 2022, se calculó en 7,68 ±0,26 km², que, comparada con la del 2021 (7,96 ±0,29 km²), muestra una reducción de 0,28 km² (3.5 %). La característica destacada de este volcán nevado ha sido la emisión de ceniza volcánica y su acumulación sobre parte o la totalidad del glaciar, lo que generó, dependiendo del espesor acumulado, un incremento en el derretimiento (depósitos de ceniza de pocos centímetros) o un aislamiento térmico del glaciar (depósitos de ceniza mayores a 15 cm aprox.). Durante el fenómeno climático extremo La Niña, fue común que la nieve cubriera los depósitos de ceniza (tomado de Informe del estado de los glaciares colombianos 2022)
+
+
+## Additive entry: weather_volcano.uton_glaciation_little_ice_age
+
+- research_notes/uton_guion_2024/guion_ecoturistico_uton_2024.txt (checked 2026-11-26); evidence: `research_notes/uton_guion_2024/guion_ecoturistico_uton_2024.txt`
+
+> Hace 70.000 años aproximadamente ocurrió un descenso térmico pronunciado que generó sobre las cimas de las montañas colombianas un fuerte crecimiento en la zona glaciar. Éste fue el inicio de la última glaciación sobre el territorio colombiano
+
+- research_notes/uton_guion_2024/guion_ecoturistico_uton_2024.txt (checked 2026-11-26); evidence: `research_notes/uton_guion_2024/guion_ecoturistico_uton_2024.txt`
+
+> ocurre entre los 48.000 y 30.000 años antes del presente (ap) y se denomina como Pleniglacial Medio. Durante este período, los glaciares en Colombia ocuparon áreas por encima de los 3.000 (± 200) metros sobre el nivel del mar, cubriendo una superficie de 17.109 km²
+
+- research_notes/uton_guion_2024/guion_ecoturistico_uton_2024.txt (checked 2026-11-26); evidence: `research_notes/uton_guion_2024/guion_ecoturistico_uton_2024.txt`
+
+> Entre 1500 y 1850 d.C., la temperatura disminuyó (Pequeña Edad de Hielo).
+
+- research_notes/uton_guion_2024/guion_ecoturistico_uton_2024.txt (checked 2026-11-26); evidence: `research_notes/uton_guion_2024/guion_ecoturistico_uton_2024.txt`
+
+> los glaciares aumentaron su área llegando a ocupar 374 km2 (Flórez, 1992). El límite de hielo descendió hasta los 4.200 m en el sur del país, 4.400 m (±100 m) en la parte central de los andes colombianos
+
+- research_notes/uton_guion_2024/guion_ecoturistico_uton_2024.txt (checked 2026-11-26); evidence: `research_notes/uton_guion_2024/guion_ecoturistico_uton_2024.txt`
+
+> Desde aquella época los glaciares se han reducido en casi 84% en los últimos 150 años.
+
+- research_notes/uton_guion_2024/guion_ecoturistico_uton_2024.txt (checked 2026-11-26); evidence: `research_notes/uton_guion_2024/guion_ecoturistico_uton_2024.txt`
+
+> Desde 1850, los glaciares han retrocedido en mas de un 84%.
+
+- research_notes/uton_guion_2024/guion_ecoturistico_uton_2024.txt (checked 2026-11-26); evidence: `research_notes/uton_guion_2024/guion_ecoturistico_uton_2024.txt`
+
+> Los glaciares colombianos son restos de la última glaciación, con tendencia a la extinción y presentan un acelerado deterioro en las últimas décadas que ha sido asociado al efecto invernadero. Según los datos disponibles la perdida de área anual es de 1 a 3%. El retroceso lineal del borde inferior glaciar esta entre 15 y 20 metros por año
+
+
+## Additive entry: weather_volcano.uton_ash_not_snow
+
+- research_notes/uton_guion_2024/guion_turistico_zona_norte.txt (checked 2026-11-26); evidence: `research_notes/uton_guion_2024/guion_turistico_zona_norte.txt`
+
+> Lo que cubre gran parte del sector norte es ceniza volcánica reciente y depósitos piroclásticos. Decir la verdad permite explicar el dinamismo del volcán. La nieve y el glaciar están en franco retroceso
+
+- research_notes/uton_guion_2024/guion_turistico_zona_norte.txt (checked 2026-11-26); evidence: `research_notes/uton_guion_2024/guion_turistico_zona_norte.txt`
+
+> los guías a veces intentan "suavizar" la realidad diciendo que "la nieve está debajo" o que "eso blanco es hielo
+
+- research_notes/uton_guion_2024/guion_ecoturistico_uton_2024.txt (checked 2026-11-26); evidence: `research_notes/uton_guion_2024/guion_ecoturistico_uton_2024.txt`
+
+> En el suelo se pueden apreciar piroclastos de la erupción del 89, esta se desplazó principalmente al Noroccidente del cráter, es común verlas en Arenales, Lunares y Tumbas.
+
+- research_notes/uton_guion_2024/guion_turistico_zona_norte.txt (checked 2026-11-26); evidence: `research_notes/uton_guion_2024/guion_turistico_zona_norte.txt`
+
+> El Nevado del Ruiz es un volcán activo
+
+- research_notes/uton_guion_2024/guion_turistico_zona_norte.txt (checked 2026-11-26); evidence: `research_notes/uton_guion_2024/guion_turistico_zona_norte.txt`
+
+> Se debe hablar de "periodos de reposo" o "actividad constante", pero nunca de extinción.
+
+
+## Additive entry: weather_volcano.uton_bimodal_rainfall
+
+- research_notes/uton_guion_2024/guion_ecoturistico_uton_2024.txt (checked 2026-11-26); evidence: `research_notes/uton_guion_2024/guion_ecoturistico_uton_2024.txt`
+
+> El PNN Los Nevados se caracteriza por un régimen de precipitación bimodal con dos periodos de lluvia entre abrilmayo y octubre-noviembre, y dos periodos secos entre diciembre-febrero y de julio-agosto.
+
+- research_notes/uton_guion_2024/guion_ecoturistico_uton_2024.txt (checked 2026-11-26); evidence: `research_notes/uton_guion_2024/guion_ecoturistico_uton_2024.txt`
+
+> En los meses más húmedos La zona norte y oriente del Área Protegida exhibe promedios mensuales cercanos a 200 mm/mes y la zona sur y occidente presenta promedios mensuales cercanos a 400 mm/mes.
+
+- research_notes/uton_guion_2024/guion_ecoturistico_uton_2024.txt (checked 2026-11-26); evidence: `research_notes/uton_guion_2024/guion_ecoturistico_uton_2024.txt`
+
+> En los meses más secos La zona Norte y oriente del Parque exhibe promedios mensuales entre 50 mm/mes a 100 mm/mes y la zona Sur y Occidente presenta las precipitaciones más bajas en los meses de julio-agosto con 100 mm/mes.
+
+- research_notes/uton_guion_2024/guion_ecoturistico_uton_2024.txt (checked 2026-11-26); evidence: `research_notes/uton_guion_2024/guion_ecoturistico_uton_2024.txt`
+
+> En el caño de la cuenca del río Combeima se presenta el periodo de lluvias más bajo de todo el Parque Nacional en los meses de diciembre a febrero con promedios mensuales multianuales de 50 mm/mes
+
+
+## Additive entry: weather_volcano.uton_enso_effects
+
+- research_notes/uton_guion_2024/guion_ecoturistico_uton_2024.txt (checked 2026-11-26); evidence: `research_notes/uton_guion_2024/guion_ecoturistico_uton_2024.txt`
+
+> Durante la ocurrencia de un evento Niño fuerte de mayor probabilidad (según IDEAM) se puede observar disminuciones entre 40% y 80% de la precipitación media en el área del PNN correspondiente a los sectores de las cuencas del río Combeima y Totare (en el suroriente), en las cuencas de los ríos Lagunilla y Recio (en el oriente), en la zona alta de la cuenca del río Quindío.
+
+- research_notes/uton_guion_2024/guion_ecoturistico_uton_2024.txt (checked 2026-11-26); evidence: `research_notes/uton_guion_2024/guion_ecoturistico_uton_2024.txt`
+
+> En cuanto a la temperatura media se puede observar que toda el área del Parque Nacional se ve expuesta a un incremento cercano a 1°C.
+
+- research_notes/uton_guion_2024/guion_ecoturistico_uton_2024.txt (checked 2026-11-26); evidence: `research_notes/uton_guion_2024/guion_ecoturistico_uton_2024.txt`
+
+> Durante la ocurrencia de un evento Niña fuerte de mayor probabilidad (según IDEAM) se puede observar aumentos entre 120% y 160% de la precipitación media en el área del PNN.
+
+- research_notes/uton_guion_2024/guion_ecoturistico_uton_2024.txt (checked 2026-11-26); evidence: `research_notes/uton_guion_2024/guion_ecoturistico_uton_2024.txt`
+
+> En cuanto a la temperatura media se puede observar que toda el área del AP se ve expuesta a una reducción cercana a 1°C
+
+- research_notes/uton_guion_2024/guion_ecoturistico_uton_2024.txt (checked 2026-11-26); evidence: `research_notes/uton_guion_2024/guion_ecoturistico_uton_2024.txt`
+
+> De acuerdo con el escenario A2 (pesimista) de cambio climático proyectado para el periodo 2040-2050 por el IDEAM en la segunda comunicación nacional, en la zona occidental del área protegida específicamente en la cuenca del río Chinchiná se presentaría la mayor exposición por reducciones de la lluvia de hasta un 50%
+
+- research_notes/uton_guion_2024/guion_ecoturistico_uton_2024.txt (checked 2026-11-26); evidence: `research_notes/uton_guion_2024/guion_ecoturistico_uton_2024.txt`
+
+> En cuanto a temperatura media según este escenario se observa que toda la región se vería expuesta a un incremento entre 2°C a 3°C.
+
+
+## Additive entry: weather_volcano.uton_brisas_temperature
+
+- research_notes/uton_guion_2024/guion_ecoturistico_uton_2024.txt (checked 2026-11-26); evidence: `research_notes/uton_guion_2024/guion_ecoturistico_uton_2024.txt`
+
+> Para la estación Brisas localizada a una altitud de 4.110 m.s.n.m. la temperatura media anual es de 2,24 grados centígrados y en la estación La Laguna ubicada a 4.000 m.s.n.m. la temperatura media anual es de 3 grados centígrados, pocas horas de sol, humedad relativa alta, frecuencia de nieblas, vientos fuertes y lluvias de poca intensidad.
+
+- research_notes/uton_guion_2024/guion_ecoturistico_uton_2024.txt (checked 2026-11-26); evidence: `research_notes/uton_guion_2024/guion_ecoturistico_uton_2024.txt`
+
+> Herd (1982) calculó la isoterma anual a 0 grados centígrados para la región del parque situándola a los 4705 m.s.n.m.

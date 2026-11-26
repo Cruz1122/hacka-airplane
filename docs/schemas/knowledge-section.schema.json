@@ -74,10 +74,12 @@
           "items": {
             "type": "object",
             "additionalProperties": false,
-            "required": ["label", "url", "retrieved_at"],
+            "required": ["label", "retrieved_at"],
+            "oneOf": [{"required": ["url"]}, {"required": ["document"]}],
             "properties": {
               "label": {"$ref": "#/$defs/text"},
               "url": {"type": "string", "pattern": "^https?://"},
+              "document": {"type": "string", "pattern": "^research_notes/uton_guion_2024/[a-z0-9_]+\\.txt$"},
               "retrieved_at": {"$ref": "#/$defs/isoDate"}
             }
           }
@@ -85,10 +87,15 @@
         "last_verified": {"$ref": "#/$defs/isoDate"},
         "valid_until": {"oneOf": [{"$ref": "#/$defs/isoDate"}, {"type": "null"}]},
         "related": {"type": "array", "items": {"$ref": "#/$defs/entryId"}},
-        "tags": {"type": "array", "items": {"type": "string"}}
+        "tags": {"type": "array", "items": {"type": "string"}},
+        "verified_by_uton": {"type": "boolean"}
       },
       "allOf": [
-        {"if": {"properties": {"kind": {"const": "action"}}}, "then": {"required": ["action"]}}
+        {"if": {"properties": {"kind": {"const": "action"}}}, "then": {"required": ["action"]}},
+        {
+          "if": {"required": ["verified_by_uton"], "properties": {"verified_by_uton": {"const": true}}},
+          "then": {"properties": {"sources": {"items": {"required": ["document"]}}}}
+        }
       ]
     }
   }

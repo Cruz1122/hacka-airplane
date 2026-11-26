@@ -1,5 +1,5 @@
 // A stop's card, opened from its circle on the map: the place's name and what makes it special, its
-// animal with a real photo, and the way into the full station page.
+// central concept from the UTON guion with a real photo, and the way into the full station page.
 // One sheet per screen, like the chat's SourcesSheet, whose scrim, motion and Android back it follows.
 import { useCallback, useEffect, useState } from 'react';
 import {
@@ -22,7 +22,7 @@ import { useAccessibilityTheme } from '@/ui/useAccessibilityTheme';
 import { useReducedMotion } from '@/ui/useReducedMotion';
 
 import type { StationId } from './stations';
-import { type SpeciesPhoto, speciesPhoto } from './trailPhotos';
+import { type ConceptPhoto, conceptPhoto } from './trailPhotos';
 
 /** The square photo on the sheet's right. */
 const PHOTO_W = 132;
@@ -93,7 +93,7 @@ function OpenSheet({
     return () => sub.remove();
   }, [close]);
 
-  const photo = speciesPhoto(id);
+  const photo = conceptPhoto(id);
   const mark = t.trail.marks[id];
   return (
     <View
@@ -153,7 +153,7 @@ function OpenSheet({
           <View style={styles.text}>
             <Text style={[styles.mark, { color: palette.primary }]}>{mark}</Text>
             <Text style={[styles.blurb, scaled.body, { color: palette.inkMuted }]}>
-              {t.trail.sheet.species[id]}
+              {t.trail.sheet.concepts[id]}
             </Text>
           </View>
           <View style={[styles.photo, { backgroundColor: palette.cardShade }]}>
@@ -182,7 +182,7 @@ function OpenSheet({
 }
 
 /** The photo scaled to cover the square `zoom` times over, its `crop` point slid to the centre. */
-function squareCrop({ aspect, crop }: SpeciesPhoto) {
+function squareCrop({ aspect, crop }: ConceptPhoto) {
   const width = PHOTO_W * crop.zoom;
   const height = width * aspect;
   const centre = (at: number, size: number) =>

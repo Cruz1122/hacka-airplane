@@ -171,3 +171,19 @@ export function retrieve(
     scores,
   };
 }
+
+/**
+ * The best `k` of `entries` (catalog indexes, each with index rows) by final score, ties by id,
+ * as `retrieve` orders its pool. No gating: every listed entry competes.
+ */
+export function rankEntries(
+  scores: Float32Array,
+  ids: readonly string[],
+  entries: readonly number[],
+  k: number,
+): Pick<RetrievalResult, 'pool' | 'cos'> {
+  const top = [...entries]
+    .sort((a, b) => scores[b] - scores[a] || cmpStr(ids[a], ids[b]))
+    .slice(0, k);
+  return { pool: top.map((n) => ids[n]), cos: top.map((n) => scores[n]) };
+}

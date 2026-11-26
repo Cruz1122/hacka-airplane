@@ -179,6 +179,12 @@ def main() -> None:
     sec_names = list(sections)
     redirects = {k: v for k, v in json.loads((APP / "redirects.json").read_text()).items() if not k.startswith("_")}
     pos = {e["id"]: n for n, e in enumerate(entries)}
+    verified = {e["id"] for e in entries if e.get("verified_by_uton") is True}
+    # A redirect makes one entry's rows retrieve another; across the flag it would answer a
+    # verified-only question with unverified text, or hide a verified entry.
+    crossed = [k for k, v in redirects.items() if (k in verified) != (v in verified)]
+    if crossed:
+        raise SystemExit(f"redirect crosses verified_by_uton: {crossed}")
     texts, owner = [], []
     for n, e in enumerate(entries):
         # A redirected entry's rows retrieve its target (a meta reply -> the content hub).
@@ -219,6 +225,9 @@ def main() -> None:
             "id": e["id"], "section": e["section"], "kind": kind, "label": e["label"], "menu_label": e["label"],
             "short": e.get("reply") or natural[e["id"]], "steps": [], "sources": e.get("sources", []),
             "last_verified": e.get("last_verified"),
+            # Explicit on every row: true only for entries taken whole from the UTON guion. Hubs
+            # (built above) mix members, so they stay false.
+            "verified_by_uton": e.get("verified_by_uton") is True,
         })
     sec_out = [{"id": s, "order": sections[s].get("order"), "title": sections[s].get("title"),
                 "top_k": K, "featured": sections[s].get("featured", [])} for s in sec_names]
@@ -233,6 +242,7 @@ def main() -> None:
         "texts": {
             "abstain": "Eso no lo tengo en la guía: solo sé del Parque Los Nevados (cómo llegar, reservas, horarios, clima, seguridad, normas, fauna y flora). ¿Me lo preguntas de otra forma?",
             "offline_status": "Sin conexión no puedo confirmar el estado de hoy (cierres, alertas o vías). Esto es lo que dice la guía:",
+            "abstain_verified": "Eso no está en el guion oficial verificado por UTON, así que no te lo puedo confirmar: pregúntale a tu guía. Si apagas «Solo información verificada por UTON» en Configuración, te respondo con el resto de la guía.",
         },
         "laya": {"enabled": False, "model": "laya_final.gather_int8.onnx", "catalog_sha256": None, "mode": "reorder_only"},
     }

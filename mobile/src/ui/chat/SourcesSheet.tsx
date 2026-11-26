@@ -264,6 +264,28 @@ function SourceCard({
               {fragment}
             </Text>
           ) : null}
+          {source.verified ? (
+            <View
+              style={[
+                styles.verifiedMark,
+                { backgroundColor: palette.goldSoft, borderColor: palette.gold },
+              ]}
+            >
+              <Icon name="circleCheck" size={13} color={palette.gold} strokeWidth={2.4} />
+              <Text
+                style={[
+                  styles.verifiedText,
+                  {
+                    color: palette.goldInk,
+                    fontSize: scaleSize(12, textScale),
+                    lineHeight: scaleSize(16, textScale),
+                  },
+                ]}
+              >
+                {t.chatScreen.verified.source}
+              </Text>
+            </View>
+          ) : null}
         </View>
       </View>
       {source.excerpt ? (
@@ -431,6 +453,18 @@ const styles = StyleSheet.create({
     lineHeight: 16,
     color: brand.primary,
   },
+  verifiedMark: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    alignSelf: 'flex-start',
+    gap: 4,
+    marginTop: 4,
+    paddingHorizontal: 8,
+    paddingVertical: 2,
+    borderRadius: radius.pill,
+    borderWidth: 1,
+  },
+  verifiedText: { ...type.caption, fontFamily: fonts.semibold, fontSize: 12, lineHeight: 16 },
   excerpt: {
     ...type.body,
     fontSize: 14,

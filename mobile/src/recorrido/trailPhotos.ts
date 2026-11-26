@@ -36,12 +36,6 @@ const SOURCE_URL: Readonly<Record<string, string>> = {
     'https://commons.wikimedia.org/wiki/File:Crater_Origen_de_la_Avalancha_de_Armero_Quind%C3%ADo_13_Nov_1985.JPG',
   'place.nevado_ruiz.2.webp': 'https://commons.wikimedia.org/wiki/File:Cumanday_(712781536).jpg',
   'place.nevado_ruiz.3.webp': 'https://commons.wikimedia.org/wiki/File:El_ruiz_Volcano.jpg',
-  'place.nevado_santa_isabel.1.webp':
-    'https://commons.wikimedia.org/wiki/File:Bosque_de_Frailejones_V%C3%ADa_Laguna_el_Ot%C3%BAn.JPG',
-  'place.nevado_santa_isabel.3.webp':
-    'https://commons.wikimedia.org/wiki/File:Vista_Panor%C3%A1mica_del_Nevado_Santa_Isabel.JPG',
-  'place.nevado_tolima.1.webp':
-    'https://commons.wikimedia.org/wiki/File:Parque_Nacional_Natural_Los_Nevados_y_Nevado_del_Ruiz_(47118).jpg',
   'place.valle_tumbas.1.webp':
     'https://commons.wikimedia.org/wiki/File:Arenales_de_P%C3%A1ramo_Nevado_del_Ruiz.JPG',
   'place.valle_tumbas.2.webp': 'https://commons.wikimedia.org/wiki/File:Cenizas_volcanicas.jpg',
@@ -49,12 +43,6 @@ const SOURCE_URL: Readonly<Record<string, string>> = {
     'https://commons.wikimedia.org/wiki/File:Contraste_cambio_clim%C3%A1tico.jpg',
   'species.espeletia_hartwegiana.1.webp':
     'https://commons.wikimedia.org/wiki/File:Espeletia_hartwegiana_o.jpg',
-  'species.puma_concolor.2.webp':
-    'https://commons.wikimedia.org/wiki/File:Mountain_Lion_in_Glacier_National_Park.jpg',
-  'species.tremarctos_ornatus.2.webp':
-    'https://commons.wikimedia.org/wiki/File:2018-09-01_AT_Wien_13_Hietzing,_Tiergarten_Sch%C3%B6nbrunn,_Tremarctos_ornatus_(50790951717).jpg',
-  'species.vultur_gryphus.1.webp':
-    'https://commons.wikimedia.org/wiki/File:Andean_condor_at_the_Hoenderdaell_animal_park_in_Anna_Paulowna.jpg',
 };
 
 /** A bundled photo with its credit; throws when the catalog or the build lacks it. */
@@ -79,29 +67,29 @@ function bundled(item: string, n: number): TrailPhoto {
 /** Catalog item and photo number per page, in the order of `t.trail.pages[id]`. */
 const PAGES: Record<StationId, readonly (readonly [item: string, n: number])[]> = {
   brisas: [
-    ['place.frailejonal', 1],
-    ['place.nevado_ruiz', 3],
-    ['place.nevado_santa_isabel', 3],
-  ],
-  aguacerales: [
-    ['place.frailejonal', 3],
-    ['place.frailejonal', 2],
-    ['place.glaciar', 1],
-  ],
-  arenales: [
-    ['place.nevado_ruiz', 1],
     ['place.crater_arenas', 1],
     ['place.nevado_ruiz', 2],
+    ['place.nevado_ruiz', 3],
+  ],
+  aguacerales: [
+    ['place.frailejonal', 2],
+    ['place.frailejonal', 1],
+    ['place.frailejonal', 3],
+  ],
+  arenales: [
+    ['place.valle_tumbas', 1],
+    ['place.glaciar', 3],
+    ['place.valle_tumbas', 3],
   ],
   valleLunar: [
-    ['place.glaciar', 3],
-    ['place.nevado_tolima', 1],
-    ['place.nevado_santa_isabel', 1],
+    ['place.valle_tumbas', 3],
+    ['place.nevado_ruiz', 1],
+    ['place.valle_tumbas', 2],
   ],
   valleTumbas: [
-    ['place.valle_tumbas', 1],
     ['place.valle_tumbas', 2],
-    ['place.valle_tumbas', 3],
+    ['place.nevado_ruiz', 2],
+    ['place.nevado_ruiz', 1],
   ],
 };
 
@@ -115,7 +103,7 @@ export function trailPhoto(id: StationId, page: number): TrailPhoto {
 /** Where to frame a photo in a square: its centre as 0..1 of the photo, and how far to zoom in. */
 export type PhotoCrop = { x: number; y: number; zoom: number };
 
-export type SpeciesPhoto = TrailPhoto & {
+export type ConceptPhoto = TrailPhoto & {
   /** Height over width of the photo file. */
   aspect: number;
   crop: PhotoCrop;
@@ -125,31 +113,20 @@ export type SpeciesPhoto = TrailPhoto & {
 const CATALOG_ASPECT = 1.25;
 
 /**
- * The real photo of each stop's species for its sheet, framed by eye: the park's own frailejón, the
- * bear's face with its markings, the whole puma, the condor's head, ruff and wing. The culpeo is not
- * in the chat's catalog, so its photo ships with the trail (Wikimedia Commons, cropped square on
- * the fox).
+ * The photo beside each stop's central concept on its sheet (Guion UTON 2024, "Los Nodos del
+ * Diagrama"), framed by eye: the park's own frailejón, Aguacerales' waterfall, Arenales' ash slope
+ * where the páramo gives out, ice on rock for frost shattering, and the steaming Arenas crater.
  */
-const SPECIES: Record<StationId, () => SpeciesPhoto> = {
-  brisas: () => catalogSpecies('species.espeletia_hartwegiana', 1, { x: 0.5, y: 0.4, zoom: 1 }),
-  aguacerales: () => catalogSpecies('species.tremarctos_ornatus', 2, { x: 0.5, y: 0.42, zoom: 1 }),
-  arenales: () => catalogSpecies('species.puma_concolor', 2, { x: 0.5, y: 0.45, zoom: 1 }),
-  valleLunar: () => ({
-    source: require('../../assets/images/trail/culpeo.webp') as number,
-    author: 'Diego Delso',
-    license: 'CC BY-SA 4.0',
-    url: 'https://commons.wikimedia.org/wiki/File:Zorro_andino_(Lycalopex_culpaeus_andinus),_Laguna_Colorada,_Bolivia,_2016-02-02,_DD_101.JPG',
-    aspect: 1,
-    crop: { x: 0.5, y: 0.5, zoom: 1 },
-  }),
-  valleTumbas: () => catalogSpecies('species.vultur_gryphus', 1, { x: 0.4, y: 0.42, zoom: 1.25 }),
+const CONCEPTS: Record<StationId, readonly [item: string, n: number, crop: PhotoCrop]> = {
+  brisas: ['species.espeletia_hartwegiana', 1, { x: 0.5, y: 0.4, zoom: 1 }],
+  aguacerales: ['place.glaciar', 1, { x: 0.64, y: 0.5, zoom: 1.25 }],
+  arenales: ['place.valle_tumbas', 2, { x: 0.5, y: 0.55, zoom: 1 }],
+  valleLunar: ['place.glaciar', 3, { x: 0.5, y: 0.55, zoom: 1 }],
+  valleTumbas: ['place.crater_arenas', 1, { x: 0.5, y: 0.64, zoom: 1 }],
 };
 
-function catalogSpecies(item: string, n: number, crop: PhotoCrop): SpeciesPhoto {
+/** The photo beside the stop's central concept; throws when it maps to a photo the build did not bundle. */
+export function conceptPhoto(id: StationId): ConceptPhoto {
+  const [item, n, crop] = CONCEPTS[id];
   return { ...bundled(item, n), aspect: CATALOG_ASPECT, crop };
-}
-
-/** The stop's species photo; throws when it maps to a photo the build did not bundle. */
-export function speciesPhoto(id: StationId): SpeciesPhoto {
-  return SPECIES[id]();
 }

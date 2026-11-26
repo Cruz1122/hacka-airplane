@@ -80,10 +80,45 @@ def embed_st(texts: list[str]) -> np.ndarray:
     return np.asarray(v, dtype=np.float32)
 
 
+EMBED_CACHE = ROOT / "models/knowledge/embed_cache"
+
+
+def _file_sha256(path: Path) -> str:
+    h = hashlib.sha256()
+    with path.open("rb") as f:
+        for block in iter(lambda: f.read(1 << 20), b""):
+            h.update(block)
+    return h.hexdigest()
+
+
 def embed_gguf(texts: list[str], gguf: Path, binary: Path) -> np.ndarray:
-    """llama.cpp llama-embedding: mean pooling, L2-normalised, one prompt per line."""
+    """llama-embedding vectors for `texts`, reusing every vector this model already produced.
+
+    A text's vector depends only on the model and the text, so the cache is keyed by the GGUF's
+    sha256 and the exact text: an export after a corpus edit embeds only the new or changed rows,
+    whatever section (gate) they belong to. Delete models/knowledge/embed_cache to force a cold run.
+    """
     if any("\n" in t for t in texts):
         raise ValueError("texts must be single-line for llama-embedding")
+    cache_path = EMBED_CACHE / f"{_file_sha256(gguf)[:16]}.npz"
+    cached: dict[str, np.ndarray] = {}
+    if cache_path.exists():
+        with np.load(cache_path, allow_pickle=False) as z:
+            cached = dict(zip(z["texts"].tolist(), z["vectors"], strict=True))
+    missing = list(dict.fromkeys(t for t in texts if t not in cached))
+    print(f"embed_gguf: {len(texts) - len(missing)} cached, {len(missing)} to embed", flush=True)
+    if missing:
+        cached.update(zip(missing, _run_llama_embedding(missing, gguf, binary), strict=True))
+        EMBED_CACHE.mkdir(parents=True, exist_ok=True)
+        keys = list(cached)
+        tmp = cache_path.with_suffix(".tmp.npz")
+        np.savez(tmp, texts=np.array(keys), vectors=np.stack([cached[k] for k in keys]))
+        tmp.replace(cache_path)
+    return np.stack([cached[t] for t in texts]).astype(np.float32)
+
+
+def _run_llama_embedding(texts: list[str], gguf: Path, binary: Path) -> np.ndarray:
+    """llama.cpp llama-embedding: mean pooling, L2-normalised, one prompt per line."""
     out = []
     for i in range(0, len(texts), 256):
         chunk = [PREFIX + t for t in texts[i : i + 256]]
