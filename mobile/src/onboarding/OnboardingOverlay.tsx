@@ -1,7 +1,7 @@
 // UIOverlay layer: the cloud card with real text and buttons (React Native, not SVG) over the
 // bottom of the scene. Everything follows the scene's progress value, so copy, dots and camera
 // move together. Styling comes from the design tokens only.
-import { memo } from 'react';
+import { memo, useMemo } from 'react';
 import { Animated, StyleSheet, Text, View } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
@@ -66,6 +66,11 @@ export const OnboardingOverlay = memo(function OnboardingOverlay({
 }: OnboardingOverlayProps) {
   const insets = useSafeAreaInsets();
   const position = usePagePosition(progress);
+  // Built once per value: the page-swap render mid-move must not rebuild the native nodes.
+  const motions = useMemo(
+    () => t.onboarding.screens.map((_, k) => copyMotion(position.value, k)),
+    [position.value],
+  );
   if (!uiStyleOf(doc)) return null;
   const index = Math.min(ONBOARDING_SCREENS - 1, Math.max(0, position.index));
   const last = index === ONBOARDING_SCREENS - 1;
@@ -88,12 +93,7 @@ export const OnboardingOverlay = memo(function OnboardingOverlay({
           </View>
           <View style={styles.copy}>
             {t.onboarding.screens.map((copy, k) => (
-              <Animated.View
-                key={k}
-                style={[styles.page, copyMotion(position.value, k)]}
-                accessibilityElementsHidden={k !== index}
-                importantForAccessibility={k === index ? 'auto' : 'no-hide-descendants'}
-              >
+              <Animated.View key={k} style={[styles.page, motions[k]]} aria-hidden={k !== index}>
                 <Text style={styles.title} accessibilityRole="header" numberOfLines={2}>
                   {fill(copy.title, { pet: PET_NAME })}
                 </Text>

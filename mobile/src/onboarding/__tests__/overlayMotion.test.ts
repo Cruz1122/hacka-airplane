@@ -1,8 +1,10 @@
 // The card's copy and page dots move with native-driven interpolations of the progress value. They
 // must draw what the overlay drew when it re-rendered on every frame, for any progress.
+import { act, createElement } from 'react';
 import { Animated } from 'react-native';
+import { createRoot } from 'test-renderer';
 
-import { dotScale } from '@/ui/PageDots';
+import { dotScale, usePagePosition, type PagePosition } from '@/ui/PageDots';
 
 import { copyMotion } from '../OnboardingOverlay';
 import { ONBOARDING_SCREENS } from '../scene/types';
@@ -41,4 +43,21 @@ it('scales the page dots as before', () => {
     for (let i = 0; i < ONBOARDING_SCREENS; i++)
       expect(read(dotScale(value, i))).toBeCloseTo(scaleOf(p, i), 9);
   }
+});
+
+it('follows a plain number position (Lab, design catalog) with one value', () => {
+  const seen: PagePosition[] = [];
+  function Probe({ position }: { position: number }) {
+    seen.push(usePagePosition(position));
+    return null;
+  }
+  const root = createRoot();
+  act(() => root.render(createElement(Probe, { position: 1.25 })));
+  expect(read(seen.at(-1)!.value)).toBe(1.25);
+  expect(seen.at(-1)!.index).toBe(1);
+  act(() => root.render(createElement(Probe, { position: 1.75 })));
+  expect(read(seen.at(-1)!.value)).toBe(1.75);
+  expect(seen.at(-1)!.index).toBe(2);
+  expect(seen.at(-1)!.value).toBe(seen[0].value);
+  act(() => root.unmount());
 });
