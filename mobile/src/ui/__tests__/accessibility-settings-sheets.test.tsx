@@ -190,7 +190,7 @@ describe('AccessibilitySheet', () => {
 });
 
 describe('SettingsSheet', () => {
-  it('toggles the verified-only switch, labelled and explained, and saves it', async () => {
+  it('toggles the verified-only switch and saves it', async () => {
     let on: boolean | undefined;
     function Probe() {
       on = useVerifiedOnly();
@@ -213,8 +213,7 @@ describe('SettingsSheet', () => {
         (n) => n.props.accessibilityRole === 'switch' && n.props.accessibilityLabel === copy.title,
       )[0];
     expect(on).toBe(false);
-    expect(ui.hasText(copy.body)).toBe(true);
-    expect(row().props.accessibilityHint).toBe(copy.body);
+    expect(ui.hasText(copy.title)).toBe(true);
     expect(row().props.accessibilityState).toEqual({ checked: false });
 
     await ui.pressSwitch(copy.title);

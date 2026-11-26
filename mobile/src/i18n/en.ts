@@ -394,8 +394,7 @@ export const en: Labels = {
     close: 'Close settings',
     back: 'Back to settings',
     verifiedOnly: {
-      title: 'UTON-verified information only',
-      body: 'The chat answers only from the official guide script of Unión Temporal Operación Nevados (2024).',
+      title: 'Answer ONLY with validated information',
     },
     savedSources: {
       title: 'Saved sources',
