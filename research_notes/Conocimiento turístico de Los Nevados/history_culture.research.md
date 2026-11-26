@@ -533,3 +533,15 @@ Módulo: `history_culture/corrected_round2.py`, conectado en `emit_corrected.py`
 - research_notes/uton_guion_2024/guion_ecoturistico_uton_2024.txt (checked 2026-11-26); evidence: `research_notes/uton_guion_2024/guion_ecoturistico_uton_2024.txt`
 
 > Es importante recordar que el Nevado del Ruiz es un complejo volcánico compuesto por cuatro estructuras (Nereidas, Olleta, Piraña y Arenas), aunque comúnmente se le conoce como Nevado del Ruiz al edificio que alberga el cráter Arenas.
+
+
+## Updated entry: history_culture.uton_valle_tumbas_name
+
+- Reason: Keep Valle Lunar naming questions off the Tumbas name entry.
+- Changed fields: hard_negatives
+
+
+## Updated entry: history_culture.uton_arenales_ghost_girl
+
+- Reason: Station chat phrasing: 'aquí espantan'.
+- Changed fields: examples

@@ -14,6 +14,18 @@ export const STATION_IDS = [
 
 export type StationId = (typeof STATION_IDS)[number];
 
+/**
+ * Each stop as the knowledge corpus names it, for the stage chat's retrieval only (Spanish, never
+ * shown): the corpus calls Valle Lunar "Lunares", and the screen names carry taglines.
+ */
+export const STATION_PLACE: Readonly<Record<StationId, string>> = {
+  brisas: 'Brisas',
+  aguacerales: 'Aguacerales',
+  arenales: 'Arenales',
+  valleLunar: 'Lunares',
+  valleTumbas: 'Valle de las Tumbas',
+};
+
 /** WGS84 degrees, in route order. */
 export const STATION_COORDS: Readonly<Record<StationId, { lat: number; lon: number }>> = {
   brisas: { lat: 4.934637957115937, lon: -75.35013575948123 },

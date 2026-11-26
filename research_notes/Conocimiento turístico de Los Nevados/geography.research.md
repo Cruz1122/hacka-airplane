@@ -545,3 +545,59 @@ Los `.txt` de HTML salen de `evidence/html_to_text.py`. Las citas se verifican c
 - research_notes/uton_guion_2024/guion_turistico_zona_norte.txt (checked 2026-11-26); evidence: `research_notes/uton_guion_2024/guion_turistico_zona_norte.txt`
 
 > Concepto clave: Gelifracción y oxidación.
+
+
+## Updated entry: geography.uton_lunares_station
+
+- Reason: Move the naming question to geography.uton_valle_lunar_name; add plant questions.
+- Changed fields: examples
+
+
+## Additive entry: geography.uton_brisas_entrance
+
+- research_notes/uton_guion_2024/guion_turistico_zona_norte.txt (checked 2026-11-26); evidence: `research_notes/uton_guion_2024/guion_turistico_zona_norte.txt`
+
+> 1. Introducción: Sector Brisas (Puerta de Entrada)
+
+- research_notes/uton_guion_2024/guion_turistico_zona_norte.txt (checked 2026-11-26); evidence: `research_notes/uton_guion_2024/guion_turistico_zona_norte.txt`
+
+> Estamos ingresando al Parque Nacional Natural Los Nevados
+
+- research_notes/uton_guion_2024/guion_turistico_zona_norte.txt (checked 2026-11-26); evidence: `research_notes/uton_guion_2024/guion_turistico_zona_norte.txt`
+
+> Nos encontramos en el flanco norte del Complejo Volcánico Nevado del Ruiz (CVNR), una estructura compuesta por cuatro domos principales: Nereidas, Olleta, Piraña y el cráter activo Arenas.
+
+- research_notes/uton_guion_2024/guion_turistico_zona_norte.txt (checked 2026-11-26); evidence: `research_notes/uton_guion_2024/guion_turistico_zona_norte.txt`
+
+> Este ecosistema de páramo es un 'regulador hídrico' vital para el Eje Cafetero
+
+- research_notes/uton_guion_2024/guion_ecoturistico_uton_2024.txt (checked 2026-11-26); evidence: `research_notes/uton_guion_2024/guion_ecoturistico_uton_2024.txt`
+
+> El agua del parque abastece a 37 municipios
+
+- research_notes/uton_guion_2024/guion_ecoturistico_uton_2024.txt (checked 2026-11-26); evidence: `research_notes/uton_guion_2024/guion_ecoturistico_uton_2024.txt`
+
+> Para la estación Brisas localizada a una altitud de 4.110 m.s.n.m. la temperatura media anual es de 2,24 grados centígrados
+
+- research_notes/uton_guion_2024/guion_ecoturistico_uton_2024.txt (checked 2026-11-26); evidence: `research_notes/uton_guion_2024/guion_ecoturistico_uton_2024.txt`
+
+> tomados en la estación meteorológica de Brisas
+
+
+## Additive entry: geography.uton_valle_lunar_name
+
+- research_notes/uton_guion_2024/guion_turistico_zona_norte.txt (checked 2026-11-26); evidence: `research_notes/uton_guion_2024/guion_turistico_zona_norte.txt`
+
+> Este es el Valle Lunar, llamado así por su aspecto estéril y desolado.
+
+- research_notes/uton_guion_2024/guion_turistico_zona_norte.txt (checked 2026-11-26); evidence: `research_notes/uton_guion_2024/guion_turistico_zona_norte.txt`
+
+> El paisaje aquí se torna 'lunar' debido a la gelifracción.
+
+- research_notes/uton_guion_2024/guion_turistico_zona_norte.txt (checked 2026-11-26); evidence: `research_notes/uton_guion_2024/guion_turistico_zona_norte.txt`
+
+> El agua se filtra en las grietas de la roca, se congela por la noche aumentando su volumen
+
+- research_notes/uton_guion_2024/guion_turistico_zona_norte.txt (checked 2026-11-26); evidence: `research_notes/uton_guion_2024/guion_turistico_zona_norte.txt`
+
+> rompe las rocas andesíticas en pedazos angulares

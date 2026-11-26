@@ -128,6 +128,7 @@ export const URGENT: ChatRow[] = toChatRows(
     },
   ],
   t.knowledge.error,
+  t.knowledge.locked,
 );
 
 /**
@@ -166,6 +167,7 @@ function photoTurn(layout: MediaPick['layout']): ChatRow[] {
       },
     ],
     t.knowledge.error,
+    t.knowledge.locked,
   );
 }
 
