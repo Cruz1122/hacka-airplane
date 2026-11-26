@@ -102,23 +102,31 @@ export const ChatBubble = memo(function ChatBubble({
 function Reply({ blocks, label }: { blocks: Block[]; label: string }) {
   return (
     <View accessible accessibilityLabel={label}>
-      {blocks.map((b, i) =>
-        b.marker === null ? (
-          <Text key={i} style={[styles.theirsText, i > 0 && styles.paragraphGap]} selectable>
-            {spans(b)}
-          </Text>
-        ) : (
-          <View key={i} style={[styles.item, i > 0 && styles.itemGap]}>
-            <Text style={[styles.theirsText, styles.marker]}>{b.marker}</Text>
-            <Text style={[styles.theirsText, styles.itemText]} selectable>
-              {spans(b)}
-            </Text>
-          </View>
-        ),
-      )}
+      {blocks.map((b, i) => (
+        <BlockView key={i} block={b} first={i === 0} />
+      ))}
     </View>
   );
 }
+
+/**
+ * One paragraph or list item. Memoized by identity: `sliceDoc` keeps a whole block's object, so
+ * while a reply types out only its last block re-renders.
+ */
+const BlockView = memo(function BlockView({ block: b, first }: { block: Block; first: boolean }) {
+  return b.marker === null ? (
+    <Text style={[styles.theirsText, !first && styles.paragraphGap]} selectable>
+      {spans(b)}
+    </Text>
+  ) : (
+    <View style={[styles.item, !first && styles.itemGap]}>
+      <Text style={[styles.theirsText, styles.marker]}>{b.marker}</Text>
+      <Text style={[styles.theirsText, styles.itemText]} selectable>
+        {spans(b)}
+      </Text>
+    </View>
+  );
+});
 
 /** Plain runs as bare strings (a plain block is just its text), bold runs as nested Text. */
 function spans(block: Block): ReactNode[] {

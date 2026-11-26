@@ -58,9 +58,12 @@ const advance = (ms: number) =>
   });
 let ids = 0;
 /** A reply the chat has just scheduled, under a fresh row id. */
+/** Every row scheduled so far: the chat always hands the store its whole conversation. */
+const rows: { id: string; role: 'assistant'; text: string }[] = [];
 function scheduled(text: string) {
   const id = `r${++ids}`;
-  act(() => replyReveal.schedule([{ id, role: 'assistant', text }], new Set(), clock));
+  rows.push({ id, role: 'assistant', text });
+  act(() => replyReveal.schedule(rows, new Set(), clock));
   return id;
 }
 
@@ -213,7 +216,7 @@ describe('ChatBubble', () => {
   it('re-renders only the bubble that is typing out', () => {
     const renders = { done: 0, live: 0 };
     const root = createRoot();
-    const text = 'uno dos tres cuatro';
+    const text = 'uno dos tres cuatro cinco seis siete ocho nueve diez once doce';
     const live = scheduled(text);
     act(() =>
       root.render(
@@ -229,9 +232,10 @@ describe('ChatBubble', () => {
       ),
     );
     const before = { ...renders };
-    advance(MS);
-    advance(MS);
-    advance(MS);
+    // One chunk per step: the loop moves the streams at most ~15 times a second.
+    advance(MS * 3);
+    advance(MS * 3);
+    advance(MS * 3);
     expect(renders.done - before.done).toBe(0);
     expect(renders.live - before.live).toBe(3);
   });

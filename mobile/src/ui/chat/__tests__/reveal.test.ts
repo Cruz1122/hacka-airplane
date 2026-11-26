@@ -26,6 +26,35 @@ describe('RevealStore', () => {
     expect(s.busy()).toBe(false);
   });
 
+  it('starts the next reply at once after a new chat drops one still typing out', () => {
+    const { s } = store();
+    s.schedule([reply('old', 'a b c d e f g h i j k l m n o p q r s t')], NONE, 0);
+    s.schedule([], NONE, MS);
+    s.schedule([reply('k9:banner', 'Marca el 123.')], NONE, MS * 2);
+    expect(s.shown('k9:banner')).toBe(1);
+    expect(s.revealing('old')).toBeUndefined();
+  });
+
+  it('moves the streams in chunks at most about 15 times a second, whatever the display rate', () => {
+    const { s, frames } = store();
+    let now = 0;
+    const clock = jest.spyOn(performance, 'now').mockImplementation(() => now);
+    let emits = 0;
+    s.subscribe(() => emits++);
+    s.schedule([reply('a', Array.from({ length: 80 }, (_, i) => `w${i}`).join(' '))], NONE, 0);
+    emits = 0;
+    // One second of 120 Hz frames.
+    for (let i = 0; i < 120; i++) {
+      now += 1000 / 120;
+      frames.splice(0).forEach((f) => f());
+    }
+    expect(emits).toBeGreaterThanOrEqual(12);
+    expect(emits).toBeLessThanOrEqual(16);
+    // Time-based all the same: a second at 40 words/s has 40 (or 41) words out.
+    expect(s.shown('a')).toBeGreaterThanOrEqual(38);
+    clock.mockRestore();
+  });
+
   it('catches up after a dropped frame instead of slowing down', () => {
     const { s } = store();
     s.schedule([reply('a', 'a b c d e f g h')], NONE, 0);
