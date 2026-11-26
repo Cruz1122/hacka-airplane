@@ -107,13 +107,17 @@ test('keeps both shores of a panorama in the fallback frame', () => {
   expect([...photoFrames(224, 224)]).toHaveLength(1);
 });
 
-test.each(['mariposa_cydno', 'abejorro_funebris'] as const)('answers with a local source when a %s is detected', async (id) => {
+const sourcedClasses = Object.entries(classes).flatMap(([id, expected]) =>
+  'id' in expected ? [{ id, expected }] : [],
+);
+
+test.each(sourcedClasses)('answers with a local source when $id is detected', async ({ id, expected }) => {
   const engine = { ask: jest.fn() };
   const chat = new KnowledgeChat(async () => ({ engine }));
   const reference = references.find((row) => row.classId === id)!;
   await chat.askPhoto('file:///insecto.jpg', '', async () => matchPhoto(Float32Array.from(reference.vector)));
   expect(chat.snapshot().rows.at(-1)).toMatchObject({
-    reply: { type: 'answer', id: classes[id].id, sources: [classes[id].source] },
+    reply: { type: 'answer', id: expected.id, sources: [expected.source] },
   });
   expect(engine.ask).not.toHaveBeenCalled();
 });
