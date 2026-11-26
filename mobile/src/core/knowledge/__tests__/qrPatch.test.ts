@@ -87,7 +87,7 @@ test('the overlay works with the native scorer and survives restart, replacement
   await expect(restarted.applyPatch(patch)).rejects.toThrow('revisión igual o más reciente');
   const removed = make();
   await removed.restorePatches(storage);
-  expect((await removed.ask('mirador', patch.id)).reply).toMatchObject({ type: 'abstain' });
+  expect((await removed.ask('mirador', { visualEntryId: patch.id })).reply).toMatchObject({ type: 'abstain' });
   await expect(removed.applyPatch({ id: 'health_safety.123', revision: 4, op: 'remove' })).rejects.toThrow('seguridad');
 });
 

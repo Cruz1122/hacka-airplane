@@ -19,14 +19,19 @@ const FOLD_TO = 'aaaaaeeeeiiiiooooouuuuncaaaaaeeeeiiiiooooouuuunc';
 const FOLD: Record<string, string> = {};
 for (let i = 0; i < FOLD_FROM.length; i++) FOLD[FOLD_FROM.charAt(i)] = FOLD_TO.charAt(i);
 
-/** Folded form the rules match against (exported for tests and for the engine's diagnostics). */
-export function foldText(text: string): string {
+/** Replaces accented Spanish letters with their plain form; leaves every other character. */
+export function foldAccents(text: string): string {
   let out = '';
   for (let i = 0; i < text.length; i++) {
     const ch = text.charAt(i);
     out += FOLD[ch] ?? ch;
   }
-  return out
+  return out;
+}
+
+/** Folded form the rules match against (exported for tests and for the engine's diagnostics). */
+export function foldText(text: string): string {
+  return foldAccents(text)
     .toLowerCase()
     .replace(/[\u0300-\u036f]/g, '') // combining marks from decomposed input
     .replace(/[^a-z0-9]+/g, ' ')
