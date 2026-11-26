@@ -1,6 +1,7 @@
 // Chat state for the knowledge engine (top-1 curated answers). Plain store so it is testable
 // without React; useKnowledge.ts subscribes to it. Never touches modelManager: e5 has its own context.
 import type { AskOptions, AskResult, KnowledgeEngine } from '@/core/knowledge';
+import type { KnowledgePatch } from '@/core/knowledge/qrPatch';
 import { detectSafety } from '@/core/knowledge/safety';
 import type { KnowledgeReply, KnowledgeTiming } from '@/core/knowledge/types';
 import { pickMedia, type MediaCatalog, type MediaPick } from '@/core/media/media';
@@ -27,7 +28,7 @@ export interface KnowledgeChatState {
   error?: string;
 }
 
-type Engine = Pick<KnowledgeEngine, 'ask'> & Partial<Pick<KnowledgeEngine, 'resetContext'>>;
+type Engine = Pick<KnowledgeEngine, 'ask'> & Partial<Pick<KnowledgeEngine, 'resetContext' | 'applyPatches'>>;
 export interface LoadedEngine {
   engine: Engine;
   degraded?: string;
@@ -118,6 +119,7 @@ export class KnowledgeChat {
   private askedVerifiedOnly: boolean | undefined;
   private seq = 0;
   private generation = 0;
+  private updating = false;
 
   constructor(
     load: () => Promise<LoadedEngine>,
@@ -141,6 +143,22 @@ export class KnowledgeChat {
     this.listeners.add(fn);
     return () => this.listeners.delete(fn);
   };
+
+  async applyPatches(patches: readonly KnowledgePatch[], ignoreOlder = true): Promise<number> {
+    if (this.state.busy) throw new Error('Espera a que el asistente termine la operación en curso.');
+    this.updating = true;
+    this.set({ busy: true });
+    try {
+      const engine = await this.engine;
+      if (!engine.applyPatches || this.state.status === 'degraded') {
+        throw new Error('El modelo local de Tumak no está disponible. Comprueba que sus archivos estén instalados.');
+      }
+      return await engine.applyPatches(patches, ignoreOlder);
+    } finally {
+      this.updating = false;
+      this.set({ busy: false });
+    }
+  }
 
   async ask(text: string, context?: string): Promise<void> {
     const q = text.trim();
@@ -323,7 +341,7 @@ export class KnowledgeChat {
       if (row.role === 'user' && row.photoUri?.startsWith('blob:'))
         URL.revokeObjectURL(row.photoUri);
     }
-    this.set({ rows: [], busy: false });
+    this.set({ rows: [], busy: this.updating });
     // A load failure already surfaced through ask(); nothing to reset then.
     void this.engine.then(
       (e) => e.resetContext?.(),

@@ -3,7 +3,7 @@
 // illustration (its palette lives in the scene document and is edited in the Lab) and the Pet's
 // drawing (character colors are part of the asset, ported from its own lab).
 import { readdirSync, readFileSync, statSync } from 'fs';
-import { join, relative } from 'path';
+import { join } from 'path';
 
 const ROOT = join(__dirname, '../../..');
 const SCANNED = ['app', 'src/ui', 'src/chat', 'src/onboarding/OnboardingOverlay.tsx'];
@@ -15,9 +15,9 @@ function files(path: string): string[] {
   return readdirSync(full).flatMap((name) => files(join(path, name)));
 }
 
-const uiFiles = SCANNED.flatMap(files).filter(
-  (f) => /\.tsx?$/.test(f) && !EXEMPT.some((re) => re.test(relative('.', f))),
-);
+const uiFiles = SCANNED.flatMap(files)
+  .map((file) => file.replace(/\\/g, '/'))
+  .filter((file) => /\.tsx?$/.test(file) && !EXEMPT.some((re) => re.test(file)));
 
 /** Each offending line as "file:line: text"; comments are ignored. */
 function offenders(test: (code: string) => boolean): string[] {

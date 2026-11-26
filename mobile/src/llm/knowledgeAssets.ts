@@ -6,6 +6,7 @@ import manifest from '@/../assets/data/knowledge/index.json';
 import policy from '@/../assets/data/knowledge/policy.json';
 import sections from '@/../assets/data/knowledge/sections.json';
 import { KnowledgeEngine, type KnowledgeAssets } from '@/core/knowledge';
+import { KNOWLEDGE_PATCH_KEY, knowledgePatchStorage } from '@/state/knowledgePatchStorage';
 
 export const knowledgeAssets = {
   catalog,
@@ -14,6 +15,14 @@ export const knowledgeAssets = {
   manifest,
   depth,
 } as unknown as KnowledgeAssets;
+
+export async function restoreKnowledgePatches(engine: KnowledgeEngine): Promise<void> {
+  try {
+    await engine.restorePatches(knowledgePatchStorage(KNOWLEDGE_PATCH_KEY));
+  } catch (cause) {
+    console.warn('No se pudieron restaurar las actualizaciones de conocimiento.', cause);
+  }
+}
 
 export interface KnowledgeRuntime {
   engine: KnowledgeEngine;

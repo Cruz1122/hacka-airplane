@@ -21,6 +21,7 @@ import {
   type PlaybackFrame,
 } from '@/onboarding/usePlayback';
 import { CloudCard } from '@/ui/CloudCard';
+import { UpdateKnowledgeLink } from '@/ui/UpdateKnowledgeLink';
 import { brand } from '@/ui/theme/tokens';
 import { useReducedMotion } from '@/ui/useReducedMotion';
 
@@ -161,6 +162,11 @@ export default function OnboardingScreen() {
           onDone={leave}
         />
       </Animated.View>
+      {!exit && index === 0 && (
+        <View style={[styles.update, { top: insets.top + 8, right: insets.right + 12 }]}>
+          <UpdateKnowledgeLink />
+        </View>
+      )}
       {exit && (
         <Animated.View
           pointerEvents="none"
@@ -181,4 +187,5 @@ const styles = StyleSheet.create({
   root: { flex: 1, backgroundColor: brand.sky, overflow: 'hidden' },
   sheet: { position: 'absolute', left: 0 },
   circle: { position: 'absolute' },
+  update: { position: 'absolute' },
 });

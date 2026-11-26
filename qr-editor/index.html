@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Editor QR · Los Nevados</title>
+    <script type="module" src="/src.js"></script>
+  </head>
+  <body>
+    <header class="masthead">
+      <div><span class="brand">Los Nevados</span><span class="divider"></span> Editor de conocimiento</div>
+    </header>
+    <main>
+      <div class="intro">
+        <h1>Actualizaciones por QR</h1>
+        <p>Prepara una ficha para que los visitantes actualicen la guía sin internet.</p>
+      </div>
+      <div class="layout">
+        <form id="editor" class="panel">
+          <fieldset class="mode">
+            <legend>Operación</legend>
+            <label><input type="radio" name="operation" value="put" checked> Agregar o reemplazar</label>
+            <label><input type="radio" name="operation" value="remove"> Quitar ficha</label>
+          </fieldset>
+          <label for="existing">Buscar una ficha del catálogo <small>Opcional</small></label>
+          <input id="existing" list="catalog" placeholder="Busca por título o ID" autocomplete="off">
+          <datalist id="catalog"></datalist>
+          <div class="fields">
+            <div>
+              <label for="entry-id">ID de la ficha</label>
+              <input id="entry-id" name="id" required maxlength="100" placeholder="geography.mirador" spellcheck="false">
+            </div>
+            <div id="section-field">
+              <label for="section">Sección</label>
+              <select id="section" name="section"></select>
+            </div>
+          </div>
+          <fieldset id="entry">
+            <label for="title">Título</label>
+            <input id="title" name="title" required maxlength="100" placeholder="Mirador del páramo">
+            <label for="answer">Respuesta principal</label>
+            <textarea id="answer" name="answer" rows="3" required maxlength="650" placeholder="Escribe la información que verá el visitante."></textarea>
+            <label for="questions">Preguntas para los embeddings <small>Una por línea</small></label>
+            <textarea id="questions" name="questions" rows="3" placeholder="¿Dónde queda el mirador?"></textarea>
+            <button type="button" id="suggest" class="quiet">Sugerir preguntas y variantes</button>
+            <details open>
+              <summary>Variantes y seguimiento</summary>
+              <label for="variants">Variantes de la respuesta <small>Una por línea</small></label>
+              <textarea id="variants" name="variants" rows="2"></textarea>
+              <div class="fields">
+                <div><label for="more">Cuando diga «sigue»</label><textarea id="more" name="more" rows="2"></textarea></div>
+                <div><label for="why">Cuando pregunte «por qué»</label><textarea id="why" name="why" rows="2"></textarea></div>
+              </div>
+              <label for="related">IDs de fichas relacionadas <small>Uno por línea</small></label>
+              <textarea id="related" name="related" rows="1"></textarea>
+            </details>
+            <details>
+              <summary>Pasos y fuentes</summary>
+              <label for="steps">Pasos <small>Uno por línea</small></label>
+              <textarea id="steps" name="steps" rows="2"></textarea>
+              <label for="sources">Fuentes <small>Nombre | URL HTTPS, una por línea</small></label>
+              <textarea id="sources" name="sources" rows="2"></textarea>
+            </details>
+          </fieldset>
+          <button class="primary" type="submit">Generar QR</button>
+          <p id="error" class="error" role="alert"></p>
+        </form>
+        <aside class="panel qr-panel" aria-labelledby="qr-title">
+          <h2 id="qr-title">Código de actualización</h2>
+          <div id="placeholder" class="placeholder">El QR aparecerá aquí cuando generes la actualización.</div>
+          <div id="output" hidden>
+            <canvas id="qr" aria-label="Código QR de actualización"></canvas>
+            <p id="summary" role="status"></p>
+            <div class="actions">
+              <a id="download" class="secondary" download>Descargar PNG</a>
+              <button type="button" id="copy" class="secondary">Copiar código</button>
+            </div>
+            <label for="payload">Código para pegar en el escáner</label>
+            <textarea id="payload" readonly rows="3"></textarea>
+          </div>
+          <p class="hint">En la guía, abre <strong>Actualízame</strong> y escanea el QR o selecciona su imagen.</p>
+        </aside>
+      </div>
+    </main>
+  </body>
+</html>
+

@@ -226,7 +226,7 @@ describe('SettingsSheet', () => {
     act(() => setVerifiedOnly(false));
   });
 
-  it('shows Saved Sources and About in the root menu and handles empty Saved Sources', async () => {
+  it('shows the administration entry and opens the Saved Sources and About panels', async () => {
     const root = createRoot();
     mounted.push(root);
     await act(async () => {
@@ -237,6 +237,7 @@ describe('SettingsSheet', () => {
     const copy = t.settingsPanel;
     expect(ui.hasText(copy.title)).toBe(true);
     expect(ui.hasText(copy.savedSources.title)).toBe(true);
+    expect(ui.hasText(t.knowledgeAdmin.heading)).toBe(true);
     expect(ui.hasText(copy.about.title)).toBe(true);
 
     // Drill into Saved sources -> empty state.
