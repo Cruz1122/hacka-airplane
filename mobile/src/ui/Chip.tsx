@@ -1,24 +1,48 @@
 import { memo } from 'react';
 import { Pressable, StyleSheet, Text } from 'react-native';
 
-import { useColors } from './theme';
-import { fontSize, radius, spacing } from './theme/tokens';
+import { brand, spacing, type } from './theme/tokens';
 
-export const Chip = memo(function Chip(p: { label: string; selected: boolean; onPress: () => void; hint?: string }) {
-  const c = useColors();
+export const Chip = memo(function Chip(p: {
+  label: string;
+  selected: boolean;
+  onPress: () => void;
+  hint?: string;
+}) {
   return (
     <Pressable
       onPress={p.onPress}
       accessibilityRole="button"
       accessibilityState={{ selected: p.selected }}
-      style={[styles.chip, { borderColor: p.selected ? c.primary : c.border, backgroundColor: p.selected ? c.primary : c.surface }]}
+      style={({ pressed }) => [
+        styles.chip,
+        p.selected && styles.selected,
+        pressed && styles.pressed,
+      ]}
     >
-      <Text style={{ color: p.selected ? c.onPrimary : c.text, fontSize: fontSize.md }}>{p.label}</Text>
-      {p.hint ? <Text style={{ color: p.selected ? c.onPrimary : c.textMuted, fontSize: fontSize.sm }}>{p.hint}</Text> : null}
+      <Text style={[styles.label, p.selected && styles.selectedText]}>{p.label}</Text>
+      {p.hint ? (
+        <Text style={[styles.hint, p.selected && styles.selectedText]}>{p.hint}</Text>
+      ) : null}
     </Pressable>
   );
 });
 
 const styles = StyleSheet.create({
-  chip: { borderWidth: 1, borderRadius: radius.md, paddingHorizontal: spacing.md, paddingVertical: spacing.sm },
+  chip: {
+    minHeight: 44,
+    justifyContent: 'center',
+    borderWidth: 1,
+    borderColor: brand.cardShade,
+    backgroundColor: brand.card,
+    borderRadius: 12,
+    paddingHorizontal: spacing.lg,
+    paddingVertical: spacing.sm,
+    outlineColor: brand.primary,
+  },
+  selected: { backgroundColor: brand.ink, borderColor: brand.ink },
+  pressed: { opacity: 0.8 },
+  label: { ...type.caption, color: brand.ink },
+  hint: { ...type.caption, color: brand.inkMuted },
+  selectedText: { color: brand.onPrimary },
 });
