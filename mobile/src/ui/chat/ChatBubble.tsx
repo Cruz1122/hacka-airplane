@@ -1,5 +1,7 @@
 // Quiet message surfaces. A concave foot grounds each bubble on its side of the conversation; an
-// assistant answer with sources gets a small round button over its other bottom corner.
+// assistant answer with sources gets a small round button over its other bottom corner. Assistant
+// text is a small Markdown subset (markdown.ts) with its keywords in bold, typed out word by word
+// (reveal.ts) unless motion is reduced or a screen reader is on.
 import { memo, useEffect, useMemo, useState, type ReactNode } from 'react';
 import { Animated, Easing, Pressable, StyleSheet, Text, View } from 'react-native';
 import Svg, { Path } from 'react-native-svg';
@@ -7,10 +9,13 @@ import Svg, { Path } from 'react-native-svg';
 import { fill, t } from '@/i18n';
 
 import { Icon } from '../icons/Icon';
-import { brand, type } from '../theme/tokens';
+import { brand, fonts, spacing, type } from '../theme/tokens';
 import { useReducedMotion } from '../useReducedMotion';
 
-import { parseCitations, type ChatSource } from './citations';
+import type { ChatSource } from './citations';
+import { replyDoc, sliceDoc, type Block } from './markdown';
+import { useRevealedWords } from './reveal';
+import { useScreenReader } from './useScreenReader';
 
 export interface ChatBubbleProps {
   role: 'user' | 'assistant';
@@ -20,11 +25,19 @@ export interface ChatBubbleProps {
   /** Assistant only: what the answer rests on, opened by the corner button. */
   sources?: ChatSource[];
   onOpenSources?: (sources: ChatSource[]) => void;
+  /** Assistant only: phrases of `text` to set in bold (`keywordsFor(entryId)`). */
+  keywords?: readonly string[];
+  /**
+   * Assistant only: the row id `replyReveal` types this reply out under. Until the store schedules
+   * it the bubble shows nothing; without an id the text shows whole.
+   */
+  revealId?: string;
 }
 
 /** A slow, short rise: the message settles in instead of popping. */
 const ENTRY_MS = 280;
 const ENTRY_RISE = 4;
+const NO_KEYWORDS: readonly string[] = [];
 
 export const ChatBubble = memo(function ChatBubble({
   role,
@@ -32,26 +45,78 @@ export const ChatBubble = memo(function ChatBubble({
   meta,
   sources,
   onOpenSources,
+  keywords = NO_KEYWORDS,
+  revealId,
 }: ChatBubbleProps) {
   const mine = role === 'user';
-  const shown = useMemo(() => (mine ? text : parseCitations(text).prose), [mine, text]);
+  const reduced = useReducedMotion();
+  const reader = useScreenReader();
+  const doc = useMemo(() => (mine ? null : replyDoc(text, keywords)), [mine, text, keywords]);
+  const words = useRevealedWords(mine || reduced || reader ? undefined : revealId);
+  // Waiting for its turn (a banner is still typing out) or for the chat to schedule it.
+  if (words === 0) return null;
+  const done = !doc || words >= doc.stops.length;
   const cited = !mine && sources?.length ? sources : null;
   return (
     <BubbleRow
       role={role}
-      meta={meta}
+      meta={done ? meta : undefined}
       accessory={
         cited && onOpenSources ? (
-          <SourceButton count={cited.length} onPress={() => onOpenSources(cited)} />
+          done ? (
+            <SourceButton count={cited.length} onPress={() => onOpenSources(cited)} />
+          ) : (
+            // The button's room, kept while the text arrives so its lines never re-wrap.
+            <View style={styles.source} pointerEvents="none" />
+          )
         ) : null
       }
     >
-      <Text style={mine ? styles.mineText : styles.theirsText} selectable>
-        {shown}
-      </Text>
+      {doc ? (
+        <Reply blocks={done ? doc.blocks : sliceDoc(doc, doc.stops[words - 1])} label={doc.text} />
+      ) : (
+        <Text style={styles.mineText} selectable>
+          {text}
+        </Text>
+      )}
     </BubbleRow>
   );
 });
+
+/** The shown blocks; screen readers get the whole reply from the first frame. */
+function Reply({ blocks, label }: { blocks: Block[]; label: string }) {
+  return (
+    <View accessible accessibilityLabel={label}>
+      {blocks.map((b, i) =>
+        b.marker === null ? (
+          <Text key={i} style={[styles.theirsText, i > 0 && styles.paragraphGap]} selectable>
+            {spans(b)}
+          </Text>
+        ) : (
+          <View key={i} style={[styles.item, i > 0 && styles.itemGap]}>
+            <Text style={[styles.theirsText, styles.marker]}>{b.marker}</Text>
+            <Text style={[styles.theirsText, styles.itemText]} selectable>
+              {spans(b)}
+            </Text>
+          </View>
+        ),
+      )}
+    </View>
+  );
+}
+
+/** Plain runs as bare strings (a plain block is just its text), bold runs as nested Text. */
+function spans(block: Block): ReactNode[] {
+  return block.spans.map((s, i) =>
+    s.bold ? (
+      <Text key={i} style={styles.bold}>
+        {s.text}
+      </Text>
+    ) : (
+      s.text
+    ),
+  );
+}
 
 /** A 44 pt target around a small ring, so it needs no hitSlop past the row's bounds. */
 function SourceButton({ count, onPress }: { count: number; onPress: () => void }) {
@@ -156,6 +221,12 @@ const styles = StyleSheet.create({
   joinTheirs: { left: -10 },
   joinMine: { right: -10 },
   theirsText: { ...type.body, color: brand.ink },
+  bold: { fontFamily: fonts.bold },
+  paragraphGap: { marginTop: spacing.sm },
+  item: { flexDirection: 'row' },
+  itemGap: { marginTop: spacing.xs },
+  marker: { minWidth: 18, marginRight: spacing.xs },
+  itemText: { flexShrink: 1 },
   mineText: { ...type.body, color: brand.onPrimary },
   meta: { ...type.caption, color: brand.inkMuted, marginTop: 6, marginLeft: 4 },
   metaMine: { marginLeft: 0, marginRight: 4 },
