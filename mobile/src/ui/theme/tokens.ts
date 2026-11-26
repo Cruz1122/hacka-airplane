@@ -44,6 +44,12 @@ export const brand = {
   lupine: '#7E62B8',
   /** Screen background while the illustration loads. */
   sky: '#8FA6F2',
+  /** Sources validated by UTON (the official guion) only: the gold edge and glyph of their badge. */
+  gold: '#C29A1F',
+  /** Surface of a validated-source badge. `goldInk` on it is about 8:1. */
+  goldSoft: '#FBF2D6',
+  /** Text on `goldSoft`. */
+  goldInk: '#5E4300',
 } as const;
 
 export type BrandPalette = { readonly [K in keyof typeof brand]: string };
@@ -108,6 +114,8 @@ const HIGH_CONTRAST_OVERRIDES: Record<PaletteColorVision, Partial<BrandPalette>>
     primary: '#1B5C5C',
     primaryLight: '#247070',
     primarySoft: '#7CA8A8',
+    gold: '#8A6500',
+    goldInk: '#3A2900',
     ink: '#091B1B',
     inkMuted: '#1F3D3D',
     card: '#FFFFFF',

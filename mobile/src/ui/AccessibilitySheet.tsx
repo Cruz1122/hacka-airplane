@@ -55,7 +55,8 @@ export function AccessibilitySheet({
   );
 }
 
-function SwitchRow({
+/** A labelled on/off row (`accessibilityRole="switch"`); the settings sheet reuses it. */
+export function SwitchRow({
   title,
   body,
   note,

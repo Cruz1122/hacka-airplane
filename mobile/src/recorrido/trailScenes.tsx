@@ -1,8 +1,8 @@
-// The setting behind each stop's animal, inside its circle: a flat sky, one far landform and the
+// The setting behind each stop's icon, inside its circle: a flat sky, one far landform and the
 // ground the figure stands on, in the scene palette (the onboarding art's colors). Each one is the
 // stop's landscape: páramo hills at Brisas, the wet páramo and its ponds at Aguacerales, the ash
-// plain under the Nevado del Ruiz at Arenales, the grey crater field of the Valle Lunar, and the
-// jagged ridges and fallen blocks of the Valle de las Tumbas.
+// plain under the Nevado del Ruiz at Arenales, the grey field of angular, frost-split rock of the
+// Valle Lunar, and the jagged ridges and fallen blocks of the Valle de las Tumbas.
 import Svg, { Ellipse, Path, Rect } from 'react-native-svg';
 
 import { DEFAULT_PALETTE } from '@/onboarding/scene/preset';
@@ -12,7 +12,7 @@ import type { StationId } from './stations';
 const p = DEFAULT_PALETTE;
 
 type Far = 'hills' | 'volcano' | 'peaks' | 'ridge';
-type Detail = 'tufts' | 'pond' | 'stones' | 'craters' | 'blocks';
+type Detail = 'tufts' | 'pond' | 'stones' | 'blocks';
 
 const SCENES: Record<
   StationId,
@@ -47,7 +47,7 @@ const SCENES: Record<
     far: 'ridge',
     farColor: p.rockShade,
     ground: p.stoneLight,
-    detail: 'craters',
+    detail: 'blocks',
     detailColor: p.stone,
   },
   valleTumbas: {
@@ -117,13 +117,6 @@ function DetailShapes({
       ].map(([x, y, r], i) => (
         <Ellipse key={i} cx={s * x!} cy={g + s * y!} rx={s * r!} ry={s * r! * 0.6} fill={color} />
       ));
-    case 'craters':
-      return [
-        [0.18, 0.09, 0.07],
-        [0.82, 0.15, 0.05],
-      ].map(([x, y, r], i) => (
-        <Ellipse key={i} cx={s * x!} cy={g + s * y!} rx={s * r!} ry={s * r! * 0.35} fill={color} />
-      ));
     case 'blocks':
       return [
         [0.1, 0.06, 0.09],
@@ -139,8 +132,8 @@ function DetailShapes({
 }
 
 /**
- * The stop's setting in a `size` square, its ground at `ground` (where the animal's feet are).
- * A wider `width` stretches the landscape sideways; the flat shapes take it, the animal is drawn apart.
+ * The stop's setting in a `size` square, its ground at `ground` (where the icon stands).
+ * A wider `width` stretches the landscape sideways; the flat shapes take it, the icon is drawn apart.
  */
 export function StationScene({
   id,

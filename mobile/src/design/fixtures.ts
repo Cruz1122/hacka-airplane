@@ -117,6 +117,7 @@ export const URGENT: ChatRow[] = toChatRows(
         title: REPORT.label,
         text: REPORT.short,
         sources: REPORT.sources.map((s) => ({ title: s.label, url: s.url, date: s.retrieved_at })),
+        verified: false,
         banner: {
           kind: 'urgent_safety',
           text: EMERGENCY_LINE.short,
@@ -146,7 +147,13 @@ function photoTurn(layout: MediaPick['layout']): ChatRow[] {
   const { ask, topic, roll } = PHOTO_TURNS[layout];
   const entry = catalogEntry(topic);
   const media = pickMedia(MEDIA, { topicId: topic, userText: ask, afterMedia: false }, () => roll);
-  const reply = { type: 'answer' as const, id: topic, title: entry.label, text: entry.short };
+  const reply = {
+    type: 'answer' as const,
+    id: topic,
+    title: entry.label,
+    text: entry.short,
+    verified: false,
+  };
   return toChatRows(
     [
       { id: `${layout}/q`, role: 'user', text: ask },

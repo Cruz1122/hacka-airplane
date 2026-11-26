@@ -13,6 +13,7 @@ Map of client state ownership in `mobile/`, UI copy lookup, and the onboarding-t
 | Rows to bubbles | `mobile/src/state/knowledgeRows.ts` | `toChatRows` |
 | Persisted settings | `mobile/src/state/settings.ts` | `useSettings`, `loadSettings`, `saveSettings` |
 | Grupo stores | `mobile/src/state/petLook.ts`, `alertDistance.ts` | `usePetLooks`, `setPetLook`, `useAlertDistance`, `setAlertDistance` |
+| Verified-only chat switch | `mobile/src/state/verifiedOnly.ts` | `useVerifiedOnly`, `setVerifiedOnly`, `getVerifiedOnly`, `loadVerifiedOnly` |
 | Tool-effect log | `mobile/src/state/history.ts` | `recordEffect`, `useHistory` |
 | Copy | `mobile/src/i18n/index.ts`, `es.ts`, `en.ts` | `t`, `fill`, `LOCALES`, `Labels` |
 | Launch gate | `mobile/src/state/launchGate.ts`, `mobile/src/onboarding/launch.ts` | `needsOnboarding`, `onboardingDone`, `markOnboardingDone` |
@@ -23,6 +24,7 @@ State ownership:
 
 - `useKnowledge.ts` holds one `KnowledgeChat` per process. `app/_layout.tsx` calls `preloadKnowledge` in an effect, so the runtime loads while the onboarding plays. A failed load uses `degradedKnowledgeEngine`.
 - `petLook.ts` and `alertDistance.ts` are module stores read through `useSyncExternalStore`. They load on first subscribe and write through to kv-store keys `petLook.v2` and `group.alertMeters.v1`.
+- `verifiedOnly.ts` follows the same pattern (kv-store key `knowledge.verifiedOnly.v1`, default off). `useKnowledge.ts` starts its load with the chat store and passes `getVerifiedOnly` to `KnowledgeChat`, which reads it at each question and resets the engine context when it flips.
 - `settings.ts` is per-screen `useState` over kv-store key `settings.v1`. `history.ts` uses the `history` table in `nevados.db`.
 
 Localization lookup:

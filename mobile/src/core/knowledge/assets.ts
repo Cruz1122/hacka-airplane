@@ -20,6 +20,8 @@ export interface CatalogEntry {
   steps: (string | string[])[];
   sources: CatalogSource[];
   last_verified: string | null;
+  /** Taken whole from the official UTON guion (2024). Absent in exports before the flag: false. */
+  verified_by_uton?: boolean;
 }
 
 export interface SectionInfo {
@@ -53,6 +55,8 @@ export interface KnowledgePolicy {
   texts: {
     abstain: string;
     offline_status: string;
+    /** Abstain when only verified entries may answer. Absent in exports before the flag: `abstain`. */
+    abstain_verified?: string;
   };
   laya: {
     enabled: boolean;

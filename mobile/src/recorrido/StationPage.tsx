@@ -10,6 +10,7 @@ import { MediaRowList, type MediaRowItem } from '@/ui/MediaRowList';
 import { brand, spacing, type } from '@/ui/theme/tokens';
 import { useAccessibilityTheme } from '@/ui/useAccessibilityTheme';
 
+import { STAGE_FAB, StageTumak } from './StageTumak';
 import type { StationId } from './stations';
 import { trailPhoto } from './trailPhotos';
 
@@ -83,15 +84,23 @@ export function StationPage({ id }: { id: StationId }) {
         contentContainerStyle={{
           paddingHorizontal: spacing.xl,
           paddingTop: spacing.md,
-          paddingBottom: insets.bottom + spacing.xl,
+          paddingBottom: insets.bottom + spacing.xl + STAGE_FAB,
         }}
         ListHeaderComponent={
           <Text style={[styles.heading, scaled.display, { color: palette.ink }]} selectable>
             {t.trail.stations[id].name}
           </Text>
         }
-        ListFooterComponent={<CameraBlock shot={shot} camMsg={camMsg} onTake={takePhoto} />}
+        ListFooterComponent={
+          <>
+            <Text style={[styles.source, scaled.caption, { color: palette.inkMuted }]} selectable>
+              {t.trail.source}
+            </Text>
+            <CameraBlock shot={shot} camMsg={camMsg} onTake={takePhoto} />
+          </>
+        }
       />
+      <StageTumak id={id} insetBottom={insets.bottom + spacing.md} />
     </View>
   );
 }
@@ -160,6 +169,7 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     marginBottom: spacing.lg,
   },
+  source: { ...type.caption, color: brand.inkMuted, marginTop: spacing.lg },
   cam: {
     marginTop: spacing.xl,
     alignItems: 'center',

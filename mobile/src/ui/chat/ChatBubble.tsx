@@ -348,18 +348,27 @@ function SourcesBadge({
   const copy = t.chatScreen.sources;
   const count = sources.length;
   const previews = useMemo(() => sourcePreviews(sources), [sources]);
+  // Gold only when every source is the UTON guion: a mixed answer keeps the ordinary badge.
+  const verified = sources.every((s) => s.verified);
+  const label = verified
+    ? t.chatScreen.verified.label
+    : count === 1
+      ? copy.showOne
+      : fill(copy.showMany, { n: count });
+  const idleEdge = verified ? palette.gold : highContrast ? palette.ink : palette.primarySoft;
+  const surface = verified ? palette.goldSoft : palette.card;
   return (
     <Pressable
       onPress={onPress}
       hitSlop={8}
       accessibilityRole="button"
-      accessibilityLabel={count === 1 ? copy.showOne : fill(copy.showMany, { n: count })}
+      accessibilityLabel={label}
       style={({ pressed }) => [
         styles.sourceBadge,
         {
-          borderColor: pressed ? palette.primary : highContrast ? palette.ink : palette.primarySoft,
+          borderColor: pressed ? (verified ? palette.goldInk : palette.primary) : idleEdge,
           borderWidth,
-          backgroundColor: pressed ? palette.cardShade : palette.card,
+          backgroundColor: pressed ? palette.cardShade : surface,
           boxShadow: `0 2px 8px ${palette.glow}`,
           outlineColor: palette.primary,
         },
@@ -372,21 +381,24 @@ function SourcesBadge({
             preview={preview}
             size={18}
             overlap={index > 0}
-            ringColor={palette.card}
+            ringColor={surface}
           />
         ))}
       </View>
+      {verified ? (
+        <Icon name="circleCheck" size={14} color={palette.gold} strokeWidth={2.4} />
+      ) : null}
       <Text
         style={[
           styles.sourceLabel,
           {
-            color: palette.ink,
+            color: verified ? palette.goldInk : palette.ink,
             fontSize: scaleSize(12, textScale),
             lineHeight: scaleSize(16, textScale),
           },
         ]}
       >
-        {copy.title}
+        {verified ? t.chatScreen.verified.badge : copy.title}
       </Text>
     </Pressable>
   );

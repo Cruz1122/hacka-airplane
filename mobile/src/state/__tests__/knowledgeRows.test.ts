@@ -15,6 +15,7 @@ describe('toChatRows', () => {
         timing,
         reply: {
           type: 'answer',
+          verified: false,
           id: 'access.from_manizales',
           title: 'Cómo llegar desde Manizales',
           text: 'Por la vía al Magdalena.',
@@ -61,6 +62,7 @@ describe('toChatRows', () => {
         role: 'assistant',
         reply: {
           type: 'answer',
+          verified: false,
           id: 'actions.report_emergency_general',
           title: 'Reporte',
           text: 'Si hay peligro inmediato, marca el 123.',
@@ -108,6 +110,7 @@ describe('toChatRows', () => {
         media,
         reply: {
           type: 'answer',
+          verified: false,
           id: 'fauna.condor',
           title: 'Cóndor',
           text: 'Anida en los riscos.',
@@ -128,6 +131,7 @@ describe('toChatRows', () => {
         role: 'assistant',
         reply: {
           type: 'answer',
+          verified: false,
           id: 'conversation.greeting_hello',
           title: 'Saludo',
           text: '¡Hola!',
@@ -145,6 +149,7 @@ describe('toChatRows', () => {
         role: 'assistant',
         reply: {
           type: 'answer',
+          verified: false,
           id: 'conversation.capabilities_overview',
           title: 'Qué puedo hacer',
           text: 'Te ayudo con el parque.',
@@ -167,6 +172,35 @@ describe('toChatRows', () => {
         url: 'https://www.policia.gov.co/',
       },
     ]);
+  });
+
+  it('marks the sources of a verified answer as validated, and nothing else', () => {
+    const reply = {
+      type: 'answer' as const,
+      id: 'uton.guion_entry',
+      title: 'Guion',
+      text: 'Texto del guion.',
+      sources: [{ title: 'Guion ecoturístico UTON (2024)', date: '2026-11-26' }],
+      banner: { kind: 'offline_current_status' as const, text: 'Sin conexión.', sourceIds: [] },
+    };
+    const [banner, verified] = toChatRows(
+      [{ id: 'k6', role: 'assistant', reply: { ...reply, verified: true } }],
+      'ERR',
+    );
+    expect(banner).not.toHaveProperty('sources');
+    expect(verified.sources).toEqual([
+      {
+        id: 'uton.guion_entry#0',
+        title: 'Guion ecoturístico UTON (2024)',
+        date: '2026-11-26',
+        verified: true,
+      },
+    ]);
+    const [, plain] = toChatRows(
+      [{ id: 'k7', role: 'assistant', reply: { ...reply, verified: false } }],
+      'ERR',
+    );
+    expect(plain.sources?.[0]).not.toHaveProperty('verified');
   });
 
   it('shows the i18n error text, never the raw error', () => {
