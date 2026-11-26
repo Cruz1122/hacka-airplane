@@ -85,7 +85,7 @@ export function StationPage({ id }: { id: StationId }) {
           paddingBottom: insets.bottom + spacing.xl,
         }}
         ListHeaderComponent={
-          <Text style={[styles.heading, scaled.display, { color: palette.ink }]} selectable={false}>
+          <Text style={[styles.heading, scaled.display, { color: palette.ink }]} selectable>
             {t.trail.stations[id].name}
           </Text>
         }
@@ -143,7 +143,7 @@ function CameraBlock({
 }
 
 const styles = StyleSheet.create({
-  root: { flex: 1, backgroundColor: brand.card, userSelect: 'none' },
+  root: { flex: 1, backgroundColor: brand.card },
   back: {
     minHeight: 44,
     paddingHorizontal: spacing.md,
