@@ -134,6 +134,10 @@ export const es = {
       unavailable: 'La cámara no está disponible aquí.',
       capturedA11y: 'Foto tomada en esta estación',
       memory: 'Tu recuerdo',
+      options: 'Opciones de la foto',
+      retake: 'Volver a tomar foto',
+      remove: 'Borrar',
+      cancel: 'Cancelar',
     },
     pages: {
       brisas: [

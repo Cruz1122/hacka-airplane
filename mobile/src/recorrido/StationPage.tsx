@@ -3,11 +3,14 @@ import { router } from 'expo-router';
 import { useMemo, useState } from 'react';
 import { Image, Pressable, StyleSheet, Text, View } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
+import Svg, { Rect } from 'react-native-svg';
 
 import { LOCALE, t } from '@/i18n';
+import { BottomSheet } from '@/ui/BottomSheet';
 import { Icon } from '@/ui/icons/Icon';
 import { MediaRowList, type MediaRowItem } from '@/ui/MediaRowList';
-import { brand, spacing, type } from '@/ui/theme/tokens';
+import { SecondaryButton } from '@/ui/SecondaryButton';
+import { brand, radius, spacing, type } from '@/ui/theme/tokens';
 import { useAccessibilityTheme } from '@/ui/useAccessibilityTheme';
 
 import { STAGE_FAB, StageTumak } from './StageTumak';
@@ -34,6 +37,7 @@ export function StationPage({ id }: { id: StationId }) {
   const paras = t.trail.pages[id];
   const [shot, setShot] = useState<{ uri: string; at: number } | null>(null);
   const [camMsg, setCamMsg] = useState<string | null>(null);
+  const [photoMenu, setPhotoMenu] = useState(false);
 
   const items = useMemo<MediaRowItem[]>(
     () =>
@@ -106,11 +110,38 @@ export function StationPage({ id }: { id: StationId }) {
             <Text style={[styles.source, scaled.caption, { color: palette.inkMuted }]} selectable>
               {t.trail.source}
             </Text>
-            <CameraBlock shot={shot} camMsg={camMsg} onTake={takePhoto} />
+            <CameraBlock
+              shot={shot}
+              camMsg={camMsg}
+              onTake={takePhoto}
+              onOpen={() => setPhotoMenu(true)}
+            />
           </>
         }
       />
       <StageTumak id={id} insetBottom={insets.bottom + spacing.md} />
+      <BottomSheet open={photoMenu} onClose={() => setPhotoMenu(false)} bottom={insets.bottom}>
+        {(close) => (
+          <View style={styles.photoMenu}>
+            <SecondaryButton
+              label={t.trail.camera.retake}
+              onPress={() => {
+                close();
+                void takePhoto();
+              }}
+            />
+            <SecondaryButton
+              label={t.trail.camera.remove}
+              onPress={() => {
+                close();
+                setShot(null);
+                setCamMsg(null);
+              }}
+            />
+            <SecondaryButton label={t.trail.camera.cancel} onPress={close} />
+          </View>
+        )}
+      </BottomSheet>
     </View>
   );
 }
@@ -119,12 +150,15 @@ function CameraBlock({
   shot,
   camMsg,
   onTake,
+  onOpen,
 }: {
   shot: { uri: string; at: number } | null;
   camMsg: string | null;
   onTake: () => void;
+  onOpen: () => void;
 }) {
   const { palette, scaled } = useAccessibilityTheme();
+  const [frame, setFrame] = useState({ w: 0, h: 0 });
   return (
     <View style={styles.cam}>
       {shot ? (
@@ -138,29 +172,62 @@ function CameraBlock({
           <Text style={[styles.memoryWhen, scaled.caption, { color: palette.inkMuted }]}>
             {memoryWhen(shot.at)}
           </Text>
-          <Image
-            source={{ uri: shot.uri }}
-            style={[styles.shot, { backgroundColor: palette.cardShade }]}
-            resizeMode="cover"
-            accessibilityRole="image"
-            accessibilityLabel={t.trail.camera.capturedA11y}
-          />
+          <Pressable
+            accessibilityRole="button"
+            accessibilityLabel={t.trail.camera.options}
+            onPress={onOpen}
+            style={styles.shotPress}
+          >
+            <Image
+              source={{ uri: shot.uri }}
+              style={[styles.shot, { backgroundColor: palette.cardShade }]}
+              resizeMode="cover"
+              accessibilityRole="image"
+              accessibilityLabel={t.trail.camera.capturedA11y}
+            />
+          </Pressable>
         </View>
-      ) : null}
-      <Pressable
-        accessibilityRole="button"
-        accessibilityLabel={t.trail.camera.take}
-        onPress={onTake}
-        style={[styles.camBtn, { backgroundColor: palette.primary }]}
-      >
-        <Icon name="camera" size={28} color={palette.onPrimary} />
-      </Pressable>
-      <Text
-        style={[styles.camHint, scaled.caption, { color: palette.inkMuted }]}
-        selectable={false}
-      >
-        {t.trail.camera.take}
-      </Text>
+      ) : (
+        <Pressable
+          accessibilityRole="button"
+          accessibilityLabel={t.trail.camera.take}
+          onPress={onTake}
+          onLayout={(e) => {
+            const { width, height } = e.nativeEvent.layout;
+            setFrame((prev) =>
+              prev.w === width && prev.h === height ? prev : { w: width, h: height },
+            );
+          }}
+          style={({ pressed }) => [
+            styles.shotPress,
+            styles.frame,
+            { backgroundColor: pressed ? palette.cardShade : palette.card },
+          ]}
+        >
+          {frame.w > 0 ? (
+            <Svg width={frame.w} height={frame.h} style={styles.frameEdge} pointerEvents="none">
+              <Rect
+                x={1}
+                y={1}
+                width={frame.w - 2}
+                height={frame.h - 2}
+                rx={radius.md}
+                fill="none"
+                stroke={palette.inkMuted}
+                strokeWidth={1.5}
+                strokeDasharray="7 5"
+              />
+            </Svg>
+          ) : null}
+          <Icon name="camera" size={36} color={palette.ink} />
+          <Text
+            style={[styles.frameLabel, scaled.caption, { color: palette.ink }]}
+            selectable={false}
+          >
+            {t.trail.camera.take}
+          </Text>
+        </Pressable>
+      )}
       {camMsg ? (
         <Text
           style={[styles.camHint, scaled.caption, { color: palette.inkMuted }]}
@@ -199,19 +266,26 @@ const styles = StyleSheet.create({
   memory: { width: '100%', gap: spacing.sm },
   memoryTitle: { ...type.title, color: brand.ink, textAlign: 'center' },
   memoryWhen: { ...type.caption, color: brand.inkMuted, textAlign: 'center' },
+  shotPress: { width: '78%', alignSelf: 'center' },
+  frame: {
+    aspectRatio: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
+    gap: spacing.sm,
+    borderRadius: radius.md,
+    backgroundColor: brand.card,
+  },
+  frameEdge: { position: 'absolute', top: 0, left: 0 },
+  frameLabel: { ...type.caption, color: brand.ink, textAlign: 'center' },
   shot: {
     width: '100%',
     aspectRatio: 1,
-    marginBottom: spacing.sm,
     backgroundColor: brand.cardShade,
   },
-  camBtn: {
-    width: 72,
-    height: 72,
-    borderRadius: 36,
-    backgroundColor: brand.primary,
-    alignItems: 'center',
-    justifyContent: 'center',
+  photoMenu: {
+    paddingHorizontal: spacing.xl,
+    paddingTop: spacing.md,
+    gap: spacing.sm,
   },
   camHint: { ...type.caption, color: brand.inkMuted, textAlign: 'center' },
 });
