@@ -139,6 +139,9 @@ export function Pet({
     next.voice = voice;
     next.audio = clamp(audioLevel, 0, 1);
     next.motion.reducedEffects = next.motion.reducedEffects || reduced;
+    // Neither vapor drawer paints smoke filaments; petFrame would build 20 path strings a frame
+    // (about a fifth of its cost) for nothing.
+    next.smoke.count = 0;
     return next;
   }, [config, emotion, voice, audioLevel, reduced]);
   const [frames] = useState(
