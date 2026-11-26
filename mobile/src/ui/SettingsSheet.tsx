@@ -11,6 +11,7 @@ import {
   useFavoriteSources,
   type FavoriteSource,
 } from '@/state/favoriteSources';
+import { setPerformanceMonitor, usePerformanceMonitor } from '@/state/performanceMonitor';
 import { setVerifiedOnly, useVerifiedOnly } from '@/state/verifiedOnly';
 
 import { SwitchRow } from './AccessibilitySheet';
@@ -127,6 +128,7 @@ function SettingsContent({
   const { palette, scaled, textScale, highContrast, borderWidth } = useAccessibilityTheme();
   const favorites = useFavoriteSources();
   const verifiedOnly = useVerifiedOnly();
+  const monitorEnabled = usePerformanceMonitor();
   const reduced = useReducedMotion() || reducedMotion;
   const scrollRef = useRef<ComponentRef<typeof ScrollView>>(null);
   const goTop = useCallback(() => scrollRef.current?.scrollTo({ y: 0, animated: false }), []);
@@ -246,6 +248,13 @@ function SettingsContent({
                 title={copy.verifiedOnly.title}
                 value={verifiedOnly}
                 onToggle={() => setVerifiedOnly(!verifiedOnly)}
+                reduced={reduced}
+              />
+              <SwitchRow
+                title={t.performance.title}
+                body={t.performance.description}
+                value={monitorEnabled}
+                onToggle={() => setPerformanceMonitor(!monitorEnabled)}
                 reduced={reduced}
               />
             </View>
