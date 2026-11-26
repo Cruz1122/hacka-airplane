@@ -90,7 +90,7 @@ and whether gateway routing beats a flat index.
 
 | # | Step | Output | Time |
 |---|---|---|---|
-| 1 | Copy the raw file to `data/knowledge/raw/conocimiento.v0.json`; convert it to the contract in [knowledge-contract.md](knowledge-contract.md); write the validator | `data/knowledge/sections/*.json`, validator command | 45 min |
+| 1 | Copy the raw file to `data/knowledge/raw/conocimiento.v0.json`; convert it to the contract in [knowledge-contract.md](../knowledge-contract.md); write the validator | `data/knowledge/sections/*.json`, validator command | 45 min |
 | 2 | Build evaluation sets **before** running any model (see below) | `data/knowledge/eval/*.jsonl` | 45 min |
 | 3 | Isolated environment `experiments/laya/` (own `pyproject.toml`, not a project dependency); download Laya PT/ES NLI and 2-3 embedding models | working `uv run` there | 20 min |
 | 4 | Run experiments E1-E6 | `results/p1-laya/` | 60 min |
@@ -152,7 +152,7 @@ for ambiguous questions.
 ## Phase 2: expand the knowledge base ×20 (user, another platform, in parallel)
 
 Target: about 900 entries and at least 9,000 examples, delivered as one file per section that
-validates against [schemas/knowledge-section.schema.json](schemas/knowledge-section.schema.json).
+validates against [schemas/knowledge-section.schema.json](../schemas/knowledge-section.schema.json).
 
 | Space | Target entries | Notes |
 |---|---|---|

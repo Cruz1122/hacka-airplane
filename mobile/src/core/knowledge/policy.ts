@@ -1,4 +1,4 @@
-// Top-1 policy (user decision 2026-11-22, replaces the menu of docs/phase3-architecture.md §1.2):
+// Top-1 policy (user decision 2026-11-22, replaces the menu of docs/history/phase3-architecture.md §1.2):
 // answer with the best entry when its e5 cosine clears T, else abstain. A banner sits above the reply
 // and never replaces it; every text shown is a curated catalog answer or a policy text.
 

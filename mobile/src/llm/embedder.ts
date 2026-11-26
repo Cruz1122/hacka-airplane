@@ -1,5 +1,5 @@
 // e5-base query embedder: its own llama.rn context, never through ModelManager (which keeps one
-// context and releases it before every load). Design: docs/phase3-architecture.md §2, fix 5.
+// context and releases it before every load). Design: docs/history/phase3-architecture.md §2, fix 5.
 import { Directory, File, Paths } from 'expo-file-system';
 import { initLlama, type LlamaContext } from 'llama.rn';
 

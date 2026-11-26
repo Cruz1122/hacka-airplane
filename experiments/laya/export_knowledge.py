@@ -1,4 +1,4 @@
-"""Export the knowledge system the phone runs (docs/phase3-architecture.md §3).
+"""Export the knowledge system the phone runs (docs/history/phase3-architecture.md §3).
 
   uv run python export_knowledge.py --embedder st                       # sentence-transformers reference
   uv run python export_knowledge.py --embedder gguf --gguf <e5.gguf>    # the vectors the phone uses

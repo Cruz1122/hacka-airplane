@@ -1,7 +1,7 @@
 // Text rules that run before any model: an urgent-safety notice and an offline live-status notice.
 // They are a recall-first safety net, not a classifier: a false alarm costs one banner above the
 // normal menu, a miss can leave a visitor in danger with only the menu. Every reply still carries
-// the curated 123 line regardless of these rules (docs/phase3-architecture.md §1.2).
+// the curated 123 line regardless of these rules (docs/history/phase3-architecture.md §1.2).
 //
 // Matching runs on folded text: lower case, Spanish accents removed with an explicit map (Hermes
 // support for String.prototype.normalize and Intl is unverified), punctuation to spaces, doubled

@@ -8,7 +8,7 @@ import type { KnowledgeAssets } from '../assets';
 const MOBILE = resolve(__dirname, '..', '..', '..', '..');
 const REPO = resolve(MOBILE, '..');
 const EXPORTER =
-  'cd experiments/laya && uv run python export_knowledge.py --embedder gguf --gguf ../../models/knowledge/e5-base-q8_0.gguf';
+  'cd experiments/laya && uv run python ../nlu/export_nlu.py --gguf ../../models/knowledge/e5-nlu-ft4-f16.gguf --T 0.5 --w 5.0 --max-words 5 --below 0.7 --cue';
 
 // Read with fs, not import: tsc would otherwise infer types for MBs of JSON.
 export const readJson = <T>(path: string): T => JSON.parse(readFileSync(path, 'utf8')) as T;
