@@ -75,7 +75,7 @@ export class KnowledgeEngine {
     this.ctx = policyContext(assets);
   }
 
-  async ask(text: string): Promise<AskResult> {
+  async ask(text: string, visualEntryId?: string, preferCaption = false): Promise<AskResult> {
     const t0 = now();
     // Rules first: they need no model, so a failing embedder cannot suppress the urgent notice.
     const safety = detectSafety(text);
@@ -94,6 +94,12 @@ export class KnowledgeEngine {
     };
 
     if (text.trim() === '') return done({ reply: this.abstain(banner) });
+    const visualFallback = visualEntryId && this.ctx.byId.has(visualEntryId) && !safety.urgent
+      ? visualEntryId : undefined;
+    if (visualFallback) {
+      this.resetContext();
+      if (!preferCaption) return done({ reply: this.answer(visualFallback, banner) });
+    }
 
     let retrieval: RetrievalResult;
     try {
@@ -130,6 +136,7 @@ export class KnowledgeEngine {
         : text;
     } catch (cause) {
       const error = new KnowledgeEngineError('Knowledge retrieval failed', cause);
+      if (visualFallback) return done({ reply: this.answer(visualFallback, banner), error });
       if (!banner) throw error;
       // Urgent without a model: the curated 123 entry under the urgent banner.
       const reply = safety.urgent
@@ -163,7 +170,8 @@ export class KnowledgeEngine {
     // T is the off-topic floor of a standalone message; a fused follow-up continues a park topic.
     const topCos = contextUsed ? Number.POSITIVE_INFINITY : (retrieval.cos[0] ?? -1);
     const d = decide(safety.urgent, order, topCos, this.ctx);
-    const reply = d.type === 'answer' ? this.answer(d.id, banner) : this.abstain(banner);
+    const id = d.type === 'answer' ? d.id : visualFallback;
+    const reply = id ? this.answer(id, banner) : this.abstain(banner);
     return done({
       reply,
       retrieval,

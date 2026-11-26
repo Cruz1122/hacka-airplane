@@ -41,6 +41,7 @@ export interface ChatRow {
   role: 'user' | 'assistant';
   /** As written, citation markers included (the bubble hides them). */
   text: string;
+  photoUri?: string;
   latencyMs?: number;
   /** Validated references of an assistant reply; none means no source button. */
   sources?: ChatSource[];
@@ -65,6 +66,9 @@ export interface ChatViewProps {
   /** Fade the conversation in: the onboarding just handed over the header (see handoff.ts). */
   fadeIn?: boolean;
   onSend: (text: string) => void;
+  onPhoto?: () => void;
+  photoUri?: string;
+  onRemovePhoto?: () => void;
   onReset: () => void;
   onSettings: () => void;
   onHistory: () => void;
@@ -214,6 +218,7 @@ function ChatContent(p: ChatViewProps & { width: number; tall: number; viewBotto
       <ChatBubble
         role={item.role}
         text={item.text}
+        photoUri={item.photoUri}
         sources={item.sources}
         onOpenSources={openSheet}
         meta={
@@ -311,10 +316,13 @@ function ChatContent(p: ChatViewProps & { width: number; tall: number; viewBotto
               <ChatComposer
                 variant="docked"
                 floor={floor}
-                disabled={p.busy || !ready}
+                disabled={p.busy}
                 placeholder={t.inputPlaceholder}
                 sendLabel={t.send}
                 onSend={p.onSend}
+                onPhoto={p.onPhoto}
+                photoUri={p.photoUri}
+                onRemovePhoto={p.onRemovePhoto}
                 onCaret={gaze.set}
               />
             </View>
