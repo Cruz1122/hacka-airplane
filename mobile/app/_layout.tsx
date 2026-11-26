@@ -16,12 +16,13 @@ export default function RootLayout() {
     <Stack>
       {/* The chat draws its own header; it appears without a slide so the onboarding can hand
           over its last frame. */}
-      <Stack.Screen name="index" options={{ headerShown: false, animation: 'none' }} />
+      <Stack.Screen name="(tabs)" options={{ headerShown: false, animation: 'none' }} />
       <Stack.Screen name="settings" options={{ title: t.settings }} />
       <Stack.Screen name="history" options={{ title: t.history }} />
       <Stack.Screen name="onboarding" options={{ headerShown: false }} />
       <Stack.Screen name="lab" options={{ headerShown: false, title: t.dev.lab }} />
       <Stack.Screen name="design" options={{ title: t.dev.design }} />
+      <Stack.Screen name="estacion" options={{ headerShown: false }} />
     </Stack>
   );
 }

@@ -29,6 +29,13 @@ export const brand = {
   online: '#3FB36A',
   /** Screen background while the illustration loads. */
   sky: '#8FA6F2',
+  /** Pedestal under trail station buttons. */
+  stone: '#B7BBC0',
+  stoneShade: '#8E949A',
+  /** Photo credit tag over images: black at 80% (user request). */
+  scrim: '#000000CC',
+  /** Unvisited trail station (user request). */
+  trail: '#C44536',
 } as const;
 
 /** Manrope and Bricolage Grotesque, bundled in assets/fonts (static weights, Latin subset, OFL). One family per weight:

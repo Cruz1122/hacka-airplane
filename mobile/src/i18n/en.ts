@@ -53,6 +53,127 @@ export const en: Labels = {
     next: 'Next',
     start: 'Start exploring',
   },
+  tabs: {
+    chat: 'Chat',
+    trail: 'Trail',
+  },
+  trail: {
+    title: 'Brisas route',
+    subtitle: 'Vehicle route to Valle de las Tumbas',
+    stationA11y: 'Station {n}: {name}. {mark}',
+    marks: {
+      brisas: 'Frailejón',
+      aguacerales: 'Spectacled bear',
+      arenales: 'Puma',
+      valleLunar: 'Páramo fox',
+      valleTumbas: 'Andean condor',
+    },
+    stations: {
+      brisas: {
+        name: 'Brisas induction centre',
+        blurb: 'Check-in, required briefing and departure. About 4,100 m a.s.l.',
+      },
+      aguacerales: {
+        name: 'Aguacerales sector',
+        blurb: 'First interpretation stop: páramo and volcanic remains.',
+      },
+      arenales: {
+        name: 'Arenales',
+        blurb: 'Volcanic ground, ash and moon-like formations.',
+      },
+      valleLunar: {
+        name: 'Valle Lunar',
+        blurb: 'A panoramic stop of high landscape value on the route.',
+      },
+      valleTumbas: {
+        name: 'Valle de las Tumbas / Valle del Silencio',
+        blurb: 'End of the vehicle route. Furthest access when Ruiz is at yellow alert.',
+      },
+    },
+    back: 'Back',
+    photo: 'Image {n} of this stage',
+    photoCredit: 'Photo: {author}',
+    photoCreditA11y: 'Image {n} of this stage. Photo: {author}',
+    camera: {
+      prompt: 'Take a photo of this station.',
+      take: 'Take photo',
+      denied: 'Camera permission denied. Enable it in settings to photograph this station.',
+      unavailable: 'The camera is not available here.',
+      capturedA11y: 'Photo taken at this station',
+    },
+    pages: {
+      brisas: [
+        {
+          subtitle: 'Induction centre',
+          body: 'The **Brisas** visitor centre is the gateway to the superpáramos. You must register and hear a briefing on the rules; a **guide** is assigned there to accompany you to Valle de las Tumbas.\n\nIn the northern sector the route runs from the induction centre to Valle de Tumbas, with entry between **8:00 a.m.** and **2:00 p.m.**',
+        },
+        {
+          subtitle: 'How to get there',
+          body: 'Access to the northern zone, on the western slope of **Nevado del Ruiz**, follows the road from La Esperanza–El Ocho (Manizales) to **Murillo** (Tolima).\n\nAfter about 18 km a turnoff leads to Brisas at **4,100 m a.s.l.** From there the authorised visitor route continues to Valle de las Tumbas at **4,450 m**.',
+        },
+        {
+          subtitle: 'The park',
+          body: '**Los Nevados National Natural Park** was declared a protected area in **1974** (Inderena agreement 015 of 1973 and resolution 148 of 30 April 1974).\n\nIt began at about 38,000 hectares and by the end of 2023 covered **61,377.49 ha**: 47.1% in Tolima, 35.6% in Risaralda, 13.5% in Caldas and 3.8% in Quindío.',
+        },
+      ],
+      aguacerales: [
+        {
+          subtitle: 'Superpáramo',
+          body: 'From Brisas the dirt track crosses **superpáramos**: belts of glacial retreat, with mosses, lichens and hardy herbs.\n\n**Aguacerales** is among the first stops on that route: mosses that drink from the ice, before the ashes of Arenales and Valle Lunar.',
+        },
+        {
+          subtitle: 'Frailejones',
+          body: 'Above **3,000 m**, cloud forest and meadows give way to páramo, ruled by **frailejones** endemic to the northern Andes.\n\nThe plant captures fog water and carries it to the soil; **condors** and tiny chivito hummingbirds are seen among the frailejones at these heights.',
+        },
+        {
+          subtitle: 'Water and glaciers',
+          body: 'The páramo is the region’s main **water regulator**. The park holds **50%** of Colombia’s snow-capped mountains: Kumanday (Ruiz), Poleka Kasue (Santa Isabel) and Dulima (Tolima).\n\nClimate change has sped glacier melt over the last **70 years**.',
+        },
+      ],
+      arenales: [
+        {
+          subtitle: 'Ash fields',
+          body: '**Arenales** is the volcanic-ash stretch on the dirt route toward Valle de las Tumbas.\n\nTogether with Aguacerales and Valle Lunar it forms the otherworldly volcanic landscape of this superpáramo of Ruiz.',
+        },
+        {
+          subtitle: 'The volcano',
+          body: 'Ruiz is an active **stratovolcano** **5,321 m** high, 28 km southeast of Manizales. It has two parasitic cones, **La Olleta** and La Piraña, and the active **Arenas** crater, 870 × 830 m across and 247 m deep.\n\nIn pre-Columbian times it was called Cumanday (White Hill), Tabuchía (fire) or Tama (Great Father).',
+        },
+        {
+          subtitle: 'Activity',
+          body: 'The volcano covers more than **200 km²**. Arenas crater is about 1 km wide. Eruptions have been documented since **1570**; the current eruption began in November **2014**, with gas-and-ash emissions and seismicity.\n\nThe Colombian Geological Survey keeps the alert at **yellow**, the second of four levels.',
+        },
+      ],
+      valleLunar: [
+        {
+          subtitle: 'The stop',
+          body: '**Valle Lunar** is one of the highest-value landscape stops on the superpáramo road, between the ashes of Arenales and the end at Valle de las Tumbas.',
+        },
+        {
+          subtitle: 'Four nevados',
+          body: 'On this high plateau stand **Ruiz**, **Santa Isabel**, **Quindío** and **Tolima**, among fumaroles, craters, high-mountain lakes and páramos.\n\nThe lunar landscape of Nevado del Ruiz is one of the most cited views on this route.',
+        },
+        {
+          subtitle: 'Ecosystems',
+          body: 'The park, on the Central Cordillera, protects **páramos**, superpáramos, high-Andean wetlands, Andean forests and glaciers.\n\nRuiz offers glaciers, volcanic rock and tectonic and geothermal terrain.',
+        },
+      ],
+      valleTumbas: [
+        {
+          subtitle: 'End of the route',
+          body: 'This is the end of the authorised visitor route, at **4,450 m a.s.l.** **Valle de las Tumbas** is a desolate place above 4,000 m, with lunar landscapes, geysers and waterfalls.\n\nIt is the usual destination of visits that leave from Brisas.',
+        },
+        {
+          subtitle: 'The name',
+          body: 'The name comes from volcanic formations and fumaroles that look like a cemetery. The **Quimbaya** were not buried here, but it was a pilgrimage site: ceramics interpreted as offerings have been found.',
+        },
+        {
+          subtitle: '13 November 1985',
+          body: 'On **13 November 1985** the Ruiz eruption sent lahars that destroyed **Armero**, killing about **25,000** people.\n\nThe volcano remains active; in 2012 a mini-eruption felt from the Brisas cabin closed the park for nine months, and the alert remains **yellow**.',
+        },
+      ],
+    },
+  },
   chatScreen: {
     greeting: "Hi! I'm {pet}. Ask me about trails, weather, rules or safety in the park.",
     more: 'More options',

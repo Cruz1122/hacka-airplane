@@ -2,7 +2,7 @@
 
 The glyphs in `Icon.tsx` are path data from Lucide (https://github.com/lucide-icons/lucide),
 taken from `@iconify-json/lucide@1.2.100`: arrow-up, chevron-left, chevron-right, text-cursor-input, messages-square,
-square-mouse-pointer, circle-dot, palette, play, rotate-ccw.
+square-mouse-pointer, circle-dot, palette, play, rotate-ccw, camera.
 
 ISC License
 

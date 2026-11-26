@@ -34,6 +34,7 @@ or size from memory.
 | `PetCircle` | `src/chat/PetCircle.tsx` | The animated vapor Pet in its teal circle on the chat sheet's edge; thinking while busy, talking while a reply arrives; green dot when the model is ready; looks at the last typed character (`gaze`, fed by the composer's `onCaret`) | `x`, `y`, `r`, `voice`, `ready`, `gaze?` |
 | `ChatComposer`, `ChatMenu` | `src/ui/chat/` | Input with floating and docked variants; docked joins the bottom base with concave shoulders. Owns its draft and reports empty/non-empty transitions and (docked, `onCaret`) the window point of the last typed character. With the keyboard open the chat lifts the composer above it and the vapor sheet, circle and list rise over the ranges (`chatLayout.keyboardLift`) and (docked) the caret's window point; the "more" button and its menu. With the keyboard open the chat lifts the composer above it and the vapor sheet rises over the ranges (`chatLayout.keyboardLift`) | see props |
 | `Chip`, `DebugPanel` | `src/ui/` | Settings and debug view (still on the legacy `useColors()` light/dark palette) | — |
+| `MediaRowList` | `src/ui/MediaRowList.tsx` | Scroll list of `{ image, title, description }`; even index image left, odd image right. One Card, `flexDirection` only | `items`, `ListHeaderComponent?`, `ListFooterComponent?`, `contentContainerStyle?` |
 
 A new component goes in `src/ui/`, gets a row in this table and a sample on `/design`.
 

@@ -79,6 +79,8 @@ export interface ChatViewProps {
   sceneTime: number | null;
   /** Fade the conversation in: the onboarding just handed over the header (see handoff.ts). */
   fadeIn?: boolean;
+  /** The screen sits above the app tab bar, which already covers the home indicator. */
+  aboveTabBar?: boolean;
   onSend: (text: string) => void;
   onReset: () => void;
   onSettings: () => void;
@@ -395,8 +397,11 @@ function ChatContent(p: ChatViewProps & { width: number; tall: number; viewBotto
   }, [p.fadeIn, shown, still]);
   const status = statusText(p.model);
   const ready = p.model.status === 'ready';
-  // The docked composer's base strip covers the home indicator, so the sheet needs no padding.
-  const floor = keyboard.open ? DOCK.floor : Math.max(insets.bottom, DOCK.floor);
+  // Without tabs the dock covers the home indicator. With tabs the bar does, until the keyboard
+  // hides it (`tabBarHideOnKeyboard`): then the dock must cover the inset again.
+  const restFloor = p.aboveTabBar ? DOCK.floor : Math.max(insets.bottom, DOCK.floor);
+  const openFloor = p.aboveTabBar ? Math.max(insets.bottom, DOCK.floor) : DOCK.floor;
+  const floor = keyboard.open ? openFloor : restFloor;
   return (
     <>
       <ChatBackdrop
