@@ -600,3 +600,33 @@ Vacíos (no se rellenan): meses concretos de lluvia, totales en mm, humedad rela
 - research_notes/uton_guion_2024/guion_ecoturistico_uton_2024.txt (checked 2026-11-26); evidence: `research_notes/uton_guion_2024/guion_ecoturistico_uton_2024.txt`
 
 > Herd (1982) calculó la isoterma anual a 0 grados centígrados para la región del parque situándola a los 4705 m.s.n.m.
+
+
+## Additive entry: weather_volcano.uton_ruiz_active_volcano
+
+- research_notes/uton_guion_2024/guion_turistico_zona_norte.txt (checked 2026-11-26); evidence: `research_notes/uton_guion_2024/guion_turistico_zona_norte.txt`
+
+> El Nevado del Ruiz es un volcán activo (actualmente en Nivel de Estado de Alerta Amarilla).
+
+- research_notes/uton_guion_2024/guion_turistico_zona_norte.txt (checked 2026-11-26); evidence: `research_notes/uton_guion_2024/guion_turistico_zona_norte.txt`
+
+> Se debe hablar de "periodos de reposo" o "actividad constante", pero nunca de extinción.
+
+- research_notes/uton_guion_2024/guion_turistico_zona_norte.txt (checked 2026-11-26); evidence: `research_notes/uton_guion_2024/guion_turistico_zona_norte.txt`
+
+> la vigilancia del Servicio Geológico Colombiano es 24/7 precisamente porque es un sistema vivo
+
+- research_notes/uton_guion_2024/guion_ecoturistico_uton_2024.txt (checked 2026-11-26); evidence: `research_notes/uton_guion_2024/guion_ecoturistico_uton_2024.txt`
+
+> Manizales 9 de septiembre de 2024
+
+
+## Additive entry: weather_volcano.uton_glaciar_vs_glacial
+
+- research_notes/uton_guion_2024/guion_ecoturistico_uton_2024.txt (checked 2026-11-26); evidence: `research_notes/uton_guion_2024/guion_ecoturistico_uton_2024.txt`
+
+> Tratar como sinónimos esas dos palabras es un error conceptual notable.
+
+- research_notes/uton_guion_2024/guion_ecoturistico_uton_2024.txt (checked 2026-11-26); evidence: `research_notes/uton_guion_2024/guion_ecoturistico_uton_2024.txt`
+
+> La palabra glaciar hace referencia a los cuerpos de hielo, mientras que el concepto glacial se debe utilizar para describir los períodos más fríos en la historia geológica del planeta así como las geoformas y procesos que producen los glaciares (geoformas glaciales)

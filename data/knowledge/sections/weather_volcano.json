@@ -3413,6 +3413,110 @@
         "isoterma"
       ],
       "verified_by_uton": true
+    },
+    {
+      "id": "weather_volcano.uton_ruiz_active_volcano",
+      "label": "el Ruiz es un volcán activo",
+      "kind": "fact",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "desde cuándo está apagado el Nevado del Ruiz",
+        "el Ruiz está apagado",
+        "el volcán está dormido o extinto",
+        "el nevado del ruiz ya no hace erupción",
+        "es un volcán muerto",
+        "el ruiz esta inactivo?",
+        "ya se apagó el volcán",
+        "el Ruiz se extinguió",
+        "el volcán Ruiz sigue vivo",
+        "está activo el Nevado del Ruiz",
+        "por qué dicen que el volcán es un sistema vivo",
+        "quién vigila el volcán todo el tiempo",
+        "is the Ruiz volcano extinct"
+      ],
+      "hard_negatives": [
+        "qué alerta tiene hoy el Nevado del Ruiz",
+        "desde cuándo monitorean el Ruiz"
+      ],
+      "answer": {
+        "short": "No, el Nevado del Ruiz no está apagado: es un volcán activo. Cuando se escribió el guion, en 2024, estaba en alerta amarilla; ese nivel cambia, así que confírmalo con el personal. Puede tener periodos de reposo, pero no se habla de extinción, y el Servicio Geológico Colombiano lo vigila 24/7 porque es un sistema vivo.",
+        "variants": [
+          "El Ruiz no está extinto: tiene periodos de reposo o actividad constante, y el Servicio Geológico Colombiano lo vigila 24/7. La alerta del guion (amarilla, 2024) puede haber cambiado; pregúntala en el parque."
+        ]
+      },
+      "sources": [
+        {
+          "label": "Guión turístico zona norte, UT Operación Nevados (2024)",
+          "document": "research_notes/uton_guion_2024/guion_turistico_zona_norte.txt",
+          "retrieved_at": "2026-11-26"
+        },
+        {
+          "label": "Guion ecoturístico Zona Norte, UT Operación Nevados (2024)",
+          "document": "research_notes/uton_guion_2024/guion_ecoturistico_uton_2024.txt",
+          "retrieved_at": "2026-11-26"
+        }
+      ],
+      "last_verified": "2026-11-26",
+      "verified_by_uton": true,
+      "related": [
+        "weather_volcano.current_alert",
+        "weather_volcano.uton_eruptive_periods"
+      ],
+      "tags": [
+        "volcán",
+        "guion_uton",
+        "alerta"
+      ]
+    },
+    {
+      "id": "weather_volcano.uton_glaciar_vs_glacial",
+      "label": "diferencia entre glaciar y glacial",
+      "kind": "explanation",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "glaciar o glacial",
+        "se dice glaciar o glacial",
+        "cuál es la diferencia entre glaciar y glacial",
+        "glaciar y glacial son lo mismo",
+        "es un valle glaciar o un valle glacial",
+        "que significa glacial",
+        "que es un glaciar y que es glacial",
+        "cuando uso la palabra glacial",
+        "periodo glaciar o periodo glacial",
+        "está bien decir hielo glacial",
+        "las geoformas son glaciares o glaciales",
+        "difference between glaciar and glacial in Spanish"
+      ],
+      "hard_negatives": [
+        "hay nieve y glaciares en el parque",
+        "cuanto glaciar queda en los nevados"
+      ],
+      "answer": {
+        "short": "No son sinónimos. Glaciar es el cuerpo de hielo. Glacial describe los periodos más fríos de la historia geológica del planeta y las formas y procesos que producen los glaciares, como un valle o una geoforma glacial.",
+        "variants": [
+          "El hielo es el glaciar; lo que el hielo produce o la época fría se llama glacial: por eso hablamos del glaciar del Ruiz y de un valle glacial."
+        ]
+      },
+      "sources": [
+        {
+          "label": "Guion ecoturístico Zona Norte, UT Operación Nevados (2024)",
+          "document": "research_notes/uton_guion_2024/guion_ecoturistico_uton_2024.txt",
+          "retrieved_at": "2026-11-26"
+        }
+      ],
+      "last_verified": "2026-11-26",
+      "verified_by_uton": true,
+      "related": [
+        "geography.uton_glacial_landforms",
+        "weather_volcano.uton_glaciation_little_ice_age"
+      ],
+      "tags": [
+        "glaciar",
+        "guion_uton",
+        "glosario"
+      ]
     }
   ]
 }

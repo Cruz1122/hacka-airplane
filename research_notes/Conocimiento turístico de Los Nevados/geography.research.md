@@ -510,3 +510,38 @@ Los `.txt` de HTML salen de `evidence/html_to_text.py`. Las citas se verifican c
 - research_notes/uton_guion_2024/guion_ecoturistico_uton_2024.txt (checked 2026-11-26); evidence: `research_notes/uton_guion_2024/guion_ecoturistico_uton_2024.txt`
 
 > El agua del parque abastece a 37 municipios de la región cafetera, beneficiando a cerca de 3 millones de personas en los departamentos de Tolima, Risaralda, Caldas, Quindío y norte del Valle del Cauca.
+
+
+## Updated entry: geography.uton_lunares_station
+
+- Reason: Hackathon slide questions (Reto de IA, slides 5-22) routed to the wrong entry.
+- Changed fields: examples
+
+
+## Updated entry: geography.uton_arenales_dunes
+
+- Reason: Hackathon slide questions (Reto de IA, slides 5-22) routed to the wrong entry.
+- Changed fields: examples
+
+
+## Additive entry: geography.uton_lunares_fracture_color
+
+- research_notes/uton_guion_2024/guion_ecoturistico_uton_2024.txt (checked 2026-11-26); evidence: `research_notes/uton_guion_2024/guion_ecoturistico_uton_2024.txt`
+
+> Meteorización (gelifracción y oxidación)
+
+- research_notes/uton_guion_2024/guion_ecoturistico_uton_2024.txt (checked 2026-11-26); evidence: `research_notes/uton_guion_2024/guion_ecoturistico_uton_2024.txt`
+
+> el agua tiene la propiedad de aumentar su volumen al congelarse, si el agua esta confinada a los poros o grietas previas de la roca, al congelarse va a someter a un desgaste o fracturamiento por el aumento en su volumen
+
+- research_notes/uton_guion_2024/guion_ecoturistico_uton_2024.txt (checked 2026-11-26); evidence: `research_notes/uton_guion_2024/guion_ecoturistico_uton_2024.txt`
+
+> el color rojizo obedece a otro tipo de meteorización, esta es de origen químico
+
+- research_notes/uton_guion_2024/guion_ecoturistico_uton_2024.txt (checked 2026-11-26); evidence: `research_notes/uton_guion_2024/guion_ecoturistico_uton_2024.txt`
+
+> la oxidación del hierro (almacenado en minerales como las Hornblendas) deja en evidencia tonalidades rojizas sobre la roca
+
+- research_notes/uton_guion_2024/guion_turistico_zona_norte.txt (checked 2026-11-26); evidence: `research_notes/uton_guion_2024/guion_turistico_zona_norte.txt`
+
+> Concepto clave: Gelifracción y oxidación.
