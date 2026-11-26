@@ -242,3 +242,171 @@ Entries 90 → 67. Examples 1191 → 863. The first 38 entries were left as they
 - `villamaria_intervention` — 79,8 % is the municipal slice, not the trail.
 - `paramo_share_park_versus_caldas` — 8,7 % is the Caldas slice. The park figure (84 %) stays in the unchanged páramo entry.
 - `legal_paramo_definition` — the statute list. The visitor question stays in the existing páramo entry.
+
+
+## Updated entry: flora_ecosystems.arenales_volcanicos_ecosystem
+
+- Reason: Restaurar etiqueta anterior y citar trayecto de Brisas a Arenales y Valle de las Tumbas.
+- Changed fields: answer, last_verified
+
+- https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/ (checked 2026-11-21); evidence: `research_notes/Conocimiento turístico de Los Nevados/flora_ecosystems/evidence/pnn-los-nevados.txt`
+
+> El trayecto inicia en el centro de inducción Brisas, a 4100 metros de altitud aproximadamente, y continúa en vehículo por la zona de Arenales hasta el Valle del Silencio o Valle de las Tumbas.
+
+- https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/ (checked 2026-11-21); evidence: `research_notes/Conocimiento turístico de Los Nevados/flora_ecosystems/evidence/pnn-los-nevados.txt`
+
+> Se asemeja a un paisaje lunar donde predominan organismos que soportan condiciones extremas (extremófilos), así como rocas y cenizas.
+
+
+## Updated entry: flora_ecosystems.cacho_de_venado_loricaria
+
+- Reason: Agregar fecha de última verificación.
+- Changed fields: last_verified
+
+- https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/ (checked 2026-11-21); evidence: `research_notes/Conocimiento turístico de Los Nevados/flora_ecosystems/evidence/pnn-los-nevados.txt`
+
+> En el superpáramo, se destaca el cacho de venado (Andicolea colombiana), planta endémica de Colombia.
+
+
+## Updated entry: flora_ecosystems.cattle_grazing_impact
+
+- Reason: Agregar fecha de última verificación.
+- Changed fields: last_verified
+
+- https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/ (checked 2026-11-21); evidence: `research_notes/Conocimiento turístico de Los Nevados/flora_ecosystems/evidence/pnn-los-nevados.txt`
+
+> Está amenazado por la expansión de la agricultura y la ganadería, y es una prioridad de conservación en el Parque.
+
+
+## Updated entry: flora_ecosystems.chite_hypericum
+
+- Reason: Retirar término chite de la etiqueta conforme a revisión.
+- Changed fields: label, last_verified
+
+- https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/ (checked 2026-11-21); evidence: `research_notes/Conocimiento turístico de Los Nevados/flora_ecosystems/evidence/pnn-los-nevados.txt`
+
+> Otras especies importantes son los velillos del género Hypericum, así como los calabazos, campanos y guayabos.
+
+
+## Updated entry: flora_ecosystems.cojines_plantago_rigida
+
+- Reason: Agregar fecha de última verificación.
+- Changed fields: last_verified
+
+- https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/ (checked 2026-11-21); evidence: `research_notes/Conocimiento turístico de Los Nevados/flora_ecosystems/evidence/pnn-los-nevados.txt`
+
+> En los humedales llaman la atención los colchones de agua formados por varias especies, con la Plantago rigida como la más común.
+
+
+## Updated entry: flora_ecosystems.complex_endemic_plants
+
+- Reason: Restaurar etiqueta previa eliminando término exclusivas.
+- Changed fields: hard_negatives
+
+
+## Updated entry: flora_ecosystems.complex_flora_1036
+
+- Reason: Corregir etiqueta de labels.json retirando vascular, y remover pregunta sobre plantas endémicas.
+- Changed fields: examples, hard_negatives, label
+
+
+## Updated entry: flora_ecosystems.ecological_restoration_programs
+
+- Reason: Ajustar respuesta limitándose a conservación, mantenimiento y restauración citados.
+- Changed fields: answer, last_verified
+
+- https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/ (checked 2026-11-21); evidence: `research_notes/Conocimiento turístico de Los Nevados/flora_ecosystems/evidence/pnn-los-nevados.txt`
+
+> Esta declaratoria busca asegurar su conservación, mantenimiento y restauración
+
+
+## Updated entry: flora_ecosystems.frailejones_overview
+
+- Reason: Agregar fecha de última verificación y hard negative con subespecie Otún.
+- Changed fields: hard_negatives, last_verified
+
+- https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/ (checked 2026-11-21); evidence: `research_notes/Conocimiento turístico de Los Nevados/flora_ecosystems/evidence/pnn-los-nevados.txt`
+
+> La única especie de frailejón es Espeletia hartwegiana, presente en la mayoría de páramos del Parque.
+
+- https://www.parquesnacionales.gov.co/wp-content/uploads/2023/08/Resolucion_207_2023_ReglamentacionNevados_.pdf (checked 2026-11-21); evidence: `research_notes/Conocimiento turístico de Los Nevados/activities/evidence/resolucion-207-2023.txt`
+
+> Por ningún motivo está permitida la toma de muestras botánicas
+
+
+## Updated entry: flora_ecosystems.glaciers_snow_presence
+
+- Reason: Añadir hard negative con acceso a nieve de activities.
+- Changed fields: hard_negatives
+
+
+## Updated entry: flora_ecosystems.high_andean_wetlands
+
+- Reason: Conservar etiqueta anterior y retirar frases no sustentadas en la cita de PNN.
+- Changed fields: answer, last_verified
+
+- https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/ (checked 2026-11-21); evidence: `research_notes/Conocimiento turístico de Los Nevados/flora_ecosystems/evidence/pnn-los-nevados.txt`
+
+> El Parque Nacional Natural Los Nevados está compuesto por ecosistemas de bosque altoandino, páramo, superpáramo, humedales altoandinos, glaciares y volcanes.
+
+
+## Updated entry: flora_ecosystems.otun_main_wetland
+
+- Reason: Diferenciar laguna principal del mosaico de humedales.
+- Changed fields: label
+
+
+## Updated entry: flora_ecosystems.pajonales_calamagrostis
+
+- Reason: Conservar etiqueta previa retirando Calamagrostis ausente en la respuesta.
+- Changed fields: last_verified
+
+- https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/ (checked 2026-11-21); evidence: `research_notes/Conocimiento turístico de Los Nevados/flora_ecosystems/evidence/pnn-los-nevados.txt`
+
+> El páramo es el ecosistema más representativo del Parque (84 % de su área) y está conformado por pajonales, turberas, arbustales, pantanos y lagunas.
+
+
+## Updated entry: flora_ecosystems.ramsar_otun_wetland_complex
+
+- Reason: Retirar cita manual ramsar-otun-1781.txt y mantener solo cita oficial PNN.
+- Changed fields: answer, last_verified, sources
+
+- https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/ (checked 2026-11-21); evidence: `research_notes/Conocimiento turístico de Los Nevados/flora_ecosystems/evidence/pnn-los-nevados.txt`
+
+> Los humedales de la Laguna del Otún, ubicados dentro del Parque Los Nevados, fueron declarados Zona de Importancia Mundial por el Convenio de Ramsar
+
+
+## Updated entry: flora_ecosystems.romeros_diplostephium
+
+- Reason: Conservar etiqueta previa sin añadir géneros.
+- Changed fields: last_verified
+
+- https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/ (checked 2026-11-21); evidence: `research_notes/Conocimiento turístico de Los Nevados/flora_ecosystems/evidence/pnn-los-nevados.txt`
+
+> Existen varias especies de romeros (Diplostephium spp.), pajonales y herbáceas del género Senecio.
+
+
+## Updated entry: flora_ecosystems.santa_isabel_projection_three_years
+
+- Reason: Precisar etiqueta de proyección de extinción.
+- Changed fields: label
+
+
+## Updated entry: flora_ecosystems.superparamo_ecosystem
+
+- Reason: Ampliación de cita oficial para sustentar paisaje lunar, rocas, cenizas y extremófilos.
+- Changed fields: answer, last_verified
+
+- https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/ (checked 2026-11-21); evidence: `research_notes/Conocimiento turístico de Los Nevados/flora_ecosystems/evidence/pnn-los-nevados.txt`
+
+> El ecosistema de superpáramo se caracteriza por condiciones ambientales extremas. Se asemeja a un paisaje lunar donde predominan organismos que soportan condiciones extremas (extremófilos), así como rocas y cenizas.
+
+
+## Updated entry: flora_ecosystems.wax_palm_quindio
+
+- Reason: Adoptar etiqueta de labels.json y citar presencia en bosques altoandinos o nublados.
+- Changed fields: answer, label, last_verified
+
+- https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/ (checked 2026-11-21); evidence: `research_notes/Conocimiento turístico de Los Nevados/flora_ecosystems/evidence/pnn-los-nevados.txt`
+
+> En los bosques altoandinos o nublados se encuentran las palmas de cera; la más representativa es Ceroxylon quindiuense, la famosa palma de cera del Quindío, declarada árbol nacional de Colombia.

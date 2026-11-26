@@ -151,3 +151,900 @@ Los tres temas asignados a este espacio fueron preservados, corregidos y expandi
 ## Coordinator final pass (2026-11-21)
 
 - `hours_status.official_channels_to_check_status` gave `losnevados@parquesnacionales.gov.co`, which no downloaded source contains. Corrected in `source/overlay.py` to `nevados@parquesnacionales.gov.co` (Resolución 207 de 2023, quote added to `evidence/quotes.md`). The WhatsApp/celular +57 3229471031 is on the PNN page and stays.
+
+
+## Updated entry: hours_status.anzoategui_pit_la_punta_hours
+
+- Reason: Use the documented label and cite the full Anzoátegui (Tolima) block for the PIT and La Punta.
+- Changed fields: answer, label, last_verified, sources
+
+- https://www.parquesnacionales.gov.co/wp-content/uploads/2023/08/Resolucion_207_2023_ReglamentacionNevados_.pdf (checked 2026-11-22); evidence: `research_notes/Conocimiento turístico de Los Nevados/hours_status/evidence/raw/resolucion_207_2023.txt`
+
+> Horario de ingreso al Área Protegida entre las 6:00 a.m. y las 11:00 a.m. por tratarse de una travesía
+
+- https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/ (checked 2026-11-22); evidence: `research_notes/Conocimiento turístico de Los Nevados/hours_status/evidence/raw/pnn_nevados.html`
+
+> article:modified_time" content="2026-10-31T00:11:49+00:00"
+
+- https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/ (checked 2026-11-22); evidence: `research_notes/Conocimiento turístico de Los Nevados/hours_status/evidence/raw/pnn_nevados.txt`
+
+> el horario en el punto de atención Valle del Cocora es de 6:00 a. m. a 10:00 a. m., mientras que en Juntas y Anzoátegui es de 6:00 a. m. a 11:00 a. m. (bajo reserva previa)
+
+- https://www.parquesnacionales.gov.co/wp-content/uploads/2023/08/Resolucion_207_2023_ReglamentacionNevados_.pdf (checked 2026-11-22); evidence: `research_notes/Conocimiento turístico de Los Nevados/hours_status/evidence/raw/resolucion_207_2023.txt`
+
+> Anzoátegui (Tolima): Punto de Información Turística (PIT) Calle 13 entre Carrera 2 y 3 barrio centro
+>       Horario: martes a sábado de 8:00 a.m. a 5:00 p.m.
+> 
+>  ●    La Punta (Vereda La Cascada) Anzoátegui-Tolima: (este sitio se establece como punto de control flotante)
+>       Horario: jueves a sábado de 8:00 a.m. a 5:00 p.m.
+
+
+## Updated entry: hours_status.asomadera_potosi_entry_hours
+
+- Reason: La respuesta ya cita la Resolución 207; le falta decir que la ficha de 2026 no repite el horario y que no es el estado del día.
+- Changed fields: answer, last_verified, sources
+
+- https://www.parquesnacionales.gov.co/wp-content/uploads/2023/08/Resolucion_207_2023_ReglamentacionNevados_.pdf (checked 2026-11-22); evidence: `research_notes/Conocimiento turístico de Los Nevados/hours_status/evidence/raw/resolucion_207_2023.txt`
+
+> Potosí – La Asomadera: Horario de ingreso entre las 7:30 a.m. a 12:00 m. Para caminatas a la asomadera sin
+
+- https://www.parquesnacionales.gov.co/wp-content/uploads/2023/08/Resolucion_207_2023_ReglamentacionNevados_.pdf (checked 2026-11-22); evidence: `research_notes/Conocimiento turístico de Los Nevados/hours_status/evidence/raw/resolucion_207_2023.txt`
+
+> equipamiento se amplía hasta las 2:00 p.m.
+
+- https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/ (checked 2026-11-22); evidence: `research_notes/Conocimiento turístico de Los Nevados/hours_status/evidence/raw/pnn_nevados.html`
+
+> article:modified_time" content="2026-10-31T00:11:49+00:00"
+
+- https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/ (checked 2026-11-22); evidence: `research_notes/Conocimiento turístico de Los Nevados/hours_status/evidence/raw/pnn_nevados.txt`
+
+> el horario de atención en la cabaña Potosí es de 7:00 a. m. a 12:00 p. m.
+
+
+## Updated entry: hours_status.brisas_exit_time
+
+- Reason: Keep the previous label; the review marked the wording change as stylistic or named that label.
+- Changed fields: answer, last_verified, sources
+
+- https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/ (checked 2026-11-22); evidence: `research_notes/Conocimiento turístico de Los Nevados/hours_status/evidence/raw/pnn_nevados.html`
+
+> article:modified_time" content="2026-10-31T00:11:49+00:00"
+
+- https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/ (checked 2026-11-22); evidence: `research_notes/Conocimiento turístico de Los Nevados/hours_status/evidence/raw/pnn_nevados.txt`
+
+> abierto todos los días del año en horario de 8:00 a. m. a 2:00 p. m., pero ten presente que la última charla de inducción obligatoria se realiza a la 1:30 p. m.
+
+
+## Updated entry: hours_status.brisas_hours
+
+- Reason: El horario de la ficha está bien; falta la fecha y no debe leerse como la apertura de hoy.
+- Changed fields: answer, last_verified, sources
+
+- https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/ (checked 2026-11-22); evidence: `research_notes/Conocimiento turístico de Los Nevados/hours_status/evidence/raw/pnn_nevados.html`
+
+> article:modified_time" content="2026-10-31T00:11:49+00:00"
+
+- https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/ (checked 2026-11-22); evidence: `research_notes/Conocimiento turístico de Los Nevados/hours_status/evidence/raw/pnn_nevados.txt`
+
+> abierto todos los días del año en horario de 8:00 a. m. a 2:00 p. m., pero ten presente que la última charla de inducción obligatoria se realiza a la 1:30 p. m.
+
+
+## Updated entry: hours_status.brisas_induction_talk_schedule
+
+- Reason: La 1:30 p. m. está en la ficha; la frase de que después de esa hora no dejan iniciar no está.
+- Changed fields: answer, label, last_verified, sources
+
+- https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/ (checked 2026-11-22); evidence: `research_notes/Conocimiento turístico de Los Nevados/hours_status/evidence/raw/pnn_nevados.html`
+
+> article:modified_time" content="2026-10-31T00:11:49+00:00"
+
+- https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/ (checked 2026-11-22); evidence: `research_notes/Conocimiento turístico de Los Nevados/hours_status/evidence/raw/pnn_nevados.txt`
+
+> abierto todos los días del año en horario de 8:00 a. m. a 2:00 p. m., pero ten presente que la última charla de inducción obligatoria se realiza a la 1:30 p. m.
+
+
+## Updated entry: hours_status.brisas_open_days
+
+- Reason: Keep the previous label; the review marked the wording change as stylistic or named that label.
+- Changed fields: answer, last_verified, sources
+
+- https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/ (checked 2026-11-22); evidence: `research_notes/Conocimiento turístico de Los Nevados/hours_status/evidence/raw/pnn_nevados.html`
+
+> article:modified_time" content="2026-10-31T00:11:49+00:00"
+
+- https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/ (checked 2026-11-22); evidence: `research_notes/Conocimiento turístico de Los Nevados/hours_status/evidence/raw/pnn_nevados.txt`
+
+> abierto todos los días del año en horario de 8:00 a. m. a 2:00 p. m., pero ten presente que la última charla de inducción obligatoria se realiza a la 1:30 p. m.
+
+- https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/ (checked 2026-11-22); evidence: `research_notes/Conocimiento turístico de Los Nevados/hours_status/evidence/raw/pnn_nevados.txt`
+
+> Son tres (3) cierres al año con una duración de cinco (5) días, así:
+
+
+## Updated entry: hours_status.camping_arrival_cutoff
+
+- Reason: Remove the false area-wide camping ban. Distinguish Brisas Arenales (2024: not enabled) from Tolima Arenales (transitory 2023).
+- Changed fields: answer, last_verified, sources
+
+- https://www.parquesnacionales.gov.co/wp-content/uploads/2023/08/Resolucion_207_2023_ReglamentacionNevados_.pdf (checked 2026-11-22); evidence: `research_notes/Conocimiento turístico de Los Nevados/hours_status/evidence/raw/resolucion_207_2023.txt`
+
+> identificados como Termales Cañón, Arenales y Calvito para el pernocte
+
+- https://www.parquesnacionales.gov.co/wp-content/uploads/2023/08/Resolucion_207_2023_ReglamentacionNevados_.pdf (checked 2026-11-22); evidence: `research_notes/Conocimiento turístico de Los Nevados/hours_status/evidence/raw/resolucion_207_2023.txt`
+
+> 7:00 a.m. hasta las 12:00 m.
+
+- https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/ (checked 2026-11-22); evidence: `research_notes/Conocimiento turístico de Los Nevados/hours_status/evidence/raw/pnn_nevados.html`
+
+> article:modified_time" content="2026-10-31T00:11:49+00:00"
+
+- https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/ (checked 2026-11-22); evidence: `research_notes/Conocimiento turístico de Los Nevados/hours_status/evidence/raw/pnn_nevados.txt`
+
+> el horario de atención en la cabaña Potosí es de 7:00 a. m. a 12:00 p. m.
+
+- https://www.parquesnacionales.gov.co/wp-content/uploads/2023/08/Resolucion_207_2023_ReglamentacionNevados_.pdf (checked 2026-11-22); evidence: `research_notes/Conocimiento turístico de Los Nevados/hours_status/evidence/raw/resolucion_207_2023.txt`
+
+> 2.   Sitios para camping:
+> 
+>  A la luz del Plan de Ordenamiento Ecoturístico las zonas de camping establecidas al interior del PNN Los Nevados
+>  corresponden a:
+> ● Laguna del Otún.
+> ● Centro de visitantes El Cisne (camping Cisne): condicionado por actividad volcánica u operación de servicios
+>      ecoturísticos.
+> ● Camping Arenales - Sector Brisas (restringido por actividad volcánica).
+> 
+>  No obstante, en este reglamento temporal transitorio, se habilitan los puntos en inmediaciones al nevado del
+>  Tolima, conocidos como:
+> ● Termales Cañón.
+> ● Arenales.
+> ● Calvito.
+
+- https://www.parquesnacionales.gov.co/wp-content/uploads/2024/12/Informe-de-necesidades-de-asistencia-PNN-Los-Nevados-2024.docx (checked 2026-11-22); evidence: `research_notes/Conocimiento turístico de Los Nevados/activities/evidence/raw/pnn_informe_necesidades_2024.txt`
+
+> 3. Arenales – camping
+> Zona de camping no se encuentra habilitada debido a la actividad volcánica.
+> Cabaña inaugurada en el año 2013. 240 mt2 primer piso – 98 mt2 terraza con área útil caminable y capacidad de máximo 80 personas.
+> En el primer piso consta de:
+> 1. Un espacio de cocina y bodega.
+> 2. Un comedor y dos baterías de baños para visitantes.
+> 3. Un punto de atención de primeros auxilios.
+> 4. Dos habitaciones y un baño para los empleados. 5. Una batería de baños para hombres y mujeres y duchas, para campistas. 6. Un espacio para basuras y zona de aseo. 7. Un comedor y cocina para los campistas. 8. Depósito para el gas
+> Villamaría, Caldas
+
+
+## Updated entry: hours_status.cedral_otun_hiking_schedule
+
+- Reason: Keep the previous label; the review marked the wording change as stylistic or named that label.
+- Changed fields: answer, last_verified, sources
+
+- https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/ (checked 2026-11-22); evidence: `research_notes/Conocimiento turístico de Los Nevados/hours_status/evidence/raw/pnn_nevados.html`
+
+> article:modified_time" content="2026-10-31T00:11:49+00:00"
+
+- https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/ (checked 2026-11-22); evidence: `research_notes/Conocimiento turístico de Los Nevados/hours_status/evidence/raw/pnn_nevados.txt`
+
+> aproximadamente 7,5 km al límite del Parque y 18 km a la Laguna del Otún.
+
+
+## Updated entry: hours_status.cisne_potan_hours
+
+- Reason: Keep the previous label; the review marked the wording change as stylistic or named that label.
+- Changed fields: answer, last_verified, sources
+
+- https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/ (checked 2026-11-22); evidence: `research_notes/Conocimiento turístico de Los Nevados/hours_status/evidence/raw/pnn_nevados.html`
+
+> article:modified_time" content="2026-10-31T00:11:49+00:00"
+
+- https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/ (checked 2026-11-22); evidence: `research_notes/Conocimiento turístico de Los Nevados/hours_status/evidence/raw/pnn_nevados.txt`
+
+> puedes llegar a los puntos de registro del Parque Nacional (cabaña Potosí – alto de Santa Bárbara) desde las 7:30 a. m. hasta las 10:00 a. m.
+
+
+## Updated entry: hours_status.conservation_closures
+
+- Reason: Cite the full Resolución 207 closure paragraph (seven days and four dates). Keep the documented label.
+- Changed fields: answer, label, last_verified, sources
+
+- https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/ (checked 2026-11-22); evidence: `research_notes/Conocimiento turístico de Los Nevados/hours_status/evidence/raw/pnn_nevados.html`
+
+> article:modified_time" content="2026-10-31T00:11:49+00:00"
+
+- https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/ (checked 2026-11-22); evidence: `research_notes/Conocimiento turístico de Los Nevados/hours_status/evidence/raw/pnn_nevados.txt`
+
+> Son tres (3) cierres al año con una duración de cinco (5) días, así:
+
+- https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/ (checked 2026-11-22); evidence: `research_notes/Conocimiento turístico de Los Nevados/hours_status/evidence/raw/pnn_nevados.txt`
+
+> Lunes inmediatamente posterior a Semana Santa hasta el viernes de esa misma semana.
+
+- https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/ (checked 2026-11-22); evidence: `research_notes/Conocimiento turístico de Los Nevados/hours_status/evidence/raw/pnn_nevados.txt`
+
+> Cuarto lunes de septiembre hasta el viernes de esa misma semana.
+
+- https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/ (checked 2026-11-22); evidence: `research_notes/Conocimiento turístico de Los Nevados/hours_status/evidence/raw/pnn_nevados.txt`
+
+> Cuarto lunes de noviembre hasta el viernes de esa misma semana.
+
+- https://www.parquesnacionales.gov.co/wp-content/uploads/2023/08/Resolucion_207_2023_ReglamentacionNevados_.pdf (checked 2026-11-22); evidence: `research_notes/Conocimiento turístico de Los Nevados/hours_status/evidence/raw/resolucion_207_2023.txt`
+
+> En cuanto al cierre del Área Protegida se establecen las siguientes fechas para el cierre que tendrán una duración de
+>  siete (7) días después de las temporadas altas; esto con el fin de permitir el descanso y conservación de los ecosistemas.
+> 1. La segunda semana de febrero después de la temporada correspondiente a los meses de diciembre y enero.
+> 2. Después de la temporada de Semana Santa según corresponda al mes de marzo o abril.
+> 3. La cuarta semana del mes de julio, después de la temporada alta de mitad de año.
+> 4. La primera semana del mes de noviembre.
+
+
+## Updated entry: hours_status.general_opening_schedule
+
+- Reason: Cite the Juntas bullet of Resolución 207 (Resolución 268 de 2022), not the unlabeled Cocora hours sentence.
+- Changed fields: answer, last_verified, sources
+
+- https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/ (checked 2026-11-22); evidence: `research_notes/Conocimiento turístico de Los Nevados/hours_status/evidence/raw/pnn_nevados.html`
+
+> article:modified_time" content="2026-10-31T00:11:49+00:00"
+
+- https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/ (checked 2026-11-22); evidence: `research_notes/Conocimiento turístico de Los Nevados/hours_status/evidence/raw/pnn_nevados.txt`
+
+> abierto todos los días del año en horario de 8:00 a. m. a 2:00 p. m., pero ten presente que la última charla de inducción obligatoria se realiza a la 1:30 p. m.
+
+- https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/ (checked 2026-11-22); evidence: `research_notes/Conocimiento turístico de Los Nevados/hours_status/evidence/raw/pnn_nevados.txt`
+
+> puedes llegar a los puntos de registro del Parque Nacional (cabaña Potosí – alto de Santa Bárbara) desde las 7:30 a. m. hasta las 10:00 a. m.
+
+- https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/ (checked 2026-11-22); evidence: `research_notes/Conocimiento turístico de Los Nevados/hours_status/evidence/raw/pnn_nevados.txt`
+
+> el horario de atención en la cabaña Potosí es de 7:00 a. m. a 12:00 p. m.
+
+- https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/ (checked 2026-11-22); evidence: `research_notes/Conocimiento turístico de Los Nevados/hours_status/evidence/raw/pnn_nevados.txt`
+
+> el horario en el punto de atención Valle del Cocora es de 6:00 a. m. a 10:00 a. m., mientras que en Juntas y Anzoátegui es de 6:00 a. m. a 11:00 a. m. (bajo reserva previa)
+
+- https://www.parquesnacionales.gov.co/wp-content/uploads/2023/08/Resolucion_207_2023_ReglamentacionNevados_.pdf (checked 2026-11-22); evidence: `research_notes/Conocimiento turístico de Los Nevados/hours_status/evidence/raw/resolucion_207_2023.txt`
+
+> Horario de ingreso al Área Protegida entre las 6:00 a.m. y las 11:00 a.m. por tratarse de una travesía
+
+- https://www.parquesnacionales.gov.co/wp-content/uploads/2023/08/Resolucion_207_2023_ReglamentacionNevados_.pdf (checked 2026-11-22); evidence: `research_notes/Conocimiento turístico de Los Nevados/hours_status/evidence/raw/resolucion_207_2023.txt`
+
+> Juntas: Recorrido desde quebrada Perlas hasta Escuela El Salto o Termales Cañón.
+>     Horario de ingreso al Área Protegida entre las 6:00 a.m. hasta las 10:00 a.m. por tratarse de una travesía (Resolución
+>     No. 268 de julio 2022).
+
+
+## Updated entry: hours_status.high_season_calendar
+
+- Reason: Cite the full Temporalidad section of Resolución 207. Keep the previous label.
+- Changed fields: answer, last_verified, sources
+
+- https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/ (checked 2026-11-22); evidence: `research_notes/Conocimiento turístico de Los Nevados/hours_status/evidence/raw/pnn_nevados.html`
+
+> article:modified_time" content="2026-10-31T00:11:49+00:00"
+
+- https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/ (checked 2026-11-22); evidence: `research_notes/Conocimiento turístico de Los Nevados/hours_status/evidence/raw/pnn_nevados.txt`
+
+> @ParquesColombia
+> @parquescolombia
+> @ParquesNaturales
+> +573229471031
+> @parquescolombia
+> Parques
+
+- https://www.parquesnacionales.gov.co/wp-content/uploads/2023/08/Resolucion_207_2023_ReglamentacionNevados_.pdf (checked 2026-11-22); evidence: `research_notes/Conocimiento turístico de Los Nevados/hours_status/evidence/raw/resolucion_207_2023.txt`
+
+> Temporalidad: Se considera temporada alta los puentes festivos (desde el día jueves que los antecede) y los periodos de
+> vacaciones del 15 de diciembre al 30 de enero, 15 junio al 15 de julio, semana santa y la semana de receso escolar
+> (octubre).
+
+
+## Updated entry: hours_status.high_season_operating_changes
+
+- Reason: Keep the previous label; the review marked the wording change as stylistic or named that label.
+- Changed fields: answer, last_verified, sources
+
+- https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/ (checked 2026-11-22); evidence: `research_notes/Conocimiento turístico de Los Nevados/hours_status/evidence/raw/pnn_nevados.html`
+
+> article:modified_time" content="2026-10-31T00:11:49+00:00"
+
+- https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/ (checked 2026-11-22); evidence: `research_notes/Conocimiento turístico de Los Nevados/hours_status/evidence/raw/pnn_nevados.txt`
+
+> los cupos diarios son limitados
+
+- https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/ (checked 2026-11-22); evidence: `research_notes/Conocimiento turístico de Los Nevados/hours_status/evidence/raw/pnn_nevados.txt`
+
+> abierto todos los días del año en horario de 8:00 a. m. a 2:00 p. m., pero ten presente que la última charla de inducción obligatoria se realiza a la 1:30 p. m.
+
+
+## Updated entry: hours_status.laguna_verde_trail_hours
+
+- Reason: El horario coincide con la ficha; falta decir que no confirma si el sendero está habilitado ese día.
+- Changed fields: answer, last_verified, sources
+
+- https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/ (checked 2026-11-22); evidence: `research_notes/Conocimiento turístico de Los Nevados/hours_status/evidence/raw/pnn_nevados.html`
+
+> article:modified_time" content="2026-10-31T00:11:49+00:00"
+
+- https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/ (checked 2026-11-22); evidence: `research_notes/Conocimiento turístico de Los Nevados/hours_status/evidence/raw/pnn_nevados.txt`
+
+> el sendero Laguna Verde tiene un horario de 8:00 a. m. a 2:00 p. m.
+
+
+## Updated entry: hours_status.late_arrival_policy
+
+- Reason: Keep the previous label; the review marked the wording change as stylistic or named that label.
+- Changed fields: answer, last_verified, sources
+
+- https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/ (checked 2026-11-22); evidence: `research_notes/Conocimiento turístico de Los Nevados/hours_status/evidence/raw/pnn_nevados.html`
+
+> article:modified_time" content="2026-10-31T00:11:49+00:00"
+
+- https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/ (checked 2026-11-22); evidence: `research_notes/Conocimiento turístico de Los Nevados/hours_status/evidence/raw/pnn_nevados.txt`
+
+> abierto todos los días del año en horario de 8:00 a. m. a 2:00 p. m., pero ten presente que la última charla de inducción obligatoria se realiza a la 1:30 p. m.
+
+- https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/ (checked 2026-11-22); evidence: `research_notes/Conocimiento turístico de Los Nevados/hours_status/evidence/raw/pnn_nevados.txt`
+
+> el horario en el punto de atención Valle del Cocora es de 6:00 a. m. a 10:00 a. m., mientras que en Juntas y Anzoátegui es de 6:00 a. m. a 11:00 a. m. (bajo reserva previa)
+
+- https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/ (checked 2026-11-22); evidence: `research_notes/Conocimiento turístico de Los Nevados/hours_status/evidence/raw/pnn_nevados.txt`
+
+> puedes llegar a los puntos de registro del Parque Nacional (cabaña Potosí – alto de Santa Bárbara) desde las 7:30 a. m. hasta las 10:00 a. m.
+
+- https://www.parquesnacionales.gov.co/wp-content/uploads/2023/08/Resolucion_207_2023_ReglamentacionNevados_.pdf (checked 2026-11-22); evidence: `research_notes/Conocimiento turístico de Los Nevados/hours_status/evidence/raw/resolucion_207_2023.txt`
+
+> Respetar los horarios establecidos para realizar cada una de las actividades turísticas.
+
+
+## Updated entry: hours_status.low_season_advantages
+
+- Reason: Keep the previous label; the review marked the wording change as stylistic or named that label.
+- Changed fields: answer, last_verified, sources
+
+- https://www.parquesnacionales.gov.co/wp-content/uploads/2023/08/Resolucion_207_2023_ReglamentacionNevados_.pdf (checked 2026-11-22); evidence: `research_notes/Conocimiento turístico de Los Nevados/hours_status/evidence/raw/resolucion_207_2023.txt`
+
+> Se considera temporada alta los puentes festivos (desde el día jueves que los antecede)
+
+- https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/ (checked 2026-11-22); evidence: `research_notes/Conocimiento turístico de Los Nevados/hours_status/evidence/raw/pnn_nevados.html`
+
+> article:modified_time" content="2026-10-31T00:11:49+00:00"
+
+- https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/ (checked 2026-11-22); evidence: `research_notes/Conocimiento turístico de Los Nevados/hours_status/evidence/raw/pnn_nevados.txt`
+
+> Son tres (3) cierres al año con una duración de cinco (5) días, así:
+
+
+## Updated entry: hours_status.official_channels_to_check_status
+
+- Reason: Use the label documented in findings/labels.json.
+- Changed fields: answer, label, last_verified, sources
+
+- https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/ (checked 2026-11-22); evidence: `research_notes/Conocimiento turístico de Los Nevados/hours_status/evidence/raw/pnn_nevados.html`
+
+> article:modified_time" content="2026-10-31T00:11:49+00:00"
+
+- https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/ (checked 2026-11-22); evidence: `research_notes/Conocimiento turístico de Los Nevados/hours_status/evidence/raw/pnn_nevados.txt`
+
+> @ParquesColombia
+> @parquescolombia
+> @ParquesNaturales
+> +573229471031
+> @parquescolombia
+> Parques
+
+- https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/ (checked 2026-11-22); evidence: `research_notes/Conocimiento turístico de Los Nevados/hours_status/evidence/raw/pnn_nevados.txt`
+
+> +57 3229471031
+> Horario de atención: Lunes a viernes de
+> 8:00 a.m. a 4:30 p.m.
+> Jornada Conti
+
+- https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/ (checked 2026-11-22); evidence: `research_notes/Conocimiento turístico de Los Nevados/hours_status/evidence/raw/pnn_nevados.txt`
+
+> +57 (601) 353 2400
+> Ext. 3011 - 3012
+> Línea gratuita nacional desde un fijo:
+> 018000129722
+> Te
+
+- https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/ (checked 2026-11-22); evidence: `research_notes/Conocimiento turístico de Los Nevados/hours_status/evidence/raw/pnn_nevados.txt`
+
+> Ext. 3011 - 3012
+> Línea gratuita nacional desde un fijo:
+> 018000129722
+> Teléfono celular:
+> +57
+
+- https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/ (checked 2026-11-22); evidence: `research_notes/Conocimiento turístico de Los Nevados/hours_status/evidence/raw/pnn_nevados.txt`
+
+> 8:00 a.m. a 4:30 p.m.
+
+- https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/ (checked 2026-11-22); evidence: `research_notes/Conocimiento turístico de Los Nevados/hours_status/evidence/raw/pnn_nevados.txt`
+
+> Jornada Continua
+> Correo atención al usuario:
+> [email protected]
+> Correo de notificaciones ju
+
+- https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/ (checked 2026-11-22); evidence: `research_notes/Conocimiento turístico de Los Nevados/hours_status/evidence/raw/pnn_nevados.txt`
+
+> www.reservasnevados.com
+
+- https://www.parquesnacionales.gov.co/wp-content/uploads/2023/08/Resolucion_207_2023_ReglamentacionNevados_.pdf (checked 2026-11-22); evidence: `research_notes/Conocimiento turístico de Los Nevados/hours_status/evidence/raw/resolucion_207_2023.txt`
+
+> nevados@parquesnacionales.gov.co
+
+
+## Updated entry: hours_status.offline_status_verification_advice
+
+- Reason: Keep the previous label; the review marked the wording change as stylistic or named that label.
+- Changed fields: answer, last_verified, sources
+
+- https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/ (checked 2026-11-22); evidence: `research_notes/Conocimiento turístico de Los Nevados/hours_status/evidence/raw/pnn_nevados.html`
+
+> article:modified_time" content="2026-10-31T00:11:49+00:00"
+
+- https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/ (checked 2026-11-22); evidence: `research_notes/Conocimiento turístico de Los Nevados/hours_status/evidence/raw/pnn_nevados.txt`
+
+> @ParquesColombia
+> @parquescolombia
+> @ParquesNaturales
+> +573229471031
+> @parquescolombia
+> Parques
+
+
+## Updated entry: hours_status.open_sectors_during_conservation_closures
+
+- Reason: Keep the previous label; the review marked the wording change as stylistic or named that label.
+- Changed fields: answer, last_verified, sources
+
+- https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/ (checked 2026-11-22); evidence: `research_notes/Conocimiento turístico de Los Nevados/hours_status/evidence/raw/pnn_nevados.html`
+
+> article:modified_time" content="2026-10-31T00:11:49+00:00"
+
+- https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/ (checked 2026-11-22); evidence: `research_notes/Conocimiento turístico de Los Nevados/hours_status/evidence/raw/pnn_nevados.txt`
+
+> Son tres (3) cierres al año con una duración de cinco (5) días, así:
+
+- https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/ (checked 2026-11-22); evidence: `research_notes/Conocimiento turístico de Los Nevados/hours_status/evidence/raw/pnn_nevados.txt`
+
+> el área protegida tiene establecidos algunos cierres como una estrategia ambiental para liberar de carga estos lugares naturales y hacer trabajos de monitoreo.
+
+
+## Updated entry: hours_status.otun_sector_hours
+
+- Reason: Keep the previous label; the review marked the wording change as stylistic or named that label.
+- Changed fields: answer, last_verified, sources
+
+- https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/ (checked 2026-11-22); evidence: `research_notes/Conocimiento turístico de Los Nevados/hours_status/evidence/raw/pnn_nevados.html`
+
+> article:modified_time" content="2026-10-31T00:11:49+00:00"
+
+- https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/ (checked 2026-11-22); evidence: `research_notes/Conocimiento turístico de Los Nevados/hours_status/evidence/raw/pnn_nevados.txt`
+
+> el horario de atención en la cabaña Potosí es de 7:00 a. m. a 12:00 p. m.
+
+- https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/ (checked 2026-11-22); evidence: `research_notes/Conocimiento turístico de Los Nevados/hours_status/evidence/raw/pnn_nevados.txt`
+
+> puedes llegar a los puntos de registro del Parque Nacional (cabaña Potosí – alto de Santa Bárbara) desde las 7:30 a. m. hasta las 10:00 a. m.
+
+
+## Updated entry: hours_status.park_open_today
+
+- Reason: Cite the SGC index link and say the index does not show the alert level.
+- Changed fields: answer, last_verified, sources
+
+- https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/ (checked 2026-11-22); evidence: `research_notes/Conocimiento turístico de Los Nevados/hours_status/evidence/raw/pnn_nevados.html`
+
+> article:modified_time" content="2026-10-31T00:11:49+00:00"
+
+- https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/ (checked 2026-11-22); evidence: `research_notes/Conocimiento turístico de Los Nevados/hours_status/evidence/raw/pnn_nevados.txt`
+
+> abierto todos los días del año en horario de 8:00 a. m. a 2:00 p. m., pero ten presente que la última charla de inducción obligatoria se realiza a la 1:30 p. m.
+
+- https://www2.sgc.gov.co/Noticias/Paginas/Boletines-semanales.aspx (checked 2026-11-22); evidence: `research_notes/Conocimiento turístico de Los Nevados/hours_status/evidence/raw/sgc_boletines.html`
+
+> Boletin_semanal_de_actividad_del_volcan_Nevado_del_Ruiz_del_10_de_noviembre_al_16_de_noviembre_de_2026.pdf
+
+- https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/ (checked 2026-11-22); evidence: `research_notes/Conocimiento turístico de Los Nevados/hours_status/evidence/raw/pnn_nevados.txt`
+
+> @ParquesColombia
+> @parquescolombia
+> @ParquesNaturales
+> +573229471031
+> @parquescolombia
+> Parques
+
+- https://www2.sgc.gov.co/Noticias/Paginas/Boletines-semanales.aspx (checked 2026-11-22); evidence: `research_notes/Conocimiento turístico de Los Nevados/hours_status/evidence/raw/sgc_boletines.html`
+
+> "FileLeafRef": "Boletin_semanal_de_actividad_del_volcan_Nevado_del_Ruiz_del_10_de_noviembre_al_16_de_noviembre_de_2026.pdf",
+
+- https://www2.sgc.gov.co/Noticias/Paginas/Boletines-semanales.aspx (checked 2026-11-22); evidence: `research_notes/Conocimiento turístico de Los Nevados/hours_status/evidence/raw/sgc_boletines.html`
+
+> "serverurl.progid": "1https:\u002f\u002fwww2.sgc.gov.co\u002fNoticias\u002fboletinesDocumentos\u002fBoletin_semanal_de_actividad_del_volcan_Nevado_del_Ruiz_del_10_de_noviembre_al_16_de_noviembre_de_2026.pdf?d=wfef52b863a304b1695f1daa2f1addc55",
+
+
+## Updated entry: hours_status.pnn_administrative_office_hours
+
+- Reason: Keep the previous label; the review marked the wording change as stylistic or named that label.
+- Changed fields: answer, last_verified, sources
+
+- https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/ (checked 2026-11-22); evidence: `research_notes/Conocimiento turístico de Los Nevados/hours_status/evidence/raw/pnn_nevados.html`
+
+> article:modified_time" content="2026-10-31T00:11:49+00:00"
+
+- https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/ (checked 2026-11-22); evidence: `research_notes/Conocimiento turístico de Los Nevados/hours_status/evidence/raw/pnn_nevados.txt`
+
+> 8:00 a.m. a 4:30 p.m.
+
+- https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/ (checked 2026-11-22); evidence: `research_notes/Conocimiento turístico de Los Nevados/hours_status/evidence/raw/pnn_nevados.txt`
+
+> Jornada Continua
+> Correo atención al usuario:
+> [email protected]
+> Correo de notificaciones ju
+
+- https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/ (checked 2026-11-22); evidence: `research_notes/Conocimiento turístico de Los Nevados/hours_status/evidence/raw/pnn_nevados.txt`
+
+> +57 (601) 353 2400
+> Ext. 3011 - 3012
+> Línea gratuita nacional desde un fijo:
+> 018000129722
+> Te
+
+- https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/ (checked 2026-11-22); evidence: `research_notes/Conocimiento turístico de Los Nevados/hours_status/evidence/raw/pnn_nevados.txt`
+
+> Ext. 3011 - 3012
+> Línea gratuita nacional desde un fijo:
+> 018000129722
+> Teléfono celular:
+> +57
+
+- https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/ (checked 2026-11-22); evidence: `research_notes/Conocimiento turístico de Los Nevados/hours_status/evidence/raw/pnn_nevados.txt`
+
+> +57 3229471031
+> Horario de atención: Lunes a viernes de
+> 8:00 a.m. a 4:30 p.m.
+> Jornada Conti
+
+- https://www.parquesnacionales.gov.co/atencion-al-ciudadano/ (checked 2026-11-22); evidence: `research_notes/Conocimiento turístico de Los Nevados/hours_status/evidence/raw/pnn_atencion.txt`
+
+> Horario de atención: Lunes a viernes de 8:00 a.m. a 4:30 p.m. Jornada Continua
+
+
+## Updated entry: hours_status.quindio_dulima_cocora_hours
+
+- Reason: Keep the previous label; the review marked the wording change as stylistic or named that label.
+- Changed fields: answer, last_verified, sources
+
+- https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/ (checked 2026-11-22); evidence: `research_notes/Conocimiento turístico de Los Nevados/hours_status/evidence/raw/pnn_nevados.html`
+
+> article:modified_time" content="2026-10-31T00:11:49+00:00"
+
+- https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/ (checked 2026-11-22); evidence: `research_notes/Conocimiento turístico de Los Nevados/hours_status/evidence/raw/pnn_nevados.txt`
+
+> el horario en el punto de atención Valle del Cocora es de 6:00 a. m. a 10:00 a. m., mientras que en Juntas y Anzoátegui es de 6:00 a. m. a 11:00 a. m. (bajo reserva previa)
+
+- https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/ (checked 2026-11-22); evidence: `research_notes/Conocimiento turístico de Los Nevados/hours_status/evidence/raw/pnn_nevados.txt`
+
+> cinco (5) días hábiles
+
+
+## Updated entry: hours_status.quindio_dulima_juntas_anzoategui_hours
+
+- Reason: Cite the labeled Juntas and Anzoátegui bullets of Resolución 207. Keep the previous label.
+- Changed fields: answer, last_verified, sources
+
+- https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/ (checked 2026-11-22); evidence: `research_notes/Conocimiento turístico de Los Nevados/hours_status/evidence/raw/pnn_nevados.html`
+
+> article:modified_time" content="2026-10-31T00:11:49+00:00"
+
+- https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/ (checked 2026-11-22); evidence: `research_notes/Conocimiento turístico de Los Nevados/hours_status/evidence/raw/pnn_nevados.txt`
+
+> el horario en el punto de atención Valle del Cocora es de 6:00 a. m. a 10:00 a. m., mientras que en Juntas y Anzoátegui es de 6:00 a. m. a 11:00 a. m. (bajo reserva previa)
+
+- https://www.parquesnacionales.gov.co/wp-content/uploads/2023/08/Resolucion_207_2023_ReglamentacionNevados_.pdf (checked 2026-11-22); evidence: `research_notes/Conocimiento turístico de Los Nevados/hours_status/evidence/raw/resolucion_207_2023.txt`
+
+> Juntas: Recorrido desde quebrada Perlas hasta Escuela El Salto o Termales Cañón.
+>     Horario de ingreso al Área Protegida entre las 6:00 a.m. hasta las 10:00 a.m. por tratarse de una travesía (Resolución
+>     No. 268 de julio 2022).
+
+- https://www.parquesnacionales.gov.co/wp-content/uploads/2023/08/Resolucion_207_2023_ReglamentacionNevados_.pdf (checked 2026-11-22); evidence: `research_notes/Conocimiento turístico de Los Nevados/hours_status/evidence/raw/resolucion_207_2023.txt`
+
+> Anzoátegui: Recorrido desde la punta (Finca la Aurora) hasta finca Vancouver o Termales Cañón.
+>     Horario de ingreso al Área Protegida entre las 6:00 a.m. y las 11:00 a.m. por tratarse de una travesía (Resolución
+>     No. 268 del 29 de julio 2022).
+
+
+## Updated entry: hours_status.reopening_protocol_after_emergencies
+
+- Reason: Cite the full 068 clause and article 1 of Resolución 207. This is the 2023 procedure, not a general protocol. Keep the new label.
+- Changed fields: answer, label, last_verified, sources
+
+- https://www.parquesnacionales.gov.co/wp-content/uploads/2023/08/Resolucion_207_2023_ReglamentacionNevados_.pdf (checked 2026-11-22); evidence: `research_notes/Conocimiento turístico de Los Nevados/hours_status/evidence/raw/resolucion_207_2023.txt`
+
+> se ordena ia apertura y se adopta la reglamentacion del
+
+- https://www.parquesnacionales.gov.co/wp-content/uploads/2023/08/Resolucion_207_2023_ReglamentacionNevados_.pdf (checked 2026-11-22); evidence: `research_notes/Conocimiento turístico de Los Nevados/hours_status/evidence/raw/resolucion_207_2023.txt`
+
+> www.parquesnacionales.gov.co
+
+- https://www.parquesnacionales.gov.co/wp-content/uploads/2023/08/Resolucion_207_2023_ReglamentacionNevados_.pdf (checked 2026-11-22); evidence: `research_notes/Conocimiento turístico de Los Nevados/hours_status/evidence/raw/resolucion_207_2023.txt`
+
+> Que Parques Nacionales Naturales de Colombia expidio la Resolucion 068 del 31
+> de marzo de 2023, "Por medio de la $ual se ordena el CIERRE TOTAL y en
+> consecuencia se prohibe el ingreso de visitantes y la prestacion de servicios
+> ecotunsticos en el Parque Nacional Natural Los Nevados"; la cual resuelve en los
+> articulos 1° y 3° que el cierre del Parque Nacional Natural Los Nevados se
+> mantendra "hasta que la Oficina Asesora de Gestion del Riesgo emita el
+> correspondiente informe tecnico, con bas$ en la informacion que emita el Servicio
+> Geologico Colombiano y demas autoridades competentes" y, por el otro, que las
+> actividades misionales, tecnicas, operativas y administrativas se pueden reanudar
+> cuando "cesen los factores de riesgo ile desastre natural que motivan esta
+> decision ",
+
+- https://www.parquesnacionales.gov.co/wp-content/uploads/2023/08/Resolucion_207_2023_ReglamentacionNevados_.pdf (checked 2026-11-22); evidence: `research_notes/Conocimiento turístico de Los Nevados/hours_status/evidence/raw/resolucion_207_2023.txt`
+
+> ARTICULO 1°: Ordenar la APERTURA del Parque Nacional Natural Los Nevados, y
+> adoptar la Reglamentacion Transitoria del ecoturismo
+
+
+## Updated entry: hours_status.road_closure_status
+
+- Reason: Artículo Octavo asks for Invías accompaniment when appropriate. Keep the previous label.
+- Changed fields: answer, last_verified, sources
+
+- https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/ (checked 2026-11-22); evidence: `research_notes/Conocimiento turístico de Los Nevados/hours_status/evidence/raw/pnn_nevados.html`
+
+> article:modified_time" content="2026-10-31T00:11:49+00:00"
+
+- https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/ (checked 2026-11-22); evidence: `research_notes/Conocimiento turístico de Los Nevados/hours_status/evidence/raw/pnn_nevados.txt`
+
+> @ParquesColombia
+> @parquescolombia
+> @ParquesNaturales
+> +573229471031
+> @parquescolombia
+> Parques
+
+- https://www.parquesnacionales.gov.co/wp-content/uploads/2026/08/RESOLUCION-1815-2026.pdf (checked 2026-11-22); evidence: `research_notes/Conocimiento turístico de Los Nevados/hours_status/evidence/raw/resolucion_1815_2026.txt`
+
+> El tramo comprendido entre Murillo y Cerro Guali, desde el PR43+500 Murillo
+
+- https://www.parquesnacionales.gov.co/wp-content/uploads/2026/08/RESOLUCION-1815-2026.pdf (checked 2026-11-22); evidence: `research_notes/Conocimiento turístico de Los Nevados/hours_status/evidence/raw/resolucion_1815_2026.txt`
+
+> El Invias, cuando corresponda.
+
+- https://www.parquesnacionales.gov.co/wp-content/uploads/2026/08/RESOLUCION-1815-2026.pdf (checked 2026-11-22); evidence: `research_notes/Conocimiento turístico de Los Nevados/hours_status/evidence/raw/resolucion_1815_2026.txt`
+
+> La Secretaria solicitara el acompafiamiento de:
+
+
+## Updated entry: hours_status.santa_isabel_conejeras_prior_day_checkin
+
+- Reason: El día anterior está en la ficha; no trae la hora de ese registro.
+- Changed fields: answer, label, last_verified, sources
+
+- https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/ (checked 2026-11-22); evidence: `research_notes/Conocimiento turístico de Los Nevados/hours_status/evidence/raw/pnn_nevados.html`
+
+> article:modified_time" content="2026-10-31T00:11:49+00:00"
+
+- https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/ (checked 2026-11-22); evidence: `research_notes/Conocimiento turístico de Los Nevados/hours_status/evidence/raw/pnn_nevados.txt`
+
+> el registro o paso por los sitios de control se hace el día anterior al ingreso programado para la cima
+
+
+## Updated entry: hours_status.santa_isabel_summit_start_hour
+
+- Reason: Keep the previous label; the review marked the wording change as stylistic or named that label.
+- Changed fields: answer, last_verified, sources
+
+- https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/ (checked 2026-11-22); evidence: `research_notes/Conocimiento turístico de Los Nevados/hours_status/evidence/raw/pnn_nevados.html`
+
+> article:modified_time" content="2026-10-31T00:11:49+00:00"
+
+- https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/ (checked 2026-11-22); evidence: `research_notes/Conocimiento turístico de Los Nevados/hours_status/evidence/raw/pnn_nevados.txt`
+
+> el registro o paso por los sitios de control se hace el día anterior al ingreso programado para la cima
+
+
+## Updated entry: hours_status.tolima_summit_push_hours
+
+- Reason: Keep the previous label; the review marked the wording change as stylistic or named that label.
+- Changed fields: answer, last_verified, sources
+
+- https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/ (checked 2026-11-22); evidence: `research_notes/Conocimiento turístico de Los Nevados/hours_status/evidence/raw/pnn_nevados.html`
+
+> article:modified_time" content="2026-10-31T00:11:49+00:00"
+
+- https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/ (checked 2026-11-22); evidence: `research_notes/Conocimiento turístico de Los Nevados/hours_status/evidence/raw/pnn_nevados.txt`
+
+> el horario en el punto de atención Valle del Cocora es de 6:00 a. m. a 10:00 a. m., mientras que en Juntas y Anzoátegui es de 6:00 a. m. a 11:00 a. m. (bajo reserva previa)
+
+
+## Updated entry: hours_status.trail_maintenance_temporary_closures
+
+- Reason: Cite the full restriction sentence of Resolución 207. Keep the new label.
+- Changed fields: answer, label, last_verified, sources
+
+- https://www.parquesnacionales.gov.co/wp-content/uploads/2023/08/Resolucion_207_2023_ReglamentacionNevados_.pdf (checked 2026-11-22); evidence: `research_notes/Conocimiento turístico de Los Nevados/hours_status/evidence/raw/resolucion_207_2023.txt`
+
+> www.parquesnacionales.gov.co
+
+- https://www.parquesnacionales.gov.co/wp-content/uploads/2023/08/Resolucion_207_2023_ReglamentacionNevados_.pdf (checked 2026-11-22); evidence: `research_notes/Conocimiento turístico de Los Nevados/hours_status/evidence/raw/resolucion_207_2023.txt`
+
+> Parques Nacionales Naturales los Nevados dentro de sus facultades legales, podrá restringir el ingreso o cerrar los
+> atractivos el tiempo que haya lugar, mediante resolución motivada por razones de seguridad, gestión del riesgo,
+> investigación y/o protección ecológica (la protección ecológica se debe tener en cuenta mediante los resultados producto
+> del monitoreo de impactos al ecoturismo) o por recomendación de alguna entidad.
+
+
+## Updated entry: hours_status.unplanned_midday_closures
+
+- Reason: Keep the previous label; the review marked the wording change as stylistic or named that label.
+- Changed fields: answer, last_verified, sources
+
+- https://www.parquesnacionales.gov.co/wp-content/uploads/2023/08/Resolucion_207_2023_ReglamentacionNevados_.pdf (checked 2026-11-22); evidence: `research_notes/Conocimiento turístico de Los Nevados/hours_status/evidence/raw/resolucion_207_2023.txt`
+
+> podrá limitar la entrada o cerrar alguno de los atractivos turísticos si lo
+
+- https://www.parquesnacionales.gov.co/wp-content/uploads/2023/08/Resolucion_207_2023_ReglamentacionNevados_.pdf (checked 2026-11-22); evidence: `research_notes/Conocimiento turístico de Los Nevados/hours_status/evidence/raw/resolucion_207_2023.txt`
+
+> www.parquesnacionales.gov.co
+
+
+## Updated entry: hours_status.uton_concession_office_hours
+
+- Reason: Keep the previous label; the review marked the wording change as stylistic or named that label.
+- Changed fields: answer, last_verified, sources
+
+- https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/ (checked 2026-11-22); evidence: `research_notes/Conocimiento turístico de Los Nevados/hours_status/evidence/raw/pnn_nevados.html`
+
+> article:modified_time" content="2026-10-31T00:11:49+00:00"
+
+- https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/ (checked 2026-11-22); evidence: `research_notes/Conocimiento turístico de Los Nevados/hours_status/evidence/raw/pnn_nevados.txt`
+
+> Horario de atención: lunes a viernes, 8:00 a. m. a 12:00 m. y 2:00 p. m. a 5:00 p. m.
+
+- https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/ (checked 2026-11-22); evidence: `research_notes/Conocimiento turístico de Los Nevados/hours_status/evidence/raw/pnn_nevados.txt`
+
+> 321 506 6031 – 322 360 3637
+
+- https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/ (checked 2026-11-22); evidence: `research_notes/Conocimiento turístico de Los Nevados/hours_status/evidence/raw/pnn_nevados.txt`
+
+> Carrera 26A #68-44, barrio Palermo
+
+- https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/ (checked 2026-11-22); evidence: `research_notes/Conocimiento turístico de Los Nevados/hours_status/evidence/raw/pnn_nevados.txt`
+
+> Calle 70 #27-70
+> 🕒 Horario de atención: lunes a viernes, 8:00 a. m. a 12:00 m. y 2:00 p. m.
+
+
+## Updated entry: hours_status.volcanic_alert_closures
+
+- Reason: Restore three real examples, drop two flagged ones, remove the unsourced summit sentence, and cite Resolución 068 plus the 27 June 2023 bulletin. Round 3b (orchestrator, per re-review required_change): removed the example that weather_volcano.alert_orange_meaning answers better. Resolves the high yellow-alert contradiction (no 'siguen abiertos'). r3b-2: removed the statement about the SGC bulletin index (the live index does show a dated level; a dynamic page is not cited for state).
+- Changed fields: answer, examples, hard_negatives, label, last_verified, related, sources
+
+- https://www.parquesnacionales.gov.co/wp-content/uploads/2023/08/Resolucion_207_2023_ReglamentacionNevados_.pdf (checked 2026-11-22); evidence: `research_notes/Conocimiento turístico de Los Nevados/hours_status/evidence/raw/resolucion_207_2023.txt`
+
+> NIVEL NARANJA o (II): ERUPCION PROBABLE EN TERMING DE DIAS O
+> SEMANAS (...).
+> Que la Oficina
+
+- https://www.parquesnacionales.gov.co/wp-content/uploads/2023/08/Resolucion_207_2023_ReglamentacionNevados_.pdf (checked 2026-11-22); evidence: `research_notes/Conocimiento turístico de Los Nevados/hours_status/evidence/raw/resolucion_207_2023.txt`
+
+> Boletm Extraordinario del 27
+
+- https://www.parquesnacionales.gov.co/wp-content/uploads/2023/08/Resolucion_207_2023_ReglamentacionNevados_.pdf (checked 2026-11-22); evidence: `research_notes/Conocimiento turístico de Los Nevados/hours_status/evidence/raw/resolucion_207_2023.txt`
+
+> de junio de 2023, declara que "Desoues de 89 dfas en nivel de actividad Narania,
+> el volcan
+
+- https://www.parquesnacionales.gov.co/wp-content/uploads/2023/08/Resolucion_207_2023_ReglamentacionNevados_.pdf (checked 2026-11-22); evidence: `research_notes/Conocimiento turístico de Los Nevados/hours_status/evidence/raw/resolucion_207_2023.txt`
+
+> permite $ambiar su nivel a Amarillo
+
+- https://www.parquesnacionales.gov.co/wp-content/uploads/2023/08/Resolucion_207_2023_ReglamentacionNevados_.pdf (checked 2026-11-22); evidence: `research_notes/Conocimiento turístico de Los Nevados/hours_status/evidence/raw/resolucion_207_2023.txt`
+
+> www.parquesnacionales.gov.co
+
+- https://www.parquesnacionales.gov.co/wp-content/uploads/2023/08/Resolucion_207_2023_ReglamentacionNevados_.pdf (checked 2026-11-22); evidence: `research_notes/Conocimiento turístico de Los Nevados/hours_status/evidence/raw/resolucion_207_2023.txt`
+
+> Que Parques Nacionales Naturales de Colombia expidio la Resolucion 068 del 31
+> de marzo de 2023, "Por medio de la $ual se ordena el CIERRE TOTAL y en
+> consecuencia se prohibe el ingreso de visitantes y la prestacion de servicios
+> ecotunsticos en el Parque Nacional Natural Los Nevados"; la cual resuelve en los
+> articulos 1° y 3° que el cierre del Parque Nacional Natural Los Nevados se
+> mantendra "hasta que la Oficina Asesora de Gestion del Riesgo emita el
+> correspondiente informe tecnico, con bas$ en la informacion que emita el Servicio
+> Geologico Colombiano y demas autoridades competentes" y, por el otro, que las
+> actividades misionales, tecnicas, operativas y administrativas se pueden reanudar
+> cuando "cesen los factores de riesgo ile desastre natural que motivan esta
+> decision ",
+
+- https://www.parquesnacionales.gov.co/wp-content/uploads/2023/08/Resolucion_207_2023_ReglamentacionNevados_.pdf (checked 2026-11-22); evidence: `research_notes/Conocimiento turístico de Los Nevados/hours_status/evidence/raw/resolucion_207_2023.txt`
+
+> Que el Servicio Geologico Colombiano, a traves del Boletm Extraordinario del 27
+> de junio de 2023, declara que "Desoues de 89 dfas en nivel de actividad Narania,
+> el volcan ha retornado a un rUve! de menor inestabilidad v la orobabilidad de
+> ocurrencia de una eruodon de maanitud considerable en terminos de dfas o
+> semanas ha disminuido. lo cual permite $ambiar su nivel a Amarillo.
+
+
+## Updated entry: hours_status.weather_emergency_closures
+
+- Reason: La facultad de cerrar por seguridad sí está; la lista de lluvias, granizo y derrumbes no.
+- Changed fields: answer, label, last_verified, sources
+
+- https://www.parquesnacionales.gov.co/wp-content/uploads/2023/08/Resolucion_207_2023_ReglamentacionNevados_.pdf (checked 2026-11-22); evidence: `research_notes/Conocimiento turístico de Los Nevados/hours_status/evidence/raw/resolucion_207_2023.txt`
+
+> podrá limitar la entrada o cerrar alguno de los atractivos turísticos si lo
+
+- https://www.parquesnacionales.gov.co/wp-content/uploads/2023/08/Resolucion_207_2023_ReglamentacionNevados_.pdf (checked 2026-11-22); evidence: `research_notes/Conocimiento turístico de Los Nevados/hours_status/evidence/raw/resolucion_207_2023.txt`
+
+> podrá restringir el ingreso o cerrar los
+
+- https://www.parquesnacionales.gov.co/wp-content/uploads/2023/08/Resolucion_207_2023_ReglamentacionNevados_.pdf (checked 2026-11-22); evidence: `research_notes/Conocimiento turístico de Los Nevados/hours_status/evidence/raw/resolucion_207_2023.txt`
+
+> www.parquesnacionales.gov.co
+
+
+## Updated entry: hours_status.weekday_opening
+
+- Reason: Keep the previous label; the review marked the wording change as stylistic or named that label.
+- Changed fields: answer, last_verified, sources
+
+- https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/ (checked 2026-11-22); evidence: `research_notes/Conocimiento turístico de Los Nevados/hours_status/evidence/raw/pnn_nevados.html`
+
+> article:modified_time" content="2026-10-31T00:11:49+00:00"
+
+- https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/ (checked 2026-11-22); evidence: `research_notes/Conocimiento turístico de Los Nevados/hours_status/evidence/raw/pnn_nevados.txt`
+
+> abierto todos los días del año en horario de 8:00 a. m. a 2:00 p. m., pero ten presente que la última charla de inducción obligatoria se realiza a la 1:30 p. m.
+
+- https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/ (checked 2026-11-22); evidence: `research_notes/Conocimiento turístico de Los Nevados/hours_status/evidence/raw/pnn_nevados.txt`
+
+> es indispensable reservar con al menos un día de anticipación
+
+- https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/ (checked 2026-11-22); evidence: `research_notes/Conocimiento turístico de Los Nevados/hours_status/evidence/raw/pnn_nevados.txt`
+
+> la reserva no es obligatoria
+
+
+## Updated entry: hours_status.weekend_and_holiday_opening
+
+- Reason: Keep the previous label; the review marked the wording change as stylistic or named that label.
+- Changed fields: answer, last_verified, sources
+
+- https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/ (checked 2026-11-22); evidence: `research_notes/Conocimiento turístico de Los Nevados/hours_status/evidence/raw/pnn_nevados.html`
+
+> article:modified_time" content="2026-10-31T00:11:49+00:00"
+
+- https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/ (checked 2026-11-22); evidence: `research_notes/Conocimiento turístico de Los Nevados/hours_status/evidence/raw/pnn_nevados.txt`
+
+> abierto todos los días del año en horario de 8:00 a. m. a 2:00 p. m., pero ten presente que la última charla de inducción obligatoria se realiza a la 1:30 p. m.
+
+- https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/ (checked 2026-11-22); evidence: `research_notes/Conocimiento turístico de Los Nevados/hours_status/evidence/raw/pnn_nevados.txt`
+
+> es indispensable reservar con al menos un día de anticipación
+
+- https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/ (checked 2026-11-22); evidence: `research_notes/Conocimiento turístico de Los Nevados/hours_status/evidence/raw/pnn_nevados.txt`
+
+> la reserva no es obligatoria
+
+- https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/ (checked 2026-11-22); evidence: `research_notes/Conocimiento turístico de Los Nevados/hours_status/evidence/raw/pnn_nevados.txt`
+
+> www.reservasnevados.com
+
+
+## Updated entry: hours_status.why_conservation_closures_exist
+
+- Reason: Keep the previous label; the review marked the wording change as stylistic or named that label.
+- Changed fields: answer, last_verified, sources
+
+- https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/ (checked 2026-11-22); evidence: `research_notes/Conocimiento turístico de Los Nevados/hours_status/evidence/raw/pnn_nevados.html`
+
+> article:modified_time" content="2026-10-31T00:11:49+00:00"
+
+- https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/ (checked 2026-11-22); evidence: `research_notes/Conocimiento turístico de Los Nevados/hours_status/evidence/raw/pnn_nevados.txt`
+
+> el área protegida tiene establecidos algunos cierres como una estrategia ambiental para liberar de carga estos lugares naturales y hacer trabajos de monitoreo.

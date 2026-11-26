@@ -147,3 +147,191 @@ Entradas 29 → 30; ejemplos 362 → 376; hard negatives 83 → 86.
 **Vacíos y riesgos:**
 1. Formulario PQRSDF: la única fuente citable es la portada (`https://www.parquesnacionales.gov.co/`). No hay URL profunda verificable.
 2. 81 `hard_negative_review` heredados en `conversation`. No se añadieron nuevos.
+
+
+## Updated entry: conversation.acknowledge_ok
+
+- Reason: Restore label from snapshot per review: confirmación corta tipo listo o ok. Maintain contrastive hard negatives.
+- Changed fields: hard_negatives
+
+
+## Updated entry: conversation.ai_identity
+
+- Reason: Clarify label and strengthen contrastive hard negatives for conversation.ai_identity.
+- Changed fields: hard_negatives, label
+
+
+## Updated entry: conversation.cancel_topic
+
+- Reason: Restore label from snapshot per review: dejar el tema que estábamos viendo. Maintain contrastive hard negatives.
+- Changed fields: hard_negatives
+
+
+## Updated entry: conversation.capabilities_overview
+
+- Reason: Critical fix per findings/critical.json: app does not transmit reports or dispatch rescue; direct to guide/123. Restore label per review.
+- Changed fields: answer, hard_negatives, last_verified, sources
+
+- https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/ (checked 2026-11-21); evidence: `research_notes/Conocimiento turístico de Los Nevados/conversation/evidence/www_parquesnacionales_gov_co_nuestros-parques_parque-nacional-natural-los-nevados_.txt`
+
+> Parque Nacional Natural Los Nevados • Parques Nacionales Naturales de Colombia
+
+- https://www.policia.gov.co/noticia/policia-nacional-sensibiliza-comunidad-sobre-uso-las-lineas-emergencia-123-155 (checked 2026-11-21); evidence: `research_notes/Conocimiento turístico de Los Nevados/health_safety/evidence/raw/policia_123.html`
+
+> es la línea única de emergencias Nacional, que permite que en un sólo número los colombianos puedan acceder a todos los servicios de emergencia y seguridad que ofrece el Estado gratuitamente las 24 horas del día todos los días del año
+
+
+## Updated entry: conversation.compliment_reply
+
+- Reason: Restore label from snapshot per review: cumplido al asistente. Maintain contrastive hard negatives.
+- Changed fields: hard_negatives
+
+
+## Updated entry: conversation.emergency_limits
+
+- Reason: Critical fix per findings/critical.json: state app does not call/locate/transmit, direct to guide and 123, clarify local preparation only. Restore label per review.
+- Changed fields: answer, hard_negatives, last_verified, sources
+
+- https://www.policia.gov.co/noticia/policia-nacional-sensibiliza-comunidad-sobre-uso-las-lineas-emergencia-123-155 (checked 2026-11-21); evidence: `research_notes/Conocimiento turístico de Los Nevados/health_safety/evidence/raw/policia_123.html`
+
+> es la línea única de emergencias Nacional, que permite que en un sólo número los colombianos puedan acceder a todos los servicios de emergencia y seguridad que ofrece el Estado gratuitamente las 24 horas del día todos los días del año
+
+
+## Updated entry: conversation.feedback_wrong_answer
+
+- Reason: Restore label from snapshot per review: queja por una respuesta equivocada. Maintain contrastive hard negatives.
+- Changed fields: hard_negatives
+
+
+## Updated entry: conversation.first_time_help
+
+- Reason: Restore label from snapshot per review: primera vez y no sé qué preguntar. Maintain contrastive hard negatives.
+- Changed fields: hard_negatives
+
+
+## Updated entry: conversation.free_generation_limits
+
+- Reason: Restore label from snapshot per review: poemas, código o textos sin fuente. Maintain contrastive hard negatives.
+- Changed fields: hard_negatives
+
+
+## Updated entry: conversation.goodbye
+
+- Reason: Clarify label and strengthen contrastive hard negatives for conversation.goodbye.
+- Changed fields: hard_negatives
+
+
+## Updated entry: conversation.greeting_hello
+
+- Reason: Restore label from snapshot per review: saludo al iniciar la conversación. Maintain contrastive hard negatives.
+- Changed fields: hard_negatives
+
+
+## Updated entry: conversation.history_storage
+
+- Reason: Fix per findings/critical.json: chat text is not persisted in SQLite history; history stores only local action records. Restore label per review.
+- Changed fields: answer, last_verified
+
+- https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/ (checked 2026-11-21); evidence: `research_notes/Conocimiento turístico de Los Nevados/conversation/evidence/www_parquesnacionales_gov_co_nuestros-parques_parque-nacional-natural-los-nevados_.txt`
+
+> Parque Nacional Natural Los Nevados • Parques Nacionales Naturales de Colombia
+
+
+## Updated entry: conversation.how_are_you
+
+- Reason: Restore label from snapshot per review: preguntar cómo está el asistente. Maintain contrastive hard negatives.
+- Changed fields: hard_negatives
+
+
+## Updated entry: conversation.human_contact_request
+
+- Reason: Clarify label and strengthen contrastive hard negatives for conversation.human_contact_request.
+- Changed fields: hard_negatives, label
+
+
+## Updated entry: conversation.insults_to_assistant
+
+- Reason: Restore label from snapshot per review: insultos o groserías hacia el asistente. Maintain contrastive hard negatives.
+- Changed fields: hard_negatives
+
+
+## Updated entry: conversation.joke_request
+
+- Reason: Restore label from snapshot per review: pedir un chiste al asistente. Maintain contrastive hard negatives.
+- Changed fields: hard_negatives
+
+
+## Updated entry: conversation.language_request
+
+- Reason: Restore label from snapshot per review: pedir respuestas en otro idioma. Maintain contrastive hard negatives.
+- Changed fields: hard_negatives
+
+
+## Updated entry: conversation.location_map_request
+
+- Reason: Clarify label and strengthen contrastive hard negatives for conversation.location_map_request.
+- Changed fields: hard_negatives, label
+
+
+## Updated entry: conversation.more_detail_followup
+
+- Reason: Restore label from snapshot per review: pedir más detalle del tema anterior. Maintain contrastive hard negatives.
+- Changed fields: hard_negatives
+
+
+## Updated entry: conversation.no_outside_actions
+
+- Reason: Restore label from snapshot per review: llamadas, recordatorios y mensajes. Maintain contrastive hard negatives.
+- Changed fields: hard_negatives
+
+
+## Updated entry: conversation.off_topic_question
+
+- Reason: Restore label from snapshot per review: pregunta ajena al parque. Maintain contrastive hard negatives.
+- Changed fields: hard_negatives
+
+
+## Updated entry: conversation.offline_operation
+
+- Reason: Fix per findings/critical.json: offline operation requires local model installed and selected; no real-time alerts. Restore label per review.
+- Changed fields: answer, hard_negatives, last_verified
+
+- https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/ (checked 2026-11-21); evidence: `research_notes/Conocimiento turístico de Los Nevados/conversation/evidence/www_parquesnacionales_gov_co_nuestros-parques_parque-nacional-natural-los-nevados_.txt`
+
+> Parque Nacional Natural Los Nevados • Parques Nacionales Naturales de Colombia
+
+
+## Updated entry: conversation.opinion_request
+
+- Reason: Restore label from snapshot per review: opinión personal del asistente. Maintain contrastive hard negatives.
+- Changed fields: hard_negatives
+
+
+## Updated entry: conversation.repeat_or_unclear
+
+- Reason: Restore label from snapshot per review: pedir que repita o aclare. Maintain contrastive hard negatives.
+- Changed fields: hard_negatives
+
+
+## Updated entry: conversation.summary_request
+
+- Reason: Restore label from snapshot per review: pedir una respuesta más corta. Maintain contrastive hard negatives.
+- Changed fields: hard_negatives
+
+
+## Updated entry: conversation.thanks
+
+- Reason: Restore label from snapshot per review: agradecer la ayuda recibida. Maintain contrastive hard negatives.
+- Changed fields: hard_negatives
+
+
+## Updated entry: conversation.time_or_date_request
+
+- Reason: Clarify label and strengthen contrastive hard negatives for conversation.time_or_date_request.
+- Changed fields: hard_negatives, label
+
+
+## Updated entry: conversation.voice_reading_request
+
+- Reason: Restore label from snapshot per review: leer en voz alta o dictar. Maintain contrastive hard negatives.
+- Changed fields: hard_negatives

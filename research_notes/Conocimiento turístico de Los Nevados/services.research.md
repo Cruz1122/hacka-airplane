@@ -314,3 +314,135 @@ Movimientos de archivos en esta ronda: los brutos de `new/`, `poe2026/`, el `.do
 - Validador de conocimiento: 0 errores; ninguna advertencia de services.
 - No se verificó el estado actual de ningún dato de 2024 (horarios, camas, mantenimiento, cabañas). Esos datos siguen marcados con su año.
 - No hay commit.
+
+
+## Updated entry: services.accessibility
+
+- Reason: Conserva la etiqueta anterior ('accesibilidad para movilidad reducida') según lo requerido en la revisión.
+- Changed fields: examples, hard_negatives
+
+
+## Updated entry: services.brisas_lodging
+
+- Reason: Conserva la etiqueta anterior ('camas en Brisas: confirmar con UTON') según lo requerido en la revisión.
+- Changed fields: examples, hard_negatives
+
+
+## Updated entry: services.brisas_visitor_center
+
+- Reason: Clarify label and strengthen examples and hard negatives to resolve confusion and raise retrieval discrimination for services.brisas_visitor_center.
+- Changed fields: examples, hard_negatives, label
+
+
+## Updated entry: services.camp_showers
+
+- Reason: Clarify label and strengthen examples and hard negatives to resolve confusion and raise retrieval discrimination for services.camp_showers.
+- Changed fields: examples, hard_negatives, label
+
+
+## Updated entry: services.charging_power
+
+- Reason: Conserva la etiqueta anterior ('carga de celular o batería') según lo requerido en la revisión.
+- Changed fields: examples, hard_negatives
+
+
+## Updated entry: services.cisne_visitor_center
+
+- Reason: Clarify label and strengthen examples and hard negatives to resolve confusion and raise retrieval discrimination for services.cisne_visitor_center.
+- Changed fields: examples, hard_negatives, label
+
+
+## Updated entry: services.drinking_water
+
+- Reason: Conserva la etiqueta anterior ('agua para tomar en el parque') según lo requerido en la revisión.
+- Changed fields: examples, hard_negatives
+
+
+## Updated entry: services.first_aid_points
+
+- Reason: Clarify label and strengthen examples and hard negatives to resolve confusion and raise retrieval discrimination for services.first_aid_points.
+- Changed fields: examples, hard_negatives, label
+
+
+## Updated entry: services.guide_radios
+
+- Reason: Conserva la etiqueta anterior ('radios que llevan los guías') según lo requerido en la revisión.
+- Changed fields: examples, hard_negatives
+
+
+## Updated entry: services.interpretive_guiding
+
+- Reason: Adopta la etiqueta recomendada en labels.json (guías registrados para los senderos) para resolver solapamiento con activities.interpretive_hiking según revisión.
+- Changed fields: examples, hard_negatives, label
+
+
+## Updated entry: services.lost_items
+
+- Reason: Clarify label and strengthen examples and hard negatives to resolve confusion and raise retrieval discrimination for services.lost_items.
+- Changed fields: examples, hard_negatives, label
+
+
+## Updated entry: services.mule_luggage_registered_only
+
+- Reason: Clarify label and strengthen examples and hard negatives to resolve confusion and raise retrieval discrimination for services.mule_luggage_registered_only.
+- Changed fields: examples, hard_negatives, label
+
+
+## Updated entry: services.north_food
+
+- Reason: Conserva la etiqueta anterior ('comida en Brisas y Arenales') según lo requerido en la revisión.
+- Changed fields: examples, hard_negatives
+
+
+## Updated entry: services.otun_lodging
+
+- Reason: Conserva la etiqueta anterior ('casas de hospedaje en El Bosque') según lo requerido en la revisión.
+- Changed fields: examples, hard_negatives
+
+
+## Updated entry: services.porter_luggage
+
+- Reason: Clarify label and strengthen examples and hard negatives to resolve confusion and raise retrieval discrimination for services.porter_luggage.
+- Changed fields: examples, hard_negatives, label
+
+
+## Updated entry: services.porter_requirements
+
+- Reason: Conserva la etiqueta anterior ('requisitos para ser porteador') según lo requerido en la revisión.
+- Changed fields: examples, hard_negatives
+
+
+## Updated entry: services.potosi_cabin
+
+- Reason: Clarify label and strengthen examples and hard negatives to resolve confusion and raise retrieval discrimination for services.potosi_cabin.
+- Changed fields: examples, hard_negatives, label
+
+
+## Updated entry: services.quindio_dulima
+
+- Reason: Conserva la etiqueta anterior ('servicios en Quindío–Dulima') según lo requerido en la revisión.
+- Changed fields: examples, hard_negatives
+
+
+## Updated entry: services.refugio_cabin
+
+- Reason: Conserva la etiqueta anterior ('cabaña El Refugio no habilitada') según lo requerido en la revisión.
+- Changed fields: examples, hard_negatives
+
+
+## Updated entry: services.toilets
+
+- Reason: Clarify label and strengthen examples and hard negatives to resolve confusion and raise retrieval discrimination for services.toilets.
+- Changed fields: examples, hard_negatives, label
+
+
+## Updated entry: services.tolima_lodging
+
+- Reason: Conserva la etiqueta anterior ('hospedaje en Termal Cañón y La Primavera') según lo requerido en la revisión.
+- Changed fields: examples, hard_negatives
+
+
+## Updated entry: services.uton_services
+
+- Reason: Clarify label and strengthen examples and hard negatives to resolve confusion and raise retrieval discrimination for services.uton_services.
+- Changed fields: examples, hard_negatives, label

@@ -170,3 +170,102 @@ Reused from `activities/evidence/raw/` (already on disk; URLs recorded in `quote
 - The 2024 report’s special-activity list (night activity, rescue courses, orientation races, yoga, “baños de salud”) is attributed to Resolution 207, but that resolution’s activity section does not contain those items. They are questions, not permissions.
 - Rock climbing and rappelling at Gazaperas, and the three cycling roads, are in the 2017 plan and are not repeated as current permissions.
 - Bird species, lodging, porter rules, ages, hours and road distances stay in their own sections.
+
+
+## Updated entry: activities.camping_brisas_restricted
+
+- Reason: Name the Brisas (north) Arenales explicitly. Round 3 (orchestrator): critical camping contradiction (findings/contradictions.json) — Res. 207/2023 names two different Arenales: the Brisas (north) camping, restricted, and a point near the Nevado del Tolima, enabled transitionally.
+- Changed fields: answer, last_verified
+
+- https://www.parquesnacionales.gov.co/wp-content/uploads/2023/08/Resolucion_207_2023_ReglamentacionNevados.pdf (checked 2026-11-22); evidence: `research_notes/Conocimiento turístico de Los Nevados/activities/evidence/raw/resolucion-207-2023.txt`
+
+> Camping Arenales - Sector Brisas (restringido por actividad volcánica).
+
+- https://www.parquesnacionales.gov.co/wp-content/uploads/2024/12/Informe-de-necesidades-de-asistencia-PNN-Los-Nevados-2024.docx (checked 2026-11-22); evidence: `research_notes/Conocimiento turístico de Los Nevados/activities/evidence/raw/pnn_informe_necesidades_2024.txt`
+
+> 3. Arenales – camping
+> Zona de camping no se encuentra habilitada debido a la actividad volcánica.
+
+- https://www.parquesnacionales.gov.co/wp-content/uploads/2024/12/Informe-de-necesidades-de-asistencia-PNN-Los-Nevados-2024.docx (checked 2026-11-22); evidence: `research_notes/Conocimiento turístico de Los Nevados/activities/evidence/raw/pnn_informe_necesidades_2024.txt`
+
+> 2. Brisas
+> Taquilla, Centro de Inducción y Cabaña
+> Villamaría, Caldas
+
+
+## Updated entry: activities.camping_tolima
+
+- Reason: Disambiguate the Tolima Arenales from the Brisas camping. Round 3 (orchestrator): critical camping contradiction (findings/contradictions.json) — Res. 207/2023 names two different Arenales: the Brisas (north) camping, restricted, and a point near the Nevado del Tolima, enabled transitionally.
+- Changed fields: answer, last_verified
+
+- https://www.parquesnacionales.gov.co/wp-content/uploads/2023/08/Resolucion_207_2023_ReglamentacionNevados.pdf (checked 2026-11-22); evidence: `research_notes/Conocimiento turístico de Los Nevados/activities/evidence/raw/resolucion-207-2023.txt`
+
+> No obstante, en este reglamento temporal transitorio, se habilitan los puntos en inmediaciones al nevado del
+>  Tolima, conocidos como:
+
+- https://www.parquesnacionales.gov.co/wp-content/uploads/2023/08/Resolucion_207_2023_ReglamentacionNevados.pdf (checked 2026-11-22); evidence: `research_notes/Conocimiento turístico de Los Nevados/activities/evidence/raw/resolucion-207-2023.txt`
+
+> Estos sitios se habilitan para el pernocte, como una medida transitoria de manejo mediada por un seguimiento y
+> monitoreo, que genere insumos para la reglamentación del camping.
+
+- https://www.parquesnacionales.gov.co/wp-content/uploads/2023/08/Resolucion_207_2023_ReglamentacionNevados.pdf (checked 2026-11-22); evidence: `research_notes/Conocimiento turístico de Los Nevados/activities/evidence/raw/resolucion-207-2023.txt`
+
+> Las carpas utilizadas deben tener las especificaciones técnicas para alta montaña; conocidas como carpas de tres
+> y cuatro estaciones para temperaturas menores a cero grados centígrados.
+
+- https://www.parquesnacionales.gov.co/wp-content/uploads/2023/08/Resolucion_207_2023_ReglamentacionNevados.pdf (checked 2026-11-22); evidence: `research_notes/Conocimiento turístico de Los Nevados/activities/evidence/raw/resolucion-207-2023.txt`
+
+> Hacer fogatas, estas pueden ocasionar incendios forestales deben portar el camping gas.
+
+- https://www.parquesnacionales.gov.co/wp-content/uploads/2023/08/Resolucion_207_2023_ReglamentacionNevados.pdf (checked 2026-11-22); evidence: `research_notes/Conocimiento turístico de Los Nevados/activities/evidence/raw/resolucion-207-2023.txt`
+
+> queda prohibido el uso del porteo de maletas para las zonas de camping temporales
+>       correspondientes al Calvito y Arenales.
+
+
+## Updated entry: activities.camping_where
+
+- Reason: Separate the two Arenales; date each statement. Round 3 (orchestrator): critical camping contradiction (findings/contradictions.json) — Res. 207/2023 names two different Arenales: the Brisas (north) camping, restricted, and a point near the Nevado del Tolima, enabled transitionally.
+- Changed fields: answer, last_verified
+
+- https://www.parquesnacionales.gov.co/wp-content/uploads/2023/08/Resolucion_207_2023_ReglamentacionNevados.pdf (checked 2026-11-22); evidence: `research_notes/Conocimiento turístico de Los Nevados/activities/evidence/raw/resolucion-207-2023.txt`
+
+> Camping Arenales - Sector Brisas (restringido por actividad volcánica).
+
+- https://www.parquesnacionales.gov.co/wp-content/uploads/2024/12/Informe-de-necesidades-de-asistencia-PNN-Los-Nevados-2024.docx (checked 2026-11-22); evidence: `research_notes/Conocimiento turístico de Los Nevados/activities/evidence/raw/pnn_informe_necesidades_2024.txt`
+
+> 3. Arenales – camping
+> Zona de camping no se encuentra habilitada debido a la actividad volcánica.
+
+- https://www.parquesnacionales.gov.co/wp-content/uploads/2023/08/Resolucion_207_2023_ReglamentacionNevados.pdf (checked 2026-11-22); evidence: `research_notes/Conocimiento turístico de Los Nevados/activities/evidence/raw/resolucion-207-2023.txt`
+
+> No obstante, en este reglamento temporal transitorio, se habilitan los puntos en inmediaciones al nevado del
+>  Tolima, conocidos como:
+
+- https://www.parquesnacionales.gov.co/wp-content/uploads/2023/08/Resolucion_207_2023_ReglamentacionNevados.pdf (checked 2026-11-22); evidence: `research_notes/Conocimiento turístico de Los Nevados/activities/evidence/raw/resolucion-207-2023.txt`
+
+> Estos sitios se habilitan para el pernocte, como una medida transitoria de manejo mediada por un seguimiento y
+> monitoreo, que genere insumos para la reglamentación del camping.
+
+
+## Updated entry: activities.conejeras_hut
+
+- Reason: Resolver hallazgo crítico: respaldar con fuente primaria oficial informe 2024 y retirar afirmaciones no soportadas.
+- Changed fields: answer, last_verified, sources
+
+- https://www.parquesnacionales.gov.co/wp-content/uploads/2024/12/Informe-de-necesidades-de-asistencia-PNN-Los-Nevados-2024.docx (checked 2026-11-22); evidence: `research_notes/Conocimiento turístico de Los Nevados/activities/evidence/raw/pnn_informe_necesidades_2024.txt`
+
+> Caseta Conejeras
+> Villamaría, Caldas
+
+
+## Updated entry: activities.mirador_laguna_otun
+
+- Reason: Resolver hallazgo crítico: respaldar con fuente primaria oficial informe 2024 y retirar afirmaciones no soportadas.
+- Changed fields: answer, last_verified, sources
+
+- https://www.parquesnacionales.gov.co/wp-content/uploads/2024/12/Informe-de-necesidades-de-asistencia-PNN-Los-Nevados-2024.docx (checked 2026-11-22); evidence: `research_notes/Conocimiento turístico de Los Nevados/activities/evidence/raw/pnn_informe_necesidades_2024.txt`
+
+> 12. Mirador Laguna del Otún
+> Pereira, Risaralda
+> Se encuentra actualmente en condiciones regulares

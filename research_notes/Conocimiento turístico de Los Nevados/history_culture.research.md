@@ -142,3 +142,21 @@ Módulo: `history_culture/corrected_round2.py`, conectado en `emit_corrected.py`
 - Límites físicos y hectáreas actuales: siguen sin fuente (la ficha da 61.388,24 ha y 61.410 ha; no se sirven).
 - Hora del 13-XI-1985, cifra única de muertos, velocidad medida, censo de familias: sin fuente.
 - Resoluciones de cierre 068 de 2023 y 0137 de 2020 (índice normativo): son cierres y pertenecen a `hours_status`; no se citan aquí.
+
+
+## Updated entry: history_culture.prior_rights_1973
+
+- Reason: Actualizar etiqueta a "derechos adquiridos anteriores a la creación del parque" para desambiguar frente a booking_fees.exempt_property_owners, con cita verificada del artículo 4 del Acuerdo 15 de 1973.
+- Changed fields: label
+
+
+## Updated entry: history_culture.ruiz_name_origin
+
+- Reason: Clarify label to improve retrieval discrimination and prevent cross-topic confusions for history_culture.ruiz_name_origin.
+- Changed fields: label
+
+
+## Updated entry: history_culture.termales_history
+
+- Reason: Clarify label to improve retrieval discrimination and prevent cross-topic confusions for history_culture.termales_history.
+- Changed fields: label
