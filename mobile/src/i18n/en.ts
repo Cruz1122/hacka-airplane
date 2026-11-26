@@ -223,6 +223,19 @@ export const en: Labels = {
       identify: 'Identify a photo',
       captionPlaceholder: 'Write about the photo',
     },
+    voice: {
+      mic: 'Dictate question',
+      micHint: 'Hold to speak; on release, the text appears in the field',
+      recording: 'Recording, release to transcribe',
+      errorTitle: 'Dictation',
+      permissionDenied: 'Microphone permission is needed to dictate.',
+      unavailable: 'Dictation is not available on this device.',
+      busy: 'Dictation is busy. Try again.',
+      error: 'I could not transcribe. Try again.',
+      speak: 'Listen to this answer',
+      speakStop: 'Stop the voice',
+      speakError: 'I could not read the answer aloud.',
+    },
   },
   // Knowledge chat (top-1 curated answers, src/state/useKnowledge.ts).
   knowledge: {

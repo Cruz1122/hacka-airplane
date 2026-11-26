@@ -3,6 +3,13 @@ import { Animated, StyleSheet } from 'react-native';
 // Ships with jest-expo (its replacement for the deprecated react-test-renderer).
 import { createRoot, type TestInstance } from 'test-renderer';
 
+const mockToggleSpeak = jest.fn();
+jest.mock('@/speech/speak', () => ({
+  subscribeSpeak: () => () => {},
+  getSpeakingKey: () => null,
+  toggleSpeak: (...args: unknown[]) => mockToggleSpeak(...args),
+}));
+
 import { fill, t } from '@/i18n';
 import { fonts } from '@/ui/theme/tokens';
 
@@ -130,18 +137,35 @@ describe('ChatBubble', () => {
       sources: SOURCES,
       onOpenSources,
     });
-    const [button] = b.buttons();
-    expect(b.buttons()).toHaveLength(1);
-    expect(button.props.accessibilityLabel).toBe(fill(t.chatScreen.sources.showMany, { n: 2 }));
-    act(() => button.props.onClick(PRESS));
+    expect(b.buttons()).toHaveLength(2);
+    const source = b
+      .buttons()
+      .find((n) => n.props.accessibilityLabel === fill(t.chatScreen.sources.showMany, { n: 2 }));
+    expect(source).toBeTruthy();
+    act(() => source!.props.onClick(PRESS));
     expect(onOpenSources).toHaveBeenCalledWith(SOURCES);
+  });
+
+  it('reads an assistant answer aloud from the voice button beside sources', () => {
+    mockToggleSpeak.mockClear();
+    const b = mount({
+      role: 'assistant',
+      text: 'Dato [fuente: EST-D-01]',
+      sources: SOURCES,
+      onOpenSources: jest.fn(),
+      entryId: 'a1',
+    });
+    const voice = b.buttons().find((n) => n.props.accessibilityLabel === t.chatScreen.voice.speak);
+    expect(voice).toBeTruthy();
+    act(() => voice!.props.onClick(PRESS));
+    expect(mockToggleSpeak).toHaveBeenCalledWith('a1', 'Dato', expect.any(Function));
   });
 
   it('has no source button without sources, and shows the user words as typed', () => {
     const onOpenSources = jest.fn();
-    expect(
-      mount({ role: 'assistant', text: 'Hola', sources: [], onOpenSources }).buttons(),
-    ).toEqual([]);
+    const none = mount({ role: 'assistant', text: 'Hola', sources: [], onOpenSources });
+    expect(none.buttons()).toHaveLength(1);
+    expect(none.buttons()[0].props.accessibilityLabel).toBe(t.chatScreen.voice.speak);
     const mine = mount({
       role: 'user',
       text: 'Cita [fuente: EST-D-01]',
@@ -169,8 +193,10 @@ describe('ChatBubble', () => {
     advance(MS * 2);
     expect(b.text()).toBe('Abre a las ');
     advance(MS * 3);
-    expect(b.text()).toBe(`${text}|E|P|${t.chatScreen.sources.title}|0.6 s`);
-    expect(b.buttons()).toHaveLength(1);
+    expect(b.text()).toBe(
+      `${text}|E|P|${t.chatScreen.sources.title}|0.6 s`,
+    );
+    expect(b.buttons()).toHaveLength(2);
   });
 
   it('deduplicates up to three favicon previews by source domain', () => {
