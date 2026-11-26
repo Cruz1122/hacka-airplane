@@ -1,12 +1,12 @@
 import { act, Profiler } from 'react';
-import { Animated } from 'react-native';
+import { Animated, StyleSheet } from 'react-native';
 // Ships with jest-expo (its replacement for the deprecated react-test-renderer).
 import { createRoot, type TestInstance } from 'test-renderer';
 
 import { fill, t } from '@/i18n';
 import { fonts } from '@/ui/theme/tokens';
 
-import { ChatBubble, type ChatBubbleProps } from '../ChatBubble';
+import { ChatBubble, type ChatBubbleProps, markEntered } from '../ChatBubble';
 import type { ChatSource } from '../citations';
 import { replyReveal, WORDS_PER_SECOND } from '../reveal';
 
@@ -37,6 +37,10 @@ function mount(props: ChatBubbleProps) {
         .join('|'),
     bold: () => all((n) => n.type === 'Text' && n.props.style?.fontFamily === fonts.bold).map(flat),
     label: () => all((n) => n.type === 'View' && n.props.accessible)[0]?.props.accessibilityLabel,
+    /** The row's entry opacity. */
+    opacity: () =>
+      all((n) => n.type === 'View' && StyleSheet.flatten(n.props.style)?.opacity !== undefined)[0]
+        ?.props.style,
     buttons: () => all((n) => n.type === 'View' && n.props.accessibilityRole === 'button'),
   };
 }
@@ -87,6 +91,26 @@ describe('ChatBubble', () => {
     b.render({ role: 'assistant', text: 'Abre a las 06:10 [fuente: EST-D-01].' });
     expect(b.text()).toBe('Abre a las 06:10.');
     expect(timing).toHaveBeenCalledTimes(1);
+  });
+
+  it('enters once per row, also when a recycled cell shows that row again', () => {
+    const opacity = (b: ReturnType<typeof mount>) => StyleSheet.flatten(b.opacity()).opacity;
+    const b = mount({ role: 'user', text: 'Hola', entryId: 'e1' });
+    expect(timing).toHaveBeenCalledTimes(1);
+    // FlashList hands the cell to a new row: hidden from its first frame, then it enters.
+    b.render({ role: 'user', text: 'Otra', entryId: 'e2' });
+    expect(opacity(b)).toBe(0);
+    expect(timing).toHaveBeenCalledTimes(2);
+    // Scrolled back to the first row: it shows at once.
+    b.render({ role: 'user', text: 'Hola', entryId: 'e1' });
+    expect(opacity(b)).toBe(1);
+    expect(timing).toHaveBeenCalledTimes(2);
+  });
+
+  it('shows rows the reader has already seen without an entry', () => {
+    markEntered(['seen']);
+    mount({ role: 'user', text: 'Hola', entryId: 'seen' });
+    expect(timing).not.toHaveBeenCalled();
   });
 
   it('appears at once under reduced motion', () => {

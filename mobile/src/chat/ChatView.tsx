@@ -29,7 +29,7 @@ import Svg, { Defs, LinearGradient, Rect, Stop } from 'react-native-svg';
 
 import type { StepResult } from '@/core/driver';
 import { fill, t } from '@/i18n';
-import { ChatBubble } from '@/ui/chat/ChatBubble';
+import { ChatBubble, markEntered } from '@/ui/chat/ChatBubble';
 import type { ChatSource } from '@/ui/chat/citations';
 import { ChatComposer, DOCK } from '@/ui/chat/ChatComposer';
 import { ChatMenu } from '@/ui/chat/ChatMenu';
@@ -110,11 +110,15 @@ function TopFade() {
 }
 
 /**
- * Rows on screen when the chat mounts show whole (read before, or arrived while it was away); each
- * later assistant row types itself out after the one before it.
+ * Rows on screen when the chat mounts show whole and without an entry (read before, or arrived
+ * while it was away); each later assistant row types itself out after the one before it.
  */
 function useReplyReveal(messages: ChatRow[]): ReadonlySet<string> {
-  const [seen] = useState(() => new Set(messages.map((m) => m.id)));
+  const [seen] = useState(() => {
+    const ids = new Set(messages.map((m) => m.id));
+    markEntered(ids);
+    return ids;
+  });
   // Before paint, in data order: a banner always types out before its reply.
   useLayoutEffect(() => replyReveal.schedule(messages, seen, performance.now()), [messages, seen]);
   return seen;
@@ -334,6 +338,7 @@ function ChatContent(p: ChatViewProps & { width: number; tall: number; viewBotto
         text={item.text}
         keywords={keywordsFor(item.entryId)}
         revealId={item.role === 'assistant' ? item.id : undefined}
+        entryId={item.id}
         sources={item.sources}
         onOpenSources={openSheet}
         meta={
