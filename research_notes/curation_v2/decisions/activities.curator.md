@@ -1,0 +1,34 @@
+# activities curator — decision log
+
+## Operaciones
+
+- `activities.cloudy_visit_landscape` update: ajuste de etiqueta a "recorrido de Brisas si el día está nublado" y hard negatives de `weather_volcano.summit_visibility` para resolver confusión con visibilidad meteorológica. Evidencia: `research_notes/curation_v2/evidence/activities/pnn-ficha.txt`.
+- `activities.snow_and_glacier_access` update: ajuste de etiqueta a "dónde tocar nieve o glaciar en la visita" y hard negatives de `flora_ecosystems.glaciers_snow_presence` para distinguir acceso turístico de presencia ecológica. Evidencia: `research_notes/curation_v2/evidence/activities/pnn-ficha.txt`.
+- `activities.birdwatching` update: ajuste de etiqueta a "observación de aves y pajareo en la visita" y hard negatives de `activities.wildlife_from_trail` para diferenciar aviturismo de flora/fauna general. Evidencia: `research_notes/curation_v2/evidence/activities/pnn-ficha.txt`.
+- `activities.wildlife_from_trail` update: ajuste de etiqueta a "observación de fauna y flora desde el sendero" y hard negatives de `activities.birdwatching`. Evidencia: `research_notes/curation_v2/evidence/activities/pnn-ficha.txt`.
+- `activities.termales_canon` update: ajuste de etiqueta a "visita y paso por Termales del Cañón" y hard negatives de `activities.therapeutic_baths_banned`. Evidencia: `research_notes/curation_v2/evidence/activities/resolucion-207-2023.txt`.
+- `activities.therapeutic_baths_banned` update: ajuste de etiqueta a "prohibición de baños en lagunas y termales" y hard negatives de `activities.termales_canon`. Evidencia: `research_notes/curation_v2/evidence/activities/resolucion-207-2023.txt`.
+- `activities.camping_cisne` update: ajuste de etiqueta a "condición del camping en el centro El Cisne" y hard negatives de `services.cisne_visitor_center`. Evidencia: `research_notes/curation_v2/evidence/activities/resolucion-207-2023.txt`.
+- `activities.horseback_not_allowed` update: ajuste de etiqueta a "prohibición de cabalgatas turísticas en el parque" y hard negatives de `services.mule_luggage_registered_only`. Evidencia: `research_notes/curation_v2/evidence/activities/resolucion-207-2023.txt`.
+- `activities.north_route_stops` update: ajuste de etiqueta a "paradas autorizadas del carreteable de Brisas" y hard negatives de `activities.aguacerales_stop`. Evidencia: `research_notes/curation_v2/evidence/activities/resolucion-207-2023.txt`.
+- `activities.aguacerales_stop` update: ajuste de etiqueta a "parada de Aguacerales en el carreteable norte" y hard negatives de `activities.north_route_stops`. Evidencia: `research_notes/curation_v2/evidence/activities/resolucion-207-2023.txt`.
+- `activities.conejeras_glacier_edge` update: ajuste de etiqueta a "sendero Conejeras al borde glaciar Santa Isabel" y hard negatives de `activities.south_glacier_edge`. Evidencia: `research_notes/curation_v2/evidence/activities/resolucion-207-2023.txt`.
+- `activities.south_glacier_edge` update: ajuste de etiqueta a "sendero sur Otún Alsacia al borde glaciar" y hard negatives de `activities.conejeras_glacier_edge`. Evidencia: `research_notes/curation_v2/evidence/activities/resolucion-207-2023.txt`.
+- `activities.unlisted_activities` update: ajuste de etiqueta a "actividades no listadas como bote o picnic" y hard negatives de `activities.ski_and_canyoning`. Evidencia: `research_notes/curation_v2/evidence/activities/resolucion-207-2023.txt`.
+- `activities.ski_and_canyoning` update: ajuste de etiqueta a "trámite deportivo para esquí de montaña o barranquismo" y hard negatives de `activities.unlisted_activities`. Evidencia: `research_notes/curation_v2/evidence/activities/resolucion-207-2023.txt`.
+- `activities.cycling_roads_2017` update: ajuste de etiqueta a "vías vehiculares para ciclomontañismo según el plan" y reemplazo de hard negatives no relacionados por los de `activities.regulated_sports`. Evidencia: `research_notes/curation_v2/evidence/activities/plan-de-manejo-2017.txt`.
+- `activities.regulated_sports` update: ajuste de etiqueta a "deportes regulados como ciclomontañismo o trail running" y hard negatives de `activities.cycling_roads_2017`. Evidencia: `research_notes/curation_v2/evidence/activities/poe-publicacion-2026.txt`.
+- `activities.potosi_laguna_road` update: ajuste de etiqueta a "sendero de Potosí a Laguna del Otún" y hard negatives de `access.otun_via_potosi`. Evidencia: `research_notes/curation_v2/evidence/activities/resolucion-207-2023.txt`.
+- `activities.laguna_verde` update: ajuste de etiqueta a "sendero ecoturístico al mirador Laguna Verde" y hard negatives de `geography.laguna_verde`. Evidencia: `research_notes/curation_v2/evidence/activities/resolucion-207-2023.txt`.
+- `activities.camping_where` update: ajuste de etiqueta a "dónde está permitido acampar en el parque" y hard negatives de `rules.camping`. Evidencia: `research_notes/curation_v2/evidence/activities/resolucion-207-2023.txt`.
+- `activities.otun_cedral_walk` update: ajuste de etiqueta a "caminata de El Cedral a Laguna del Otún" y hard negatives de `access.cedral_walk_distances`. Evidencia: `research_notes/curation_v2/evidence/activities/pnn-ficha.txt`.
+- `activities.day_or_multiday` update: ajuste de etiqueta a "elegir visita corta o travesía de varios días" y hard negatives de `access.road_visit_or_trail`. Evidencia: `research_notes/curation_v2/evidence/activities/resolucion-207-2023.txt`.
+- `activities.brisas_valle_tumbas` update: ajuste de etiqueta a "recorrido vehicular desde Brisas hasta Valle de Tumbas" y hard negatives de `access.brisas_tumbas_drive`. Evidencia: `research_notes/curation_v2/evidence/activities/pnn-ficha.txt`.
+
+## No comprobado, huecos, descargas, cruces
+
+- Entradas sin comprobar / flag_review: 2 entradas (`activities.mirador_laguna_otun` y `activities.conejeras_hut`). Citan como única fuente el `Informe-de-necesidades-de-asistencia-PNN-Los-Nevados-2024.docx`, cuyo archivo binario no produjo texto plano verificable mediante `fetch_evidence.py`. Se auditan como `quote_missing` y `flag_review`.
+- Huecos factuales: ninguno en las respuestas vigentes; las 70 respuestas están fechadas con referencia explícita a la normativa oficial (Resolución 207 de 2023, Carta de mayo de 2026, Ficha 2026, POE 2026) y ninguna afirma conocer el estado del día de hoy sin remitir al parque o al operador.
+- Descargas fallidas: ninguna. Los 12 recursos oficiales fueron descargados con código HTTP 200 y metadatos válidos en `research_notes/curation_v2/evidence/activities/`.
+- Cruces: 5 hallazgos documentados en `research_notes/curation_v2/findings/activities.cross.json` cubriendo desambiguaciones con `weather_volcano`, `flora_ecosystems`, `services`, `rules` y `access`.
+- Verificaciones: `stage` ok (`"status": "staged"`), `verify_evidence` ok (`"fail": []`), `route_check` ok (`n_removed_not_routing: 0`), `audit_check` ok (`"fail": []`).

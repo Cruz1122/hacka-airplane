@@ -1,0 +1,738 @@
+{
+ "section": "hours_status",
+ "reviewer": "agent 26 / claude-haiku-5-5",
+ "ops": [
+  {
+   "id": "hours_status.general_opening_schedule",
+   "op": "update",
+   "verdict": "revise",
+   "entailment": "full",
+   "label_change": "n/a",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "warn",
+   "reason": "Cifras de la ficha (Brisas 8–2, Cisne 7:30–10, Potosí 7–12, Cocora 6–10, Juntas y Anzoátegui 11) y de la 207 (Juntas 10:00) confirmadas. La fecha de la ficha (última modificación 31-10-2026) está bien dicha.",
+   "required_change": "Citar el bullet de Juntas de la Resolución 207 (zona sur: \"Juntas… 6:00 a.m. hasta las 10:00 a.m.\", Resolución 268 de 2022). La cita actual Q6 pertenece al bullet de Valle de Cocora."
+  },
+  {
+   "id": "hours_status.park_open_today",
+   "op": "update",
+   "verdict": "revise",
+   "entailment": "partial",
+   "label_change": "n/a",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "warn",
+   "reason": "Honesta sobre que no puede decir si abre hoy. La frase \"el índice del SGC lista un boletín del Ruiz del 10 al 16 de noviembre de 2026 sin nivel de alerta\" depende del HTML almacenado: el nombre del PDF está en el enlace, no en el texto visible. La cita es solo el nombre del archivo.",
+   "required_change": "Citar el enlace del índice SGC (sgc_boletines.html) y decir que el índice no muestra el nivel de alerta."
+  },
+  {
+   "id": "hours_status.conservation_closures",
+   "op": "update",
+   "verdict": "revise",
+   "entailment": "full",
+   "label_change": "justified",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "warn",
+   "reason": "Cierres de la ficha confirmados (lunes posterior a Semana Santa; cuarto lunes de septiembre y de noviembre). Calendario de la 207 confirmado en el PDF (§ \"Cierre del Área Protegida\": siete días; segunda semana de febrero, después de Semana Santa, cuarta semana de julio, primera semana de noviembre).",
+   "required_change": "Sustituir las citas Q14 y Q15 por el párrafo completo de la 207 sobre cierres (siete días y las cuatro fechas). Etiqueta documentada (sin cambio de texto)."
+  },
+  {
+   "id": "hours_status.brisas_hours",
+   "op": "update",
+   "verdict": "approve",
+   "entailment": "full",
+   "label_change": "n/a",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "warn",
+   "reason": "Brisas abierto todos los días de 8:00 a. m. a 2:00 p. m. y charla de 1:30 p. m.: confirmado en la ficha (Q2). Fechado a 31-10-2026.",
+   "required_change": ""
+  },
+  {
+   "id": "hours_status.brisas_induction_talk_schedule",
+   "op": "update",
+   "verdict": "approve",
+   "entailment": "full",
+   "label_change": "n/a",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "warn",
+   "reason": "La 1:30 p. m. está en la ficha. La respuesta reconoce que la ficha no dice si llegar después impide el recorrido: sin inventar.",
+   "required_change": ""
+  },
+  {
+   "id": "hours_status.brisas_exit_time",
+   "op": "update",
+   "verdict": "revise",
+   "entailment": "full",
+   "label_change": "stylistic",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "warn",
+   "reason": "Afirmación de ausencia correcta: la ficha no publica hora de salida.",
+   "required_change": "Mantener la etiqueta anterior \"hora de salida del sector Brisas\" (cambio estilístico)."
+  },
+  {
+   "id": "hours_status.brisas_open_days",
+   "op": "update",
+   "verdict": "revise",
+   "entailment": "full",
+   "label_change": "stylistic",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "warn",
+   "reason": "Confirmado: \"abierto todos los días del año\" (Q2). Los tres cierres de la ficha están en Q10 y la respuesta no afirma que Brisas esté o no en ellos.",
+   "required_change": "Mantener la etiqueta anterior \"días de apertura del sector Brisas\" (cambio estilístico)."
+  },
+  {
+   "id": "hours_status.cisne_potan_hours",
+   "op": "update",
+   "verdict": "revise",
+   "entailment": "full",
+   "label_change": "stylistic",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "warn",
+   "reason": "Registro 7:30–10:00 en cabaña Potosí y alto de Santa Bárbara confirmado (Q3). Distinción con Otún correcta.",
+   "required_change": "Mantener la etiqueta anterior \"horario de registro en cabaña Potosí\" (cambio estilístico)."
+  },
+  {
+   "id": "hours_status.laguna_verde_trail_hours",
+   "op": "update",
+   "verdict": "approve",
+   "entailment": "full",
+   "label_change": "n/a",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "warn",
+   "reason": "Horario de 8:00 a. m. a 2:00 p. m. para el sendero Laguna Verde confirmado (Q16). La respuesta añade que la ficha no confirma si el sendero está habilitado ese día: honesto.",
+   "required_change": ""
+  },
+  {
+   "id": "hours_status.santa_isabel_conejeras_prior_day_checkin",
+   "op": "update",
+   "verdict": "approve",
+   "entailment": "full",
+   "label_change": "n/a",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "warn",
+   "reason": "El registro el día anterior para la cima de Conejeras está en la ficha (Q17). La respuesta no inventa hora.",
+   "required_change": ""
+  },
+  {
+   "id": "hours_status.santa_isabel_summit_start_hour",
+   "op": "update",
+   "verdict": "revise",
+   "entailment": "full",
+   "label_change": "stylistic",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "warn",
+   "reason": "Afirmación de ausencia correcta.",
+   "required_change": "Mantener la etiqueta anterior \"hora de inicio para subir a Santa Isabel\" (cambio estilístico)."
+  },
+  {
+   "id": "hours_status.otun_sector_hours",
+   "op": "update",
+   "verdict": "revise",
+   "entailment": "full",
+   "label_change": "stylistic",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "warn",
+   "reason": "Atención en cabaña Potosí 7:00 a. m.–12:00 m. (Q4), distinta del registro de Cisne (Q3). Coincide con la 207 (\"Potosí a la Laguna del Otún… desde las 7:00 a.m. hasta las 12:00 m.\").",
+   "required_change": "Mantener la etiqueta anterior \"horario de atencion para el sector Otun\" (cambio estilístico)."
+  },
+  {
+   "id": "hours_status.cedral_otun_hiking_schedule",
+   "op": "update",
+   "verdict": "revise",
+   "entailment": "full",
+   "label_change": "stylistic",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "warn",
+   "reason": "Kilómetros 7,5 y 18 km confirmados (Q18). La ausencia de horario de taquilla en El Cedral es correcta.",
+   "required_change": "Mantener la etiqueta anterior \"horario de caminata desde El Cedral\" (cambio estilístico)."
+  },
+  {
+   "id": "hours_status.quindio_dulima_cocora_hours",
+   "op": "update",
+   "verdict": "revise",
+   "entailment": "full",
+   "label_change": "stylistic",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "warn",
+   "reason": "Cocora 6:00–10:00 (Q5) y cinco días hábiles (Q19) confirmados.",
+   "required_change": "Mantener la etiqueta anterior \"horario de ingreso por Valle del Cocora\" (el cambio solo añade un artículo)."
+  },
+  {
+   "id": "hours_status.quindio_dulima_juntas_anzoategui_hours",
+   "op": "update",
+   "verdict": "revise",
+   "entailment": "full",
+   "label_change": "stylistic",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "warn",
+   "reason": "Ficha: Juntas y Anzoátegui 6–11 (Q5). Resolución 207 (zona sur): Juntas 6–10 y Anzoátegui 6–11 (bullets de travesía). Conflicto bien presentado.",
+   "required_change": "Citar el bullet de Juntas y el de Anzoátegui de la 207 (no solo Q6 y Q7 sin etiqueta). Mantener la etiqueta anterior \"horarios de ingreso por Juntas y Anzoátegui\"."
+  },
+  {
+   "id": "hours_status.tolima_summit_push_hours",
+   "op": "update",
+   "verdict": "revise",
+   "entailment": "full",
+   "label_change": "stylistic",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "warn",
+   "reason": "Afirmación de ausencia correcta: la ficha no fija hora de ataque a la cumbre.",
+   "required_change": "Mantener la etiqueta anterior \"hora de ataque a cumbre Nevado Tolima\" (cambio estilístico)."
+  },
+  {
+   "id": "hours_status.night_entry_prohibition",
+   "op": "update",
+   "verdict": "revise",
+   "entailment": "full",
+   "label_change": "justified",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "warn",
+   "reason": "Verificado: ni la 207 ni la página del parque contienen \"nocturno\" o \"noche\" en sentido de prohibición. La etiqueta antigua (\"prohibición de ingreso nocturno\") ya no coincide con la respuesta, así que el cambio está justificado. Pero contradicciones.json pide no dejar la respuesta sin la instrucción de precaución: no entrar de noche sin autorización escrita del parque.",
+   "required_change": "Añadir la instrucción de precaución de contradicciones.json (no entrar de noche sin autorización escrita para esa fecha) y mencionar que el informe de necesidades de 2024 lista actividad nocturna en Brisas y Cisne (no está en el conjunto de evidencia: marcar como pendiente)."
+  },
+  {
+   "id": "hours_status.camping_arrival_cutoff",
+   "op": "update",
+   "verdict": "revise",
+   "entailment": "partial",
+   "label_change": "stylistic",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "warn",
+   "reason": "Error de hecho: \"la Resolución 207 prohíbe el camping en el área\". La 207 prohíbe el camping en zonas no permitidas; establece zonas (Laguna del Otún, El Cisne condicionado, Camping Arenales-Sector Brisas restringido) y habilita transitoriamente Termales Cañón, Arenales y Calvito cerca del Nevado del Tolima. \"Arenales\" aparece dos veces con distinto estatus y la respuesta no lo distingue.",
+   "required_change": "Quitar \"prohíbe el camping en el área\". Distinguir Arenales (Tolima, habilitación transitoria 2023) de Camping Arenales-Sector Brisas (restringido por actividad volcánica). Citar la sección \"Sitios para camping\" de la 207. Mantener la etiqueta anterior \"hora de llegada a zonas de campamento\"."
+  },
+  {
+   "id": "hours_status.late_arrival_policy",
+   "op": "update",
+   "verdict": "revise",
+   "entailment": "full",
+   "label_change": "stylistic",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "warn",
+   "reason": "Cortes por sector confirmados (Brisas 2 p. m., Cocora 10 a. m., Cisne 10 a. m.). \"Respetar los horarios\" está en la 207 (Q21).",
+   "required_change": "Mantener la etiqueta anterior \"política si llegas tarde a la entrada\" (cambio estilístico)."
+  },
+  {
+   "id": "hours_status.weekend_and_holiday_opening",
+   "op": "update",
+   "verdict": "revise",
+   "entailment": "full",
+   "label_change": "stylistic",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "warn",
+   "reason": "Reserva indispensable en Brisas–Valle de las Tumbas en fines de semana y puentes, y no obligatoria en Brisas-Kumanday: confirmado (Q24, Q25).",
+   "required_change": "Mantener la etiqueta anterior \"horarios de atención en fines de semana\" (cambio estilístico)."
+  },
+  {
+   "id": "hours_status.weekday_opening",
+   "op": "update",
+   "verdict": "revise",
+   "entailment": "full",
+   "label_change": "stylistic",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "warn",
+   "reason": "Afirmación de ausencia correcta (sin otro horario entre semana; sin \"más cupo\").",
+   "required_change": "Mantener la etiqueta anterior \"visitar el parque entre semana días hábiles\" (cambio estilístico)."
+  },
+  {
+   "id": "hours_status.pico_y_placa_hours_murillo",
+   "op": "update",
+   "verdict": "revise",
+   "entailment": "full",
+   "label_change": "stylistic",
+   "examples": "ok",
+   "temporal": "issue",
+   "refetch": "warn",
+   "reason": "Verificado en la imagen del PDF: el Artículo Tercero (sábados, domingos, festivos, 5:00 a. m.–4:00 p. m.), el Artículo Segundo (tramo Murillo–Cerro Gualí, jurisdicción del Tolima) y el Artículo Décimo Sexto (desde el 25-07-2026 hasta el 20-07-2027). La etiqueta \"hacia Brisas\" es inferencia: la resolución no nombra el acceso a Brisas.",
+   "required_change": "Corregir la etiqueta \"pico y placa Murillo hacia Brisas\" o precisar que el acceso a Brisas debe confirmarse. Citar los artículos Segundo, Tercero y Décimo Sexto. Mantener la etiqueta anterior \"horarios del pico y placa ambiental Murillo\" (cambio estilístico). La resolución es de la Gobernación del Tolima, no de PNN: decirlo."
+  },
+  {
+   "id": "hours_status.high_season_calendar",
+   "op": "update",
+   "verdict": "revise",
+   "entailment": "full",
+   "label_change": "stylistic",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "warn",
+   "reason": "Confirmado en la 207 (§ Temporadas): puentes desde el jueves anterior, vacaciones, Semana Santa y \"semana de receso escolar (octubre)\". La cita actual no contiene \"octubre\" ni \"puentes\".",
+   "required_change": "Citar la sección completa \"Temporalidad\" de la 207. Mantener la etiqueta anterior \"temporadas altas y afluencia en el parque\" (cambio estilístico)."
+  },
+  {
+   "id": "hours_status.low_season_advantages",
+   "op": "update",
+   "verdict": "revise",
+   "entailment": "full",
+   "label_change": "stylistic",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "warn",
+   "reason": "Afirmación de ausencia correcta (la ficha no promete menos gente ni más cupo). Los tres cierres de cinco días están en la ficha.",
+   "required_change": "Mantener la etiqueta anterior \"visitar Los Nevados en temporada baja\" (cambio estilístico)."
+  },
+  {
+   "id": "hours_status.high_season_operating_changes",
+   "op": "update",
+   "verdict": "revise",
+   "entailment": "full",
+   "label_change": "stylistic",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "warn",
+   "reason": "Cupos diarios limitados (Q38) confirmado; \"no dice que el día de tu visita ya esté lleno\" es honesto.",
+   "required_change": "Mantener la etiqueta anterior \"cambios de operación durante temporada alta\" (cambio estilístico)."
+  },
+  {
+   "id": "hours_status.volcanic_alert_closures",
+   "op": "update",
+   "verdict": "revise",
+   "entailment": "partial",
+   "label_change": "justified",
+   "examples": "issues",
+   "temporal": "ok",
+   "refetch": "warn",
+   "reason": "Bloqueante. (1) Eliminó tres ejemplos reales y cortos (\"is the park closed due to volcanic activity\", \"cierran brisas si el volcán emite gases\", \"cierre por actividad volcánica\"); la regla de ejemplos prohíbe quitar consultas reales. (2) \"Eso no es el cierre de la cumbre ni del ciclomontañismo\" no tiene fuente. (3) La cita de la Resolución 068 y del boletín de 27 de junio de 2023 es fragmentaria (Q39–Q43). La respuesta sí dice que son de 2023 y que no puede decir la alerta de hoy.",
+   "required_change": "Restaurar los tres ejemplos eliminados. Quitar \"Eso no es el cierre de la cumbre…\" o citarlo. Citar completo el párrafo de la 207 sobre la Resolución 068 y el boletín. Usar la etiqueta documentada \"suspensión de ingreso según el color de alerta\" (la anterior sí era confusa)."
+  },
+  {
+   "id": "hours_status.weather_emergency_closures",
+   "op": "update",
+   "verdict": "approve",
+   "entailment": "full",
+   "label_change": "justified",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "ok",
+   "reason": "Confirmado: la 207 permite limitar o cerrar por seguridad de visitantes (Q46, Q47); la afirmación de que no nombra lluvia, granizo ni derrumbe es correcta. La etiqueta antigua (\"cierres por mal tiempo y lluvias\") promete un supuesto que la norma no contiene: cambio justificado.",
+   "required_change": ""
+  },
+  {
+   "id": "hours_status.road_closure_status",
+   "op": "update",
+   "verdict": "revise",
+   "entailment": "partial",
+   "label_change": "stylistic",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "warn",
+   "reason": "Verificado en la imagen del PDF (Artículo Octavo): el INVÍAS aparece como entidad cuyo acompañamiento se solicita \"cuando corresponda\", no como controlador. \"Entre quienes controlan\" sobrestima el papel. La cita es un fragmento.",
+   "required_change": "Cambiar \"nombra a Invías entre quienes controlan\" por \"la resolución pide el acompañamiento de Invías, cuando corresponda\". Citar el Artículo Octavo. Mantener la etiqueta anterior \"estado de las vías y cierres carreteros\"."
+  },
+  {
+   "id": "hours_status.official_channels_to_check_status",
+   "op": "update",
+   "verdict": "revise",
+   "entailment": "full",
+   "label_change": "justified",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "warn",
+   "reason": "Teléfonos, celular, conmutador con extensiones, horario y @ParquesColombia confirmados en pnn_nevados.txt (Q49–Q53). El correo está en la 207 (Q54).",
+   "required_change": "Usar la etiqueta documentada en findings/labels.json (la de la auditoría difiere de la propuesta)."
+  },
+  {
+   "id": "hours_status.offline_status_verification_advice",
+   "op": "update",
+   "verdict": "revise",
+   "entailment": "full",
+   "label_change": "stylistic",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "warn",
+   "reason": "Honesta: la ficha fechada no es el estado del día.",
+   "required_change": "Mantener la etiqueta anterior \"verificar estado antes de perder señal\" (cambio estilístico)."
+  },
+  {
+   "id": "hours_status.why_conservation_closures_exist",
+   "op": "update",
+   "verdict": "revise",
+   "entailment": "full",
+   "label_change": "stylistic",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "warn",
+   "reason": "Confirmado: \"liberar de carga… trabajos de monitoreo\" (Q55); la ausencia de humedales y fauna es correcta.",
+   "required_change": "Mantener la etiqueta anterior \"motivos de los cierres por conservación\" (cambio estilístico)."
+  },
+  {
+   "id": "hours_status.open_sectors_during_conservation_closures",
+   "op": "update",
+   "verdict": "revise",
+   "entailment": "full",
+   "label_change": "stylistic",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "warn",
+   "reason": "Honesta: la ficha no dice qué sectores quedan abiertos.",
+   "required_change": "Mantener la etiqueta anterior \"sectores durante descansos ambientales\" (cambio estilístico)."
+  },
+  {
+   "id": "hours_status.reopening_protocol_after_emergencies",
+   "op": "update",
+   "verdict": "revise",
+   "entailment": "partial",
+   "label_change": "justified",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "ok",
+   "reason": "La cita de la Resolución 068 (\"mantuvo el cierre hasta un informe de la oficina de riesgo con base en el SGC\") es fragmentaria (Q39 \"Resolucion 068 del 31\"). La etiqueta antigua promete un protocolo general que las fuentes no dan: la nueva describe mejor el caso de 2023.",
+   "required_change": "Citar el texto completo de la 068 y la 207 sobre la reapertura. Mantener la etiqueta nueva. Dejar explícito que es el procedimiento de 2023, no un protocolo general."
+  },
+  {
+   "id": "hours_status.pnn_administrative_office_hours",
+   "op": "update",
+   "verdict": "revise",
+   "entailment": "full",
+   "label_change": "stylistic",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "warn",
+   "reason": "Lunes a viernes 8:00 a. m.–4:30 p. m., jornada continua; conmutador y celular confirmados (Q49–Q53, Q57).",
+   "required_change": "Mantener la etiqueta anterior \"horarios de atención de Parques Nacionales\" (cambio estilístico)."
+  },
+  {
+   "id": "hours_status.uton_concession_office_hours",
+   "op": "update",
+   "verdict": "revise",
+   "entailment": "full",
+   "label_change": "justified",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "warn",
+   "reason": "Horario, direcciones y teléfonos de las oficinas UTON confirmados (Q58–Q61).",
+   "required_change": "Usar la etiqueta documentada en findings/labels.json, que es la anterior \"horario de oficinas de concesión UTON\"."
+  },
+  {
+   "id": "hours_status.morning_birdwatching_hours",
+   "op": "update",
+   "verdict": "revise",
+   "entailment": "full",
+   "label_change": "stylistic",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "warn",
+   "reason": "Horarios de cada sector confirmados (Q2–Q5). El uso de play-back está prohibido en la 207 (Q62).",
+   "required_change": "Mantener la etiqueta anterior \"horario para avistamiento temprano de aves\" (cambio estilístico)."
+  },
+  {
+   "id": "hours_status.unplanned_midday_closures",
+   "op": "update",
+   "verdict": "revise",
+   "entailment": "full",
+   "label_change": "stylistic",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "ok",
+   "reason": "Facultad de cierre por seguridad confirmada (Q46, Q44); la ausencia de horas y de tormentas o ceniza es correcta.",
+   "required_change": "Mantener la etiqueta anterior \"cierres imprevistos a mitad del día\" (cambio estilístico)."
+  },
+  {
+   "id": "hours_status.trail_maintenance_temporary_closures",
+   "op": "update",
+   "verdict": "revise",
+   "entailment": "full",
+   "label_change": "justified",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "ok",
+   "reason": "La 207 dice \"restringir el ingreso o cerrar los atractivos… por razones de seguridad, gestión del riesgo, investigación y/o protección ecológica\" (verificado en el texto). La etiqueta antigua (\"mantenimiento de senderos\") no coincide con esa base: cambio justificado.",
+   "required_change": "Citar la frase completa de la 207 (no el fragmento \"podrá restringir el ingreso o cerrar los\"). Mantener la etiqueta nueva."
+  },
+  {
+   "id": "hours_status.asomadera_potosi_entry_hours",
+   "op": "update",
+   "verdict": "approve",
+   "entailment": "full",
+   "label_change": "n/a",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "warn",
+   "reason": "Confirmado en la 207: Potosí–La Asomadera 7:30 a. m.–12:00 m. y hasta las 2:00 p. m. sin equipamiento (Q63, Q64). La ficha no repite el horario.",
+   "required_change": ""
+  },
+  {
+   "id": "hours_status.anzoategui_pit_la_punta_hours",
+   "op": "update",
+   "verdict": "revise",
+   "entailment": "full",
+   "label_change": "justified",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "warn",
+   "reason": "Confirmado en la 207 (raw): PIT Anzoátegui, Calle 13 entre carreras 2 y 3, martes a sábado de 8:00 a. m. a 5:00 p. m.; La Punta, jueves a sábado con el mismo horario; ingreso al sendero desde Anzoátegui de 6 a 11 (Q7).",
+   "required_change": "Usar la etiqueta documentada en findings/labels.json. Citar Q65–Q67 con el bloque \"Anzoátegui (Tolima)\" completo."
+  }
+ ],
+ "audit_rows": [
+  {
+   "id": "hours_status.general_opening_schedule",
+   "claimed": "primary_ok",
+   "support": "partial",
+   "note": "Extracto solo Cocora y Juntas/Anzoátegui; Brisas, Cisne y Otún están en otras citas del mismo archivo."
+  },
+  {
+   "id": "hours_status.park_open_today",
+   "claimed": "primary_ok",
+   "support": "partial",
+   "note": "Extracto solo el horario de Brisas; el boletín del índice SGC y \"no trae el nivel\" no están en él."
+  },
+  {
+   "id": "hours_status.conservation_closures",
+   "claimed": "primary_ok",
+   "support": "partial",
+   "note": "Extracto solo una fecha de febrero de la 207; los tres cierres de la ficha y el resto del calendario no están en él."
+  },
+  {
+   "id": "hours_status.brisas_hours",
+   "claimed": "primary_ok",
+   "support": "full",
+   "note": "Extracto: horario 8:00–2:00 y charla 1:30."
+  },
+  {
+   "id": "hours_status.brisas_induction_talk_schedule",
+   "claimed": "primary_ok",
+   "support": "full",
+   "note": "Extracto: charla de inducción a las 1:30."
+  },
+  {
+   "id": "hours_status.brisas_exit_time",
+   "claimed": "primary_ok",
+   "support": "full",
+   "note": "Ausencia de hora de salida; el extracto da el cierre de 2:00 y la charla de 1:30."
+  },
+  {
+   "id": "hours_status.brisas_open_days",
+   "claimed": "primary_ok",
+   "support": "partial",
+   "note": "Extracto: \"abierto todos los días\"; los tres cierres están en otra cita."
+  },
+  {
+   "id": "hours_status.cisne_potan_hours",
+   "claimed": "primary_ok",
+   "support": "full",
+   "note": "Extracto: registro 7:30–10:00."
+  },
+  {
+   "id": "hours_status.laguna_verde_trail_hours",
+   "claimed": "primary_ok",
+   "support": "full",
+   "note": "Extracto: Laguna Verde 8:00–2:00."
+  },
+  {
+   "id": "hours_status.santa_isabel_conejeras_prior_day_checkin",
+   "claimed": "primary_ok",
+   "support": "full",
+   "note": "Extracto: registro el día anterior."
+  },
+  {
+   "id": "hours_status.santa_isabel_summit_start_hour",
+   "claimed": "primary_ok",
+   "support": "full",
+   "note": "Extracto: registro el día anterior; la ausencia de hora de cumbre es honesta."
+  },
+  {
+   "id": "hours_status.otun_sector_hours",
+   "claimed": "primary_ok",
+   "support": "partial",
+   "note": "Extracto: registro Cisne 7:30–10; la atención 7–12 de Potosí está en otra cita."
+  },
+  {
+   "id": "hours_status.cedral_otun_hiking_schedule",
+   "claimed": "primary_ok",
+   "support": "full",
+   "note": "Extracto: 7,5 km y 18 km."
+  },
+  {
+   "id": "hours_status.quindio_dulima_cocora_hours",
+   "claimed": "primary_ok",
+   "support": "partial",
+   "note": "Extracto: Cocora 6–10; los cinco días hábiles están en otra cita."
+  },
+  {
+   "id": "hours_status.quindio_dulima_juntas_anzoategui_hours",
+   "claimed": "primary_ok",
+   "support": "partial",
+   "note": "Extracto: ficha 6–11; el 10:00 de Juntas según la 207 está en otra cita."
+  },
+  {
+   "id": "hours_status.tolima_summit_push_hours",
+   "claimed": "primary_ok",
+   "support": "full",
+   "note": "Extracto: horarios de registro; la ausencia de hora de cumbre es honesta."
+  },
+  {
+   "id": "hours_status.night_entry_prohibition",
+   "claimed": "primary_ok",
+   "support": "partial",
+   "note": "Extracto: horario diurno; la instrucción de la 207 \"respetar horarios\" no está en él."
+  },
+  {
+   "id": "hours_status.camping_arrival_cutoff",
+   "claimed": "primary_ok",
+   "support": "partial",
+   "note": "Extracto: Potosí 7–12. \"Prohíbe el camping en el área\" no está en ninguna cita: es un error. Arenales ambiguo."
+  },
+  {
+   "id": "hours_status.late_arrival_policy",
+   "claimed": "primary_ok",
+   "support": "partial",
+   "note": "Extracto: Cocora y Juntas; Brisas 2 p. m. y Cisne 10 a. m. están en otras citas."
+  },
+  {
+   "id": "hours_status.weekend_and_holiday_opening",
+   "claimed": "primary_ok",
+   "support": "partial",
+   "note": "Extracto: horario; la regla de reserva de fines de semana está en otra cita."
+  },
+  {
+   "id": "hours_status.weekday_opening",
+   "claimed": "primary_ok",
+   "support": "partial",
+   "note": "Extracto: horario; la regla de reserva de fines de semana está en otra cita."
+  },
+  {
+   "id": "hours_status.pico_y_placa_hours_murillo",
+   "claimed": "primary_ok",
+   "support": "partial",
+   "note": "Extracto: el tramo Murillo–Cerro Gualí. Días, horas y vigencia están en el archivo, fuera del extracto (verificados en la imagen)."
+  },
+  {
+   "id": "hours_status.high_season_calendar",
+   "claimed": "primary_ok",
+   "support": "partial",
+   "note": "Extracto: vacaciones; puentes y \"receso (octubre)\" no están en él."
+  },
+  {
+   "id": "hours_status.low_season_advantages",
+   "claimed": "primary_ok",
+   "support": "partial",
+   "note": "Extracto: puentes como temporada alta; los cierres de la ficha no están en él."
+  },
+  {
+   "id": "hours_status.high_season_operating_changes",
+   "claimed": "primary_ok",
+   "support": "partial",
+   "note": "Extracto: horario de Brisas; \"cupos diarios limitados\" está en otra cita."
+  },
+  {
+   "id": "hours_status.volcanic_alert_closures",
+   "claimed": "primary_ok",
+   "support": "partial",
+   "note": "Extracto: nombre del archivo del boletín SGC. La Resolución 068 y el boletín de 2023 están en la 207 (fuera del extracto). \"No es el cierre de la cumbre…\" no tiene fuente."
+  },
+  {
+   "id": "hours_status.weather_emergency_closures",
+   "claimed": "primary_ok",
+   "support": "full",
+   "note": "Extracto: facultad de limitar o cerrar por seguridad; la ausencia de lluvia y granizo es honesta."
+  },
+  {
+   "id": "hours_status.road_closure_status",
+   "claimed": "primary_ok",
+   "support": "partial",
+   "note": "Extracto: tramo Murillo–Cerro Gualí. \"Invías entre quienes controlan\" no está en el extracto y sobrestima el Artículo Octavo."
+  },
+  {
+   "id": "hours_status.official_channels_to_check_status",
+   "claimed": "primary_ok",
+   "support": "partial",
+   "note": "Extracto: solo la fecha de modificación de la ficha. Teléfonos y @ están en otra cita de pnn_nevados.txt."
+  },
+  {
+   "id": "hours_status.offline_status_verification_advice",
+   "claimed": "primary_ok",
+   "support": "full",
+   "note": "Extracto: ficha con fecha de 31-10-2026."
+  },
+  {
+   "id": "hours_status.why_conservation_closures_exist",
+   "claimed": "primary_ok",
+   "support": "full",
+   "note": "Extracto: liberar carga y monitoreo."
+  },
+  {
+   "id": "hours_status.open_sectors_during_conservation_closures",
+   "claimed": "primary_ok",
+   "support": "partial",
+   "note": "Extracto: la estrategia de cierres; \"tres cierres de cinco días\" está en otra cita."
+  },
+  {
+   "id": "hours_status.reopening_protocol_after_emergencies",
+   "claimed": "primary_ok",
+   "support": "partial",
+   "note": "Extracto: fragmento de la 068/207 (\"se ordena la apertura…\"); \"informe de la oficina de riesgo\" no está en él."
+  },
+  {
+   "id": "hours_status.pnn_administrative_office_hours",
+   "claimed": "primary_ok",
+   "support": "partial",
+   "note": "Extracto: horario L–V 8:00–4:30; conmutador y celular están en otra cita."
+  },
+  {
+   "id": "hours_status.uton_concession_office_hours",
+   "claimed": "primary_ok",
+   "support": "partial",
+   "note": "Extracto: horario L–V 8:00–12:00 y 2:00–5:00; direcciones y teléfonos están en otra cita."
+  },
+  {
+   "id": "hours_status.morning_birdwatching_hours",
+   "claimed": "primary_ok",
+   "support": "partial",
+   "note": "Extracto: Cocora 6 a. m. y Juntas 11 a. m.; Otún, Cisne, Brisas y el play-back están en otras citas."
+  },
+  {
+   "id": "hours_status.unplanned_midday_closures",
+   "claimed": "primary_ok",
+   "support": "full",
+   "note": "Extracto: facultad de limitar o cerrar por seguridad."
+  },
+  {
+   "id": "hours_status.trail_maintenance_temporary_closures",
+   "claimed": "primary_ok",
+   "support": "full",
+   "note": "Extracto: facultad de restringir o cerrar; la frase completa (seguridad, gestión del riesgo, investigación, protección ecológica) está en el archivo (verificada)."
+  },
+  {
+   "id": "hours_status.asomadera_potosi_entry_hours",
+   "claimed": "primary_ok",
+   "support": "partial",
+   "note": "Extracto truncado antes de \"hasta las 2:00 p. m.\" (misma oración, fuera del extracto)."
+  },
+  {
+   "id": "hours_status.anzoategui_pit_la_punta_hours",
+   "claimed": "primary_ok",
+   "support": "partial",
+   "note": "Extracto: horario de Juntas y Anzoátegui de la ficha; el PIT y La Punta están en otra cita de la 207."
+  }
+ ],
+ "summary": {
+  "approve": 6,
+  "revise": 34,
+  "reject": 0,
+  "audit_support": {
+   "full": 14,
+   "partial": 26,
+   "none": 0
+  }
+ }
+}

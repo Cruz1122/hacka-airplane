@@ -1,0 +1,630 @@
+{
+ "section": "preparation",
+ "reviewer": "agent 27 / claude-haiku-5-5",
+ "ops": [
+  {
+   "id": "preparation.layering_system",
+   "op": "update",
+   "verdict": "revise",
+   "entailment": "partial",
+   "label_change": "n/a",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "n/a",
+   "reason": "Respaldo parcial: la excerpt cubre \"ropa abrigada\"; impermeable y la temperatura bajo 0 ºC no aparecen en ella.",
+   "required_change": "Citar la exigencia de ropa impermeable y para temperaturas bajo 0 ºC, o quitarla. Conservar la etiqueta."
+  },
+  {
+   "id": "preparation.first_layer_thermal",
+   "op": "update",
+   "verdict": "revise",
+   "entailment": "partial",
+   "label_change": "misstates",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "n/a",
+   "reason": "Fuente: guía de Semana Santa 2018, no norma vigente ni fuente primaria 2026. La excerpt no dice \"térmica\". La etiqueta nueva (\"ropa interior técnica\") no aparece en la respuesta.",
+   "required_change": "Reemplazar la fuente 2018 por una norma vigente o quitar \"(guía de Semana Santa 2018)\". Conservar la etiqueta anterior \"ropa térmica, impermeable y de repuesto\"."
+  },
+  {
+   "id": "preparation.second_layer_fleece",
+   "op": "update",
+   "verdict": "revise",
+   "entailment": "none",
+   "label_change": "stylistic",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "n/a",
+   "reason": "La excerpt es \"ropa abrigada\" genérica; \"forro polar o micropolar\" no aparece en ella.",
+   "required_change": "Citar la fuente del forro polar o micropolar, o quitar la marca de tejido. Conservar la etiqueta anterior."
+  },
+  {
+   "id": "preparation.third_layer_waterproof",
+   "op": "update",
+   "verdict": "revise",
+   "entailment": "partial",
+   "label_change": "stylistic",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "n/a",
+   "reason": "Impermeable sí; \"cortavientos con capucha\" no aparece en la excerpt.",
+   "required_change": "Citar \"cortavientos con capucha\" o quitar esa parte. Conservar la etiqueta anterior."
+  },
+  {
+   "id": "preparation.rain_poncho",
+   "op": "update",
+   "verdict": "revise",
+   "entailment": "none",
+   "label_change": "stylistic",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "n/a",
+   "reason": "La excerpt es sobre plásticos de un solo uso. La afirmación central (chaqueta impermeable pedida por res207) no aparece.",
+   "required_change": "Citar res207 sobre chaqueta impermeable en el equipo mínimo, o quitar la afirmación. Conservar la etiqueta anterior."
+  },
+  {
+   "id": "preparation.hiking_boots",
+   "op": "update",
+   "verdict": "revise",
+   "entailment": "full",
+   "label_change": "stylistic",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "n/a",
+   "reason": "Respaldo full. Sólo reescribe la etiqueta.",
+   "required_change": "Conservar la etiqueta anterior; la respuesta necesita la cita indicada en el audit."
+  },
+  {
+   "id": "preparation.thermal_gloves",
+   "op": "update",
+   "verdict": "revise",
+   "entailment": "full",
+   "label_change": "stylistic",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "n/a",
+   "reason": "Respaldo full. Sólo reescribe la etiqueta.",
+   "required_change": "Conservar la etiqueta anterior; la respuesta necesita la cita indicada en el audit."
+  },
+  {
+   "id": "preparation.thermal_hat",
+   "op": "update",
+   "verdict": "revise",
+   "entailment": "full",
+   "label_change": "stylistic",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "n/a",
+   "reason": "Respaldo full. Sólo reescribe la etiqueta.",
+   "required_change": "Conservar la etiqueta anterior; la respuesta necesita la cita indicada en el audit."
+  },
+  {
+   "id": "preparation.neck_gaiter",
+   "op": "update",
+   "verdict": "approve",
+   "entailment": "full",
+   "label_change": "n/a",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "n/a",
+   "reason": "Pasamontañas en el equipo mínimo sí aparece; la etiqueta no cambia.",
+   "required_change": "Ninguno."
+  },
+  {
+   "id": "preparation.sunglasses_uv",
+   "op": "update",
+   "verdict": "revise",
+   "entailment": "full",
+   "label_change": "stylistic",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "n/a",
+   "reason": "Respaldo full. Sólo reescribe la etiqueta.",
+   "required_change": "Conservar la etiqueta anterior; la respuesta necesita la cita indicada en el audit."
+  },
+  {
+   "id": "preparation.sunscreen",
+   "op": "update",
+   "verdict": "revise",
+   "entailment": "partial",
+   "label_change": "stylistic",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "n/a",
+   "reason": "Factor 50 sí; \"aplícatelo cada dos horas\" no aparece.",
+   "required_change": "Citar la frecuencia de reaplicación o quitar \"cada dos horas\". Conservar la etiqueta anterior."
+  },
+  {
+   "id": "preparation.sun_hat",
+   "op": "update",
+   "verdict": "revise",
+   "entailment": "none",
+   "label_change": "stylistic",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "n/a",
+   "reason": "La excerpt es sobre bloqueador solar; la afirmación central (sombrero) no aparece.",
+   "required_change": "Citar la fuente del sombrero o gorra, o retirar la entrada. Conservar la etiqueta anterior."
+  },
+  {
+   "id": "preparation.daypack_size",
+   "op": "update",
+   "verdict": "revise",
+   "entailment": "full",
+   "label_change": "stylistic",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "n/a",
+   "reason": "Respaldo full. Sólo reescribe la etiqueta.",
+   "required_change": "Conservar la etiqueta anterior; la respuesta necesita la cita indicada en el audit."
+  },
+  {
+   "id": "preparation.dry_bags",
+   "op": "update",
+   "verdict": "revise",
+   "entailment": "partial",
+   "label_change": "stylistic",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "n/a",
+   "reason": "La excerpt define la bolsa seca; la instrucción de usarla no aparece. Fuente de 2018 (lineamientos).",
+   "required_change": "Citar una fuente vigente para la recomendación, o marcarla como recomendación. Conservar la etiqueta anterior."
+  },
+  {
+   "id": "preparation.water_quantity",
+   "op": "update",
+   "verdict": "revise",
+   "entailment": "partial",
+   "label_change": "stylistic",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "n/a",
+   "reason": "La excerpt sólo dice \"buena hidratación\". La cantimplora (res207) y los \"pequeños sorbos\" no aparecen.",
+   "required_change": "Citar \"cantimplora\" (res207) y \"pequeños sorbos\", o quitarlos. Conservar la etiqueta anterior."
+  },
+  {
+   "id": "preparation.reusable_bottles",
+   "op": "update",
+   "verdict": "revise",
+   "entailment": "partial",
+   "label_change": "stylistic",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "n/a",
+   "reason": "La excerpt es el plástico de un solo uso; la obligación de cantimplora no aparece.",
+   "required_change": "Citar la obligación de cantimplora o quitar la afirmación. Conservar la etiqueta anterior."
+  },
+  {
+   "id": "preparation.trail_snacks",
+   "op": "update",
+   "verdict": "revise",
+   "entailment": "full",
+   "label_change": "stylistic",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "n/a",
+   "reason": "Respaldo full. Sólo reescribe la etiqueta.",
+   "required_change": "Conservar la etiqueta anterior; la respuesta necesita la cita indicada en el audit."
+  },
+  {
+   "id": "preparation.pre_hike_meal",
+   "op": "update",
+   "verdict": "revise",
+   "entailment": "partial",
+   "label_change": "misstates",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "n/a",
+   "reason": "Fuente: guía de Semana Santa 2018. La excerpt respalda carbohidratos antes; \"snacks durante el recorrido\" no aparece.",
+   "required_change": "Reemplazar la fuente 2018. Quitar \"durante el recorrido, come snacks energéticos\" o citarlo. Conservar la etiqueta anterior \"alimentación previa al inicio del ascenso\"."
+  },
+  {
+   "id": "preparation.trail_meals_multiday",
+   "op": "update",
+   "verdict": "revise",
+   "entailment": "partial",
+   "label_change": "stylistic",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "n/a",
+   "reason": "Alimentación para bajas temperaturas sí; \"estufa portátil de gas\" no aparece.",
+   "required_change": "Citar \"estufa portátil de gas\" o quitar. Conservar la etiqueta anterior."
+  },
+  {
+   "id": "preparation.mountain_tent",
+   "op": "update",
+   "verdict": "revise",
+   "entailment": "full",
+   "label_change": "stylistic",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "n/a",
+   "reason": "Respaldo full. Sólo reescribe la etiqueta.",
+   "required_change": "Conservar la etiqueta anterior; la respuesta necesita la cita indicada en el audit."
+  },
+  {
+   "id": "preparation.sleeping_bag",
+   "op": "update",
+   "verdict": "revise",
+   "entailment": "full",
+   "label_change": "stylistic",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "n/a",
+   "reason": "Excerpt respalda saco para baja temperatura. Fuente de 2018 (Semana Santa).",
+   "required_change": "Reemplazar la fuente 2018 por una vigente. Conservar la etiqueta anterior."
+  },
+  {
+   "id": "preparation.sleeping_pad",
+   "op": "update",
+   "verdict": "revise",
+   "entailment": "none",
+   "label_change": "stylistic",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "n/a",
+   "reason": "La excerpt habla de equipo mínimo de campamento; el aislante no aparece.",
+   "required_change": "Citar el aislante en la norma o lineamiento, o quitar la afirmación. Conservar la etiqueta anterior."
+  },
+  {
+   "id": "preparation.camp_stove",
+   "op": "update",
+   "verdict": "revise",
+   "entailment": "partial",
+   "label_change": "stylistic",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "n/a",
+   "reason": "Fuente de 2018 para la estufa. La prohibición de fogatas es de res207 pero no está en la excerpt.",
+   "required_change": "Reemplazar la fuente 2018 y citar la prohibición de fogatas de res207. Conservar la etiqueta anterior."
+  },
+  {
+   "id": "preparation.cookware_utensils",
+   "op": "update",
+   "verdict": "revise",
+   "entailment": "partial",
+   "label_change": "stylistic",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "n/a",
+   "reason": "La excerpt es el plástico de un solo uso; el menaje reutilizable no aparece.",
+   "required_change": "Citar el menaje reutilizable o quitar. Conservar la etiqueta anterior."
+  },
+  {
+   "id": "preparation.camp_hygiene",
+   "op": "update",
+   "verdict": "revise",
+   "entailment": "partial",
+   "label_change": "stylistic",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "n/a",
+   "reason": "Retirar residuos sí; \"cacatubo\" y \"pala del guía\" no aparecen.",
+   "required_change": "Citar \"cacatubo\" y \"pala del guía\", o quitarlos. Conservar la etiqueta anterior."
+  },
+  {
+   "id": "preparation.headlamp",
+   "op": "update",
+   "verdict": "revise",
+   "entailment": "full",
+   "label_change": "stylistic",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "n/a",
+   "reason": "Respaldo full. Sólo reescribe la etiqueta.",
+   "required_change": "Conservar la etiqueta anterior; la respuesta necesita la cita indicada en el audit."
+  },
+  {
+   "id": "preparation.technical_glacier_gear",
+   "op": "update",
+   "verdict": "revise",
+   "entailment": "partial",
+   "label_change": "misstates",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "n/a",
+   "reason": "La respuesta trata de contratar guía; la etiqueta nueva habla de equipo, y la excerpt es sobre guía.",
+   "required_change": "Decidir el foco de la entrada: si es guía, la etiqueta nueva no lo corrige. Conservar la etiqueta anterior \"equipo técnico para borde de glaciar\" o renombrar a \"guía para borde de glaciar\" (decisión del curador)."
+  },
+  {
+   "id": "preparation.fitness_training",
+   "op": "update",
+   "verdict": "revise",
+   "entailment": "partial",
+   "label_change": "misstates",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "n/a",
+   "reason": "Paradas de 10 minutos sí; \"paso pausado\" no aparece. La etiqueta nueva (\"preparación física\") no está en la respuesta.",
+   "required_change": "Citar \"paso pausado\" o quitarlo. Conservar la etiqueta anterior \"condición física y esfuerzo en la montaña\"."
+  },
+  {
+   "id": "preparation.children_gear",
+   "op": "update",
+   "verdict": "revise",
+   "entailment": "none",
+   "label_change": "stylistic",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "n/a",
+   "reason": "La excerpt no menciona niños; la regla para menores no está citada.",
+   "required_change": "Citar la regla de ropa para niños o quitar la afirmación. Conservar la etiqueta anterior."
+  },
+  {
+   "id": "preparation.what_not_to_pack",
+   "op": "update",
+   "verdict": "revise",
+   "entailment": "partial",
+   "label_change": "stylistic",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "n/a",
+   "reason": "La excerpt sólo menciona fogatas; alcohol, sustancias, plásticos, leña y equipos de sonido no aparecen.",
+   "required_change": "Citar la lista de prohibidos de res207 (alcohol, sustancias, plásticos, leña, equipos de sonido). Conservar la etiqueta anterior."
+  },
+  {
+   "id": "preparation.checklist_brisas_day",
+   "op": "update",
+   "verdict": "revise",
+   "entailment": "partial",
+   "label_change": "n/a",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "n/a",
+   "reason": "Sólo bloqueador factor 50 de la lista aparece en la excerpt; los demás ítems no.",
+   "required_change": "Citar cada ítem de la lista o quitarlos. Conservar la etiqueta."
+  },
+  {
+   "id": "preparation.checklist_glacier_day",
+   "op": "update",
+   "verdict": "revise",
+   "entailment": "partial",
+   "label_change": "n/a",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "n/a",
+   "reason": "El guía obligatorio sí; ropa, guantes y pasamontañas no aparecen.",
+   "required_change": "Citar ropa, guantes y pasamontañas o quitarlos. Conservar la etiqueta."
+  },
+  {
+   "id": "preparation.checklist_multiday_trek",
+   "op": "update",
+   "verdict": "revise",
+   "entailment": "partial",
+   "label_change": "n/a",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "n/a",
+   "reason": "La carpa sí; saco, estufa, cantimplora y bolsa no aparecen.",
+   "required_change": "Citar saco, estufa, cantimplora y bolsa o quitarlos. Conservar la etiqueta."
+  },
+  {
+   "id": "preparation.navigation_map_gps",
+   "op": "update",
+   "verdict": "revise",
+   "entailment": "full",
+   "label_change": "misstates",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "n/a",
+   "reason": "La lista de orientación sí aparece en la excerpt; \"avisa tu ruta a un familiar\" es consejo.",
+   "required_change": "Conservar la etiqueta anterior \"mapa, GPS o brújula para orientarte\" (la nueva omite el celular y añade \"sin señal\"). Quitar o citar \"avisa tu ruta a un familiar\" (consejo sin fuente)."
+  }
+ ],
+ "audit_rows": [
+  {
+   "id": "preparation.layering_system",
+   "claimed": "primary_ok",
+   "support": "partial",
+   "note": "La excerpt sostiene una parte; una afirmación material (cifra, condición, excepción, ruta o requisito) no aparece en ella."
+  },
+  {
+   "id": "preparation.first_layer_thermal",
+   "claimed": "primary_ok",
+   "support": "partial",
+   "note": "La excerpt sostiene una parte; una afirmación material (cifra, condición, excepción, ruta o requisito) no aparece en ella. Fuente de 2018 (no vigente ni primaria para 2026), marcada primary_ok."
+  },
+  {
+   "id": "preparation.second_layer_fleece",
+   "claimed": "primary_ok",
+   "support": "none",
+   "note": "La evidence_excerpt no sostiene la afirmación central de la respuesta."
+  },
+  {
+   "id": "preparation.third_layer_waterproof",
+   "claimed": "primary_ok",
+   "support": "partial",
+   "note": "La excerpt sostiene una parte; una afirmación material (cifra, condición, excepción, ruta o requisito) no aparece en ella."
+  },
+  {
+   "id": "preparation.rain_poncho",
+   "claimed": "primary_ok",
+   "support": "none",
+   "note": "La evidence_excerpt no sostiene la afirmación central de la respuesta."
+  },
+  {
+   "id": "preparation.hiking_boots",
+   "claimed": "primary_ok",
+   "support": "full",
+   "note": "La excerpt sostiene la afirmación central de la respuesta."
+  },
+  {
+   "id": "preparation.thermal_gloves",
+   "claimed": "primary_ok",
+   "support": "full",
+   "note": "La excerpt sostiene la afirmación central de la respuesta."
+  },
+  {
+   "id": "preparation.thermal_hat",
+   "claimed": "primary_ok",
+   "support": "full",
+   "note": "La excerpt sostiene la afirmación central de la respuesta."
+  },
+  {
+   "id": "preparation.neck_gaiter",
+   "claimed": "primary_ok",
+   "support": "full",
+   "note": "La excerpt sostiene la afirmación central de la respuesta."
+  },
+  {
+   "id": "preparation.sunglasses_uv",
+   "claimed": "primary_ok",
+   "support": "full",
+   "note": "La excerpt sostiene la afirmación central de la respuesta."
+  },
+  {
+   "id": "preparation.sunscreen",
+   "claimed": "primary_ok",
+   "support": "partial",
+   "note": "La excerpt sostiene una parte; una afirmación material (cifra, condición, excepción, ruta o requisito) no aparece en ella."
+  },
+  {
+   "id": "preparation.sun_hat",
+   "claimed": "primary_ok",
+   "support": "none",
+   "note": "La evidence_excerpt no sostiene la afirmación central de la respuesta."
+  },
+  {
+   "id": "preparation.daypack_size",
+   "claimed": "primary_ok",
+   "support": "full",
+   "note": "La excerpt sostiene la afirmación central de la respuesta."
+  },
+  {
+   "id": "preparation.dry_bags",
+   "claimed": "primary_ok",
+   "support": "partial",
+   "note": "La excerpt sostiene una parte; una afirmación material (cifra, condición, excepción, ruta o requisito) no aparece en ella. Fuente de 2018 (no vigente ni primaria para 2026), marcada primary_ok."
+  },
+  {
+   "id": "preparation.water_quantity",
+   "claimed": "primary_ok",
+   "support": "partial",
+   "note": "La excerpt sostiene una parte; una afirmación material (cifra, condición, excepción, ruta o requisito) no aparece en ella."
+  },
+  {
+   "id": "preparation.reusable_bottles",
+   "claimed": "primary_ok",
+   "support": "partial",
+   "note": "La excerpt sostiene una parte; una afirmación material (cifra, condición, excepción, ruta o requisito) no aparece en ella."
+  },
+  {
+   "id": "preparation.trail_snacks",
+   "claimed": "primary_ok",
+   "support": "full",
+   "note": "La excerpt sostiene la afirmación central de la respuesta."
+  },
+  {
+   "id": "preparation.pre_hike_meal",
+   "claimed": "primary_ok",
+   "support": "partial",
+   "note": "La excerpt sostiene una parte; una afirmación material (cifra, condición, excepción, ruta o requisito) no aparece en ella. Fuente de 2018 (no vigente ni primaria para 2026), marcada primary_ok."
+  },
+  {
+   "id": "preparation.trail_meals_multiday",
+   "claimed": "primary_ok",
+   "support": "partial",
+   "note": "La excerpt sostiene una parte; una afirmación material (cifra, condición, excepción, ruta o requisito) no aparece en ella."
+  },
+  {
+   "id": "preparation.mountain_tent",
+   "claimed": "primary_ok",
+   "support": "full",
+   "note": "La excerpt sostiene la afirmación central de la respuesta."
+  },
+  {
+   "id": "preparation.sleeping_bag",
+   "claimed": "primary_ok",
+   "support": "full",
+   "note": "La excerpt sostiene la afirmación central de la respuesta. Fuente de 2018 (no vigente ni primaria para 2026), marcada primary_ok."
+  },
+  {
+   "id": "preparation.sleeping_pad",
+   "claimed": "primary_ok",
+   "support": "none",
+   "note": "La evidence_excerpt no sostiene la afirmación central de la respuesta. Fuente de 2018 (no vigente ni primaria para 2026), marcada primary_ok."
+  },
+  {
+   "id": "preparation.camp_stove",
+   "claimed": "primary_ok",
+   "support": "partial",
+   "note": "La excerpt sostiene una parte; una afirmación material (cifra, condición, excepción, ruta o requisito) no aparece en ella. Fuente de 2018 (no vigente ni primaria para 2026), marcada primary_ok."
+  },
+  {
+   "id": "preparation.cookware_utensils",
+   "claimed": "primary_ok",
+   "support": "partial",
+   "note": "La excerpt sostiene una parte; una afirmación material (cifra, condición, excepción, ruta o requisito) no aparece en ella."
+  },
+  {
+   "id": "preparation.camp_hygiene",
+   "claimed": "primary_ok",
+   "support": "partial",
+   "note": "La excerpt sostiene una parte; una afirmación material (cifra, condición, excepción, ruta o requisito) no aparece en ella."
+  },
+  {
+   "id": "preparation.headlamp",
+   "claimed": "primary_ok",
+   "support": "full",
+   "note": "La excerpt sostiene la afirmación central de la respuesta."
+  },
+  {
+   "id": "preparation.technical_glacier_gear",
+   "claimed": "primary_ok",
+   "support": "partial",
+   "note": "La excerpt sostiene una parte; una afirmación material (cifra, condición, excepción, ruta o requisito) no aparece en ella."
+  },
+  {
+   "id": "preparation.fitness_training",
+   "claimed": "primary_ok",
+   "support": "partial",
+   "note": "La excerpt sostiene una parte; una afirmación material (cifra, condición, excepción, ruta o requisito) no aparece en ella."
+  },
+  {
+   "id": "preparation.children_gear",
+   "claimed": "primary_ok",
+   "support": "none",
+   "note": "La evidence_excerpt no sostiene la afirmación central de la respuesta."
+  },
+  {
+   "id": "preparation.what_not_to_pack",
+   "claimed": "primary_ok",
+   "support": "partial",
+   "note": "La excerpt sostiene una parte; una afirmación material (cifra, condición, excepción, ruta o requisito) no aparece en ella."
+  },
+  {
+   "id": "preparation.checklist_brisas_day",
+   "claimed": "primary_ok",
+   "support": "partial",
+   "note": "La excerpt sostiene una parte; una afirmación material (cifra, condición, excepción, ruta o requisito) no aparece en ella."
+  },
+  {
+   "id": "preparation.checklist_glacier_day",
+   "claimed": "primary_ok",
+   "support": "partial",
+   "note": "La excerpt sostiene una parte; una afirmación material (cifra, condición, excepción, ruta o requisito) no aparece en ella."
+  },
+  {
+   "id": "preparation.checklist_multiday_trek",
+   "claimed": "primary_ok",
+   "support": "partial",
+   "note": "La excerpt sostiene una parte; una afirmación material (cifra, condición, excepción, ruta o requisito) no aparece en ella."
+  },
+  {
+   "id": "preparation.navigation_map_gps",
+   "claimed": "primary_ok",
+   "support": "full",
+   "note": "La excerpt sostiene la afirmación central de la respuesta. Fuente de 2018 (no vigente ni primaria para 2026), marcada primary_ok."
+  }
+ ],
+ "summary": {
+  "approve": 1,
+  "revise": 33,
+  "reject": 0,
+  "audit_support": {
+   "full": 11,
+   "partial": 18,
+   "none": 5
+  }
+ }
+}

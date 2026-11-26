@@ -1,0 +1,72 @@
+{
+  "section": "critical",
+  "reviewer": "agent 4 / GPT-6 Luna",
+  "ops": [
+    {
+      "id": "health_safety.lost_person_protocol",
+      "op": "update",
+      "verdict": "revise",
+      "entailment": "full",
+      "label_change": "n/a",
+      "examples": "ok",
+      "temporal": "ok",
+      "refetch": "ok",
+      "reason": "La Resolución 207 respalda permanecer unidos y avisar a las autoridades; la fuente de la Policía confirma que 123 es la línea nacional de emergencias. Sin embargo, PLAN.md prohíbe números telefónicos mientras no haya un dispositivo conectado (adb devices estaba vacío el 2026-11-22). La respuesta no promete rescate ni seguimiento y mantiene el texto de seguridad aprobado.",
+      "required_change": "Quitar «llama al 123 si tienes señal» y conservar «avisa al guía»/el aviso a las autoridades; no incluir números hasta que la condición de PLAN.md cambie."
+    },
+    {
+      "id": "health_safety.unresponsive_cpr",
+      "op": "update",
+      "verdict": "revise",
+      "entailment": "partial",
+      "label_change": "n/a",
+      "examples": "ok",
+      "temporal": "ok",
+      "refetch": "warn",
+      "reason": "La página actual de MedlinePlus sí contiene en sustancia las instrucciones de comprobar respuesta/respiración, pedir a otra persona que llame a emergencias e iniciar compresiones fuertes y rápidas; el marcado HTML explica el warn del refetch. Pero el orden propuesto pone las compresiones antes de «Para comprobarlo», contrario al orden explícito de MedlinePlus y de la versión aprobada. También aplica la restricción de PLAN.md sobre números telefónicos sin dispositivo conectado.",
+      "required_change": "Restaurar la comprobación de hombro y respiración antes de indicar compresiones; después, instruir que otra persona avise al guía y a emergencias, sin incluir «123» mientras aplique la restricción de PLAN.md."
+    },
+    {
+      "id": "hours_status.volcanic_alert_closures",
+      "op": "update",
+      "verdict": "revise",
+      "entailment": "partial",
+      "label_change": "n/a",
+      "examples": "ok",
+      "temporal": "issue",
+      "refetch": "warn",
+      "reason": "El cambio elimina la afirmación de que en amarillo siguen abiertos los sectores autorizados y aclara que el dato de 2023 no autoriza la visita; así corrige la contradicción de alto riesgo. La cita histórica de la Resolución 068/207 y el boletín del 27 de junio de 2023 está respaldada. Sin embargo, al abrir el índice vivo del SGC, el boletín del Ruiz del 10–16 de noviembre de 2026 sí aparece clasificado «Amarilla»; por eso es falsa la afirmación de que el índice no muestra el nivel. El índice es dinámico, así que el registro de esa semana debe presentarse como dato fechado, no como estado de hoy.",
+      "required_change": "Sustituir «no muestra el nivel de alerta» por lo que sí muestra el índice: el boletín fechado 10–16 de noviembre de 2026 figura como «Amarilla». Aclarar que es un dato fechado y no un estado en tiempo real; mantener la instrucción de confirmar el boletín vigente y el aviso de Parques Nacionales."
+    }
+  ],
+  "audit_rows": [
+    {
+      "id": "health_safety.lost_person_protocol",
+      "claimed": "primary_ok",
+      "support": "partial",
+      "note": "El excerpt respalda avisar a las autoridades, pero no respalda por sí solo llamar al 123, avisar al guía ni las afirmaciones sobre la app."
+    },
+    {
+      "id": "health_safety.unresponsive_cpr",
+      "claimed": "primary_ok",
+      "support": "partial",
+      "note": "El excerpt respalda comprobar el hombro y la respiración, pero no contiene la llamada a emergencias ni las instrucciones de compresión."
+    },
+    {
+      "id": "hours_status.volcanic_alert_closures",
+      "claimed": "primary_ok",
+      "support": "partial",
+      "note": "El excerpt solo identifica el inicio de la cita de la Resolución 068; no respalda por sí solo el cierre, el boletín de junio ni el registro de noviembre de 2026."
+    }
+  ],
+  "summary": {
+    "approve": 0,
+    "revise": 3,
+    "reject": 0,
+    "audit_support": {
+      "full": 0,
+      "partial": 3,
+      "none": 0
+    }
+  }
+}

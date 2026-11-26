@@ -1,0 +1,96 @@
+# Decision Log - Fix Round (rules.fix.md)
+
+## Review Items (reviews/rules.review.json)
+
+- rules.pets: done (restaurada etiqueta anterior "ingreso de mascotas" de snapshot).
+- rules.stay_on_routes: done (eliminada frase no sustentada "Recorre el sendero a pie y sin salirte de él"; restaurada etiqueta anterior "permanecer en recorridos habilitados").
+- rules.leave_no_waste: done (añadida cita de Res. 207 sobre entierro u ocultamiento de residuos bajo rocas; actualizada etiqueta a "llevarte tu propia basura" según findings/labels.json).
+- rules.leave_natural_objects: done (restaurada etiqueta anterior "no retirar elementos naturales"; conservada evidencia pinned Fase 2 por error TLS en funcionpublica.gov.co).
+- rules.no_introduce_species: done (restaurada etiqueta anterior "no traer animales, semillas ni plantas"; conservada evidencia pinned Fase 2).
+- rules.avoid_pollutants: done (restaurada etiqueta anterior "no contaminar el entorno"; conservada evidencia pinned Fase 2).
+- rules.avoid_chemicals: done (añadida cita del numeral 13 del Decreto 1076 sobre pirotécnicos e inflamables; restaurada etiqueta anterior "uso de químicos y explosivos").
+- rules.commercial_photography: done (añadida cita de Res. 207 sobre fotografía no comercial/aficionada permitida; restaurada etiqueta anterior "fotografía con fines comerciales").
+- rules.audiovisual_permits: done (eliminada frase no sustentada "y el requisito aplica a todos los sectores del parque"; restaurada etiqueta anterior "filmación y tomas audiovisuales").
+- rules.event_permits: done (eliminada frase no sustentada "en todos los sectores"; restaurada etiqueta anterior "eventos dentro del parque").
+- rules.organized_sports: dropped (el cambio requerido de conservar la etiqueta anterior dejaba la entrada idéntica al corpus actual).
+- rules.research_permissions: done (restaurada etiqueta anterior "permisos de investigación científica"; conservada evidencia pinned Fase 2).
+- rules.drones: done (reemplazada cita por cita exacta de Res. 207 citando Res. 0543 de 2018; retirada frase no sustentada "Deja el dron guardado durante toda la visita"; restaurada etiqueta anterior "uso de drones").
+- rules.open_fires: done (restaurada etiqueta anterior "fogatas en zonas no autorizadas"; conservada evidencia pinned Fase 2).
+- rules.noise: done (restaurada etiqueta anterior "ruido y equipos sonoros"; conservada evidencia pinned Fase 2).
+- rules.feed_wildlife: done (restaurada etiqueta anterior "alimentar fauna silvestre"; conservada evidencia pinned Fase 2).
+- rules.playback: done (añadida cita de Res. 207 sobre prohibición de playback durante observación de aves que sustenta la frase; restaurada etiqueta anterior "uso de grabaciones o playback").
+- rules.camping: done (aprobada en revisión v1 byte por byte; conservada idéntica).
+- rules.fishing: done (restaurada etiqueta anterior "pesca en el parque").
+- rules.intoxication: done (reemplazada segunda cita por numeral 7 del Decreto 1076 sobre embriagarse o provocar escándalos; restaurada etiqueta anterior "estado de embriaguez o sustancias psicoactivas").
+- rules.weapons: done (restaurada etiqueta anterior "porte de armas"; conservada evidencia pinned Fase 2).
+- rules.entry_bag_checks: done (restaurada etiqueta anterior "inspección de equipaje en controles").
+- rules.minors_protection: done (restaurada etiqueta anterior "protección de niños, niñas y adolescentes").
+- rules.follow_park_staff: done (restaurada etiqueta anterior "acatar instrucciones del personal del parque"; conservada evidencia pinned Fase 2).
+- rules.sell_advertise: done (añadida cita del numeral 6 del Decreto 1076 sobre propaganda no prevista; restaurada etiqueta anterior "ventas y publicidad no autorizadas").
+- rules.single_use_plastics: dropped (el cambio requerido de conservar la etiqueta anterior dejaba la entrada idéntica al corpus actual).
+- rules.graffiti_signage: done (restaurada etiqueta anterior "daño o alteración de señalización"; conservada evidencia pinned Fase 2).
+- rules.respect_communities: done (restaurada etiqueta anterior "respeto a comunidades y autoridades locales"; conservada evidencia pinned Fase 2).
+- rules.sanctions_penalties: dropped (el cambio requerido de conservar la etiqueta anterior dejaba la entrada idéntica al corpus actual).
+- rules.preventive_measures: done (añadida cita de Ley 1333 sobre decomiso preventivo y sincronizada fuente; restaurada etiqueta anterior "medidas preventivas en el parque").
+- rules.excavations_prohibited: done (retirada frase no sustentada "ni hagas calicatas"; restaurada etiqueta anterior "Prohibición de excavaciones y remoción de tierra").
+- rules.rock_bolting_prohibited: done (retirada frase "ni perfores las paredes" y ajustada variante no repetitiva; restaurada etiqueta anterior "anclajes fijos en roca").
+- rules.geological_soil_samples: done (reemplazada cita por frase exacta de Res. 207 sobre muestras geológicas y edafológicas; retirada frase "ni piques o fractures la piedra"; restaurada etiqueta anterior "muestras geológicas y edafológicas").
+- rules.wildlife_traps_prohibited: done (aprobada en revisión v1 byte por byte; conservada idéntica).
+- rules.wildlife_contact_displacement: done (restaurada etiqueta anterior "contacto o manipulación de fauna").
+- rules.earth_tone_clothing_wildlife: done (restaurada etiqueta anterior "ropa adecuada para observar fauna").
+- rules.aerosols_sprays_prohibited: done (reemplazada cita por prohibición de productos químicos en aerosoles de Res. 207; retirado consejo sobre desodorante; restaurada etiqueta anterior "Prohibición de usar aerosoles en el parque").
+- rules.burning_trash_prohibited: done (restaurada etiqueta anterior "Prohibición de quemar o incinerar basuras"; conservada evidencia pinned Fase 2 por error TLS).
+- rules.pick_up_trail_litter: done (aprobada en revisión v1 byte por byte; conservada idéntica).
+- rules.biodegradable_packaging_food: done (restaurada etiqueta anterior "empaques biodegradables").
+- rules.logging_clearing_vegetation: done (retirada frase no sustentada "tampoco lleves herramientas para talar"; reemplazada segunda cita por extracción de material vegetal en Res. 207; restaurada etiqueta anterior "tala y remoción de vegetación").
+- rules.abandoning_gear_objects: done (restaurada etiqueta anterior "abandono de objetos y equipos"; conservada evidencia pinned Fase 2).
+- rules.damage_park_infrastructure: done (restaurada etiqueta anterior "daño a infraestructura o valores naturales"; conservada evidencia pinned Fase 2).
+- rules.agro_industrial_mining_ban: done (reemplazada cita por numeral 3 del Decreto 1076; restaurada etiqueta anterior "Prohibición de actividades agropecuarias, hoteleras o mineras").
+- rules.authorized_stay_duration: done (restaurada etiqueta anterior "Permanecer solo durante el tiempo autorizado"; conservada evidencia pinned Fase 2 por error TLS).
+- rules.show_entry_permit_on_request: done (restaurada etiqueta anterior "Obligación de portar y exhibir el permiso"; conservada evidencia pinned Fase 2 por error TLS).
+- rules.tent_permit_display: done (restaurada etiqueta anterior "copia del permiso visible en la carpa").
+- rules.respect_carrying_capacity_limits: done (reemplazada segunda cita por Res. 207 sobre no sobrepasar capacidad de carga ni grupos mayores a lo establecido; eliminada fuente POE no vinculada; restaurada etiqueta anterior "capacidad de carga en senderos").
+- rules.visitor_risk_assumption: done (reemplazada segunda cita por texto exacto del Decreto 1076 sobre no responsabilidad y asunción de riesgos por visitantes; restaurada etiqueta anterior "asunción del riesgo por el visitante").
+- rules.report_environmental_infractions: done (restaurada etiqueta anterior "reportar infracciones ambientales"; conservada evidencia pinned Fase 2).
+- rules.ecological_customs_checkpoints: done (añadida cita de Res. 207 sobre plásticos de un solo uso en aduanas ecológicas; restaurada etiqueta anterior "aduanas ecológicas y control de equipaje").
+- rules.no_discrimination_scandals: done (reemplazada segunda cita por Decreto 1076 sobre hacer discriminaciones de cualquier índole; retirada palabra "peleas" e incluida frase de discriminación en respuesta y variantes; actualizada etiqueta a "escándalos y discriminación").
+- rules.park_closure_no_compensation: done (añadida cita de Res. 207 sobre no compromiso de indemnizar por cierre; restaurada etiqueta anterior "cierre del parque e indemnización").
+- rules.pack_animals_weight_overnight: dropped (el cambio requerido de conservar la etiqueta anterior dejaba la entrada idéntica al corpus actual).
+- rules.no_mules_arenales_calvito: done (incluida cita completa de Res. 207 con excepciones para rescates y atención de emergencias en Arenales/Calvito y ajustada respuesta; restaurada etiqueta anterior "prohibición de mulas hacia Arenales y Calvito").
+- rules.commercial_sound_recording: done (restaurada etiqueta anterior "grabaciones de sonido con fines comerciales"; conservada evidencia pinned Fase 2).
+- rules.researcher_deliverables_obligation: done (conservado literal c del Decreto 1076 y removida segunda cita ajena de permiso; restaurada etiqueta anterior "obligación de entrega de resultados de investigación").
+- rules.sport_mountaineers_advance_request: done (añadida cita de Res. 207 sobre coordenadas de campamentos avanzados; restaurada etiqueta anterior "trámite previo para montañistas deportivos").
+- rules.sport_mountaineers_schedule_exit_report: dropped (el cambio requerido de conservar la etiqueta anterior dejaba la entrada idéntica al corpus actual).
+- rules.guide_operator_misconduct_ban: dropped (el cambio requerido de conservar la etiqueta anterior dejaba la entrada idéntica al corpus actual).
+- rules.social_media_unauthorized_routes: done (limitada respuesta al caso documentado de la carta de mayo de 2026; citados numerales 1 y 2 de la carta; removida cita inconexa de Ley 2387; restaurada etiqueta anterior "divulgación de rutas no autorizadas en redes").
+- rules.written_reprimand_mandatory_course: dropped (el cambio requerido de conservar la etiqueta anterior dejaba la entrada idéntica al corpus actual).
+- rules.community_service_sanction: done (añadida cita del art. 21 de Ley 2387 sobre reemplazo de multa cuando capacidad socioeconómica sea insuficiente; restaurada etiqueta anterior "servicio comunitario en sancionatorio").
+- rules.confiscation_restitution_specimens: done (restaurada etiqueta anterior "decomiso definitivo de elementos de infracción"; conservada evidencia pinned Fase 2).
+- rules.presumption_of_fault_burden_proof: done (restaurada etiqueta anterior "presunción de culpa o dolo en infracciones").
+- rules.confession_fine_reduction: dropped (el cambio requerido de conservar la etiqueta anterior dejaba la entrada idéntica al corpus actual).
+- rules.early_termination_correction_plan: done (añadida cita de Ley 2387 con advertencia de no ser antecedente; restaurada etiqueta anterior "Suspensión y terminación anticipada por corrección ambiental").
+- rules.ruia_offender_registry: done (reemplazada segunda cita por Ley 1333 sobre publicidad y prueba suficiente de reincidencia del RUIA; sincronizadas fuentes; restaurada etiqueta anterior "registro único de infractores ambientales").
+- rules.aggravating_factors_protected_area: done (añadida cita de numerales 9 y 10 del art. 7 de Ley 1333 sobre obstaculizar a la autoridad e incumplir medidas preventivas; restaurada etiqueta anterior "agravantes de infracciones ambientales").
+- rules.liability_exemptions_force_majeure: done (restaurada etiqueta anterior "eximentes de responsabilidad ambiental"; conservada evidencia pinned Fase 2).
+- rules.restoration_duty_civil_criminal: done (reemplazada segunda cita por disposición de Ley 1333 sobre acciones civiles y penales; sincronizadas fuentes; restaurada etiqueta anterior "obligación de restaurar el daño ambiental").
+- rules.flagrancy_foreign_tourists_procedure: done (añadida cita de Ley 1333 sobre suscripción de acta en el sitio y firma de testigo; restaurada etiqueta anterior "procedimiento de flagrancia para extranjeros").
+- rules.no_hunting: done (reemplazada cita por frase expresa de Res. 207 prohibiendo caza o captura de ejemplares de fauna; retirada mención "plumas o nidos"; restaurado ejemplo "pongo una trampa para ver qué animales hay"; restaurada etiqueta anterior "prohibición de cazar o capturar fauna").
+
+## Findings
+
+- findings/labels.json (rules.leave_no_waste): done (etiqueta actualizada a "llevarte tu propia basura" para contrastar con rules.pick_up_trail_litter).
+- findings/labels.json (rules.camping): declined: la operación fue aprobada en la revisión v1 byte por byte; review_gate prohíbe modificar ops aprobadas.
+- findings/taxonomy.json (rules.no_hunting vs rules.wildlife_traps_prohibited): done (mantenida distinción de prohibición general de caza frente a trampas; restaurado ejemplo en no_hunting; wildlife_traps_prohibited se mantiene aprobada e idéntica).
+- findings/taxonomy.json (activities.horseback_not_allowed, activities.therapeutic_baths_banned, activities.ski_and_canyoning): declined: traslados desde otras secciones corresponden a la fase de integración; la ronda de fix mantiene el corpus acotado a las operaciones revisadas.
+- findings/critical.json (rules.camping): declined: aprobada byte por byte en revisión; review_gate prohíbe modificaciones a ops aprobadas.
+- findings/critical.json (rules.drones): done (cita corregida a Res. 207 con mención a Res. 0543 de 2018; frase sin fuente retirada; last_verified 2026-11-21).
+- findings/critical.json (rules.park_closure_no_compensation): done (cita corregida con cláusula expresa de no indemnización de Res. 207; last_verified 2026-11-21).
+- findings/arbiter.json (activities.photography_amateur vs rules.commercial_photography): done (añadida cita en rules.commercial_photography distinguiendo fotografía no profesional/aficionada permitida de uso comercial).
+- reviews/_examples.json (rules): done (lista drop vacía; restaurado ejemplo 'pongo una trampa para ver qué animales hay' en rules.no_hunting).
+- preparation.cross.json (rules.single_use_plastics, rules.leave_no_waste): done (enfoque en régimen normativo prohibitivo y sancionatorio ambiental).
+- fauna.cross.json (rules.feed_wildlife, rules.no_hunting, rules.pets): done (rules conserva la tipificación legal y régimen sancionatorio estricto).
+- booking_fees.cross.json (rules.show_entry_permit_on_request): done (deber reglamentario de exhibición durante el recorrido).
+- activities.cross.json (rules.camping): done (rules mantiene la prohibición de acampada fuera de zonas habilitadas e infracciones).
+- health_safety.cross.json (rules.wildlife_contact_displacement): done (rules conserva prohibición reglamentaria de Res. 207).
+- Refetches con advertencia TLS en funcionpublica.gov.co: done: se reintentó conexión y persiste error SSL (curl 60 / local issuer certificate); se conservó la evidencia pinned Fase 2 verificada por hash.
+- Consistencia last_verified: done: todos los valores de last_verified en entradas y retrieved_at en sources coinciden exactamente con la fecha de verificación de evidencia checked_on (2026-11-21).

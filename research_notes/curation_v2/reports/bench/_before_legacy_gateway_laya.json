@@ -1,0 +1,423 @@
+{
+  "label": "LEGACY_NOT_BLIND",
+  "sections_dir": "research_notes/curation_v2/snapshots/sections_before",
+  "retrieval_mode": "gateway",
+  "k": 5,
+  "laya": "int8_gather",
+  "n": 1790,
+  "metrics": {
+    "recall@1": {
+      "k": 1031,
+      "n": 1630,
+      "rate": 0.6325,
+      "lo": 0.6088,
+      "hi": 0.6556
+    },
+    "recall@3": {
+      "k": 1322,
+      "n": 1630,
+      "rate": 0.811,
+      "lo": 0.7913,
+      "hi": 0.8293
+    },
+    "recall@5": {
+      "k": 1379,
+      "n": 1630,
+      "rate": 0.846,
+      "lo": 0.8277,
+      "hi": 0.8627
+    },
+    "e5_global_recall@1": {
+      "k": 1031,
+      "n": 1630,
+      "rate": 0.6325,
+      "lo": 0.6088,
+      "hi": 0.6556
+    },
+    "e5_global_recall@3": {
+      "k": 1339,
+      "n": 1630,
+      "rate": 0.8215,
+      "lo": 0.8021,
+      "hi": 0.8393
+    },
+    "e5_global_recall@5": {
+      "k": 1428,
+      "n": 1630,
+      "rate": 0.8761,
+      "lo": 0.8592,
+      "hi": 0.8912
+    },
+    "gateway_section_recall": {
+      "k": 1589,
+      "n": 1630,
+      "rate": 0.9748,
+      "lo": 0.9661,
+      "hi": 0.9814
+    },
+    "e5_only_accuracy": {
+      "k": 1031,
+      "n": 1630,
+      "rate": 0.6325,
+      "lo": 0.6088,
+      "hi": 0.6556
+    },
+    "selected_accuracy": {
+      "k": 1127,
+      "n": 1630,
+      "rate": 0.6914,
+      "lo": 0.6686,
+      "hi": 0.7134
+    },
+    "rerank_accuracy_when_valid_in_pool": {
+      "k": 1127,
+      "n": 1379,
+      "rate": 0.8173,
+      "lo": 0.796,
+      "hi": 0.8368
+    },
+    "none_rejection_rate": {
+      "k": 91,
+      "n": 160,
+      "rate": 0.5687,
+      "lo": 0.4913,
+      "hi": 0.643
+    },
+    "false_rejections": 472,
+    "false_rejection_rate": {
+      "k": 472,
+      "n": 1630,
+      "rate": 0.2896,
+      "lo": 0.2681,
+      "hi": 0.3121
+    },
+    "accepted_answer_precision": {
+      "k": 920,
+      "n": 1227,
+      "rate": 0.7498,
+      "lo": 0.7248,
+      "hi": 0.7732
+    },
+    "coverage": {
+      "k": 1227,
+      "n": 1790,
+      "rate": 0.6855,
+      "lo": 0.6636,
+      "hi": 0.7066
+    }
+  },
+  "breakdown": {
+    "scenario": {
+      "near_miss": {
+        "n": 0,
+        "accuracy": {
+          "k": 0,
+          "n": 0,
+          "rate": null,
+          "lo": null,
+          "hi": null
+        }
+      },
+      "out_of_scope": {
+        "n": 0,
+        "accuracy": {
+          "k": 0,
+          "n": 0,
+          "rate": null,
+          "lo": null,
+          "hi": null
+        }
+      },
+      "paraphrase": {
+        "n": 1630,
+        "accuracy": {
+          "k": 1127,
+          "n": 1630,
+          "rate": 0.6914,
+          "lo": 0.6686,
+          "hi": 0.7134
+        }
+      }
+    },
+    "section": {
+      "access": {
+        "n": 158,
+        "accuracy": {
+          "k": 94,
+          "n": 158,
+          "rate": 0.5949,
+          "lo": 0.517,
+          "hi": 0.6683
+        }
+      },
+      "actions": {
+        "n": 20,
+        "accuracy": {
+          "k": 16,
+          "n": 20,
+          "rate": 0.8,
+          "lo": 0.584,
+          "hi": 0.9193
+        }
+      },
+      "activities": {
+        "n": 140,
+        "accuracy": {
+          "k": 108,
+          "n": 140,
+          "rate": 0.7714,
+          "lo": 0.6952,
+          "hi": 0.8332
+        }
+      },
+      "booking_fees": {
+        "n": 135,
+        "accuracy": {
+          "k": 98,
+          "n": 135,
+          "rate": 0.7259,
+          "lo": 0.6452,
+          "hi": 0.7941
+        }
+      },
+      "conversation": {
+        "n": 60,
+        "accuracy": {
+          "k": 47,
+          "n": 60,
+          "rate": 0.7833,
+          "lo": 0.6638,
+          "hi": 0.8688
+        }
+      },
+      "fauna": {
+        "n": 140,
+        "accuracy": {
+          "k": 104,
+          "n": 140,
+          "rate": 0.7429,
+          "lo": 0.6647,
+          "hi": 0.8081
+        }
+      },
+      "flora_ecosystems": {
+        "n": 136,
+        "accuracy": {
+          "k": 100,
+          "n": 136,
+          "rate": 0.7353,
+          "lo": 0.6554,
+          "hi": 0.8022
+        }
+      },
+      "geography": {
+        "n": 124,
+        "accuracy": {
+          "k": 91,
+          "n": 124,
+          "rate": 0.7339,
+          "lo": 0.6499,
+          "hi": 0.8038
+        }
+      },
+      "health_safety": {
+        "n": 139,
+        "accuracy": {
+          "k": 72,
+          "n": 139,
+          "rate": 0.518,
+          "lo": 0.4356,
+          "hi": 0.5994
+        }
+      },
+      "history_culture": {
+        "n": 118,
+        "accuracy": {
+          "k": 89,
+          "n": 118,
+          "rate": 0.7542,
+          "lo": 0.6694,
+          "hi": 0.8231
+        }
+      },
+      "hours_status": {
+        "n": 82,
+        "accuracy": {
+          "k": 60,
+          "n": 82,
+          "rate": 0.7317,
+          "lo": 0.627,
+          "hi": 0.8156
+        }
+      },
+      "preparation": {
+        "n": 68,
+        "accuracy": {
+          "k": 42,
+          "n": 68,
+          "rate": 0.6176,
+          "lo": 0.4988,
+          "hi": 0.7239
+        }
+      },
+      "rules": {
+        "n": 146,
+        "accuracy": {
+          "k": 91,
+          "n": 146,
+          "rate": 0.6233,
+          "lo": 0.5425,
+          "hi": 0.6978
+        }
+      },
+      "services": {
+        "n": 52,
+        "accuracy": {
+          "k": 40,
+          "n": 52,
+          "rate": 0.7692,
+          "lo": 0.6387,
+          "hi": 0.8628
+        }
+      },
+      "unknown": {
+        "n": 0,
+        "accuracy": {
+          "k": 0,
+          "n": 0,
+          "rate": null,
+          "lo": null,
+          "hi": null
+        }
+      },
+      "weather_volcano": {
+        "n": 112,
+        "accuracy": {
+          "k": 75,
+          "n": 112,
+          "rate": 0.6696,
+          "lo": 0.5782,
+          "hi": 0.7499
+        }
+      }
+    }
+  },
+  "option_order_robustness": {
+    "sampled_rows": 200,
+    "result": {
+      "k": 1615,
+      "n": 1630,
+      "rate": 0.9908,
+      "lo": 0.9849,
+      "hi": 0.9944
+    }
+  },
+  "unseen_topic": {
+    "recall@1": {
+      "k": 105,
+      "n": 162,
+      "rate": 0.6481,
+      "lo": 0.572,
+      "hi": 0.7175
+    },
+    "recall@3": {
+      "k": 138,
+      "n": 162,
+      "rate": 0.8519,
+      "lo": 0.789,
+      "hi": 0.8984
+    },
+    "recall@5": {
+      "k": 140,
+      "n": 162,
+      "rate": 0.8642,
+      "lo": 0.8029,
+      "hi": 0.9086
+    },
+    "e5_global_recall@1": {
+      "k": 105,
+      "n": 162,
+      "rate": 0.6481,
+      "lo": 0.572,
+      "hi": 0.7175
+    },
+    "e5_global_recall@3": {
+      "k": 139,
+      "n": 162,
+      "rate": 0.858,
+      "lo": 0.796,
+      "hi": 0.9035
+    },
+    "e5_global_recall@5": {
+      "k": 143,
+      "n": 162,
+      "rate": 0.8827,
+      "lo": 0.8241,
+      "hi": 0.9236
+    },
+    "gateway_section_recall": {
+      "k": 158,
+      "n": 162,
+      "rate": 0.9753,
+      "lo": 0.9382,
+      "hi": 0.9904
+    },
+    "e5_only_accuracy": {
+      "k": 105,
+      "n": 162,
+      "rate": 0.6481,
+      "lo": 0.572,
+      "hi": 0.7175
+    },
+    "selected_accuracy": {
+      "k": 103,
+      "n": 162,
+      "rate": 0.6358,
+      "lo": 0.5594,
+      "hi": 0.706
+    },
+    "rerank_accuracy_when_valid_in_pool": {
+      "k": 103,
+      "n": 140,
+      "rate": 0.7357,
+      "lo": 0.6571,
+      "hi": 0.8018
+    },
+    "none_rejection_rate": {
+      "k": 0,
+      "n": 0,
+      "rate": null,
+      "lo": null,
+      "hi": null
+    },
+    "false_rejections": 52,
+    "false_rejection_rate": {
+      "k": 52,
+      "n": 162,
+      "rate": 0.321,
+      "lo": 0.254,
+      "hi": 0.3963
+    },
+    "accepted_answer_precision": {
+      "k": 81,
+      "n": 110,
+      "rate": 0.7364,
+      "lo": 0.6471,
+      "hi": 0.8097
+    },
+    "coverage": {
+      "k": 110,
+      "n": 162,
+      "rate": 0.679,
+      "lo": 0.6037,
+      "hi": 0.746
+    }
+  },
+  "laptop_latency_ms": {
+    "label": "LAPTOP",
+    "p50": 218.0,
+    "p95": 462.6,
+    "n": 1790,
+    "scope": "Laya ONNX inference only; retrieval/embed excluded"
+  }
+}

@@ -1,0 +1,2082 @@
+{
+ "proposal": "research_notes/curation_v2/proposals/weather_volcano.v2.json",
+ "ops": {
+  "add": 0,
+  "update": 31,
+  "delete": 0
+ },
+ "touched_examples": 411,
+ "touched_loo_top1": 0.3747,
+ "touched_confusions": [
+  {
+   "id": "weather_volcano.alert_yellow_meaning",
+   "example": "qué significa alerta amarilla del Ruiz",
+   "rank": 3,
+   "top1": "weather_volcano.alert_red_meaning",
+   "top1_cos": 0.9672,
+   "own_cos": 0.937
+  },
+  {
+   "id": "weather_volcano.alert_yellow_meaning",
+   "example": "qué implica el amarillo para un turista",
+   "rank": 2,
+   "top1": "weather_volcano.alert_red_meaning",
+   "top1_cos": 0.9283,
+   "own_cos": 0.9008
+  },
+  {
+   "id": "weather_volcano.alert_yellow_meaning",
+   "example": "qué cambios indica el amarillo",
+   "rank": 2,
+   "top1": "weather_volcano.alert_orange_meaning",
+   "top1_cos": 0.9081,
+   "own_cos": 0.9027
+  },
+  {
+   "id": "weather_volcano.alert_yellow_meaning",
+   "example": "el nivel amarillo permite entrar",
+   "rank": 3,
+   "top1": "weather_volcano.yellow_upper_access",
+   "top1_cos": 0.9021,
+   "own_cos": 0.8889
+  },
+  {
+   "id": "weather_volcano.alert_yellow_meaning",
+   "example": "qué hago si el Ruiz está amarillo",
+   "rank": 4,
+   "top1": "activities.cloudy_visit_landscape",
+   "top1_cos": 0.9336,
+   "own_cos": 0.9038
+  },
+  {
+   "id": "weather_volcano.alert_yellow_meaning",
+   "example": "amarillo significa erupción inminente",
+   "rank": 4,
+   "top1": "weather_volcano.alert_orange_meaning",
+   "top1_cos": 0.9126,
+   "own_cos": 0.8954
+  },
+  {
+   "id": "weather_volcano.alert_yellow_meaning",
+   "example": "toca seguir al guardaparque con alerta amarilla",
+   "rank": 5,
+   "top1": "weather_volcano.alert_not_evacuation",
+   "top1_cos": 0.9186,
+   "own_cos": 0.9007
+  },
+  {
+   "id": "weather_volcano.alert_yellow_meaning",
+   "example": "what does yellow volcanic alert mean",
+   "rank": 6,
+   "top1": "weather_volcano.alert_red_meaning",
+   "top1_cos": 0.9516,
+   "own_cos": 0.8945
+  },
+  {
+   "id": "weather_volcano.alert_yellow_meaning",
+   "example": "does yellow alert mean the park is closed",
+   "rank": 3,
+   "top1": "weather_volcano.alert_red_meaning",
+   "top1_cos": 0.9076,
+   "own_cos": 0.8945
+  },
+  {
+   "id": "weather_volcano.alert_orange_meaning",
+   "example": "qué significa alerta naranja del Ruiz",
+   "rank": 6,
+   "top1": "weather_volcano.alert_yellow_meaning",
+   "top1_cos": 0.9624,
+   "own_cos": 0.8852
+  },
+  {
+   "id": "weather_volcano.alert_orange_meaning",
+   "example": "cómo actuar si el volcán está naranja",
+   "rank": 4,
+   "top1": "weather_volcano.alert_red_meaning",
+   "top1_cos": 0.9438,
+   "own_cos": 0.9101
+  },
+  {
+   "id": "weather_volcano.alert_orange_meaning",
+   "example": "se puede saber el dia de la erupcion solo porque el color esta en naranja?",
+   "rank": 2,
+   "top1": "weather_volcano.eruptions_not_predictable",
+   "top1_cos": 0.9361,
+   "own_cos": 0.9158
+  },
+  {
+   "id": "weather_volcano.alert_orange_meaning",
+   "example": "puedo subir con alerta naranja",
+   "rank": 3,
+   "top1": "weather_volcano.alert_yellow_meaning",
+   "top1_cos": 0.9169,
+   "own_cos": 0.9029
+  },
+  {
+   "id": "weather_volcano.alert_orange_meaning",
+   "example": "what does orange volcanic alert mean",
+   "rank": 4,
+   "top1": "weather_volcano.alert_red_meaning",
+   "top1_cos": 0.9503,
+   "own_cos": 0.9235
+  },
+  {
+   "id": "weather_volcano.alert_red_meaning",
+   "example": "qué significa alerta roja del Ruiz",
+   "rank": 6,
+   "top1": "weather_volcano.alert_yellow_meaning",
+   "top1_cos": 0.9672,
+   "own_cos": 0.8939
+  },
+  {
+   "id": "weather_volcano.alert_red_meaning",
+   "example": "qué implica rojo para los turistas",
+   "rank": 3,
+   "top1": "weather_volcano.alert_yellow_meaning",
+   "top1_cos": 0.9283,
+   "own_cos": 0.8967
+  },
+  {
+   "id": "weather_volcano.alert_red_meaning",
+   "example": "qué hago si el volcán está en rojo",
+   "rank": 2,
+   "top1": "weather_volcano.alert_orange_meaning",
+   "top1_cos": 0.9438,
+   "own_cos": 0.9413
+  },
+  {
+   "id": "weather_volcano.alert_red_meaning",
+   "example": "alerta roja significa erupción",
+   "rank": 4,
+   "top1": "weather_volcano.alert_yellow_meaning",
+   "top1_cos": 0.9178,
+   "own_cos": 0.9157
+  },
+  {
+   "id": "weather_volcano.alert_red_meaning",
+   "example": "qué pasa con los accesos en rojo",
+   "rank": 2,
+   "top1": "weather_volcano.red_rivers_roads",
+   "top1_cos": 0.9002,
+   "own_cos": 0.8882
+  },
+  {
+   "id": "weather_volcano.alert_red_meaning",
+   "example": "what does red volcanic alert mean",
+   "rank": 7,
+   "top1": "weather_volcano.alert_yellow_meaning",
+   "top1_cos": 0.9516,
+   "own_cos": 0.8924
+  },
+  {
+   "id": "weather_volcano.alert_red_meaning",
+   "example": "is the park open during red alert",
+   "rank": 18,
+   "top1": "weather_volcano.alert_yellow_meaning",
+   "top1_cos": 0.9076,
+   "own_cos": 0.8504
+  },
+  {
+   "id": "weather_volcano.alert_green_meaning",
+   "example": "qué significa alerta verde del volcán",
+   "rank": 2,
+   "top1": "weather_volcano.alert_yellow_meaning",
+   "top1_cos": 0.9455,
+   "own_cos": 0.9266
+  },
+  {
+   "id": "weather_volcano.alert_green_meaning",
+   "example": "puedo ir al cráter si está en verde",
+   "rank": 8,
+   "top1": "geography.arenas_crater",
+   "top1_cos": 0.9044,
+   "own_cos": 0.8781
+  },
+  {
+   "id": "weather_volcano.alert_green_meaning",
+   "example": "en verde hay gases y olores",
+   "rank": 5,
+   "top1": "weather_volcano.sulfur_smell",
+   "top1_cos": 0.9174,
+   "own_cos": 0.8665
+  },
+  {
+   "id": "weather_volcano.alert_green_meaning",
+   "example": "la alerta verde me deja subir a la cima",
+   "rank": 57,
+   "top1": "weather_volcano.orange_near_volcano",
+   "top1_cos": 0.9119,
+   "own_cos": 0.8715
+  },
+  {
+   "id": "weather_volcano.alert_green_meaning",
+   "example": "what does a green volcano alert mean",
+   "rank": 4,
+   "top1": "weather_volcano.alert_red_meaning",
+   "top1_cos": 0.9368,
+   "own_cos": 0.9304
+  },
+  {
+   "id": "weather_volcano.alert_states_nonsequential",
+   "example": "los colores del volcán son una escala que siempre sube",
+   "rank": 2,
+   "top1": "weather_volcano.old_alert_numbers",
+   "top1_cos": 0.8891,
+   "own_cos": 0.8876
+  },
+  {
+   "id": "weather_volcano.alert_states_nonsequential",
+   "example": "el Ruiz debe pasar por amarillo antes de naranja",
+   "rank": 3,
+   "top1": "weather_volcano.alert_yellow_meaning",
+   "top1_cos": 0.9239,
+   "own_cos": 0.9055
+  },
+  {
+   "id": "weather_volcano.alert_states_nonsequential",
+   "example": "puede saltar de amarillo a rojo",
+   "rank": 4,
+   "top1": "weather_volcano.yellow_upper_access",
+   "top1_cos": 0.9061,
+   "own_cos": 0.8837
+  },
+  {
+   "id": "weather_volcano.alert_states_nonsequential",
+   "example": "cómo cambian los estados de alerta",
+   "rank": 7,
+   "top1": "weather_volcano.current_alert",
+   "top1_cos": 0.8891,
+   "own_cos": 0.8653
+  },
+  {
+   "id": "weather_volcano.alert_states_nonsequential",
+   "example": "los colores predicen días para una erupción",
+   "rank": 6,
+   "top1": "weather_volcano.eruptions_not_predictable",
+   "top1_cos": 0.9134,
+   "own_cos": 0.8876
+  },
+  {
+   "id": "weather_volcano.alert_states_nonsequential",
+   "example": "el color de alerta tiene que pasar por cada nivel o puede saltarse uno?",
+   "rank": 2,
+   "top1": "weather_volcano.alert_orange_meaning",
+   "top1_cos": 0.8869,
+   "own_cos": 0.8837
+  },
+  {
+   "id": "weather_volcano.alert_states_nonsequential",
+   "example": "la alerta volcánica es progresiva",
+   "rank": 5,
+   "top1": "weather_volcano.separate_volcano_alerts",
+   "top1_cos": 0.9237,
+   "own_cos": 0.8957
+  },
+  {
+   "id": "weather_volcano.alert_states_nonsequential",
+   "example": "qué significa que cambie el color",
+   "rank": 5,
+   "top1": "weather_volcano.alert_not_evacuation",
+   "top1_cos": 0.9097,
+   "own_cos": 0.8641
+  },
+  {
+   "id": "weather_volcano.alert_states_nonsequential",
+   "example": "el volcán puede volver a bajar de alerta",
+   "rank": 7,
+   "top1": "weather_volcano.stay_safe_zone",
+   "top1_cos": 0.9128,
+   "own_cos": 0.8957
+  },
+  {
+   "id": "weather_volcano.alert_states_nonsequential",
+   "example": "como se pasa de un estado a otro",
+   "rank": 11,
+   "top1": "conversation.cancel_topic",
+   "top1_cos": 0.8913,
+   "own_cos": 0.8653
+  },
+  {
+   "id": "weather_volcano.alert_states_nonsequential",
+   "example": "toca esperar que pase por todos los colores",
+   "rank": 3,
+   "top1": "weather_volcano.stay_safe_zone",
+   "top1_cos": 0.8866,
+   "own_cos": 0.8813
+  },
+  {
+   "id": "weather_volcano.alert_states_nonsequential",
+   "example": "are volcanic alert colors sequential",
+   "rank": 10,
+   "top1": "weather_volcano.separate_volcano_alerts",
+   "top1_cos": 0.8965,
+   "own_cos": 0.8577
+  },
+  {
+   "id": "weather_volcano.alert_states_nonsequential",
+   "example": "can a volcano jump from yellow to red",
+   "rank": 6,
+   "top1": "weather_volcano.yellow_upper_access",
+   "top1_cos": 0.8873,
+   "own_cos": 0.8486
+  },
+  {
+   "id": "weather_volcano.old_alert_numbers",
+   "example": "nivel naranja en días o semanas",
+   "rank": 201,
+   "top1": "weather_volcano.alert_orange_meaning",
+   "top1_cos": 0.8879,
+   "own_cos": 0.8276
+  },
+  {
+   "id": "weather_volcano.old_alert_numbers",
+   "example": "el folleto viejo con numeros romanos todavia sirve?",
+   "rank": 40,
+   "top1": "weather_volcano.bulletin_kinds",
+   "top1_cos": 0.8825,
+   "own_cos": 0.8241
+  },
+  {
+   "id": "weather_volcano.old_alert_numbers",
+   "example": "aún se usa nivel II de erupción probable",
+   "rank": 4,
+   "top1": "weather_volcano.current_alert",
+   "top1_cos": 0.8893,
+   "own_cos": 0.878
+  },
+  {
+   "id": "weather_volcano.old_alert_numbers",
+   "example": "desde cuando la alerta del volcan es solo por colores?",
+   "rank": 40,
+   "top1": "weather_volcano.alert_yellow_meaning",
+   "top1_cos": 0.906,
+   "own_cos": 0.844
+  },
+  {
+   "id": "weather_volcano.old_alert_numbers",
+   "example": "el nivel III ya no es la alerta oficial",
+   "rank": 3,
+   "top1": "access.cocora_before_park",
+   "top1_cos": 0.8932,
+   "own_cos": 0.8822
+  },
+  {
+   "id": "weather_volcano.old_alert_numbers",
+   "example": "me hablaron de nivel II que significa",
+   "rank": 2,
+   "top1": "history_culture.ley_2_1959",
+   "top1_cos": 0.8781,
+   "own_cos": 0.8686
+  },
+  {
+   "id": "weather_volcano.old_alert_numbers",
+   "example": "is the old numbered volcano scale still used",
+   "rank": 3,
+   "top1": "weather_volcano.current_alert",
+   "top1_cos": 0.8555,
+   "own_cos": 0.8446
+  },
+  {
+   "id": "weather_volcano.volcanic_closures",
+   "example": "pueden cerrar un sector por el volcán",
+   "rank": 2,
+   "top1": "hours_status.volcanic_alert_closures",
+   "top1_cos": 0.9395,
+   "own_cos": 0.93
+  },
+  {
+   "id": "weather_volcano.volcanic_closures",
+   "example": "qué pasa si aumenta la actividad del Ruiz",
+   "rank": 21,
+   "top1": "history_culture.ruiz_1990_2010_calma",
+   "top1_cos": 0.9215,
+   "own_cos": 0.8784
+  },
+  {
+   "id": "weather_volcano.volcanic_closures",
+   "example": "cierran Brisas por alerta volcánica",
+   "rank": 10,
+   "top1": "hours_status.volcanic_alert_closures",
+   "top1_cos": 0.9324,
+   "own_cos": 0.8982
+  },
+  {
+   "id": "weather_volcano.volcanic_closures",
+   "example": "qué accesos restringe la actividad del nevado",
+   "rank": 66,
+   "top1": "hours_status.weather_emergency_closures",
+   "top1_cos": 0.9192,
+   "own_cos": 0.863
+  },
+  {
+   "id": "weather_volcano.volcanic_closures",
+   "example": "hay evacuación por actividad volcánica",
+   "rank": 5,
+   "top1": "weather_volcano.alert_not_evacuation",
+   "top1_cos": 0.9349,
+   "own_cos": 0.8917
+  },
+  {
+   "id": "weather_volcano.volcanic_closures",
+   "example": "por qué no dejan llegar a la nieve del Ruiz",
+   "rank": 22,
+   "top1": "weather_volcano.snow_and_hail",
+   "top1_cos": 0.9271,
+   "own_cos": 0.8784
+  },
+  {
+   "id": "weather_volcano.volcanic_closures",
+   "example": "el camino Brisas Arenales está restringido",
+   "rank": 10,
+   "top1": "activities.camping_brisas_restricted",
+   "top1_cos": 0.9183,
+   "own_cos": 0.8807
+  },
+  {
+   "id": "weather_volcano.volcanic_closures",
+   "example": "puedo hacer ciclomontañismo por Brisas",
+   "rank": 53,
+   "top1": "activities.vehicle_or_on_foot",
+   "top1_cos": 0.9219,
+   "own_cos": 0.867
+  },
+  {
+   "id": "weather_volcano.volcanic_closures",
+   "example": "cierre del parque por el volcán",
+   "rank": 2,
+   "top1": "hours_status.volcanic_alert_closures",
+   "top1_cos": 0.9488,
+   "own_cos": 0.9255
+  },
+  {
+   "id": "weather_volcano.volcanic_closures",
+   "example": "toca obedecer si cierran por alerta",
+   "rank": 4,
+   "top1": "weather_volcano.alert_red_meaning",
+   "top1_cos": 0.902,
+   "own_cos": 0.8982
+  },
+  {
+   "id": "weather_volcano.volcanic_closures",
+   "example": "can volcanic activity close a park sector",
+   "rank": 2,
+   "top1": "hours_status.volcanic_alert_closures",
+   "top1_cos": 0.9358,
+   "own_cos": 0.8941
+  },
+  {
+   "id": "weather_volcano.volcanic_closures",
+   "example": "is summit access restricted because of Ruiz",
+   "rank": 38,
+   "top1": "activities.ruiz_summit_closed",
+   "top1_cos": 0.939,
+   "own_cos": 0.8453
+  },
+  {
+   "id": "weather_volcano.yellow_upper_access",
+   "example": "en amarilla puedo subir a la parte alta",
+   "rank": 4,
+   "top1": "weather_volcano.alert_states_nonsequential",
+   "top1_cos": 0.9061,
+   "own_cos": 0.9013
+  },
+  {
+   "id": "weather_volcano.yellow_upper_access",
+   "example": "la alerta amarilla cierra la cima",
+   "rank": 2,
+   "top1": "weather_volcano.alert_yellow_meaning",
+   "top1_cos": 0.9187,
+   "own_cos": 0.906
+  },
+  {
+   "id": "weather_volcano.yellow_upper_access",
+   "example": "depende del volcán si dejan subir",
+   "rank": 233,
+   "top1": "weather_volcano.alert_states_nonsequential",
+   "top1_cos": 0.9008,
+   "own_cos": 0.843
+  },
+  {
+   "id": "weather_volcano.yellow_upper_access",
+   "example": "amarillo me autoriza el cráter",
+   "rank": 6,
+   "top1": "weather_volcano.alert_yellow_meaning",
+   "top1_cos": 0.8965,
+   "own_cos": 0.8779
+  },
+  {
+   "id": "weather_volcano.yellow_upper_access",
+   "example": "quién decide el ingreso con alerta amarilla",
+   "rank": 2,
+   "top1": "weather_volcano.alert_yellow_meaning",
+   "top1_cos": 0.9118,
+   "own_cos": 0.8913
+  },
+  {
+   "id": "weather_volcano.yellow_upper_access",
+   "example": "la parte alta sigue abierta en amarillo",
+   "rank": 2,
+   "top1": "weather_volcano.alert_yellow_meaning",
+   "top1_cos": 0.9021,
+   "own_cos": 0.901
+  },
+  {
+   "id": "weather_volcano.yellow_upper_access",
+   "example": "puedo llegar a la nieve si el color es amarillo",
+   "rank": 24,
+   "top1": "preparation.layering_system",
+   "top1_cos": 0.889,
+   "own_cos": 0.8702
+  },
+  {
+   "id": "weather_volcano.yellow_upper_access",
+   "example": "en amarillo restringen arriba",
+   "rank": 2,
+   "top1": "health_safety.descent_for_worsening_altitude",
+   "top1_cos": 0.9135,
+   "own_cos": 0.9074
+  },
+  {
+   "id": "weather_volcano.yellow_upper_access",
+   "example": "el color no abre el sector solo",
+   "rank": 22,
+   "top1": "weather_volcano.separate_volcano_alerts",
+   "top1_cos": 0.8893,
+   "own_cos": 0.8623
+  },
+  {
+   "id": "weather_volcano.yellow_upper_access",
+   "example": "can I hike the upper volcano on yellow alert",
+   "rank": 2,
+   "top1": "weather_volcano.alert_yellow_meaning",
+   "top1_cos": 0.9054,
+   "own_cos": 0.8913
+  },
+  {
+   "id": "weather_volcano.yellow_upper_access",
+   "example": "does yellow alert close the summit by itself",
+   "rank": 2,
+   "top1": "weather_volcano.alert_yellow_meaning",
+   "top1_cos": 0.9032,
+   "own_cos": 0.8913
+  },
+  {
+   "id": "weather_volcano.bulletin_kinds",
+   "example": "el semanal alcanza para salir",
+   "rank": 7,
+   "top1": "conversation.time_or_date_request",
+   "top1_cos": 0.9027,
+   "own_cos": 0.876
+  },
+  {
+   "id": "weather_volcano.bulletin_kinds",
+   "example": "diferencia entre boletín semanal y mensual",
+   "rank": 2,
+   "top1": "weather_volcano.current_alert",
+   "top1_cos": 0.9043,
+   "own_cos": 0.8948
+  },
+  {
+   "id": "weather_volcano.bulletin_kinds",
+   "example": "cuantos informes recientes del ruiz puedo mirar?",
+   "rank": 2,
+   "top1": "weather_volcano.current_alert",
+   "top1_cos": 0.9089,
+   "own_cos": 0.8805
+  },
+  {
+   "id": "weather_volcano.bulletin_kinds",
+   "example": "dónde están los boletines extraordinarios del ruiz",
+   "rank": 2,
+   "top1": "weather_volcano.current_alert",
+   "top1_cos": 0.9241,
+   "own_cos": 0.8923
+  },
+  {
+   "id": "weather_volcano.bulletin_kinds",
+   "example": "si el volcan cambia entre semana, publican un boletín sin esperar el semanal?",
+   "rank": 6,
+   "top1": "weather_volcano.separate_volcano_alerts",
+   "top1_cos": 0.8955,
+   "own_cos": 0.8819
+  },
+  {
+   "id": "weather_volcano.bulletin_kinds",
+   "example": "un boletín viejo de la lista todavía sirve",
+   "rank": 3,
+   "top1": "access.control_coordinates",
+   "top1_cos": 0.8918,
+   "own_cos": 0.883
+  },
+  {
+   "id": "weather_volcano.bulletin_kinds",
+   "example": "should I read the weekly or the special bulletin",
+   "rank": 2,
+   "top1": "history_culture.monitoring_since_1985",
+   "top1_cos": 0.8719,
+   "own_cos": 0.8556
+  },
+  {
+   "id": "weather_volcano.santa_isabel_bulletin",
+   "example": "el santa isabel usa el color del ruiz",
+   "rank": 2,
+   "top1": "flora_ecosystems.santa_isabel_low_altitude_cause",
+   "top1_cos": 0.9056,
+   "own_cos": 0.899
+  },
+  {
+   "id": "weather_volcano.santa_isabel_bulletin",
+   "example": "boletín semanal del nevado santa isabel",
+   "rank": 2,
+   "top1": "history_culture.santa_isabel_record",
+   "top1_cos": 0.9259,
+   "own_cos": 0.9242
+  },
+  {
+   "id": "weather_volcano.santa_isabel_bulletin",
+   "example": "puedo fiarme de la frase en reposo",
+   "rank": 503,
+   "top1": "health_safety.descent_for_worsening_altitude",
+   "top1_cos": 0.8653,
+   "own_cos": 0.8035
+  },
+  {
+   "id": "weather_volcano.santa_isabel_bulletin",
+   "example": "no copies el estado del ruiz al santa isabel",
+   "rank": 3,
+   "top1": "flora_ecosystems.santa_isabel_low_altitude_cause",
+   "top1_cos": 0.9053,
+   "own_cos": 0.899
+  },
+  {
+   "id": "weather_volcano.santa_isabel_bulletin",
+   "example": "where do I check Santa Isabel volcano alert",
+   "rank": 3,
+   "top1": "weather_volcano.current_alert",
+   "top1_cos": 0.912,
+   "own_cos": 0.8944
+  },
+  {
+   "id": "weather_volcano.santa_isabel_bulletin",
+   "example": "is Santa Isabel the same alert as Ruiz",
+   "rank": 6,
+   "top1": "geography.santa_isabel",
+   "top1_cos": 0.9175,
+   "own_cos": 0.8725
+  },
+  {
+   "id": "weather_volcano.machin_bulletin",
+   "example": "dónde veo la alerta del cerro machín",
+   "rank": 2,
+   "top1": "weather_volcano.current_alert",
+   "top1_cos": 0.9083,
+   "own_cos": 0.8987
+  },
+  {
+   "id": "weather_volcano.machin_bulletin",
+   "example": "boletines semanales del machín",
+   "rank": 3,
+   "top1": "weather_volcano.current_alert",
+   "top1_cos": 0.9152,
+   "own_cos": 0.9127
+  },
+  {
+   "id": "weather_volcano.machin_bulletin",
+   "example": "no es el mismo color del ruiz",
+   "rank": 335,
+   "top1": "weather_volcano.separate_volcano_alerts",
+   "top1_cos": 0.9089,
+   "own_cos": 0.8061
+  },
+  {
+   "id": "weather_volcano.ash_water",
+   "example": "tapo los tanques cuando hay ceniza",
+   "rank": 3,
+   "top1": "weather_volcano.ash_actions",
+   "top1_cos": 0.8887,
+   "own_cos": 0.8853
+  },
+  {
+   "id": "weather_volcano.ash_water",
+   "example": "quebrada de montaña y ceniza volcánica",
+   "rank": 6,
+   "top1": "weather_volcano.ash_asthma",
+   "top1_cos": 0.9241,
+   "own_cos": 0.8937
+  },
+  {
+   "id": "weather_volcano.ash_water",
+   "example": "no tomo de la quebrada cerca del volcán",
+   "rank": 7,
+   "top1": "weather_volcano.evacuation_route",
+   "top1_cos": 0.9208,
+   "own_cos": 0.8937
+  },
+  {
+   "id": "weather_volcano.ash_water",
+   "example": "can I drink stream water after ashfall",
+   "rank": 2,
+   "top1": "weather_volcano.ash_resuspends",
+   "top1_cos": 0.8987,
+   "own_cos": 0.8658
+  },
+  {
+   "id": "weather_volcano.ash_water",
+   "example": "should I cover water containers from ash",
+   "rank": 5,
+   "top1": "weather_volcano.ash_resuspends",
+   "top1_cos": 0.8908,
+   "own_cos": 0.8658
+  },
+  {
+   "id": "weather_volcano.current_alert",
+   "example": "dónde miro la alerta de hoy",
+   "rank": 2,
+   "top1": "weather_volcano.current_forecast",
+   "top1_cos": 0.9264,
+   "own_cos": 0.9255
+  },
+  {
+   "id": "weather_volcano.current_alert",
+   "example": "hay alerta volcánica para visitar",
+   "rank": 9,
+   "top1": "weather_volcano.separate_volcano_alerts",
+   "top1_cos": 0.9341,
+   "own_cos": 0.9033
+  },
+  {
+   "id": "weather_volcano.current_alert",
+   "example": "qué nivel reporta el SGC ahora",
+   "rank": 8,
+   "top1": "weather_volcano.volcanic_activity",
+   "top1_cos": 0.904,
+   "own_cos": 0.8456
+  },
+  {
+   "id": "weather_volcano.current_alert",
+   "example": "alerta actual del nevado ruiz",
+   "rank": 2,
+   "top1": "hours_status.volcanic_alert_closures",
+   "top1_cos": 0.9368,
+   "own_cos": 0.9339
+  },
+  {
+   "id": "weather_volcano.current_alert",
+   "example": "toca revisar el boletín antes de ir",
+   "rank": 107,
+   "top1": "rules.entry_bag_checks",
+   "top1_cos": 0.9111,
+   "own_cos": 0.8663
+  },
+  {
+   "id": "weather_volcano.current_alert",
+   "example": "qué página publica la actividad del volcán",
+   "rank": 2,
+   "top1": "weather_volcano.volcanic_activity",
+   "top1_cos": 0.9091,
+   "own_cos": 0.9071
+  },
+  {
+   "id": "weather_volcano.current_alert",
+   "example": "dónde miro las novedades del Nevado del Ruiz",
+   "rank": 3,
+   "top1": "geography.ruiz_where",
+   "top1_cos": 0.915,
+   "own_cos": 0.9124
+  },
+  {
+   "id": "weather_volcano.current_alert",
+   "example": "qué fuente oficial vigila el volcán",
+   "rank": 4,
+   "top1": "history_culture.monitoring_since_1985",
+   "top1_cos": 0.9323,
+   "own_cos": 0.9071
+  },
+  {
+   "id": "weather_volcano.current_alert",
+   "example": "dónde están los boletines semanales",
+   "rank": 4,
+   "top1": "weather_volcano.bulletin_kinds",
+   "top1_cos": 0.9317,
+   "own_cos": 0.8806
+  },
+  {
+   "id": "weather_volcano.current_alert",
+   "example": "boletines oficiales del nevado",
+   "rank": 9,
+   "top1": "history_culture.cieza_1553_first_record",
+   "top1_cos": 0.918,
+   "own_cos": 0.8926
+  },
+  {
+   "id": "weather_volcano.current_alert",
+   "example": "donde veo el ultimo boletin del ruiz",
+   "rank": 2,
+   "top1": "weather_volcano.bulletin_kinds",
+   "top1_cos": 0.9241,
+   "own_cos": 0.9171
+  },
+  {
+   "id": "weather_volcano.current_alert",
+   "example": "where are the official Ruiz bulletins",
+   "rank": 2,
+   "top1": "weather_volcano.ovsm_role",
+   "top1_cos": 0.905,
+   "own_cos": 0.8949
+  },
+  {
+   "id": "weather_volcano.current_alert",
+   "example": "el Observatorio de Manizales publica informes",
+   "rank": 50,
+   "top1": "weather_volcano.ovsm_role",
+   "top1_cos": 0.9196,
+   "own_cos": 0.8655
+  },
+  {
+   "id": "weather_volcano.current_alert",
+   "example": "cómo saber qué reportó el observatorio",
+   "rank": 6,
+   "top1": "weather_volcano.volcanic_activity",
+   "top1_cos": 0.8934,
+   "own_cos": 0.8672
+  },
+  {
+   "id": "weather_volcano.ovsm_role",
+   "example": "el observatorio de manizales publica la alerta",
+   "rank": 2,
+   "top1": "weather_volcano.current_alert",
+   "top1_cos": 0.8997,
+   "own_cos": 0.8911
+  },
+  {
+   "id": "weather_volcano.ovsm_role",
+   "example": "ovsm es la fuente del estado vigente",
+   "rank": 25,
+   "top1": "conversation.info_source_trust",
+   "top1_cos": 0.8353,
+   "own_cos": 0.8107
+  },
+  {
+   "id": "weather_volcano.ovsm_role",
+   "example": "leo la nota de la alcaldía o el boletín",
+   "rank": 21,
+   "top1": "weather_volcano.current_alert",
+   "top1_cos": 0.8961,
+   "own_cos": 0.8674
+  },
+  {
+   "id": "weather_volcano.ovsm_role",
+   "example": "el observatorio vulcanológico hace el seguimiento",
+   "rank": 33,
+   "top1": "weather_volcano.volcanic_activity",
+   "top1_cos": 0.9288,
+   "own_cos": 0.8465
+  },
+  {
+   "id": "weather_volcano.ovsm_role",
+   "example": "una crónica del observatorio es la alerta de hoy",
+   "rank": 3,
+   "top1": "weather_volcano.current_alert",
+   "top1_cos": 0.9024,
+   "own_cos": 0.8911
+  },
+  {
+   "id": "weather_volcano.ovsm_role",
+   "example": "no uses el articulo de la alcaldia como estado",
+   "rank": 62,
+   "top1": "access.from_anzoategui_palomar",
+   "top1_cos": 0.9032,
+   "own_cos": 0.8674
+  },
+  {
+   "id": "weather_volcano.ovsm_role",
+   "example": "who officially publishes the Ruiz status",
+   "rank": 92,
+   "top1": "weather_volcano.current_alert",
+   "top1_cos": 0.905,
+   "own_cos": 0.7896
+  },
+  {
+   "id": "weather_volcano.summit_visibility",
+   "example": "puedo ver el nevado desde el recorrido",
+   "rank": 4,
+   "top1": "flora_ecosystems.glaciers_snow_presence",
+   "top1_cos": 0.9484,
+   "own_cos": 0.9167
+  },
+  {
+   "id": "weather_volcano.summit_visibility",
+   "example": "habrá visibilidad para tomar fotos",
+   "rank": 2,
+   "top1": "activities.photography_amateur",
+   "top1_cos": 0.897,
+   "own_cos": 0.8943
+  },
+  {
+   "id": "weather_volcano.summit_visibility",
+   "example": "la niebla tapa la cima",
+   "rank": 31,
+   "top1": "weather_volcano.snow_and_hail",
+   "top1_cos": 0.9015,
+   "own_cos": 0.8768
+  },
+  {
+   "id": "weather_volcano.summit_visibility",
+   "example": "qué tan despejado estará arriba",
+   "rank": 35,
+   "top1": "weather_volcano.current_forecast",
+   "top1_cos": 0.9154,
+   "own_cos": 0.8583
+  },
+  {
+   "id": "weather_volcano.summit_visibility",
+   "example": "se alcanza a ver la cumbre hoy",
+   "rank": 2,
+   "top1": "activities.cloudy_visit_landscape",
+   "top1_cos": 0.9333,
+   "own_cos": 0.9279
+  },
+  {
+   "id": "weather_volcano.summit_visibility",
+   "example": "las nubes dejan ver el volcán",
+   "rank": 29,
+   "top1": "activities.geology_watching",
+   "top1_cos": 0.9115,
+   "own_cos": 0.8758
+  },
+  {
+   "id": "weather_volcano.summit_visibility",
+   "example": "se ve el ruiz con lluvia",
+   "rank": 45,
+   "top1": "activities.cloudy_visit_landscape",
+   "top1_cos": 0.928,
+   "own_cos": 0.8748
+  },
+  {
+   "id": "weather_volcano.summit_visibility",
+   "example": "que tal la visibilidad en la cima",
+   "rank": 2,
+   "top1": "activities.cloudy_visit_landscape",
+   "top1_cos": 0.8935,
+   "own_cos": 0.8913
+  },
+  {
+   "id": "weather_volcano.summit_visibility",
+   "example": "can I see the summit during my visit",
+   "rank": 6,
+   "top1": "activities.cloudy_visit_landscape",
+   "top1_cos": 0.9042,
+   "own_cos": 0.8646
+  },
+  {
+   "id": "weather_volcano.summit_visibility",
+   "example": "will the volcano be visible from the trail",
+   "rank": 8,
+   "top1": "activities.wildlife_from_trail",
+   "top1_cos": 0.8803,
+   "own_cos": 0.8646
+  },
+  {
+   "id": "weather_volcano.summit_visibility",
+   "example": "con la cima tapada me salgo del sendero para la foto?",
+   "rank": 39,
+   "top1": "rules.stay_on_routes",
+   "top1_cos": 0.9458,
+   "own_cos": 0.8623
+  },
+  {
+   "id": "weather_volcano.snow_and_hail",
+   "example": "nieva en Los Nevados",
+   "rank": 39,
+   "top1": "fauna.short_eared_owl_paramo",
+   "top1_cos": 0.9572,
+   "own_cos": 0.9209
+  },
+  {
+   "id": "weather_volcano.snow_and_hail",
+   "example": "se puede ver nieve en el Ruiz",
+   "rank": 20,
+   "top1": "geography.ruiz_where",
+   "top1_cos": 0.9286,
+   "own_cos": 0.8956
+  },
+  {
+   "id": "weather_volcano.snow_and_hail",
+   "example": "cuándo cae nieve en la alta montaña",
+   "rank": 8,
+   "top1": "weather_volcano.helada_night",
+   "top1_cos": 0.9395,
+   "own_cos": 0.8936
+  },
+  {
+   "id": "weather_volcano.snow_and_hail",
+   "example": "la nevada es normal allá arriba",
+   "rank": 3,
+   "top1": "weather_volcano.park_weather",
+   "top1_cos": 0.9108,
+   "own_cos": 0.8978
+  },
+  {
+   "id": "weather_volcano.snow_and_hail",
+   "example": "puede caer granizo en el recorrido",
+   "rank": 2,
+   "top1": "health_safety.lightning_storm_safety",
+   "top1_cos": 0.91,
+   "own_cos": 0.8808
+  },
+  {
+   "id": "weather_volcano.snow_and_hail",
+   "example": "qué tan frecuente es la nieve",
+   "rank": 4,
+   "top1": "flora_ecosystems.glaciers_share_of_park",
+   "top1_cos": 0.9272,
+   "own_cos": 0.9034
+  },
+  {
+   "id": "weather_volcano.snow_and_hail",
+   "example": "el parque se cubre de nieve",
+   "rank": 77,
+   "top1": "geography.park_versus_volcano",
+   "top1_cos": 0.942,
+   "own_cos": 0.871
+  },
+  {
+   "id": "weather_volcano.snow_and_hail",
+   "example": "ha nevado por el nevado del ruiz",
+   "rank": 17,
+   "top1": "flora_ecosystems.ruiz_glacier_measured_2024",
+   "top1_cos": 0.9269,
+   "own_cos": 0.8956
+  },
+  {
+   "id": "weather_volcano.snow_and_hail",
+   "example": "hay nieve hoy en la cumbre",
+   "rank": 33,
+   "top1": "weather_volcano.summit_visibility",
+   "top1_cos": 0.9155,
+   "own_cos": 0.8556
+  },
+  {
+   "id": "weather_volcano.snow_and_hail",
+   "example": "does it snow in Los Nevados",
+   "rank": 13,
+   "top1": "weather_volcano.park_weather",
+   "top1_cos": 0.9447,
+   "own_cos": 0.896
+  },
+  {
+   "id": "weather_volcano.snow_and_hail",
+   "example": "can there be hail on the trail",
+   "rank": 51,
+   "top1": "activities.cambio_climatico_trail",
+   "top1_cos": 0.85,
+   "own_cos": 0.8137
+  },
+  {
+   "id": "weather_volcano.park_weather",
+   "example": "qué tiempo suele hacer en el parque",
+   "rank": 8,
+   "top1": "hours_status.general_opening_schedule",
+   "top1_cos": 0.9278,
+   "own_cos": 0.9045
+  },
+  {
+   "id": "weather_volcano.park_weather",
+   "example": "es frío el parque nacional",
+   "rank": 5,
+   "top1": "flora_ecosystems.glaciers_snow_presence",
+   "top1_cos": 0.9253,
+   "own_cos": 0.8847
+  },
+  {
+   "id": "weather_volcano.park_weather",
+   "example": "cómo es el tiempo en la alta montaña",
+   "rank": 4,
+   "top1": "weather_volcano.helada_night",
+   "top1_cos": 0.9429,
+   "own_cos": 0.9166
+  },
+  {
+   "id": "weather_volcano.park_weather",
+   "example": "what is the weather like in Los Nevados",
+   "rank": 3,
+   "top1": "weather_volcano.weather_by_elevation",
+   "top1_cos": 0.9452,
+   "own_cos": 0.9358
+  },
+  {
+   "id": "weather_volcano.park_weather",
+   "example": "is the park weather cold",
+   "rank": 4,
+   "top1": "flora_ecosystems.glaciers_snow_presence",
+   "top1_cos": 0.9176,
+   "own_cos": 0.8847
+  },
+  {
+   "id": "weather_volcano.current_forecast",
+   "example": "qué clima hará mañana en Los Nevados",
+   "rank": 2,
+   "top1": "weather_volcano.park_weather",
+   "top1_cos": 0.931,
+   "own_cos": 0.9259
+  },
+  {
+   "id": "weather_volcano.current_forecast",
+   "example": "va a llover el día de mi visita",
+   "rank": 13,
+   "top1": "flora_ecosystems.glaciers_snow_presence",
+   "top1_cos": 0.8776,
+   "own_cos": 0.8606
+  },
+  {
+   "id": "weather_volcano.current_forecast",
+   "example": "cómo reviso el tiempo antes de viajar",
+   "rank": 3,
+   "top1": "services.official_sites",
+   "top1_cos": 0.9159,
+   "own_cos": 0.888
+  },
+  {
+   "id": "weather_volcano.current_forecast",
+   "example": "pronóstico para el fin de semana en Brisas",
+   "rank": 75,
+   "top1": "services.brisas_lodging",
+   "top1_cos": 0.9151,
+   "own_cos": 0.8624
+  },
+  {
+   "id": "weather_volcano.current_forecast",
+   "example": "hay pronóstico para el sector Otún",
+   "rank": 33,
+   "top1": "fauna.spotting_sector_otun",
+   "top1_cos": 0.9249,
+   "own_cos": 0.8671
+  },
+  {
+   "id": "weather_volcano.current_forecast",
+   "example": "necesito el clima actualizado del nevado",
+   "rank": 42,
+   "top1": "preparation.first_layer_thermal",
+   "top1_cos": 0.9105,
+   "own_cos": 0.8761
+  },
+  {
+   "id": "weather_volcano.current_forecast",
+   "example": "cómo saber si estará despejado",
+   "rank": 47,
+   "top1": "weather_volcano.summit_visibility",
+   "top1_cos": 0.9154,
+   "own_cos": 0.8468
+  },
+  {
+   "id": "weather_volcano.current_forecast",
+   "example": "tengo que mirar el clima antes de subir?",
+   "rank": 7,
+   "top1": "weather_volcano.weather_by_elevation",
+   "top1_cos": 0.9033,
+   "own_cos": 0.888
+  },
+  {
+   "id": "weather_volcano.current_forecast",
+   "example": "what is the forecast for the park",
+   "rank": 2,
+   "top1": "weather_volcano.park_weather",
+   "top1_cos": 0.8993,
+   "own_cos": 0.8925
+  },
+  {
+   "id": "weather_volcano.national_forecast_limit",
+   "example": "el mapa de colombia sirve para la cumbre",
+   "rank": 35,
+   "top1": "geography.tolima_crater",
+   "top1_cos": 0.8783,
+   "own_cos": 0.8279
+  },
+  {
+   "id": "weather_volcano.national_forecast_limit",
+   "example": "el pronostico de tres dias me sirve para la cima?",
+   "rank": 2,
+   "top1": "booking_fees.permanence_four_days",
+   "top1_cos": 0.9128,
+   "own_cos": 0.9016
+  },
+  {
+   "id": "weather_volcano.national_forecast_limit",
+   "example": "el ideam pronostica mi valle",
+   "rank": 25,
+   "top1": "geography.tolima_crater",
+   "top1_cos": 0.9052,
+   "own_cos": 0.8591
+  },
+  {
+   "id": "weather_volcano.national_forecast_limit",
+   "example": "el parte nacional me dice si llueve en brisas",
+   "rank": 7,
+   "top1": "access.bus_labeled_nevado",
+   "top1_cos": 0.9057,
+   "own_cos": 0.871
+  },
+  {
+   "id": "weather_volcano.national_forecast_limit",
+   "example": "con el parte nacional ya no pregunto en el parque?",
+   "rank": 123,
+   "top1": "history_culture.zero_presence_directive",
+   "top1_cos": 0.9023,
+   "own_cos": 0.8587
+  },
+  {
+   "id": "weather_volcano.national_forecast_limit",
+   "example": "la lluvia del mapa es la del nevado",
+   "rank": 23,
+   "top1": "weather_volcano.rainy_seasons",
+   "top1_cos": 0.8933,
+   "own_cos": 0.8744
+  },
+  {
+   "id": "weather_volcano.national_forecast_limit",
+   "example": "ese mapa amarillo es mi ruta",
+   "rank": 102,
+   "top1": "weather_volcano.yellow_upper_access",
+   "top1_cos": 0.8917,
+   "own_cos": 0.8523
+  },
+  {
+   "id": "weather_volcano.national_forecast_limit",
+   "example": "does the national forecast cover my trail",
+   "rank": 3,
+   "top1": "weather_volcano.rain_by_department",
+   "top1_cos": 0.8578,
+   "own_cos": 0.8466
+  },
+  {
+   "id": "weather_volcano.national_forecast_limit",
+   "example": "is the three day map valid for the summit",
+   "rank": 12,
+   "top1": "activities.cloudy_visit_landscape",
+   "top1_cos": 0.861,
+   "own_cos": 0.8305
+  },
+  {
+   "id": "weather_volcano.helada_meaning",
+   "example": "a qué temperatura hay helada",
+   "rank": 2,
+   "top1": "health_safety.hypothermia_body_temperature",
+   "top1_cos": 0.933,
+   "own_cos": 0.9102
+  },
+  {
+   "id": "weather_volcano.helada_meaning",
+   "example": "puedo decir que heló si veo escarcha",
+   "rank": 73,
+   "top1": "flora_ecosystems.puya_ochroleuca_endangered",
+   "top1_cos": 0.8725,
+   "own_cos": 0.8388
+  },
+  {
+   "id": "weather_volcano.helada_meaning",
+   "example": "que significa helada del ideam",
+   "rank": 3,
+   "top1": "weather_volcano.helada_night",
+   "top1_cos": 0.9324,
+   "own_cos": 0.875
+  },
+  {
+   "id": "weather_volcano.helada_meaning",
+   "example": "what does a meteorological frost mean",
+   "rank": 2,
+   "top1": "weather_volcano.helada_night",
+   "top1_cos": 0.8768,
+   "own_cos": 0.8681
+  },
+  {
+   "id": "weather_volcano.helada_night",
+   "example": "a qué hora hiela en la alta montaña",
+   "rank": 13,
+   "top1": "weather_volcano.park_weather",
+   "top1_cos": 0.9429,
+   "own_cos": 0.8829
+  },
+  {
+   "id": "weather_volcano.helada_night",
+   "example": "la helada se quita cuando sale el sol",
+   "rank": 4,
+   "top1": "weather_volcano.helada_meaning",
+   "top1_cos": 0.9003,
+   "own_cos": 0.874
+  },
+  {
+   "id": "weather_volcano.helada_night",
+   "example": "desde qué altura puede helar",
+   "rank": 43,
+   "top1": "health_safety.altitude_classification_levels",
+   "top1_cos": 0.8903,
+   "own_cos": 0.8524
+  },
+  {
+   "id": "weather_volcano.helada_night",
+   "example": "la helada del parque es igual a la del altiplano",
+   "rank": 4,
+   "top1": "weather_volcano.helada_meaning",
+   "top1_cos": 0.9051,
+   "own_cos": 0.8951
+  },
+  {
+   "id": "weather_volcano.helada_night",
+   "example": "por qué amanece más frío",
+   "rank": 17,
+   "top1": "weather_volcano.weather_by_elevation",
+   "top1_cos": 0.9542,
+   "own_cos": 0.8755
+  },
+  {
+   "id": "weather_volcano.helada_night",
+   "example": "el hielo de la madrugada dura todo el día",
+   "rank": 2,
+   "top1": "flora_ecosystems.glaciers_snow_presence",
+   "top1_cos": 0.9022,
+   "own_cos": 0.8829
+  },
+  {
+   "id": "weather_volcano.helada_night",
+   "example": "la helada del ideam es sobre todo de altiplano",
+   "rank": 2,
+   "top1": "weather_volcano.helada_meaning",
+   "top1_cos": 0.9324,
+   "own_cos": 0.8951
+  },
+  {
+   "id": "weather_volcano.helada_night",
+   "example": "when does radiation frost usually end",
+   "rank": 2,
+   "top1": "weather_volcano.helada_meaning",
+   "top1_cos": 0.8768,
+   "own_cos": 0.8705
+  },
+  {
+   "id": "weather_volcano.helada_night",
+   "example": "does frost last all day in the mountains",
+   "rank": 2,
+   "top1": "weather_volcano.helada_meaning",
+   "top1_cos": 0.8738,
+   "own_cos": 0.8705
+  },
+  {
+   "id": "weather_volcano.orange_near_volcano",
+   "example": "qué puede pasar cerca del volcán en naranja",
+   "rank": 2,
+   "top1": "weather_volcano.alert_orange_meaning",
+   "top1_cos": 0.9254,
+   "own_cos": 0.9098
+  },
+  {
+   "id": "weather_volcano.orange_near_volcano",
+   "example": "en naranja hay lahares pequeños",
+   "rank": 10,
+   "top1": "weather_volcano.pyroclastic_flows",
+   "top1_cos": 0.8886,
+   "own_cos": 0.8615
+  },
+  {
+   "id": "weather_volcano.orange_near_volcano",
+   "example": "flujos calientes solo junto al volcán",
+   "rank": 18,
+   "top1": "weather_volcano.pyroclastic_flows",
+   "top1_cos": 0.9392,
+   "own_cos": 0.8641
+  },
+  {
+   "id": "weather_volcano.orange_near_volcano",
+   "example": "olores fuertes en alerta naranja",
+   "rank": 11,
+   "top1": "weather_volcano.alert_orange_meaning",
+   "top1_cos": 0.8929,
+   "own_cos": 0.8655
+  },
+  {
+   "id": "weather_volcano.orange_near_volcano",
+   "example": "naranja trae ceniza más seguida",
+   "rank": 13,
+   "top1": "weather_volcano.alert_orange_meaning",
+   "top1_cos": 0.8817,
+   "own_cos": 0.8607
+  },
+  {
+   "id": "weather_volcano.orange_near_volcano",
+   "example": "me quedo en la parte alta si pasa a naranja",
+   "rank": 12,
+   "top1": "weather_volcano.alert_green_meaning",
+   "top1_cos": 0.9119,
+   "own_cos": 0.8871
+  },
+  {
+   "id": "weather_volcano.orange_near_volcano",
+   "example": "corrientes piroclásticas proximales",
+   "rank": 17,
+   "top1": "weather_volcano.pyroclastic_flows",
+   "top1_cos": 0.8924,
+   "own_cos": 0.8416
+  },
+  {
+   "id": "weather_volcano.orange_near_volcano",
+   "example": "los ríos del volcán en estado naranja",
+   "rank": 4,
+   "top1": "weather_volcano.alert_orange_meaning",
+   "top1_cos": 0.904,
+   "own_cos": 0.8874
+  },
+  {
+   "id": "weather_volcano.orange_near_volcano",
+   "example": "naranja no es la erupcion grande todavia",
+   "rank": 34,
+   "top1": "weather_volcano.red_column_collapse",
+   "top1_cos": 0.9218,
+   "own_cos": 0.8871
+  },
+  {
+   "id": "weather_volcano.orange_near_volcano",
+   "example": "what can happen near the crater on orange",
+   "rank": 5,
+   "top1": "weather_volcano.ballistic_blocks",
+   "top1_cos": 0.9275,
+   "own_cos": 0.8554
+  },
+  {
+   "id": "weather_volcano.orange_near_volcano",
+   "example": "are small lahars part of orange alert",
+   "rank": 5,
+   "top1": "weather_volcano.alert_orange_meaning",
+   "top1_cos": 0.8692,
+   "own_cos": 0.8494
+  },
+  {
+   "id": "weather_volcano.volcanic_activity",
+   "example": "cómo monitorean la actividad volcánica",
+   "rank": 5,
+   "top1": "weather_volcano.current_alert",
+   "top1_cos": 0.9293,
+   "own_cos": 0.9121
+  },
+  {
+   "id": "weather_volcano.volcanic_activity",
+   "example": "qué mide el observatorio del nevado",
+   "rank": 76,
+   "top1": "geography.ruiz_height",
+   "top1_cos": 0.9015,
+   "own_cos": 0.8494
+  },
+  {
+   "id": "weather_volcano.volcanic_activity",
+   "example": "qué significa actividad inestable",
+   "rank": 6,
+   "top1": "activities.unlisted_activities",
+   "top1_cos": 0.8535,
+   "own_cos": 0.8367
+  },
+  {
+   "id": "weather_volcano.volcanic_activity",
+   "example": "el SGC mira sismos y gases",
+   "rank": 2,
+   "top1": "weather_volcano.ovsm_role",
+   "top1_cos": 0.9202,
+   "own_cos": 0.905
+  },
+  {
+   "id": "weather_volcano.volcanic_activity",
+   "example": "que miran para saber si el ruiz esta inquieto?",
+   "rank": 10,
+   "top1": "weather_volcano.summit_visibility",
+   "top1_cos": 0.8856,
+   "own_cos": 0.8694
+  },
+  {
+   "id": "weather_volcano.volcanic_activity",
+   "example": "cómo se vigila el cráter Arenas",
+   "rank": 5,
+   "top1": "activities.ruiz_summit_closed",
+   "top1_cos": 0.9174,
+   "own_cos": 0.8989
+  },
+  {
+   "id": "weather_volcano.volcanic_activity",
+   "example": "qué datos aparecen en los informes",
+   "rank": 72,
+   "top1": "conversation.info_source_trust",
+   "top1_cos": 0.8998,
+   "own_cos": 0.839
+  },
+  {
+   "id": "weather_volcano.volcanic_activity",
+   "example": "que comenta el boletin del ruiz, sismos, gases y la columna?",
+   "rank": 2,
+   "top1": "weather_volcano.ovsm_role",
+   "top1_cos": 0.8757,
+   "own_cos": 0.8714
+  },
+  {
+   "id": "weather_volcano.volcanic_activity",
+   "example": "como saben si aumenta la actividad",
+   "rank": 2,
+   "top1": "weather_volcano.volcanic_closures",
+   "top1_cos": 0.8933,
+   "own_cos": 0.8669
+  },
+  {
+   "id": "weather_volcano.volcanic_activity",
+   "example": "how is Nevado del Ruiz monitored",
+   "rank": 7,
+   "top1": "geography.ruiz_where",
+   "top1_cos": 0.9273,
+   "own_cos": 0.8903
+  },
+  {
+   "id": "weather_volcano.alert_not_evacuation",
+   "example": "toda alerta volcánica es para evacuar ya",
+   "rank": 7,
+   "top1": "weather_volcano.separate_volcano_alerts",
+   "top1_cos": 0.9426,
+   "own_cos": 0.908
+  },
+  {
+   "id": "weather_volcano.alert_not_evacuation",
+   "example": "si cambian el color me tengo que ir",
+   "rank": 5,
+   "top1": "weather_volcano.alert_states_nonsequential",
+   "top1_cos": 0.9097,
+   "own_cos": 0.8795
+  },
+  {
+   "id": "weather_volcano.alert_not_evacuation",
+   "example": "quién ordena la evacuación",
+   "rank": 2,
+   "top1": "hours_status.unplanned_midday_closures",
+   "top1_cos": 0.9124,
+   "own_cos": 0.8985
+  },
+  {
+   "id": "weather_volcano.alert_not_evacuation",
+   "example": "la alerta amarilla me saca del parque",
+   "rank": 11,
+   "top1": "weather_volcano.alert_yellow_meaning",
+   "top1_cos": 0.9186,
+   "own_cos": 0.8806
+  },
+  {
+   "id": "weather_volcano.alert_not_evacuation",
+   "example": "espero la orden o salgo solo por el color",
+   "rank": 2,
+   "top1": "weather_volcano.ash_driving",
+   "top1_cos": 0.9015,
+   "own_cos": 0.8996
+  },
+  {
+   "id": "weather_volcano.alert_not_evacuation",
+   "example": "diferencia entre alerta y evacuación",
+   "rank": 2,
+   "top1": "weather_volcano.alert_red_meaning",
+   "top1_cos": 0.9152,
+   "own_cos": 0.9027
+  },
+  {
+   "id": "weather_volcano.alert_not_evacuation",
+   "example": "puedo quedarme si no hay orden de salida",
+   "rank": 7,
+   "top1": "access.parking_at_brisas",
+   "top1_cos": 0.892,
+   "own_cos": 0.8795
+  },
+  {
+   "id": "weather_volcano.alert_not_evacuation",
+   "example": "el color no siempre es evacuar",
+   "rank": 4,
+   "top1": "weather_volcano.alert_states_nonsequential",
+   "top1_cos": 0.9128,
+   "own_cos": 0.8869
+  },
+  {
+   "id": "weather_volcano.alert_not_evacuation",
+   "example": "me voy apenas vea el semaforo",
+   "rank": 4,
+   "top1": "weather_volcano.separate_volcano_alerts",
+   "top1_cos": 0.931,
+   "own_cos": 0.8996
+  },
+  {
+   "id": "weather_volcano.alert_not_evacuation",
+   "example": "who decides when visitors must leave",
+   "rank": 11,
+   "top1": "hours_status.high_season_operating_changes",
+   "top1_cos": 0.8708,
+   "own_cos": 0.8407
+  },
+  {
+   "id": "weather_volcano.separate_volcano_alerts",
+   "example": "los volcanes del parque comparten la misma alerta",
+   "rank": 2,
+   "top1": "geography.park_versus_volcano",
+   "top1_cos": 0.9433,
+   "own_cos": 0.9235
+  },
+  {
+   "id": "weather_volcano.separate_volcano_alerts",
+   "example": "si el ruiz está amarillo los otros también",
+   "rank": 6,
+   "top1": "weather_volcano.machin_bulletin",
+   "top1_cos": 0.9089,
+   "own_cos": 0.871
+  },
+  {
+   "id": "weather_volcano.separate_volcano_alerts",
+   "example": "miro un solo semáforo para todos",
+   "rank": 237,
+   "top1": "weather_volcano.alert_not_evacuation",
+   "top1_cos": 0.931,
+   "own_cos": 0.85
+  },
+  {
+   "id": "weather_volcano.separate_volcano_alerts",
+   "example": "santa isabel tolima y machín se consultan aparte",
+   "rank": 30,
+   "top1": "weather_volcano.machin_bulletin",
+   "top1_cos": 0.8959,
+   "own_cos": 0.8512
+  },
+  {
+   "id": "weather_volcano.separate_volcano_alerts",
+   "example": "cuatro volcanes cuatro consultas",
+   "rank": 4,
+   "top1": "geography.four_sectors",
+   "top1_cos": 0.8907,
+   "own_cos": 0.8857
+  },
+  {
+   "id": "weather_volcano.separate_volcano_alerts",
+   "example": "no es un solo color para todos",
+   "rank": 7,
+   "top1": "weather_volcano.alert_states_nonsequential",
+   "top1_cos": 0.9247,
+   "own_cos": 0.8763
+  },
+  {
+   "id": "weather_volcano.separate_volcano_alerts",
+   "example": "reviso el volcan que voy a tener cerca",
+   "rank": 11,
+   "top1": "weather_volcano.red_crater_storms",
+   "top1_cos": 0.9179,
+   "own_cos": 0.8857
+  },
+  {
+   "id": "weather_volcano.separate_volcano_alerts",
+   "example": "do these volcanoes share one alert level",
+   "rank": 3,
+   "top1": "weather_volcano.alert_states_nonsequential",
+   "top1_cos": 0.8965,
+   "own_cos": 0.8912
+  },
+  {
+   "id": "weather_volcano.separate_volcano_alerts",
+   "example": "should I check each volcano separately",
+   "rank": 2,
+   "top1": "weather_volcano.current_alert",
+   "top1_cos": 0.8981,
+   "own_cos": 0.8741
+  },
+  {
+   "id": "weather_volcano.separate_volcano_alerts",
+   "example": "alerta vigente del nevado del tolima",
+   "rank": 4,
+   "top1": "weather_volcano.current_alert",
+   "top1_cos": 0.9261,
+   "own_cos": 0.9137
+  },
+  {
+   "id": "weather_volcano.separate_volcano_alerts",
+   "example": "antes de subir al tolima qué página abro",
+   "rank": 3,
+   "top1": "access.departments_of_access",
+   "top1_cos": 0.8972,
+   "own_cos": 0.8944
+  },
+  {
+   "id": "weather_volcano.separate_volcano_alerts",
+   "example": "donde miro el estado del tolima",
+   "rank": 2,
+   "top1": "activities.wildlife_from_trail",
+   "top1_cos": 0.9278,
+   "own_cos": 0.9098
+  },
+  {
+   "id": "weather_volcano.separate_volcano_alerts",
+   "example": "no uses el semaforo del ruiz para el tolima",
+   "rank": 4,
+   "top1": "access.from_ibague_choose",
+   "top1_cos": 0.9199,
+   "own_cos": 0.9029
+  },
+  {
+   "id": "weather_volcano.separate_volcano_alerts",
+   "example": "does Ruiz alert apply to Nevado del Tolima",
+   "rank": 16,
+   "top1": "geography.summit_line",
+   "top1_cos": 0.9152,
+   "own_cos": 0.8753
+  },
+  {
+   "id": "weather_volcano.volcanic_gases",
+   "example": "qué gases emite el Nevado del Ruiz",
+   "rank": 4,
+   "top1": "geography.ruiz_identity",
+   "top1_cos": 0.9364,
+   "own_cos": 0.9082
+  },
+  {
+   "id": "weather_volcano.volcanic_gases",
+   "example": "el dióxido de azufre afecta la respiración",
+   "rank": 8,
+   "top1": "weather_volcano.sulfur_smell",
+   "top1_cos": 0.8737,
+   "own_cos": 0.8538
+  },
+  {
+   "id": "weather_volcano.volcanic_gases",
+   "example": "puedo acercarme si veo fumarola",
+   "rank": 48,
+   "top1": "weather_volcano.sulfur_smell",
+   "top1_cos": 0.9435,
+   "own_cos": 0.8279
+  },
+  {
+   "id": "weather_volcano.volcanic_gases",
+   "example": "qué pasa si hay olor fuerte en el cráter",
+   "rank": 6,
+   "top1": "weather_volcano.red_crater_storms",
+   "top1_cos": 0.9024,
+   "own_cos": 0.8703
+  },
+  {
+   "id": "weather_volcano.volcanic_gases",
+   "example": "los gases se quedan en el aire",
+   "rank": 5,
+   "top1": "weather_volcano.gases_dilute",
+   "top1_cos": 0.947,
+   "own_cos": 0.8688
+  },
+  {
+   "id": "weather_volcano.volcanic_gases",
+   "example": "hay que alejarse por gases del Ruiz",
+   "rank": 3,
+   "top1": "weather_volcano.ash_actions",
+   "top1_cos": 0.919,
+   "own_cos": 0.9082
+  },
+  {
+   "id": "weather_volcano.volcanic_gases",
+   "example": "que hacer con olor a azufre en la montaña",
+   "rank": 2,
+   "top1": "weather_volcano.sulfur_smell",
+   "top1_cos": 0.9274,
+   "own_cos": 0.8953
+  },
+  {
+   "id": "weather_volcano.volcanic_gases",
+   "example": "toca salir si me irritan los ojos",
+   "rank": 28,
+   "top1": "health_safety.sun_eye_pain_photophobia",
+   "top1_cos": 0.901,
+   "own_cos": 0.8473
+  },
+  {
+   "id": "weather_volcano.volcanic_gases",
+   "example": "is sulfur dioxide dangerous near Ruiz",
+   "rank": 2,
+   "top1": "weather_volcano.ruiz_rivers",
+   "top1_cos": 0.8858,
+   "own_cos": 0.8808
+  },
+  {
+   "id": "weather_volcano.gases_dilute",
+   "example": "los gases del volcán llegan al pueblo",
+   "rank": 2,
+   "top1": "weather_volcano.volcanic_gases",
+   "top1_cos": 0.9067,
+   "own_cos": 0.905
+  },
+  {
+   "id": "weather_volcano.gases_dilute",
+   "example": "entonces el cráter es seguro",
+   "rank": 25,
+   "top1": "weather_volcano.red_crater_storms",
+   "top1_cos": 0.8833,
+   "own_cos": 0.8453
+  },
+  {
+   "id": "weather_volcano.gases_dilute",
+   "example": "la mayoría de los gases se dispersan",
+   "rank": 2,
+   "top1": "weather_volcano.volcanic_gases",
+   "top1_cos": 0.9119,
+   "own_cos": 0.905
+  },
+  {
+   "id": "weather_volcano.gases_dilute",
+   "example": "puedo entrar a la fumarola si abajo no se siente",
+   "rank": 4,
+   "top1": "weather_volcano.volcanic_gases",
+   "top1_cos": 0.901,
+   "own_cos": 0.8657
+  },
+  {
+   "id": "weather_volcano.gases_dilute",
+   "example": "el gas no llega lejos pero arriba sí",
+   "rank": 3,
+   "top1": "services.charging_power",
+   "top1_cos": 0.8982,
+   "own_cos": 0.8851
+  },
+  {
+   "id": "weather_volcano.gases_dilute",
+   "example": "diluir no es permiso para el cráter",
+   "rank": 2,
+   "top1": "weather_volcano.sulfur_smell",
+   "top1_cos": 0.8978,
+   "own_cos": 0.8879
+  },
+  {
+   "id": "weather_volcano.gases_dilute",
+   "example": "los gases se ralean en el aire",
+   "rank": 2,
+   "top1": "weather_volcano.volcanic_gases",
+   "top1_cos": 0.947,
+   "own_cos": 0.905
+  },
+  {
+   "id": "weather_volcano.gases_dilute",
+   "example": "abajo no huele y arriba puede irritar",
+   "rank": 3,
+   "top1": "health_safety.altitude_sickness_symptoms",
+   "top1_cos": 0.9009,
+   "own_cos": 0.8979
+  },
+  {
+   "id": "weather_volcano.sulfur_smell",
+   "example": "una fumarola es permiso para acercarme",
+   "rank": 8,
+   "top1": "weather_volcano.volcanic_gases",
+   "top1_cos": 0.9435,
+   "own_cos": 0.8449
+  },
+  {
+   "id": "weather_volcano.sulfur_smell",
+   "example": "el olor aparece en verde y en amarilla",
+   "rank": 5,
+   "top1": "weather_volcano.alert_green_meaning",
+   "top1_cos": 0.9174,
+   "own_cos": 0.8746
+  },
+  {
+   "id": "weather_volcano.sulfur_smell",
+   "example": "puedo seguir si solo huele un poco",
+   "rank": 133,
+   "top1": "health_safety.no_ascend_while_symptomatic",
+   "top1_cos": 0.891,
+   "own_cos": 0.8363
+  },
+  {
+   "id": "weather_volcano.sulfur_smell",
+   "example": "si me arden los ojos bajo",
+   "rank": 95,
+   "top1": "weather_volcano.ash_contacts",
+   "top1_cos": 0.897,
+   "own_cos": 0.8363
+  },
+  {
+   "id": "weather_volcano.sulfur_smell",
+   "example": "does a sulfur smell mean I should go closer",
+   "rank": 5,
+   "top1": "weather_volcano.do_not_approach",
+   "top1_cos": 0.8583,
+   "own_cos": 0.8359
+  },
+  {
+   "id": "weather_volcano.sulfur_smell",
+   "example": "are fumaroles a reason to approach the crater",
+   "rank": 6,
+   "top1": "weather_volcano.volcanic_gases",
+   "top1_cos": 0.857,
+   "own_cos": 0.8449
+  },
+  {
+   "id": "weather_volcano.pyroclastic_flows",
+   "example": "baja rápido por la ladera",
+   "rank": 2,
+   "top1": "weather_volcano.red_column_collapse",
+   "top1_cos": 0.9107,
+   "own_cos": 0.8971
+  },
+  {
+   "id": "weather_volcano.pyroclastic_flows",
+   "example": "en naranja el flujo se queda cerca",
+   "rank": 44,
+   "top1": "weather_volcano.ballistic_blocks",
+   "top1_cos": 0.8978,
+   "own_cos": 0.848
+  },
+  {
+   "id": "weather_volcano.pyroclastic_flows",
+   "example": "puedo ver la nube ardiente de cerca",
+   "rank": 26,
+   "top1": "weather_volcano.red_crater_storms",
+   "top1_cos": 0.9234,
+   "own_cos": 0.8553
+  },
+  {
+   "id": "weather_volcano.pyroclastic_flows",
+   "example": "la columna se puede caer por la ladera",
+   "rank": 3,
+   "top1": "weather_volcano.red_column_collapse",
+   "top1_cos": 0.9631,
+   "own_cos": 0.8971
+  },
+  {
+   "id": "weather_volcano.pyroclastic_flows",
+   "example": "no me quedo a mirar la nube",
+   "rank": 534,
+   "top1": "weather_volcano.ballistic_blocks",
+   "top1_cos": 0.926,
+   "own_cos": 0.8544
+  },
+  {
+   "id": "weather_volcano.pyroclastic_flows",
+   "example": "flujos calientes del volcan que hago",
+   "rank": 6,
+   "top1": "weather_volcano.orange_near_volcano",
+   "top1_cos": 0.9392,
+   "own_cos": 0.8764
+  },
+  {
+   "id": "weather_volcano.pyroclastic_flows",
+   "example": "what is a pyroclastic flow for a hiker",
+   "rank": 2,
+   "top1": "history_culture.phenomena_1985",
+   "top1_cos": 0.8743,
+   "own_cos": 0.8494
+  },
+  {
+   "id": "weather_volcano.pyroclastic_flows",
+   "example": "can I watch a hot ash cloud from the slope",
+   "rank": 16,
+   "top1": "weather_volcano.ballistic_blocks",
+   "top1_cos": 0.8674,
+   "own_cos": 0.8349
+  },
+  {
+   "id": "weather_volcano.ballistic_blocks",
+   "example": "puedo ver la explosión desde la parte alta",
+   "rank": 3,
+   "top1": "weather_volcano.red_crater_storms",
+   "top1_cos": 0.8989,
+   "own_cos": 0.8792
+  },
+  {
+   "id": "weather_volcano.ballistic_blocks",
+   "example": "en naranja hay rocas que alcanzan a la gente cerca",
+   "rank": 3,
+   "top1": "weather_volcano.orange_near_volcano",
+   "top1_cos": 0.9042,
+   "own_cos": 0.887
+  },
+  {
+   "id": "weather_volcano.ballistic_blocks",
+   "example": "no me quedo arriba a filmar la explosión",
+   "rank": 62,
+   "top1": "weather_volcano.pyroclastic_flows",
+   "top1_cos": 0.926,
+   "own_cos": 0.8792
+  },
+  {
+   "id": "weather_volcano.ballistic_blocks",
+   "example": "la parte alta no es mirador en naranja",
+   "rank": 6,
+   "top1": "access.brisas_entry_altitude",
+   "top1_cos": 0.8938,
+   "own_cos": 0.8785
+  },
+  {
+   "id": "weather_volcano.ballistic_blocks",
+   "example": "bajo con el grupo si hay explosion",
+   "rank": 3,
+   "top1": "health_safety.lightning_strike_victim_first_aid",
+   "top1_cos": 0.8892,
+   "own_cos": 0.8749
+  },
+  {
+   "id": "weather_volcano.ballistic_blocks",
+   "example": "can rocks be thrown near the crater on orange",
+   "rank": 8,
+   "top1": "weather_volcano.orange_near_volcano",
+   "top1_cos": 0.9275,
+   "own_cos": 0.835
+  },
+  {
+   "id": "weather_volcano.ballistic_blocks",
+   "example": "is the upper slope safe for watching explosions",
+   "rank": 2,
+   "top1": "weather_volcano.pyroclastic_flows",
+   "top1_cos": 0.8674,
+   "own_cos": 0.8586
+  },
+  {
+   "id": "weather_volcano.ash_roofs",
+   "example": "puedo subirme al techo del refugio",
+   "rank": 13,
+   "top1": "hours_status.camping_arrival_cutoff",
+   "top1_cos": 0.9017,
+   "own_cos": 0.8665
+  },
+  {
+   "id": "weather_volcano.ash_roofs",
+   "example": "quién limpia el techo en el parque",
+   "rank": 11,
+   "top1": "rules.leave_no_waste",
+   "top1_cos": 0.8958,
+   "own_cos": 0.8658
+  },
+  {
+   "id": "weather_volcano.ash_roofs",
+   "example": "ceniza húmeda pesa más",
+   "rank": 2,
+   "top1": "weather_volcano.orange_near_volcano",
+   "top1_cos": 0.8679,
+   "own_cos": 0.8663
+  },
+  {
+   "id": "weather_volcano.ash_roofs",
+   "example": "no subo a limpiar el techo solo",
+   "rank": 28,
+   "top1": "weather_volcano.pyroclastic_flows",
+   "top1_cos": 0.9149,
+   "own_cos": 0.8842
+  },
+  {
+   "id": "weather_volcano.ash_roofs",
+   "example": "should I wash volcanic ash off a roof",
+   "rank": 2,
+   "top1": "weather_volcano.ash_actions",
+   "top1_cos": 0.8949,
+   "own_cos": 0.8846
+  }
+ ],
+ "removed_examples": 1,
+ "removed_not_routing": [
+  {
+   "id": "weather_volcano.current_alert",
+   "example": "toca revisar SGC u Observatorio",
+   "target": "weather_volcano.current_alert",
+   "ok_top3": false,
+   "top3": [
+    "weather_volcano.ovsm_role",
+    "weather_volcano.volcanic_activity",
+    "conversation.history_storage"
+   ]
+  }
+ ]
+}

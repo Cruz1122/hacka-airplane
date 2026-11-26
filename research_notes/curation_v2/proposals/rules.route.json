@@ -1,0 +1,2950 @@
+{
+ "proposal": "research_notes/curation_v2/proposals/rules.json",
+ "ops": {
+  "add": 0,
+  "update": 73,
+  "delete": 0
+ },
+ "touched_examples": 907,
+ "touched_loo_top1": 0.5954,
+ "touched_confusions": [
+  {
+   "id": "rules.pets",
+   "example": "dejan entrar mascotas al parque",
+   "rank": 2,
+   "top1": "rules.drones",
+   "top1_cos": 0.948,
+   "own_cos": 0.9316
+  },
+  {
+   "id": "rules.pets",
+   "example": "mascotas",
+   "rank": 2,
+   "top1": "fauna.mammals_overview",
+   "top1_cos": 0.8976,
+   "own_cos": 0.8961
+  },
+  {
+   "id": "rules.pets",
+   "example": "voy con mi gato, ¿puede entrar?",
+   "rank": 3,
+   "top1": "access.own_car_brisas",
+   "top1_cos": 0.9103,
+   "own_cos": 0.9073
+  },
+  {
+   "id": "rules.pets",
+   "example": "¿reciben animales domésticos en Brisas?",
+   "rank": 116,
+   "top1": "activities.wildlife_from_trail",
+   "top1_cos": 0.9338,
+   "own_cos": 0.8303
+  },
+  {
+   "id": "rules.pets",
+   "example": "llevar perro al nevado",
+   "rank": 3,
+   "top1": "preparation.children_gear",
+   "top1_cos": 0.9226,
+   "own_cos": 0.9161
+  },
+  {
+   "id": "rules.pets",
+   "example": "can I bring my dog to the park?",
+   "rank": 13,
+   "top1": "rules.fishing",
+   "top1_cos": 0.8865,
+   "own_cos": 0.8675
+  },
+  {
+   "id": "rules.pets",
+   "example": "voy con el firulais, ¿lo dejan pasar?",
+   "rank": 90,
+   "top1": "booking_fees.exemption_not_guaranteed",
+   "top1_cos": 0.9117,
+   "own_cos": 0.875
+  },
+  {
+   "id": "rules.stay_on_routes",
+   "example": "me salgo del sendero para tomar fotos?",
+   "rank": 3,
+   "top1": "activities.photography_amateur",
+   "top1_cos": 0.9218,
+   "own_cos": 0.9025
+  },
+  {
+   "id": "rules.stay_on_routes",
+   "example": "hay que seguir el camino marcado",
+   "rank": 4,
+   "top1": "activities.recreation_zone_trails",
+   "top1_cos": 0.8913,
+   "own_cos": 0.8751
+  },
+  {
+   "id": "rules.stay_on_routes",
+   "example": "puedo cortar camino por el páramo",
+   "rank": 43,
+   "top1": "activities.paramo_walk",
+   "top1_cos": 0.9459,
+   "own_cos": 0.865
+  },
+  {
+   "id": "rules.stay_on_routes",
+   "example": "puedo andar libre por el parque",
+   "rank": 20,
+   "top1": "activities.recreation_zone_trails",
+   "top1_cos": 0.9255,
+   "own_cos": 0.8951
+  },
+  {
+   "id": "rules.stay_on_routes",
+   "example": "can I leave the marked trail?",
+   "rank": 21,
+   "top1": "preparation.navigation_map_gps",
+   "top1_cos": 0.8723,
+   "own_cos": 0.8394
+  },
+  {
+   "id": "rules.stay_on_routes",
+   "example": "¿puedo abrir un atajo por el monte?",
+   "rank": 20,
+   "top1": "rules.logging_clearing_vegetation",
+   "top1_cos": 0.8805,
+   "own_cos": 0.8447
+  },
+  {
+   "id": "rules.stay_on_routes",
+   "example": "me meto un poquito fuera del camino para una foto",
+   "rank": 3,
+   "top1": "rules.commercial_photography",
+   "top1_cos": 0.9009,
+   "own_cos": 0.8922
+  },
+  {
+   "id": "rules.stay_on_routes",
+   "example": "hay zonas donde no debo pasar",
+   "rank": 2,
+   "top1": "activities.recreation_zone_trails",
+   "top1_cos": 0.9034,
+   "own_cos": 0.8885
+  },
+  {
+   "id": "rules.leave_no_waste",
+   "example": "me llevo los empaques de vuelta?",
+   "rank": 6,
+   "top1": "services.porter_luggage",
+   "top1_cos": 0.9018,
+   "own_cos": 0.8841
+  },
+  {
+   "id": "rules.leave_no_waste",
+   "example": "puedo dejar la cáscara ahí",
+   "rank": 136,
+   "top1": "rules.abandoning_gear_objects",
+   "top1_cos": 0.8829,
+   "own_cos": 0.8255
+  },
+  {
+   "id": "rules.leave_no_waste",
+   "example": "basura en el parque",
+   "rank": 25,
+   "top1": "rules.sanctions_penalties",
+   "top1_cos": 0.9366,
+   "own_cos": 0.8851
+  },
+  {
+   "id": "rules.leave_no_waste",
+   "example": "toca cargar la basura hasta la salida",
+   "rank": 6,
+   "top1": "rules.pick_up_trail_litter",
+   "top1_cos": 0.8801,
+   "own_cos": 0.8749
+  },
+  {
+   "id": "rules.leave_no_waste",
+   "example": "dónde hay canecas en el páramo",
+   "rank": 175,
+   "top1": "fauna.crab_eating_fox",
+   "top1_cos": 0.8995,
+   "own_cos": 0.8235
+  },
+  {
+   "id": "rules.leave_no_waste",
+   "example": "¿dejo la botella al lado del camino?",
+   "rank": 22,
+   "top1": "activities.recreation_zone_trails",
+   "top1_cos": 0.8811,
+   "own_cos": 0.8414
+  },
+  {
+   "id": "rules.leave_no_waste",
+   "example": "qué hago con el papelito del snack",
+   "rank": 8,
+   "top1": "rules.burning_trash_prohibited",
+   "top1_cos": 0.8749,
+   "own_cos": 0.8524
+  },
+  {
+   "id": "rules.leave_no_waste",
+   "example": "should I pack out my trash?",
+   "rank": 6,
+   "top1": "rules.pick_up_trail_litter",
+   "top1_cos": 0.8897,
+   "own_cos": 0.848
+  },
+  {
+   "id": "rules.leave_no_waste",
+   "example": "no encuentro caneca, ¿qué hago?",
+   "rank": 330,
+   "top1": "access.gateway_towns",
+   "top1_cos": 0.8968,
+   "own_cos": 0.8381
+  },
+  {
+   "id": "rules.leave_no_waste",
+   "example": "los residuos orgánicos también me los llevo?",
+   "rank": 2,
+   "top1": "rules.pick_up_trail_litter",
+   "top1_cos": 0.9008,
+   "own_cos": 0.8843
+  },
+  {
+   "id": "rules.leave_no_waste",
+   "example": "dónde dejo el empaque del almuerzo",
+   "rank": 2,
+   "top1": "rules.biodegradable_packaging_food",
+   "top1_cos": 0.8639,
+   "own_cos": 0.8631
+  },
+  {
+   "id": "rules.leave_natural_objects",
+   "example": "puedo arrancar un frailejón",
+   "rank": 9,
+   "top1": "flora_ecosystems.espeletia_centroandina_otun",
+   "top1_cos": 0.9401,
+   "own_cos": 0.8602
+  },
+  {
+   "id": "rules.leave_natural_objects",
+   "example": "me puedo llevar una piedra de recuerdo",
+   "rank": 5,
+   "top1": "rules.geological_soil_samples",
+   "top1_cos": 0.9016,
+   "own_cos": 0.8695
+  },
+  {
+   "id": "rules.leave_natural_objects",
+   "example": "está bien recoger flores del páramo",
+   "rank": 19,
+   "top1": "rules.no_introduce_species",
+   "top1_cos": 0.9185,
+   "own_cos": 0.8636
+  },
+  {
+   "id": "rules.leave_natural_objects",
+   "example": "puedo sacar una planta para mi casa",
+   "rank": 2,
+   "top1": "rules.no_introduce_species",
+   "top1_cos": 0.9091,
+   "own_cos": 0.902
+  },
+  {
+   "id": "rules.leave_natural_objects",
+   "example": "se permite llevarse rocas del sendero",
+   "rank": 43,
+   "top1": "rules.rock_bolting_prohibited",
+   "top1_cos": 0.9103,
+   "own_cos": 0.8664
+  },
+  {
+   "id": "rules.leave_natural_objects",
+   "example": "quiero guardar una flor que encontré",
+   "rank": 6,
+   "top1": "rules.research_permissions",
+   "top1_cos": 0.8724,
+   "own_cos": 0.8552
+  },
+  {
+   "id": "rules.leave_natural_objects",
+   "example": "puedo recoger semillas en el parque",
+   "rank": 33,
+   "top1": "activities.photography_amateur",
+   "top1_cos": 0.8938,
+   "own_cos": 0.8702
+  },
+  {
+   "id": "rules.leave_natural_objects",
+   "example": "me llevo un pedacito de musgo?",
+   "rank": 15,
+   "top1": "preparation.water_quantity",
+   "top1_cos": 0.9068,
+   "own_cos": 0.8728
+  },
+  {
+   "id": "rules.leave_natural_objects",
+   "example": "se pueden coleccionar piedras de Los Nevados",
+   "rank": 20,
+   "top1": "rules.intoxication",
+   "top1_cos": 0.8955,
+   "own_cos": 0.8685
+  },
+  {
+   "id": "rules.leave_natural_objects",
+   "example": "no pasa nada si recojo una piedrita?",
+   "rank": 8,
+   "top1": "hours_status.brisas_exit_time",
+   "top1_cos": 0.886,
+   "own_cos": 0.8728
+  },
+  {
+   "id": "rules.leave_natural_objects",
+   "example": "es permitido recolectar plantas para mí",
+   "rank": 3,
+   "top1": "rules.no_introduce_species",
+   "top1_cos": 0.9191,
+   "own_cos": 0.902
+  },
+  {
+   "id": "rules.no_introduce_species",
+   "example": "se permite traer plantas para plantar",
+   "rank": 3,
+   "top1": "rules.leave_natural_objects",
+   "top1_cos": 0.9191,
+   "own_cos": 0.8938
+  },
+  {
+   "id": "rules.no_introduce_species",
+   "example": "puedo liberar un conejo en el parque",
+   "rank": 23,
+   "top1": "fauna.northern_pudu",
+   "top1_cos": 0.8926,
+   "own_cos": 0.8561
+  },
+  {
+   "id": "rules.no_introduce_species",
+   "example": "introducir especies al páramo",
+   "rank": 9,
+   "top1": "rules.playback",
+   "top1_cos": 0.9037,
+   "own_cos": 0.8813
+  },
+  {
+   "id": "rules.no_introduce_species",
+   "example": "está bien dejar renacuajos en una charca",
+   "rank": 6,
+   "top1": "rules.no_hunting",
+   "top1_cos": 0.8442,
+   "own_cos": 0.8372
+  },
+  {
+   "id": "rules.no_introduce_species",
+   "example": "puedo traer flores de otro lugar para el páramo",
+   "rank": 13,
+   "top1": "rules.leave_natural_objects",
+   "top1_cos": 0.9185,
+   "own_cos": 0.8709
+  },
+  {
+   "id": "rules.no_introduce_species",
+   "example": "se pueden llevar animales para soltarlos",
+   "rank": 5,
+   "top1": "rules.pets",
+   "top1_cos": 0.9109,
+   "own_cos": 0.8704
+  },
+  {
+   "id": "rules.no_introduce_species",
+   "example": "¿puedo repoblar una zona con plantas?",
+   "rank": 2,
+   "top1": "rules.leave_natural_objects",
+   "top1_cos": 0.8929,
+   "own_cos": 0.8886
+  },
+  {
+   "id": "rules.no_introduce_species",
+   "example": "may I release a pet fish in the lake?",
+   "rank": 2,
+   "top1": "rules.fishing",
+   "top1_cos": 0.8786,
+   "own_cos": 0.8636
+  },
+  {
+   "id": "rules.no_introduce_species",
+   "example": "puedo traer un arbolito de la casa para plantarlo",
+   "rank": 2,
+   "top1": "rules.leave_natural_objects",
+   "top1_cos": 0.9091,
+   "own_cos": 0.8938
+  },
+  {
+   "id": "rules.no_introduce_species",
+   "example": "llevar una especie de otra región al parque",
+   "rank": 5,
+   "top1": "fauna.fauna_overview",
+   "top1_cos": 0.8903,
+   "own_cos": 0.8813
+  },
+  {
+   "id": "rules.avoid_pollutants",
+   "example": "dónde vacío el agua jabonosa",
+   "rank": 53,
+   "top1": "services.drinking_water",
+   "top1_cos": 0.8527,
+   "own_cos": 0.8168
+  },
+  {
+   "id": "rules.avoid_pollutants",
+   "example": "qué hago con el combustible que sobró",
+   "rank": 113,
+   "top1": "rules.leave_no_waste",
+   "top1_cos": 0.8799,
+   "own_cos": 0.838
+  },
+  {
+   "id": "rules.avoid_pollutants",
+   "example": "puedo tirar pintura en un hueco",
+   "rank": 23,
+   "top1": "access.stay_on_official_gate",
+   "top1_cos": 0.8852,
+   "own_cos": 0.8216
+  },
+  {
+   "id": "rules.avoid_pollutants",
+   "example": "está bien dejar químicos en la laguna",
+   "rank": 4,
+   "top1": "activities.therapeutic_baths_banned",
+   "top1_cos": 0.8931,
+   "own_cos": 0.8686
+  },
+  {
+   "id": "rules.avoid_pollutants",
+   "example": "dónde descarto una sustancia contaminante",
+   "rank": 3,
+   "top1": "services.lost_items",
+   "top1_cos": 0.8633,
+   "own_cos": 0.8602
+  },
+  {
+   "id": "rules.avoid_pollutants",
+   "example": "verter residuos al agua del parque",
+   "rank": 120,
+   "top1": "rules.leave_no_waste",
+   "top1_cos": 0.9254,
+   "own_cos": 0.8539
+  },
+  {
+   "id": "rules.avoid_pollutants",
+   "example": "¿puedo botar una pila usada en el páramo?",
+   "rank": 98,
+   "top1": "health_safety.sun_uv_protection",
+   "top1_cos": 0.9027,
+   "own_cos": 0.8372
+  },
+  {
+   "id": "rules.avoid_pollutants",
+   "example": "dónde boto aceite de cocina acá",
+   "rank": 2,
+   "top1": "preparation.camp_stove",
+   "top1_cos": 0.8717,
+   "own_cos": 0.8698
+  },
+  {
+   "id": "rules.avoid_pollutants",
+   "example": "puedo dejar un envase con químico",
+   "rank": 2,
+   "top1": "rules.avoid_chemicals",
+   "top1_cos": 0.8716,
+   "own_cos": 0.8686
+  },
+  {
+   "id": "rules.avoid_pollutants",
+   "example": "se permite descargar aguas sucias al río",
+   "rank": 4,
+   "top1": "services.drinking_water",
+   "top1_cos": 0.8678,
+   "own_cos": 0.8656
+  },
+  {
+   "id": "rules.avoid_chemicals",
+   "example": "puedo usar pólvora en el parque",
+   "rank": 136,
+   "top1": "rules.preventive_measures",
+   "top1_cos": 0.9179,
+   "own_cos": 0.8493
+  },
+  {
+   "id": "rules.avoid_chemicals",
+   "example": "puedo fumigar una planta",
+   "rank": 13,
+   "top1": "rules.leave_natural_objects",
+   "top1_cos": 0.8926,
+   "own_cos": 0.8436
+  },
+  {
+   "id": "rules.avoid_chemicals",
+   "example": "está permitido usar químicos en el páramo",
+   "rank": 7,
+   "top1": "rules.wildlife_traps_prohibited",
+   "top1_cos": 0.9072,
+   "own_cos": 0.8843
+  },
+  {
+   "id": "rules.avoid_chemicals",
+   "example": "puedo prender un artefacto pirotécnico",
+   "rank": 8,
+   "top1": "rules.open_fires",
+   "top1_cos": 0.8857,
+   "own_cos": 0.8402
+  },
+  {
+   "id": "rules.avoid_chemicals",
+   "example": "usar explosivos en Los Nevados",
+   "rank": 72,
+   "top1": "weather_volcano.snow_and_hail",
+   "top1_cos": 0.9235,
+   "own_cos": 0.8781
+  },
+  {
+   "id": "rules.avoid_chemicals",
+   "example": "¿puedo aplicar herbicida en un campamento?",
+   "rank": 27,
+   "top1": "rules.burning_trash_prohibited",
+   "top1_cos": 0.8905,
+   "own_cos": 0.8539
+  },
+  {
+   "id": "rules.avoid_chemicals",
+   "example": "puedo hacer una detonación pequeña",
+   "rank": 4,
+   "top1": "rules.open_fires",
+   "top1_cos": 0.878,
+   "own_cos": 0.8613
+  },
+  {
+   "id": "rules.avoid_chemicals",
+   "example": "are fireworks allowed in the park?",
+   "rank": 36,
+   "top1": "rules.no_hunting",
+   "top1_cos": 0.9032,
+   "own_cos": 0.8493
+  },
+  {
+   "id": "rules.avoid_chemicals",
+   "example": "puedo usar fertilizante en el recorrido",
+   "rank": 9,
+   "top1": "rules.leave_no_waste",
+   "top1_cos": 0.8954,
+   "own_cos": 0.8652
+  },
+  {
+   "id": "rules.avoid_chemicals",
+   "example": "qué regla hay sobre sustancias químicas",
+   "rank": 2,
+   "top1": "rules.aerosols_sprays_prohibited",
+   "top1_cos": 0.8926,
+   "own_cos": 0.8904
+  },
+  {
+   "id": "rules.commercial_photography",
+   "example": "voy a fotografiar para publicidad",
+   "rank": 2,
+   "top1": "activities.photography_amateur",
+   "top1_cos": 0.9138,
+   "own_cos": 0.9133
+  },
+  {
+   "id": "rules.commercial_photography",
+   "example": "puedo grabar un catálogo en el parque",
+   "rank": 134,
+   "top1": "activities.photography_amateur",
+   "top1_cos": 0.9212,
+   "own_cos": 0.8408
+  },
+  {
+   "id": "rules.commercial_photography",
+   "example": "fotografía comercial en Los Nevados",
+   "rank": 49,
+   "top1": "rules.audiovisual_permits",
+   "top1_cos": 0.9492,
+   "own_cos": 0.8973
+  },
+  {
+   "id": "rules.commercial_photography",
+   "example": "puedo hacer una sesión de producto en Brisas",
+   "rank": 80,
+   "top1": "rules.event_permits",
+   "top1_cos": 0.9155,
+   "own_cos": 0.8469
+  },
+  {
+   "id": "rules.commercial_photography",
+   "example": "voy a cobrar por las imágenes, ¿debo avisar?",
+   "rank": 22,
+   "top1": "booking_fees.exemption_proof_deadline",
+   "top1_cos": 0.9015,
+   "own_cos": 0.8683
+  },
+  {
+   "id": "rules.commercial_photography",
+   "example": "tengo una producción fotográfica, qué permiso necesito",
+   "rank": 2,
+   "top1": "rules.audiovisual_permits",
+   "top1_cos": 0.939,
+   "own_cos": 0.9292
+  },
+  {
+   "id": "rules.audiovisual_permits",
+   "example": "permiso para filmar en el parque",
+   "rank": 2,
+   "top1": "activities.photography_amateur",
+   "top1_cos": 0.9334,
+   "own_cos": 0.9167
+  },
+  {
+   "id": "rules.audiovisual_permits",
+   "example": "voy a hacer un video comercial en el páramo",
+   "rank": 3,
+   "top1": "rules.event_permits",
+   "top1_cos": 0.9239,
+   "own_cos": 0.8984
+  },
+  {
+   "id": "rules.audiovisual_permits",
+   "example": "necesito permiso para rodar una película",
+   "rank": 2,
+   "top1": "rules.commercial_photography",
+   "top1_cos": 0.939,
+   "own_cos": 0.9358
+  },
+  {
+   "id": "rules.audiovisual_permits",
+   "example": "tomas audiovisuales en Los Nevados",
+   "rank": 272,
+   "top1": "rules.commercial_photography",
+   "top1_cos": 0.9492,
+   "own_cos": 0.8598
+  },
+  {
+   "id": "rules.audiovisual_permits",
+   "example": "quiero filmar un anuncio en la montaña",
+   "rank": 2,
+   "top1": "rules.commercial_photography",
+   "top1_cos": 0.9021,
+   "own_cos": 0.8984
+  },
+  {
+   "id": "rules.audiovisual_permits",
+   "example": "voy a grabar un video para una marca, qué hago",
+   "rank": 2,
+   "top1": "rules.commercial_photography",
+   "top1_cos": 0.9023,
+   "own_cos": 0.896
+  },
+  {
+   "id": "rules.audiovisual_permits",
+   "example": "puedo llevar equipo de rodaje al parque",
+   "rank": 2,
+   "top1": "activities.photography_amateur",
+   "top1_cos": 0.9169,
+   "own_cos": 0.9166
+  },
+  {
+   "id": "rules.event_permits",
+   "example": "puedo organizar un evento en Los Nevados",
+   "rank": 14,
+   "top1": "rules.research_permissions",
+   "top1_cos": 0.9069,
+   "own_cos": 0.8809
+  },
+  {
+   "id": "rules.event_permits",
+   "example": "quiero hacer un evento en el páramo",
+   "rank": 19,
+   "top1": "rules.audiovisual_permits",
+   "top1_cos": 0.9239,
+   "own_cos": 0.8809
+  },
+  {
+   "id": "rules.event_permits",
+   "example": "se puede hacer un encuentro de marca",
+   "rank": 2,
+   "top1": "rules.commercial_photography",
+   "top1_cos": 0.8717,
+   "own_cos": 0.8603
+  },
+  {
+   "id": "rules.event_permits",
+   "example": "cómo tramito un evento en el área protegida",
+   "rank": 6,
+   "top1": "rules.organized_sports",
+   "top1_cos": 0.9033,
+   "own_cos": 0.8734
+  },
+  {
+   "id": "rules.event_permits",
+   "example": "puedo celebrar una reunión en la montaña",
+   "rank": 5,
+   "top1": "services.guide_radios",
+   "top1_cos": 0.8879,
+   "own_cos": 0.8743
+  },
+  {
+   "id": "rules.event_permits",
+   "example": "necesito autorización para una actividad especial",
+   "rank": 2,
+   "top1": "rules.organized_sports",
+   "top1_cos": 0.9248,
+   "own_cos": 0.9099
+  },
+  {
+   "id": "rules.event_permits",
+   "example": "se permiten eventos en los senderos",
+   "rank": 14,
+   "top1": "rules.organized_sports",
+   "top1_cos": 0.9115,
+   "own_cos": 0.8815
+  },
+  {
+   "id": "rules.event_permits",
+   "example": "voy a convocar gente al parque, qué permiso pido",
+   "rank": 4,
+   "top1": "booking_fees.accident_insurance_requirement",
+   "top1_cos": 0.9179,
+   "own_cos": 0.9074
+  },
+  {
+   "id": "rules.event_permits",
+   "example": "can I host an event in the park?",
+   "rank": 14,
+   "top1": "rules.camping",
+   "top1_cos": 0.9041,
+   "own_cos": 0.8685
+  },
+  {
+   "id": "rules.event_permits",
+   "example": "puedo hacer una activación de marca en Brisas",
+   "rank": 56,
+   "top1": "rules.commercial_photography",
+   "top1_cos": 0.9155,
+   "own_cos": 0.8519
+  },
+  {
+   "id": "rules.event_permits",
+   "example": "organizar una actividad pública en el parque",
+   "rank": 2,
+   "top1": "rules.organized_sports",
+   "top1_cos": 0.9123,
+   "own_cos": 0.9121
+  },
+  {
+   "id": "rules.event_permits",
+   "example": "dónde consulto el permiso para eventos",
+   "rank": 3,
+   "top1": "rules.organized_sports",
+   "top1_cos": 0.8975,
+   "own_cos": 0.8947
+  },
+  {
+   "id": "rules.organized_sports",
+   "example": "voy a hacer una carrera ciclística en Los Nevados",
+   "rank": 92,
+   "top1": "activities.regulated_sports",
+   "top1_cos": 0.9252,
+   "own_cos": 0.8638
+  },
+  {
+   "id": "rules.organized_sports",
+   "example": "puedo convocar una competencia en el páramo",
+   "rank": 3,
+   "top1": "rules.event_permits",
+   "top1_cos": 0.9145,
+   "own_cos": 0.8892
+  },
+  {
+   "id": "rules.organized_sports",
+   "example": "puedo montar una competencia en los senderos",
+   "rank": 3,
+   "top1": "activities.regulated_sports",
+   "top1_cos": 0.9138,
+   "own_cos": 0.9052
+  },
+  {
+   "id": "rules.research_permissions",
+   "example": "puedo hacer una investigación en Los Nevados",
+   "rank": 12,
+   "top1": "rules.event_permits",
+   "top1_cos": 0.9069,
+   "own_cos": 0.883
+  },
+  {
+   "id": "rules.research_permissions",
+   "example": "voy a recolectar plantas para un estudio",
+   "rank": 5,
+   "top1": "rules.leave_natural_objects",
+   "top1_cos": 0.913,
+   "own_cos": 0.8804
+  },
+  {
+   "id": "rules.research_permissions",
+   "example": "se puede hacer trabajo de campo en el parque",
+   "rank": 263,
+   "top1": "activities.camping_where",
+   "top1_cos": 0.9106,
+   "own_cos": 0.8292
+  },
+  {
+   "id": "rules.research_permissions",
+   "example": "necesito ingresar para una tesis",
+   "rank": 20,
+   "top1": "booking_fees.exempt_researchers",
+   "top1_cos": 0.9063,
+   "own_cos": 0.8712
+  },
+  {
+   "id": "rules.research_permissions",
+   "example": "puedo recolectar muestras de agua para un proyecto",
+   "rank": 2,
+   "top1": "rules.researcher_deliverables_obligation",
+   "top1_cos": 0.8835,
+   "own_cos": 0.8804
+  },
+  {
+   "id": "rules.research_permissions",
+   "example": "permiso científico PNN Los Nevados",
+   "rank": 44,
+   "top1": "rules.fishing",
+   "top1_cos": 0.922,
+   "own_cos": 0.8962
+  },
+  {
+   "id": "rules.research_permissions",
+   "example": "voy a muestrear insectos, qué autorización necesito",
+   "rank": 3,
+   "top1": "rules.commercial_photography",
+   "top1_cos": 0.9152,
+   "own_cos": 0.8981
+  },
+  {
+   "id": "rules.drones",
+   "example": "se puede volar dron en Los Nevados",
+   "rank": 12,
+   "top1": "rules.pets",
+   "top1_cos": 0.9018,
+   "own_cos": 0.8838
+  },
+  {
+   "id": "rules.drones",
+   "example": "dron recreativo en Brisas",
+   "rank": 270,
+   "top1": "access.hire_vehicle_brisas",
+   "top1_cos": 0.9288,
+   "own_cos": 0.8566
+  },
+  {
+   "id": "rules.drones",
+   "example": "quiero grabar desde el aire, está permitido?",
+   "rank": 7,
+   "top1": "booking_fees.exempt_journalists",
+   "top1_cos": 0.8951,
+   "own_cos": 0.874
+  },
+  {
+   "id": "rules.drones",
+   "example": "se puede volar un cuadricóptero en el páramo",
+   "rank": 87,
+   "top1": "activities.paramo_walk",
+   "top1_cos": 0.9039,
+   "own_cos": 0.8417
+  },
+  {
+   "id": "rules.open_fires",
+   "example": "hacer una fogata para calentar comida",
+   "rank": 3,
+   "top1": "preparation.camp_stove",
+   "top1_cos": 0.9315,
+   "own_cos": 0.8851
+  },
+  {
+   "id": "rules.open_fires",
+   "example": "toca llevar leña para cocinar",
+   "rank": 8,
+   "top1": "preparation.what_not_to_pack",
+   "top1_cos": 0.8995,
+   "own_cos": 0.8638
+  },
+  {
+   "id": "rules.open_fires",
+   "example": "puedo encender fuego en el páramo",
+   "rank": 84,
+   "top1": "health_safety.sun_uv_protection",
+   "top1_cos": 0.955,
+   "own_cos": 0.8494
+  },
+  {
+   "id": "rules.open_fires",
+   "example": "fuego abierto en Los Nevados",
+   "rank": 160,
+   "top1": "weather_volcano.snow_and_hail",
+   "top1_cos": 0.9238,
+   "own_cos": 0.8592
+  },
+  {
+   "id": "rules.open_fires",
+   "example": "can we make a campfire here?",
+   "rank": 37,
+   "top1": "rules.organized_sports",
+   "top1_cos": 0.8711,
+   "own_cos": 0.8239
+  },
+  {
+   "id": "rules.noise",
+   "example": "puedo poner música con un parlante",
+   "rank": 2,
+   "top1": "rules.playback",
+   "top1_cos": 0.9055,
+   "own_cos": 0.8811
+  },
+  {
+   "id": "rules.noise",
+   "example": "se permiten bafles en el sendero",
+   "rank": 148,
+   "top1": "rules.event_permits",
+   "top1_cos": 0.9098,
+   "own_cos": 0.8304
+  },
+  {
+   "id": "rules.noise",
+   "example": "poner música duro en el parque",
+   "rank": 7,
+   "top1": "booking_fees.exempt_culture_agents",
+   "top1_cos": 0.8876,
+   "own_cos": 0.866
+  },
+  {
+   "id": "rules.noise",
+   "example": "toca caminar en silencio?",
+   "rank": 162,
+   "top1": "activities.unlisted_activities",
+   "top1_cos": 0.8968,
+   "own_cos": 0.8463
+  },
+  {
+   "id": "rules.noise",
+   "example": "puedo usar una bocina para llamar al grupo",
+   "rank": 20,
+   "top1": "rules.no_discrimination_scandals",
+   "top1_cos": 0.8525,
+   "own_cos": 0.8335
+  },
+  {
+   "id": "rules.noise",
+   "example": "se puede poner música en el campamento",
+   "rank": 7,
+   "top1": "rules.no_discrimination_scandals",
+   "top1_cos": 0.9043,
+   "own_cos": 0.8762
+  },
+  {
+   "id": "rules.noise",
+   "example": "qué pasa si hago mucho ruido",
+   "rank": 2,
+   "top1": "weather_volcano.volcanic_alarm",
+   "top1_cos": 0.894,
+   "own_cos": 0.8932
+  },
+  {
+   "id": "rules.noise",
+   "example": "dejan llevar parlante portátil",
+   "rank": 3,
+   "top1": "rules.fishing",
+   "top1_cos": 0.9164,
+   "own_cos": 0.8798
+  },
+  {
+   "id": "rules.noise",
+   "example": "cómo debo comportarme con el ruido en el páramo",
+   "rank": 14,
+   "top1": "weather_volcano.felt_quakes",
+   "top1_cos": 0.9195,
+   "own_cos": 0.8809
+  },
+  {
+   "id": "rules.feed_wildlife",
+   "example": "está bien alimentar aves del parque",
+   "rank": 3,
+   "top1": "activities.birdwatching",
+   "top1_cos": 0.9105,
+   "own_cos": 0.8993
+  },
+  {
+   "id": "rules.feed_wildlife",
+   "example": "cómo atraigo un oso para verlo",
+   "rank": 136,
+   "top1": "rules.no_hunting",
+   "top1_cos": 0.8966,
+   "own_cos": 0.8203
+  },
+  {
+   "id": "rules.feed_wildlife",
+   "example": "les puedo dar migas a los pájaros",
+   "rank": 2,
+   "top1": "fauna.birds_overview",
+   "top1_cos": 0.8794,
+   "own_cos": 0.8686
+  },
+  {
+   "id": "rules.feed_wildlife",
+   "example": "puedo cebar animales para tomarles fotos",
+   "rank": 17,
+   "top1": "rules.wildlife_contact_displacement",
+   "top1_cos": 0.891,
+   "own_cos": 0.8462
+  },
+  {
+   "id": "rules.feed_wildlife",
+   "example": "qué comida les gusta a las aves del páramo",
+   "rank": 2,
+   "top1": "preparation.trail_snacks",
+   "top1_cos": 0.9003,
+   "own_cos": 0.8993
+  },
+  {
+   "id": "rules.feed_wildlife",
+   "example": "can I feed the wildlife here?",
+   "rank": 4,
+   "top1": "rules.wildlife_contact_displacement",
+   "top1_cos": 0.8795,
+   "own_cos": 0.8624
+  },
+  {
+   "id": "rules.feed_wildlife",
+   "example": "alimentar animales en Los Nevados",
+   "rank": 63,
+   "top1": "fauna.crab_eating_fox",
+   "top1_cos": 0.9363,
+   "own_cos": 0.888
+  },
+  {
+   "id": "rules.playback",
+   "example": "se puede usar playback para ver colibríes",
+   "rank": 8,
+   "top1": "fauna.birds_overview",
+   "top1_cos": 0.8952,
+   "own_cos": 0.8328
+  },
+  {
+   "id": "rules.playback",
+   "example": "reproducir sonidos de aves en el sendero",
+   "rank": 2,
+   "top1": "activities.birdwatching",
+   "top1_cos": 0.9278,
+   "own_cos": 0.8965
+  },
+  {
+   "id": "rules.playback",
+   "example": "cómo hago que se acerquen las aves",
+   "rank": 4,
+   "top1": "rules.feed_wildlife",
+   "top1_cos": 0.8899,
+   "own_cos": 0.8832
+  },
+  {
+   "id": "rules.playback",
+   "example": "playback en Los Nevados",
+   "rank": 648,
+   "top1": "weather_volcano.snow_and_hail",
+   "top1_cos": 0.9472,
+   "own_cos": 0.832
+  },
+  {
+   "id": "rules.playback",
+   "example": "dejan usar grabaciones para observar fauna",
+   "rank": 2,
+   "top1": "rules.commercial_sound_recording",
+   "top1_cos": 0.8943,
+   "own_cos": 0.8908
+  },
+  {
+   "id": "rules.playback",
+   "example": "usar sonidos de fauna en el páramo",
+   "rank": 5,
+   "top1": "rules.noise",
+   "top1_cos": 0.9091,
+   "own_cos": 0.8938
+  },
+  {
+   "id": "rules.camping",
+   "example": "puedo montar carpa en cualquier parte",
+   "rank": 4,
+   "top1": "activities.camping_where",
+   "top1_cos": 0.9242,
+   "own_cos": 0.8926
+  },
+  {
+   "id": "rules.camping",
+   "example": "dónde se puede acampar en Los Nevados",
+   "rank": 80,
+   "top1": "weather_volcano.park_weather",
+   "top1_cos": 0.9066,
+   "own_cos": 0.8705
+  },
+  {
+   "id": "rules.camping",
+   "example": "acampar fuera del sendero está permitido?",
+   "rank": 2,
+   "top1": "activities.camping_where",
+   "top1_cos": 0.9243,
+   "own_cos": 0.9209
+  },
+  {
+   "id": "rules.camping",
+   "example": "puedo dormir en la montaña sin reserva",
+   "rank": 9,
+   "top1": "health_safety.altitude_sleep_disturbance",
+   "top1_cos": 0.9171,
+   "own_cos": 0.8736
+  },
+  {
+   "id": "rules.camping",
+   "example": "se puede pasar la noche en el páramo",
+   "rank": 72,
+   "top1": "activities.paramo_walk",
+   "top1_cos": 0.9217,
+   "own_cos": 0.8566
+  },
+  {
+   "id": "rules.camping",
+   "example": "can I camp anywhere in the park?",
+   "rank": 71,
+   "top1": "activities.recreation_zone_trails",
+   "top1_cos": 0.9178,
+   "own_cos": 0.8483
+  },
+  {
+   "id": "rules.camping",
+   "example": "puedo hacer vivac donde me coja la noche",
+   "rank": 2,
+   "top1": "hours_status.night_entry_prohibition",
+   "top1_cos": 0.8613,
+   "own_cos": 0.8566
+  },
+  {
+   "id": "rules.fishing",
+   "example": "se puede pescar en la Laguna del Otún",
+   "rank": 35,
+   "top1": "activities.camping_otun",
+   "top1_cos": 0.933,
+   "own_cos": 0.867
+  },
+  {
+   "id": "rules.fishing",
+   "example": "pesca recreativa en Los Nevados",
+   "rank": 148,
+   "top1": "fauna.white_capped_dipper",
+   "top1_cos": 0.9431,
+   "own_cos": 0.8714
+  },
+  {
+   "id": "rules.fishing",
+   "example": "puedo lanzar una línea desde la orilla",
+   "rank": 189,
+   "top1": "flora_ecosystems.glacial_hollow_lagoons",
+   "top1_cos": 0.8768,
+   "own_cos": 0.8107
+  },
+  {
+   "id": "rules.fishing",
+   "example": "can I fish in the park?",
+   "rank": 3,
+   "top1": "rules.no_hunting",
+   "top1_cos": 0.9146,
+   "own_cos": 0.8879
+  },
+  {
+   "id": "rules.fishing",
+   "example": "puedo usar anzuelo en la laguna",
+   "rank": 30,
+   "top1": "activities.therapeutic_baths_banned",
+   "top1_cos": 0.9055,
+   "own_cos": 0.8484
+  },
+  {
+   "id": "rules.intoxication",
+   "example": "dejan ingresar después de tomar",
+   "rank": 2,
+   "top1": "hours_status.late_arrival_policy",
+   "top1_cos": 0.9139,
+   "own_cos": 0.9001
+  },
+  {
+   "id": "rules.intoxication",
+   "example": "puedo ir al sendero bajo efectos de drogas",
+   "rank": 53,
+   "top1": "booking_fees.guide_required",
+   "top1_cos": 0.8897,
+   "own_cos": 0.8507
+  },
+  {
+   "id": "rules.intoxication",
+   "example": "qué pasa si llego alicorado",
+   "rank": 18,
+   "top1": "hours_status.late_arrival_policy",
+   "top1_cos": 0.8828,
+   "own_cos": 0.8599
+  },
+  {
+   "id": "rules.intoxication",
+   "example": "puedo entrar tomado a Los Nevados",
+   "rank": 184,
+   "top1": "booking_fees.accident_insurance_requirement",
+   "top1_cos": 0.9384,
+   "own_cos": 0.8549
+  },
+  {
+   "id": "rules.intoxication",
+   "example": "can I enter the park while intoxicated?",
+   "rank": 15,
+   "top1": "rules.show_entry_permit_on_request",
+   "top1_cos": 0.8933,
+   "own_cos": 0.8731
+  },
+  {
+   "id": "rules.intoxication",
+   "example": "puedo tomar una cerveza en la laguna?",
+   "rank": 44,
+   "top1": "activities.therapeutic_baths_banned",
+   "top1_cos": 0.911,
+   "own_cos": 0.8383
+  },
+  {
+   "id": "rules.intoxication",
+   "example": "¿puedo llevar una botella de licor cerrada?",
+   "rank": 6,
+   "top1": "preparation.what_not_to_pack",
+   "top1_cos": 0.8849,
+   "own_cos": 0.8475
+  },
+  {
+   "id": "rules.weapons",
+   "example": "llevo un machete para abrir camino",
+   "rank": 32,
+   "top1": "rules.logging_clearing_vegetation",
+   "top1_cos": 0.8974,
+   "own_cos": 0.875
+  },
+  {
+   "id": "rules.weapons",
+   "example": "mi hermano va armado, ¿puede entrar?",
+   "rank": 8,
+   "top1": "booking_fees.exempt_police_family",
+   "top1_cos": 0.924,
+   "own_cos": 0.8865
+  },
+  {
+   "id": "rules.weapons",
+   "example": "is it allowed to bring a knife to the park?",
+   "rank": 8,
+   "top1": "rules.no_hunting",
+   "top1_cos": 0.9054,
+   "own_cos": 0.8766
+  },
+  {
+   "id": "rules.weapons",
+   "example": "me revisan las armas en el control?",
+   "rank": 16,
+   "top1": "rules.entry_bag_checks",
+   "top1_cos": 0.9452,
+   "own_cos": 0.8638
+  },
+  {
+   "id": "rules.weapons",
+   "example": "se puede llevar una escopeta al parque?",
+   "rank": 8,
+   "top1": "rules.audiovisual_permits",
+   "top1_cos": 0.8991,
+   "own_cos": 0.8766
+  },
+  {
+   "id": "rules.entry_bag_checks",
+   "example": "me van a revisar el morral al entrar?",
+   "rank": 2,
+   "top1": "rules.ecological_customs_checkpoints",
+   "top1_cos": 0.9242,
+   "own_cos": 0.9183
+  },
+  {
+   "id": "rules.entry_bag_checks",
+   "example": "hay requisa de maletas en el parque",
+   "rank": 329,
+   "top1": "services.porter_requirements",
+   "top1_cos": 0.9278,
+   "own_cos": 0.8353
+  },
+  {
+   "id": "rules.entry_bag_checks",
+   "example": "revisan lo que llevo en los controles?",
+   "rank": 2,
+   "top1": "rules.weapons",
+   "top1_cos": 0.9452,
+   "own_cos": 0.9195
+  },
+  {
+   "id": "rules.entry_bag_checks",
+   "example": "me pueden pedir que abra el bolso?",
+   "rank": 19,
+   "top1": "booking_fees.exemption_not_guaranteed",
+   "top1_cos": 0.8898,
+   "own_cos": 0.8663
+  },
+  {
+   "id": "rules.entry_bag_checks",
+   "example": "they search bags at the entrance?",
+   "rank": 3,
+   "top1": "rules.preventive_measures",
+   "top1_cos": 0.8577,
+   "own_cos": 0.8529
+  },
+  {
+   "id": "rules.entry_bag_checks",
+   "example": "revisan si llevo algo prohibido antes de subir",
+   "rank": 2,
+   "top1": "hours_status.offline_status_verification_advice",
+   "top1_cos": 0.9313,
+   "own_cos": 0.9195
+  },
+  {
+   "id": "rules.minors_protection",
+   "example": "la explotación infantil se castiga en Los Nevados?",
+   "rank": 10,
+   "top1": "booking_fees.exempt_young_children_and_seniors",
+   "top1_cos": 0.9132,
+   "own_cos": 0.8826
+  },
+  {
+   "id": "rules.minors_protection",
+   "example": "si veo a un adulto abusando de un menor, a quién aviso aquí?",
+   "rank": 2,
+   "top1": "rules.report_environmental_infractions",
+   "top1_cos": 0.9252,
+   "own_cos": 0.8899
+  },
+  {
+   "id": "rules.follow_park_staff",
+   "example": "y si no quiero seguir las indicaciones del personal?",
+   "rank": 2,
+   "top1": "rules.written_reprimand_mandatory_course",
+   "top1_cos": 0.8778,
+   "own_cos": 0.8775
+  },
+  {
+   "id": "rules.follow_park_staff",
+   "example": "el guardaparque me pide salir, ¿tengo que irme?",
+   "rank": 2,
+   "top1": "rules.show_entry_permit_on_request",
+   "top1_cos": 0.9194,
+   "own_cos": 0.9144
+  },
+  {
+   "id": "rules.follow_park_staff",
+   "example": "si el personal me dice que me devuelva, ¿qué hago?",
+   "rank": 4,
+   "top1": "rules.confiscation_restitution_specimens",
+   "top1_cos": 0.8933,
+   "own_cos": 0.8695
+  },
+  {
+   "id": "rules.follow_park_staff",
+   "example": "qué hago si un funcionario me llama la atención",
+   "rank": 17,
+   "top1": "weather_volcano.volcanic_alarm",
+   "top1_cos": 0.8828,
+   "own_cos": 0.8564
+  },
+  {
+   "id": "rules.follow_park_staff",
+   "example": "¿los guías del parque mandan en el recorrido?",
+   "rank": 3,
+   "top1": "booking_fees.brisas_guide_price",
+   "top1_cos": 0.8954,
+   "own_cos": 0.8925
+  },
+  {
+   "id": "rules.sell_advertise",
+   "example": "puedo vender agua o snacks en el sendero?",
+   "rank": 4,
+   "top1": "rules.biodegradable_packaging_food",
+   "top1_cos": 0.8988,
+   "own_cos": 0.8932
+  },
+  {
+   "id": "rules.sell_advertise",
+   "example": "se puede vender artesanías en Brisas",
+   "rank": 34,
+   "top1": "fauna.spotting_sector_brisas",
+   "top1_cos": 0.8991,
+   "own_cos": 0.8637
+  },
+  {
+   "id": "rules.sell_advertise",
+   "example": "hacer publicidad de mi marca en el parque está permitido?",
+   "rank": 62,
+   "top1": "rules.audiovisual_permits",
+   "top1_cos": 0.899,
+   "own_cos": 0.8586
+  },
+  {
+   "id": "rules.sell_advertise",
+   "example": "vender cosas a los turistas en la laguna",
+   "rank": 2,
+   "top1": "rules.no_introduce_species",
+   "top1_cos": 0.8975,
+   "own_cos": 0.8827
+  },
+  {
+   "id": "rules.sell_advertise",
+   "example": "puedo poner un puesto de comida en el páramo",
+   "rank": 99,
+   "top1": "rules.agro_industrial_mining_ban",
+   "top1_cos": 0.8987,
+   "own_cos": 0.8429
+  },
+  {
+   "id": "rules.sell_advertise",
+   "example": "dejo un aviso publicitario en el camino, ¿sí?",
+   "rank": 165,
+   "top1": "access.organized_tour_transport",
+   "top1_cos": 0.9073,
+   "own_cos": 0.8597
+  },
+  {
+   "id": "rules.sell_advertise",
+   "example": "can I sell souvenirs in the park?",
+   "rank": 17,
+   "top1": "services.shop_ecotienda",
+   "top1_cos": 0.9498,
+   "own_cos": 0.8495
+  },
+  {
+   "id": "rules.sell_advertise",
+   "example": "pongo un stand para vender en Los Nevados?",
+   "rank": 83,
+   "top1": "rules.commercial_photography",
+   "top1_cos": 0.9081,
+   "own_cos": 0.8661
+  },
+  {
+   "id": "rules.sell_advertise",
+   "example": "poner pancartas de mi empresa en el sendero",
+   "rank": 6,
+   "top1": "rules.graffiti_signage",
+   "top1_cos": 0.8923,
+   "own_cos": 0.8709
+  },
+  {
+   "id": "rules.sell_advertise",
+   "example": "puedo vender algo de comer al grupo en la ruta",
+   "rank": 2,
+   "top1": "health_safety.choking_first_aid_heimlich",
+   "top1_cos": 0.8969,
+   "own_cos": 0.8932
+  },
+  {
+   "id": "rules.sell_advertise",
+   "example": "vender ropa o gorras a los visitantes, ¿se puede?",
+   "rank": 2,
+   "top1": "preparation.thermal_hat",
+   "top1_cos": 0.8867,
+   "own_cos": 0.8827
+  },
+  {
+   "id": "rules.single_use_plastics",
+   "example": "puedo llevar botellas de plástico al parque?",
+   "rank": 3,
+   "top1": "preparation.reusable_bottles",
+   "top1_cos": 0.9309,
+   "own_cos": 0.9153
+  },
+  {
+   "id": "rules.single_use_plastics",
+   "example": "llevo pitillos de plástico para el jugo, pasa?",
+   "rank": 3,
+   "top1": "preparation.water_quantity",
+   "top1_cos": 0.9018,
+   "own_cos": 0.8936
+  },
+  {
+   "id": "rules.single_use_plastics",
+   "example": "is it allowed to bring single-use plastic bottles?",
+   "rank": 2,
+   "top1": "preparation.reusable_bottles",
+   "top1_cos": 0.9143,
+   "own_cos": 0.876
+  },
+  {
+   "id": "rules.single_use_plastics",
+   "example": "los platos desechables están permitidos?",
+   "rank": 2,
+   "top1": "preparation.cookware_utensils",
+   "top1_cos": 0.9086,
+   "own_cos": 0.8851
+  },
+  {
+   "id": "rules.single_use_plastics",
+   "example": "cubiertos de plástico para el almuerzo, ¿sí o no?",
+   "rank": 2,
+   "top1": "preparation.cookware_utensils",
+   "top1_cos": 0.8989,
+   "own_cos": 0.8936
+  },
+  {
+   "id": "rules.single_use_plastics",
+   "example": "bolsas de mercado plásticas, ¿entran?",
+   "rank": 2,
+   "top1": "preparation.dry_bags",
+   "top1_cos": 0.9042,
+   "own_cos": 0.8952
+  },
+  {
+   "id": "rules.single_use_plastics",
+   "example": "¿puedo llevar un termo en lugar de botellas plásticas?",
+   "rank": 2,
+   "top1": "preparation.reusable_bottles",
+   "top1_cos": 0.9081,
+   "own_cos": 0.9009
+  },
+  {
+   "id": "rules.single_use_plastics",
+   "example": "is plastic cutlery allowed in the park?",
+   "rank": 3,
+   "top1": "rules.weapons",
+   "top1_cos": 0.9024,
+   "own_cos": 0.8753
+  },
+  {
+   "id": "rules.graffiti_signage",
+   "example": "puedo escribir mi nombre en una roca del sendero?",
+   "rank": 3,
+   "top1": "rules.leave_natural_objects",
+   "top1_cos": 0.9054,
+   "own_cos": 0.8805
+  },
+  {
+   "id": "rules.graffiti_signage",
+   "example": "se puede pintar un grafiti en la valla?",
+   "rank": 2,
+   "top1": "rules.aerosols_sprays_prohibited",
+   "top1_cos": 0.8618,
+   "own_cos": 0.852
+  },
+  {
+   "id": "rules.graffiti_signage",
+   "example": "puedo quitar un letrero que estorba en el camino?",
+   "rank": 9,
+   "top1": "rules.abandoning_gear_objects",
+   "top1_cos": 0.8704,
+   "own_cos": 0.8582
+  },
+  {
+   "id": "rules.graffiti_signage",
+   "example": "me llevo la señal de la ruta de recuerdo",
+   "rank": 128,
+   "top1": "rules.leave_natural_objects",
+   "top1_cos": 0.8806,
+   "own_cos": 0.8413
+  },
+  {
+   "id": "rules.graffiti_signage",
+   "example": "puedo hacer marcas con pintura en el sendero para no perderme",
+   "rank": 4,
+   "top1": "rules.sell_advertise",
+   "top1_cos": 0.8923,
+   "own_cos": 0.8805
+  },
+  {
+   "id": "rules.graffiti_signage",
+   "example": "dejar un mensaje escrito en una piedra del páramo",
+   "rank": 2,
+   "top1": "conversation.free_generation_limits",
+   "top1_cos": 0.8765,
+   "own_cos": 0.8725
+  },
+  {
+   "id": "rules.graffiti_signage",
+   "example": "is graffiti allowed on the rocks?",
+   "rank": 3,
+   "top1": "activities.gazaperas_climb",
+   "top1_cos": 0.8611,
+   "own_cos": 0.8463
+  },
+  {
+   "id": "rules.graffiti_signage",
+   "example": "puedo mover la valla que tapa el paso?",
+   "rank": 11,
+   "top1": "rules.damage_park_infrastructure",
+   "top1_cos": 0.8832,
+   "own_cos": 0.852
+  },
+  {
+   "id": "rules.graffiti_signage",
+   "example": "puedo dibujar un corazón en una roca con tiza?",
+   "rank": 3,
+   "top1": "rules.geological_soil_samples",
+   "top1_cos": 0.8603,
+   "own_cos": 0.8465
+  },
+  {
+   "id": "rules.graffiti_signage",
+   "example": "qué pasa si rayo una señal del parque",
+   "rank": 51,
+   "top1": "rules.sanctions_penalties",
+   "top1_cos": 0.9029,
+   "own_cos": 0.8583
+  },
+  {
+   "id": "rules.respect_communities",
+   "example": "cómo portarse con las familias campesinas del páramo?",
+   "rank": 50,
+   "top1": "preparation.camp_hygiene",
+   "top1_cos": 0.9018,
+   "own_cos": 0.8549
+  },
+  {
+   "id": "rules.sanctions_penalties",
+   "example": "qué pasa si incumplo el reglamento de Los Nevados?",
+   "rank": 26,
+   "top1": "booking_fees.exempt_disability_visitors",
+   "top1_cos": 0.8967,
+   "own_cos": 0.8767
+  },
+  {
+   "id": "rules.sanctions_penalties",
+   "example": "cuál es la sanción por hacer fogata",
+   "rank": 3,
+   "top1": "rules.open_fires",
+   "top1_cos": 0.9066,
+   "own_cos": 0.882
+  },
+  {
+   "id": "rules.sanctions_penalties",
+   "example": "qué castigo hay por entrar con armas?",
+   "rank": 17,
+   "top1": "rules.weapons",
+   "top1_cos": 0.8902,
+   "own_cos": 0.849
+  },
+  {
+   "id": "rules.sanctions_penalties",
+   "example": "cuánto pagaría por pisar un sendero no autorizado",
+   "rank": 58,
+   "top1": "booking_fees.foreign_nonresident_admission_fee",
+   "top1_cos": 0.8814,
+   "own_cos": 0.8493
+  },
+  {
+   "id": "rules.sanctions_penalties",
+   "example": "what happens if I break the park rules?",
+   "rank": 2,
+   "top1": "rules.guide_operator_misconduct_ban",
+   "top1_cos": 0.9407,
+   "own_cos": 0.9174
+  },
+  {
+   "id": "rules.sanctions_penalties",
+   "example": "se pueden imponer sanciones a turistas por ruido?",
+   "rank": 7,
+   "top1": "rules.noise",
+   "top1_cos": 0.8845,
+   "own_cos": 0.8444
+  },
+  {
+   "id": "rules.sanctions_penalties",
+   "example": "hay multas por tirar basura en el parque?",
+   "rank": 3,
+   "top1": "rules.leave_no_waste",
+   "top1_cos": 0.9366,
+   "own_cos": 0.9198
+  },
+  {
+   "id": "rules.sanctions_penalties",
+   "example": "es grave dejar basura en el páramo, cuánto pagan?",
+   "rank": 4,
+   "top1": "rules.pick_up_trail_litter",
+   "top1_cos": 0.9142,
+   "own_cos": 0.8771
+  },
+  {
+   "id": "rules.preventive_measures",
+   "example": "qué pasa con las cosas que me confisquen en el control",
+   "rank": 4,
+   "top1": "conversation.history_storage",
+   "top1_cos": 0.8945,
+   "own_cos": 0.8774
+  },
+  {
+   "id": "rules.preventive_measures",
+   "example": "pueden llevarse mis implementos de pesca?",
+   "rank": 4,
+   "top1": "rules.logging_clearing_vegetation",
+   "top1_cos": 0.8987,
+   "own_cos": 0.8693
+  },
+  {
+   "id": "rules.preventive_measures",
+   "example": "me cobran el parqueadero si retienen mi carro",
+   "rank": 16,
+   "top1": "booking_fees.vehicle_not_parking_fee",
+   "top1_cos": 0.9305,
+   "own_cos": 0.8738
+  },
+  {
+   "id": "rules.preventive_measures",
+   "example": "los costos del decomiso los paga el turista?",
+   "rank": 2,
+   "top1": "booking_fees.foreign_nonresident_admission_fee",
+   "top1_cos": 0.8844,
+   "own_cos": 0.8692
+  },
+  {
+   "id": "rules.preventive_measures",
+   "example": "can they confiscate my gear at the entrance?",
+   "rank": 10,
+   "top1": "rules.entry_bag_checks",
+   "top1_cos": 0.8577,
+   "own_cos": 0.8352
+  },
+  {
+   "id": "rules.preventive_measures",
+   "example": "decomiso preventivo en el parque, ¿qué es?",
+   "rank": 2,
+   "top1": "rules.confiscation_restitution_specimens",
+   "top1_cos": 0.8919,
+   "own_cos": 0.8893
+  },
+  {
+   "id": "rules.preventive_measures",
+   "example": "me pueden retener el equipo mientras se resuelve el caso?",
+   "rank": 3,
+   "top1": "rules.abandoning_gear_objects",
+   "top1_cos": 0.9047,
+   "own_cos": 0.8913
+  },
+  {
+   "id": "rules.preventive_measures",
+   "example": "me quitan el alcohol si lo llevo al parque?",
+   "rank": 2,
+   "top1": "preparation.what_not_to_pack",
+   "top1_cos": 0.9124,
+   "own_cos": 0.8964
+  },
+  {
+   "id": "rules.excavations_prohibited",
+   "example": "se permite hacer huecos en el suelo del páramo?",
+   "rank": 44,
+   "top1": "rules.agro_industrial_mining_ban",
+   "top1_cos": 0.894,
+   "own_cos": 0.856
+  },
+  {
+   "id": "rules.excavations_prohibited",
+   "example": "puedo hacer una excavación pequeña en el campamento?",
+   "rank": 14,
+   "top1": "rules.burning_trash_prohibited",
+   "top1_cos": 0.8843,
+   "own_cos": 0.8613
+  },
+  {
+   "id": "rules.excavations_prohibited",
+   "example": "está prohibido remover tierra en Los Nevados?",
+   "rank": 15,
+   "top1": "rules.agro_industrial_mining_ban",
+   "top1_cos": 0.9224,
+   "own_cos": 0.8825
+  },
+  {
+   "id": "rules.excavations_prohibited",
+   "example": "puedo abrir una calicata en el sendero?",
+   "rank": 56,
+   "top1": "rules.respect_carrying_capacity_limits",
+   "top1_cos": 0.8796,
+   "own_cos": 0.8458
+  },
+  {
+   "id": "rules.excavations_prohibited",
+   "example": "can I dig a trench around my tent?",
+   "rank": 11,
+   "top1": "activities.camping_where",
+   "top1_cos": 0.8621,
+   "own_cos": 0.8313
+  },
+  {
+   "id": "rules.excavations_prohibited",
+   "example": "cavar en el paramo esta prohibido o hay una excepcion?",
+   "rank": 80,
+   "top1": "activities.paramo_walk",
+   "top1_cos": 0.8987,
+   "own_cos": 0.8584
+  },
+  {
+   "id": "rules.excavations_prohibited",
+   "example": "autorizan hacer excavaciones sin permiso científico?",
+   "rank": 3,
+   "top1": "rules.research_permissions",
+   "top1_cos": 0.912,
+   "own_cos": 0.895
+  },
+  {
+   "id": "rules.rock_bolting_prohibited",
+   "example": "está permitido equipar rutas con pernos en la roca?",
+   "rank": 3,
+   "top1": "rules.leave_natural_objects",
+   "top1_cos": 0.9103,
+   "own_cos": 0.8831
+  },
+  {
+   "id": "rules.rock_bolting_prohibited",
+   "example": "can I bolt climbing routes on the park rocks?",
+   "rank": 36,
+   "top1": "rules.geological_soil_samples",
+   "top1_cos": 0.8718,
+   "own_cos": 0.8335
+  },
+  {
+   "id": "rules.rock_bolting_prohibited",
+   "example": "qué regla hay sobre poner chapas en las peñas del parque?",
+   "rank": 2,
+   "top1": "rules.open_fires",
+   "top1_cos": 0.8842,
+   "own_cos": 0.8828
+  },
+  {
+   "id": "rules.geological_soil_samples",
+   "example": "se permite recolectar muestras geológicas en el parque?",
+   "rank": 2,
+   "top1": "activities.geology_watching",
+   "top1_cos": 0.9207,
+   "own_cos": 0.906
+  },
+  {
+   "id": "rules.geological_soil_samples",
+   "example": "tomar muestras edafológicas en Los Nevados está permitido?",
+   "rank": 34,
+   "top1": "rules.excavations_prohibited",
+   "top1_cos": 0.9132,
+   "own_cos": 0.8758
+  },
+  {
+   "id": "rules.geological_soil_samples",
+   "example": "quiero llevar una muestra de tierra del páramo para analizar",
+   "rank": 19,
+   "top1": "rules.event_permits",
+   "top1_cos": 0.901,
+   "own_cos": 0.8723
+  },
+  {
+   "id": "rules.geological_soil_samples",
+   "example": "puedo recoger muestras de suelo sin permiso de investigación?",
+   "rank": 3,
+   "top1": "rules.excavations_prohibited",
+   "top1_cos": 0.9108,
+   "own_cos": 0.9017
+  },
+  {
+   "id": "rules.geological_soil_samples",
+   "example": "me puedo llevar tierra o una piedra del volcan?",
+   "rank": 3,
+   "top1": "weather_volcano.do_not_approach",
+   "top1_cos": 0.9067,
+   "own_cos": 0.8948
+  },
+  {
+   "id": "rules.wildlife_traps_prohibited",
+   "example": "puedo usar una jaula o red para atrapar aves?",
+   "rank": 3,
+   "top1": "rules.playback",
+   "top1_cos": 0.879,
+   "own_cos": 0.8688
+  },
+  {
+   "id": "rules.wildlife_traps_prohibited",
+   "example": "está prohibido poner trampas de fauna en el páramo?",
+   "rank": 5,
+   "top1": "rules.avoid_chemicals",
+   "top1_cos": 0.9072,
+   "own_cos": 0.9012
+  },
+  {
+   "id": "rules.wildlife_traps_prohibited",
+   "example": "puedo armar un paso para que el animal salga en la foto?",
+   "rank": 2,
+   "top1": "rules.wildlife_contact_displacement",
+   "top1_cos": 0.9011,
+   "own_cos": 0.8852
+  },
+  {
+   "id": "rules.wildlife_traps_prohibited",
+   "example": "are wildlife traps allowed in the park?",
+   "rank": 29,
+   "top1": "rules.no_hunting",
+   "top1_cos": 0.9112,
+   "own_cos": 0.8504
+  },
+  {
+   "id": "rules.wildlife_traps_prohibited",
+   "example": "se pueden colocar trampas de captura en Los Nevados?",
+   "rank": 3,
+   "top1": "rules.no_hunting",
+   "top1_cos": 0.9328,
+   "own_cos": 0.8958
+  },
+  {
+   "id": "rules.wildlife_traps_prohibited",
+   "example": "puedo poner un cebo para que se acerque un animal?",
+   "rank": 6,
+   "top1": "rules.no_hunting",
+   "top1_cos": 0.9036,
+   "own_cos": 0.8852
+  },
+  {
+   "id": "rules.wildlife_contact_displacement",
+   "example": "puedo tocar o acariciar un animal silvestre si se acerca?",
+   "rank": 4,
+   "top1": "health_safety.no_published_wildlife_protocol",
+   "top1_cos": 0.9115,
+   "own_cos": 0.8877
+  },
+  {
+   "id": "rules.wildlife_contact_displacement",
+   "example": "qué hago si veo un animal en el camino, lo puedo mover?",
+   "rank": 2,
+   "top1": "health_safety.no_published_wildlife_protocol",
+   "top1_cos": 0.9468,
+   "own_cos": 0.9231
+  },
+  {
+   "id": "rules.wildlife_contact_displacement",
+   "example": "está prohibido desplazar animales de donde están?",
+   "rank": 2,
+   "top1": "health_safety.no_published_wildlife_protocol",
+   "top1_cos": 0.8996,
+   "own_cos": 0.8937
+  },
+  {
+   "id": "rules.wildlife_contact_displacement",
+   "example": "puedo agarrar una rana o lagartija para mirarla de cerca?",
+   "rank": 3,
+   "top1": "rules.no_hunting",
+   "top1_cos": 0.8949,
+   "own_cos": 0.8877
+  },
+  {
+   "id": "rules.wildlife_contact_displacement",
+   "example": "puedo agarrar un animal que se cruce en el sendero?",
+   "rank": 4,
+   "top1": "health_safety.no_published_wildlife_protocol",
+   "top1_cos": 0.9096,
+   "own_cos": 0.9
+  },
+  {
+   "id": "rules.wildlife_contact_displacement",
+   "example": "can I touch or move wild animals on the trail?",
+   "rank": 5,
+   "top1": "activities.wildlife_from_trail",
+   "top1_cos": 0.9047,
+   "own_cos": 0.8707
+  },
+  {
+   "id": "rules.wildlife_contact_displacement",
+   "example": "puedo correr un ave o mamífero para que salga en el video?",
+   "rank": 3,
+   "top1": "rules.wildlife_traps_prohibited",
+   "top1_cos": 0.9011,
+   "own_cos": 0.8697
+  },
+  {
+   "id": "rules.wildlife_contact_displacement",
+   "example": "me puedo acercar a tocar un colibrí?",
+   "rank": 4,
+   "top1": "rules.playback",
+   "top1_cos": 0.8843,
+   "own_cos": 0.8705
+  },
+  {
+   "id": "rules.wildlife_contact_displacement",
+   "example": "se permite alzar o tocar animales del parque?",
+   "rank": 10,
+   "top1": "rules.no_hunting",
+   "top1_cos": 0.9187,
+   "own_cos": 0.8804
+  },
+  {
+   "id": "rules.earth_tone_clothing_wildlife",
+   "example": "por qué piden evitar colores chillones o fluorescentes en el sendero?",
+   "rank": 8,
+   "top1": "health_safety.stay_together_prevent_separation",
+   "top1_cos": 0.8849,
+   "own_cos": 0.8658
+  },
+  {
+   "id": "rules.aerosols_sprays_prohibited",
+   "example": "se pueden usar sprays o aerosoles en Los Nevados?",
+   "rank": 55,
+   "top1": "rules.avoid_chemicals",
+   "top1_cos": 0.897,
+   "own_cos": 0.8587
+  },
+  {
+   "id": "rules.aerosols_sprays_prohibited",
+   "example": "prefiero crema o aerosol para subir al parque?",
+   "rank": 2,
+   "top1": "geography.park_versus_volcano",
+   "top1_cos": 0.8915,
+   "own_cos": 0.8773
+  },
+  {
+   "id": "rules.burning_trash_prohibited",
+   "example": "puedo quemar el papel higiénico usado en el páramo?",
+   "rank": 2,
+   "top1": "health_safety.sun_uv_protection",
+   "top1_cos": 0.9227,
+   "own_cos": 0.9136
+  },
+  {
+   "id": "rules.burning_trash_prohibited",
+   "example": "está prohibido quemar desechos o empaques en el parque?",
+   "rank": 12,
+   "top1": "preparation.camp_hygiene",
+   "top1_cos": 0.9255,
+   "own_cos": 0.8835
+  },
+  {
+   "id": "rules.pick_up_trail_litter",
+   "example": "si encuentro una envoltura en la ruta, ¿debo recogerla?",
+   "rank": 2,
+   "top1": "rules.show_entry_permit_on_request",
+   "top1_cos": 0.8741,
+   "own_cos": 0.8736
+  },
+  {
+   "id": "rules.pick_up_trail_litter",
+   "example": "debo ayudar a sacar basura que otros dejaron en el páramo?",
+   "rank": 2,
+   "top1": "rules.sanctions_penalties",
+   "top1_cos": 0.9142,
+   "own_cos": 0.9122
+  },
+  {
+   "id": "rules.pick_up_trail_litter",
+   "example": "should I pick up litter I see on the trail?",
+   "rank": 3,
+   "top1": "rules.leave_no_waste",
+   "top1_cos": 0.8897,
+   "own_cos": 0.8688
+  },
+  {
+   "id": "rules.pick_up_trail_litter",
+   "example": "la basura que encuentre la saco yo del parque?",
+   "rank": 3,
+   "top1": "rules.leave_no_waste",
+   "top1_cos": 0.9346,
+   "own_cos": 0.8971
+  },
+  {
+   "id": "rules.biodegradable_packaging_food",
+   "example": "como debo empacar la comida del sendero?",
+   "rank": 2,
+   "top1": "preparation.trail_snacks",
+   "top1_cos": 0.9131,
+   "own_cos": 0.9024
+  },
+  {
+   "id": "rules.biodegradable_packaging_food",
+   "example": "piden usar materiales biodegradables en las zonas de camping?",
+   "rank": 2,
+   "top1": "preparation.cookware_utensils",
+   "top1_cos": 0.8951,
+   "own_cos": 0.8835
+  },
+  {
+   "id": "rules.biodegradable_packaging_food",
+   "example": "los snacks tienen que ir con poca basura?",
+   "rank": 2,
+   "top1": "preparation.trail_snacks",
+   "top1_cos": 0.8897,
+   "own_cos": 0.8678
+  },
+  {
+   "id": "rules.logging_clearing_vegetation",
+   "example": "puedo cortar ramas para despejar el sitio de la carpa?",
+   "rank": 11,
+   "top1": "rules.excavations_prohibited",
+   "top1_cos": 0.8955,
+   "own_cos": 0.8638
+  },
+  {
+   "id": "rules.logging_clearing_vegetation",
+   "example": "está prohibido talar o hacer rocerías en el parque?",
+   "rank": 5,
+   "top1": "rules.no_discrimination_scandals",
+   "top1_cos": 0.9037,
+   "own_cos": 0.8913
+  },
+  {
+   "id": "rules.logging_clearing_vegetation",
+   "example": "se puede cortar leña o arbustos en el páramo?",
+   "rank": 2,
+   "top1": "rules.stay_on_routes",
+   "top1_cos": 0.9121,
+   "own_cos": 0.8852
+  },
+  {
+   "id": "rules.logging_clearing_vegetation",
+   "example": "abrir monte con machete en el páramo se puede?",
+   "rank": 6,
+   "top1": "rules.agro_industrial_mining_ban",
+   "top1_cos": 0.908,
+   "own_cos": 0.8852
+  },
+  {
+   "id": "rules.logging_clearing_vegetation",
+   "example": "puedo cortar un frailejón que estorba la foto?",
+   "rank": 15,
+   "top1": "rules.leave_natural_objects",
+   "top1_cos": 0.9003,
+   "own_cos": 0.8474
+  },
+  {
+   "id": "rules.logging_clearing_vegetation",
+   "example": "puedo llevar implementos para tala de bosques?",
+   "rank": 3,
+   "top1": "rules.preventive_measures",
+   "top1_cos": 0.8987,
+   "own_cos": 0.8661
+  },
+  {
+   "id": "rules.logging_clearing_vegetation",
+   "example": "hacer rocería o limpiar maleza para acampar está permitido?",
+   "rank": 2,
+   "top1": "rules.camping",
+   "top1_cos": 0.8986,
+   "own_cos": 0.8913
+  },
+  {
+   "id": "rules.logging_clearing_vegetation",
+   "example": "puedo cortar palos del páramo para armar un toldo?",
+   "rank": 3,
+   "top1": "rules.stay_on_routes",
+   "top1_cos": 0.8984,
+   "own_cos": 0.8815
+  },
+  {
+   "id": "rules.logging_clearing_vegetation",
+   "example": "puedo cortar varas de madera en el bosque altoandino?",
+   "rank": 7,
+   "top1": "fauna.little_red_brocket",
+   "top1_cos": 0.8931,
+   "own_cos": 0.8661
+  },
+  {
+   "id": "rules.logging_clearing_vegetation",
+   "example": "se permite socolar o entresacar plantas del parque?",
+   "rank": 21,
+   "top1": "rules.no_introduce_species",
+   "top1_cos": 0.9038,
+   "own_cos": 0.8716
+  },
+  {
+   "id": "rules.abandoning_gear_objects",
+   "example": "is it illegal to abandon damaged camping gear in the park?",
+   "rank": 2,
+   "top1": "rules.damage_park_infrastructure",
+   "top1_cos": 0.8897,
+   "own_cos": 0.8865
+  },
+  {
+   "id": "rules.abandoning_gear_objects",
+   "example": "si se me dana el equipo, lo puedo dejar alla?",
+   "rank": 3,
+   "top1": "rules.preventive_measures",
+   "top1_cos": 0.9047,
+   "own_cos": 0.8979
+  },
+  {
+   "id": "rules.damage_park_infrastructure",
+   "example": "está prohibido causar daño a las instalaciones de Los Nevados?",
+   "rank": 3,
+   "top1": "rules.excavations_prohibited",
+   "top1_cos": 0.9181,
+   "own_cos": 0.9014
+  },
+  {
+   "id": "rules.damage_park_infrastructure",
+   "example": "puedo desarmar una cerca o estructura del centro de visitantes?",
+   "rank": 2,
+   "top1": "rules.no_discrimination_scandals",
+   "top1_cos": 0.8727,
+   "own_cos": 0.8683
+  },
+  {
+   "id": "rules.damage_park_infrastructure",
+   "example": "is damaging park facilities or infrastructure a violation?",
+   "rank": 6,
+   "top1": "rules.abandoning_gear_objects",
+   "top1_cos": 0.8897,
+   "own_cos": 0.8704
+  },
+  {
+   "id": "rules.damage_park_infrastructure",
+   "example": "puedo mover una cerca o un puente del sendero?",
+   "rank": 18,
+   "top1": "health_safety.no_published_wildlife_protocol",
+   "top1_cos": 0.8938,
+   "own_cos": 0.8683
+  },
+  {
+   "id": "rules.agro_industrial_mining_ban",
+   "example": "está prohibida la minería y la industria dentro de Los Nevados?",
+   "rank": 46,
+   "top1": "rules.excavations_prohibited",
+   "top1_cos": 0.9224,
+   "own_cos": 0.8604
+  },
+  {
+   "id": "rules.agro_industrial_mining_ban",
+   "example": "are mining, hotel, or agricultural activities banned in the park?",
+   "rank": 6,
+   "top1": "rules.minors_protection",
+   "top1_cos": 0.8935,
+   "own_cos": 0.8826
+  },
+  {
+   "id": "rules.show_entry_permit_on_request",
+   "example": "es obligatorio exhibir el permiso ante los funcionarios del parque?",
+   "rank": 2,
+   "top1": "rules.researcher_deliverables_obligation",
+   "top1_cos": 0.9088,
+   "own_cos": 0.9079
+  },
+  {
+   "id": "rules.show_entry_permit_on_request",
+   "example": "do I have to carry and show my entry permit inside the park?",
+   "rank": 23,
+   "top1": "booking_fees.documents_to_carry",
+   "top1_cos": 0.9235,
+   "own_cos": 0.8708
+  },
+  {
+   "id": "rules.show_entry_permit_on_request",
+   "example": "quién me puede exigir mostrar el permiso dentro de Los Nevados?",
+   "rank": 11,
+   "top1": "booking_fees.documents_to_carry",
+   "top1_cos": 0.9301,
+   "own_cos": 0.8883
+  },
+  {
+   "id": "rules.tent_permit_display",
+   "example": "cómo revisan los guardaparques que mi carpa tiene permiso?",
+   "rank": 2,
+   "top1": "rules.show_entry_permit_on_request",
+   "top1_cos": 0.9192,
+   "own_cos": 0.9105
+  },
+  {
+   "id": "rules.tent_permit_display",
+   "example": "do I need to attach a copy of my entry permit to my tent?",
+   "rank": 2,
+   "top1": "rules.show_entry_permit_on_request",
+   "top1_cos": 0.885,
+   "own_cos": 0.8602
+  },
+  {
+   "id": "rules.respect_carrying_capacity_limits",
+   "example": "por que hay un tope de visitantes al dia?",
+   "rank": 65,
+   "top1": "booking_fees.south_summit_capacity",
+   "top1_cos": 0.8818,
+   "own_cos": 0.8325
+  },
+  {
+   "id": "rules.respect_carrying_capacity_limits",
+   "example": "si el cupo del día ya se llenó, igual entro?",
+   "rank": 14,
+   "top1": "booking_fees.exemption_not_guaranteed",
+   "top1_cos": 0.9168,
+   "own_cos": 0.8827
+  },
+  {
+   "id": "rules.visitor_risk_assumption",
+   "example": "quién asume los riesgos legales durante la visita al parque?",
+   "rank": 13,
+   "top1": "rules.researcher_deliverables_obligation",
+   "top1_cos": 0.8901,
+   "own_cos": 0.8714
+  },
+  {
+   "id": "rules.visitor_risk_assumption",
+   "example": "los riesgos de la caminata los asumo yo?",
+   "rank": 24,
+   "top1": "health_safety.tell_guide_about_health_change",
+   "top1_cos": 0.88,
+   "own_cos": 0.8582
+  },
+  {
+   "id": "rules.visitor_risk_assumption",
+   "example": "does the park assume liability for lost items or visitor accidents?",
+   "rank": 2,
+   "top1": "booking_fees.accident_insurance_requirement",
+   "top1_cos": 0.8857,
+   "own_cos": 0.8849
+  },
+  {
+   "id": "rules.visitor_risk_assumption",
+   "example": "un accidente en el sendero lo cubre el parque?",
+   "rank": 3,
+   "top1": "actions.report_offline_emergency",
+   "top1_cos": 0.9032,
+   "own_cos": 0.8969
+  },
+  {
+   "id": "rules.report_environmental_infractions",
+   "example": "tengo que reportar si alguien se sale del sendero?",
+   "rank": 28,
+   "top1": "actions.report_injury",
+   "top1_cos": 0.9312,
+   "own_cos": 0.8748
+  },
+  {
+   "id": "rules.report_environmental_infractions",
+   "example": "am I required to report rule violations I witness in the park?",
+   "rank": 58,
+   "top1": "rules.sanctions_penalties",
+   "top1_cos": 0.9075,
+   "own_cos": 0.8404
+  },
+  {
+   "id": "rules.report_environmental_infractions",
+   "example": "ante quién se denuncian las infracciones cometidas dentro de Los Nevados?",
+   "rank": 11,
+   "top1": "rules.show_entry_permit_on_request",
+   "top1_cos": 0.9084,
+   "own_cos": 0.8693
+  },
+  {
+   "id": "rules.report_environmental_infractions",
+   "example": "si veo a alguien dejando basura, a quien aviso?",
+   "rank": 2,
+   "top1": "rules.minors_protection",
+   "top1_cos": 0.9252,
+   "own_cos": 0.9087
+  },
+  {
+   "id": "rules.ecological_customs_checkpoints",
+   "example": "what are the ecological customs checkpoints at the park?",
+   "rank": 4,
+   "top1": "health_safety.no_published_wildlife_protocol",
+   "top1_cos": 0.8732,
+   "own_cos": 0.8572
+  },
+  {
+   "id": "rules.ecological_customs_checkpoints",
+   "example": "en la aduana ecológica me revisan el morral?",
+   "rank": 7,
+   "top1": "rules.entry_bag_checks",
+   "top1_cos": 0.9242,
+   "own_cos": 0.8801
+  },
+  {
+   "id": "rules.no_discrimination_scandals",
+   "example": "está prohibido provocar o participar en escándalos en el parque?",
+   "rank": 5,
+   "top1": "rules.logging_clearing_vegetation",
+   "top1_cos": 0.9037,
+   "own_cos": 0.894
+  },
+  {
+   "id": "rules.no_discrimination_scandals",
+   "example": "are public disturbances and discrimination prohibited in the park?",
+   "rank": 12,
+   "top1": "rules.avoid_chemicals",
+   "top1_cos": 0.8976,
+   "own_cos": 0.8647
+  },
+  {
+   "id": "rules.no_discrimination_scandals",
+   "example": "gritar y pelear en el páramo está prohibido?",
+   "rank": 27,
+   "top1": "rules.wildlife_traps_prohibited",
+   "top1_cos": 0.9019,
+   "own_cos": 0.8613
+  },
+  {
+   "id": "rules.no_discrimination_scandals",
+   "example": "se puede hacer una fiesta con pelea en el campamento?",
+   "rank": 7,
+   "top1": "rules.noise",
+   "top1_cos": 0.9043,
+   "own_cos": 0.8637
+  },
+  {
+   "id": "rules.park_closure_no_compensation",
+   "example": "pueden cerrar un atractivo en cualquier momento aunque yo haya pedido entrada antes?",
+   "rank": 2,
+   "top1": "hours_status.unplanned_midday_closures",
+   "top1_cos": 0.8967,
+   "own_cos": 0.8867
+  },
+  {
+   "id": "rules.park_closure_no_compensation",
+   "example": "pueden cerrar el sendero y no devolverme nada?",
+   "rank": 6,
+   "top1": "hours_status.trail_maintenance_temporary_closures",
+   "top1_cos": 0.8992,
+   "own_cos": 0.8866
+  },
+  {
+   "id": "rules.park_closure_no_compensation",
+   "example": "does the park pay compensation if trails close due to natural hazards?",
+   "rank": 2,
+   "top1": "hours_status.trail_maintenance_temporary_closures",
+   "top1_cos": 0.8811,
+   "own_cos": 0.8717
+  },
+  {
+   "id": "rules.park_closure_no_compensation",
+   "example": "puede el jefe del parque limitar la entrada o cerrar un atractivo por seguridad?",
+   "rank": 3,
+   "top1": "hours_status.unplanned_midday_closures",
+   "top1_cos": 0.8924,
+   "own_cos": 0.8809
+  },
+  {
+   "id": "rules.park_closure_no_compensation",
+   "example": "un cierre por el volcan me lo reponen?",
+   "rank": 2,
+   "top1": "hours_status.volcanic_alert_closures",
+   "top1_cos": 0.9297,
+   "own_cos": 0.9243
+  },
+  {
+   "id": "rules.park_closure_no_compensation",
+   "example": "me pueden negar la entrada por una alerta y ya?",
+   "rank": 10,
+   "top1": "booking_fees.exemption_not_guaranteed",
+   "top1_cos": 0.9188,
+   "own_cos": 0.8855
+  },
+  {
+   "id": "rules.pack_animals_weight_overnight",
+   "example": "qué reglas tienen los equinos y mulares de porteo en Los Nevados?",
+   "rank": 41,
+   "top1": "services.porter_requirements",
+   "top1_cos": 0.9012,
+   "own_cos": 0.8502
+  },
+  {
+   "id": "rules.pack_animals_weight_overnight",
+   "example": "el caballo de carga puede pasar la noche adentro?",
+   "rank": 6,
+   "top1": "hours_status.night_entry_prohibition",
+   "top1_cos": 0.8985,
+   "own_cos": 0.8569
+  },
+  {
+   "id": "rules.pack_animals_weight_overnight",
+   "example": "pueden las mulas salirse del camino o tomar atajos por el páramo?",
+   "rank": 5,
+   "top1": "activities.horseback_not_allowed",
+   "top1_cos": 0.884,
+   "own_cos": 0.8726
+  },
+  {
+   "id": "rules.no_mules_arenales_calvito",
+   "example": "hasta dónde pueden llegar las mulas de carga en el sector sur del Tolima?",
+   "rank": 10,
+   "top1": "rules.pack_animals_weight_overnight",
+   "top1_cos": 0.8765,
+   "own_cos": 0.8588
+  },
+  {
+   "id": "rules.no_mules_arenales_calvito",
+   "example": "se permite llevar equipaje en mula desde Termales de Cañón hasta Arenales?",
+   "rank": 2,
+   "top1": "services.mule_luggage_registered_only",
+   "top1_cos": 0.9076,
+   "own_cos": 0.9014
+  },
+  {
+   "id": "rules.no_mules_arenales_calvito",
+   "example": "el ultimo tramo del tolima toca hacerlo a pie?",
+   "rank": 46,
+   "top1": "activities.demanding_south",
+   "top1_cos": 0.8912,
+   "own_cos": 0.8505
+  },
+  {
+   "id": "rules.researcher_deliverables_obligation",
+   "example": "cuáles son las obligaciones de quien obtiene permiso de investigación en el parque?",
+   "rank": 2,
+   "top1": "rules.show_entry_permit_on_request",
+   "top1_cos": 0.9088,
+   "own_cos": 0.9058
+  },
+  {
+   "id": "rules.researcher_deliverables_obligation",
+   "example": "what must researchers submit to the park after completing a study?",
+   "rank": 2,
+   "top1": "booking_fees.documents_to_carry",
+   "top1_cos": 0.8731,
+   "own_cos": 0.8715
+  },
+  {
+   "id": "rules.researcher_deliverables_obligation",
+   "example": "qué pasa con los ejemplares o muestras obtenidas en un estudio científico?",
+   "rank": 2,
+   "top1": "rules.research_permissions",
+   "top1_cos": 0.8777,
+   "own_cos": 0.8675
+  },
+  {
+   "id": "rules.researcher_deliverables_obligation",
+   "example": "despues del permiso de investigacion, que debo entregar?",
+   "rank": 8,
+   "top1": "booking_fees.exempt_donors",
+   "top1_cos": 0.9035,
+   "own_cos": 0.8952
+  },
+  {
+   "id": "rules.sport_mountaineers_advance_request",
+   "example": "el plan de riesgos va en la solicitud de montañismo?",
+   "rank": 2,
+   "top1": "health_safety.mountaineer_contingency_and_first_aid",
+   "top1_cos": 0.9323,
+   "own_cos": 0.9302
+  },
+  {
+   "id": "rules.sport_mountaineers_advance_request",
+   "example": "qué adjunto además del itinerario para escalar en el parque?",
+   "rank": 15,
+   "top1": "booking_fees.documents_to_carry",
+   "top1_cos": 0.8882,
+   "own_cos": 0.8642
+  },
+  {
+   "id": "rules.sport_mountaineers_advance_request",
+   "example": "el club me pidió un plan de contingencia, eso va en el permiso?",
+   "rank": 2,
+   "top1": "activities.sport_mountaineering",
+   "top1_cos": 0.9136,
+   "own_cos": 0.9135
+  },
+  {
+   "id": "rules.sport_mountaineers_advance_request",
+   "example": "las coordenadas del vivac las pide el parque?",
+   "rank": 34,
+   "top1": "conversation.location_map_request",
+   "top1_cos": 0.864,
+   "own_cos": 0.8413
+  },
+  {
+   "id": "rules.sport_mountaineers_schedule_exit_report",
+   "example": "cuándo deben reportar su salida del parque los montañistas deportivos?",
+   "rank": 5,
+   "top1": "rules.report_environmental_infractions",
+   "top1_cos": 0.8876,
+   "own_cos": 0.8656
+  },
+  {
+   "id": "rules.sport_mountaineers_schedule_exit_report",
+   "example": "si cambio la fecha y no aviso, pierdo la entrada?",
+   "rank": 2,
+   "top1": "booking_fees.cancellation_refund_policy",
+   "top1_cos": 0.9142,
+   "own_cos": 0.9069
+  },
+  {
+   "id": "rules.sport_mountaineers_schedule_exit_report",
+   "example": "when must sport mountaineers report schedule changes or expedition exit?",
+   "rank": 2,
+   "top1": "health_safety.mountaineer_contingency_and_first_aid",
+   "top1_cos": 0.8764,
+   "own_cos": 0.8645
+  },
+  {
+   "id": "rules.sport_mountaineers_schedule_exit_report",
+   "example": "con cuantas horas aviso si se mueve el dia de entrada?",
+   "rank": 2,
+   "top1": "booking_fees.permanence_four_days",
+   "top1_cos": 0.9092,
+   "own_cos": 0.9069
+  },
+  {
+   "id": "rules.guide_operator_misconduct_ban",
+   "example": "pueden expulsar del registro REPSE a un prestador que viole el reglamento?",
+   "rank": 3,
+   "top1": "booking_fees.exempt_tourist_guides_and_providers",
+   "top1_cos": 0.8792,
+   "own_cos": 0.8664
+  },
+  {
+   "id": "rules.guide_operator_misconduct_ban",
+   "example": "si el operador incumple, lo sacan del registro?",
+   "rank": 9,
+   "top1": "booking_fees.reservation_by_operator",
+   "top1_cos": 0.8739,
+   "own_cos": 0.8664
+  },
+  {
+   "id": "rules.guide_operator_misconduct_ban",
+   "example": "what happens if a registered guide or operator breaks park rules?",
+   "rank": 3,
+   "top1": "rules.sanctions_penalties",
+   "top1_cos": 0.9407,
+   "own_cos": 0.8823
+  },
+  {
+   "id": "rules.guide_operator_misconduct_ban",
+   "example": "si el guía llega con guayabo, puede trabajar?",
+   "rank": 6,
+   "top1": "booking_fees.guide_required",
+   "top1_cos": 0.8768,
+   "own_cos": 0.8632
+  },
+  {
+   "id": "rules.social_media_unauthorized_routes",
+   "example": "qué hace Parques Nacionales si alguien publica en redes sociales un ascenso no autorizado?",
+   "rank": 2,
+   "top1": "hours_status.official_channels_to_check_status",
+   "top1_cos": 0.8853,
+   "own_cos": 0.8815
+  },
+  {
+   "id": "rules.social_media_unauthorized_routes",
+   "example": "está prohibido ascender a la cima y al cráter del Volcán Nevado del Ruiz?",
+   "rank": 4,
+   "top1": "activities.ruiz_summit_closed",
+   "top1_cos": 0.9248,
+   "own_cos": 0.8941
+  },
+  {
+   "id": "rules.social_media_unauthorized_routes",
+   "example": "usan las publicaciones de redes sociales como evidencia de infracción ambiental?",
+   "rank": 3,
+   "top1": "rules.report_environmental_infractions",
+   "top1_cos": 0.8762,
+   "own_cos": 0.8748
+  },
+  {
+   "id": "rules.written_reprimand_mandatory_course",
+   "example": "es cierto que la amonestación obliga a asistir a un curso o servicio comunitario?",
+   "rank": 2,
+   "top1": "rules.community_service_sanction",
+   "top1_cos": 0.9091,
+   "own_cos": 0.9052
+  },
+  {
+   "id": "rules.written_reprimand_mandatory_course",
+   "example": "la amonestacion queda publicada en la alcaldia?",
+   "rank": 2,
+   "top1": "weather_volcano.ovsm_role",
+   "top1_cos": 0.8814,
+   "own_cos": 0.8695
+  },
+  {
+   "id": "rules.written_reprimand_mandatory_course",
+   "example": "que pasa si falto al curso que me pusieron?",
+   "rank": 2,
+   "top1": "activities.special_permit_activities",
+   "top1_cos": 0.8956,
+   "own_cos": 0.8955
+  },
+  {
+   "id": "rules.confiscation_restitution_specimens",
+   "example": "lo que saque de flora me lo devuelven despues?",
+   "rank": 2,
+   "top1": "rules.researcher_deliverables_obligation",
+   "top1_cos": 0.9028,
+   "own_cos": 0.8981
+  },
+  {
+   "id": "rules.confiscation_restitution_specimens",
+   "example": "what happens to wildlife or plants confiscated from rulebreakers?",
+   "rank": 4,
+   "top1": "rules.sanctions_penalties",
+   "top1_cos": 0.8682,
+   "own_cos": 0.8578
+  },
+  {
+   "id": "rules.presumption_of_fault_burden_proof",
+   "example": "is fault or intent presumed in Colombian environmental infractions?",
+   "rank": 2,
+   "top1": "rules.confession_fine_reduction",
+   "top1_cos": 0.9024,
+   "own_cos": 0.8824
+  },
+  {
+   "id": "rules.confession_fine_reduction",
+   "example": "does confessing an environmental violation reduce the fine in Colombia?",
+   "rank": 2,
+   "top1": "rules.presumption_of_fault_burden_proof",
+   "top1_cos": 0.9024,
+   "own_cos": 0.8944
+  },
+  {
+   "id": "rules.early_termination_correction_plan",
+   "example": "can an environmental sanction process be terminated early by correcting the damage?",
+   "rank": 2,
+   "top1": "rules.restoration_duty_civil_criminal",
+   "top1_cos": 0.8847,
+   "own_cos": 0.883
+  },
+  {
+   "id": "rules.ruia_offender_registry",
+   "example": "la multa del parque me deja en una lista que cualquiera mira?",
+   "rank": 4,
+   "top1": "rules.aggravating_factors_protected_area",
+   "top1_cos": 0.8943,
+   "own_cos": 0.8886
+  },
+  {
+   "id": "rules.ruia_offender_registry",
+   "example": "que implica quedar en esa lista de infractores?",
+   "rank": 40,
+   "top1": "actions.register_arrival_today",
+   "top1_cos": 0.887,
+   "own_cos": 0.859
+  },
+  {
+   "id": "rules.aggravating_factors_protected_area",
+   "example": "atentar contra recursos en áreas protegidas o especies amenazadas agrava la sanción?",
+   "rank": 2,
+   "top1": "rules.damage_park_infrastructure",
+   "top1_cos": 0.913,
+   "own_cos": 0.9127
+  },
+  {
+   "id": "rules.aggravating_factors_protected_area",
+   "example": "por qué cometer una falta en Los Nevados tiene agravante legal?",
+   "rank": 37,
+   "top1": "rules.sanctions_penalties",
+   "top1_cos": 0.8961,
+   "own_cos": 0.8565
+  },
+  {
+   "id": "rules.aggravating_factors_protected_area",
+   "example": "qué pasa si además de cometer la infracción obstaculizo a los guardaparques o incumplo una medida?",
+   "rank": 2,
+   "top1": "rules.show_entry_permit_on_request",
+   "top1_cos": 0.915,
+   "own_cos": 0.9094
+  },
+  {
+   "id": "rules.aggravating_factors_protected_area",
+   "example": "estorbar al guardaparque agrava la falta?",
+   "rank": 2,
+   "top1": "booking_fees.exempt_park_volunteers",
+   "top1_cos": 0.8901,
+   "own_cos": 0.8887
+  },
+  {
+   "id": "rules.liability_exemptions_force_majeure",
+   "example": "cuáles son los únicos eximentes de responsabilidad en una infracción ambiental?",
+   "rank": 2,
+   "top1": "rules.presumption_of_fault_burden_proof",
+   "top1_cos": 0.9086,
+   "own_cos": 0.9074
+  },
+  {
+   "id": "rules.liability_exemptions_force_majeure",
+   "example": "en qué casos no me sancionan por una infracción ambiental?",
+   "rank": 3,
+   "top1": "rules.presumption_of_fault_burden_proof",
+   "top1_cos": 0.924,
+   "own_cos": 0.9087
+  },
+  {
+   "id": "rules.liability_exemptions_force_majeure",
+   "example": "what are the legal exemptions from environmental liability in Colombia?",
+   "rank": 4,
+   "top1": "rules.presumption_of_fault_burden_proof",
+   "top1_cos": 0.8773,
+   "own_cos": 0.8673
+  },
+  {
+   "id": "rules.liability_exemptions_force_majeure",
+   "example": "si alguien más causó el daño, yo respondo igual?",
+   "rank": 12,
+   "top1": "rules.early_termination_correction_plan",
+   "top1_cos": 0.902,
+   "own_cos": 0.8703
+  },
+  {
+   "id": "rules.liability_exemptions_force_majeure",
+   "example": "cómo demostrar un eximente de responsabilidad ante la autoridad ambiental",
+   "rank": 2,
+   "top1": "rules.report_environmental_infractions",
+   "top1_cos": 0.9114,
+   "own_cos": 0.9107
+  },
+  {
+   "id": "rules.restoration_duty_civil_criminal",
+   "example": "la sanción administrativa reemplaza la responsabilidad penal o civil por daño ambiental?",
+   "rank": 5,
+   "top1": "rules.sanctions_penalties",
+   "top1_cos": 0.8964,
+   "own_cos": 0.8828
+  },
+  {
+   "id": "rules.restoration_duty_civil_criminal",
+   "example": "el dano en el parque puede ser tambien un delito?",
+   "rank": 4,
+   "top1": "rules.presumption_of_fault_burden_proof",
+   "top1_cos": 0.9139,
+   "own_cos": 0.8977
+  },
+  {
+   "id": "rules.flagrancy_foreign_tourists_procedure",
+   "example": "si me pillan en el momento, me hacen firmar un acta ahí mismo?",
+   "rank": 7,
+   "top1": "rules.confession_fine_reduction",
+   "top1_cos": 0.891,
+   "own_cos": 0.8694
+  },
+  {
+   "id": "rules.flagrancy_foreign_tourists_procedure",
+   "example": "soy extranjero, me aplica el mismo proceso si cometo una falta?",
+   "rank": 3,
+   "top1": "booking_fees.foreign_resident_definition",
+   "top1_cos": 0.8941,
+   "own_cos": 0.88
+  },
+  {
+   "id": "rules.flagrancy_foreign_tourists_procedure",
+   "example": "si un extranjero se niega a firmar el acta de flagrancia en el sendero, ¿qué pasa?",
+   "rank": 2,
+   "top1": "rules.no_discrimination_scandals",
+   "top1_cos": 0.8779,
+   "own_cos": 0.8778
+  },
+  {
+   "id": "rules.flagrancy_foreign_tourists_procedure",
+   "example": "si vivo afuera, los papeles del proceso llegan a mi pais?",
+   "rank": 2,
+   "top1": "booking_fees.foreign_resident_definition",
+   "top1_cos": 0.8894,
+   "own_cos": 0.88
+  },
+  {
+   "id": "rules.flagrancy_foreign_tourists_procedure",
+   "example": "el acta la firmo en el sendero o despues?",
+   "rank": 15,
+   "top1": "rules.sell_advertise",
+   "top1_cos": 0.8792,
+   "own_cos": 0.8661
+  },
+  {
+   "id": "rules.flagrancy_foreign_tourists_procedure",
+   "example": "si vivo fuera de Colombia, cómo me notifican la sanción?",
+   "rank": 2,
+   "top1": "booking_fees.foreign_nonresident_admission_fee",
+   "top1_cos": 0.8998,
+   "own_cos": 0.8914
+  },
+  {
+   "id": "rules.flagrancy_foreign_tourists_procedure",
+   "example": "que hacen en el sitio si me encuentran incumpliendo?",
+   "rank": 17,
+   "top1": "rules.aggravating_factors_protected_area",
+   "top1_cos": 0.8851,
+   "own_cos": 0.8694
+  },
+  {
+   "id": "rules.no_hunting",
+   "example": "se puede cazar en Los Nevados?",
+   "rank": 107,
+   "top1": "rules.wildlife_traps_prohibited",
+   "top1_cos": 0.9328,
+   "own_cos": 0.8517
+  },
+  {
+   "id": "rules.no_hunting",
+   "example": "puedo atrapar un animal para verlo de cerca",
+   "rank": 18,
+   "top1": "rules.wildlife_traps_prohibited",
+   "top1_cos": 0.9036,
+   "own_cos": 0.8534
+  },
+  {
+   "id": "rules.no_hunting",
+   "example": "dejan cazar conejos en el páramo",
+   "rank": 14,
+   "top1": "fauna.paramo_rabbit",
+   "top1_cos": 0.9108,
+   "own_cos": 0.8741
+  },
+  {
+   "id": "rules.no_hunting",
+   "example": "me puedo llevar una pluma de cóndor que encontré",
+   "rank": 28,
+   "top1": "fauna.andean_condor",
+   "top1_cos": 0.8781,
+   "own_cos": 0.8469
+  },
+  {
+   "id": "rules.no_hunting",
+   "example": "está bien coger una mariposa del sendero",
+   "rank": 16,
+   "top1": "fauna.epigeal_beetles_spiders",
+   "top1_cos": 0.8846,
+   "own_cos": 0.8509
+  },
+  {
+   "id": "rules.no_hunting",
+   "example": "puedo llevarme un escarabajo en un frasco",
+   "rank": 2,
+   "top1": "rules.single_use_plastics",
+   "top1_cos": 0.8484,
+   "own_cos": 0.8469
+  },
+  {
+   "id": "rules.no_hunting",
+   "example": "toca dejar los nidos quietos?",
+   "rank": 430,
+   "top1": "rules.noise",
+   "top1_cos": 0.893,
+   "own_cos": 0.8128
+  },
+  {
+   "id": "rules.no_hunting",
+   "example": "está permitida la cacería de animales en el parque",
+   "rank": 3,
+   "top1": "fauna.fauna_overview",
+   "top1_cos": 0.9208,
+   "own_cos": 0.9169
+  },
+  {
+   "id": "rules.no_hunting",
+   "example": "se puede cojer una rana de la laguna",
+   "rank": 18,
+   "top1": "rules.wildlife_contact_displacement",
+   "top1_cos": 0.8852,
+   "own_cos": 0.8509
+  },
+  {
+   "id": "rules.no_hunting",
+   "example": "is hunting allowed in the park?",
+   "rank": 4,
+   "top1": "rules.fishing",
+   "top1_cos": 0.9146,
+   "own_cos": 0.9045
+  },
+  {
+   "id": "rules.no_hunting",
+   "example": "can I catch a lizard to take a photo?",
+   "rank": 8,
+   "top1": "activities.photography_amateur",
+   "top1_cos": 0.8583,
+   "own_cos": 0.83
+  }
+ ],
+ "removed_examples": 1,
+ "removed_not_routing": []
+}

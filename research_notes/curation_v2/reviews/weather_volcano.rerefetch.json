@@ -1,0 +1,31 @@
+{
+ "proposal": "research_notes/curation_v2/proposals/weather_volcano.v2.json",
+ "ops": 31,
+ "evidence_items": 51,
+ "fail": [],
+ "flags": [],
+ "warn": [
+  "weather_volcano.ash_water: refetch failed https://www2.sgc.gov.co/Direcciones-Tecnicas/Geoamenazas/Documents/Guia_preparacion_lluvia_cenizas.pdf: curl failed (28): curl: (28) Operation timed out after 60002 milliseconds with 0 bytes received",
+  "weather_volcano.ash_roofs: quote not found in fresh download of http://repositorio.gestiondelriesgo.gov.co/bitstream/handle/20.500.11762/19985/Comunidades_preparadas_ante_erupciones_volcanicas.pdf?sequence=1"
+ ],
+ "reviewer_refetch": {
+  "method": "verify_evidence.py --refetch (ronda re-revisión) + descarga propia de cada URL en la carpeta de scratchpad, texto extraído con fetch_evidence.extract_text, comparación normalizada",
+  "queued_evidence_items_checked": 38,
+  "queued_items_present_after_normalization": 37,
+  "queued_items_manual": [
+   {
+    "id": "weather_volcano.ash_roofs",
+    "url": "http://repositorio.gestiondelriesgo.gov.co/bitstream/handle/20.500.11762/19985/Comunidades",
+    "quote_head": "Retire la ceniza de los techos, sin utilizar\nagua.",
+    "present_in_fresh_after_markup_normalization": false,
+    "observed": "la frase UNGRD está en la descarga fresca partida entre dos líneas de una columna del PDF («…sin utilizar» / «agua.»); confirmada en sustancia"
+   }
+  ],
+  "warns_outside_queue_not_reviewed": 0,
+  "notes": [
+   "ash_roofs: la cita UNGRD «Retire la ceniza de los techos, sin utilizar agua.» está en la descarga fresca partida entre dos líneas de una columna del PDF («…sin utilizar» / «agua.»). Confirmada en sustancia.",
+   "ash_water: la primera ejecución del refetch dio timeout en el PDF del SGC (curl 28). Reintento propio: descarga correcta; las citas SGC («déjela reposar…», «sabor desagradable…») y UNGRD («Evite consumir agua…», «tape los depósitos») están presentes; la UNGRD va partida en columnas, confirmada.",
+   "old_alert_numbers: UNGRD nivel II «Erupción probable en término de días o semanas.» presente en la descarga nueva (línea 68)."
+  ]
+ }
+}

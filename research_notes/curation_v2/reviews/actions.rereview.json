@@ -1,0 +1,111 @@
+{
+ "section": "actions",
+ "reviewer": "agente re-revisor (fresh) / claude-haiku-5-5",
+ "ops": [
+  {
+   "id": "actions.register_arrival_today",
+   "op": "update",
+   "verdict": "approve",
+   "entailment": "full",
+   "label_change": "n/a",
+   "examples": "issues",
+   "temporal": "ok",
+   "refetch": "n/a",
+   "reason": "Cambio de respuesta correcto: «Los horarios dependen de los puntos de registro e ingreso del parque» coincide literalmente con la cita de la ficha. El registro local está en código (useAssistant.ts → recordEffect → history.ts). El ejemplo con cláusula de contraste se retiró entero en vez de recortarse, como pedía la ronda 1. Se acepta: no queda cláusula de contraste y no cambia el enrutamiento; se pierde un ejemplo natural.",
+   "required_change": "Ninguno. Nota: un ejemplo retirado en vez de recortado; aceptado."
+  },
+  {
+   "id": "actions.register_planned_visit",
+   "op": "update",
+   "verdict": "approve",
+   "entailment": "full",
+   "label_change": "n/a",
+   "examples": "issues",
+   "temporal": "ok",
+   "refetch": "n/a",
+   "reason": "Las tres correcciones de la ronda 1 están hechas: (1) «Los horarios dependen de los puntos de registro e ingreso del parque» (cita literal); (2) pico y placa fechado a la ficha del 22-nov-2026 con la Resolución 1815 (cita literal: «aplica para fines de semana y puentes festivos»); (3) el ejemplo de contraste se retiró entero (aceptado, igual que en register_arrival_today). Las reglas por tramo (Brisas-Valle, Kumanday, demás sectores) tienen cita literal. El flag «22» es la fecha de consulta, no una cifra de la ficha.",
+   "required_change": "Ninguno en el op. El CSV de auditoría de esta fila queda parcial (ver audit_rows)."
+  },
+  {
+   "id": "actions.report_emergency_general",
+   "op": "update",
+   "verdict": "approve",
+   "entailment": "full",
+   "label_change": "n/a",
+   "examples": "issues",
+   "temporal": "ok",
+   "refetch": "n/a",
+   "reason": "El 123 como línea única, gratuita y de 24 h está citado literalmente de la nota de la Policía del 12-mar-2023, y la fecha va en la respuesta. «La app no avisa a rescate» es un límite de la app. La etiqueta «preparar el reporte» evita sugerir transmisión. El ejemplo con «no me mandes ayuda» se retiró entero: aceptado.",
+   "required_change": "Ninguno."
+  },
+  {
+   "id": "actions.report_fire",
+   "op": "update",
+   "verdict": "approve",
+   "entailment": "full",
+   "label_change": "n/a",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "n/a",
+   "reason": "Restaurados «veo llamas en la montaña» (ejemplo) y «llamar al 119 o al 123 por fuego en el páramo» (hard negative), tal como pidió la ronda 1. El 123 y la fecha están citados. Se retiró el hard negative «hay una emergencia» sin petición de la revisión: podría dejar que una emergencia genérica caiga en incendio. La respuesta es la misma (123), así que el riesgo es bajo.",
+   "required_change": "Ninguno. Recomendación no bloqueante: reconsiderar «hay una emergencia» como hard negative si el límite de 4 lo permite."
+  },
+  {
+   "id": "actions.report_lost_person",
+   "op": "update",
+   "verdict": "approve",
+   "entailment": "full",
+   "label_change": "n/a",
+   "examples": "issues",
+   "temporal": "ok",
+   "refetch": "n/a",
+   "reason": "123 y fecha citados; «La app no avisa a rescate» coincide con actions.cross.json. Se quitó «no se me perdio un objeto» del ejemplo, pero el ejemplo entero se retiró (aceptado, mismo criterio que arriba).",
+   "required_change": "Ninguno."
+  },
+  {
+   "id": "actions.report_offline_emergency",
+   "op": "update",
+   "verdict": "approve",
+   "entailment": "full",
+   "label_change": "n/a",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "n/a",
+   "reason": "Restaurado «estoy sin señal y hay gente tirada en la montaña» tal como pidió la ronda 1. Guía registrado con radios está en cita de la ficha; el 123 en la nota de la Policía con fecha. No promete despacho.",
+   "required_change": "Ninguno."
+  }
+ ],
+ "audit_rows": [
+  {
+   "id": "actions.register_planned_visit",
+   "claimed": "primary_ok",
+   "support": "partial",
+   "excerpt_changed": true,
+   "note": "El excerpt actual es la frase de Kumanday. Brisas-Valle, demás sectores y pico y placa no están en ese excerpt (sí en otras citas de la misma ficha que usa el op). La fila no cubre la respuesta completa."
+  },
+  {
+   "id": "actions.register_arrival_today",
+   "claimed": "primary_ok",
+   "support": "full",
+   "excerpt_changed": false,
+   "note": "El excerpt es la frase de horarios que depende de los puntos de registro. La frase de registro local es comportamiento de la app (useAssistant.ts → recordEffect → history.ts), no de la ficha."
+  },
+  {
+   "id": "actions.report_offline_emergency",
+   "claimed": "primary_ok",
+   "support": "partial",
+   "excerpt_changed": true,
+   "note": "El excerpt es la ficha (guía registrado con radios). El paso «marca el 123» no está en ese excerpt; está en la nota de la Policía de otra fila."
+  }
+ ],
+ "summary": {
+  "approve": 6,
+  "revise": 0,
+  "reject": 0,
+  "audit_support": {
+   "full": 1,
+   "partial": 2,
+   "none": 0
+  }
+ }
+}

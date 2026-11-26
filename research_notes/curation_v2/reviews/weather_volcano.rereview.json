@@ -1,0 +1,213 @@
+{
+ "section": "weather_volcano",
+ "reviewer": "agente re-revisor (fresh) / claude-haiku-5-5",
+ "ops": [
+  {
+   "id": "weather_volcano.alert_green_meaning",
+   "op": "update",
+   "verdict": "revise",
+   "entailment": "partial",
+   "label_change": "n/a",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "ok",
+   "reason": "Bien: se añadió la cita de gases, olores y fuentes termales del bloque Verde; la UNGRD «No se acerque al volcán, ni a ríos que nacen en él» ya está citada; «actividad muy baja» y «pequeños sismos» están literales. Falta cita para «volcán activo en reposo», que es la definición del bloque. En el texto descargado aparece como encabezado (línea 115 de la descarga nueva), pero la cadena no es literal en sgc-estados-alerta.txt del repo (no se encontró).",
+   "required_change": "Citar en el op una frase que sí esté literal en sgc-estados-alerta.txt para la definición del bloque Verde, o quitar «volcán activo en reposo» de la respuesta."
+  },
+  {
+   "id": "weather_volcano.alert_orange_meaning",
+   "op": "update",
+   "verdict": "approve",
+   "entailment": "full",
+   "label_change": "justified",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "ok",
+   "reason": "Etiqueta justificada: confused_with alert_yellow_meaning:3 y alert_red_meaning:2. Las citas de «aumenta la probabilidad de una o varias erupciones mayores», ceniza frecuente, olores fuertes y lahares pequeños están literales. «Ya no existe categoría de días, semanas u horas» con cita. Sin estado de hoy.",
+   "required_change": "Ninguno."
+  },
+  {
+   "id": "weather_volcano.alert_red_meaning",
+   "op": "update",
+   "verdict": "approve",
+   "entailment": "full",
+   "label_change": "justified",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "ok",
+   "reason": "Etiqueta justificada: confused_with alert_yellow_meaning:5. Citas «Realizar evacuación obligatoria… acorde con el mapa de amenaza», «Alerta Roja Volcán en erupción» y «Erupción mayor (considerable) en curso». La respuesta dice que esta ficha no determina si hoy está en rojo.",
+   "required_change": "Ninguno."
+  },
+  {
+   "id": "weather_volcano.alert_yellow_meaning",
+   "op": "update",
+   "verdict": "revise",
+   "entailment": "full",
+   "label_change": "justified",
+   "examples": "issues",
+   "temporal": "ok",
+   "refetch": "ok",
+   "reason": "Las citas de definición del bloque Amarilla, desgasificación, sismos sentidos, emisiones de ceniza y restricción de la parte alta están literales. Etiqueta documentada en labels.json. Pero se retiró el ejemplo «q significa la alerta amarilla», que es una consulta corta real. La regla de revisión no permite quitar consultas cortas reales, y el motivo dado («casi duplicado») no basta.",
+   "required_change": "Restaurar «q significa la alerta amarilla» en examples."
+  },
+  {
+   "id": "weather_volcano.ash_roofs",
+   "op": "update",
+   "verdict": "revise",
+   "entailment": "partial",
+   "label_change": "n/a",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "ok",
+   "reason": "Crítico. La resolución es consistente y no contradice otras entradas: ash_actions y ash_asthma no piden limpiar techos, y el conflicto UNGRD/SGC queda como una sola orden. Citas: «Retire la ceniza de los techos, sin utilizar agua» (UNGRD) y «no se humedezcan demasiado… habría peligro de que colapsen los techos» (SGC) están literales y se confirman. Pero «no te subas» no tiene cita en el op: la guía SGC solo dice «extremar precauciones en escaleras y techos» y «tome precaución… al subirse», y esa frase no está citada. «Avisa al personal del parque» es una instrucción operativa sin cita; se acepta como tal. Warn de refetch: la frase UNGRD está partida en dos líneas de una columna del PDF; confirmada en la descarga nueva (línea 25–26).",
+   "required_change": "Añadir cita literal de sgc-guia-ceniza.txt: «Deben extremarse las precauciones en escaleras y techos» y «Tome precaución con respecto al sobrepeso al subirse a una superficie de por si sobrecargada por las cenizas». No cambiar la orden única."
+  },
+  {
+   "id": "weather_volcano.ash_water",
+   "op": "update",
+   "verdict": "approve",
+   "entailment": "full",
+   "label_change": "n/a",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "ok",
+   "reason": "Se quitó «no un veneno automático». La cita UNGRD está completa («Evite consumir agua de ríos o quebradas de montaña o cercanos al volcán, puede estar contaminada») y «tape los depósitos» también. SGC: «dejarla reposar y usar el agua limpia» y «sabor desagradable, más que riesgo a producir daños a la salud» literales. Primera descarga de refetch: timeout en el PDF del SGC (curl 28). Reintento: ok; ambas citas presentes en la descarga nueva.",
+   "required_change": "Ninguno."
+  },
+  {
+   "id": "weather_volcano.bulletin_kinds",
+   "op": "update",
+   "verdict": "revise",
+   "entailment": "partial",
+   "label_change": "n/a",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "ok",
+   "reason": "Bien: «Boletines mensuales» citado (sgc-ruiz-boletines), ventana de los últimos 20 semanales citada, boletín 10–16-nov-2026 citado y fechado. Pero (1) «Si hay un extraordinario, ese manda sobre el semanal anterior» (variante) no tiene fuente: la página solo lista los extraordinarios y no dice que supersedan a los semanales. (2) «La del Machín también separa semanales» no tiene cita de semanales de Machín: la cita del op es solo «Boletines Extraordinarios». En la descarga nueva sí aparece «Boletines Semanales» y «Boletín semanal… Cerro Machín» (sgc-machin-boletines).",
+   "required_change": "1) Quitar «Si hay un extraordinario, ese manda sobre el semanal anterior» de la variante, o citar una fuente que lo diga. 2) Añadir cita literal de sgc-machin-boletines.txt: «En esta página puede consultar los últimos 20 de los Boletines semanales emitidos para el Volcán Cerro Machín»."
+  },
+  {
+   "id": "weather_volcano.current_alert",
+   "op": "update",
+   "verdict": "approve",
+   "entailment": "n/a",
+   "label_change": "justified",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "n/a",
+   "reason": "Etiqueta «dónde ver la alerta actual del Ruiz» tomada de labels.json. Los dos ejemplos «el Observatorio de Manizales publica informes» y «cómo saber qué reportó el observatorio» se restauraron aquí, y se retiraron de ovsm_role. «toca revisar SGC u Observatorio» sale de esta entrada y queda en ovsm_role, donde enruta. La respuesta no cambió y no fija la alerta de hoy. Sin cita propia para «sigue también a Parques y a la UNGRD» (consejo, no dato).",
+   "required_change": "Ninguno."
+  },
+  {
+   "id": "weather_volcano.old_alert_numbers",
+   "op": "update",
+   "verdict": "revise",
+   "entailment": "partial",
+   "label_change": "n/a",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "ok",
+   "reason": "Refetch confirmado: la UNGRD nivel II «Erupción probable en término de días o semanas» está en la descarga nueva (línea 68). «Tampoco se mantiene la escala numérica» y «A partir de septiembre 14 de 2023» tienen cita. Pero «ni estima la erupción en días o semanas» no tiene cita en el op: el SGC lo dice en sgc-transiciones («este no estima la probabilidad de una erupción en término de días o semanas», en la misma página de la primera evidencia).",
+   "required_change": "Añadir a evidence la cita literal de sgc-transiciones.txt: «este no estima la probabilidad de una erupción en término de días o semanas»."
+  },
+  {
+   "id": "weather_volcano.ovsm_role",
+   "op": "update",
+   "verdict": "approve",
+   "entailment": "n/a",
+   "label_change": "n/a",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "n/a",
+   "reason": "Se quitaron los dos ejemplos que la respuesta no cubría, y «toca revisar SGC u Observatorio» se conserva, como pidió la ronda 1. Respuesta sin cambios. «Desde 1986» y «no una nota de la Alcaldía» no tienen cita en este op (hallazgos previos, no introducidos aquí).",
+   "required_change": "Ninguno."
+  },
+  {
+   "id": "weather_volcano.volcanic_closures",
+   "op": "update",
+   "verdict": "approve",
+   "entailment": "full",
+   "label_change": "justified",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "ok",
+   "reason": "Etiqueta justificada: confused_with hours_status.volcanic_alert_closures:4. Res. 268 citada: ascenso a cumbre nevada, ciclomontañismo Brisas–Arenales–Valle de las Tumbas, «en alerta amarilla…», y «en cualquier momento se puede tomar la determinación de cierre y evacuación» (la cita ya llega hasta esa frase). Res. 259 con «seguir estrictamente las recomendaciones de los guardaparques». Fechado.",
+   "required_change": "Ninguno."
+  }
+ ],
+ "audit_rows": [
+  {
+   "id": "weather_volcano.snow_and_hail",
+   "claimed": "primary_ok",
+   "support": "partial",
+   "excerpt_changed": true,
+   "note": "El excerpt ahora nombra los cuatro volcanes cubiertos. La respuesta añade «nubosidad húmeda, frío y cambios de presión» y la fecha 10-oct-2025; las causas no están en el excerpt."
+  },
+  {
+   "id": "weather_volcano.alert_yellow_meaning",
+   "claimed": "primary_ok",
+   "support": "partial",
+   "excerpt_changed": true,
+   "note": "El excerpt es la definición del bloque Amarilla. La respuesta suma sismos, más gases, ceniza de poco alcance que el viento dispersa y restricción de la parte alta: no están en ese excerpt."
+  },
+  {
+   "id": "weather_volcano.alert_red_meaning",
+   "claimed": "primary_ok",
+   "support": "partial",
+   "excerpt_changed": true,
+   "note": "El excerpt «Erupción mayor (considerable) en curso» sostiene «volcán en erupción», pero no «evacuación obligatoria de las zonas que el mapa de amenaza marque»."
+  },
+  {
+   "id": "weather_volcano.volcanic_activity",
+   "claimed": "primary_ok",
+   "support": "full",
+   "excerpt_changed": true,
+   "note": "El excerpt cubre sismicidad (disminuyó), SO2 por el cráter Arenas, columna y anomalías térmicas, con fecha de la semana del informe."
+  },
+  {
+   "id": "weather_volcano.volcanic_gases",
+   "claimed": "primary_ok",
+   "support": "partial",
+   "excerpt_changed": true,
+   "note": "El excerpt sostiene la lista de gases. «Ese último irrita ojos, garganta y vías respiratorias» no está en ese excerpt."
+  },
+  {
+   "id": "weather_volcano.helada_meaning",
+   "claimed": "primary_ok",
+   "support": "full",
+   "excerpt_changed": true,
+   "note": "El excerpt da 0 °C o menos a 1,5–2 m, que es la definición de la respuesta. La palabra «caseta» de la variante está en la misma frase del glosario, fuera del excerpt; gloss menor."
+  },
+  {
+   "id": "weather_volcano.ash_water",
+   "claimed": "primary_ok",
+   "support": "partial",
+   "excerpt_changed": true,
+   "note": "El excerpt es «Evite consumir agua… puede estar contaminada». No cubre «tapa los depósitos» (UNGRD) ni «dejarla reposar» y «sabor desagradable» (SGC)."
+  },
+  {
+   "id": "weather_volcano.ash_roofs",
+   "claimed": "primary_ok",
+   "support": "partial",
+   "excerpt_changed": true,
+   "note": "El excerpt es «habría peligro de que colapsen los techos» (SGC). No cubre «sin utilizar agua» (UNGRD) ni «no te subas»."
+  },
+  {
+   "id": "weather_volcano.lahar_visitor",
+   "claimed": "primary_ok",
+   "support": "partial",
+   "excerpt_changed": true,
+   "note": "El excerpt cubre la definición (mezclas de agua con material volcánico) y el ruido y la velocidad. No cubre «arrasa lo que encuentra» (UNGRD, otra línea del folleto) ni «sube a un alto lejos del río»."
+  }
+ ],
+ "summary": {
+  "approve": 6,
+  "revise": 5,
+  "reject": 0,
+  "audit_support": {
+   "full": 2,
+   "partial": 7,
+   "none": 0
+  }
+ }
+}

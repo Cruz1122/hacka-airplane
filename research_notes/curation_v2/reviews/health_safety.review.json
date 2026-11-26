@@ -1,0 +1,1197 @@
+{
+ "section": "health_safety",
+ "reviewer": "agent 25 / claude-haiku-5-5",
+ "ops": [
+  {
+   "id": "health_safety.high_altitude_health_risk",
+   "op": "update",
+   "verdict": "revise",
+   "entailment": "partial",
+   "label_change": "justified",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "ok",
+   "reason": "El CDC (frío, baja humedad, UV, presión) y la Resolución 207 (informar condición previa antes de salir) están citados. «Pide llegar con una salud adecuada para la alta montaña» no tiene cita: la ficha dice que evite ingresar con las condiciones de la lista y que la salud puede verse afectada. La etiqueta nueva corrige confusión documentada (chronic_condition 3).",
+   "required_change": "Citar la frase de la ficha «Evita ingresar al área protegida si presentas alguna de las condiciones de salud indicadas abajo» o quitar «pide llegar con una salud adecuada»."
+  },
+  {
+   "id": "health_safety.altitude_sickness_symptoms",
+   "op": "update",
+   "verdict": "approve",
+   "entailment": "n/a",
+   "label_change": "justified",
+   "examples": "ok",
+   "temporal": "n/a",
+   "refetch": "n/a",
+   "reason": "Solo cambia la etiqueta (confusión documentada con children 2 y severe 2). Respuesta sin cambio.",
+   "required_change": "Ninguno."
+  },
+  {
+   "id": "health_safety.severe_altitude_warning_signs",
+   "op": "update",
+   "verdict": "revise",
+   "entailment": "full",
+   "label_change": "justified",
+   "examples": "issues",
+   "temporal": "ok",
+   "refetch": "ok",
+   "reason": "Señales (confusión, ataxia, somnolencia, disnea en reposo) citadas del CDC; descenso citado. La etiqueta corrige confusión documentada. Ejemplo nuevo «hay confusion y falta de aire en reposo, no es solo el dolor de cabeza» lleva cláusula de contraste escrita para el clasificador.",
+   "required_change": "Quitar «, no es solo el dolor de cabeza» del ejemplo."
+  },
+  {
+   "id": "health_safety.no_ascend_while_symptomatic",
+   "op": "update",
+   "verdict": "approve",
+   "entailment": "full",
+   "label_change": "justified",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "ok",
+   "reason": "«No subir ni dormir más alto con síntomas» (CDC, cita literal). «Puedes quedarte si no hay HACE ni HAPE» y «si empeoras, el descenso es obligatorio» están citados. Etiqueta corrige confusión documentada (descent 3).",
+   "required_change": "Ninguno."
+  },
+  {
+   "id": "health_safety.descent_for_worsening_altitude",
+   "op": "update",
+   "verdict": "approve",
+   "entailment": "n/a",
+   "label_change": "justified",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "n/a",
+   "reason": "Respuesta sin cambio. Etiqueta corrige confusión documentada con no_ascend (4).",
+   "required_change": "Ninguno."
+  },
+  {
+   "id": "health_safety.pretrip_medical_advice",
+   "op": "update",
+   "verdict": "revise",
+   "entailment": "n/a",
+   "label_change": "stylistic",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "n/a",
+   "reason": "«Consulta médica antes del viaje» → «antes de la altura» es reformulación sin separar temas nuevos. Las confusiones documentadas (high_altitude 2, chronic 1) no cambian con ese cambio de palabra.",
+   "required_change": "Mantener la etiqueta anterior «consulta médica antes del viaje»."
+  },
+  {
+   "id": "health_safety.children_altitude_signs",
+   "op": "update",
+   "verdict": "approve",
+   "entailment": "n/a",
+   "label_change": "justified",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "n/a",
+   "reason": "Respuesta sin cambio. La etiqueta pasa a un síntoma concreto (irritabilidad) y separa de altitude_sickness_symptoms (2) y pregnancy (1).",
+   "required_change": "Ninguno."
+  },
+  {
+   "id": "health_safety.tell_guide_about_health_change",
+   "op": "update",
+   "verdict": "revise",
+   "entailment": "full",
+   "label_change": "stylistic",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "ok",
+   "reason": "Resolución 207: informar al guía fatiga/dolor/malestar y evaluar suspensión; informar antes lesiones o condiciones. Citado. Cambio de etiqueta solo de forma («en ruta» frente a «por malestar»); la confusión documentada es débil (conversation.ai_identity 1; weather 1).",
+   "required_change": "Mantener la etiqueta anterior."
+  },
+  {
+   "id": "health_safety.hypothermia_warning_signs",
+   "op": "update",
+   "verdict": "revise",
+   "entailment": "n/a",
+   "label_change": "stylistic",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "n/a",
+   "reason": "Respuesta sin cambio. «Primeras señales de la hipotermia» solo añade la palabra «primeras»; no separa un tema nuevo de severe (2), que ya está separado por su propia etiqueta.",
+   "required_change": "Mantener la etiqueta anterior «señales de hipotermia»."
+  },
+  {
+   "id": "health_safety.frostbite_warning_signs",
+   "op": "update",
+   "verdict": "approve",
+   "entailment": "n/a",
+   "label_change": "justified",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "n/a",
+   "reason": "Respuesta sin cambio. La etiqueta pasa a describir la forma de la piel congelada, separando de frostbite_first_aid (2) y chilblains (1).",
+   "required_change": "Ninguno."
+  },
+  {
+   "id": "health_safety.sun_uv_protection",
+   "op": "update",
+   "verdict": "approve",
+   "entailment": "n/a",
+   "label_change": "justified",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "n/a",
+   "reason": "Respuesta sin cambio. La etiqueta pasa a objetos concretos (bloqueador, gafas) y separa de sun_eye_pain (2) y open_fires (2).",
+   "required_change": "Ninguno."
+  },
+  {
+   "id": "health_safety.dehydration_warning_signs",
+   "op": "update",
+   "verdict": "revise",
+   "entailment": "n/a",
+   "label_change": "stylistic",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "n/a",
+   "reason": "«Señales de deshidratación» → «señales de que te falta agua» es sinónimo sin cambio de tema. Confusión documentada (dehydration_response 3) no se resuelve con reformulación.",
+   "required_change": "Mantener la etiqueta anterior."
+  },
+  {
+   "id": "health_safety.national_emergency_number_123",
+   "op": "update",
+   "verdict": "approve",
+   "entailment": "full",
+   "label_change": "n/a",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "ok",
+   "reason": "El 123 como línea única, gratuita y 24 h está en la nota de la Policía (Meta, 12 mar 2023), fechada en la respuesta. La Resolución 207 (guía con radio y botiquín) está citada. La página de la Policía dio warn en refetch: la frase está en la descarga nueva (verificado en substancia). «Informar tu ubicación» es instrucción operativa sin cita; acepto por ser práctica estándar de llamada. La app no llama ni rastrea.",
+   "required_change": "Ninguno."
+  },
+  {
+   "id": "health_safety.acclimatization_plan",
+   "op": "update",
+   "verdict": "approve",
+   "entailment": "n/a",
+   "label_change": "justified",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "n/a",
+   "reason": "Respuesta sin cambio; la etiqueta pasa a paradas y sueño más bajo (separa de altitude_carbohydrates 2).",
+   "required_change": "Ninguno."
+  },
+  {
+   "id": "health_safety.chronic_condition_altitude",
+   "op": "update",
+   "verdict": "approve",
+   "entailment": "full",
+   "label_change": "justified",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "ok",
+   "reason": "Res. 207: ingreso restringido a personas con problemas cardiovasculares/pulmonares (cita literal, fechada). CDC: no viajar a gran altura con hipertensión pulmonar severa (cita; warn de refetch verificado en substancia). Anemia falciforme retirada de la atribución a la Res. 207, correcto. Etiqueta corrige confusión documentada.",
+   "required_change": "Ninguno."
+  },
+  {
+   "id": "health_safety.pregnancy_altitude",
+   "op": "update",
+   "verdict": "approve",
+   "entailment": "full",
+   "label_change": "justified",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "ok",
+   "reason": "Res. 207, texto completo leído: «Está restringido el ingreso de mujeres embarazadas» (firme, no condicional). CDC: no dormir sobre 3.050 m y riesgo de complicación en remoto (citas). Etiqueta corrige confusión documentada.",
+   "required_change": "Ninguno."
+  },
+  {
+   "id": "health_safety.older_adults_altitude_health",
+   "op": "update",
+   "verdict": "approve",
+   "entailment": "full",
+   "label_change": "justified",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "ok",
+   "reason": "Ficha: 69 años de edad máxima para todo el parque (cita). Res. 207: 6 a 70 años; mayores de 70 en la lista de restricciones (texto completo leído). MedlinePlus: menos sensación de sed y riesgo con enfermedad crónica (citas). Fechado y sin cupo de hoy. Confirma la corrección del conflicto de contradictions.json.",
+   "required_change": "Ninguno."
+  },
+  {
+   "id": "health_safety.dehydration_response",
+   "op": "update",
+   "verdict": "approve",
+   "entailment": "n/a",
+   "label_change": "justified",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "n/a",
+   "reason": "Respuesta sin cambio. La etiqueta pasa a qué tomar (contenido distinto de warning signs, confusión documentada 3).",
+   "required_change": "Ninguno."
+  },
+  {
+   "id": "health_safety.frostbite_first_aid",
+   "op": "update",
+   "verdict": "approve",
+   "entailment": "n/a",
+   "label_change": "justified",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "n/a",
+   "reason": "Respuesta sin cambio. La etiqueta fija el método (agua tibia) y separa de no_direct_dry_heat (3) y warning_signs (3); loo 0.0.",
+   "required_change": "Ninguno."
+  },
+  {
+   "id": "health_safety.lightning_storm_safety",
+   "op": "update",
+   "verdict": "revise",
+   "entailment": "partial",
+   "label_change": "justified",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "ok",
+   "reason": "CDC: zona de alto riesgo (árbol aislado, campo abierto) y moverse a lugar más seguro, citado. «Objetos metálicos» aparece en la respuesta, pero no en la cita del op. El CDC lightning sí lo dice (verificado en la descarga: «metal» aparece 13 veces). La etiqueta corrige confusión documentada.",
+   "required_change": "Añadir la cita del CDC sobre objetos metálicos (la misma página cdc_lightning) o quitar «y de objetos metálicos»."
+  },
+  {
+   "id": "health_safety.lost_person_protocol",
+   "op": "update",
+   "verdict": "approve",
+   "entailment": "full",
+   "label_change": "justified",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "n/a",
+   "reason": "Res. 207: permanecer unidos, no salirse de senderos, dar aviso inmediato a autoridades (citas). La respuesta dice que no promete rescate. Etiqueta separa el caso de alguien que se extravía del propio (confusión documentada y cross-finding con actions.report_lost_person).",
+   "required_change": "Ninguno."
+  },
+  {
+   "id": "health_safety.bleeding_control",
+   "op": "update",
+   "verdict": "approve",
+   "entailment": "full",
+   "label_change": "justified",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "n/a",
+   "reason": "MedlinePlus: presión directa sobre herida externa con apósito o tela limpia (cita). La etiqueta describe el método y separa de nosebleed (2) y severe hypothermia (1).",
+   "required_change": "Ninguno."
+  },
+  {
+   "id": "health_safety.unresponsive_cpr",
+   "op": "update",
+   "verdict": "approve",
+   "entailment": "full",
+   "label_change": "justified",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "ok",
+   "reason": "MedlinePlus: tocar hombro, mirar respiración normal, «gasping no es respiración normal», compresiones en el centro del pecho, fuerte y rápido (citas; warns verificados en substancia). Etiqueta separa de fainting (4).",
+   "required_change": "Ninguno."
+  },
+  {
+   "id": "health_safety.sprain_first_aid",
+   "op": "update",
+   "verdict": "approve",
+   "entailment": "n/a",
+   "label_change": "justified",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "n/a",
+   "reason": "Respuesta sin cambio. La etiqueta pasa a la lesión concreta (tobillo, frío, no apoyar) y separa de actions.report_injury (2).",
+   "required_change": "Ninguno."
+  },
+  {
+   "id": "health_safety.nosebleed_altitude",
+   "op": "update",
+   "verdict": "approve",
+   "entailment": "n/a",
+   "label_change": "justified",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "n/a",
+   "reason": "Respuesta sin cambio. La etiqueta añade la causa (aire seco), separa de altitude_sickness (1) y acclimatization (1).",
+   "required_change": "Ninguno."
+  },
+  {
+   "id": "health_safety.fainting_response",
+   "op": "update",
+   "verdict": "revise",
+   "entailment": "n/a",
+   "label_change": "stylistic",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "n/a",
+   "reason": "«Qué hacer ante un desmayo» → «qué hacer si una persona se desmaya» es reformulación sin cambio de tema. La confusión (unresponsive 4) no se resuelve así.",
+   "required_change": "Mantener la etiqueta anterior."
+  },
+  {
+   "id": "health_safety.no_published_wildlife_protocol",
+   "op": "update",
+   "verdict": "approve",
+   "entailment": "full",
+   "label_change": "justified",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "n/a",
+   "reason": "La respuesta acota el «no hay protocolo» a la Resolución 207. Verificado en el texto de 207: 0 menciones de oso, puma o danta y la orden de no coger, alimentar ni desplazar fauna. La etiqueta corrige confusión documentada (fauna 2+2).",
+   "required_change": "Ninguno."
+  },
+  {
+   "id": "health_safety.ams_how_long_it_lasts",
+   "op": "update",
+   "verdict": "revise",
+   "entailment": "full",
+   "label_change": "stylistic",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "ok",
+   "reason": "CDC: inicio 2–12 h, resolución 12–48 h si no se sube, no atribuir síntomas tras 3 días (citas; warns verificados en substancia). La respuesta mejora mucho. Pero «cuánto tarda en ceder el soroche» solo sustituye sinónimos (dura→tarda en ceder; mal de altura→soroche).",
+   "required_change": "Mantener la etiqueta anterior «cuánto dura el mal de altura»."
+  },
+  {
+   "id": "health_safety.hypothermia_body_temperature",
+   "op": "update",
+   "verdict": "revise",
+   "entailment": "partial",
+   "label_change": "justified",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "ok",
+   "reason": "35 °C de MedlinePlus está citado. Los cortes de 32 °C y 28 °C vienen solo de la guía del Hospital Civil E.S.E. (URL del hospital; el nombre del archivo dice minsalud). Es fuente secundaria y no hay primaria Minsalud fetcheada. No hay primaria para los cortes. La etiqueta corrige confusión documentada (severe 1, warning 1).",
+   "required_change": "Quitar los cortes de 32 °C y 28 °C de la respuesta y de la variante, o citar la guía primaria de Minsalud (fetch nuevo) y atribuirla correctamente."
+  },
+  {
+   "id": "health_safety.glucometer_at_high_altitude",
+   "op": "update",
+   "verdict": "revise",
+   "entailment": "n/a",
+   "label_change": "stylistic",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "n/a",
+   "reason": "«Glucómetro poco fiable en altura» → «medidor de glucosa poco fiable arriba» es sinónimo. Confusión documentada (diabetes 4) no se resuelve con reformulación.",
+   "required_change": "Mantener la etiqueta anterior."
+  },
+  {
+   "id": "health_safety.hape_first_72_hours",
+   "op": "update",
+   "verdict": "approve",
+   "entailment": "full",
+   "label_change": "justified",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "ok",
+   "reason": "CDC: HAPE puede ser más rápido de fatal que HACE; progresión típica 1–2 días; síntomas iniciales (congestión, tos, disnea al esfuerzo) citados. Se retira la ventana de 72 h de la guía secundaria. Etiqueta corrige confusión documentada (recent_heart 1, hape 1).",
+   "required_change": "Ninguno."
+  },
+  {
+   "id": "health_safety.hace_may_appear_days_later",
+   "op": "update",
+   "verdict": "approve",
+   "entailment": "full",
+   "label_change": "justified",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "ok",
+   "reason": "CDC: en remoto iniciar descenso ante sospecha de HACE; coma en 12–24 h desde la ataxia sin tratamiento (citas). Se retiran los 5–7 días de la versión anterior, que no tenían cita primaria. Etiqueta corrige confusión documentada.",
+   "required_change": "Ninguno."
+  },
+  {
+   "id": "health_safety.red_cross_emergency_line_132",
+   "op": "update",
+   "verdict": "revise",
+   "entailment": "full",
+   "label_change": "stylistic",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "ok",
+   "reason": "La nota de MinAmbiente lista Cruz Roja 132 y Policía 123 (cita; warn verificado en substancia). La respuesta fecha la nota (10 ene 2024) y no promete cobertura. El cambio de etiqueta solo es de forma («línea 132 de la Cruz Roja» → «Cruz Roja: el número 132»).",
+   "required_change": "Mantener la etiqueta anterior."
+  },
+  {
+   "id": "health_safety.civil_defense_line_144",
+   "op": "update",
+   "verdict": "revise",
+   "entailment": "full",
+   "label_change": "stylistic",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "ok",
+   "reason": "Página de Defensa Civil («Línea de emergencia: 144») y nota MinAmbiente citadas. Se quita la promesa de articular rescate. El cambio de etiqueta es solo de forma.",
+   "required_change": "Mantener la etiqueta anterior."
+  },
+  {
+   "id": "health_safety.firefighters_line_119",
+   "op": "update",
+   "verdict": "revise",
+   "entailment": "full",
+   "label_change": "stylistic",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "ok",
+   "reason": "«Bomberos: 119» en la nota MinAmbiente (10 ene 2024) citado. La respuesta no promete cobertura. Cambio de etiqueta solo de forma.",
+   "required_change": "Mantener la etiqueta anterior."
+  },
+  {
+   "id": "health_safety.evacuation_and_rescue_reality",
+   "op": "update",
+   "verdict": "approve",
+   "entailment": "full",
+   "label_change": "justified",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "ok",
+   "reason": "MedlinePlus: en lugares remotos la evacuación puede no ser posible o demorar (cita). Res. 207: seguro de accidentes y rescate, arrieros para emergencias (citas; cita de arrieros truncada en el texto del op, la frase completa existe). La respuesta no promete rescate. La etiqueta corrige confusión documentada (booking 2, actions 2).",
+   "required_change": "Ninguno."
+  },
+  {
+   "id": "health_safety.altitude_classification_levels",
+   "op": "update",
+   "verdict": "revise",
+   "entailment": "partial",
+   "label_change": "justified",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "ok",
+   "reason": "CDC (25 % en Colorado; >3.400 m riesgo alto con ascenso rápido) citado. «Brisas y El Cisne ~4.100 m» viene de la ficha (pnn_nevados.txt): Brisas está citado en el op; El Cisne («centro de visitantes El Cisne, ubicado a 4100 metros») no. La etiqueta propuesta no es la de labels.json.",
+   "required_change": "1) Citar también la frase de El Cisne a 4100 m. 2) Usar la etiqueta de labels.json «niveles de altitud alta y muy alta»."
+  },
+  {
+   "id": "health_safety.high_altitude_cerebral_edema_hace",
+   "op": "update",
+   "verdict": "revise",
+   "entailment": "full",
+   "label_change": "stylistic",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "ok",
+   "reason": "CDC: confusión, somnolencia, ataxia «similar a intoxicación alcohólica», HACE raro sobre todo bajo 4.300 m, descenso en remoto (citas). La etiqueta nueva «en la cumbre» restringe la pregunta a la cima; el HACE puede darse a cualquier altura sobre 3.500 m, como dice la respuesta.",
+   "required_change": "Cambiar «en la cumbre» por «en altura», o mantener la etiqueta anterior."
+  },
+  {
+   "id": "health_safety.high_altitude_pulmonary_edema_hape",
+   "op": "update",
+   "verdict": "approve",
+   "entailment": "full",
+   "label_change": "justified",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "ok",
+   "reason": "CDC: congestión, tos, disnea al esfuerzo; progresión a disnea en reposo (citas). Se retira la cianosis central de la guía secundaria. Etiqueta corrige confusión documentada (HACE 3, severe 3).",
+   "required_change": "Ninguno."
+  },
+  {
+   "id": "health_safety.alcohol_and_altitude_hypothermia",
+   "op": "update",
+   "verdict": "approve",
+   "entailment": "full",
+   "label_change": "justified",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "ok",
+   "reason": "CDC: evitar alcohol 48 h en altura; no usar depresores para dormir (citas). NIOSH: no dar alcohol a la víctima (cita). Res. 207: prohibido ingresar o consumir bebidas alcohólicas en el área protegida (cita). Etiqueta incluye la regla del parque.",
+   "required_change": "Ninguno."
+  },
+  {
+   "id": "health_safety.diabetes_at_high_altitude",
+   "op": "update",
+   "verdict": "revise",
+   "entailment": "n/a",
+   "label_change": "stylistic",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "n/a",
+   "reason": "«Diabetes y visita a la alta montaña» → «subir a la montaña con diabetes» es reformulación sin tema nuevo.",
+   "required_change": "Mantener la etiqueta anterior."
+  },
+  {
+   "id": "health_safety.anemia_and_sickle_cell_altitude",
+   "op": "update",
+   "verdict": "revise",
+   "entailment": "partial",
+   "label_change": "justified",
+   "examples": "issues",
+   "temporal": "ok",
+   "refetch": "n/a",
+   "reason": "La respuesta cambió poco: la etiqueta nueva menciona «anemia común», pero la respuesta no trata la anemia común como tema; solo la anemia y la falciforme. El ejemplo «anemia falciforme es distinto de anemia comun para la altura» pide una comparación que la respuesta no da. «La anemia... te hace más propenso a sufrir mal agudo de montaña» no tiene cita en este op (el op no trae lista de evidencia). Sí tiene cita la frase CDC sobre falciforme.",
+   "required_change": "1) Quitar «y anemia común» de la etiqueta, o añadir a la respuesta la frase sobre anemia común con su cita (MedlinePlus está en la evidencia de la sección). 2) Quitar o responder el ejemplo de comparación. 3) Citar o quitar la frase sobre más riesgo de MAM."
+  },
+  {
+   "id": "health_safety.recent_heart_attack_or_stroke_altitude",
+   "op": "update",
+   "verdict": "revise",
+   "entailment": "full",
+   "label_change": "justified",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "ok",
+   "reason": "Las citas del CDC (infarto/ACV <90 días; HP >60 mm Hg) y la Res. 207 están presentes. La respuesta ya no atribuye angina ni EPOC a la guía (bien). Pero la etiqueta quita «ACV» mientras la respuesta sigue hablando de ACV. Además, «contraindica» depende del encabezado de la tabla CDC, que el op no cita.",
+   "required_change": "Restaurar «ACV» en la etiqueta o quitarlo de la respuesta. Citar el encabezado de la tabla CDC que sostiene «contraindicación»."
+  },
+  {
+   "id": "health_safety.altitude_carbohydrates_and_exertion",
+   "op": "update",
+   "verdict": "revise",
+   "entailment": "n/a",
+   "label_change": "stylistic",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "n/a",
+   "reason": "«Alimentación y ritmo de esfuerzo físico en altura» → «ritmo suave y comida en altura» conserva el tema con palabras más cortas; no separa nada nuevo.",
+   "required_change": "Mantener la etiqueta anterior."
+  },
+  {
+   "id": "health_safety.altitude_temperature_drop_rate",
+   "op": "update",
+   "verdict": "revise",
+   "entailment": "partial",
+   "label_change": "stylistic",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "ok",
+   "reason": "El rango 0,5–0,6 °C/100 m viene de la guía secundaria del Hospital Civil (no el CDC). Hay primaria: IDEAM da 0,6 °C/100 m (weather_volcano.weather_by_elevation, ideam-frio-faq.txt). «Tormentas sobre 3.500 m cambian la presión» viene solo de la guía secundaria. La etiqueta cambiada (\"según la guía\") es solo de forma.",
+   "required_change": "Usar el IDEAM (0,6 °C/100 m) con su cita, quitar el rango de la guía secundaria y la frase sobre tormentas, y restaurar la etiqueta anterior."
+  },
+  {
+   "id": "health_safety.wind_and_wetness_heat_loss",
+   "op": "update",
+   "verdict": "revise",
+   "entailment": "partial",
+   "label_change": "stylistic",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "ok",
+   "reason": "Los factores ×10, ×14 y ×32 vienen solo de la guía secundaria del Hospital Civil E.S.E.; la respuesta lo atribuye bien, pero son cifras que un turista puede usar. Solo el CDC/NIOSH pide retirar la ropa mojada (cita). La etiqueta cambia la idea a «según la guía».",
+   "required_change": "Quitar las cifras ×10, ×14 y ×32 (sin primaria) y dejar la instrucción de quitar la ropa mojada con cita NIOSH. Restaurar la etiqueta anterior."
+  },
+  {
+   "id": "health_safety.severe_hypothermia_signs_and_care",
+   "op": "update",
+   "verdict": "revise",
+   "entailment": "partial",
+   "label_change": "justified",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "ok",
+   "reason": "MedlinePlus (cubrir, mover lo menos posible, sacar del frío) citado. El corte de «menos de 32 °C» viene de la guía secundaria del Hospital Civil y no tiene primaria. La respuesta lo atribuye, pero es cifra que decide un cuidado.",
+   "required_change": "Quitar el umbral de 32 °C de la respuesta y de la variante. Mantener la guía de MedlinePlus."
+  },
+  {
+   "id": "health_safety.frostbite_no_refreeze_or_walk",
+   "op": "update",
+   "verdict": "revise",
+   "entailment": "partial",
+   "label_change": "stylistic",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "ok",
+   "reason": "«Casi siempre muere» es de la guía secundaria del Hospital Civil; no hay primaria. Una afirmación tan fuerte no debe seguir sin primaria. «No caminar sobre pies congelados» sí está citado (NIOSH). La etiqueta cambia solo el orden de palabras.",
+   "required_change": "Quitar «casi siempre muere» o citar fuente primaria. Restaurar la etiqueta anterior."
+  },
+  {
+   "id": "health_safety.frostbite_no_direct_dry_heat",
+   "op": "update",
+   "verdict": "revise",
+   "entailment": "n/a",
+   "label_change": "stylistic",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "n/a",
+   "reason": "Respuesta sin cambio. «No uses calor directo» → «no uses fogata» restringe el tema al fuego, pero la respuesta sigue hablando de estufa, lámpara y almohadilla. La etiqueta queda más estrecha que la respuesta.",
+   "required_change": "Mantener la etiqueta anterior «no uses calor directo en congelación»."
+  },
+  {
+   "id": "health_safety.trench_foot_wet_cold_feet",
+   "op": "update",
+   "verdict": "approve",
+   "entailment": "n/a",
+   "label_change": "justified",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "n/a",
+   "reason": "Respuesta sin cambio. La etiqueta añade el dato de horas con calzado mojado, separa de wind_and_wetness (3) y hypothermia (1).",
+   "required_change": "Ninguno."
+  },
+  {
+   "id": "health_safety.sunburn_first_aid_mountain",
+   "op": "update",
+   "verdict": "revise",
+   "entailment": "n/a",
+   "label_change": "stylistic",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "n/a",
+   "reason": "«Cómo tratar una quemadura solar tras la caminata» → «cómo calmar una quemadura de sol» cambia palabras, no tema.",
+   "required_change": "Mantener la etiqueta anterior."
+  },
+  {
+   "id": "health_safety.sun_eye_pain_photophobia",
+   "op": "update",
+   "verdict": "revise",
+   "entailment": "n/a",
+   "label_change": "stylistic",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "n/a",
+   "reason": "Respuesta sin cambio. La etiqueta añade «o nieve» sin que la respuesta lo trate como tema propio (la respuesta sí menciona el reflejo en la nieve dentro de la explicación de UV). Cambio cosmético.",
+   "required_change": "Mantener la etiqueta anterior."
+  },
+  {
+   "id": "health_safety.thermal_burn_first_aid_camp",
+   "op": "update",
+   "verdict": "revise",
+   "entailment": "n/a",
+   "label_change": "stylistic",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "n/a",
+   "reason": "«Primeros auxilios por quemadura con estufa o líquido» → «quemadura de estufa o líquido caliente» reformula sin tema nuevo.",
+   "required_change": "Mantener la etiqueta anterior."
+  },
+  {
+   "id": "health_safety.lightning_wait_30_minutes_and_shelters",
+   "op": "update",
+   "verdict": "approve",
+   "entailment": "n/a",
+   "label_change": "justified",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "n/a",
+   "reason": "Respuesta sin cambio, y su contenido (edificación cerrada o vehículo de techo rígido, 30 min tras el último trueno) coincide con el CDC. La etiqueta corrige confusión documentada (lightning_caught 4, camping 1).",
+   "required_change": "Ninguno."
+  },
+  {
+   "id": "health_safety.lightning_caught_in_open_paramo",
+   "op": "update",
+   "verdict": "approve",
+   "entailment": "n/a",
+   "label_change": "justified",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "n/a",
+   "reason": "Respuesta sin cambio. Etiqueta propuesta coincide con labels.json («tormenta sorpresa sin refugio en páramo»), en la forma «tormenta de rayos sin un refugio». Corrige confusión documentada (lightning_storm 5).",
+   "required_change": "Ninguno."
+  },
+  {
+   "id": "health_safety.lightning_strike_victim_first_aid",
+   "op": "update",
+   "verdict": "revise",
+   "entailment": "partial",
+   "label_change": "justified",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "ok",
+   "reason": "Citas: es seguro tocar a quien recibió un rayo; sin pulso, compresiones (CDC). «Verifica que el lugar sea seguro» y «revisa si respira y tiene pulso» no tienen cita en el op. La razón del curador dice que el aislamiento del suelo no está en la página de rayos: está (la retirada es correcta, la razón es inexacta).",
+   "required_change": "Citar la frase CDC sobre seguridad del lugar y la revisión de pulso/respiración, o quitar esos pasos. Corregir la razón del op."
+  },
+  {
+   "id": "health_safety.suspected_fracture_first_aid",
+   "op": "update",
+   "verdict": "revise",
+   "entailment": "n/a",
+   "label_change": "stylistic",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "n/a",
+   "reason": "«Primeros auxilios ante sospecha de fractura» → «qué hacer ante una posible fractura» es reformulación sin tema nuevo.",
+   "required_change": "Mantener la etiqueta anterior."
+  },
+  {
+   "id": "health_safety.head_or_spine_injury_fall",
+   "op": "update",
+   "verdict": "approve",
+   "entailment": "full",
+   "label_change": "justified",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "ok",
+   "reason": "MedlinePlus: no quitar el casco si sospechas lesión grave; asumir lesión de columna; girar la cabeza, cuello y cuerpo en bloque; mantener la cabeza alineada (citas, verificadas en substancia). Se quita «pide rescate» de la versión anterior. Etiqueta corrige confusión documentada (suspected_fracture 4).",
+   "required_change": "Ninguno."
+  },
+  {
+   "id": "health_safety.guide_first_aid_kit_and_certification",
+   "op": "update",
+   "verdict": "revise",
+   "entailment": "full",
+   "label_change": "justified",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "n/a",
+   "reason": "Res. 207: certificado presencial de 20 h con RCP y DEA; botiquín, radio portable y filtro de agua (citas). La respuesta fecha la norma. Pero la etiqueta nueva incluye «radio», y el hallazgo cross (services.guide_radios) asigna la radio a services. Se duplica el tema.",
+   "required_change": "Etiqueta: «certificado y botiquín del guía». La radio sigue en la respuesta, pero no en la etiqueta."
+  },
+  {
+   "id": "health_safety.pre_hike_health_disclosure_and_induction",
+   "op": "update",
+   "verdict": "revise",
+   "entailment": "partial",
+   "label_change": "justified",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "ok",
+   "reason": "Res. 207: inducción presencial obligatoria y aviso previo de lesión, problema cardíaco o muscular (citas). «Lleva tus medicamentos formulados» no está en la Res. 207 (búsqueda literal: 0 menciones de «medicament»), así que no tiene fuente en el op ni en esa resolución. La etiqueta nueva reintroduce «inducción», que labels.json asigna a booking_fees.",
+   "required_change": "1) Quitar «lleva tus medicamentos formulados» o citar otra fuente. 2) Usar la etiqueta de labels.json «avisar al operador tus condiciones de salud»."
+  },
+  {
+   "id": "health_safety.stay_together_prevent_separation",
+   "op": "update",
+   "verdict": "approve",
+   "entailment": "full",
+   "label_change": "justified",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "n/a",
+   "reason": "Res. 207: evitar que el grupo se fragmente; contacto visual o auditivo (citas). «Díganle para ajustar el ritmo» es instrucción general. La etiqueta separa el caso de prevención del de extravío (la otra entrada).",
+   "required_change": "Ninguno."
+  },
+  {
+   "id": "health_safety.mountaineer_contingency_and_first_aid",
+   "op": "update",
+   "verdict": "revise",
+   "entailment": "full",
+   "label_change": "stylistic",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "n/a",
+   "reason": "Res. 207: plan de riesgos y contingencias, contacto de emergencia, seguro de accidentes y rescate (citas). Fechado. Cambio de etiqueta solo de forma.",
+   "required_change": "Mantener la etiqueta anterior."
+  }
+ ],
+ "audit_rows": [
+  {
+   "id": "health_safety.high_altitude_health_risk",
+   "claimed": "primary_ok",
+   "support": "full",
+   "note": "La cita sostiene el núcleo de la respuesta (verificado en el texto citado)."
+  },
+  {
+   "id": "health_safety.altitude_sickness_symptoms",
+   "claimed": "primary_ok",
+   "support": "full",
+   "note": "La cita sostiene el núcleo de la respuesta (verificado en el texto citado)."
+  },
+  {
+   "id": "health_safety.severe_altitude_warning_signs",
+   "claimed": "primary_ok",
+   "support": "full",
+   "note": "La cita sostiene el núcleo de la respuesta (verificado en el texto citado)."
+  },
+  {
+   "id": "health_safety.no_ascend_while_symptomatic",
+   "claimed": "primary_ok",
+   "support": "full",
+   "note": "La cita sostiene el núcleo de la respuesta (verificado en el texto citado)."
+  },
+  {
+   "id": "health_safety.descent_for_worsening_altitude",
+   "claimed": "primary_ok",
+   "support": "full",
+   "note": "La cita sostiene el núcleo de la respuesta (verificado en el texto citado)."
+  },
+  {
+   "id": "health_safety.pretrip_medical_advice",
+   "claimed": "primary_ok",
+   "support": "full",
+   "note": "La cita sostiene el núcleo de la respuesta (verificado en el texto citado)."
+  },
+  {
+   "id": "health_safety.children_altitude_signs",
+   "claimed": "primary_ok",
+   "support": "full",
+   "note": "La cita sostiene el núcleo de la respuesta (verificado en el texto citado)."
+  },
+  {
+   "id": "health_safety.tell_guide_about_health_change",
+   "claimed": "primary_ok",
+   "support": "full",
+   "note": "La cita sostiene el núcleo de la respuesta (verificado en el texto citado)."
+  },
+  {
+   "id": "health_safety.hypothermia_warning_signs",
+   "claimed": "primary_ok",
+   "support": "full",
+   "note": "La cita sostiene el núcleo de la respuesta (verificado en el texto citado)."
+  },
+  {
+   "id": "health_safety.hypothermia_first_response",
+   "claimed": "primary_ok",
+   "support": "full",
+   "note": "La cita sostiene el núcleo de la respuesta (verificado en el texto citado)."
+  },
+  {
+   "id": "health_safety.frostbite_warning_signs",
+   "claimed": "primary_ok",
+   "support": "full",
+   "note": "La cita sostiene el núcleo de la respuesta (verificado en el texto citado)."
+  },
+  {
+   "id": "health_safety.sun_uv_protection",
+   "claimed": "primary_ok",
+   "support": "full",
+   "note": "La cita sostiene el núcleo de la respuesta (verificado en el texto citado)."
+  },
+  {
+   "id": "health_safety.dehydration_warning_signs",
+   "claimed": "primary_ok",
+   "support": "full",
+   "note": "La cita sostiene el núcleo de la respuesta (verificado en el texto citado)."
+  },
+  {
+   "id": "health_safety.national_emergency_number_123",
+   "claimed": "primary_ok",
+   "support": "full",
+   "note": "La cita sostiene el núcleo de la respuesta (verificado en el texto citado)."
+  },
+  {
+   "id": "health_safety.acclimatization_plan",
+   "claimed": "primary_ok",
+   "support": "partial",
+   "note": "La cita trata de pausas y alcohol (CDC) y no sostiene el plan de aclimatación (paradas de 10 min, dormir más abajo). Esas paradas no están citadas."
+  },
+  {
+   "id": "health_safety.chronic_condition_altitude",
+   "claimed": "primary_ok",
+   "support": "full",
+   "note": "La cita sostiene el núcleo de la respuesta (verificado en el texto citado)."
+  },
+  {
+   "id": "health_safety.pregnancy_altitude",
+   "claimed": "primary_ok",
+   "support": "full",
+   "note": "La cita sostiene el núcleo de la respuesta (verificado en el texto citado)."
+  },
+  {
+   "id": "health_safety.older_adults_altitude_health",
+   "claimed": "primary_ok",
+   "support": "full",
+   "note": "La cita sostiene el núcleo de la respuesta (verificado en el texto citado)."
+  },
+  {
+   "id": "health_safety.dehydration_response",
+   "claimed": "primary_ok",
+   "support": "full",
+   "note": "La cita sostiene el núcleo de la respuesta (verificado en el texto citado)."
+  },
+  {
+   "id": "health_safety.frostbite_first_aid",
+   "claimed": "primary_ok",
+   "support": "full",
+   "note": "La cita sostiene el núcleo de la respuesta (verificado en el texto citado)."
+  },
+  {
+   "id": "health_safety.lightning_storm_safety",
+   "claimed": "primary_ok",
+   "support": "full",
+   "note": "La cita sostiene el núcleo de la respuesta (verificado en el texto citado)."
+  },
+  {
+   "id": "health_safety.lost_person_protocol",
+   "claimed": "primary_ok",
+   "support": "full",
+   "note": "La cita sostiene el núcleo de la respuesta (verificado en el texto citado)."
+  },
+  {
+   "id": "health_safety.bleeding_control",
+   "claimed": "primary_ok",
+   "support": "full",
+   "note": "La cita sostiene el núcleo de la respuesta (verificado en el texto citado)."
+  },
+  {
+   "id": "health_safety.unresponsive_cpr",
+   "claimed": "primary_ok",
+   "support": "full",
+   "note": "La cita sostiene el núcleo de la respuesta (verificado en el texto citado)."
+  },
+  {
+   "id": "health_safety.sprain_first_aid",
+   "claimed": "primary_ok",
+   "support": "full",
+   "note": "La cita sostiene el núcleo de la respuesta (verificado en el texto citado)."
+  },
+  {
+   "id": "health_safety.nosebleed_altitude",
+   "claimed": "primary_ok",
+   "support": "full",
+   "note": "La cita sostiene el núcleo de la respuesta (verificado en el texto citado)."
+  },
+  {
+   "id": "health_safety.fainting_response",
+   "claimed": "primary_ok",
+   "support": "full",
+   "note": "La cita sostiene el núcleo de la respuesta (verificado en el texto citado)."
+  },
+  {
+   "id": "health_safety.blister_care",
+   "claimed": "primary_ok",
+   "support": "full",
+   "note": "La cita sostiene el núcleo de la respuesta (verificado en el texto citado)."
+  },
+  {
+   "id": "health_safety.no_published_wildlife_protocol",
+   "claimed": "primary_ok",
+   "support": "full",
+   "note": "La cita sostiene el núcleo de la respuesta (verificado en el texto citado)."
+  },
+  {
+   "id": "health_safety.ams_how_long_it_lasts",
+   "claimed": "primary_ok",
+   "support": "full",
+   "note": "La cita sostiene el núcleo de la respuesta (verificado en el texto citado)."
+  },
+  {
+   "id": "health_safety.hypothermia_body_temperature",
+   "claimed": "primary_ok",
+   "support": "partial",
+   "note": "La cita sostiene la definición de 35 °C (MedlinePlus). Los cortes de 32 °C y 28 °C solo están en la guía secundaria del Hospital Civil (sin primaria). Se atribuyen bien, pero no deben decidir un cuidado."
+  },
+  {
+   "id": "health_safety.glucometer_at_high_altitude",
+   "claimed": "primary_ok",
+   "support": "full",
+   "note": "La cita sostiene el núcleo de la respuesta (verificado en el texto citado)."
+  },
+  {
+   "id": "health_safety.hape_first_72_hours",
+   "claimed": "primary_ok",
+   "support": "full",
+   "note": "La cita sostiene el núcleo de la respuesta (verificado en el texto citado)."
+  },
+  {
+   "id": "health_safety.hace_may_appear_days_later",
+   "claimed": "primary_ok",
+   "support": "full",
+   "note": "La cita sostiene el núcleo de la respuesta (verificado en el texto citado)."
+  },
+  {
+   "id": "health_safety.red_cross_emergency_line_132",
+   "claimed": "primary_ok",
+   "support": "full",
+   "note": "La cita sostiene el núcleo de la respuesta (verificado en el texto citado)."
+  },
+  {
+   "id": "health_safety.civil_defense_line_144",
+   "claimed": "primary_ok",
+   "support": "full",
+   "note": "La cita sostiene el núcleo de la respuesta (verificado en el texto citado)."
+  },
+  {
+   "id": "health_safety.firefighters_line_119",
+   "claimed": "primary_ok",
+   "support": "full",
+   "note": "La cita sostiene el núcleo de la respuesta (verificado en el texto citado)."
+  },
+  {
+   "id": "health_safety.evacuation_and_rescue_reality",
+   "claimed": "primary_ok",
+   "support": "full",
+   "note": "La cita sostiene el núcleo de la respuesta (verificado en el texto citado)."
+  },
+  {
+   "id": "health_safety.altitude_classification_levels",
+   "claimed": "primary_ok",
+   "support": "partial",
+   "note": "La cita del CDC sostiene el 25 % en Colorado. La cita de «más de 3.400 m = riesgo alto» y la de Brisas/El Cisne a 4.100 m no están en esta fila. Las bandas de la guía secundaria no se copiaron (bien)."
+  },
+  {
+   "id": "health_safety.high_altitude_cerebral_edema_hace",
+   "claimed": "primary_ok",
+   "support": "full",
+   "note": "La cita sostiene el núcleo de la respuesta (verificado en el texto citado)."
+  },
+  {
+   "id": "health_safety.high_altitude_pulmonary_edema_hape",
+   "claimed": "primary_ok",
+   "support": "full",
+   "note": "La cita sostiene el núcleo de la respuesta (verificado en el texto citado)."
+  },
+  {
+   "id": "health_safety.altitude_sleep_disturbance",
+   "claimed": "primary_ok",
+   "support": "full",
+   "note": "La cita sostiene el núcleo de la respuesta (verificado en el texto citado)."
+  },
+  {
+   "id": "health_safety.alcohol_and_altitude_hypothermia",
+   "claimed": "primary_ok",
+   "support": "full",
+   "note": "La cita sostiene el núcleo de la respuesta (verificado en el texto citado)."
+  },
+  {
+   "id": "health_safety.diabetes_at_high_altitude",
+   "claimed": "primary_ok",
+   "support": "full",
+   "note": "La cita sostiene el núcleo de la respuesta (verificado en el texto citado)."
+  },
+  {
+   "id": "health_safety.anemia_and_sickle_cell_altitude",
+   "claimed": "primary_ok",
+   "support": "partial",
+   "note": "La cita sostiene el riesgo de falciforme (CDC). La afirmación de que la anemia común aumenta el riesgo de MAM no tiene cita en el op ni en esta fila."
+  },
+  {
+   "id": "health_safety.recent_heart_attack_or_stroke_altitude",
+   "claimed": "primary_ok",
+   "support": "full",
+   "note": "La cita sostiene el núcleo de la respuesta (verificado en el texto citado)."
+  },
+  {
+   "id": "health_safety.altitude_carbohydrates_and_exertion",
+   "claimed": "primary_ok",
+   "support": "full",
+   "note": "La cita sostiene el núcleo de la respuesta (verificado en el texto citado)."
+  },
+  {
+   "id": "health_safety.altitude_preventive_medication_doctor",
+   "claimed": "primary_ok",
+   "support": "full",
+   "note": "La cita sostiene el núcleo de la respuesta (verificado en el texto citado)."
+  },
+  {
+   "id": "health_safety.altitude_temperature_drop_rate",
+   "claimed": "secondary_only",
+   "support": "full",
+   "note": "Cita secundaria (guía del Hospital Civil). Hay primaria en el proyecto: IDEAM 0,6 °C/100 m (weather_volcano, ideam-frio-faq.txt). Usarla y retirar el rango secundario."
+  },
+  {
+   "id": "health_safety.wind_and_wetness_heat_loss",
+   "claimed": "secondary_only",
+   "support": "full",
+   "note": "Cita secundaria (guía del Hospital Civil). Los factores ×10, ×14 y ×32 no tienen primaria. Ablandar o quitar las cifras."
+  },
+  {
+   "id": "health_safety.severe_hypothermia_signs_and_care",
+   "claimed": "primary_ok",
+   "support": "partial",
+   "note": "La cita de MedlinePlus sostiene mover poco y cubrir. El umbral de 32 °C viene de la guía secundaria del Hospital Civil, no de esta fila."
+  },
+  {
+   "id": "health_safety.frostbite_no_refreeze_or_walk",
+   "claimed": "secondary_only",
+   "support": "full",
+   "note": "Cita secundaria (guía del Hospital Civil). «Casi siempre muere» no tiene primaria. Quitar o citar primaria."
+  },
+  {
+   "id": "health_safety.frostbite_no_direct_dry_heat",
+   "claimed": "primary_ok",
+   "support": "full",
+   "note": "La cita sostiene el núcleo de la respuesta (verificado en el texto citado)."
+  },
+  {
+   "id": "health_safety.trench_foot_wet_cold_feet",
+   "claimed": "primary_ok",
+   "support": "full",
+   "note": "La cita sostiene el núcleo de la respuesta (verificado en el texto citado)."
+  },
+  {
+   "id": "health_safety.chilblains_cold_skin_itching",
+   "claimed": "primary_ok",
+   "support": "full",
+   "note": "La cita sostiene el núcleo de la respuesta (verificado en el texto citado)."
+  },
+  {
+   "id": "health_safety.sunburn_first_aid_mountain",
+   "claimed": "primary_ok",
+   "support": "full",
+   "note": "La cita sostiene el núcleo de la respuesta (verificado en el texto citado)."
+  },
+  {
+   "id": "health_safety.sun_eye_pain_photophobia",
+   "claimed": "primary_ok",
+   "support": "full",
+   "note": "La cita sostiene el núcleo de la respuesta (verificado en el texto citado)."
+  },
+  {
+   "id": "health_safety.thermal_burn_first_aid_camp",
+   "claimed": "primary_ok",
+   "support": "full",
+   "note": "La cita sostiene el núcleo de la respuesta (verificado en el texto citado)."
+  },
+  {
+   "id": "health_safety.lightning_wait_30_minutes_and_shelters",
+   "claimed": "primary_ok",
+   "support": "full",
+   "note": "La cita sostiene el núcleo de la respuesta (verificado en el texto citado)."
+  },
+  {
+   "id": "health_safety.lightning_caught_in_open_paramo",
+   "claimed": "primary_ok",
+   "support": "full",
+   "note": "La cita sostiene el núcleo de la respuesta (verificado en el texto citado)."
+  },
+  {
+   "id": "health_safety.lightning_strike_victim_first_aid",
+   "claimed": "primary_ok",
+   "support": "full",
+   "note": "La cita sostiene el núcleo de la respuesta (verificado en el texto citado)."
+  },
+  {
+   "id": "health_safety.suspected_fracture_first_aid",
+   "claimed": "primary_ok",
+   "support": "full",
+   "note": "La cita sostiene el núcleo de la respuesta (verificado en el texto citado)."
+  },
+  {
+   "id": "health_safety.head_or_spine_injury_fall",
+   "claimed": "primary_ok",
+   "support": "full",
+   "note": "La cita sostiene el núcleo de la respuesta (verificado en el texto citado)."
+  },
+  {
+   "id": "health_safety.minor_cuts_and_punctures_care",
+   "claimed": "primary_ok",
+   "support": "full",
+   "note": "La cita sostiene el núcleo de la respuesta (verificado en el texto citado)."
+  },
+  {
+   "id": "health_safety.medical_shock_signs_and_response",
+   "claimed": "primary_ok",
+   "support": "full",
+   "note": "La cita sostiene el núcleo de la respuesta (verificado en el texto citado)."
+  },
+  {
+   "id": "health_safety.choking_first_aid_heimlich",
+   "claimed": "primary_ok",
+   "support": "full",
+   "note": "La cita sostiene el núcleo de la respuesta (verificado en el texto citado)."
+  },
+  {
+   "id": "health_safety.guide_first_aid_kit_and_certification",
+   "claimed": "primary_ok",
+   "support": "full",
+   "note": "La cita sostiene el núcleo de la respuesta (verificado en el texto citado)."
+  },
+  {
+   "id": "health_safety.pre_hike_health_disclosure_and_induction",
+   "claimed": "primary_ok",
+   "support": "full",
+   "note": "La cita sostiene el núcleo de la respuesta (verificado en el texto citado)."
+  },
+  {
+   "id": "health_safety.stay_together_prevent_separation",
+   "claimed": "primary_ok",
+   "support": "full",
+   "note": "La cita sostiene el núcleo de la respuesta (verificado en el texto citado)."
+  },
+  {
+   "id": "health_safety.mountaineer_contingency_and_first_aid",
+   "claimed": "primary_ok",
+   "support": "full",
+   "note": "La cita sostiene el núcleo de la respuesta (verificado en el texto citado)."
+  }
+ ],
+ "summary": {
+  "approve": 29,
+  "revise": 33,
+  "reject": 0,
+  "audit_support": {
+   "full": 65,
+   "partial": 5,
+   "none": 0
+  }
+ },
+ "refetch_confirmations": [
+  "CDC yellow-book (high-altitude): 29 warns. Fresh copy has the same substance for every flagged quote (HACE/HAPE signs, descent, 12–48 h, 2–12 h, 11,150 ft, 90 days, 1–2 días). Mismatch comes from HTML markup and entities in the quote text, not from content.",
+  "CDC travel-altitude, CDC lightning, CDC NIOSH cold, MedlinePlus (hypothermia, CPR, dehydration, altitude, head injury, evacuation, cut, shock, choking, burns, sunburn, fractures, nosebleed, sprains, blisters, fainting, bleeding): warns from markup and layout only; substance present.",
+  "Policía 123 page: 'quote not found' comes from the <time> tag around '12 March, 2023'; the date and the 123 sentence are in the fresh copy.",
+  "MinAmbiente 747-municipios note: Cruz Roja 132, Bomberos 119, Defensa Civil 144, Policía 123 are in the fresh copy; publication 2024-01-10 confirmed in metadata and body ('Entre el 5 y 10 de enero de 2024').",
+  "Hospital Civil PDFs (28-lesiones-por-frio; 33 enfermedad por altura): 'quote not found' from PDF line-break hyphenation ('pre-' 'sión', 'con- tacto') and layout; substance present, including 3.500 mts and 35/32/28 °C bands.",
+  "defensacivil page: confirmed. Resolución 207 (parquesnacionales.gov.co): all quotes found in the fresh copy."
+ ],
+ "notes": [
+  "Provenance: 12 of 16 health_safety evidence paths point to raw .html files (not the .txt that fetch_evidence.py requires). Quotes contain markup (</p>, <li>, &gt;). Legacy Phase 2 files, so allowed as is, but the curator must clean quotes to plain text in the next round.",
+  "Audit note on minambiente 'cuerpo dice 2023' is wrong: 2023 appears only in image upload paths; the body dates the figures 5–10 Jan 2024.",
+  "Res. 207 contains no 'medicament*' (0 hits). Pre-hike answer claim about medicamentos formulados is unsourced.",
+  "Res. 207 contains no 'oso', 'puma' or 'danta' (0 hits); 'fauna' 12 hits. The negative claim about wildlife protocol holds for this resolution.",
+  "Cross-check: CDC contraindication table heading (for 'contraindica') not quoted in any op."
+ ]
+}

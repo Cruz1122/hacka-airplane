@@ -1,0 +1,54 @@
+{
+  "version": "3.0",
+  "seed": 20261122,
+  "source": "original laya_ft.zip; v2 deterministic ID-disjoint topic split",
+  "original_train_core": 6543,
+  "train_hardpositives": 7093,
+  "hard_positive_replays": 550,
+  "train_quarantine_ablation": 6458,
+  "suspicious_none_excluded_in_ablation": 85,
+  "human_review_candidates": 300,
+  "variants": {
+    "rlcd4": {
+      "data": "train_core.jsonl",
+      "loss": "rlcd",
+      "epochs": 4
+    },
+    "rlcd6": {
+      "data": "train_core.jsonl",
+      "loss": "rlcd",
+      "epochs": 6
+    },
+    "rlcd8": {
+      "data": "train_core.jsonl",
+      "loss": "rlcd",
+      "epochs": 8
+    },
+    "softce4": {
+      "data": "train_core.jsonl",
+      "loss": "soft-ce",
+      "epochs": 4
+    },
+    "hardpos_rlcd4": {
+      "data": "train_hardpositives.jsonl",
+      "loss": "rlcd",
+      "epochs": 4
+    },
+    "quarantine_rlcd4": {
+      "data": "train_quarantine_ablation.jsonl",
+      "loss": "rlcd",
+      "epochs": 4
+    },
+    "balanced_softce4": {
+      "data": "train_balanced_none.jsonl",
+      "loss": "soft-ce",
+      "epochs": 4
+    }
+  },
+  "warnings": [
+    "Hard positives are replays of existing labels, not new independently annotated examples.",
+    "Quarantine is based on lexical similarity, not proof of erroneous label.",
+    "Never use the previously inspected final test to tune a model, gate or threshold.",
+    "The provided ZIP does not include full KB articles, so no semantic corrections can be verified."
+  ]
+}

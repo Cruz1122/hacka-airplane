@@ -1,0 +1,47 @@
+[
+  {
+    "ids": [
+      "conversation.emergency_limits",
+      "actions.report_emergency_general",
+      "actions.report_offline_emergency",
+      "health_safety.national_emergency_number_123"
+    ],
+    "problem": "La consulta sobre si el asistente sirve en una emergencia (conversation.emergency_limits) puede colisionar con la acción de reportar una emergencia (actions.report_emergency_general) o solicitar ayuda médica/primeros auxilios.",
+    "suggestion": "Mantener conversation.emergency_limits enfocado estrictamente en las limitaciones técnicas del asistente (funciona offline, no despacha rescate ni garantiza transmisión). Las solicitudes de auxilio directo o reporte activo se mantienen en actions y health_safety."
+  },
+  {
+    "ids": [
+      "conversation.time_or_date_request",
+      "hours_status.general_opening_schedule"
+    ],
+    "problem": "Preguntas breves como 'qué hora es' confunden la consulta del reloj del dispositivo con los horarios de apertura del parque en hours_status.",
+    "suggestion": "Reforzar el contraste: hours_status mantiene hard negative 'qué hora es', y conversation.time_or_date_request aclara en label y ejemplos que se refiere a la hora actual del dispositivo y fecha del día."
+  },
+  {
+    "ids": [
+      "conversation.location_map_request",
+      "preparation.navigation_map_gps",
+      "geography.departments"
+    ],
+    "problem": "Preguntas sobre mapas o GPS en la app colisionan con las recomendaciones de preparación para navegación en senderos y con geografía del parque.",
+    "suggestion": "conversation.location_map_request aclara que la app no incluye GPS ni mapa interactivo en vivo; preparation mantiene las guías sobre mapas topográficos y GPS para senderismo."
+  },
+  {
+    "ids": [
+      "conversation.human_contact_request",
+      "conversation.ai_identity",
+      "access.park_email_routes"
+    ],
+    "problem": "La solicitud de hablar con una persona del parque (human_contact_request) presentaba solapamiento con preguntar si el asistente es un robot o una persona real (ai_identity).",
+    "suggestion": "Diferenciar claramente en las etiquetas: ai_identity aclara la naturaleza del asistente virtual frente a un humano; human_contact_request atiende la intención de contactar a un funcionario/asesor del parque a través de canales oficiales."
+  },
+  {
+    "ids": [
+      "conversation.greeting_hello",
+      "booking_fees.adult_resident_admission_fee",
+      "access.letras_not_the_gate"
+    ],
+    "problem": "Preguntas compuestas que inician con un saludo cordial ('hola, cuánto vale la entrada') corren el riesgo de ser absorbidas por la entrada de saludo puro si los embeddings de saludo tienen excesivo peso.",
+    "suggestion": "conversation.greeting_hello contiene exclusivamente ejemplos de saludo puro y sin preguntas temáticas incrustadas, reforzado con hard negative de tarifas para rechazar consultas con intención sustantiva."
+  }
+]

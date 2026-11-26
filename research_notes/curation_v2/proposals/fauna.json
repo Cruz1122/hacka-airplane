@@ -1,0 +1,2921 @@
+{
+  "operations": [
+    {
+      "op": "update",
+      "reason": "Label updated to 'avifauna y observación de aves en el parque' to clearly specify topic and prevent retrieval confusion; Contrastive hard negatives added from confusable pair; Refined examples to remove cross-query contamination and improve LOO routing",
+      "entry": {
+        "id": "fauna.birds_overview",
+        "label": "avifauna y observación de aves en el parque",
+        "kind": "explanation",
+        "audience": "visitor",
+        "lang": "es",
+        "examples": [
+          "aves",
+          "pájaros",
+          "hay cóndores",
+          "qué colibríes hay",
+          "avistar el chivito de páramo",
+          "avistamiento de aves",
+          "¿hay pajaros que no existan en otro lado?",
+          "hay aves que solo viven aquí",
+          "¿cuántas clases de pájaros hay en Los Nevados?",
+          "¿qué aves se pueden ver por aquí?",
+          "pajaritos del páramo",
+          "cuales aves se pueden pajarear en el parque",
+          "what birds can I see in Los Nevados?",
+          "birdwatching in Los Nevados National Park",
+          "observación de avifauna en Los Nevados",
+          "pajarear en alta montaña",
+          "diversidad de aves en el parque",
+          "guía de aves de Los Nevados"
+        ],
+        "hard_negatives": [
+          "mamíferos",
+          "animales endémicos de Los Nevados",
+          "chivito de páramo",
+          "el cóndor andino"
+        ],
+        "needs": [],
+        "answer": {
+          "short": "Entre las aves destacadas del parque están el chivito de páramo, el tororoi de Miller, el águila crestada, el cóndor andino, el pato andino, el periquito de los nevados y el águila de páramo. Pregunta por la observación de aves y no las toques ni las muevas.",
+          "variants": [
+            "Las aves más destacadas del parque son estas. Para verlas, pregunta por la observación de aves y no las toques."
+          ]
+        },
+        "sources": [
+          {
+            "label": "Parques Nacionales Naturales de Colombia - PNN Los Nevados",
+            "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+            "retrieved_at": "2026-11-21"
+          },
+          {
+            "label": "Parques Nacionales Naturales de Colombia - Resolución 207 de 2023",
+            "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2023/08/Resolucion_207_2023_ReglamentacionNevados.pdf",
+            "retrieved_at": "2026-11-21"
+          }
+        ],
+        "last_verified": "2026-11-21",
+        "related": [
+          "fauna.mammals_overview",
+          "fauna.endemic_species",
+          "fauna.threatened_species"
+        ],
+        "tags": [
+          "aves",
+          "ficha"
+        ]
+      }
+    },
+    {
+      "op": "update",
+      "reason": "Label updated to 'mamíferos silvestres del parque Los Nevados' to clearly specify topic and prevent retrieval confusion; Contrastive hard negatives added from confusable pair",
+      "entry": {
+        "id": "fauna.mammals_overview",
+        "label": "mamíferos silvestres del parque Los Nevados",
+        "kind": "explanation",
+        "audience": "visitor",
+        "lang": "es",
+        "examples": [
+          "mamíferos",
+          "hay pumas",
+          "hay dantas",
+          "qué mamíferos se encuentran",
+          "¿qué mamíferos viven en Los Nevados?",
+          "cuales son los de cuatro patas del parque, sin contar pajaros?",
+          "hay osos en el parque",
+          "mamiferos salvajes del paramo",
+          "cuales mamiferos habitan en los nevados",
+          "which mammals live in the park, leaving birds aside?",
+          "are there large mammals in Los Nevados National Park?",
+          "¿qué mamíferos grandes se ven por acá?",
+          "¿qué mamíferos se ven en la alta montaña?"
+        ],
+        "hard_negatives": [
+          "animales endémicos de Los Nevados",
+          "animales que el parque cuida con prioridad",
+          "oso de anteojos",
+          "danta de montaña"
+        ],
+        "needs": [],
+        "answer": {
+          "short": "Entre los mamíferos más conocidos están la danta de montaña (Tapirus pinchaque), la guagua loba (Dinomys branickii) y el puma (Puma concolor). También se destacan 20 especies de murciélagos, y se estudian el oso de anteojos, el venado conejo y la danta de páramo. Obsérvalos sin tocarlos.",
+          "variants": [
+            "Destacan la danta de montaña, la guagua loba y el puma, y el parque también reconoce 20 especies de murciélagos. Míralos sin cogerlos."
+          ]
+        },
+        "sources": [
+          {
+            "label": "Parques Nacionales Naturales de Colombia - PNN Los Nevados",
+            "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+            "retrieved_at": "2026-11-21"
+          },
+          {
+            "label": "Parques Nacionales Naturales de Colombia - Resolución 207 de 2023",
+            "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2023/08/Resolucion_207_2023_ReglamentacionNevados.pdf",
+            "retrieved_at": "2026-11-21"
+          }
+        ],
+        "last_verified": "2026-11-21",
+        "related": [
+          "fauna.endemic_species",
+          "fauna.threatened_species",
+          "fauna.conservation_target_species_voc"
+        ],
+        "tags": [
+          "mamiferos",
+          "murcielagos"
+        ]
+      }
+    },
+    {
+      "op": "update",
+      "reason": "Label updated to 'especies de fauna endémicas y exclusivas' to clearly specify topic and prevent retrieval confusion",
+      "entry": {
+        "id": "fauna.endemic_species",
+        "label": "especies de fauna endémicas y exclusivas",
+        "kind": "fact",
+        "audience": "visitor",
+        "lang": "es",
+        "examples": [
+          "animales endémicos de Los Nevados",
+          "¿qué especies solo viven en este parque?",
+          "fauna exclusiva de la cordillera central",
+          "¿hay animales que solo se ven en Los Nevados?",
+          "especies endemicas del parque nacional",
+          "¿cuáles son los animales exclusivos de aquí?",
+          "bichos que no existen en otra parte del mundo",
+          "¿hay bichos que solo existan aquí?",
+          "hay algun animal que solo viva en este parque y en ningun otro lado?",
+          "animals found only in Los Nevados",
+          "que aves solo se ven aca",
+          "¿qué animales solo viven en la alta montaña?"
+        ],
+        "hard_negatives": [
+          "especies en peligro de extinción en Los Nevados",
+          "animales que el parque cuida con prioridad",
+          "el cóndor andino"
+        ],
+        "needs": [],
+        "answer": {
+          "short": "El chivito de páramo (Oxypogon stuebelii) es endémico de la región y no existe en ninguna otra parte del mundo. El tororoi de Miller (Grallaria milleri) también es endémico. Obsérvalos sin tocarlos.",
+          "variants": [
+            "Son endémicos el chivito de páramo y el tororoi de Miller. Míralos sin cogerlos ni moverlos."
+          ]
+        },
+        "sources": [
+          {
+            "label": "Parques Nacionales Naturales de Colombia - PNN Los Nevados",
+            "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+            "retrieved_at": "2026-11-21"
+          },
+          {
+            "label": "Parques Nacionales Naturales de Colombia - Resolución 207 de 2023",
+            "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2023/08/Resolucion_207_2023_ReglamentacionNevados.pdf",
+            "retrieved_at": "2026-11-21"
+          }
+        ],
+        "last_verified": "2026-11-21",
+        "related": [
+          "fauna.threatened_species",
+          "fauna.conservation_target_species_voc",
+          "fauna.andean_condor"
+        ],
+        "tags": [
+          "endemismo",
+          "chivito",
+          "tororoi"
+        ]
+      }
+    },
+    {
+      "op": "update",
+      "reason": "Label updated to 'especies amenazadas y vulnerables de fauna' to clearly specify topic and prevent retrieval confusion",
+      "entry": {
+        "id": "fauna.threatened_species",
+        "label": "especies amenazadas y vulnerables de fauna",
+        "kind": "fact",
+        "audience": "visitor",
+        "lang": "es",
+        "examples": [
+          "especies en peligro de extinción en Los Nevados",
+          "¿qué animales están amenazados en el parque?",
+          "¿qué animales de aquí están en riesgo?",
+          "¿qué animales vulnerables estudian en el parque?",
+          "estado de conservación de la fauna",
+          "¿el cóndor y la danta están en peligro?",
+          "especies vulnerables del parque nacional",
+          "cuales animales estan amenazados aqui",
+          "are any animals endangered in Los Nevados?",
+          "threatened animals in Colombian high Andes",
+          "animales protegidos en via de extincion",
+          "¿los animales del nevado corren peligro?"
+        ],
+        "hard_negatives": [
+          "animales que el parque cuida con prioridad",
+          "el cóndor andino",
+          "chivito de páramo"
+        ],
+        "needs": [],
+        "answer": {
+          "short": "Como especies vulnerables o indicadoras están el oso de anteojos, el chivito de páramo, el venado conejo, el cóndor de los Andes, la danta de páramo y el loro orejiamarillo. Míralos sin tocarlos.",
+          "variants": [
+            "Para el parque son vulnerables o indicadoras, entre ellas el cóndor de los Andes y la danta de páramo. No los toques."
+          ]
+        },
+        "sources": [
+          {
+            "label": "Parques Nacionales Naturales de Colombia - PNN Los Nevados",
+            "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+            "retrieved_at": "2026-11-21"
+          },
+          {
+            "label": "Parques Nacionales Naturales de Colombia - Resolución 207 de 2023",
+            "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2023/08/Resolucion_207_2023_ReglamentacionNevados.pdf",
+            "retrieved_at": "2026-11-21"
+          }
+        ],
+        "last_verified": "2026-11-21",
+        "related": [
+          "fauna.conservation_target_species_voc",
+          "fauna.andean_condor",
+          "fauna.buffy_helmetcrest"
+        ],
+        "tags": [
+          "vulnerables",
+          "indicadoras"
+        ]
+      }
+    },
+    {
+      "op": "update",
+      "reason": "Label updated to 'avistamiento y presencia del cóndor andino' to clearly specify topic and prevent retrieval confusion; Contrastive hard negatives added from confusable pair",
+      "entry": {
+        "id": "fauna.andean_condor",
+        "label": "avistamiento y presencia del cóndor andino",
+        "kind": "fact",
+        "audience": "visitor",
+        "lang": "es",
+        "examples": [
+          "el cóndor andino",
+          "¿dónde puedo ver cóndores?",
+          "hay condores en el parque los nevados",
+          "ave nacional de Colombia en el nevado",
+          "¿qué tan grande es el cóndor?",
+          "¿cómo identificar un cóndor volando?",
+          "avistamiento de condores en el ruiz",
+          "condor de los andes en alta montana",
+          "where can I see the Andean condor?",
+          "is it easy to see a condor here?",
+          "condor andino volando sobre las montanas",
+          "pajaro grande planeando en el cielo"
+        ],
+        "hard_negatives": [
+          "chivito de páramo",
+          "tororoi de Miller",
+          "pato andino",
+          "el condor andino esta amenazado?"
+        ],
+        "needs": [],
+        "answer": {
+          "short": "El cóndor andino (Vultur gryphus) es el ave nacional de Colombia y tiene más de 3 m de envergadura. Si quieres verlo, pregunta por la observación de fauna y flora; si lo ves, déjalo tranquilo.",
+          "variants": [
+            "Es el ave nacional de Colombia, con más de 3 m de envergadura. Si lo ves, déjalo volar sin molestarlo."
+          ]
+        },
+        "sources": [
+          {
+            "label": "Parques Nacionales Naturales de Colombia - PNN Los Nevados",
+            "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+            "retrieved_at": "2026-11-21"
+          },
+          {
+            "label": "Parques Nacionales Naturales de Colombia - Resolución 207 de 2023",
+            "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2023/08/Resolucion_207_2023_ReglamentacionNevados.pdf",
+            "retrieved_at": "2026-11-21"
+          }
+        ],
+        "last_verified": "2026-11-21",
+        "related": [
+          "fauna.buffy_helmetcrest",
+          "fauna.brown_banded_antpitta",
+          "fauna.andean_duck"
+        ],
+        "tags": [
+          "condor",
+          "ave nacional"
+        ]
+      }
+    },
+    {
+      "op": "update",
+      "reason": "Label updated to 'colibrí chivito de páramo endémico' to clearly specify topic and prevent retrieval confusion; Contrastive hard negatives added from confusable pair",
+      "entry": {
+        "id": "fauna.buffy_helmetcrest",
+        "label": "colibrí chivito de páramo endémico",
+        "kind": "fact",
+        "audience": "visitor",
+        "lang": "es",
+        "examples": [
+          "chivito de páramo",
+          "colibrí barbudo del Ruiz",
+          "Oxypogon stuebelii",
+          "colibrí que vive en los frailejones",
+          "¿qué es el chivito de páramo?",
+          "colibri con barba en los nevados",
+          "donde ver el chivito de paramo",
+          "¿qué colibrí solo vive en Los Nevados?",
+          "what is the buffy helmetcrest?",
+          "is there a hummingbird that only lives here?",
+          "pajarito chiquito en las flores del frailejon",
+          "colibri del volcan nevado del ruiz"
+        ],
+        "hard_negatives": [
+          "tororoi de Miller",
+          "pato andino",
+          "periquito de los nevados",
+          "el chivito de paramo esta amenazado?"
+        ],
+        "needs": [],
+        "answer": {
+          "short": "El chivito de páramo (Oxypogon stuebelii) es un colibrí de grandes alturas que toma néctar de las flores de frailejón. Es endémico: no existe en ninguna otra parte del mundo. Míralo sin cogerlo.",
+          "variants": [
+            "Es un colibrí de grandes alturas que come néctar de frailejón y solo existe en esta región. No lo cojas ni lo muevas."
+          ]
+        },
+        "sources": [
+          {
+            "label": "Parques Nacionales Naturales de Colombia - PNN Los Nevados",
+            "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+            "retrieved_at": "2026-11-21"
+          },
+          {
+            "label": "Parques Nacionales Naturales de Colombia - Resolución 207 de 2023",
+            "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2023/08/Resolucion_207_2023_ReglamentacionNevados.pdf",
+            "retrieved_at": "2026-11-21"
+          }
+        ],
+        "last_verified": "2026-11-21",
+        "related": [
+          "fauna.brown_banded_antpitta",
+          "fauna.andean_duck",
+          "fauna.ruiz_parakeet"
+        ],
+        "tags": [
+          "chivito",
+          "colibri",
+          "frailejon"
+        ]
+      }
+    },
+    {
+      "op": "update",
+      "reason": "Label updated to 'tororoi de Miller endémico en el sotobosque' to clearly specify topic and prevent retrieval confusion; Contrastive hard negatives added from confusable pair",
+      "entry": {
+        "id": "fauna.brown_banded_antpitta",
+        "label": "tororoi de Miller endémico en el sotobosque",
+        "kind": "fact",
+        "audience": "visitor",
+        "lang": "es",
+        "examples": [
+          "tororoi de Miller",
+          "Grallaria milleri",
+          "is the brown banded antpitta hard to spot?",
+          "pájaro patudo de sotobosque",
+          "¿dónde vive el tororoi de Miller?",
+          "¿es difícil ver al tororoi?",
+          "tororoi con banda café en el pecho",
+          "pajaro caminador del suelo en el bosque de niebla",
+          "where to find brown banded antpitta",
+          "¿hay tororoi endémico en el parque?",
+          "pajaro que salta en la hojarasca",
+          "el tororoi de miller es solo de esta region?"
+        ],
+        "hard_negatives": [
+          "el tororoi de miller esta amenazado?",
+          "tororoi nuchicastaño",
+          "tororoi leonado"
+        ],
+        "needs": [],
+        "answer": {
+          "short": "El tororoi de Miller (Grallaria milleri) es un ave pequeña, endémica y difícil de ver, propia del sotobosque del parque. Si lo notas, déjalo donde está.",
+          "variants": [
+            "Es un ave pequeña y endémica del sotobosque, difícil de ver, y figura en el parque con el nombre Grallaria milleri. Si lo notas, no lo cojas."
+          ]
+        },
+        "sources": [
+          {
+            "label": "Parques Nacionales Naturales de Colombia - PNN Los Nevados",
+            "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+            "retrieved_at": "2026-11-21"
+          },
+          {
+            "label": "SiB Colombia - Biodiversidad Parque Nacional Natural Nevados (CARDER)",
+            "url": "https://doi.org/10.15472/r8t5xv",
+            "retrieved_at": "2026-11-21"
+          },
+          {
+            "label": "Parques Nacionales Naturales de Colombia - Resolución 207 de 2023",
+            "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2023/08/Resolucion_207_2023_ReglamentacionNevados.pdf",
+            "retrieved_at": "2026-11-21"
+          }
+        ],
+        "last_verified": "2026-11-21",
+        "related": [
+          "fauna.andean_duck",
+          "fauna.ruiz_parakeet",
+          "fauna.black_and_chestnut_eagle"
+        ],
+        "tags": [
+          "tororoi",
+          "miller"
+        ]
+      }
+    },
+    {
+      "op": "update",
+      "reason": "Label updated to 'pato andino o pato turrio en humedales' to clearly specify topic and prevent retrieval confusion; Contrastive hard negatives added from confusable pair",
+      "entry": {
+        "id": "fauna.andean_duck",
+        "label": "pato andino o pato turrio en humedales",
+        "kind": "fact",
+        "audience": "visitor",
+        "lang": "es",
+        "examples": [
+          "pato andino",
+          "pato turrio",
+          "¿cómo se llama científicamente el pato andino?",
+          "qué dice el parque del pato andino",
+          "¿qué patos viven en las lagunas de Los Nevados?",
+          "pato zambullidor de alta montaña",
+          "hay pato andino en Los Nevados",
+          "patos silvestres en humedales altoandinos",
+          "is there an Andean duck in Los Nevados?",
+          "is the Andean duck one of the park's birds?",
+          "el pato turrio vive en estas lagunas?",
+          "aves acuaticas en las lagunas del parque",
+          "el pato andino se queda en una sola laguna?",
+          "el pato andino tiene dos nombres cientificos?",
+          "does the andean duck stay in one lake?"
+        ],
+        "hard_negatives": [
+          "periquito de los nevados",
+          "águila crestada",
+          "águila mora",
+          "pato de torrente"
+        ],
+        "needs": [],
+        "answer": {
+          "short": "Lo llaman pato andino (Oxyura ferruginea); otra fuente usa Oxyura jamaicensis, en peligro a nivel nacional. En el parque se mueve entre la Laguna del Otún y otros humedales. No lo cojas ni lo desplaces.",
+          "variants": [
+            "Ficha y plan no escriben el mismo nombre científico. El plan lo da por en peligro a nivel nacional y lo ubica entre la Laguna del Otún y otros humedales. No lo cojas."
+          ]
+        },
+        "sources": [
+          {
+            "label": "Parques Nacionales Naturales de Colombia - PNN Los Nevados",
+            "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+            "retrieved_at": "2026-11-21"
+          },
+          {
+            "label": "Parques Nacionales Naturales de Colombia - Plan de manejo PNN Los Nevados 2017-2022",
+            "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2020/10/plan-de-manejo-pnn-los-nevados.pdf",
+            "retrieved_at": "2026-11-21"
+          },
+          {
+            "label": "Ministerio de Ambiente y Desarrollo Sostenible - Resolución 0126 de 2024",
+            "url": "https://www.minambiente.gov.co/documento-normativa/resolucion-0126-de-2024/",
+            "retrieved_at": "2026-11-21"
+          },
+          {
+            "label": "Ministerio de Ambiente - lista SiB de la Resolución 0126 de 2024",
+            "url": "https://doi.org/10.15472/frowz3",
+            "retrieved_at": "2026-11-21"
+          },
+          {
+            "label": "Parques Nacionales Naturales de Colombia - Resolución 207 de 2023",
+            "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2023/08/Resolucion_207_2023_ReglamentacionNevados.pdf",
+            "retrieved_at": "2026-11-21"
+          }
+        ],
+        "last_verified": "2026-11-21",
+        "related": [
+          "fauna.ruiz_parakeet",
+          "fauna.black_and_chestnut_eagle",
+          "fauna.black_chested_buzzard_eagle"
+        ],
+        "tags": [
+          "pato andino"
+        ]
+      }
+    },
+    {
+      "op": "update",
+      "reason": "Contrastive hard negatives added from confusable pair; Refined examples to remove cross-query contamination and improve LOO routing",
+      "entry": {
+        "id": "fauna.ruiz_parakeet",
+        "label": "periquito de los nevados en páramo",
+        "kind": "fact",
+        "audience": "visitor",
+        "lang": "es",
+        "examples": [
+          "periquito de los nevados",
+          "Bolborhynchus ferrugineifrons",
+          "perico de páramo",
+          "lorito que vive en el frío de la alta montaña",
+          "¿dónde ver el periquito de los nevados?",
+          "¿el periquito de los nevados sí existe en el parque?",
+          "cotorrita de alta montana en pajonales",
+          "¿es un periquito que hay que cuidar?",
+          "is there a parakeet in Los Nevados?",
+          "high altitude parakeet Colombia paramo",
+          "hay periquito de los nevados en el parque",
+          "perico con frente color oxido",
+          "el periquito de los nevados anda en grupo?",
+          "por la laguna del otun hay periquitos juntos?",
+          "where do the rufous-fronted parakeet flocks show up",
+          "periquito de la alta montaña"
+        ],
+        "hard_negatives": [
+          "águila crestada",
+          "águila mora",
+          "oso de anteojos",
+          "perico paramuno"
+        ],
+        "needs": [],
+        "answer": {
+          "short": "El periquito de los Nevados es más abundante en el subpáramo y suele verse en bandadas de 10 a 15; cerca de la Laguna del Otún también hay parejas y bandadas de 30 a 40. La Resolución 0126 de 2024 lo cataloga Vulnerable. No lo cojas ni lo desplaces.",
+          "variants": [
+            "Es más fácil verlo en el subpáramo, en bandadas, y junto a la Laguna del Otún también en parejas o grupos grandes. En la lista de 2024 está Vulnerable. No lo cojas ni lo desplaces."
+          ]
+        },
+        "sources": [
+          {
+            "label": "Parques Nacionales Naturales de Colombia - Plan de manejo PNN Los Nevados 2017-2022",
+            "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2020/10/plan-de-manejo-pnn-los-nevados.pdf",
+            "retrieved_at": "2026-11-21"
+          },
+          {
+            "label": "Ministerio de Ambiente y Desarrollo Sostenible - Resolución 0126 de 2024",
+            "url": "https://www.minambiente.gov.co/documento-normativa/resolucion-0126-de-2024/",
+            "retrieved_at": "2026-11-21"
+          },
+          {
+            "label": "Ministerio de Ambiente - lista SiB de la Resolución 0126 de 2024",
+            "url": "https://doi.org/10.15472/frowz3",
+            "retrieved_at": "2026-11-21"
+          },
+          {
+            "label": "Parques Nacionales Naturales de Colombia - Resolución 207 de 2023",
+            "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2023/08/Resolucion_207_2023_ReglamentacionNevados.pdf",
+            "retrieved_at": "2026-11-21"
+          }
+        ],
+        "last_verified": "2026-11-21",
+        "related": [
+          "fauna.black_and_chestnut_eagle",
+          "fauna.black_chested_buzzard_eagle",
+          "fauna.spectacled_bear"
+        ],
+        "tags": [
+          "periquito"
+        ]
+      }
+    },
+    {
+      "op": "update",
+      "reason": "Label updated to 'águila crestada o Spizaetus isidori' to clearly specify topic and prevent retrieval confusion; Contrastive hard negatives added from confusable pair",
+      "entry": {
+        "id": "fauna.black_and_chestnut_eagle",
+        "label": "águila crestada o Spizaetus isidori",
+        "kind": "fact",
+        "audience": "visitor",
+        "lang": "es",
+        "examples": [
+          "águila crestada",
+          "Spizaetus isidori",
+          "Oroaetus isidori",
+          "águila de copete en Los Nevados",
+          "¿hay águilas grandes en el bosque?",
+          "hay águila crestada en Los Nevados",
+          "¿cómo es el águila crestada?",
+          "vi un aguila grande con cresta, es la crestada que anda en el parque?",
+          "is the black and chestnut eagle in this park?",
+          "how big is the black and chestnut eagle?",
+          "aguila cazadora de ardillas y pavas",
+          "avistamiento de grandes aguilas en el bosque"
+        ],
+        "hard_negatives": [
+          "águila mora",
+          "oso de anteojos",
+          "danta de montaña",
+          "el aguila crestada esta amenazado?"
+        ],
+        "needs": [],
+        "answer": {
+          "short": "El águila crestada (Spizaetus isidori) es una rapaz suramericana que puede superar los 70 cm de largo. Si la ves, déjala tranquila y no la toques.",
+          "variants": [
+            "Es una rapaz suramericana y puede medir más de 70 cm de largo. No la cojas ni la muevas."
+          ]
+        },
+        "sources": [
+          {
+            "label": "Parques Nacionales Naturales de Colombia - PNN Los Nevados",
+            "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+            "retrieved_at": "2026-11-21"
+          },
+          {
+            "label": "Parques Nacionales Naturales de Colombia - Resolución 207 de 2023",
+            "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2023/08/Resolucion_207_2023_ReglamentacionNevados.pdf",
+            "retrieved_at": "2026-11-21"
+          }
+        ],
+        "last_verified": "2026-11-21",
+        "related": [
+          "fauna.black_chested_buzzard_eagle",
+          "fauna.spectacled_bear",
+          "fauna.mountain_tapir"
+        ],
+        "tags": [
+          "aguila crestada"
+        ]
+      }
+    },
+    {
+      "op": "update",
+      "reason": "Label updated to 'águila de páramo o Geranoaetus melanoleucus' to clearly specify topic and prevent retrieval confusion; Contrastive hard negatives added from confusable pair",
+      "entry": {
+        "id": "fauna.black_chested_buzzard_eagle",
+        "label": "águila de páramo o Geranoaetus melanoleucus",
+        "kind": "fact",
+        "audience": "visitor",
+        "lang": "es",
+        "examples": [
+          "águila mora",
+          "Geranoaetus melanoleucus",
+          "gavilán cuellinegro",
+          "águila de páramo planeando",
+          "¿qué águila vuela sobre el páramo?",
+          "rapaz grande sobrevolando pajonales",
+          "aguila con pecho negro y alas grises",
+          "cazadora de conejos y ratones en el nevado",
+          "is the black chested buzzard eagle in Los Nevados?",
+          "large eagle soaring over Los Nevados",
+          "aguila paramuna planeando en círculos",
+          "hay águila de páramo en Los Nevados"
+        ],
+        "hard_negatives": [
+          "oso de anteojos",
+          "danta de montaña",
+          "el puma en Los Nevados",
+          "águila crestada"
+        ],
+        "needs": [],
+        "answer": {
+          "short": "El águila de páramo (Geranoaetus melanoleucus) es una de las aves representativas del parque; también aparece escrita Geranoetus. Si la ves, no la cojas ni la muevas.",
+          "variants": [
+            "El nombre científico aparece con dos grafías, Geranoetus y Geranoaetus melanoleucus. Si la ves, déjala donde está."
+          ]
+        },
+        "sources": [
+          {
+            "label": "Parques Nacionales Naturales de Colombia - PNN Los Nevados",
+            "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+            "retrieved_at": "2026-11-21"
+          },
+          {
+            "label": "Parques Nacionales Naturales de Colombia - lámina de valores objeto de conservación",
+            "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2026/03/Imagen-20-VOC-web.pdf",
+            "retrieved_at": "2026-11-21"
+          },
+          {
+            "label": "SiB Colombia - Biodiversidad Parque Nacional Natural Nevados (CARDER)",
+            "url": "https://doi.org/10.15472/r8t5xv",
+            "retrieved_at": "2026-11-21"
+          },
+          {
+            "label": "Parques Nacionales Naturales de Colombia - Resolución 207 de 2023",
+            "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2023/08/Resolucion_207_2023_ReglamentacionNevados.pdf",
+            "retrieved_at": "2026-11-21"
+          }
+        ],
+        "last_verified": "2026-11-21",
+        "related": [
+          "fauna.spectacled_bear",
+          "fauna.mountain_tapir",
+          "fauna.cougar_puma"
+        ],
+        "tags": [
+          "aguila de paramo"
+        ]
+      }
+    },
+    {
+      "op": "update",
+      "reason": "Label updated to 'oso de anteojos u oso andino en el parque' to clearly specify topic and prevent retrieval confusion; Contrastive hard negatives added from confusable pair",
+      "entry": {
+        "id": "fauna.spectacled_bear",
+        "label": "oso andino u oso de anteojos",
+        "kind": "fact",
+        "audience": "visitor",
+        "lang": "es",
+        "examples": [
+          "oso de anteojos",
+          "oso andino",
+          "Tremarctos ornatus",
+          "¿hay osos en Los Nevados?",
+          "¿qué oso hay en el parque?",
+          "características del oso de anteojos",
+          "¿el oso andino es peligroso para los turistas?",
+          "oso con manchas blancas en los ojos",
+          "is there a spectacled bear in Los Nevados?",
+          "are there bears up here?",
+          "donde vive el oso de anteojos en el parque",
+          "mamifero grande con antifaz blanco"
+        ],
+        "hard_negatives": [
+          "danta de montaña",
+          "el puma en Los Nevados",
+          "guagua loba",
+          "el oso de anteojos esta amenazado?"
+        ],
+        "needs": [],
+        "answer": {
+          "short": "El oso de anteojos (Tremarctos ornatus) está en el parque y se estudia como especie vulnerable o indicadora. Si lo ves, evita el contacto: no lo alimentes, no lo cojas ni lo muevas.",
+          "variants": [
+            "Se estudia como especie vulnerable o indicadora y aparece como Tremarctos ornatus. Evita el contacto y no lo alimentes."
+          ]
+        },
+        "sources": [
+          {
+            "label": "Parques Nacionales Naturales de Colombia - PNN Los Nevados",
+            "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+            "retrieved_at": "2026-11-21"
+          },
+          {
+            "label": "SiB Colombia - Biodiversidad Parque Nacional Natural Nevados (CARDER)",
+            "url": "https://doi.org/10.15472/r8t5xv",
+            "retrieved_at": "2026-11-21"
+          },
+          {
+            "label": "Parques Nacionales Naturales de Colombia - Resolución 207 de 2023",
+            "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2023/08/Resolucion_207_2023_ReglamentacionNevados.pdf",
+            "retrieved_at": "2026-11-21"
+          }
+        ],
+        "last_verified": "2026-11-21",
+        "related": [
+          "fauna.mountain_tapir",
+          "fauna.cougar_puma",
+          "fauna.pacarana_guagua_loba"
+        ],
+        "tags": [
+          "oso",
+          "anteojos"
+        ]
+      }
+    },
+    {
+      "op": "update",
+      "reason": "Label updated to 'venado conejo o pudú en Los Nevados' to clearly specify topic and prevent retrieval confusion; Contrastive hard negatives added from confusable pair",
+      "entry": {
+        "id": "fauna.northern_pudu",
+        "label": "venado conejo o pudú en Los Nevados",
+        "kind": "fact",
+        "audience": "visitor",
+        "lang": "es",
+        "examples": [
+          "venado conejo",
+          "¿el venado conejo sí vive en el parque?",
+          "Pudu mephistophiles",
+          "¿qué tiene de especial el venado conejo?",
+          "qué es el venado conejo del parque",
+          "venadito enano del páramo",
+          "hay venado conejo en Los Nevados",
+          "¿cómo es el pudu?",
+          "is there a pudu in Los Nevados?",
+          "does the park study the rabbit deer?",
+          "venado conejo especie indicadora del parque",
+          "pudu del norte en alta montana"
+        ],
+        "hard_negatives": [
+          "fauna en el sector Brisas",
+          "fauna en la Laguna del Otún",
+          "fauna en el Nevado Santa Isabel",
+          "el venado conejo esta amenazado?"
+        ],
+        "needs": [],
+        "answer": {
+          "short": "El venado conejo (Pudu mephistophiles) está en el parque y se estudia como especie vulnerable o indicadora. Si ves uno, déjalo tranquilo y no lo toques.",
+          "variants": [
+            "Para el parque el venado conejo es vulnerable o indicador, y aparece registrado como Pudu mephistophiles. No lo cojas."
+          ]
+        },
+        "sources": [
+          {
+            "label": "Parques Nacionales Naturales de Colombia - PNN Los Nevados",
+            "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+            "retrieved_at": "2026-11-21"
+          },
+          {
+            "label": "SiB Colombia - Biodiversidad Parque Nacional Natural Nevados (CARDER)",
+            "url": "https://doi.org/10.15472/r8t5xv",
+            "retrieved_at": "2026-11-21"
+          },
+          {
+            "label": "Parques Nacionales Naturales de Colombia - Resolución 207 de 2023",
+            "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2023/08/Resolucion_207_2023_ReglamentacionNevados.pdf",
+            "retrieved_at": "2026-11-21"
+          }
+        ],
+        "last_verified": "2026-11-21",
+        "related": [
+          "fauna.spotting_sector_brisas",
+          "fauna.spotting_sector_otun",
+          "fauna.spotting_sector_santa_isabel"
+        ],
+        "tags": [
+          "venado conejo",
+          "pudu"
+        ]
+      }
+    },
+    {
+      "op": "update",
+      "reason": "Label updated to 'avistamiento de fauna en sector Santa Isabel' to clearly specify topic and prevent retrieval confusion; Refined examples to remove cross-query contamination and improve LOO routing",
+      "entry": {
+        "id": "fauna.spotting_sector_santa_isabel",
+        "label": "avistamiento de fauna en sector Santa Isabel",
+        "kind": "explanation",
+        "audience": "visitor",
+        "lang": "es",
+        "examples": [
+          "fauna en el Nevado Santa Isabel",
+          "se puede observar fauna en el sector de Santa Isabel",
+          "¿qué animales se ven subiendo a Santa Isabel?",
+          "avistamiento de fauna en la ruta a la nieve",
+          "lagartijas y conejos en Santa Isabel",
+          "hay observación de aves en Cisne Poleka Kasue",
+          "animales en la morrena de Santa Isabel",
+          "que fauna hay camino al glaciar santa isabel",
+          "can I see animals on the Santa Isabel trail?",
+          "are there animals near the snow here?",
+          "¿qué fauna hay en la zona central del parque?",
+          "aves que vuelan cerca del hielo en santa isabel",
+          "observación de fauna camino a Santa Isabel",
+          "animales en la ruta al glaciar Santa Isabel"
+        ],
+        "hard_negatives": [
+          "¿qué hago si encuentro un animal herido?",
+          "cotorra de Fuertes",
+          "perico paramuno"
+        ],
+        "needs": [],
+        "answer": {
+          "short": "Desde el sector Cisne-Poleka Kasue se ve el Nevado Santa Isabel (Poleka Kasue), y allí puedes hacer observación de aves y de fauna y flora. Mira a los animales sin tocarlos.",
+          "variants": [
+            "Desde Cisne-Poleka Kasue ves el nevado Santa Isabel, y en ese sector hay observación de aves y de fauna y flora. No los toques."
+          ]
+        },
+        "sources": [
+          {
+            "label": "Parques Nacionales Naturales de Colombia - PNN Los Nevados",
+            "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+            "retrieved_at": "2026-11-21"
+          },
+          {
+            "label": "Parques Nacionales Naturales de Colombia - Resolución 207 de 2023",
+            "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2023/08/Resolucion_207_2023_ReglamentacionNevados.pdf",
+            "retrieved_at": "2026-11-21"
+          }
+        ],
+        "last_verified": "2026-11-21",
+        "related": [
+          "fauna.injured_wildlife_protocol",
+          "fauna.fuertes_parrot",
+          "fauna.golden_plumed_parakeet"
+        ],
+        "tags": [
+          "santa isabel",
+          "cisne"
+        ]
+      }
+    },
+    {
+      "op": "update",
+      "reason": "Label updated to 'protocolo ante hallazgo de fauna silvestre herida' to clearly specify topic and prevent retrieval confusion",
+      "entry": {
+        "id": "fauna.injured_wildlife_protocol",
+        "label": "protocolo ante hallazgo de fauna silvestre herida",
+        "kind": "safety",
+        "audience": "visitor",
+        "lang": "es",
+        "examples": [
+          "¿qué hago si encuentro un animal herido?",
+          "encontré un pajarito o venado lastimado en el sendero",
+          "¿toca dejar ahí al pajarito herido?",
+          "puedo llevarme un animal herido a la ciudad",
+          "cómo reportar un animal accidentado a los guardaparques",
+          "vi un animal herido en el sendero qué hago",
+          "que hacer con una cría abandonada en el páramo",
+          "a quien aviso si veo un animal herido",
+          "What to do if you find injured wildlife in Los Nevados?",
+          "I found a hurt bird on the trail, what should I do?",
+          "vi un animalito quebrado en el camino que hago",
+          "¿adónde llevo a un pajarito herido en el parque?"
+        ],
+        "hard_negatives": [
+          "cotorra de Fuertes",
+          "perico paramuno",
+          "tororoi leonado"
+        ],
+        "needs": [],
+        "answer": {
+          "short": "Si encuentras un animal herido, no lo cojas, no lo alimentes y no lo muevas: la Resolución 207 de 2023 pide evitar el contacto con la vida silvestre y dejarlo donde está.",
+          "variants": [
+            "Aunque parezca herido, no lo cojas ni lo alimentes: la Resolución 207 de 2023 pide dejarlo donde está."
+          ]
+        },
+        "sources": [
+          {
+            "label": "Parques Nacionales Naturales de Colombia - Resolución 207 de 2023",
+            "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2023/08/Resolucion_207_2023_ReglamentacionNevados.pdf",
+            "retrieved_at": "2026-11-21"
+          }
+        ],
+        "last_verified": "2026-11-21",
+        "related": [
+          "fauna.fuertes_parrot",
+          "fauna.golden_plumed_parakeet",
+          "fauna.tawny_antpitta"
+        ],
+        "tags": [
+          "herido",
+          "contacto"
+        ]
+      }
+    },
+    {
+      "op": "update",
+      "reason": "Label updated to 'cotorra de Fuertes o coroniazul en el parque' to clearly specify topic and prevent retrieval confusion; Contrastive hard negatives added from confusable pair",
+      "entry": {
+        "id": "fauna.fuertes_parrot",
+        "label": "cotorra de Fuertes o coroniazul en el parque",
+        "kind": "fact",
+        "audience": "visitor",
+        "lang": "es",
+        "examples": [
+          "cotorra de Fuertes",
+          "Hapalopsittaca fuertesi",
+          "cotorra coroniazul en Los Nevados",
+          "hay cotorra de Fuertes en el parque",
+          "¿dónde habita la cotorra de Fuertes?",
+          "dónde aparece la cotorra de Fuertes",
+          "¿la cotorra de Fuertes sí se ve por acá?",
+          "¿y la cotorra de Fuertes vive en el parque?",
+          "where can I see Fuertes's parrot?",
+          "is Fuertes's parrot in this park?",
+          "la cotorra coroniazul se ve por los nevados?",
+          "la cotorra de fuertes vive en el parque?"
+        ],
+        "hard_negatives": [
+          "perico paramuno",
+          "tororoi leonado",
+          "tororoi nuchicastaño",
+          "la cotorra de fuertes esta amenazado?"
+        ],
+        "needs": [],
+        "answer": {
+          "short": "Sí, la cotorra de Fuertes (Hapalopsittaca fuertesi) está en el parque. Si la ves, no la cojas ni la muevas.",
+          "variants": [
+            "La cotorra de Fuertes, Hapalopsittaca fuertesi, está registrada en el parque. Déjala donde está."
+          ]
+        },
+        "sources": [
+          {
+            "label": "SiB Colombia - Biodiversidad Parque Nacional Natural Nevados (CARDER)",
+            "url": "https://doi.org/10.15472/r8t5xv",
+            "retrieved_at": "2026-11-21"
+          },
+          {
+            "label": "Parques Nacionales Naturales de Colombia - Resolución 207 de 2023",
+            "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2023/08/Resolucion_207_2023_ReglamentacionNevados.pdf",
+            "retrieved_at": "2026-11-21"
+          }
+        ],
+        "last_verified": "2026-11-21",
+        "related": [
+          "fauna.golden_plumed_parakeet",
+          "fauna.tawny_antpitta",
+          "fauna.chestnut_naped_antpitta"
+        ],
+        "tags": [
+          "loro",
+          "fuertes"
+        ]
+      }
+    },
+    {
+      "op": "update",
+      "reason": "Label updated to 'perico paramuno o de penacho dorado' to clearly specify topic and prevent retrieval confusion; Contrastive hard negatives added from confusable pair",
+      "entry": {
+        "id": "fauna.golden_plumed_parakeet",
+        "label": "perico paramuno o de penacho dorado",
+        "kind": "fact",
+        "audience": "visitor",
+        "lang": "es",
+        "examples": [
+          "perico paramuno",
+          "Leptosittaca branickii",
+          "cotorra de penacho dorado",
+          "loros de bosque de niebla en Los Nevados",
+          "¿dónde habita el perico paramuno?",
+          "perico con plumas amarillas en las mejillas",
+          "¿el perico paramuno sí está en el parque?",
+          "ave que come frutos de pino romerón",
+          "is there a golden plumed parakeet here?",
+          "what is the perico paramuno?",
+          "periquito de montaña con cresta dorada",
+          "avistamiento de cotorras paramunas"
+        ],
+        "hard_negatives": [
+          "tororoi leonado",
+          "tororoi nuchicastaño",
+          "pato de torrente",
+          "el perico paramuno esta amenazado?"
+        ],
+        "needs": [],
+        "answer": {
+          "short": "El perico paramuno (Leptosittaca branickii) está en el parque. Si lo ves, míralo sin tocarlo.",
+          "variants": [
+            "Aparece registrado en el parque con el nombre Leptosittaca branickii. No lo cojas ni lo muevas."
+          ]
+        },
+        "sources": [
+          {
+            "label": "SiB Colombia - Biodiversidad Parque Nacional Natural Nevados (CARDER)",
+            "url": "https://doi.org/10.15472/r8t5xv",
+            "retrieved_at": "2026-11-21"
+          },
+          {
+            "label": "Parques Nacionales Naturales de Colombia - Resolución 207 de 2023",
+            "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2023/08/Resolucion_207_2023_ReglamentacionNevados.pdf",
+            "retrieved_at": "2026-11-21"
+          }
+        ],
+        "last_verified": "2026-11-21",
+        "related": [
+          "fauna.tawny_antpitta",
+          "fauna.chestnut_naped_antpitta",
+          "fauna.torrent_duck"
+        ],
+        "tags": [
+          "perico"
+        ]
+      }
+    },
+    {
+      "op": "update",
+      "reason": "Label updated to 'tororoi leonado o Grallaria quitensis' to clearly specify topic and prevent retrieval confusion; Contrastive hard negatives added from confusable pair",
+      "entry": {
+        "id": "fauna.tawny_antpitta",
+        "label": "tororoi leonado o Grallaria quitensis",
+        "kind": "fact",
+        "audience": "visitor",
+        "lang": "es",
+        "examples": [
+          "tororoi leonado",
+          "Grallaria quitensis",
+          "where can I find the tawny antpitta?",
+          "pájaro patón del páramo",
+          "¿qué pájaro brinca en el suelo del páramo?",
+          "ave redonda con patas largas en los pajonales",
+          "tororoi que se acerca a los senderistas",
+          "pajaro confiado en el nevado del ruiz",
+          "do I have a chance to see a tawny antpitta?",
+          "ground bird hopping in the paramo",
+          "pajaro bolita de plumas en el camino",
+          "tororoi de montana en pajonal"
+        ],
+        "hard_negatives": [
+          "tororoi nuchicastaño",
+          "pato de torrente",
+          "colibrí piquiespada",
+          "tororoi de Miller"
+        ],
+        "needs": [],
+        "answer": {
+          "short": "Sí, el tororoi leonado (Grallaria quitensis) está en el parque. Si lo ves, déjalo donde está.",
+          "variants": [
+            "El tororoi leonado, Grallaria quitensis, aparece registrado en el parque. No lo cojas ni lo muevas."
+          ]
+        },
+        "sources": [
+          {
+            "label": "SiB Colombia - Biodiversidad Parque Nacional Natural Nevados (CARDER)",
+            "url": "https://doi.org/10.15472/r8t5xv",
+            "retrieved_at": "2026-11-21"
+          },
+          {
+            "label": "Parques Nacionales Naturales de Colombia - Resolución 207 de 2023",
+            "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2023/08/Resolucion_207_2023_ReglamentacionNevados.pdf",
+            "retrieved_at": "2026-11-21"
+          }
+        ],
+        "last_verified": "2026-11-21",
+        "related": [
+          "fauna.chestnut_naped_antpitta",
+          "fauna.torrent_duck",
+          "fauna.sword_billed_hummingbird"
+        ],
+        "tags": [
+          "tororoi"
+        ]
+      }
+    },
+    {
+      "op": "update",
+      "reason": "Label updated to 'tororoi nuchicastaño o Grallaria nuchalis' to clearly specify topic and prevent retrieval confusion; Contrastive hard negatives added from confusable pair",
+      "entry": {
+        "id": "fauna.chestnut_naped_antpitta",
+        "label": "tororoi nuchicastaño o Grallaria nuchalis",
+        "kind": "fact",
+        "audience": "visitor",
+        "lang": "es",
+        "examples": [
+          "tororoi nuchicastaño",
+          "Grallaria nuchalis",
+          "is the chestnut naped antpitta in this park?",
+          "tororoi grande de bosque altoandino",
+          "¿dónde se encuentra el tororoi nuchicastaño?",
+          "ave de sotobosque con nuca castaña",
+          "¿hay tororoi nuchicastaño por acá?",
+          "¿y el tororoi nuchicastaño cómo es?",
+          "chestnut naped antpitta Colombia",
+          "large antpitta in cloud forest trails",
+          "tororoi gigante de la cordillera central",
+          "pajarote de patas largas en la niebla"
+        ],
+        "hard_negatives": [
+          "tororoi de Miller",
+          "tororoi leonado",
+          "pato de torrente"
+        ],
+        "needs": [],
+        "answer": {
+          "short": "El tororoi nuchicastaño (Grallaria nuchalis) está en el parque. Si lo ves, no lo toques.",
+          "variants": [
+            "Aparece registrado en el parque como tororoi nuchicastaño, con el nombre Grallaria nuchalis. Déjalo tranquilo."
+          ]
+        },
+        "sources": [
+          {
+            "label": "SiB Colombia - Biodiversidad Parque Nacional Natural Nevados (CARDER)",
+            "url": "https://doi.org/10.15472/r8t5xv",
+            "retrieved_at": "2026-11-21"
+          },
+          {
+            "label": "Parques Nacionales Naturales de Colombia - Resolución 207 de 2023",
+            "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2023/08/Resolucion_207_2023_ReglamentacionNevados.pdf",
+            "retrieved_at": "2026-11-21"
+          }
+        ],
+        "last_verified": "2026-11-21",
+        "related": [
+          "fauna.torrent_duck",
+          "fauna.sword_billed_hummingbird",
+          "fauna.shining_sunbeam"
+        ],
+        "tags": [
+          "tororoi"
+        ]
+      }
+    },
+    {
+      "op": "update",
+      "reason": "Label updated to 'pato de torrente en ríos de montaña' to clearly specify topic and prevent retrieval confusion; Contrastive hard negatives added from confusable pair",
+      "entry": {
+        "id": "fauna.torrent_duck",
+        "label": "pato de torrente en ríos de montaña",
+        "kind": "fact",
+        "audience": "visitor",
+        "lang": "es",
+        "examples": [
+          "pato de torrente",
+          "Merganetta armata",
+          "pato que nada en ríos rápidos",
+          "pato de cascadas en Los Nevados",
+          "¿cómo nada el pato contra la corriente?",
+          "pato con cuerpo estilizado en aguas bravas",
+          "pato nadando en rapidos de montana",
+          "aves acuaticas en rios de alta montana",
+          "is there a torrent duck in Los Nevados?",
+          "do torrent ducks live in these rivers?",
+          "pato parado sobre piedras en el rio",
+          "pato buceando en corrientes frias"
+        ],
+        "hard_negatives": [
+          "colibrí piquiespada",
+          "rayito de sol andino",
+          "colibrí coliazul",
+          "pato andino"
+        ],
+        "needs": [],
+        "answer": {
+          "short": "El pato de torrente (Merganetta armata) está en el parque. Si lo ves, déjalo tranquilo.",
+          "variants": [
+            "El pato de torrente aparece registrado como Merganetta armata. No lo cojas ni lo muevas."
+          ]
+        },
+        "sources": [
+          {
+            "label": "SiB Colombia - Biodiversidad Parque Nacional Natural Nevados (CARDER)",
+            "url": "https://doi.org/10.15472/r8t5xv",
+            "retrieved_at": "2026-11-21"
+          },
+          {
+            "label": "Parques Nacionales Naturales de Colombia - Resolución 207 de 2023",
+            "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2023/08/Resolucion_207_2023_ReglamentacionNevados.pdf",
+            "retrieved_at": "2026-11-21"
+          }
+        ],
+        "last_verified": "2026-11-21",
+        "related": [
+          "fauna.sword_billed_hummingbird",
+          "fauna.shining_sunbeam",
+          "fauna.tyrian_metaltail"
+        ],
+        "tags": [
+          "pato"
+        ]
+      }
+    },
+    {
+      "op": "update",
+      "reason": "Label updated to 'terlaque andino o tucán de montaña' to clearly specify topic and prevent retrieval confusion; Contrastive hard negatives added from confusable pair",
+      "entry": {
+        "id": "fauna.hooded_mountain_toucan",
+        "label": "terlaque andino o tucán de montaña",
+        "kind": "fact",
+        "audience": "visitor",
+        "lang": "es",
+        "examples": [
+          "terlaque andino",
+          "tucán de montaña",
+          "Andigena hypoglauca",
+          "¿hay tucanes en el frío de Los Nevados?",
+          "¿hay terlaques por acá?",
+          "tucancito de la alta montaña",
+          "terlaque con pecho azul grisáceo",
+          "donde ver tucanes de montana",
+          "where can I see a hooded mountain toucan?",
+          "do toucans live this high up?",
+          "tucan de clima frio en la cordillera central",
+          "¿el terlaque andino sí vive en el parque?"
+        ],
+        "hard_negatives": [
+          "copetón andino",
+          "búho de páramo",
+          "agachadiza noble",
+          "el terlaque andino esta amenazado?"
+        ],
+        "needs": [],
+        "answer": {
+          "short": "El terlaque andino (Andigena hypoglauca) está en el parque. Si lo ves, déjalo donde está.",
+          "variants": [
+            "Andigena hypoglauca figura registrado en el parque como terlaque andino. No lo toques."
+          ]
+        },
+        "sources": [
+          {
+            "label": "SiB Colombia - Biodiversidad Parque Nacional Natural Nevados (CARDER)",
+            "url": "https://doi.org/10.15472/r8t5xv",
+            "retrieved_at": "2026-11-21"
+          },
+          {
+            "label": "Parques Nacionales Naturales de Colombia - Resolución 207 de 2023",
+            "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2023/08/Resolucion_207_2023_ReglamentacionNevados.pdf",
+            "retrieved_at": "2026-11-21"
+          }
+        ],
+        "last_verified": "2026-11-21",
+        "related": [
+          "fauna.rufous_collared_sparrow",
+          "fauna.short_eared_owl_paramo",
+          "fauna.noble_snipe"
+        ],
+        "tags": [
+          "terlaque"
+        ]
+      }
+    },
+    {
+      "op": "update",
+      "reason": "Label updated to 'agachadiza noble o Gallinago nobilis' to clearly specify topic and prevent retrieval confusion",
+      "entry": {
+        "id": "fauna.noble_snipe",
+        "label": "agachadiza noble o Gallinago nobilis",
+        "kind": "fact",
+        "audience": "visitor",
+        "lang": "es",
+        "examples": [
+          "agachadiza noble",
+          "caica de páramo",
+          "Gallinago nobilis",
+          "¿hay agachadizas por el páramo?",
+          "¿la agachadiza noble sí está en el parque?",
+          "ave zancuda pequeña en turberas",
+          "la agachadiza noble vive en este paramo?",
+          "agachadiza andina camuflada en el pasto",
+          "is there a noble snipe in the páramo?",
+          "where do noble snipes live?",
+          "pajaro que vuela rapido en zigzag al asustarse",
+          "ave limicola de alta montaña"
+        ],
+        "hard_negatives": [
+          "tigrillo lanudo",
+          "guagua de páramo",
+          "venado soche"
+        ],
+        "needs": [],
+        "answer": {
+          "short": "La agachadiza noble (Gallinago nobilis) está en el parque. Si la ves, no la toques.",
+          "variants": [
+            "Gallinago nobilis aparece registrada en el parque como agachadiza noble. Déjala donde está."
+          ]
+        },
+        "sources": [
+          {
+            "label": "SiB Colombia - Biodiversidad Parque Nacional Natural Nevados (CARDER)",
+            "url": "https://doi.org/10.15472/r8t5xv",
+            "retrieved_at": "2026-11-21"
+          },
+          {
+            "label": "Parques Nacionales Naturales de Colombia - Resolución 207 de 2023",
+            "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2023/08/Resolucion_207_2023_ReglamentacionNevados.pdf",
+            "retrieved_at": "2026-11-21"
+          }
+        ],
+        "last_verified": "2026-11-21",
+        "related": [
+          "fauna.northern_tiger_cat",
+          "fauna.mountain_paca",
+          "fauna.little_red_brocket"
+        ],
+        "tags": [
+          "agachadiza"
+        ]
+      }
+    },
+    {
+      "op": "update",
+      "reason": "Label updated to 'tigrillo lanudo u oncilla en Los Nevados' to clearly specify topic and prevent retrieval confusion; Contrastive hard negatives added from confusable pair",
+      "entry": {
+        "id": "fauna.northern_tiger_cat",
+        "label": "tigrillo lanudo u oncilla en Los Nevados",
+        "kind": "fact",
+        "audience": "visitor",
+        "lang": "es",
+        "examples": [
+          "tigrillo lanudo",
+          "Leopardus tigrinus",
+          "oncilla en Los Nevados",
+          "hay tigrillo lanudo en Los Nevados",
+          "¿hay tigrillos en el páramo?",
+          "el tigrillo lanudo si anda por el parque?",
+          "diferencia entre tigrillo y puma",
+          "gato montés en la cordillera central",
+          "is there a tiger cat in Los Nevados?",
+          "what does a tigrillo look like?",
+          "¿y la oncilla también está en el parque?",
+          "pequeno leopardo de montaña en Colombia"
+        ],
+        "hard_negatives": [
+          "guagua de páramo",
+          "venado soche",
+          "venado cola blanca",
+          "el tigrillo lanudo esta amenazado?"
+        ],
+        "needs": [],
+        "answer": {
+          "short": "El tigrillo lanudo (Leopardus tigrinus subsp. pardinoides) está en el parque. Si lo ves, no lo cojas ni lo toques.",
+          "variants": [
+            "Leopardus tigrinus subsp. pardinoides figura registrado en el parque como tigrillo lanudo. Déjalo tranquilo."
+          ]
+        },
+        "sources": [
+          {
+            "label": "SiB Colombia - Biodiversidad Parque Nacional Natural Nevados (CARDER)",
+            "url": "https://doi.org/10.15472/r8t5xv",
+            "retrieved_at": "2026-11-21"
+          },
+          {
+            "label": "Parques Nacionales Naturales de Colombia - Resolución 207 de 2023",
+            "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2023/08/Resolucion_207_2023_ReglamentacionNevados.pdf",
+            "retrieved_at": "2026-11-21"
+          }
+        ],
+        "last_verified": "2026-11-21",
+        "related": [
+          "fauna.mountain_paca",
+          "fauna.little_red_brocket",
+          "fauna.white_tailed_deer"
+        ],
+        "tags": [
+          "tigrillo"
+        ]
+      }
+    },
+    {
+      "op": "update",
+      "reason": "Label updated to 'guagua de páramo o Cuniculus taczanowskii' to clearly specify topic and prevent retrieval confusion",
+      "entry": {
+        "id": "fauna.mountain_paca",
+        "label": "guagua de páramo o Cuniculus taczanowskii",
+        "kind": "fact",
+        "audience": "visitor",
+        "lang": "es",
+        "examples": [
+          "guagua de páramo",
+          "boruga de montaña",
+          "Cuniculus taczanowskii",
+          "lapa de alta montaña",
+          "¿qué diferencia hay entre guagua y pacarana?",
+          "hay guagua de páramo en Los Nevados",
+          "¿la guagua de páramo sí vive en el parque?",
+          "boruga paramuna en Los Nevados",
+          "is there a mountain paca here?",
+          "what's a mountain paca like?",
+          "boruga de montaña en el parque nacional",
+          "la guagua de paramo vive por aca?"
+        ],
+        "hard_negatives": [
+          "venado soche",
+          "venado cola blanca",
+          "cusumbo andino"
+        ],
+        "needs": [],
+        "answer": {
+          "short": "La guagua de páramo (Cuniculus taczanowskii) está en el parque. Si la ves, déjala tranquila.",
+          "variants": [
+            "Cuniculus taczanowskii aparece registrado en el parque como guagua de páramo. No la cojas ni la muevas."
+          ]
+        },
+        "sources": [
+          {
+            "label": "SiB Colombia - Biodiversidad Parque Nacional Natural Nevados (CARDER)",
+            "url": "https://doi.org/10.15472/r8t5xv",
+            "retrieved_at": "2026-11-21"
+          },
+          {
+            "label": "Parques Nacionales Naturales de Colombia - Resolución 207 de 2023",
+            "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2023/08/Resolucion_207_2023_ReglamentacionNevados.pdf",
+            "retrieved_at": "2026-11-21"
+          }
+        ],
+        "last_verified": "2026-11-21",
+        "related": [
+          "fauna.little_red_brocket",
+          "fauna.white_tailed_deer",
+          "fauna.mountain_coati"
+        ],
+        "tags": [
+          "guagua"
+        ]
+      }
+    },
+    {
+      "op": "update",
+      "reason": "Label updated to 'venado soche o venado colorado en el parque' to clearly specify topic and prevent retrieval confusion; Contrastive hard negatives added from confusable pair",
+      "entry": {
+        "id": "fauna.little_red_brocket",
+        "label": "venado soche o venado colorado en el parque",
+        "kind": "fact",
+        "audience": "visitor",
+        "lang": "es",
+        "examples": [
+          "venado soche",
+          "venado rojo de montaña",
+          "Mazama rufina",
+          "ciervo colorado en Los Nevados",
+          "¿cómo es el venado soche?",
+          "venadito pequeño de color rojizo",
+          "ciervo de páramo con cuernitos cortos",
+          "venado rojo tímido en los matorrales",
+          "is there a little red brocket here?",
+          "how big is a red brocket deer?",
+          "¿hay venados soche en el parque?",
+          "avistamiento de venados en bosque altoandino"
+        ],
+        "hard_negatives": [
+          "venado cola blanca",
+          "cusumbo andino",
+          "comadreja andina",
+          "el venado colorado esta amenazado?"
+        ],
+        "needs": [],
+        "answer": {
+          "short": "El venado soche (Mazama rufina) está en el parque. Si lo ves, no lo toques ni lo muevas.",
+          "variants": [
+            "Mazama rufina aparece registrada en el parque como venado soche. Déjalo donde está."
+          ]
+        },
+        "sources": [
+          {
+            "label": "SiB Colombia - Biodiversidad Parque Nacional Natural Nevados (CARDER)",
+            "url": "https://doi.org/10.15472/r8t5xv",
+            "retrieved_at": "2026-11-21"
+          },
+          {
+            "label": "Parques Nacionales Naturales de Colombia - Resolución 207 de 2023",
+            "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2023/08/Resolucion_207_2023_ReglamentacionNevados.pdf",
+            "retrieved_at": "2026-11-21"
+          }
+        ],
+        "last_verified": "2026-11-21",
+        "related": [
+          "fauna.white_tailed_deer",
+          "fauna.mountain_coati",
+          "fauna.long_tailed_weasel"
+        ],
+        "tags": [
+          "venado"
+        ]
+      }
+    },
+    {
+      "op": "update",
+      "reason": "Label updated to 'venado de cola blanca en el parque' to clearly specify topic and prevent retrieval confusion",
+      "entry": {
+        "id": "fauna.white_tailed_deer",
+        "label": "venado de cola blanca en el parque",
+        "kind": "fact",
+        "audience": "visitor",
+        "lang": "es",
+        "examples": [
+          "venado cola blanca",
+          "Odocoileus virginianus",
+          "¿hay venados de cola blanca en el páramo?",
+          "ciervo grande en Los Nevados",
+          "venado de páramo con cuernos grandes",
+          "¿dónde se ven venados cola blanca en el parque?",
+          "ciervo que levanta la cola blanca al correr",
+          "venados pastando en valles abiertos",
+          "where can I see white-tailed deer here?",
+          "are there white-tailed deer in Los Nevados?",
+          "venado grande en pajonales abiertos",
+          "manadas de venados en alta montaña",
+          "el venado de cola blanca ya no esta en el parque?",
+          "todavia mencionan al venado de cola blanca?",
+          "did the white-tailed deer disappear from Los Nevados"
+        ],
+        "hard_negatives": [
+          "cusumbo andino",
+          "comadreja andina",
+          "conejo de páramo"
+        ],
+        "needs": [],
+        "answer": {
+          "short": "Odocoileus virginianus sigue en un listado de la CARDER, pero en 2017 el venado de cola blanca había desaparecido del parque. Si ves un venado, no lo cojas ni lo desplaces.",
+          "variants": [
+            "Hay dos fuentes: el listado todavía lo trae y el plan de 2017 dice que desapareció del parque. Si ves un venado, no lo cojas ni lo desplaces."
+          ]
+        },
+        "sources": [
+          {
+            "label": "SiB Colombia - Biodiversidad Parque Nacional Natural Nevados (CARDER)",
+            "url": "https://doi.org/10.15472/r8t5xv",
+            "retrieved_at": "2026-11-21"
+          },
+          {
+            "label": "Parques Nacionales Naturales de Colombia - Plan de manejo PNN Los Nevados 2017-2022",
+            "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2020/10/plan-de-manejo-pnn-los-nevados.pdf",
+            "retrieved_at": "2026-11-21"
+          },
+          {
+            "label": "Parques Nacionales Naturales de Colombia - Resolución 207 de 2023",
+            "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2023/08/Resolucion_207_2023_ReglamentacionNevados.pdf",
+            "retrieved_at": "2026-11-21"
+          }
+        ],
+        "last_verified": "2026-11-21",
+        "related": [
+          "fauna.mountain_coati",
+          "fauna.long_tailed_weasel",
+          "fauna.paramo_rabbit"
+        ],
+        "tags": [
+          "venado"
+        ]
+      }
+    },
+    {
+      "op": "update",
+      "reason": "Label updated to 'cusumbo andino o Nasuella olivacea' to clearly specify topic and prevent retrieval confusion",
+      "entry": {
+        "id": "fauna.mountain_coati",
+        "label": "cusumbo andino o Nasuella olivacea",
+        "kind": "fact",
+        "audience": "visitor",
+        "lang": "es",
+        "examples": [
+          "cusumbo andino",
+          "coatí de montaña",
+          "Nasuella olivacea",
+          "animal con trompa móvil y cola anillada",
+          "¿qué es un cusumbo?",
+          "mamífero diurno escarbando la tierra",
+          "cusumbo de páramo en Los Nevados",
+          "¿hay cusumbos por el parque?",
+          "is there a mountain coati in Los Nevados?",
+          "Andean coati foraging in the paramo",
+          "cusumbito buscando comida entre musgos",
+          "animalito simpatico con cola parada"
+        ],
+        "hard_negatives": [
+          "comadreja andina",
+          "conejo de páramo",
+          "zorro perruno"
+        ],
+        "needs": [],
+        "answer": {
+          "short": "El cusumbo andino (Nasuella olivacea) está en el parque. Si lo ves, obsérvalo sin tocarlo.",
+          "variants": [
+            "Nasuella olivacea aparece registrada en el parque como cusumbo andino. No lo toques."
+          ]
+        },
+        "sources": [
+          {
+            "label": "SiB Colombia - Biodiversidad Parque Nacional Natural Nevados (CARDER)",
+            "url": "https://doi.org/10.15472/r8t5xv",
+            "retrieved_at": "2026-11-21"
+          },
+          {
+            "label": "Parques Nacionales Naturales de Colombia - Resolución 207 de 2023",
+            "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2023/08/Resolucion_207_2023_ReglamentacionNevados.pdf",
+            "retrieved_at": "2026-11-21"
+          }
+        ],
+        "last_verified": "2026-11-21",
+        "related": [
+          "fauna.long_tailed_weasel",
+          "fauna.paramo_rabbit",
+          "fauna.crab_eating_fox"
+        ],
+        "tags": [
+          "cusumbo"
+        ]
+      }
+    },
+    {
+      "op": "update",
+      "reason": "Label updated to 'comadreja de cola larga en el parque' to clearly specify topic and prevent retrieval confusion",
+      "entry": {
+        "id": "fauna.long_tailed_weasel",
+        "label": "comadreja de cola larga en el parque",
+        "kind": "fact",
+        "audience": "visitor",
+        "lang": "es",
+        "examples": [
+          "comadreja andina",
+          "Neogale frenata",
+          "Mustela frenata",
+          "comadreja de cola larga en Los Nevados",
+          "animal largo y delgado corriendo entre piedras",
+          "pequeño carnívoro ágil del páramo",
+          "¿es normal ver comadrejas en el camino?",
+          "la comadreja de cola larga sale a cazar por el paramo?",
+          "is there a long tailed weasel here?",
+          "Andean weasel Los Nevados National Park",
+          "comadreja con punta de cola negra",
+          "mamifero alargado cruzando el camino"
+        ],
+        "hard_negatives": [
+          "conejo de páramo",
+          "zorro perruno",
+          "tangaras de montaña"
+        ],
+        "needs": [],
+        "answer": {
+          "short": "La comadreja de cola larga (Mustela frenata affinis) está en el parque. Si la ves, déjala tranquila.",
+          "variants": [
+            "Mustela frenata affinis aparece registrada en el parque como comadreja de cola larga. No la cojas."
+          ]
+        },
+        "sources": [
+          {
+            "label": "SiB Colombia - Biodiversidad Parque Nacional Natural Nevados (CARDER)",
+            "url": "https://doi.org/10.15472/r8t5xv",
+            "retrieved_at": "2026-11-21"
+          },
+          {
+            "label": "Parques Nacionales Naturales de Colombia - Resolución 207 de 2023",
+            "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2023/08/Resolucion_207_2023_ReglamentacionNevados.pdf",
+            "retrieved_at": "2026-11-21"
+          }
+        ],
+        "last_verified": "2026-11-21",
+        "related": [
+          "fauna.paramo_rabbit",
+          "fauna.crab_eating_fox",
+          "fauna.mountain_tanagers"
+        ],
+        "tags": [
+          "comadreja"
+        ]
+      }
+    },
+    {
+      "op": "update",
+      "reason": "Label updated to 'conejo de páramo o Sylvilagus brasiliensis' to clearly specify topic and prevent retrieval confusion",
+      "entry": {
+        "id": "fauna.paramo_rabbit",
+        "label": "conejo de páramo o Sylvilagus brasiliensis",
+        "kind": "fact",
+        "audience": "visitor",
+        "lang": "es",
+        "examples": [
+          "conejo de páramo",
+          "tapetí andino",
+          "¿cómo se llama científicamente el conejo de páramo?",
+          "Sylvilagus brasiliensis",
+          "conejos silvestres en Los Nevados",
+          "¿hay conejos en la alta montaña?",
+          "conejo pequeño escondido en el pajonal",
+          "animales herbívoros comunes en el parque",
+          "is there a paramo rabbit in Los Nevados?",
+          "wild rabbit high elevation grasslands",
+          "¿hay conejos de páramo por acá?",
+          "conejo silvestre cruzando la trocha"
+        ],
+        "hard_negatives": [
+          "zorro perruno",
+          "tangaras de montaña",
+          "ratones de páramo"
+        ],
+        "needs": [],
+        "answer": {
+          "short": "El conejo de páramo (Sylvilagus brasiliensis fulvescens) está en el parque. Si lo ves, míralo sin tocarlo.",
+          "variants": [
+            "Sylvilagus brasiliensis fulvescens aparece registrado en el parque como conejo de páramo. No lo cojas."
+          ]
+        },
+        "sources": [
+          {
+            "label": "SiB Colombia - Biodiversidad Parque Nacional Natural Nevados (CARDER)",
+            "url": "https://doi.org/10.15472/r8t5xv",
+            "retrieved_at": "2026-11-21"
+          },
+          {
+            "label": "Parques Nacionales Naturales de Colombia - Resolución 207 de 2023",
+            "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2023/08/Resolucion_207_2023_ReglamentacionNevados.pdf",
+            "retrieved_at": "2026-11-21"
+          }
+        ],
+        "last_verified": "2026-11-21",
+        "related": [
+          "fauna.crab_eating_fox",
+          "fauna.mountain_tanagers",
+          "fauna.paramo_rodents_shrews"
+        ],
+        "tags": [
+          "conejo"
+        ]
+      }
+    },
+    {
+      "op": "update",
+      "reason": "Label updated to 'zorro perruno o Cerdocyon thous' to clearly specify topic and prevent retrieval confusion",
+      "entry": {
+        "id": "fauna.crab_eating_fox",
+        "label": "zorro perruno o Cerdocyon thous",
+        "kind": "fact",
+        "audience": "visitor",
+        "lang": "es",
+        "examples": [
+          "zorro perruno",
+          "zorro cangrejero",
+          "Cerdocyon thous",
+          "zorros en Los Nevados",
+          "¿hay zorros perrunos por el parque?",
+          "cánido silvestre en el páramo",
+          "zorro gris patrullando las vías",
+          "animal parecido a un perro salvaje en el parque",
+          "is there a crab eating fox here?",
+          "do foxes live in the páramo?",
+          "zorro comiendo cerca del camino vehicular",
+          "¿los zorros cruzan los caminos del parque?"
+        ],
+        "hard_negatives": [
+          "tangaras de montaña",
+          "ratones de páramo",
+          "el condor andino esta amenazado?"
+        ],
+        "needs": [],
+        "answer": {
+          "short": "El zorro perruno (Cerdocyon thous) está en el parque. Si lo ves, no lo toques ni lo muevas.",
+          "variants": [
+            "Cerdocyon thous aparece registrado en el parque como zorro perruno. Déjalo tranquilo y no lo cojas."
+          ]
+        },
+        "sources": [
+          {
+            "label": "SiB Colombia - Biodiversidad Parque Nacional Natural Nevados (CARDER)",
+            "url": "https://doi.org/10.15472/r8t5xv",
+            "retrieved_at": "2026-11-21"
+          },
+          {
+            "label": "Parques Nacionales Naturales de Colombia - Resolución 207 de 2023",
+            "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2023/08/Resolucion_207_2023_ReglamentacionNevados.pdf",
+            "retrieved_at": "2026-11-21"
+          }
+        ],
+        "last_verified": "2026-11-21",
+        "related": [
+          "fauna.mountain_tanagers",
+          "fauna.paramo_rodents_shrews",
+          "fauna.condor_national_status"
+        ],
+        "tags": [
+          "zorro"
+        ]
+      }
+    },
+    {
+      "op": "update",
+      "reason": "Label updated to 'tangaras de montaña y aves de bandada' to clearly specify topic and prevent retrieval confusion",
+      "entry": {
+        "id": "fauna.mountain_tanagers",
+        "label": "tangaras de montaña y aves de bandada",
+        "kind": "fact",
+        "audience": "visitor",
+        "lang": "es",
+        "examples": [
+          "tangaras de montaña",
+          "Anisognathus igniventris",
+          "Buthraupis montana",
+          "¿qué tangaras se ven en el parque?",
+          "pájaros de colores brillantes en el frío",
+          "tangara ventriescarlata en Los Nevados",
+          "tangara azul y negra de alta montaña",
+          "¿por qué viajan juntos tantos pájaros de colores?",
+          "are there colorful tanagers in the park?",
+          "are there tanagers up here?",
+          "pajaritos de colores en arboles de niebla",
+          "tangaras comiendo frutas de bosque altoandino"
+        ],
+        "hard_negatives": [
+          "ratones de páramo",
+          "el condor andino esta amenazado?",
+          "el oso de anteojos esta amenazado?"
+        ],
+        "needs": [],
+        "answer": {
+          "short": "Las tangaras de montaña del parque son Anisognathus igniventris, Anisognathus lacrymosus, Buthraupis montana y Dubusia taeniata. Si ves alguna, obsérvala sin tocarla.",
+          "variants": [
+            "Anisognathus igniventris, Anisognathus lacrymosus, Buthraupis montana y Dubusia taeniata están registradas en el parque. No las cojas."
+          ]
+        },
+        "sources": [
+          {
+            "label": "SiB Colombia - Biodiversidad Parque Nacional Natural Nevados (CARDER)",
+            "url": "https://doi.org/10.15472/r8t5xv",
+            "retrieved_at": "2026-11-21"
+          },
+          {
+            "label": "Parques Nacionales Naturales de Colombia - Resolución 207 de 2023",
+            "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2023/08/Resolucion_207_2023_ReglamentacionNevados.pdf",
+            "retrieved_at": "2026-11-21"
+          }
+        ],
+        "last_verified": "2026-11-21",
+        "related": [
+          "fauna.paramo_rodents_shrews",
+          "fauna.condor_national_status",
+          "fauna.bear_national_status"
+        ],
+        "tags": [
+          "listado"
+        ]
+      }
+    },
+    {
+      "op": "update",
+      "reason": "Label updated to 'ratones de monte y musarañas de páramo' to clearly specify topic and prevent retrieval confusion",
+      "entry": {
+        "id": "fauna.paramo_rodents_shrews",
+        "label": "ratones de monte y musarañas de páramo",
+        "kind": "fact",
+        "audience": "visitor",
+        "lang": "es",
+        "examples": [
+          "ratones de páramo",
+          "¿qué ratones viven en el páramo?",
+          "Thomasomys",
+          "musaraña de montaña",
+          "¿la musaraña de montaña vive aquí?",
+          "pequeños roedores en la alta montaña",
+          "hay Thomasomys cinereiventer en Los Nevados",
+          "mamíferos pequeños del suelo del páramo",
+          "are there mice up in the páramo?",
+          "small mammals high Andes Colombia",
+          "¿qué ratones y musarañas se ven en el parque?",
+          "musaranas insectivoras de montana"
+        ],
+        "hard_negatives": [
+          "el condor andino esta amenazado?",
+          "el oso de anteojos esta amenazado?",
+          "la danta de paramo esta amenazado?"
+        ],
+        "needs": [],
+        "answer": {
+          "short": "En el parque hay estos ratones y musarañas: Thomasomys cinereiventer, Akodon affinis y Cryptotis thomasi. Si los ves, déjalos donde están.",
+          "variants": [
+            "En el parque están registrados Thomasomys cinereiventer, Akodon affinis y Cryptotis thomasi. No los toques ni los muevas."
+          ]
+        },
+        "sources": [
+          {
+            "label": "SiB Colombia - Biodiversidad Parque Nacional Natural Nevados (CARDER)",
+            "url": "https://doi.org/10.15472/r8t5xv",
+            "retrieved_at": "2026-11-21"
+          },
+          {
+            "label": "Parques Nacionales Naturales de Colombia - Resolución 207 de 2023",
+            "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2023/08/Resolucion_207_2023_ReglamentacionNevados.pdf",
+            "retrieved_at": "2026-11-21"
+          }
+        ],
+        "last_verified": "2026-11-21",
+        "related": [
+          "fauna.condor_national_status",
+          "fauna.bear_national_status",
+          "fauna.tapir_national_status"
+        ],
+        "tags": [
+          "listado"
+        ]
+      }
+    },
+    {
+      "op": "update",
+      "reason": "Label updated to 'categoría de amenaza del cóndor andino' to clearly specify topic and prevent retrieval confusion; Contrastive hard negatives added from confusable pair",
+      "entry": {
+        "id": "fauna.condor_national_status",
+        "label": "categoría de amenaza del cóndor andino",
+        "kind": "fact",
+        "audience": "visitor",
+        "lang": "es",
+        "examples": [
+          "el condor andino esta amenazado?",
+          "qué categoría de amenaza tiene el cóndor de los Andes en Colombia",
+          "el condor del nevado ya quedo en peligro critico?",
+          "que tan mal esta el condor andino en colombia?",
+          "is the Andean condor critically endangered in Colombia",
+          "what threat category does Colombia give the Andean condor",
+          "el condor del nevado esta critico o solo en riesgo?",
+          "el condor andino es de los que hay que cuidar mas?",
+          "que tan grave es la situacion de el condor andino",
+          "el cóndor de los Andes esta vulnerable, en peligro o en peligro critico?",
+          "quiero saber la categoria nacional de el condor andino",
+          "me dijeron que el condor ya casi no queda, es asi?"
+        ],
+        "hard_negatives": [
+          "el oso de anteojos esta amenazado?",
+          "la danta de paramo esta amenazado?",
+          "el chivito de paramo esta amenazado?",
+          "el cóndor andino"
+        ],
+        "needs": [],
+        "answer": {
+          "short": "La Resolución 0126 de 2024 pone al cóndor de los Andes (Vultur gryphus) en En Peligro Crítico; el plan de 2017 lo tenía En Peligro a nivel nacional. Puede cambiar: confírmala en Minambiente. Si lo ves, no lo cojas ni lo desplaces.",
+          "variants": [
+            "En la lista oficial de 2024 el cóndor está En Peligro Crítico; el plan de 2017 decía En Peligro a nivel nacional. Confírmala en Minambiente y no lo cojas ni lo desplaces."
+          ]
+        },
+        "sources": [
+          {
+            "label": "Ministerio de Ambiente y Desarrollo Sostenible - Resolución 0126 de 2024",
+            "url": "https://www.minambiente.gov.co/documento-normativa/resolucion-0126-de-2024/",
+            "retrieved_at": "2026-11-21"
+          },
+          {
+            "label": "Ministerio de Ambiente - lista SiB de la Resolución 0126 de 2024",
+            "url": "https://doi.org/10.15472/frowz3",
+            "retrieved_at": "2026-11-21"
+          },
+          {
+            "label": "Parques Nacionales Naturales de Colombia - Plan de manejo PNN Los Nevados 2017-2022",
+            "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2020/10/plan-de-manejo-pnn-los-nevados.pdf",
+            "retrieved_at": "2026-11-21"
+          },
+          {
+            "label": "Parques Nacionales Naturales de Colombia - Resolución 207 de 2023",
+            "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2023/08/Resolucion_207_2023_ReglamentacionNevados.pdf",
+            "retrieved_at": "2026-11-21"
+          }
+        ],
+        "last_verified": "2026-11-21",
+        "related": [
+          "fauna.bear_national_status",
+          "fauna.tapir_national_status",
+          "fauna.helmetcrest_national_status"
+        ],
+        "tags": [
+          "condor",
+          "CR"
+        ]
+      }
+    },
+    {
+      "op": "update",
+      "reason": "Label updated to 'categoría de amenaza del oso de anteojos' to clearly specify topic and prevent retrieval confusion; Contrastive hard negatives added from confusable pair",
+      "entry": {
+        "id": "fauna.bear_national_status",
+        "label": "categoría de amenaza del oso de anteojos",
+        "kind": "fact",
+        "audience": "visitor",
+        "lang": "es",
+        "examples": [
+          "el oso de anteojos esta amenazado?",
+          "qué categoría de amenaza tiene el oso andino en Colombia",
+          "el oso del paramo esta vulnerable o peor?",
+          "como esta de amenaza el oso de anteojos?",
+          "is the spectacled bear listed as Vulnerable in Colombia",
+          "what is the national status of the Andean bear",
+          "el oso andino esta vulnerable o ya paso a peor?",
+          "el oso de anteojos es especie para proteger?",
+          "que tan grave es la situacion de el oso de anteojos",
+          "el oso andino esta vulnerable, en peligro o en peligro critico?",
+          "quiero saber la categoria nacional de el oso de anteojos",
+          "el oso del paramo esta entre los que peligran?"
+        ],
+        "hard_negatives": [
+          "la danta de paramo esta amenazado?",
+          "el chivito de paramo esta amenazado?",
+          "el aguila crestada esta amenazado?",
+          "oso de anteojos"
+        ],
+        "needs": [],
+        "answer": {
+          "short": "La Resolución 0126 de 2024 cataloga al oso de anteojos (Tremarctos ornatus) como Vulnerable. Puede cambiar; confírmala en Minambiente. Si ves uno, no lo cojas, no lo alimentes y no lo desplaces.",
+          "variants": [
+            "El oso de anteojos figura como Vulnerable en la lista oficial de 2024. Confírmala en Minambiente y no lo cojas ni lo alimentes."
+          ]
+        },
+        "sources": [
+          {
+            "label": "Ministerio de Ambiente y Desarrollo Sostenible - Resolución 0126 de 2024",
+            "url": "https://www.minambiente.gov.co/documento-normativa/resolucion-0126-de-2024/",
+            "retrieved_at": "2026-11-21"
+          },
+          {
+            "label": "Ministerio de Ambiente - lista SiB de la Resolución 0126 de 2024",
+            "url": "https://doi.org/10.15472/frowz3",
+            "retrieved_at": "2026-11-21"
+          },
+          {
+            "label": "Parques Nacionales Naturales de Colombia - Resolución 207 de 2023",
+            "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2023/08/Resolucion_207_2023_ReglamentacionNevados.pdf",
+            "retrieved_at": "2026-11-21"
+          }
+        ],
+        "last_verified": "2026-11-21",
+        "related": [
+          "fauna.tapir_national_status",
+          "fauna.helmetcrest_national_status",
+          "fauna.eagle_national_status"
+        ],
+        "tags": [
+          "oso",
+          "VU"
+        ]
+      }
+    },
+    {
+      "op": "update",
+      "reason": "Label updated to 'categoría de amenaza de la danta de páramo' to clearly specify topic and prevent retrieval confusion; Contrastive hard negatives added from confusable pair",
+      "entry": {
+        "id": "fauna.tapir_national_status",
+        "label": "categoría de amenaza de la danta de páramo",
+        "kind": "fact",
+        "audience": "visitor",
+        "lang": "es",
+        "examples": [
+          "la danta de paramo esta amenazado?",
+          "qué categoría de amenaza tiene la danta de montaña en Colombia",
+          "la danta del parque esta en peligro de extincion?",
+          "la danta de montana corre peligro de verdad?",
+          "is the mountain tapir endangered in Colombia",
+          "what threat category does the mountain tapir have",
+          "la danta esta en peligro o solo la vigilan?",
+          "hay que cuidar la danta de paramo con urgencia?",
+          "que tan grave es la situacion de la danta de paramo",
+          "la danta de paramo quedo en peligro o en una categoria mas grave?",
+          "quiero saber la categoria nacional de la danta de paramo",
+          "la danta de montaña se esta acabando en el pais?"
+        ],
+        "hard_negatives": [
+          "el chivito de paramo esta amenazado?",
+          "el aguila crestada esta amenazado?",
+          "la cotorra de fuertes esta amenazado?",
+          "danta de montaña"
+        ],
+        "needs": [],
+        "answer": {
+          "short": "La Resolución 0126 de 2024 y el plan de manejo catalogan a la danta de páramo (Tapirus pinchaque) como En Peligro. Puede cambiar; confírmala en Minambiente. Si ves una, no la cojas ni la desplaces.",
+          "variants": [
+            "Danta de páramo y danta de montaña son el mismo nombre en esa lista: En Peligro. Confírmala en Minambiente y no la cojas."
+          ]
+        },
+        "sources": [
+          {
+            "label": "Ministerio de Ambiente y Desarrollo Sostenible - Resolución 0126 de 2024",
+            "url": "https://www.minambiente.gov.co/documento-normativa/resolucion-0126-de-2024/",
+            "retrieved_at": "2026-11-21"
+          },
+          {
+            "label": "Ministerio de Ambiente - lista SiB de la Resolución 0126 de 2024",
+            "url": "https://doi.org/10.15472/frowz3",
+            "retrieved_at": "2026-11-21"
+          },
+          {
+            "label": "Parques Nacionales Naturales de Colombia - Plan de manejo PNN Los Nevados 2017-2022",
+            "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2020/10/plan-de-manejo-pnn-los-nevados.pdf",
+            "retrieved_at": "2026-11-21"
+          },
+          {
+            "label": "Parques Nacionales Naturales de Colombia - Resolución 207 de 2023",
+            "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2023/08/Resolucion_207_2023_ReglamentacionNevados.pdf",
+            "retrieved_at": "2026-11-21"
+          }
+        ],
+        "last_verified": "2026-11-21",
+        "related": [
+          "fauna.helmetcrest_national_status",
+          "fauna.eagle_national_status",
+          "fauna.fuertes_national_status"
+        ],
+        "tags": [
+          "danta",
+          "EN"
+        ]
+      }
+    },
+    {
+      "op": "update",
+      "reason": "Label updated to 'categoría de amenaza del chivito de páramo' to clearly specify topic and prevent retrieval confusion; Contrastive hard negatives added from confusable pair",
+      "entry": {
+        "id": "fauna.helmetcrest_national_status",
+        "label": "categoría de amenaza del chivito de páramo",
+        "kind": "fact",
+        "audience": "visitor",
+        "lang": "es",
+        "examples": [
+          "el chivito de paramo esta amenazado?",
+          "qué categoría de amenaza tiene el chivito de páramo en Colombia",
+          "el colibri de frailejon esta en peligro?",
+          "el chivito de paramo que tan amenazado esta?",
+          "is the Buffy helmetcrest endangered in Colombia",
+          "what is the national status of Oxypogon stubelii",
+          "ese colibri del frailejon esta en riesgo alto?",
+          "el chivito de paramo esta en la lista nacional de aves amenazadas?",
+          "que tan grave es la situacion de el chivito de paramo",
+          "el chivito de páramo esta vulnerable, en peligro o en peligro critico?",
+          "quiero saber la categoria nacional de el chivito de paramo",
+          "el colibri de los frailejones esta grave?"
+        ],
+        "hard_negatives": [
+          "el aguila crestada esta amenazado?",
+          "la cotorra de fuertes esta amenazado?",
+          "el loro orejiamarillo esta amenazado?",
+          "chivito de páramo"
+        ],
+        "needs": [],
+        "answer": {
+          "short": "La Resolución 0126 de 2024 pone a Oxypogon stubelii, chivito de páramo, en En Peligro; el parque escribe Oxypogon stuebelii. Puede cambiar: confírmala en Minambiente. No lo cojas ni lo desplaces.",
+          "variants": [
+            "La lista de 2024 escribe stubelii y lo pone En Peligro; la ficha escribe stuebelii. Confírmala en Minambiente y no lo cojas."
+          ]
+        },
+        "sources": [
+          {
+            "label": "Ministerio de Ambiente y Desarrollo Sostenible - Resolución 0126 de 2024",
+            "url": "https://www.minambiente.gov.co/documento-normativa/resolucion-0126-de-2024/",
+            "retrieved_at": "2026-11-21"
+          },
+          {
+            "label": "Ministerio de Ambiente - lista SiB de la Resolución 0126 de 2024",
+            "url": "https://doi.org/10.15472/frowz3",
+            "retrieved_at": "2026-11-21"
+          },
+          {
+            "label": "Parques Nacionales Naturales de Colombia - PNN Los Nevados",
+            "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+            "retrieved_at": "2026-11-21"
+          },
+          {
+            "label": "Parques Nacionales Naturales de Colombia - Resolución 207 de 2023",
+            "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2023/08/Resolucion_207_2023_ReglamentacionNevados.pdf",
+            "retrieved_at": "2026-11-21"
+          }
+        ],
+        "last_verified": "2026-11-21",
+        "related": [
+          "fauna.eagle_national_status",
+          "fauna.fuertes_national_status",
+          "fauna.yellow_eared_national_status"
+        ],
+        "tags": [
+          "chivito",
+          "EN"
+        ]
+      }
+    },
+    {
+      "op": "update",
+      "reason": "Label updated to 'categoría de amenaza del águila crestada' to clearly specify topic and prevent retrieval confusion; Contrastive hard negatives added from confusable pair",
+      "entry": {
+        "id": "fauna.eagle_national_status",
+        "label": "categoría de amenaza del águila crestada",
+        "kind": "fact",
+        "audience": "visitor",
+        "lang": "es",
+        "examples": [
+          "el aguila crestada esta amenazado?",
+          "qué categoría de amenaza tiene el águila crestada en Colombia",
+          "la rapaz grande del parque esta en peligro?",
+          "el aguila grande del bosque esta en peligro?",
+          "is the black-and-chestnut eagle endangered in Colombia",
+          "what threat category does Spizaetus isidori have",
+          "la rapaz crestada esta muy amenazada?",
+          "el aguila crestada es de las aves que hay que cuidar?",
+          "que tan grave es la situacion de el aguila crestada",
+          "el águila crestada esta vulnerable, en peligro o en peligro critico?",
+          "quiero saber la categoria nacional de el aguila crestada",
+          "esa aguila del bosque esta desapareciendo?"
+        ],
+        "hard_negatives": [
+          "la cotorra de fuertes esta amenazado?",
+          "el loro orejiamarillo esta amenazado?",
+          "el tororoi de miller esta amenazado?",
+          "águila crestada"
+        ],
+        "needs": [],
+        "answer": {
+          "short": "La Resolución 0126 de 2024 cataloga al águila crestada (Spizaetus isidori) como En Peligro. Puede cambiar; confírmala en Minambiente. Si la ves, no la cojas ni la desplaces.",
+          "variants": [
+            "El águila crestada está En Peligro en la lista oficial de 2024. Confírmala en Minambiente y no la cojas."
+          ]
+        },
+        "sources": [
+          {
+            "label": "Ministerio de Ambiente y Desarrollo Sostenible - Resolución 0126 de 2024",
+            "url": "https://www.minambiente.gov.co/documento-normativa/resolucion-0126-de-2024/",
+            "retrieved_at": "2026-11-21"
+          },
+          {
+            "label": "Ministerio de Ambiente - lista SiB de la Resolución 0126 de 2024",
+            "url": "https://doi.org/10.15472/frowz3",
+            "retrieved_at": "2026-11-21"
+          },
+          {
+            "label": "Parques Nacionales Naturales de Colombia - Resolución 207 de 2023",
+            "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2023/08/Resolucion_207_2023_ReglamentacionNevados.pdf",
+            "retrieved_at": "2026-11-21"
+          }
+        ],
+        "last_verified": "2026-11-21",
+        "related": [
+          "fauna.fuertes_national_status",
+          "fauna.yellow_eared_national_status",
+          "fauna.miller_national_status"
+        ],
+        "tags": [
+          "aguila",
+          "EN"
+        ]
+      }
+    },
+    {
+      "op": "update",
+      "reason": "Label updated to 'categoría de amenaza de la cotorra de Fuertes' to clearly specify topic and prevent retrieval confusion; Contrastive hard negatives added from confusable pair",
+      "entry": {
+        "id": "fauna.fuertes_national_status",
+        "label": "categoría de amenaza de la cotorra de Fuertes",
+        "kind": "fact",
+        "audience": "visitor",
+        "lang": "es",
+        "examples": [
+          "la cotorra de fuertes esta amenazado?",
+          "qué categoría de amenaza tiene la cotorra coroniazul en Colombia",
+          "la lora de fuertes esta en peligro critico?",
+          "la cotorra coroniazul que tan grave esta?",
+          "is Fuertes's parrot critically endangered in Colombia",
+          "what is the national status of Hapalopsittaca fuertesi",
+          "la lora de fuertes esta a punto de desaparecer?",
+          "la cotorra de fuertes es de las mas amenazadas?",
+          "que tan grave es la situacion de la cotorra de fuertes",
+          "la cotorra coroniazul esta vulnerable, en peligro o en peligro critico?",
+          "quiero saber la categoria nacional de la cotorra de fuertes",
+          "queda muy poca cotorra coroniazul?"
+        ],
+        "hard_negatives": [
+          "el loro orejiamarillo esta amenazado?",
+          "el tororoi de miller esta amenazado?",
+          "el venado conejo esta amenazado?",
+          "cotorra de Fuertes"
+        ],
+        "needs": [],
+        "answer": {
+          "short": "La Resolución 0126 de 2024 cataloga a la cotorra de Fuertes (Hapalopsittaca fuertesi) como En Peligro Crítico. Puede cambiar; confírmala en Minambiente. No la cojas ni la desplaces.",
+          "variants": [
+            "Hapalopsittaca fuertesi, también llamada cotorra coroniazul en esa lista, está En Peligro Crítico. Confírmala en Minambiente y no la cojas."
+          ]
+        },
+        "sources": [
+          {
+            "label": "Ministerio de Ambiente y Desarrollo Sostenible - Resolución 0126 de 2024",
+            "url": "https://www.minambiente.gov.co/documento-normativa/resolucion-0126-de-2024/",
+            "retrieved_at": "2026-11-21"
+          },
+          {
+            "label": "Ministerio de Ambiente - lista SiB de la Resolución 0126 de 2024",
+            "url": "https://doi.org/10.15472/frowz3",
+            "retrieved_at": "2026-11-21"
+          },
+          {
+            "label": "Parques Nacionales Naturales de Colombia - Resolución 207 de 2023",
+            "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2023/08/Resolucion_207_2023_ReglamentacionNevados.pdf",
+            "retrieved_at": "2026-11-21"
+          }
+        ],
+        "last_verified": "2026-11-21",
+        "related": [
+          "fauna.yellow_eared_national_status",
+          "fauna.miller_national_status",
+          "fauna.pudu_national_status"
+        ],
+        "tags": [
+          "fuertes",
+          "CR"
+        ]
+      }
+    },
+    {
+      "op": "update",
+      "reason": "Label updated to 'loro orejiamarillo y su categoría de amenaza' to clearly specify topic and prevent retrieval confusion",
+      "entry": {
+        "id": "fauna.yellow_eared_national_status",
+        "label": "loro orejiamarillo y su categoría de amenaza",
+        "kind": "fact",
+        "audience": "visitor",
+        "lang": "es",
+        "examples": [
+          "el loro orejiamarillo esta amenazado?",
+          "qué categoría de amenaza tiene el perico palmero en Colombia",
+          "el loro de orejas amarillas esta en peligro?",
+          "el loro de orejas amarillas esta muy amenazado?",
+          "is the yellow-eared parrot endangered in Colombia",
+          "what threat category does Ognorhynchus icterotis have",
+          "el perico palmero esta en peligro serio?",
+          "el loro orejiamarillo es de los que hay que cuidar?",
+          "que tan grave es la situacion de el loro orejiamarillo",
+          "el perico palmero esta vulnerable, en peligro o en peligro critico?",
+          "quiero saber la categoria nacional de el loro orejiamarillo",
+          "el loro amarillo de las palmas esta grave?",
+          "loro orejiamarillo",
+          "Ognorhynchus icterotis",
+          "loro que vive en las palmas de cera",
+          "loro amarillo en bosque altoandino",
+          "¿dónde se ve el loro orejiamarillo?",
+          "hay loro orejiamarillo en Los Nevados",
+          "¿el loro orejiamarillo está en peligro?",
+          "¿cómo se ve el loro orejiamarillo?",
+          "is the yellow eared parrot in this park?",
+          "where to see Ognorhynchus icterotis",
+          "loros grandes con manchas amarillas en la cara",
+          "loro de montaña en el Quindío y Tolima"
+        ],
+        "hard_negatives": [
+          "el tororoi de miller esta amenazado?",
+          "el venado conejo esta amenazado?",
+          "la guagua loba esta amenazado?"
+        ],
+        "needs": [],
+        "answer": {
+          "short": "El loro orejiamarillo (Ognorhynchus icterotis, también Perico Palmero) está en el parque y se estudia allí. La Resolución 0126 de 2024 lo pone en En Peligro; puede cambiar, confírmala en Minambiente. No lo cojas ni lo desplaces.",
+          "variants": [
+            "Loro orejiamarillo en la ficha y Perico Palmero en la lista de 2024 son Ognorhynchus icterotis, En Peligro. Confírmala en Minambiente y no lo cojas."
+          ]
+        },
+        "sources": [
+          {
+            "label": "Ministerio de Ambiente y Desarrollo Sostenible - Resolución 0126 de 2024",
+            "url": "https://www.minambiente.gov.co/documento-normativa/resolucion-0126-de-2024/",
+            "retrieved_at": "2026-11-21"
+          },
+          {
+            "label": "Ministerio de Ambiente - lista SiB de la Resolución 0126 de 2024",
+            "url": "https://doi.org/10.15472/frowz3",
+            "retrieved_at": "2026-11-21"
+          },
+          {
+            "label": "Parques Nacionales Naturales de Colombia - PNN Los Nevados",
+            "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+            "retrieved_at": "2026-11-21"
+          },
+          {
+            "label": "Parques Nacionales Naturales de Colombia - Resolución 207 de 2023",
+            "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2023/08/Resolucion_207_2023_ReglamentacionNevados.pdf",
+            "retrieved_at": "2026-11-21"
+          }
+        ],
+        "last_verified": "2026-11-21",
+        "related": [
+          "fauna.miller_national_status",
+          "fauna.pudu_national_status",
+          "fauna.guagua_national_status"
+        ],
+        "tags": [
+          "orejiamarillo",
+          "EN"
+        ]
+      }
+    },
+    {
+      "op": "update",
+      "reason": "Label updated to 'categoría de amenaza del tororoi de Miller' to clearly specify topic and prevent retrieval confusion; Contrastive hard negatives added from confusable pair",
+      "entry": {
+        "id": "fauna.miller_national_status",
+        "label": "categoría de amenaza del tororoi de Miller",
+        "kind": "fact",
+        "audience": "visitor",
+        "lang": "es",
+        "examples": [
+          "el tororoi de miller esta amenazado?",
+          "qué categoría de amenaza tiene el tororoi de Miller en Colombia",
+          "el pajaro de miller esta en peligro?",
+          "el tororoi de miller esta en riesgo de extincion?",
+          "is the brown-banded antpitta endangered in Colombia",
+          "what is the national status of Grallaria milleri",
+          "ese pajaro de miller esta amenazado de verdad?",
+          "el tororoi de miller es de las aves que peligran?",
+          "que tan grave es la situacion de el tororoi de miller",
+          "el tororoi de Miller esta vulnerable, en peligro o en peligro critico?",
+          "quiero saber la categoria nacional de el tororoi de miller",
+          "queda poco tororoi de miller?"
+        ],
+        "hard_negatives": [
+          "el venado conejo esta amenazado?",
+          "la guagua loba esta amenazado?",
+          "el tigrillo lanudo esta amenazado?",
+          "tororoi de Miller"
+        ],
+        "needs": [],
+        "answer": {
+          "short": "La Resolución 0126 de 2024 cataloga al tororoi de Miller (Grallaria milleri) como En Peligro. Puede cambiar; confírmala en Minambiente. No lo cojas ni lo desplaces.",
+          "variants": [
+            "Grallaria milleri está En Peligro en la lista oficial de 2024. Confírmala en Minambiente y no lo cojas."
+          ]
+        },
+        "sources": [
+          {
+            "label": "Ministerio de Ambiente y Desarrollo Sostenible - Resolución 0126 de 2024",
+            "url": "https://www.minambiente.gov.co/documento-normativa/resolucion-0126-de-2024/",
+            "retrieved_at": "2026-11-21"
+          },
+          {
+            "label": "Ministerio de Ambiente - lista SiB de la Resolución 0126 de 2024",
+            "url": "https://doi.org/10.15472/frowz3",
+            "retrieved_at": "2026-11-21"
+          },
+          {
+            "label": "Parques Nacionales Naturales de Colombia - Resolución 207 de 2023",
+            "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2023/08/Resolucion_207_2023_ReglamentacionNevados.pdf",
+            "retrieved_at": "2026-11-21"
+          }
+        ],
+        "last_verified": "2026-11-21",
+        "related": [
+          "fauna.pudu_national_status",
+          "fauna.guagua_national_status",
+          "fauna.oncilla_national_status"
+        ],
+        "tags": [
+          "miller",
+          "EN"
+        ]
+      }
+    },
+    {
+      "op": "update",
+      "reason": "Label updated to 'categoría de amenaza del venado conejo pudú' to clearly specify topic and prevent retrieval confusion; Contrastive hard negatives added from confusable pair",
+      "entry": {
+        "id": "fauna.pudu_national_status",
+        "label": "categoría de amenaza del venado conejo pudú",
+        "kind": "fact",
+        "audience": "visitor",
+        "lang": "es",
+        "examples": [
+          "el venado conejo esta amenazado?",
+          "qué categoría de amenaza tiene el pudú en Colombia",
+          "el venadito pequeno esta en peligro o solo casi amenazado?",
+          "el venadito conejo esta en peligro?",
+          "is the northern pudu endangered in Colombia",
+          "what threat category does Pudu mephistophiles have now",
+          "el pudu del paramo esta amenazado?",
+          "el venado conejo es de los que hay que cuidar?",
+          "que tan grave es la situacion de el venado conejo",
+          "el pudú esta vulnerable, en peligro o en peligro critico?",
+          "el venado conejo en que categoria nacional quedo?",
+          "el pudu pequeno esta grave en el pais?"
+        ],
+        "hard_negatives": [
+          "la guagua loba esta amenazado?",
+          "el tigrillo lanudo esta amenazado?",
+          "el venado colorado esta amenazado?",
+          "venado conejo"
+        ],
+        "needs": [],
+        "answer": {
+          "short": "La Resolución 0126 de 2024 pone a Pudu mephistophiles en En Peligro; el plan de 2017 lo tenía Casi amenazado a nivel nacional. Puede cambiar: confírmala en Minambiente. Si ves un venado, no lo cojas ni lo desplaces.",
+          "variants": [
+            "El venado conejo pasó, en las fuentes, de Casi amenazado en el plan de 2017 a En Peligro en la lista de 2024. Confírmala en Minambiente y no lo cojas."
+          ]
+        },
+        "sources": [
+          {
+            "label": "Ministerio de Ambiente y Desarrollo Sostenible - Resolución 0126 de 2024",
+            "url": "https://www.minambiente.gov.co/documento-normativa/resolucion-0126-de-2024/",
+            "retrieved_at": "2026-11-21"
+          },
+          {
+            "label": "Ministerio de Ambiente - lista SiB de la Resolución 0126 de 2024",
+            "url": "https://doi.org/10.15472/frowz3",
+            "retrieved_at": "2026-11-21"
+          },
+          {
+            "label": "Parques Nacionales Naturales de Colombia - Plan de manejo PNN Los Nevados 2017-2022",
+            "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2020/10/plan-de-manejo-pnn-los-nevados.pdf",
+            "retrieved_at": "2026-11-21"
+          },
+          {
+            "label": "Parques Nacionales Naturales de Colombia - Resolución 207 de 2023",
+            "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2023/08/Resolucion_207_2023_ReglamentacionNevados.pdf",
+            "retrieved_at": "2026-11-21"
+          }
+        ],
+        "last_verified": "2026-11-21",
+        "related": [
+          "fauna.guagua_national_status",
+          "fauna.oncilla_national_status",
+          "fauna.brocket_national_status"
+        ],
+        "tags": [
+          "pudu",
+          "EN"
+        ]
+      }
+    },
+    {
+      "op": "update",
+      "reason": "Label updated to 'categoría de amenaza de la guagua loba' to clearly specify topic and prevent retrieval confusion; Contrastive hard negatives added from confusable pair",
+      "entry": {
+        "id": "fauna.guagua_national_status",
+        "label": "categoría de amenaza de la guagua loba",
+        "kind": "fact",
+        "audience": "visitor",
+        "lang": "es",
+        "examples": [
+          "la guagua loba esta amenazado?",
+          "qué categoría de amenaza tiene la pacarana en Colombia",
+          "la guagua grande del parque esta vulnerable?",
+          "la guagua loba esta amenazada en el pais?",
+          "is the pacarana listed as Vulnerable in Colombia",
+          "what is the national status of Dinomys branickii",
+          "la pacarana esta vulnerable o peor?",
+          "la guagua loba es de los animales que peligran?",
+          "que tan grave es la situacion de la guagua loba",
+          "la pacarana esta vulnerable, en peligro o en peligro critico?",
+          "quiero saber la categoria nacional de la guagua loba",
+          "hay que cuidar mucho a la guagua loba?"
+        ],
+        "hard_negatives": [
+          "el tigrillo lanudo esta amenazado?",
+          "el venado colorado esta amenazado?",
+          "el perico paramuno esta amenazado?",
+          "guagua loba"
+        ],
+        "needs": [],
+        "answer": {
+          "short": "La Resolución 0126 de 2024 cataloga a la guagua loba (Dinomys branickii) como Vulnerable. Puede cambiar; confírmala en Minambiente. Si la ves, no la cojas ni la desplaces.",
+          "variants": [
+            "Dinomys branickii está Vulnerable en la lista oficial de 2024. Confírmala en Minambiente y no la cojas."
+          ]
+        },
+        "sources": [
+          {
+            "label": "Ministerio de Ambiente y Desarrollo Sostenible - Resolución 0126 de 2024",
+            "url": "https://www.minambiente.gov.co/documento-normativa/resolucion-0126-de-2024/",
+            "retrieved_at": "2026-11-21"
+          },
+          {
+            "label": "Ministerio de Ambiente - lista SiB de la Resolución 0126 de 2024",
+            "url": "https://doi.org/10.15472/frowz3",
+            "retrieved_at": "2026-11-21"
+          },
+          {
+            "label": "Parques Nacionales Naturales de Colombia - Resolución 207 de 2023",
+            "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2023/08/Resolucion_207_2023_ReglamentacionNevados.pdf",
+            "retrieved_at": "2026-11-21"
+          }
+        ],
+        "last_verified": "2026-11-21",
+        "related": [
+          "fauna.oncilla_national_status",
+          "fauna.brocket_national_status",
+          "fauna.paramo_parakeet_national_status"
+        ],
+        "tags": [
+          "guagua",
+          "VU"
+        ]
+      }
+    },
+    {
+      "op": "update",
+      "reason": "Label updated to 'categoría de amenaza del tigrillo lanudo' to clearly specify topic and prevent retrieval confusion; Contrastive hard negatives added from confusable pair",
+      "entry": {
+        "id": "fauna.oncilla_national_status",
+        "label": "categoría de amenaza del tigrillo lanudo",
+        "kind": "fact",
+        "audience": "visitor",
+        "lang": "es",
+        "examples": [
+          "el tigrillo lanudo esta amenazado?",
+          "qué categoría de amenaza tiene la oncilla en Colombia",
+          "el gato manchado del paramo esta vulnerable?",
+          "el tigrillo esta en riesgo en colombia?",
+          "is the oncilla listed as Vulnerable in Colombia",
+          "what threat category does Leopardus tigrinus have",
+          "la oncilla esta vulnerable?",
+          "el tigrillo lanudo es de los felinos que peligran?",
+          "que tan grave es la situacion de el tigrillo lanudo",
+          "la oncilla esta vulnerable, en peligro o en peligro critico?",
+          "quiero saber la categoria nacional de el tigrillo lanudo",
+          "el gato montes pequeno esta amenazado?"
+        ],
+        "hard_negatives": [
+          "el venado colorado esta amenazado?",
+          "el perico paramuno esta amenazado?",
+          "el terlaque andino esta amenazado?",
+          "tigrillo lanudo"
+        ],
+        "needs": [],
+        "answer": {
+          "short": "La Resolución 0126 de 2024 cataloga al tigrillo (Leopardus tigrinus) como Vulnerable. Puede cambiar; confírmala en Minambiente. Si lo ves, no lo cojas ni lo desplaces.",
+          "variants": [
+            "Leopardus tigrinus está Vulnerable en la lista oficial de 2024. Confírmala en Minambiente y no lo cojas."
+          ]
+        },
+        "sources": [
+          {
+            "label": "Ministerio de Ambiente y Desarrollo Sostenible - Resolución 0126 de 2024",
+            "url": "https://www.minambiente.gov.co/documento-normativa/resolucion-0126-de-2024/",
+            "retrieved_at": "2026-11-21"
+          },
+          {
+            "label": "Ministerio de Ambiente - lista SiB de la Resolución 0126 de 2024",
+            "url": "https://doi.org/10.15472/frowz3",
+            "retrieved_at": "2026-11-21"
+          },
+          {
+            "label": "Parques Nacionales Naturales de Colombia - Resolución 207 de 2023",
+            "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2023/08/Resolucion_207_2023_ReglamentacionNevados.pdf",
+            "retrieved_at": "2026-11-21"
+          }
+        ],
+        "last_verified": "2026-11-21",
+        "related": [
+          "fauna.brocket_national_status",
+          "fauna.paramo_parakeet_national_status",
+          "fauna.toucan_national_status"
+        ],
+        "tags": [
+          "tigrillo",
+          "VU"
+        ]
+      }
+    },
+    {
+      "op": "update",
+      "reason": "Label updated to 'categoría de amenaza del venado colorado soche' to clearly specify topic and prevent retrieval confusion; Contrastive hard negatives added from confusable pair",
+      "entry": {
+        "id": "fauna.brocket_national_status",
+        "label": "categoría de amenaza del venado colorado soche",
+        "kind": "fact",
+        "audience": "visitor",
+        "lang": "es",
+        "examples": [
+          "el venado colorado esta amenazado?",
+          "qué categoría de amenaza tiene el venado soche en Colombia",
+          "el venado rojizo del paramo esta vulnerable?",
+          "el venado soche esta en peligro de extincion?",
+          "is the little red brocket listed as Vulnerable in Colombia",
+          "what is the national status of Mazama rufina",
+          "el venado colorado esta vulnerable?",
+          "el venado soche es de los que hay que cuidar?",
+          "el venado colorado esta grave a nivel nacional o solo figura como vulnerable?",
+          "el venado soche esta vulnerable, en peligro o en peligro critico?",
+          "quiero saber la categoria nacional de el venado colorado",
+          "ese venado rojizo esta amenazado?"
+        ],
+        "hard_negatives": [
+          "el perico paramuno esta amenazado?",
+          "el terlaque andino esta amenazado?",
+          "hay ranas en el paramo de los nevados?",
+          "venado soche"
+        ],
+        "needs": [],
+        "answer": {
+          "short": "La Resolución 0126 de 2024 pone a Mazama rufina, el venado colorado, en Vulnerable. Puede cambiar: confírmala en Minambiente. Si ves un venado, no lo cojas ni lo desplaces.",
+          "variants": [
+            "El venado colorado (Mazama rufina) está Vulnerable en la lista de 2024. Confírmala en Minambiente y no lo cojas."
+          ]
+        },
+        "sources": [
+          {
+            "label": "Ministerio de Ambiente y Desarrollo Sostenible - Resolución 0126 de 2024",
+            "url": "https://www.minambiente.gov.co/documento-normativa/resolucion-0126-de-2024/",
+            "retrieved_at": "2026-11-21"
+          },
+          {
+            "label": "Ministerio de Ambiente - lista SiB de la Resolución 0126 de 2024",
+            "url": "https://doi.org/10.15472/frowz3",
+            "retrieved_at": "2026-11-21"
+          },
+          {
+            "label": "Parques Nacionales Naturales de Colombia - Plan de manejo PNN Los Nevados 2017-2022",
+            "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2020/10/plan-de-manejo-pnn-los-nevados.pdf",
+            "retrieved_at": "2026-11-21"
+          },
+          {
+            "label": "Parques Nacionales Naturales de Colombia - Resolución 207 de 2023",
+            "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2023/08/Resolucion_207_2023_ReglamentacionNevados.pdf",
+            "retrieved_at": "2026-11-21"
+          }
+        ],
+        "last_verified": "2026-11-21",
+        "related": [
+          "fauna.paramo_parakeet_national_status",
+          "fauna.toucan_national_status",
+          "fauna.paramo_amphibians"
+        ],
+        "tags": [
+          "venado",
+          "VU"
+        ]
+      }
+    },
+    {
+      "op": "update",
+      "reason": "Label updated to 'categoría de amenaza del perico paramuno' to clearly specify topic and prevent retrieval confusion; Contrastive hard negatives added from confusable pair",
+      "entry": {
+        "id": "fauna.paramo_parakeet_national_status",
+        "label": "categoría de amenaza del perico paramuno",
+        "kind": "fact",
+        "audience": "visitor",
+        "lang": "es",
+        "examples": [
+          "el perico paramuno esta amenazado?",
+          "qué categoría de amenaza tiene el perico de frente dorada en Colombia",
+          "el perico de pluma dorada esta vulnerable?",
+          "el perico de plumas doradas esta amenazado?",
+          "is the golden-plumed parakeet Vulnerable in Colombia",
+          "what threat category does Leptosittaca branickii have",
+          "el perico paramuno esta vulnerable?",
+          "el perico de frente dorada es de los que peligran?",
+          "que tan grave es la situacion de el perico paramuno",
+          "el perico de frente dorada esta vulnerable, en peligro o en peligro critico?",
+          "quiero saber la categoria nacional de el perico paramuno",
+          "hay que cuidar al perico paramuno?"
+        ],
+        "hard_negatives": [
+          "el terlaque andino esta amenazado?",
+          "hay ranas en el paramo de los nevados?",
+          "donde buscaron las ranas del paramo",
+          "perico paramuno"
+        ],
+        "needs": [],
+        "answer": {
+          "short": "La Resolución 0126 de 2024 cataloga al perico paramuno (Leptosittaca branickii) como Vulnerable, igual que el plan de manejo. Puede cambiar; confírmala en Minambiente. No lo cojas ni lo desplaces.",
+          "variants": [
+            "Leptosittaca branickii está Vulnerable en la lista de 2024 y en el plan de 2017. Confírmala en Minambiente y no lo cojas."
+          ]
+        },
+        "sources": [
+          {
+            "label": "Ministerio de Ambiente y Desarrollo Sostenible - Resolución 0126 de 2024",
+            "url": "https://www.minambiente.gov.co/documento-normativa/resolucion-0126-de-2024/",
+            "retrieved_at": "2026-11-21"
+          },
+          {
+            "label": "Ministerio de Ambiente - lista SiB de la Resolución 0126 de 2024",
+            "url": "https://doi.org/10.15472/frowz3",
+            "retrieved_at": "2026-11-21"
+          },
+          {
+            "label": "Parques Nacionales Naturales de Colombia - Plan de manejo PNN Los Nevados 2017-2022",
+            "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2020/10/plan-de-manejo-pnn-los-nevados.pdf",
+            "retrieved_at": "2026-11-21"
+          },
+          {
+            "label": "Parques Nacionales Naturales de Colombia - Resolución 207 de 2023",
+            "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2023/08/Resolucion_207_2023_ReglamentacionNevados.pdf",
+            "retrieved_at": "2026-11-21"
+          }
+        ],
+        "last_verified": "2026-11-21",
+        "related": [
+          "fauna.toucan_national_status",
+          "fauna.paramo_amphibians",
+          "fauna.amphibian_survey_sites"
+        ],
+        "tags": [
+          "perico",
+          "VU"
+        ]
+      }
+    },
+    {
+      "op": "update",
+      "reason": "Label updated to 'categoría de amenaza del terlaque andino' to clearly specify topic and prevent retrieval confusion; Contrastive hard negatives added from confusable pair",
+      "entry": {
+        "id": "fauna.toucan_national_status",
+        "label": "categoría de amenaza del terlaque andino",
+        "kind": "fact",
+        "audience": "visitor",
+        "lang": "es",
+        "examples": [
+          "el terlaque andino esta amenazado?",
+          "qué categoría de amenaza tiene el tucán de montaña en Colombia",
+          "el pajaro de pico pintado esta vulnerable?",
+          "el tucan de montana esta en riesgo?",
+          "is the hooded mountain toucan Vulnerable in Colombia",
+          "what is the national status of Andigena hypoglauca",
+          "el terlaque andino esta vulnerable?",
+          "el tucan de clima frio es de los que hay que cuidar?",
+          "que tan grave es la situacion de el terlaque andino",
+          "el terlaque andino en que categoria de amenaza esta?",
+          "quiero saber la categoria nacional de el terlaque andino",
+          "el terlaque esta amenazado de verdad?"
+        ],
+        "hard_negatives": [
+          "hay ranas en el paramo de los nevados?",
+          "donde buscaron las ranas del paramo",
+          "hay lagartijas en el paramo de los nevados?",
+          "terlaque andino"
+        ],
+        "needs": [],
+        "answer": {
+          "short": "La Resolución 0126 de 2024 pone al terlaque andino (Andigena hypoglauca) en Vulnerable, igual que el plan de 2017 a nivel nacional. Puede cambiar: confírmala en Minambiente. No lo cojas ni lo desplaces.",
+          "variants": [
+            "Andigena hypoglauca está Vulnerable en la lista de 2024 y así lo tenía el plan a nivel nacional. Confírmala en Minambiente y no lo cojas."
+          ]
+        },
+        "sources": [
+          {
+            "label": "Ministerio de Ambiente y Desarrollo Sostenible - Resolución 0126 de 2024",
+            "url": "https://www.minambiente.gov.co/documento-normativa/resolucion-0126-de-2024/",
+            "retrieved_at": "2026-11-21"
+          },
+          {
+            "label": "Ministerio de Ambiente - lista SiB de la Resolución 0126 de 2024",
+            "url": "https://doi.org/10.15472/frowz3",
+            "retrieved_at": "2026-11-21"
+          },
+          {
+            "label": "Parques Nacionales Naturales de Colombia - Plan de manejo PNN Los Nevados 2017-2022",
+            "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2020/10/plan-de-manejo-pnn-los-nevados.pdf",
+            "retrieved_at": "2026-11-21"
+          },
+          {
+            "label": "Parques Nacionales Naturales de Colombia - Resolución 207 de 2023",
+            "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2023/08/Resolucion_207_2023_ReglamentacionNevados.pdf",
+            "retrieved_at": "2026-11-21"
+          }
+        ],
+        "last_verified": "2026-11-21",
+        "related": [
+          "fauna.paramo_amphibians",
+          "fauna.amphibian_survey_sites",
+          "fauna.reptiles_paramo_buffer"
+        ],
+        "tags": [
+          "terlaque",
+          "VU"
+        ]
+      }
+    }
+  ]
+}

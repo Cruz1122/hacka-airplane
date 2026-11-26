@@ -1,0 +1,1041 @@
+{
+ "section": "booking_fees",
+ "reviewer": "agente 26 re-review / claude-haiku-5-5 (revisor independiente, no autor de las propuestas)",
+ "ops": [
+  {
+   "id": "booking_fees.accident_insurance_requirement",
+   "op": "update",
+   "verdict": "approve",
+   "entailment": "full",
+   "label_change": "n/a",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "n/a",
+   "reason": "Seguro obligatorio y su relación con la exención (parágrafo 2) verificados; «avalado por PNN» y precio no publicado coherentes con la ficha.",
+   "required_change": ""
+  },
+  {
+   "id": "booking_fees.adult_resident_admission_fee",
+   "op": "update",
+   "verdict": "revise",
+   "entailment": "full",
+   "label_change": "justified",
+   "examples": "ok",
+   "temporal": "issue",
+   "refetch": "warn",
+   "reason": "Cifras verificadas en la tabla de la ficha y en el anexo de la 551. Temporal: valid_until 2026-12-31 sin fuente. Refetch: warn del refetch despejado: cita presente en sustancia en la descarga de hoy (2026-11-22).",
+   "required_change": "valid_until 2026-12-31 no tiene fuente: la 551 no fija vencimiento, solo reajuste el 1 de enero (art. 12). Quitar valid_until."
+  },
+  {
+   "id": "booking_fees.age_minimum_by_attraction",
+   "op": "update",
+   "verdict": "approve",
+   "entailment": "full",
+   "label_change": "n/a",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "n/a",
+   "reason": "Edades 6 y 15 literales en la ficha; etiqueta anterior restaurada.",
+   "required_change": ""
+  },
+  {
+   "id": "booking_fees.alta_montana_guide_glacier",
+   "op": "update",
+   "verdict": "approve",
+   "entailment": "full",
+   "label_change": "n/a",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "n/a",
+   "reason": "Frase literal de la ficha («liderado solamente por guías… alta montaña», «únicamente acepta ofertas»).",
+   "required_change": ""
+  },
+  {
+   "id": "booking_fees.brisas_booking_channel",
+   "op": "update",
+   "verdict": "approve",
+   "entailment": "full",
+   "label_change": "justified",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "warn",
+   "reason": "Canal reservasnevados.com y UTON verificados en la ficha; radicado 20266200003531 (carta de 18-05-2026) verificado en el PDF. Etiqueta documentada. Refetch: warn del refetch despejado: cita presente en sustancia en la descarga de hoy (2026-11-22).",
+   "required_change": ""
+  },
+  {
+   "id": "booking_fees.brisas_guide_price",
+   "op": "update",
+   "verdict": "revise",
+   "entailment": "full",
+   "label_change": "n/a",
+   "examples": "ok",
+   "temporal": "issue",
+   "refetch": "n/a",
+   "reason": "Cifra 22.000 verificada en la columna de guianza de la ficha, con la nota de UTON. Temporal: valid_until sin fuente. Ejemplo que no llega al top-3.",
+   "required_change": "valid_until 2026-12-31 no tiene fuente: la 551 no fija vencimiento, solo reajuste el 1 de enero (art. 12). Quitar valid_until. Quitar además el ejemplo «los 22000 de la guia en brisas son de 2026?» (top-1 under25, rango 9)."
+  },
+  {
+   "id": "booking_fees.brisas_reservation",
+   "op": "update",
+   "verdict": "revise",
+   "entailment": "partial",
+   "label_change": "justified",
+   "examples": "issues",
+   "temporal": "ok",
+   "refetch": "warn",
+   "reason": "La ficha no dice «entre semana» para Brisas: la frase «la reserva no es obligatoria» es de Brisas–Kumanday (fresca, verificada). Ejemplo que no llega al top-3. Refetch: warn del refetch despejado: cita presente en sustancia en la descarga de hoy (2026-11-22).",
+   "required_change": "Reescribir la regla: Brisas–Valle de las Tumbas exige reserva con un día de anticipación en fines de semana y puentes; Brisas–Kumanday «no es obligatoria» (la ficha no distingue días). Quitar «entre semana dice que no es obligatoria». Quitar el ejemplo «en brisas el fin de semana si toca reservar y entre semana no» (rango 4)."
+  },
+  {
+   "id": "booking_fees.can_countries_fee",
+   "op": "update",
+   "verdict": "approve",
+   "entailment": "full",
+   "label_change": "n/a",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "n/a",
+   "reason": "Países CAN de la 551 y columnas de residente de la ficha verificados.",
+   "required_change": ""
+  },
+  {
+   "id": "booking_fees.center_otun_reservation_lead",
+   "op": "update",
+   "verdict": "approve",
+   "entailment": "full",
+   "label_change": "n/a",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "n/a",
+   "reason": "Tres días hábiles literal para Cisne y Otún; operador desde el bloque «demás sectores».",
+   "required_change": ""
+  },
+  {
+   "id": "booking_fees.documents_to_carry",
+   "op": "update",
+   "verdict": "approve",
+   "entailment": "full",
+   "label_change": "n/a",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "n/a",
+   "reason": "Documentos del art. 14 de la 551 y control de la 207 verificados.",
+   "required_change": ""
+  },
+  {
+   "id": "booking_fees.entry_fee_discounts",
+   "op": "update",
+   "verdict": "approve",
+   "entailment": "full",
+   "label_change": "n/a",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "n/a",
+   "reason": "Art. 18 verificado (descuentos por convenio, no exención).",
+   "required_change": ""
+  },
+  {
+   "id": "booking_fees.entry_payment_channels",
+   "op": "update",
+   "verdict": "approve",
+   "entailment": "full",
+   "label_change": "n/a",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "n/a",
+   "reason": "Art. 5 verificado (presencial, cuenta, línea con costos extra).",
+   "required_change": ""
+  },
+  {
+   "id": "booking_fees.exempt_company_staff_inside_park",
+   "op": "update",
+   "verdict": "approve",
+   "entailment": "full",
+   "label_change": "n/a",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "n/a",
+   "reason": "Numeral 12 y plazo de ocho días (art. 14) verificados.",
+   "required_change": ""
+  },
+  {
+   "id": "booking_fees.exempt_culture_agents",
+   "op": "update",
+   "verdict": "approve",
+   "entailment": "full",
+   "label_change": "n/a",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "n/a",
+   "reason": "Numeral 20 (temporada baja) y plazo de ocho días verificados.",
+   "required_change": ""
+  },
+  {
+   "id": "booking_fees.exempt_disability_visitors",
+   "op": "update",
+   "verdict": "approve",
+   "entailment": "full",
+   "label_change": "n/a",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "n/a",
+   "reason": "Numeral 7 verificado; parágrafo 2 sobre seguro verificado; la falta de trámite es negativa coherente con el art. 14.",
+   "required_change": ""
+  },
+  {
+   "id": "booking_fees.exempt_donors",
+   "op": "update",
+   "verdict": "approve",
+   "entailment": "full",
+   "label_change": "n/a",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "n/a",
+   "reason": "Numeral 9 y plazo de ocho días verificados.",
+   "required_change": ""
+  },
+  {
+   "id": "booking_fees.exempt_government_staff",
+   "op": "update",
+   "verdict": "revise",
+   "entailment": "full",
+   "label_change": "n/a",
+   "examples": "issues",
+   "temporal": "ok",
+   "refetch": "n/a",
+   "reason": "Numeral 2, tres veces al año y plazo de ocho días verificados. Ejemplo que no llega al top-3 de su entrada.",
+   "required_change": "Quitar el ejemplo «la exencion de funcionario de parques cubre a mi pareja» (top-1 exempt_company_staff_inside_park, rango 22)."
+  },
+  {
+   "id": "booking_fees.exempt_indigenous_communities",
+   "op": "update",
+   "verdict": "approve",
+   "entailment": "full",
+   "label_change": "n/a",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "n/a",
+   "reason": "Numeral 8 verificado (texto oficial con «pagamento»; la respuesta no depende de esa palabra).",
+   "required_change": ""
+  },
+  {
+   "id": "booking_fees.exempt_journalists",
+   "op": "update",
+   "verdict": "approve",
+   "entailment": "full",
+   "label_change": "n/a",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "n/a",
+   "reason": "Numeral 15 verificado.",
+   "required_change": ""
+  },
+  {
+   "id": "booking_fees.exempt_nearby_residents",
+   "op": "update",
+   "verdict": "approve",
+   "entailment": "full",
+   "label_change": "n/a",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "n/a",
+   "reason": "Numeral 5 (10.000 habitantes) y numeral 11 (pobladores de paso) verificados.",
+   "required_change": ""
+  },
+  {
+   "id": "booking_fees.exempt_official_mission",
+   "op": "update",
+   "verdict": "approve",
+   "entailment": "full",
+   "label_change": "n/a",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "n/a",
+   "reason": "Numeral 3 y plazo de ocho días verificados.",
+   "required_change": ""
+  },
+  {
+   "id": "booking_fees.exempt_park_volunteers",
+   "op": "update",
+   "verdict": "approve",
+   "entailment": "full",
+   "label_change": "n/a",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "n/a",
+   "reason": "Numeral 13 verificado; plazo de ocho días verificado.",
+   "required_change": ""
+  },
+  {
+   "id": "booking_fees.exempt_police_family",
+   "op": "update",
+   "verdict": "approve",
+   "entailment": "full",
+   "label_change": "n/a",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "warn",
+   "reason": "Numeral 16 con la condición de pensión y el documento de prestaciones verificados en la página 13 de la 551 (descarga de hoy, cobertura 0,97). Refetch: warn del refetch despejado: cita presente en sustancia en la descarga de hoy (2026-11-22).",
+   "required_change": ""
+  },
+  {
+   "id": "booking_fees.exempt_promotion_programs",
+   "op": "update",
+   "verdict": "approve",
+   "entailment": "full",
+   "label_change": "n/a",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "n/a",
+   "reason": "Art. 15 y numeral 18 verificados; la designación de áreas la hace la entidad.",
+   "required_change": ""
+  },
+  {
+   "id": "booking_fees.exempt_property_owners",
+   "op": "update",
+   "verdict": "approve",
+   "entailment": "full",
+   "label_change": "n/a",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "n/a",
+   "reason": "Numeral 10 y registro de propietarios verificados; aviso previo (numerales 10, 14, 17).",
+   "required_change": ""
+  },
+  {
+   "id": "booking_fees.exempt_researchers",
+   "op": "update",
+   "verdict": "approve",
+   "entailment": "full",
+   "label_change": "n/a",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "n/a",
+   "reason": "Numeral 6 y plazo de ocho días verificados.",
+   "required_change": ""
+  },
+  {
+   "id": "booking_fees.exempt_tourist_guides_and_providers",
+   "op": "update",
+   "verdict": "approve",
+   "entailment": "full",
+   "label_change": "n/a",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "n/a",
+   "reason": "Numerales 17 y 19 verificados; REPSE en la ficha.",
+   "required_change": ""
+  },
+  {
+   "id": "booking_fees.exempt_young_children_and_seniors",
+   "op": "update",
+   "verdict": "approve",
+   "entailment": "full",
+   "label_change": "n/a",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "n/a",
+   "reason": "Numeral 1 verificado; edades 6–70 de la 207 y 6/15 de la ficha.",
+   "required_change": ""
+  },
+  {
+   "id": "booking_fees.exemption_no_insurance_waiver",
+   "op": "update",
+   "verdict": "approve",
+   "entailment": "full",
+   "label_change": "n/a",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "n/a",
+   "reason": "Parágrafo 2 verificado.",
+   "required_change": ""
+  },
+  {
+   "id": "booking_fees.exemption_not_guaranteed",
+   "op": "update",
+   "verdict": "approve",
+   "entailment": "full",
+   "label_change": "n/a",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "n/a",
+   "reason": "Parágrafo 1 y art. 13 (factor medio de transporte) verificados.",
+   "required_change": ""
+  },
+  {
+   "id": "booking_fees.exemption_proof_deadline",
+   "op": "update",
+   "verdict": "approve",
+   "entailment": "full",
+   "label_change": "n/a",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "n/a",
+   "reason": "Lista de categorías = numerales 2, 3, 4, 6, 9, 12, 13, 19 y 20 del art. 14, verificada una a una.",
+   "required_change": ""
+  },
+  {
+   "id": "booking_fees.foreign_nonresident_admission_fee",
+   "op": "update",
+   "verdict": "revise",
+   "entailment": "full",
+   "label_change": "n/a",
+   "examples": "issues",
+   "temporal": "issue",
+   "refetch": "warn",
+   "reason": "Cifra 68.000 en la columna «Extranjero no residente» verificada. Temporal: valid_until sin fuente. Ejemplo que no llega al top-3. Refetch: warn del refetch despejado: cita presente en sustancia en la descarga de hoy (2026-11-22).",
+   "required_change": "valid_until 2026-12-31 no tiene fuente: la 551 no fija vencimiento, solo reajuste el 1 de enero (art. 12). Quitar valid_until. Quitar además el ejemplo «soy turista y no vivo en colombia, cual es la entrada 2026» (top-1 adult_resident, rango 4)."
+  },
+  {
+   "id": "booking_fees.foreign_resident_definition",
+   "op": "update",
+   "verdict": "revise",
+   "entailment": "partial",
+   "label_change": "n/a",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "n/a",
+   "reason": "La respuesta amplía la definición: convierte en alternativa lo que la fuente exige como conjunción (reside en el país y…).",
+   "required_change": "La definición fuente es «reside en el país y se establece en él o desarrolla actividades de manera temporal». Reescribir: «Extranjero residente es quien reside en Colombia y se establece en el país o desarrolla actividades de forma temporal, según la Resolución 551…». Hoy la respuesta permite «reside o actividad temporal»."
+  },
+  {
+   "id": "booking_fees.guide_price_cisne_otun",
+   "op": "update",
+   "verdict": "revise",
+   "entailment": "partial",
+   "label_change": "n/a",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "n/a",
+   "reason": "La afirmación es correcta en la ficha, pero la cita de respaldo no la contiene.",
+   "required_change": "Cambiar la cita: la celda «No aplica» es la de vehículos. La frase que sostiene «no hay valor fijo de guianza» es «Según el guía o la agencia operadora registrada elegida.» (presente en la ficha de hoy)."
+  },
+  {
+   "id": "booking_fees.guide_required",
+   "op": "update",
+   "verdict": "approve",
+   "entailment": "full",
+   "label_change": "n/a",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "n/a",
+   "reason": "Obligatoriedad de guía en la ficha y «ningún visitante podrá ingresar solo» en la 207 verificadas.",
+   "required_change": ""
+  },
+  {
+   "id": "booking_fees.induction_requirement",
+   "op": "update",
+   "verdict": "approve",
+   "entailment": "full",
+   "label_change": "n/a",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "n/a",
+   "reason": "Charla presencial obligatoria verificada en la 207; la respuesta reconoce que no fija el lugar de Brisas.",
+   "required_change": ""
+  },
+  {
+   "id": "booking_fees.insurance_payment_channel",
+   "op": "update",
+   "verdict": "approve",
+   "entailment": "full",
+   "label_change": "n/a",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "n/a",
+   "reason": "Canal UTON en Brisas y agencia en los demás sectores verificados.",
+   "required_change": ""
+  },
+  {
+   "id": "booking_fees.insurance_price_not_published",
+   "op": "update",
+   "verdict": "approve",
+   "entailment": "full",
+   "label_change": "n/a",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "n/a",
+   "reason": "Negativa verificada: ni la ficha ni la 551 publican precio del seguro.",
+   "required_change": ""
+  },
+  {
+   "id": "booking_fees.maximum_entry_age",
+   "op": "update",
+   "verdict": "revise",
+   "entailment": "full",
+   "label_change": "n/a",
+   "examples": "ok",
+   "temporal": "issue",
+   "refetch": "n/a",
+   "reason": "Cifras 69 (ficha) y 70 (207) verificadas. Temporal: la ficha sí tiene fecha de modificación (article:modified_time 2026-10-31, confirmado en la descarga de hoy); «sin fecha editorial» contradice esa fecha y las otras respuestas.",
+   "required_change": "Reemplazar «La página de PNN no muestra fecha editorial» por «La ficha tiene última modificación el 31 de octubre de 2026», como hacen las demás respuestas."
+  },
+  {
+   "id": "booking_fees.minor_guardian_requirement",
+   "op": "update",
+   "verdict": "approve",
+   "entailment": "full",
+   "label_change": "n/a",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "n/a",
+   "reason": "«Todos los menores van acompañados de adultos cuidadores» y 15 años con autorización (207) verificados.",
+   "required_change": ""
+  },
+  {
+   "id": "booking_fees.other_sector_reservation",
+   "op": "update",
+   "verdict": "approve",
+   "entailment": "full",
+   "label_change": "n/a",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "warn",
+   "reason": "Bloque «Ingreso a los demás sectores: la reserva sí es obligatoria» verificado en la ficha de hoy. Refetch: warn del refetch despejado: cita presente en sustancia en la descarga de hoy (2026-11-22).",
+   "required_change": ""
+  },
+  {
+   "id": "booking_fees.permanence_four_days",
+   "op": "update",
+   "verdict": "approve",
+   "entailment": "full",
+   "label_change": "n/a",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "n/a",
+   "reason": "Art. 11 verificado, incluido el paquete turístico.",
+   "required_change": ""
+  },
+  {
+   "id": "booking_fees.platform_payment_methods",
+   "op": "update",
+   "verdict": "approve",
+   "entailment": "full",
+   "label_change": "n/a",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "warn",
+   "reason": "PSE, Daviplata, Visa, Mastercard y American Express confirmados en el bundle de reservasnevados.com descargado hoy; «no se probó una transacción» honesto. Etiqueta documentada. Refetch: warn del refetch despejado: cita presente en sustancia en la descarga de hoy (2026-11-22).",
+   "required_change": ""
+  },
+  {
+   "id": "booking_fees.platform_pays_services",
+   "op": "update",
+   "verdict": "approve",
+   "entailment": "full",
+   "label_change": "justified",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "n/a",
+   "reason": "Radicado: registro, validación y pago de servicios; cancelaciones y devoluciones sin pronunciamiento, verificados. Etiqueta documentada.",
+   "required_change": ""
+  },
+  {
+   "id": "booking_fees.quindio_reservation_lead",
+   "op": "update",
+   "verdict": "approve",
+   "entailment": "full",
+   "label_change": "n/a",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "n/a",
+   "reason": "Cinco días hábiles literal en la ficha; operador en el bloque «demás sectores».",
+   "required_change": ""
+  },
+  {
+   "id": "booking_fees.registered_operator_choice",
+   "op": "update",
+   "verdict": "approve",
+   "entailment": "full",
+   "label_change": "n/a",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "n/a",
+   "reason": "Enlace a los prestadores REPSE y «no todos… autorizados» verificados en la ficha.",
+   "required_change": ""
+  },
+  {
+   "id": "booking_fees.registration_form_required",
+   "op": "update",
+   "verdict": "approve",
+   "entailment": "full",
+   "label_change": "n/a",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "n/a",
+   "reason": "«Diligenciar debidamente el formato de ingreso» verificado en la 207.",
+   "required_change": ""
+  },
+  {
+   "id": "booking_fees.reservation_by_operator",
+   "op": "update",
+   "verdict": "approve",
+   "entailment": "full",
+   "label_change": "n/a",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "warn",
+   "reason": "Art. de la 207 («operadores avalados… deberán solicitar la reservación») y bloque de la ficha verificados. Refetch: warn del refetch despejado: cita presente en sustancia en la descarga de hoy (2026-11-22).",
+   "required_change": ""
+  },
+  {
+   "id": "booking_fees.reservation_data_required",
+   "op": "update",
+   "verdict": "revise",
+   "entailment": "full",
+   "label_change": "justified",
+   "examples": "issues",
+   "temporal": "ok",
+   "refetch": "n/a",
+   "reason": "Lista de la 207 (nombres, cédula, procedencia, rutas) y protocolo (póliza, recibo) verificados. Ejemplo que no llega al top-3.",
+   "required_change": "Quitar el ejemplo «datos de cada persona para solicitar el cupo del parque» (top-1 documents_to_carry, rango 8)."
+  },
+  {
+   "id": "booking_fees.reservation_requirements",
+   "op": "update",
+   "verdict": "revise",
+   "entailment": "partial",
+   "label_change": "n/a",
+   "examples": "issues",
+   "temporal": "ok",
+   "refetch": "warn",
+   "reason": "«En Brisas la reserva no es obligatoria entre semana» no está en la ficha; mezcla Kumanday con Valle de las Tumbas. Dos ejemplos no llegan al top-3. Refetch: warn del refetch despejado: cita presente en sustancia en la descarga de hoy (2026-11-22).",
+   "required_change": "Reescribir la regla de Brisas como en brisas_reservation (Valle de las Tumbas: fines de semana y puentes; Kumanday: no obligatoria, sin distinguir días). Quitar los ejemplos «depende del sector si la reserva es obligatoria» (rango 6) y «brisas entre semana no, el resto del parque si» (rango 150; es una afirmación, no una pregunta)."
+  },
+  {
+   "id": "booking_fees.reservation_validation_window",
+   "op": "update",
+   "verdict": "revise",
+   "entailment": "partial",
+   "label_change": "n/a",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "n/a",
+   "reason": "«Según PNN de mayo de 2026, la validación inicial no es aprobación definitiva» atribuye a PNN una conclusión que el radicado no formula.",
+   "required_change": "Quitar «Una validación inicial no es la aprobación definitiva» del short y del detail, o atribuirlo como inferencia. El radicado solo dice que hubo cancelaciones de reservas previamente validadas."
+  },
+  {
+   "id": "booking_fees.sector_entry_fee_difference",
+   "op": "update",
+   "verdict": "revise",
+   "entailment": "full",
+   "label_change": "n/a",
+   "examples": "ok",
+   "temporal": "issue",
+   "refetch": "n/a",
+   "reason": "Conflicto Quindío-Dulima ($0 en la ficha frente a la 551 que no separa sectores) descrito honestamente y verificado. Temporal: valid_until sin fuente.",
+   "required_change": "valid_until 2026-12-31 no tiene fuente: la 551 no fija vencimiento, solo reajuste el 1 de enero (art. 12). Quitar valid_until."
+  },
+  {
+   "id": "booking_fees.south_modify_members",
+   "op": "update",
+   "verdict": "revise",
+   "entailment": "partial",
+   "label_change": "n/a",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "n/a",
+   "reason": "El 30 % y la sujeción a cambios están citados. La justificación escrita y la ventana de 24 a 72 horas están en el protocolo (verificado en el archivo fuente), pero no en las citas de la operación.",
+   "required_change": "Añadir a la cita la frase del protocolo: «previa justificación escrita de la situación … con un tiempo de antelación de 24 a 72 horas del ingreso». Sin esa cita, «con justificación escrita» y «24 y 72 horas» no tienen respaldo en la evidencia de la operación."
+  },
+  {
+   "id": "booking_fees.south_payment_before_review",
+   "op": "update",
+   "verdict": "approve",
+   "entailment": "full",
+   "label_change": "n/a",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "n/a",
+   "reason": "Protocolo: pago efectuado y verificado, soporte de la empresa, evaluación con los demás soportes; verificado en el archivo fuente.",
+   "required_change": ""
+  },
+  {
+   "id": "booking_fees.student_admission_category",
+   "op": "update",
+   "verdict": "approve",
+   "entailment": "full",
+   "label_change": "n/a",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "n/a",
+   "reason": "Numeral 4, temporada baja, aprobación y plazo de ocho días verificados; «no crea una tarifa» es negativa de la 551.",
+   "required_change": ""
+  },
+  {
+   "id": "booking_fees.tariff_annual_update",
+   "op": "update",
+   "verdict": "revise",
+   "entailment": "full",
+   "label_change": "n/a",
+   "examples": "ok",
+   "temporal": "issue",
+   "refetch": "n/a",
+   "reason": "Art. 12 (reajuste y entrada en vigor cada 1 de enero) y art. 22 verificados. Temporal: valid_until sin fuente.",
+   "required_change": "valid_until 2026-12-31 no tiene fuente: la 551 no fija vencimiento, solo reajuste el 1 de enero (art. 12). Quitar valid_until."
+  },
+  {
+   "id": "booking_fees.under25_admission_fee",
+   "op": "update",
+   "verdict": "revise",
+   "entailment": "full",
+   "label_change": "n/a",
+   "examples": "issues",
+   "temporal": "issue",
+   "refetch": "warn",
+   "reason": "Cifra 12.500 verificada. Temporal: valid_until sin fuente. Ejemplo que no llega al top-3. Refetch: warn del refetch despejado: cita presente en sustancia en la descarga de hoy (2026-11-22).",
+   "required_change": "valid_until 2026-12-31 no tiene fuente: la 551 no fija vencimiento, solo reajuste el 1 de enero (art. 12). Quitar valid_until. Quitar además el ejemplo «menor de 25 residente en colombia, tarifa 2026» (top-1 adult_resident, rango 5)."
+  },
+  {
+   "id": "booking_fees.vehicle_entry_fee",
+   "op": "update",
+   "verdict": "revise",
+   "entailment": "full",
+   "label_change": "n/a",
+   "examples": "ok",
+   "temporal": "issue",
+   "refetch": "warn",
+   "reason": "Valores 10.000 / 27.500 / 56.000 y moto prohibida verificados en la 551 (factor transporte) y en la ficha. Temporal: valid_until sin fuente. Refetch: warn del refetch despejado: cita presente en sustancia en la descarga de hoy (2026-11-22).",
+   "required_change": "valid_until 2026-12-31 no tiene fuente: la 551 no fija vencimiento, solo reajuste el 1 de enero (art. 12). Quitar valid_until."
+  },
+  {
+   "id": "booking_fees.vehicle_not_parking_fee",
+   "op": "update",
+   "verdict": "approve",
+   "entailment": "full",
+   "label_change": "n/a",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "n/a",
+   "reason": "Parágrafo 2 del art. 3 de la 551 («no constituye un servicio de parqueo») verificado.",
+   "required_change": ""
+  }
+ ],
+ "audit_rows": [
+  {
+   "id": "booking_fees.reservation_requirements",
+   "claimed": "primary_ok",
+   "support": "partial",
+   "note": "Excerpt: bloque «demás sectores obligatoria». No sostiene «Brisas no obligatoria entre semana» ni la reserva de fines de semana.",
+   "excerpt_changed": false
+  },
+  {
+   "id": "booking_fees.brisas_reservation",
+   "claimed": "primary_ok",
+   "support": "partial",
+   "note": "Excerpt: fines de semana indispensable. No sostiene «entre semana no es obligatoria» ni la Resolución 207.",
+   "excerpt_changed": false
+  },
+  {
+   "id": "booking_fees.brisas_booking_channel",
+   "claimed": "primary_ok",
+   "support": "partial",
+   "note": "Excerpt: UTON gestiona reservas, ingreso y guianza. No sostiene reservasnevados.com ni el radicado.",
+   "excerpt_changed": true
+  },
+  {
+   "id": "booking_fees.student_admission_category",
+   "claimed": "primary_ok",
+   "support": "partial",
+   "note": "Excerpt: estudiantes y profesores en programas, temporada baja, aprobación. No sostiene el plazo de ocho días.",
+   "excerpt_changed": false
+  },
+  {
+   "id": "booking_fees.minor_guardian_requirement",
+   "claimed": "primary_ok",
+   "support": "partial",
+   "note": "Excerpt: menores con adultos cuidadores. No sostiene los 15 años ni la autorización de padres.",
+   "excerpt_changed": true
+  },
+  {
+   "id": "booking_fees.accident_insurance_requirement",
+   "claimed": "primary_ok",
+   "support": "partial",
+   "note": "Excerpt: parágrafo 2 (la exención no incluye el seguro). No sostiene «obligatorio y avalado» ni «no viene incluido en la entrada».",
+   "excerpt_changed": true
+  },
+  {
+   "id": "booking_fees.registered_operator_choice",
+   "claimed": "primary_ok",
+   "support": "partial",
+   "note": "Excerpt: «no todos los prestadores están autorizados». No sostiene el listado publicado ni REPSE.",
+   "excerpt_changed": true
+  },
+  {
+   "id": "booking_fees.induction_requirement",
+   "claimed": "primary_ok",
+   "support": "partial",
+   "note": "Excerpt: charla presencial obligatoria. No sostiene «en el punto de ingreso de tu sector».",
+   "excerpt_changed": true
+  },
+  {
+   "id": "booking_fees.under25_admission_fee",
+   "claimed": "primary_ok",
+   "support": "partial",
+   "note": "Excerpt: bloque Brisas con 12.500. No sostiene la columna «menor de 25», el alcance a Cisne y Otún ni Quindío $0.",
+   "excerpt_changed": false
+  },
+  {
+   "id": "booking_fees.adult_resident_admission_fee",
+   "claimed": "primary_ok",
+   "support": "partial",
+   "note": "Excerpt: bloque Brisas con 24.500. No sostiene la columna «mayor de 25», el alcance por sector ni Quindío $0.",
+   "excerpt_changed": false
+  },
+  {
+   "id": "booking_fees.foreign_nonresident_admission_fee",
+   "claimed": "primary_ok",
+   "support": "partial",
+   "note": "Excerpt: 68.000 en el bloque Brisas. No sostiene el encabezado «extranjero no residente» ni el alcance por sector.",
+   "excerpt_changed": false
+  },
+  {
+   "id": "booking_fees.sector_entry_fee_difference",
+   "claimed": "primary_ok",
+   "support": "partial",
+   "note": "Excerpt: bloque Brisas. No sostiene Quindío-Dulima $0 ni la lectura de la 551.",
+   "excerpt_changed": false
+  },
+  {
+   "id": "booking_fees.exempt_young_children_and_seniors",
+   "claimed": "primary_ok",
+   "support": "partial",
+   "note": "Excerpt: edades mínimas 6 y 15. No sostiene la exención de menores de 5 ni de mayores de 62.",
+   "excerpt_changed": false
+  },
+  {
+   "id": "booking_fees.exempt_disability_visitors",
+   "claimed": "primary_ok",
+   "support": "partial",
+   "note": "Excerpt: categoría de discapacidad. No sostiene «el seguro sigue siendo obligatorio» ni la ausencia de trámite.",
+   "excerpt_changed": true
+  },
+  {
+   "id": "booking_fees.documents_to_carry",
+   "claimed": "primary_ok",
+   "support": "partial",
+   "note": "Excerpt: autorización, soporte de pago y póliza (207). No sostiene la lista de documentos de identidad.",
+   "excerpt_changed": true
+  },
+  {
+   "id": "booking_fees.reservation_data_required",
+   "claimed": "primary_ok",
+   "support": "partial",
+   "note": "Excerpt: nombres, cédula, procedencia y rutas (207). No sostiene la póliza y el recibo del sur.",
+   "excerpt_changed": true
+  },
+  {
+   "id": "booking_fees.vehicle_entry_fee",
+   "claimed": "primary_ok",
+   "support": "partial",
+   "note": "Excerpt: tres valores y «No aplica». No sostiene las cifras de automóvil, microbús o bus.",
+   "excerpt_changed": true
+  },
+  {
+   "id": "booking_fees.cancellation_refund_policy",
+   "claimed": "primary_ok",
+   "support": "partial",
+   "note": "Excerpt: no se devuelve dinero. No sostiene la situación de PNN de mayo de 2026 sobre devoluciones pendientes.",
+   "excerpt_changed": true
+  },
+  {
+   "id": "booking_fees.reservation_validation_window",
+   "claimed": "primary_ok",
+   "support": "partial",
+   "note": "Excerpt: ventana de cinco a dos días hábiles. No sostiene «validación inicial no es aprobación definitiva» ni las cancelaciones.",
+   "excerpt_changed": true
+  },
+  {
+   "id": "booking_fees.exempt_government_staff",
+   "claimed": "primary_ok",
+   "support": "partial",
+   "note": "Excerpt: solo la lista de numerales y el plazo de ocho días. No sostiene recreación, tres veces al año ni parientes.",
+   "excerpt_changed": true
+  },
+  {
+   "id": "booking_fees.exempt_official_mission",
+   "claimed": "primary_ok",
+   "support": "partial",
+   "note": "Excerpt: solo el plazo de ocho días. No sostiene la categoría de misión oficial.",
+   "excerpt_changed": true
+  },
+  {
+   "id": "booking_fees.exempt_company_staff_inside_park",
+   "claimed": "primary_ok",
+   "support": "partial",
+   "note": "Excerpt: solo el plazo de ocho días. No sostiene la categoría de empresas con instalaciones.",
+   "excerpt_changed": true
+  },
+  {
+   "id": "booking_fees.exempt_nearby_residents",
+   "claimed": "primary_ok",
+   "support": "partial",
+   "note": "Excerpt: centros poblados menores de 10.000. No sostiene pobladores de paso ni demostración con documento.",
+   "excerpt_changed": true
+  },
+  {
+   "id": "booking_fees.exempt_researchers",
+   "claimed": "primary_ok",
+   "support": "partial",
+   "note": "Excerpt: solo el plazo de ocho días. No sostiene la categoría de investigador.",
+   "excerpt_changed": true
+  },
+  {
+   "id": "booking_fees.exempt_property_owners",
+   "claimed": "primary_ok",
+   "support": "partial",
+   "note": "Excerpt: numerales 10, 14 y 17 (aviso de nombres). No sostiene el cuarto grado ni el registro civil.",
+   "excerpt_changed": true
+  },
+  {
+   "id": "booking_fees.exempt_donors",
+   "claimed": "primary_ok",
+   "support": "partial",
+   "note": "Excerpt: solo el plazo de ocho días. No sostiene la categoría de donantes.",
+   "excerpt_changed": true
+  },
+  {
+   "id": "booking_fees.exempt_park_volunteers",
+   "claimed": "primary_ok",
+   "support": "partial",
+   "note": "Excerpt: solo el plazo de ocho días. No sostiene la categoría de guardaparques.",
+   "excerpt_changed": true
+  },
+  {
+   "id": "booking_fees.exempt_police_family",
+   "claimed": "primary_ok",
+   "support": "partial",
+   "note": "Excerpt: beneficiarios (cónyuge, hijos, padres). No sostiene el requisito de pensión ni el documento de prestaciones, que están en la página 13.",
+   "excerpt_changed": true
+  },
+  {
+   "id": "booking_fees.exempt_tourist_guides_and_providers",
+   "claimed": "primary_ok",
+   "support": "partial",
+   "note": "Excerpt: solo el plazo de ocho días. No sostiene la exención de guías ni los prestadores REPSE.",
+   "excerpt_changed": true
+  },
+  {
+   "id": "booking_fees.exempt_culture_agents",
+   "claimed": "primary_ok",
+   "support": "partial",
+   "note": "Excerpt: solo el plazo de ocho días. No sostiene el registro Soy Cultura ni la temporada baja.",
+   "excerpt_changed": true
+  },
+  {
+   "id": "booking_fees.exempt_promotion_programs",
+   "claimed": "primary_ok",
+   "support": "partial",
+   "note": "Excerpt: art. 15. No sostiene el Pasaporte como ejemplo (numeral 18).",
+   "excerpt_changed": false
+  },
+  {
+   "id": "booking_fees.exemption_not_guaranteed",
+   "claimed": "primary_ok",
+   "support": "partial",
+   "note": "Excerpt: parágrafo 1 (capacidad de manejo). No sostiene zonificación, residencia permanente, vehículo ni seguro.",
+   "excerpt_changed": false
+  },
+  {
+   "id": "booking_fees.exemption_proof_deadline",
+   "claimed": "primary_ok",
+   "support": "partial",
+   "note": "Excerpt: plazo de ocho días. No sostiene las categorías enumeradas en la respuesta.",
+   "excerpt_changed": false
+  },
+  {
+   "id": "booking_fees.permanence_four_days",
+   "claimed": "primary_ok",
+   "support": "full",
+   "note": "Excerpt: cuatro días y paquete turístico. Sostiene la respuesta.",
+   "excerpt_changed": true
+  },
+  {
+   "id": "booking_fees.tariff_annual_update",
+   "claimed": "primary_ok",
+   "support": "partial",
+   "note": "Excerpt: art. 12 (reajuste cada 1 de enero). No sostiene «rigen desde 1 de enero de 2026» (art. 22) ni la publicación en el sitio.",
+   "excerpt_changed": false
+  },
+  {
+   "id": "booking_fees.foreign_resident_definition",
+   "claimed": "primary_ok",
+   "support": "partial",
+   "note": "Excerpt: definición (reside y se establece o actividad temporal). La respuesta la amplía a «reside o actividad temporal».",
+   "excerpt_changed": true
+  },
+  {
+   "id": "booking_fees.can_countries_fee",
+   "claimed": "primary_ok",
+   "support": "partial",
+   "note": "Excerpt: países de la CAN. No sostiene la ubicación en columnas de residente de la ficha.",
+   "excerpt_changed": true
+  },
+  {
+   "id": "booking_fees.south_reservation_order",
+   "claimed": "primary_ok",
+   "support": "partial",
+   "note": "Excerpt: documentación para hacer efectiva la reserva. No sostiene el orden de recepción ni los cinco días hábiles.",
+   "excerpt_changed": true
+  },
+  {
+   "id": "booking_fees.south_cancel_by_email",
+   "claimed": "primary_ok",
+   "support": "partial",
+   "note": "Excerpt: fuerza mayor. No sostiene el correo ni la ventana de 24 a 72 horas.",
+   "excerpt_changed": true
+  },
+  {
+   "id": "booking_fees.south_modify_members",
+   "claimed": "primary_ok",
+   "support": "partial",
+   "note": "Excerpt: «sujeto a cambios». No sostiene el 30 % en el excerpt ni la justificación escrita y la ventana de 24–72 horas.",
+   "excerpt_changed": true
+  },
+  {
+   "id": "booking_fees.south_reservation_status",
+   "claimed": "primary_ok",
+   "support": "partial",
+   "note": "Excerpt: negada con observaciones libera el cupo. No sostiene los cuatro estados ni «debe reservar otra vez».",
+   "excerpt_changed": true
+  },
+  {
+   "id": "booking_fees.south_payment_before_review",
+   "claimed": "primary_ok",
+   "support": "full",
+   "note": "Excerpt: pago efectuado y verificado, soporte de la empresa, evaluación con los demás soportes. Sostiene la respuesta.",
+   "excerpt_changed": true
+  },
+  {
+   "id": "booking_fees.south_summit_capacity",
+   "claimed": "primary_ok",
+   "support": "partial",
+   "note": "Excerpt: «Cumbre V/N del Tolima … 76». Sostiene la cifra; no sostiene «al día» ni la ruta por Arenales en ese texto.",
+   "excerpt_changed": true
+  },
+  {
+   "id": "booking_fees.brisas_guide_price",
+   "claimed": "primary_ok",
+   "support": "partial",
+   "note": "Excerpt: 22.000 y nota de UTON. No sostiene la columna de guianza ni «Brisas» (encabezados fuera del excerpt).",
+   "excerpt_changed": false
+  },
+  {
+   "id": "booking_fees.platform_payment_methods",
+   "claimed": "primary_ok",
+   "support": "partial",
+   "note": "Excerpt: solo la etiqueta «Medios de pago disponibles». No sostiene los cinco medios (están en otro fragmento del bundle).",
+   "excerpt_changed": true
+  }
+ ],
+ "summary": {
+  "approve": 43,
+  "revise": 16,
+  "reject": 0,
+  "audit_support": {
+   "full": 2,
+   "partial": 43,
+   "none": 0
+  }
+ }
+}

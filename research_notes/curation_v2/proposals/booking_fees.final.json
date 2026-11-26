@@ -1,0 +1,2992 @@
+{
+ "operations": [
+  {
+   "op": "update",
+   "reason": "v2: date the changeable rule and cite the passage that supports it.",
+   "entry": {
+    "id": "booking_fees.accident_insurance_requirement",
+    "label": "seguro obligatorio de accidentes",
+    "kind": "rule",
+    "audience": "visitor",
+    "lang": "es",
+    "examples": [
+     "seguro para entrar a Los Nevados",
+     "¿es obligatoria la póliza?",
+     "necesito seguro de accidentes para Brisas",
+     "puedo ingresar sin seguro",
+     "qué seguro piden en el parque",
+     "seguro obligatorio de montaña",
+     "el seguro viene en la entrada?",
+     "me exigen una póliza de accidentes para entrar?",
+     "Is accident insurance required to enter?",
+     "Does the park entry fee include insurance?",
+     "toca comprar póliza antes de ir?",
+     "me exigen seguro para entrar al parque"
+    ],
+    "hard_negatives": [
+     "dónde pago la póliza",
+     "si soy exento tengo que pagar seguro?"
+    ],
+    "needs": [],
+    "answer": {
+     "short": "Es obligatorio un seguro de accidentes avalado por Parques Nacionales. No viene incluido en la entrada y tampoco lo elimina estar exento de pagarla. Confirma cómo comprarlo con tu operador; dato de la ficha de Parques Nacionales consultada en noviembre de 2026; confirma con Parques Nacionales o tu operador antes de salir.",
+     "variants": [
+      "No viene incluido en la entrada y tampoco lo elimina estar exento de pagarla. Confirma cómo comprarlo con tu operador; dato de la ficha de Parques Nacionales consultada en noviembre de 2026; confirma con Parques Nacionales o tu operador antes de salir. Es obligatorio un seguro de accidentes avalado por Parques Nacionales."
+     ]
+    },
+    "sources": [
+     {
+      "label": "Parque Nacional Natural Los Nevados · Parques Nacionales Naturales",
+      "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+      "retrieved_at": "2026-11-21"
+     },
+     {
+      "label": "Resolución 551 de 2025 · Parques Nacionales Naturales (copia PNN, texto digital)",
+      "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2026/02/RESOLUCION-551-DE-2025-ACTUALIZA-EL-VALOR-DERECHOS-DE-INGRESO-Y-SERVICIOS-COMPLEMENTARIOS-A-LAS-AREAS-PROTEGIDAS.pdf",
+      "retrieved_at": "2026-11-21"
+     }
+    ],
+    "last_verified": "2026-11-21",
+    "valid_until": null,
+    "related": [
+     "booking_fees.insurance_payment_channel",
+     "booking_fees.exemption_no_insurance_waiver",
+     "booking_fees.insurer_names_2023"
+    ],
+    "tags": [
+     "seguro",
+     "póliza",
+     "requisito"
+    ]
+   },
+   "evidence": [
+    {
+     "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+     "path": "research_notes/Conocimiento turístico de Los Nevados/booking_fees/evidence/raw/pnn_nevados.txt",
+     "quote": "Para visitar el Parque siempre debes adquirir un seguro obligatorio de accidentes otorgado por una compañía aseguradora avalada por Parques Nacionales.",
+     "checked_on": "2026-11-22"
+    },
+    {
+     "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2026/02/RESOLUCION-551-DE-2025-ACTUALIZA-EL-VALOR-DERECHOS-DE-INGRESO-Y-SERVICIOS-COMPLEMENTARIOS-A-LAS-AREAS-PROTEGIDAS.pdf",
+     "path": "research_notes/Conocimiento turístico de Los Nevados/booking_fees/evidence/raw/resolucion-551-2025-pnn-2026-02.txt",
+     "quote": "PARÁGRAFO 2°: La exención de ingreso no incluye el requisito obligatorio de\nadquisición de seguro de accidenten establecida en la Resolución 273 de 2024",
+     "checked_on": "2026-11-22"
+    }
+   ]
+  },
+  {
+   "op": "update",
+   "reason": "v2: apply the review required_change, restore the documented label, and attach the missing quote.",
+   "entry": {
+    "id": "booking_fees.age_minimum_by_attraction",
+    "label": "edad mínima por atractivo",
+    "kind": "fact",
+    "audience": "visitor",
+    "lang": "es",
+    "examples": [
+     "edad mínima en Brisas",
+     "¿puedo llevar un niño de 8 años al Cisne?",
+     "qué edad piden para Otún",
+     "mínimo de edad para hacer una travesía",
+     "edad para subir a una cumbre",
+     "un niño puede visitar Valle de las Tumbas?",
+     "a partir de qué edad dejan entrar",
+     "se puede llevar a mi hija de 12 a Potosí",
+     "What is the minimum age for Brisas?",
+     "Can a child visit Laguna del Otun?",
+     "mi hijo tiene 10, a qué atractivos puede ir?",
+     "desde qué edad permiten entrar a Los Nevados",
+     "un niño de 10 puede ir a brisas pero no a una cumbre"
+    ],
+    "hard_negatives": [
+     "edad máxima para entrar",
+     "¿puede entrar alguien de 70 años?"
+    ],
+    "needs": [],
+    "answer": {
+     "short": "La edad mínima es de 6 años para el carreteable Brisas-Kumanday, el centro El Cisne y la Laguna del Otún por la cabaña Potosí, y de 15 años para el resto de rutas, travesías y cumbres. Confirma la condición vigente antes de reservar. Dato de la ficha de Parques Nacionales consultada en noviembre de 2026; confirma con Parques Nacionales o tu operador antes de salir.",
+     "variants": [
+      "Confirma la condición vigente antes de reservar. Dato de la ficha de Parques Nacionales consultada en noviembre de 2026; confirma con Parques Nacionales o tu operador antes de salir. La edad mínima es de 6 años para el carreteable Brisas-Kumanday, el centro El Cisne y la Laguna del Otún por la cabaña Potosí, y de 15 años para el resto de rutas, travesías y cumbres."
+     ]
+    },
+    "sources": [
+     {
+      "label": "Parque Nacional Natural Los Nevados · Parques Nacionales Naturales",
+      "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+      "retrieved_at": "2026-11-21"
+     }
+    ],
+    "last_verified": "2026-11-21",
+    "valid_until": null,
+    "related": [
+     "booking_fees.maximum_entry_age",
+     "booking_fees.minor_guardian_requirement"
+    ],
+    "tags": [
+     "edad mínima",
+     "menores",
+     "atractivo"
+    ]
+   },
+   "evidence": [
+    {
+     "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+     "path": "research_notes/Conocimiento turístico de Los Nevados/booking_fees/evidence/raw/pnn_nevados.txt",
+     "quote": "Edad mínima de 6 años\npara entrar a los atractivos del carreteable Brisas-Kumanday, visitar el centro El Cisne o visitar la Laguna del Otún por la cabaña Potosí.",
+     "checked_on": "2026-11-22"
+    },
+    {
+     "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+     "path": "research_notes/Conocimiento turístico de Los Nevados/booking_fees/evidence/raw/pnn_nevados.txt",
+     "quote": "Edad mínima de 15 años\npara el resto de rutas, travesías y cumbres.",
+     "checked_on": "2026-11-22"
+    }
+   ]
+  },
+  {
+   "op": "update",
+   "reason": "v2: date the changeable rule and cite the passage that supports it.",
+   "entry": {
+    "id": "booking_fees.alta_montana_guide_glacier",
+    "label": "guía de alta montaña para glaciar",
+    "kind": "rule",
+    "audience": "visitor",
+    "lang": "es",
+    "examples": [
+     "para subir al glaciar qué guía necesito",
+     "hace falta guía de alta montaña para el Santa Isabel",
+     "guía normal sirve para el glaciar?",
+     "subir al borde del glaciar necesita guía especial",
+     "guía de montaña obligatorio para la nieve",
+     "necesito guía especializado para la cumbre",
+     "is a high-mountain guide needed for the glacier?",
+     "puedo subir al glaciar con guía de turismo",
+     "guía de alta montaña, cómo lo consigo",
+     "cumbre nevada, qué guía tiene que ir",
+     "tiene que ir guía de montaña al nevado?",
+     "el guía de senderismo sirve para el glaciar?"
+    ],
+    "hard_negatives": [
+     "¿toca ir con guía?",
+     "cuántas personas puede llevar un guía"
+    ],
+    "needs": [],
+    "answer": {
+     "short": "Para subir progresivamente a un glaciar, tu grupo debe ir liderado solo por guías especializados en alta montaña. Acepta únicamente ofertas que cumplan esta condición. Dato de la ficha de Parques Nacionales consultada en noviembre de 2026; confirma con Parques Nacionales o tu operador antes de salir.",
+     "variants": [
+      "Acepta únicamente ofertas que cumplan esta condición. Dato de la ficha de Parques Nacionales consultada en noviembre de 2026; confirma con Parques Nacionales o tu operador antes de salir. Para subir progresivamente a un glaciar, tu grupo debe ir liderado solo por guías especializados en alta montaña."
+     ]
+    },
+    "sources": [
+     {
+      "label": "Parque Nacional Natural Los Nevados · Parques Nacionales Naturales",
+      "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+      "retrieved_at": "2026-11-21"
+     }
+    ],
+    "last_verified": "2026-11-21",
+    "valid_until": null,
+    "related": [
+     "booking_fees.guide_required",
+     "booking_fees.group_guide_capacity",
+     "booking_fees.registered_operator_choice"
+    ],
+    "tags": [
+     "guía",
+     "glaciar"
+    ]
+   },
+   "evidence": [
+    {
+     "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+     "path": "research_notes/Conocimiento turístico de Los Nevados/booking_fees/evidence/raw/pnn_nevados.txt",
+     "quote": "tu grupo debe ser liderado solamente por guías especializados en alta montaña.",
+     "checked_on": "2026-11-22"
+    }
+   ]
+  },
+  {
+   "op": "update",
+   "reason": "v2: apply the review required_change, restore the documented label, and attach the missing quote.",
+   "entry": {
+    "id": "booking_fees.brisas_booking_channel",
+    "label": "dónde reservar Brisas: sitio oficial",
+    "kind": "procedure",
+    "audience": "visitor",
+    "lang": "es",
+    "examples": [
+     "dónde reservo Brisas",
+     "página para reservar Valle de las Tumbas",
+     "link oficial para sacar cupo en Brisas",
+     "quién maneja las reservas del sector norte",
+     "la página de la concesión sirve pa reservar Brisas?",
+     "cómo contacto al operador de Brisas",
+     "reservas nevados punto com es para Brisas?",
+     "donde hago la reserva para Kumanday",
+     "Where can I book Brisas?",
+     "What is the official booking channel for Brisas?",
+     "pásame el sitio para reservar el norte",
+     "quiero reservar con el operador autorizado"
+    ],
+    "hard_negatives": [
+     "reserva Brisas",
+     "¿debo reservar para ir a Brisas?"
+    ],
+    "needs": [],
+    "answer": {
+     "short": "La ficha indica reservar Brisas en reservasnevados.com; en ese sector la concesión UTON gestiona reservas, ingreso y guianza. El radicado 20266200003531 del 18 de mayo de 2026 habla de incertidumbre en la plataforma y de cancelaciones de reservas ya validadas. Confirma el canal en parquesnacionales.gov.co antes de pagar.",
+     "variants": [
+      "El radicado 20266200003531 del 18 de mayo de 2026 habla de incertidumbre en la plataforma y de cancelaciones de reservas ya validadas. Confirma el canal en parquesnacionales.gov.co antes de pagar. La ficha indica reservar Brisas en reservasnevados.com; en ese sector la concesión UTON gestiona reservas, ingreso y guianza."
+     ]
+    },
+    "sources": [
+     {
+      "label": "Parque Nacional Natural Los Nevados · Parques Nacionales Naturales",
+      "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+      "retrieved_at": "2026-11-21"
+     },
+     {
+      "label": "Sistema de reservas reservasnevados.com",
+      "url": "https://reservasnevados.com/",
+      "retrieved_at": "2026-11-21"
+     },
+     {
+      "label": "Respuesta PNN al radicado 20266200001002, 18-05-2026",
+      "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2026/05/Respuesta-Radicado-No.-20266200001002.pdf",
+      "retrieved_at": "2026-11-21"
+     }
+    ],
+    "last_verified": "2026-11-21",
+    "valid_until": null,
+    "related": [
+     "booking_fees.brisas_reservation",
+     "booking_fees.reservation_data_required"
+    ],
+    "tags": [
+     "UTON",
+     "canal",
+     "reservar"
+    ]
+   },
+   "evidence": [
+    {
+     "url": "https://reservasnevados.com/",
+     "path": "research_notes/Conocimiento turístico de Los Nevados/booking_fees/evidence/raw/reservasnevados_home.html",
+     "quote": "Sistema oficial para reservas del Parque Nacional Natural Nevados, desde este sistema podrás reservar para el sector Brisas Valle de las Tumbas y los operadores autorizados a los demás senderos.",
+     "checked_on": "2026-11-22"
+    },
+    {
+     "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+     "path": "research_notes/Conocimiento turístico de Los Nevados/booking_fees/evidence/raw/pnn_nevados.txt",
+     "quote": "Ingreso al sector Brisas-Kumanday:\nla reserva no es obligatoria. Sin embargo, para asegurar tu ingreso (ya que los cupos diarios son limitados), reserva con al menos un día de anticipación. Reserva para este atractivo en:\nwww.reservasnevados.com",
+     "checked_on": "2026-11-22"
+    },
+    {
+     "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+     "path": "research_notes/Conocimiento turístico de Los Nevados/booking_fees/evidence/raw/pnn_nevados.txt",
+     "quote": "el operador autorizado por Parques Nacionales es la concesión Unión Temporal Operación Nevados (UTON). Ellos gestionan directamente los servicios ecoturísticos como reservas, ingreso, guianza, transporte y tienda.",
+     "checked_on": "2026-11-22"
+    },
+    {
+     "url": "https://reservasnevados.com/",
+     "path": "research_notes/Conocimiento turístico de Los Nevados/booking_fees/evidence/raw/reservasnevados_home.html",
+     "quote": "Sistema oficial para reservas del Parque Nacional Natural Nevados, desde este sistema podrás reservar para el sector Brisas Valle de las Tumbas",
+     "checked_on": "2026-11-22"
+    },
+    {
+     "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2026/05/Respuesta-Radicado-No.-20266200001002.pdf",
+     "path": "research_notes/Conocimiento turístico de Los Nevados/booking_fees/evidence/raw/radicado_20266200001002.txt",
+     "quote": "recientemente    se    recibieron   notificaciones   informando\n       cancelaciones de reservas",
+     "checked_on": "2026-11-22"
+    }
+   ]
+  },
+  {
+   "op": "update",
+   "reason": "v2: date the changeable rule and cite the passage that supports it.",
+   "entry": {
+    "id": "booking_fees.can_countries_fee",
+    "label": "países de la CAN y su tarifa",
+    "kind": "fact",
+    "audience": "visitor",
+    "lang": "es",
+    "examples": [
+     "soy peruano, pago tarifa de nacional?",
+     "ecuatoriano visita los nevados, cuanto pago",
+     "bolivianos entran con tarifa de colombianos",
+     "que paises son de la CAN",
+     "miembro de la comunidad andina paga como colombiano",
+     "I'm from Peru, what is my entry fee?",
+     "de que paises es la comunidad andina",
+     "soy de ecuador, la tarifa es la de colombiano",
+     "boliviana, cuanto vale la entrada para mi",
+     "tarifa para ciudadanos andinos",
+     "peru y ecuador pagan lo mismo que colombianos?",
+     "cuanto paga alguien de la CAN para entrar al parque"
+    ],
+    "hard_negatives": [
+     "soy venezolano que vive en colombia, pago tarifa de residente?",
+     "precio extranjero no residente"
+    ],
+    "needs": [],
+    "answer": {
+     "short": "Los países de la Comunidad Andina son Bolivia, Colombia, Ecuador y Perú, según la Resolución 551 del 19 de diciembre de 2025. La ficha de 2026 los ubica en las columnas de residente, junto al nacional, en Brisas, Cisne-Poleka Kasue y Laguna del Otún. Confirma tu categoría en parquesnacionales.gov.co antes de pagar.",
+     "variants": [
+      "La ficha de 2026 los ubica en las columnas de residente, junto al nacional, en Brisas, Cisne-Poleka Kasue y Laguna del Otún. Confirma tu categoría en parquesnacionales.gov.co antes de pagar. Los países de la Comunidad Andina son Bolivia, Colombia, Ecuador y Perú, según la Resolución 551 del 19 de diciembre de 2025."
+     ]
+    },
+    "sources": [
+     {
+      "label": "Resolución 551 de 2025 · Parques Nacionales Naturales (copia PNN, texto digital)",
+      "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2026/02/RESOLUCION-551-DE-2025-ACTUALIZA-EL-VALOR-DERECHOS-DE-INGRESO-Y-SERVICIOS-COMPLEMENTARIOS-A-LAS-AREAS-PROTEGIDAS.pdf",
+      "retrieved_at": "2026-11-21"
+     },
+     {
+      "label": "Parque Nacional Natural Los Nevados · Parques Nacionales Naturales",
+      "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+      "retrieved_at": "2026-11-21"
+     }
+    ],
+    "last_verified": "2026-11-21",
+    "valid_until": null,
+    "related": [
+     "booking_fees.foreign_resident_definition",
+     "booking_fees.foreign_nonresident_admission_fee"
+    ],
+    "tags": []
+   },
+   "evidence": [
+    {
+     "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2026/02/RESOLUCION-551-DE-2025-ACTUALIZA-EL-VALOR-DERECHOS-DE-INGRESO-Y-SERVICIOS-COMPLEMENTARIOS-A-LAS-AREAS-PROTEGIDAS.pdf",
+     "path": "research_notes/Conocimiento turístico de Los Nevados/booking_fees/evidence/raw/resolucion-551-2025-pnn-2026-02.txt",
+     "quote": "CAN: Comunidad Andina de Naciones, los países que la conforman son: Bolivia,\nColombia, Ecuador y Perú.",
+     "checked_on": "2026-11-22"
+    },
+    {
+     "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+     "path": "research_notes/Conocimiento turístico de Los Nevados/booking_fees/evidence/raw/pnn_nevados.txt",
+     "quote": "Estos son los valores de ingreso para el 2026 en pesos colombianos (no incluyen el seguro obligatorio de accidentes):\nSector\nMenor de 25 años",
+     "checked_on": "2026-11-22"
+    }
+   ]
+  },
+  {
+   "op": "update",
+   "reason": "v2: apply the review required_change, restore the documented label, and attach the missing quote.",
+   "entry": {
+    "id": "booking_fees.center_otun_reservation_lead",
+    "label": "anticipación para Cisne y Otún",
+    "kind": "fact",
+    "audience": "visitor",
+    "lang": "es",
+    "examples": [
+     "reserva Cisne tres días",
+     "¿cuándo debo reservar para Otún?",
+     "con cuánta anticipación aparto Santa Isabel",
+     "plazo para agendar Laguna del Otún",
+     "reserva de Conejeras cuándo",
+     "¿son días hábiles para hacer la reserva?",
+     "cuantos dias antes reservo para Cisne",
+     "para el Cisne la reserva sí o sí va con tiempo?",
+     "How far ahead do I book Otun?",
+     "What is the booking lead time for Cisne?",
+     "me dijeron que son días hábiles, cierto?",
+     "quiero saber el plazo de reserva para esos sectores",
+     "cuantos dias habiles antes reservo la laguna del otun"
+    ],
+    "hard_negatives": [
+     "reserva Quindío Dulima",
+     "¿cuántos días antes para el Tolima?"
+    ],
+    "needs": [],
+    "answer": {
+     "short": "Para Cisne-Poleka Kasue y Laguna del Otún reserva con tres días hábiles de anticipación, por medio de tu operador registrado. Los plazos pueden cambiar: confirma el cupo antes de viajar. Dato de la ficha de Parques Nacionales consultada en noviembre de 2026; confirma con Parques Nacionales o tu operador antes de salir.",
+     "variants": [
+      "Los plazos pueden cambiar: confirma el cupo antes de viajar. Dato de la ficha de Parques Nacionales consultada en noviembre de 2026; confirma con Parques Nacionales o tu operador antes de salir. Para Cisne-Poleka Kasue y Laguna del Otún reserva con tres días hábiles de anticipación, por medio de tu operador registrado."
+     ]
+    },
+    "sources": [
+     {
+      "label": "Parque Nacional Natural Los Nevados · Parques Nacionales Naturales",
+      "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+      "retrieved_at": "2026-11-21"
+     }
+    ],
+    "last_verified": "2026-11-21",
+    "valid_until": null,
+    "related": [
+     "booking_fees.other_sector_reservation",
+     "booking_fees.quindio_reservation_lead"
+    ],
+    "tags": [
+     "tres días hábiles",
+     "Cisne",
+     "Otún"
+    ]
+   },
+   "evidence": [
+    {
+     "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+     "path": "research_notes/Conocimiento turístico de Los Nevados/booking_fees/evidence/raw/pnn_nevados.txt",
+     "quote": "realiza las reservas con tres (3) días hábiles de anticipación.",
+     "checked_on": "2026-11-22"
+    },
+    {
+     "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+     "path": "research_notes/Conocimiento turístico de Los Nevados/booking_fees/evidence/raw/pnn_nevados.txt",
+     "quote": "Visita a los atractivos de los sectores Cisne-Poleka Kasue y Otún:\nrealiza las reservas con tres (3) días hábiles de anticipación.",
+     "checked_on": "2026-11-22"
+    }
+   ]
+  },
+  {
+   "op": "update",
+   "reason": "v2: apply the review required_change, restore the documented label, and attach the missing quote.",
+   "entry": {
+    "id": "booking_fees.documents_to_carry",
+    "label": "documentos para entrar al parque",
+    "kind": "procedure",
+    "audience": "visitor",
+    "lang": "es",
+    "examples": [
+     "qué documentos llevo al parque",
+     "piden cédula para entrar a Los Nevados?",
+     "me sirve el pasaporte para la entrada",
+     "llevo registro civil de mi hijo?",
+     "necesito llevar el soporte de pago?",
+     "tengo que mostrar la póliza en el control?",
+     "documento de identidad para el ingreso",
+     "con tarjeta de identidad entra un menor?",
+     "qué papeles me piden en el punto de control",
+     "what documents do I need to enter the park?",
+     "do I need my passport to enter Los Nevados?",
+     "formato de ingreso de visitantes, dónde lo lleno"
+    ],
+    "hard_negatives": [
+     "hay que llenar un formato para entrar al parque?",
+     "ese papel de ingreso de visitantes es obligatorio?"
+    ],
+    "needs": [],
+    "answer": {
+     "short": "Lleva tu documento de identidad: cédula de ciudadanía, cédula de extranjería, visa, pasaporte o, para menores, registro civil. En el control pueden pedirte la autorización de ingreso, el soporte de pago, la póliza y el formato de ingreso. Dato de la Resolución 207 de 2023; confirma con Parques Nacionales o tu operador antes de salir.",
+     "variants": [
+      "En el control pueden pedirte la autorización de ingreso, el soporte de pago, la póliza y el formato de ingreso. Dato de la Resolución 207 de 2023; confirma con Parques Nacionales o tu operador antes de salir. Lleva tu documento de identidad: cédula de ciudadanía, cédula de extranjería, visa, pasaporte o, para menores, registro civil."
+     ]
+    },
+    "sources": [
+     {
+      "label": "Resolución 551 de 2025 · Parques Nacionales Naturales (copia PNN, texto digital)",
+      "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2026/02/RESOLUCION-551-DE-2025-ACTUALIZA-EL-VALOR-DERECHOS-DE-INGRESO-Y-SERVICIOS-COMPLEMENTARIOS-A-LAS-AREAS-PROTEGIDAS.pdf",
+      "retrieved_at": "2026-11-21"
+     },
+     {
+      "label": "Resolución 207 de 2023, reglamentación del ecoturismo · PNN",
+      "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2023/08/Resolucion_207_2023_ReglamentacionNevados.pdf",
+      "retrieved_at": "2026-11-21"
+     }
+    ],
+    "last_verified": "2026-11-21",
+    "valid_until": null,
+    "related": [
+     "booking_fees.reservation_data_required",
+     "booking_fees.exempt_young_children_and_seniors",
+     "booking_fees.induction_requirement"
+    ],
+    "tags": [
+     "documentos",
+     "ingreso"
+    ]
+   },
+   "evidence": [
+    {
+     "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2026/02/RESOLUCION-551-DE-2025-ACTUALIZA-EL-VALOR-DERECHOS-DE-INGRESO-Y-SERVICIOS-COMPLEMENTARIOS-A-LAS-AREAS-PROTEGIDAS.pdf",
+     "path": "research_notes/Conocimiento turístico de Los Nevados/booking_fees/evidence/raw/resolucion-551-2025-pnn-2026-02.txt",
+     "quote": "debe demostrar con la presentación del Registro Civil de Nacimiento, Tarjeta de\nIdentidad, Cédula de Ciudadanía, Cédula de Extranjería Colombiana expedida en\nColombia o Visa (Negocios, Temporal o Residente), o Pasaporte según\ncorresponda.",
+     "checked_on": "2026-11-22"
+    },
+    {
+     "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2023/08/Resolucion_207_2023_ReglamentacionNevados.pdf",
+     "path": "research_notes/Conocimiento turístico de Los Nevados/booking_fees/evidence/raw/resolucion-207-2023.txt",
+     "quote": "Todas las personas deben presentar documento de identificación (Cédula de ciudadanía, registro civil de nacimiento,\n     pasaporte o DNI).",
+     "checked_on": "2026-11-22"
+    },
+    {
+     "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2023/08/Resolucion_207_2023_ReglamentacionNevados.pdf",
+     "path": "research_notes/Conocimiento turístico de Los Nevados/booking_fees/evidence/raw/resolucion-207-2023.txt",
+     "quote": "autorización de ingreso acompañada\n     del soporte de pago, póliza",
+     "checked_on": "2026-11-22"
+    }
+   ]
+  },
+  {
+   "op": "update",
+   "reason": "v2: apply the review required_change, restore the documented label, and attach the missing quote.",
+   "entry": {
+    "id": "booking_fees.entry_fee_discounts",
+    "label": "descuentos en la entrada del parque",
+    "kind": "rule",
+    "audience": "visitor",
+    "lang": "es",
+    "examples": [
+     "hay descuento en la entrada del parque?",
+     "mi empresa tiene convenio con parques, que descuento hay",
+     "tarifa con descuento para grupos",
+     "convenio de la universidad con el parque, descuento",
+     "do they give discounts on park entry?",
+     "me dan descuento por ser de la caja de compensacion",
+     "descuento por convenio con la alcaldia",
+     "rebaja en la entrada del parque",
+     "ofertas de entrada para el parque",
+     "dan rebajas a agremiaciones en los nevados?",
+     "hay precio especial para convenios",
+     "descuento si voy con la empresa"
+    ],
+    "hard_negatives": [
+     "hay entrada gratis en alguna promocion?",
+     "hay descuento para estudiantes"
+    ],
+    "needs": [],
+    "answer": {
+     "short": "La Resolución 551 del 19 de diciembre de 2025 permite a Parques Nacionales dar descuentos por convenios con entidades públicas o privadas que promueven el ecoturismo. Ese descuento no es una exención. Pregunta a tu entidad si tiene convenio y confirma en parquesnacionales.gov.co.",
+     "variants": [
+      "Un convenio puede rebajar la entrada y eso no te vuelve exento ni te mete en un programa de promoción. La Resolución 551 del 19 de diciembre de 2025 no publica un porcentaje fijo. Pregunta el convenio y revisa parquesnacionales.gov.co."
+     ]
+    },
+    "sources": [
+     {
+      "label": "Resolución 551 de 2025 · Parques Nacionales Naturales (copia PNN, texto digital)",
+      "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2026/02/RESOLUCION-551-DE-2025-ACTUALIZA-EL-VALOR-DERECHOS-DE-INGRESO-Y-SERVICIOS-COMPLEMENTARIOS-A-LAS-AREAS-PROTEGIDAS.pdf",
+      "retrieved_at": "2026-11-21"
+     }
+    ],
+    "last_verified": "2026-11-22",
+    "valid_until": null,
+    "related": [
+     "booking_fees.exempt_promotion_programs",
+     "booking_fees.under25_admission_fee"
+    ],
+    "tags": []
+   },
+   "evidence": [
+    {
+     "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2026/02/RESOLUCION-551-DE-2025-ACTUALIZA-EL-VALOR-DERECHOS-DE-INGRESO-Y-SERVICIOS-COMPLEMENTARIOS-A-LAS-AREAS-PROTEGIDAS.pdf",
+     "path": "research_notes/Conocimiento turístico de Los Nevados/booking_fees/evidence/raw/resolucion-551-2025-pnn-2026-02.txt",
+     "quote": "ARTÍCULO 18. DESCUENTOS. Parques Nacionales Naturales de Colombia podrá\nrealizar descuentos en los valores establecidos en esta resolución en el marco\nde convenios con entidades públicas, privadas y/o de naturaleza mixta, que no\nestén incluidas en el régimen de excepciones, cuya finalidad sea incentivar el\necoturismo en las áreas protegidas, a que se refiere esta resolución.",
+     "checked_on": "2026-11-22"
+    },
+    {
+     "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2026/02/RESOLUCION-551-DE-2025-ACTUALIZA-EL-VALOR-DERECHOS-DE-INGRESO-Y-SERVICIOS-COMPLEMENTARIOS-A-LAS-AREAS-PROTEGIDAS.pdf",
+     "path": "research_notes/Conocimiento turístico de Los Nevados/booking_fees/evidence/raw/resolucion-551-2025-pnn-2026-02.txt",
+     "quote": "RESOLUCIÓN 551\n\nDE 19 DE DICIEMBRE DE 2025\n\n“Por medio de la cual se actualiza el valor de los derechos de ingreso y\nservicios complementarios a las áreas protegidas del Sistema de Parques\nNacionales Naturales de Colombia y se unifican disposiciones.”\n\nPara el\nParque Nacional Natural Los Corales del Rosario y San Bernardo la\ntemporada alta se contemplada para las siguientes fechas: entre el primero (1)\nde noviembre y treinta y uno (31) de enero, entre el quince (15) de junio y el\nquince (15) de agosto, semana santa.\nConsecuentemente, la temporada baja estará contemplada en las fechas que no\nse consideran temporada alta.\nVisitante: Persona autorizada por Parques Nacionales Naturales para ingresar en\nuna de las áreas del Sistema de Parques Nacionales Naturales, para visitar o\nrealizar una o varias de las actividades o servicios regulados por el administrador\ndel Sistema en un periodo definido y continuo.\nCAPÍTULO 5\nDEROGATORIA Y VIGENCIA\nARTÍCULO 21. – Publíquese esta resolución en el Diario Oficial y en el sitio de\ninternet de Parques Nacionales Naturales de Colombia.\nComuníquese a las\náreas protegidas mencionadas en esta resolución, a las respectivas Direcciones\nTerritoriales y a las Subdirecciones de la entidad.\nARTÍCULO 22. – La presente resolución rige a partir del primero de enero de\n2026 y deroga a partir de esta fecha las disposiciones que le sean contrarias,\nentre éstas, la Resolución 695 de 2024 .\nDada en Bogotá D.C., a los 19\n\ndías del mes de diciembre de 2025.",
+     "checked_on": "2026-11-22"
+    }
+   ]
+  },
+  {
+   "op": "update",
+   "reason": "v2: date the changeable rule and cite the passage that supports it.",
+   "entry": {
+    "id": "booking_fees.entry_payment_channels",
+    "label": "cómo pagar la entrada al parque",
+    "kind": "procedure",
+    "audience": "visitor",
+    "lang": "es",
+    "examples": [
+     "cómo pago la entrada al parque",
+     "puedo pagar en línea el ingreso?",
+     "dónde se paga la entrada a Los Nevados",
+     "se puede pagar con tarjeta la entrada",
+     "pago en efectivo en el punto de control?",
+     "hay pago por PSE para la entrada",
+     "cuenta bancaria para pagar el ingreso",
+     "pagar el ingreso antes o al llegar",
+     "can I pay the park entry online?",
+     "where do I pay the entrance fee?",
+     "el pago en línea tiene recargo?",
+     "me cobran algo extra si pago por internet"
+    ],
+    "hard_negatives": [
+     "cuánto cuesta entrar en carro",
+     "puedo cancelar la reserva y que me devuelvan la plata?"
+    ],
+    "needs": [],
+    "answer": {
+     "short": "Puedes pagar en la sede o la oficina de atención del área, en la cuenta bancaria que indique la entidad, o en línea por el enlace de Parques Nacionales. Si pagas en línea, cuenta con costos extra de plataforma y medios de pago. Dato de la Resolución 551 del 19 de diciembre de 2025; confirma en parquesnacionales.gov.co antes de salir.",
+     "variants": [
+      "Si pagas en línea, cuenta con costos extra de plataforma y medios de pago. Dato de la Resolución 551 del 19 de diciembre de 2025; confirma en parquesnacionales.gov.co antes de salir. Puedes pagar en la sede o la oficina de atención del área, en la cuenta bancaria que indique la entidad, o en línea por el enlace de Parques Nacionales."
+     ]
+    },
+    "sources": [
+     {
+      "label": "Resolución 551 de 2025 · Parques Nacionales Naturales (copia PNN, texto digital)",
+      "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2026/02/RESOLUCION-551-DE-2025-ACTUALIZA-EL-VALOR-DERECHOS-DE-INGRESO-Y-SERVICIOS-COMPLEMENTARIOS-A-LAS-AREAS-PROTEGIDAS.pdf",
+      "retrieved_at": "2026-11-21"
+     }
+    ],
+    "last_verified": "2026-11-21",
+    "valid_until": null,
+    "related": [
+     "booking_fees.vehicle_entry_fee",
+     "booking_fees.cancellation_refund_policy"
+    ],
+    "tags": [
+     "pago"
+    ]
+   },
+   "evidence": [
+    {
+     "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2026/02/RESOLUCION-551-DE-2025-ACTUALIZA-EL-VALOR-DERECHOS-DE-INGRESO-Y-SERVICIOS-COMPLEMENTARIOS-A-LAS-AREAS-PROTEGIDAS.pdf",
+     "path": "research_notes/Conocimiento turístico de Los Nevados/booking_fees/evidence/raw/resolucion-551-2025-pnn-2026-02.txt",
+     "quote": "ARTÍCULO 5. COMPRA DEL DERECHO DE INGRESO. El visitante de las áreas\nprotegidas administradas por Parques Nacionales Naturales de Colombia podrá\npagar el valor de derecho de ingreso así:\n1. Pago presencial: De acuerdo con los procedimientos de cada Área Protegida\nse hará el pago en la sede o en la oficina de atención del usuario de la central\nen Bogotá o en la cuenta bancaria que la entidad establezca.\n2. Pago en Línea: Se podrá hacer el pago a través del enlace ubicado en el sitio\nde internet de la entidad, a través de medios bancarios electrónicos disponibles.\nLos pagos en línea generarán costos por el uso de las plataformas de reservas",
+     "checked_on": "2026-11-22"
+    }
+   ]
+  },
+  {
+   "op": "update",
+   "reason": "v2: apply the review required_change, restore the documented label, and attach the missing quote.",
+   "entry": {
+    "id": "booking_fees.exempt_company_staff_inside_park",
+    "label": "exentos: personal de empresas dentro del parque",
+    "kind": "rule",
+    "audience": "visitor",
+    "lang": "es",
+    "examples": [
+     "trabajo en la cabaña del parque, pago entrada?",
+     "empleado de una empresa con instalaciones dentro del parque",
+     "tengo que entrar a diario por mi trabajo en el parque",
+     "soy trabajador de la concesion, entro sin pagar?",
+     "operarios de la cabaña potosi no pagan entrada?",
+     "entro por trabajo a una cooperativa en el area, cobran",
+     "work inside the park, do I pay entry fee?",
+     "trabajadores de empresa con instalaciones en el parque no pagan?",
+     "me toca entrar por mi empleo al parque, hay exencion",
+     "entro por mi trabajo en las fuerzas, pago entrada?",
+     "trabajo en una asociación de adentro, pago cada vez?",
+     "si trabajo en el parque, debo pagar la entrada cada vez",
+     "personal de una asociacion con instalacion dentro del parque"
+    ],
+    "hard_negatives": [
+     "si trabajo en parques, la entrada de este parque me sale gratis?",
+     "funcionarios de PNN no pagan entrada cierto?"
+    ],
+    "needs": [],
+    "answer": {
+     "short": "Si trabajas en una empresa o asociación con instalaciones dentro del área, o eres personal de las fuerzas armadas que entra por sus funciones, no pagas entrada. Necesitas aprobación previa del jefe del área, con ocho días calendario de anticipación. Dato de la Resolución 551 del 19 de diciembre de 2025; confirma en parquesnacionales.gov.co antes de salir.",
+     "variants": [
+      "Necesitas aprobación previa del jefe del área, con ocho días calendario de anticipación. Dato de la Resolución 551 del 19 de diciembre de 2025; confirma en parquesnacionales.gov.co antes de salir. Si trabajas en una empresa o asociación con instalaciones dentro del área, o eres personal de las fuerzas armadas que entra por sus funciones, no pagas entrada."
+     ]
+    },
+    "sources": [
+     {
+      "label": "Resolución 551 de 2025 · Parques Nacionales Naturales (copia PNN, texto digital)",
+      "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2026/02/RESOLUCION-551-DE-2025-ACTUALIZA-EL-VALOR-DERECHOS-DE-INGRESO-Y-SERVICIOS-COMPLEMENTARIOS-A-LAS-AREAS-PROTEGIDAS.pdf",
+      "retrieved_at": "2026-11-21"
+     }
+    ],
+    "last_verified": "2026-11-21",
+    "valid_until": null,
+    "related": [
+     "booking_fees.exempt_official_mission",
+     "booking_fees.exempt_government_staff"
+    ],
+    "tags": []
+   },
+   "evidence": [
+    {
+     "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2026/02/RESOLUCION-551-DE-2025-ACTUALIZA-EL-VALOR-DERECHOS-DE-INGRESO-Y-SERVICIOS-COMPLEMENTARIOS-A-LAS-AREAS-PROTEGIDAS.pdf",
+     "path": "research_notes/Conocimiento turístico de Los Nevados/booking_fees/evidence/raw/resolucion-551-2025-pnn-2026-02.txt",
+     "quote": "Personal de las Fuerzas Armadas y los trabajadores de empresas,\ncooperativas y/o asociaciones públicas o privadas que cuenten con\ninstalaciones ubicadas dentro de las áreas protegidas que deban ingresar\npor razón de sus funciones, previa revisión y aprobación del jefe del área\nprotegida.",
+     "checked_on": "2026-11-22"
+    },
+    {
+     "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2026/02/RESOLUCION-551-DE-2025-ACTUALIZA-EL-VALOR-DERECHOS-DE-INGRESO-Y-SERVICIOS-COMPLEMENTARIOS-A-LAS-AREAS-PROTEGIDAS.pdf",
+     "path": "research_notes/Conocimiento turístico de Los Nevados/booking_fees/evidence/raw/resolucion-551-2025-pnn-2026-02.txt",
+     "quote": "numerales 2, 3, 4, 6, 9, 12, 13, 19 y 20 deberá acreditar la condición\ncorrespondiente con no menos de ocho (8) días calendario",
+     "checked_on": "2026-11-22"
+    }
+   ]
+  },
+  {
+   "op": "update",
+   "reason": "v2: apply the review required_change, restore the documented label, and attach the missing quote.",
+   "entry": {
+    "id": "booking_fees.exempt_culture_agents",
+    "label": "exentos: agentes culturales registrados",
+    "kind": "rule",
+    "audience": "visitor",
+    "lang": "es",
+    "examples": [
+     "soy artista registrado en soy cultura, entro gratis",
+     "agente cultural, pago entrada al parque?",
+     "tengo registro de cultura, exencion nevados",
+     "soy gestora cultural con registro, no pago?",
+     "temporada baja y soy agente cultural, entrada gratis",
+     "cultural agent, do I pay to enter?",
+     "registro unico nacional de agentes culturales sirve?",
+     "músico registrado, exento en el parque",
+     "soy artista con registro del ministerio, paso sin pagar",
+     "soy artista y voy en temporada baja, pago?",
+     "soy agente cultural, puedo ir en cualquier época?",
+     "gestor cultural, pago la entrada a los nevados"
+    ],
+    "hard_negatives": [
+     "soy investigador, pago la entrada al parque?",
+     "soy periodista, pago la entrada?"
+    ],
+    "needs": [],
+    "answer": {
+     "short": "Los agentes culturales registrados en Soy Cultura no pagan entrada en temporada baja. Acredítalo con ocho días calendario de anticipación ante el jefe del área protegida. Dato de la Resolución 551 del 19 de diciembre de 2025; confirma en parquesnacionales.gov.co antes de salir.",
+     "variants": [
+      "Acredítalo con ocho días calendario de anticipación ante el jefe del área protegida. Dato de la Resolución 551 del 19 de diciembre de 2025; confirma en parquesnacionales.gov.co antes de salir. Los agentes culturales registrados en Soy Cultura no pagan entrada en temporada baja."
+     ]
+    },
+    "sources": [
+     {
+      "label": "Resolución 551 de 2025 · Parques Nacionales Naturales (copia PNN, texto digital)",
+      "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2026/02/RESOLUCION-551-DE-2025-ACTUALIZA-EL-VALOR-DERECHOS-DE-INGRESO-Y-SERVICIOS-COMPLEMENTARIOS-A-LAS-AREAS-PROTEGIDAS.pdf",
+      "retrieved_at": "2026-11-21"
+     }
+    ],
+    "last_verified": "2026-11-21",
+    "valid_until": null,
+    "related": [
+     "booking_fees.exempt_researchers",
+     "booking_fees.exempt_journalists"
+    ],
+    "tags": []
+   },
+   "evidence": [
+    {
+     "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2026/02/RESOLUCION-551-DE-2025-ACTUALIZA-EL-VALOR-DERECHOS-DE-INGRESO-Y-SERVICIOS-COMPLEMENTARIOS-A-LAS-AREAS-PROTEGIDAS.pdf",
+     "path": "research_notes/Conocimiento turístico de Los Nevados/booking_fees/evidence/raw/resolucion-551-2025-pnn-2026-02.txt",
+     "quote": "Los agentes culturales que estén registrados en “Soy Cultura – Registro\nÚnico Nacional de Agentes Culturales” del Ministerio de Cultura en\ntemporada baja.",
+     "checked_on": "2026-11-22"
+    },
+    {
+     "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2026/02/RESOLUCION-551-DE-2025-ACTUALIZA-EL-VALOR-DERECHOS-DE-INGRESO-Y-SERVICIOS-COMPLEMENTARIOS-A-LAS-AREAS-PROTEGIDAS.pdf",
+     "path": "research_notes/Conocimiento turístico de Los Nevados/booking_fees/evidence/raw/resolucion-551-2025-pnn-2026-02.txt",
+     "quote": "numerales 2, 3, 4, 6, 9, 12, 13, 19 y 20 deberá acreditar la condición\ncorrespondiente con no menos de ocho (8) días calendario",
+     "checked_on": "2026-11-22"
+    }
+   ]
+  },
+  {
+   "op": "update",
+   "reason": "v2: apply the review required_change, restore the documented label, and attach the missing quote.",
+   "entry": {
+    "id": "booking_fees.exempt_disability_visitors",
+    "label": "exención de pago por discapacidad",
+    "kind": "fact",
+    "audience": "visitor",
+    "lang": "es",
+    "examples": [
+     "las personas con discapacidad pagan entrada?",
+     "discapacidad visual, entro gratis al parque?",
+     "por discapacidad me cobran la entrada o no?",
+     "hay ingreso gratis por discapacidad?",
+     "mi papá tiene discapacidad, paga la entrada?",
+     "persona en silla de ruedas, paga entrada?",
+     "discapacidad auditiva y entrada al parque",
+     "beneficio de entrada gratis por discapacidad",
+     "do people with disabilities pay the park entrance?",
+     "is entry free for wheelchair users?",
+     "discapacitado entra sin pagar a Los Nevados?",
+     "pago entrada si tengo una discapacidad"
+    ],
+    "hard_negatives": [
+     "los niños pagan entrada?",
+     "abuelos mayores de 62 pagan?"
+    ],
+    "needs": [],
+    "answer": {
+     "short": "Si eres nacional o extranjero en condición de discapacidad, no pagas la entrada y no hay un trámite previo fijado para esa exención. El seguro sigue siendo obligatorio, así que no lo dejes por fuera. Dato de la Resolución 551 del 19 de diciembre de 2025; confirma en parquesnacionales.gov.co antes de salir.",
+     "variants": [
+      "El seguro sigue siendo obligatorio, así que no lo dejes por fuera. Dato de la Resolución 551 del 19 de diciembre de 2025; confirma en parquesnacionales.gov.co antes de salir. Si eres nacional o extranjero en condición de discapacidad, no pagas la entrada y no hay un trámite previo fijado para esa exención."
+     ],
+     "detail": "Confirma con Parques Nacionales cómo demostrar la condición antes de viajar; la fuente no lo describe. Aplica la capacidad de manejo del área (parágrafo 1 del artículo 13)."
+    },
+    "sources": [
+     {
+      "label": "Resolución 551 de 2025 · Parques Nacionales Naturales (copia PNN, texto digital)",
+      "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2026/02/RESOLUCION-551-DE-2025-ACTUALIZA-EL-VALOR-DERECHOS-DE-INGRESO-Y-SERVICIOS-COMPLEMENTARIOS-A-LAS-AREAS-PROTEGIDAS.pdf",
+      "retrieved_at": "2026-11-21"
+     }
+    ],
+    "last_verified": "2026-11-21",
+    "valid_until": null,
+    "related": [
+     "booking_fees.exempt_young_children_and_seniors",
+     "booking_fees.exemption_no_insurance_waiver"
+    ],
+    "tags": [
+     "exención",
+     "discapacidad"
+    ]
+   },
+   "evidence": [
+    {
+     "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2026/02/RESOLUCION-551-DE-2025-ACTUALIZA-EL-VALOR-DERECHOS-DE-INGRESO-Y-SERVICIOS-COMPLEMENTARIOS-A-LAS-AREAS-PROTEGIDAS.pdf",
+     "path": "research_notes/Conocimiento turístico de Los Nevados/booking_fees/evidence/raw/resolucion-551-2025-pnn-2026-02.txt",
+     "quote": "Los Nacionales o Extranjeros en condición de discapacidad.",
+     "checked_on": "2026-11-22"
+    },
+    {
+     "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2026/02/RESOLUCION-551-DE-2025-ACTUALIZA-EL-VALOR-DERECHOS-DE-INGRESO-Y-SERVICIOS-COMPLEMENTARIOS-A-LAS-AREAS-PROTEGIDAS.pdf",
+     "path": "research_notes/Conocimiento turístico de Los Nevados/booking_fees/evidence/raw/resolucion-551-2025-pnn-2026-02.txt",
+     "quote": "PARÁGRAFO 2°: La exención de ingreso no incluye el requisito obligatorio de\nadquisición de seguro de accidenten establecida en la Resolución 273 de 2024",
+     "checked_on": "2026-11-22"
+    }
+   ]
+  },
+  {
+   "op": "update",
+   "reason": "v2: apply the review required_change, restore the documented label, and attach the missing quote.",
+   "entry": {
+    "id": "booking_fees.exempt_donors",
+    "label": "exentos: representantes de donantes",
+    "kind": "rule",
+    "audience": "visitor",
+    "lang": "es",
+    "examples": [
+     "soy de una ONG que dono al parque, pago entrada",
+     "vengo a revisar donaciones al parque, exentos?",
+     "representante de organismo internacional, entra gratis",
+     "convenio con el parque, no pagamos la entrada?",
+     "fundacion que dona al parque, cobran",
+     "donor visit to the park, do we pay the fee?",
+     "verificar donacion en los nevados, sin pagar",
+     "patrocinadora del parque, hay exencion de entrada",
+     "le donamos plata al parque, igual pagamos?",
+     "vamos de visita por el convenio con la ong",
+     "dono a parques nacionales y quiero ir a verificar",
+     "si voy a revisar lo que donamos, pago entrada?",
+     "vengo a verificar una donacion al parque, me cobran el ingreso"
+    ],
+    "hard_negatives": [
+     "soy investigador, pago la entrada al parque?",
+     "hay entrada gratis en alguna promocion?"
+    ],
+    "needs": [],
+    "answer": {
+     "short": "Los representantes de organismos y ONG que donan bienes o dinero a Parques Nacionales no pagan entrada cuando verifican el uso de lo donado o en el marco de un convenio. Pide aprobación con ocho días calendario de anticipación. Dato de la Resolución 551 del 19 de diciembre de 2025; confirma en parquesnacionales.gov.co antes de salir.",
+     "variants": [
+      "Pide aprobación con ocho días calendario de anticipación. Dato de la Resolución 551 del 19 de diciembre de 2025; confirma en parquesnacionales.gov.co antes de salir. Los representantes de organismos y ONG que donan bienes o dinero a Parques Nacionales no pagan entrada cuando verifican el uso de lo donado o en el marco de un convenio."
+     ]
+    },
+    "sources": [
+     {
+      "label": "Resolución 551 de 2025 · Parques Nacionales Naturales (copia PNN, texto digital)",
+      "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2026/02/RESOLUCION-551-DE-2025-ACTUALIZA-EL-VALOR-DERECHOS-DE-INGRESO-Y-SERVICIOS-COMPLEMENTARIOS-A-LAS-AREAS-PROTEGIDAS.pdf",
+      "retrieved_at": "2026-11-21"
+     }
+    ],
+    "last_verified": "2026-11-21",
+    "valid_until": null,
+    "related": [
+     "booking_fees.exempt_researchers",
+     "booking_fees.exempt_government_staff"
+    ],
+    "tags": []
+   },
+   "evidence": [
+    {
+     "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2026/02/RESOLUCION-551-DE-2025-ACTUALIZA-EL-VALOR-DERECHOS-DE-INGRESO-Y-SERVICIOS-COMPLEMENTARIOS-A-LAS-AREAS-PROTEGIDAS.pdf",
+     "path": "research_notes/Conocimiento turístico de Los Nevados/booking_fees/evidence/raw/resolucion-551-2025-pnn-2026-02.txt",
+     "quote": "Los representantes de organismos públicos o privados, nacionales,\ninternacionales y Organizaciones No Gubernamentales (ONG) que donen\nbienes en dinero o especie, en beneficio de Parques Nacionales Naturales\nde Colombia, para coadyuvar la función de salvaguarda y protección de las\náreas del Sistema de Parques Nacionales Naturales, con el objetivo de\nverificar la destinación de los recursos donados y/o en el marco de los\nconvenios celebrados.",
+     "checked_on": "2026-11-22"
+    },
+    {
+     "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2026/02/RESOLUCION-551-DE-2025-ACTUALIZA-EL-VALOR-DERECHOS-DE-INGRESO-Y-SERVICIOS-COMPLEMENTARIOS-A-LAS-AREAS-PROTEGIDAS.pdf",
+     "path": "research_notes/Conocimiento turístico de Los Nevados/booking_fees/evidence/raw/resolucion-551-2025-pnn-2026-02.txt",
+     "quote": "numerales 2, 3, 4, 6, 9, 12, 13, 19 y 20 deberá acreditar la condición\ncorrespondiente con no menos de ocho (8) días calendario",
+     "checked_on": "2026-11-22"
+    }
+   ]
+  },
+  {
+   "op": "update",
+   "reason": "v2: apply the review required_change, restore the documented label, and attach the missing quote.",
+   "entry": {
+    "id": "booking_fees.exempt_indigenous_communities",
+    "label": "exentos: comunidades indígenas y afrocolombianas",
+    "kind": "rule",
+    "audience": "visitor",
+    "lang": "es",
+    "examples": [
+     "soy indigena, pago entrada al parque?",
+     "comunidad afro, entramos gratis a los nevados",
+     "somos del resguardo y vamos por tradicion, cobran",
+     "soy raizal, tengo que pagar para entrar?",
+     "rom, hay entrada sin cobro?",
+     "vivo en el resguardo cerca del parque, no pago",
+     "indigenous person, do we pay to enter?",
+     "si entramos por costumbre del pueblo, cobran?",
+     "somos de comunidad indigena, mostramos documento?",
+     "ceremonia tradicional en el parque, pagan",
+     "pertenezco a una comunidad afrocolombiana, exento?",
+     "soy de una comunidad indígena, pago la entrada?",
+     "afrocolombiano de la zona entra por costumbre sin pagar entrada"
+    ],
+    "hard_negatives": [
+     "vivo en una vereda cerca del parque, pago entrada?",
+     "soy campesino de la zona y paso por el parque"
+    ],
+    "needs": [],
+    "answer": {
+     "short": "Si perteneces a una comunidad indígena, afrocolombiana, rom o raizal y vives dentro del área o cerca de ella, no pagas entrada cuando ingresas para actividades tradicionales según tus usos y costumbres. Dato de la Resolución 551 del 19 de diciembre de 2025; confirma en parquesnacionales.gov.co antes de salir.",
+     "variants": [
+      "Dato de la Resolución 551 del 19 de diciembre de 2025; confirma en parquesnacionales.gov.co antes de salir. Si perteneces a una comunidad indígena, afrocolombiana, rom o raizal y vives dentro del área o cerca de ella, no pagas entrada cuando ingresas para actividades tradicionales según tus usos y costumbres."
+     ],
+     "detail": "El texto oficial dice 'pagamento' en esa frase (probable error de digitación). La respuesta no depende de esa palabra."
+    },
+    "sources": [
+     {
+      "label": "Resolución 551 de 2025 · Parques Nacionales Naturales (copia PNN, texto digital)",
+      "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2026/02/RESOLUCION-551-DE-2025-ACTUALIZA-EL-VALOR-DERECHOS-DE-INGRESO-Y-SERVICIOS-COMPLEMENTARIOS-A-LAS-AREAS-PROTEGIDAS.pdf",
+      "retrieved_at": "2026-11-21"
+     }
+    ],
+    "last_verified": "2026-11-21",
+    "valid_until": null,
+    "related": [
+     "booking_fees.exempt_nearby_residents",
+     "booking_fees.exempt_disability_visitors"
+    ],
+    "tags": []
+   },
+   "evidence": [
+    {
+     "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2026/02/RESOLUCION-551-DE-2025-ACTUALIZA-EL-VALOR-DERECHOS-DE-INGRESO-Y-SERVICIOS-COMPLEMENTARIOS-A-LAS-AREAS-PROTEGIDAS.pdf",
+     "path": "research_notes/Conocimiento turístico de Los Nevados/booking_fees/evidence/raw/resolucion-551-2025-pnn-2026-02.txt",
+     "quote": "Los miembros de las comunidades indígenas, afrocolombianas, rom y\nraizales que vivan dentro del Área Protegida o los que habiten en las\ninmediaciones de las áreas del Sistema de Parques Naciones Naturales e\ningresen para realizar actividades de pagamento",
+     "checked_on": "2026-11-22"
+    }
+   ]
+  },
+  {
+   "op": "update",
+   "reason": "v2: apply the review required_change, restore the documented label, and attach the missing quote.",
+   "entry": {
+    "id": "booking_fees.exempt_journalists",
+    "label": "exentos: periodistas acreditados",
+    "kind": "rule",
+    "audience": "visitor",
+    "lang": "es",
+    "examples": [
+     "soy periodista, pago la entrada?",
+     "periodista acreditado entra gratis a los nevados",
+     "voy a grabar para un canal, me cobran entrada?",
+     "vengo a cubrir una noticia del volcan, pago",
+     "I'm a journalist, do I need to pay to enter?",
+     "trabajo de prensa en el parque, entrada gratis",
+     "medios de comunicacion, exentos de la entrada?",
+     "periodista con credencial, cuanto pago",
+     "entrevista para radio en el parque, sin pagar?",
+     "soy comunicadora, me toca pagar para entrar?",
+     "soy reportera freelance, pago la entrada?",
+     "credencial de prensa, me sirve para no pagar?",
+     "carnet de prensa para cubrir la nota, pago entrada o no"
+    ],
+    "hard_negatives": [
+     "si trabajo en parques, la entrada de este parque me sale gratis?",
+     "soy investigador, pago la entrada al parque?"
+    ],
+    "needs": [],
+    "answer": {
+     "short": "Los periodistas que ejercen su función y están debidamente acreditados no pagan entrada. Lleva tu acreditación de periodista para presentarla al entrar. Dato de la Resolución 551 del 19 de diciembre de 2025; confirma en parquesnacionales.gov.co antes de salir.",
+     "variants": [
+      "Lleva tu acreditación de periodista para presentarla al entrar. Dato de la Resolución 551 del 19 de diciembre de 2025; confirma en parquesnacionales.gov.co antes de salir. Los periodistas que ejercen su función y están debidamente acreditados no pagan entrada."
+     ]
+    },
+    "sources": [
+     {
+      "label": "Resolución 551 de 2025 · Parques Nacionales Naturales (copia PNN, texto digital)",
+      "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2026/02/RESOLUCION-551-DE-2025-ACTUALIZA-EL-VALOR-DERECHOS-DE-INGRESO-Y-SERVICIOS-COMPLEMENTARIOS-A-LAS-AREAS-PROTEGIDAS.pdf",
+      "retrieved_at": "2026-11-21"
+     }
+    ],
+    "last_verified": "2026-11-21",
+    "valid_until": null,
+    "related": [
+     "booking_fees.exempt_researchers",
+     "booking_fees.exempt_government_staff"
+    ],
+    "tags": []
+   },
+   "evidence": [
+    {
+     "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2026/02/RESOLUCION-551-DE-2025-ACTUALIZA-EL-VALOR-DERECHOS-DE-INGRESO-Y-SERVICIOS-COMPLEMENTARIOS-A-LAS-AREAS-PROTEGIDAS.pdf",
+     "path": "research_notes/Conocimiento turístico de Los Nevados/booking_fees/evidence/raw/resolucion-551-2025-pnn-2026-02.txt",
+     "quote": "Los periodistas en ejercicio de sus funciones, debidamente acreditados.",
+     "checked_on": "2026-11-22"
+    }
+   ]
+  },
+  {
+   "op": "update",
+   "reason": "v2: apply the review required_change, restore the documented label, and attach the missing quote.",
+   "entry": {
+    "id": "booking_fees.exempt_nearby_residents",
+    "label": "exentos: residentes de poblados cercanos",
+    "kind": "rule",
+    "audience": "visitor",
+    "lang": "es",
+    "examples": [
+     "vivo en una vereda cerca del parque, pago entrada?",
+     "soy del municipio vecino, entro gratis a los nevados",
+     "soy campesino de la zona y paso por el parque",
+     "vivo al lado del nevado, me cobran",
+     "residente de la region, como demuestro que no pago",
+     "certificado de residencia para entrar sin pagar",
+     "i live near the park, do I get free entry?",
+     "nativo de la zona, hay exencion de entrada?",
+     "si vivo en un pueblo chiquito al lado y solo voy de paso, me cobran entrada?",
+     "vecino del parque entra sin pagar porfa",
+     "soy de un pueblo cercano y entro a diario",
+     "si solo voy de paso por el parque, me cobran?",
+     "nativo de un centro poblado chico al lado del parque"
+    ],
+    "hard_negatives": [
+     "tengo finca dentro del parque, pago entrada?",
+     "soy indigena, pago entrada al parque?"
+    ],
+    "needs": [],
+    "answer": {
+     "short": "Si eres nativo o vives en un centro poblado de menos de 10.000 habitantes en zona adyacente al área, no pagas entrada; los pobladores de la región que pasan por actividades de paso también quedan exentos. Demuéstralo con documento de identidad o certificado de residencia; dato de la Resolución 551 del 19 de diciembre de 2025; confirma en parquesnacionales.gov.co antes de salir.",
+     "variants": [
+      "Demuéstralo con documento de identidad o certificado de residencia; dato de la Resolución 551 del 19 de diciembre de 2025; confirma en parquesnacionales.gov.co antes de salir. Si eres nativo o vives en un centro poblado de menos de 10.000 habitantes en zona adyacente al área, no pagas entrada; los pobladores de la región que pasan por actividades de paso también quedan exentos."
+     ]
+    },
+    "sources": [
+     {
+      "label": "Resolución 551 de 2025 · Parques Nacionales Naturales (copia PNN, texto digital)",
+      "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2026/02/RESOLUCION-551-DE-2025-ACTUALIZA-EL-VALOR-DERECHOS-DE-INGRESO-Y-SERVICIOS-COMPLEMENTARIOS-A-LAS-AREAS-PROTEGIDAS.pdf",
+      "retrieved_at": "2026-11-21"
+     }
+    ],
+    "last_verified": "2026-11-21",
+    "valid_until": null,
+    "related": [
+     "booking_fees.exempt_indigenous_communities",
+     "booking_fees.exemption_not_guaranteed"
+    ],
+    "tags": []
+   },
+   "evidence": [
+    {
+     "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2026/02/RESOLUCION-551-DE-2025-ACTUALIZA-EL-VALOR-DERECHOS-DE-INGRESO-Y-SERVICIOS-COMPLEMENTARIOS-A-LAS-AREAS-PROTEGIDAS.pdf",
+     "path": "research_notes/Conocimiento turístico de Los Nevados/booking_fees/evidence/raw/resolucion-551-2025-pnn-2026-02.txt",
+     "quote": "Los nativos o residentes de los centros poblados menores a 10.000\nhabitantes",
+     "checked_on": "2026-11-22"
+    },
+    {
+     "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2026/02/RESOLUCION-551-DE-2025-ACTUALIZA-EL-VALOR-DERECHOS-DE-INGRESO-Y-SERVICIOS-COMPLEMENTARIOS-A-LAS-AREAS-PROTEGIDAS.pdf",
+     "path": "research_notes/Conocimiento turístico de Los Nevados/booking_fees/evidence/raw/resolucion-551-2025-pnn-2026-02.txt",
+     "quote": "Los pobladores de la región que deben ingresar al área en actividades de\npaso.",
+     "checked_on": "2026-11-22"
+    }
+   ]
+  },
+  {
+   "op": "update",
+   "reason": "v2: apply the review required_change, restore the documented label, and attach the missing quote.",
+   "entry": {
+    "id": "booking_fees.exempt_official_mission",
+    "label": "exentos: personal oficial en misión",
+    "kind": "rule",
+    "audience": "visitor",
+    "lang": "es",
+    "examples": [
+     "soy militar y voy en comision, pago entrada?",
+     "vengo en mision oficial de una entidad publica, entro gratis?",
+     "somos de una mision medica al parque, cobran?",
+     "personal del ejercito en comision no paga?",
+     "funcionarios de entidades oficiales en mision, exentos?",
+     "militar en servicio, pago el derecho de ingreso",
+     "medicos en mision al parque no pagan?",
+     "va a ser una mision de salud, hay exencion",
+     "if I'm military on duty do I pay the entry?",
+     "estoy en comision de una institucion publica, no pago cierto",
+     "entrada gratis para militares en mision",
+     "mision medica entra sin pagar a los nevados",
+     "la brigada medica en comision paga entrada o va exenta"
+    ],
+    "hard_negatives": [
+     "soy investigador, pago la entrada al parque?",
+     "tengo permiso de investigacion en los nevados, cobran entrada"
+    ],
+    "needs": [],
+    "answer": {
+     "short": "Personal de las fuerzas armadas, de instituciones oficiales y de misiones médicas que va en misión oficial o en desarrollo de su labor no paga entrada. Pide la aprobación al jefe del área con ocho días calendario de anticipación. Dato de la Resolución 551 del 19 de diciembre de 2025; confirma en parquesnacionales.gov.co antes de salir.",
+     "variants": [
+      "Pide la aprobación al jefe del área con ocho días calendario de anticipación. Dato de la Resolución 551 del 19 de diciembre de 2025; confirma en parquesnacionales.gov.co antes de salir. Personal de las fuerzas armadas, de instituciones oficiales y de misiones médicas que va en misión oficial o en desarrollo de su labor no paga entrada."
+     ]
+    },
+    "sources": [
+     {
+      "label": "Resolución 551 de 2025 · Parques Nacionales Naturales (copia PNN, texto digital)",
+      "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2026/02/RESOLUCION-551-DE-2025-ACTUALIZA-EL-VALOR-DERECHOS-DE-INGRESO-Y-SERVICIOS-COMPLEMENTARIOS-A-LAS-AREAS-PROTEGIDAS.pdf",
+      "retrieved_at": "2026-11-21"
+     }
+    ],
+    "last_verified": "2026-11-21",
+    "valid_until": null,
+    "related": [
+     "booking_fees.exempt_government_staff",
+     "booking_fees.exempt_company_staff_inside_park"
+    ],
+    "tags": []
+   },
+   "evidence": [
+    {
+     "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2026/02/RESOLUCION-551-DE-2025-ACTUALIZA-EL-VALOR-DERECHOS-DE-INGRESO-Y-SERVICIOS-COMPLEMENTARIOS-A-LAS-AREAS-PROTEGIDAS.pdf",
+     "path": "research_notes/Conocimiento turístico de Los Nevados/booking_fees/evidence/raw/resolucion-551-2025-pnn-2026-02.txt",
+     "quote": "Los servidores públicos, contratistas, de las fuerzas armadas de las\ninstituciones oficiales y públicas en misión oficial, al igual que misiones\nmedicas en desarrollo de su labor.",
+     "checked_on": "2026-11-22"
+    },
+    {
+     "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2026/02/RESOLUCION-551-DE-2025-ACTUALIZA-EL-VALOR-DERECHOS-DE-INGRESO-Y-SERVICIOS-COMPLEMENTARIOS-A-LAS-AREAS-PROTEGIDAS.pdf",
+     "path": "research_notes/Conocimiento turístico de Los Nevados/booking_fees/evidence/raw/resolucion-551-2025-pnn-2026-02.txt",
+     "quote": "numerales 2, 3, 4, 6, 9, 12, 13, 19 y 20 deberá acreditar la condición\ncorrespondiente con no menos de ocho (8) días calendario",
+     "checked_on": "2026-11-22"
+    }
+   ]
+  },
+  {
+   "op": "update",
+   "reason": "v2: apply the review required_change, restore the documented label, and attach the missing quote.",
+   "entry": {
+    "id": "booking_fees.exempt_park_volunteers",
+    "label": "exentos: guardaparques voluntarios y honorarios",
+    "kind": "rule",
+    "audience": "visitor",
+    "lang": "es",
+    "examples": [
+     "soy guardaparque voluntario, pago la entrada?",
+     "guarda parque honorario entra gratis",
+     "fui voluntario del parque, sigo exento",
+     "guardaparques no pagan entrada al parque?",
+     "voluntario de PNN, cuanto tiempo sigo exento",
+     "honorary park ranger, do I pay to enter?",
+     "un guardaparques voluntario paga la entrada?",
+     "soy voluntario de los nevados, cobran",
+     "ex voluntario del parque, sigo sin pagar?",
+     "guardaparque honorario, papeles para no pagar",
+     "me dieron el título de guarda parque honorario, sirve para no pagar?",
+     "voluntariado en el parque, exento de pago",
+     "guardaparque honorario sigue exento despues del nombramiento"
+    ],
+    "hard_negatives": [
+     "si trabajo en parques, la entrada de este parque me sale gratis?",
+     "funcionarios de PNN no pagan entrada cierto?"
+    ],
+    "needs": [],
+    "answer": {
+     "short": "Los guardaparques voluntarios, durante su voluntariado y un año más, y los guardaparques honorarios, durante diez años desde su designación, no pagan entrada. Pide aprobación con ocho días calendario de anticipación. Dato de la Resolución 551 del 19 de diciembre de 2025; confirma en parquesnacionales.gov.co antes de salir.",
+     "variants": [
+      "Pide aprobación con ocho días calendario de anticipación. Dato de la Resolución 551 del 19 de diciembre de 2025; confirma en parquesnacionales.gov.co antes de salir. Los guardaparques voluntarios, durante su voluntariado y un año más, y los guardaparques honorarios, durante diez años desde su designación, no pagan entrada."
+     ]
+    },
+    "sources": [
+     {
+      "label": "Resolución 551 de 2025 · Parques Nacionales Naturales (copia PNN, texto digital)",
+      "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2026/02/RESOLUCION-551-DE-2025-ACTUALIZA-EL-VALOR-DERECHOS-DE-INGRESO-Y-SERVICIOS-COMPLEMENTARIOS-A-LAS-AREAS-PROTEGIDAS.pdf",
+      "retrieved_at": "2026-11-21"
+     }
+    ],
+    "last_verified": "2026-11-21",
+    "valid_until": null,
+    "related": [
+     "booking_fees.exempt_government_staff",
+     "booking_fees.exempt_researchers"
+    ],
+    "tags": []
+   },
+   "evidence": [
+    {
+     "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2026/02/RESOLUCION-551-DE-2025-ACTUALIZA-EL-VALOR-DERECHOS-DE-INGRESO-Y-SERVICIOS-COMPLEMENTARIOS-A-LAS-AREAS-PROTEGIDAS.pdf",
+     "path": "research_notes/Conocimiento turístico de Los Nevados/booking_fees/evidence/raw/resolucion-551-2025-pnn-2026-02.txt",
+     "quote": "Los Guardaparques Voluntarios por el término de su voluntariado y un año\nmás, contado a partir de la terminación del mismo, así como los Guarda\nParques Honorarios durante el término de diez años contado a partir de su\ndesignación.",
+     "checked_on": "2026-11-22"
+    },
+    {
+     "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2026/02/RESOLUCION-551-DE-2025-ACTUALIZA-EL-VALOR-DERECHOS-DE-INGRESO-Y-SERVICIOS-COMPLEMENTARIOS-A-LAS-AREAS-PROTEGIDAS.pdf",
+     "path": "research_notes/Conocimiento turístico de Los Nevados/booking_fees/evidence/raw/resolucion-551-2025-pnn-2026-02.txt",
+     "quote": "numerales 2, 3, 4, 6, 9, 12, 13, 19 y 20 deberá acreditar la condición\ncorrespondiente con no menos de ocho (8) días calendario",
+     "checked_on": "2026-11-22"
+    }
+   ]
+  },
+  {
+   "op": "update",
+   "reason": "v2: apply the review required_change, restore the documented label, and attach the missing quote.",
+   "entry": {
+    "id": "booking_fees.exempt_police_family",
+    "label": "exentos: familiares de la fuerza pública fallecida",
+    "kind": "rule",
+    "audience": "visitor",
+    "lang": "es",
+    "examples": [
+     "mi papa era policia y murio en servicio, pago entrada?",
+     "soy hija de un militar fallecido, entro gratis",
+     "viuda de un soldado caido, exencion en el parque",
+     "familiar de policia muerto en servicio, no paga?",
+     "hijos de un uniformado fallecido, entran sin pagar",
+     "esposa de militar muerto en combate, hay exencion de ingreso",
+     "my father was a soldier who died on duty, free entry?",
+     "pension de militar fallecido, sirve para entrar gratis",
+     "beneficiarios de un policia caido en servicio, exentos",
+     "soy hermano de un militar muerto, pago la entrada?",
+     "los hijos de un policia fallecido entran gratis?",
+     "documento de pension para entrar sin cobro al parque"
+    ],
+    "hard_negatives": [
+     "soy militar y voy en comision, pago entrada?",
+     "vengo en mision oficial de una entidad publica, entro gratis?"
+    ],
+    "needs": [],
+    "answer": {
+     "short": "Si eres el cónyuge o la pareja, un hijo menor de 25 años o, si no hay hijos, el padre o la madre de un miembro de la Fuerza Pública fallecido en servicio activo por causa del servicio, no pagas entrada. Tiene que haber pensión: acredítala con el documento de prestaciones sociales. Dato de la Resolución 551 del 19 de diciembre de 2025; confirma en parquesnacionales.gov.co antes de salir.",
+     "variants": [
+      "Tiene que haber pensión: acredítala con el documento de prestaciones sociales. Dato de la Resolución 551 del 19 de diciembre de 2025; confirma en parquesnacionales.gov.co antes de salir. Si eres el cónyuge o la pareja, un hijo menor de 25 años o, si no hay hijos, el padre o la madre de un miembro de la Fuerza Pública fallecido en servicio activo por causa del servicio, no pagas entrada."
+     ]
+    },
+    "sources": [
+     {
+      "label": "Resolución 551 de 2025 · Parques Nacionales Naturales (copia PNN, texto digital)",
+      "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2026/02/RESOLUCION-551-DE-2025-ACTUALIZA-EL-VALOR-DERECHOS-DE-INGRESO-Y-SERVICIOS-COMPLEMENTARIOS-A-LAS-AREAS-PROTEGIDAS.pdf",
+      "retrieved_at": "2026-11-21"
+     }
+    ],
+    "last_verified": "2026-11-21",
+    "valid_until": null,
+    "related": [
+     "booking_fees.exempt_official_mission",
+     "booking_fees.exempt_disability_visitors"
+    ],
+    "tags": []
+   },
+   "evidence": [
+    {
+     "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2026/02/RESOLUCION-551-DE-2025-ACTUALIZA-EL-VALOR-DERECHOS-DE-INGRESO-Y-SERVICIOS-COMPLEMENTARIOS-A-LAS-AREAS-PROTEGIDAS.pdf",
+     "path": "research_notes/Conocimiento turístico de Los Nevados/booking_fees/evidence/raw/resolucion-551-2025-pnn-2026-02.txt",
+     "quote": "El cónyuge o compañera (o) permanente y los hijos menores de veinticinco\n(25) años sobrevivientes o, a falta de estos, los padres, de los miembros\nde la Fuerza Pública fallecidos en servicio activo, únicamente por hechos o\nactos ocurridos por causa y razón del mismo, o por acción directa del\n\nPágina 12 de 16\n\n\fRESOLUCIÓN 551\n\nDE 19 DE DICIEMBRE DE 2025\n\n“Por medio de la cual se actualiza el valor de los derechos de ingreso y\nservicios complementarios a las áreas protegidas del Sistema de Parques\nNacionales Naturales de Colombia y se unifican disposiciones.”\n\n17.\n18.\n\n19.\n\n20.\n\nenemigo o en combate, y que por ello les haya sido reconocida pensión, en\ncalidad de beneficiarios de la Ley 1699 de 2013, con la presentación de\ndocumento que para tal efecto determinen los grupos de prestaciones",
+     "checked_on": "2026-11-22"
+    }
+   ]
+  },
+  {
+   "op": "update",
+   "reason": "v2: apply the review required_change, restore the documented label, and attach the missing quote.",
+   "entry": {
+    "id": "booking_fees.exempt_promotion_programs",
+    "label": "entrada gratis con programas de promoción",
+    "kind": "rule",
+    "audience": "visitor",
+    "lang": "es",
+    "examples": [
+     "hay entrada gratis en alguna promocion?",
+     "el pasaporte de las areas sirve para entrar gratis",
+     "programa de promocion del parque sin pagar",
+     "promociones de entrada gratis en los nevados",
+     "pasaporte de areas protegidas, que es",
+     "is there a free-entry program for parks?",
+     "dan entrada gratis en temporada de promocion",
+     "campana de parques para entrar sin cobro",
+     "exoneracion por programa de promocion, existe?",
+     "tengo el pasaporte de parques, entro gratis?",
+     "entrada gratuita por inclusion social al parque",
+     "programa de inclusion para entrar al parque sin pagar"
+    ],
+    "hard_negatives": [
+     "hay descuento en la entrada del parque?",
+     "soy exento pero me pueden negar la entrada?"
+    ],
+    "needs": [],
+    "answer": {
+     "short": "La Resolución 551 del 19 de diciembre de 2025 permite entrada sin cobro en programas de promoción, como el Pasaporte de las áreas protegidas. La designación de las áreas y la fecha de esa excepción la hace la entidad; no es una exención por tu condición personal. Confirma en parquesnacionales.gov.co si Los Nevados está incluido.",
+     "variants": [
+      "La designación de las áreas y la fecha de esa excepción la hace la entidad; no es una exención por tu condición personal. Confirma en parquesnacionales.gov.co si Los Nevados está incluido. La Resolución 551 del 19 de diciembre de 2025 permite entrada sin cobro en programas de promoción, como el Pasaporte de las áreas protegidas."
+     ]
+    },
+    "sources": [
+     {
+      "label": "Resolución 551 de 2025 · Parques Nacionales Naturales (copia PNN, texto digital)",
+      "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2026/02/RESOLUCION-551-DE-2025-ACTUALIZA-EL-VALOR-DERECHOS-DE-INGRESO-Y-SERVICIOS-COMPLEMENTARIOS-A-LAS-AREAS-PROTEGIDAS.pdf",
+      "retrieved_at": "2026-11-21"
+     }
+    ],
+    "last_verified": "2026-11-22",
+    "valid_until": null,
+    "related": [
+     "booking_fees.exemption_not_guaranteed",
+     "booking_fees.exempt_young_children_and_seniors"
+    ],
+    "tags": []
+   },
+   "evidence": [
+    {
+     "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2026/02/RESOLUCION-551-DE-2025-ACTUALIZA-EL-VALOR-DERECHOS-DE-INGRESO-Y-SERVICIOS-COMPLEMENTARIOS-A-LAS-AREAS-PROTEGIDAS.pdf",
+     "path": "research_notes/Conocimiento turístico de Los Nevados/booking_fees/evidence/raw/resolucion-551-2025-pnn-2026-02.txt",
+     "quote": "Los beneficiarios del incentivo de exoneración del pago de valor de ingreso\nen el marco de los distintos programas de promoción y apropiación de las\náreas protegidas que establezca la entidad, tales como el \"Pasaporte' de\nlas áreas del Sistema de Parques Nacionales Naturales de Colombia.",
+     "checked_on": "2026-11-22"
+    },
+    {
+     "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2026/02/RESOLUCION-551-DE-2025-ACTUALIZA-EL-VALOR-DERECHOS-DE-INGRESO-Y-SERVICIOS-COMPLEMENTARIOS-A-LAS-AREAS-PROTEGIDAS.pdf",
+     "path": "research_notes/Conocimiento turístico de Los Nevados/booking_fees/evidence/raw/resolucion-551-2025-pnn-2026-02.txt",
+     "quote": "ARTICULO 15. –EXCEPCIONES PROGRAMA DE PROMOCIÓN. Parques Nacionales\nNaturales podrá implementar las excepciones de pago, en relación con el factor\npersonal y de medio de transporte, como parte de un programa de inclusión\nsocial y ambiental, en el marco del deber público y de garantizar los derechos a\nla educación y recreación asociados a la conservación en las áreas protegidas\ndel Sistema de Parques Nacionales Naturales de Colombia.\nLa designación de las áreas protegidas y la fecha de excepción se realizará,\nprevio concepto económico proveniente de la Subdirección de Sostenibilidad y\nNegocios Ambientales, con aval de la Subdirección de Gestión y Manejo.",
+     "checked_on": "2026-11-22"
+    },
+    {
+     "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2026/02/RESOLUCION-551-DE-2025-ACTUALIZA-EL-VALOR-DERECHOS-DE-INGRESO-Y-SERVICIOS-COMPLEMENTARIOS-A-LAS-AREAS-PROTEGIDAS.pdf",
+     "path": "research_notes/Conocimiento turístico de Los Nevados/booking_fees/evidence/raw/resolucion-551-2025-pnn-2026-02.txt",
+     "quote": "RESOLUCIÓN 551\n\nDE 19 DE DICIEMBRE DE 2025\n\n“Por medio de la cual se actualiza el valor de los derechos de ingreso y\nservicios complementarios a las áreas protegidas del Sistema de Parques\nNacionales Naturales de Colombia y se unifican disposiciones.”\n\nPara el\nParque Nacional Natural Los Corales del Rosario y San Bernardo la\ntemporada alta se contemplada para las siguientes fechas: entre el primero (1)\nde noviembre y treinta y uno (31) de enero, entre el quince (15) de junio y el\nquince (15) de agosto, semana santa.\nConsecuentemente, la temporada baja estará contemplada en las fechas que no\nse consideran temporada alta.\nVisitante: Persona autorizada por Parques Nacionales Naturales para ingresar en\nuna de las áreas del Sistema de Parques Nacionales Naturales, para visitar o\nrealizar una o varias de las actividades o servicios regulados por el administrador\ndel Sistema en un periodo definido y continuo.\nCAPÍTULO 5\nDEROGATORIA Y VIGENCIA\nARTÍCULO 21. – Publíquese esta resolución en el Diario Oficial y en el sitio de\ninternet de Parques Nacionales Naturales de Colombia.\nComuníquese a las\náreas protegidas mencionadas en esta resolución, a las respectivas Direcciones\nTerritoriales y a las Subdirecciones de la entidad.\nARTÍCULO 22. – La presente resolución rige a partir del primero de enero de\n2026 y deroga a partir de esta fecha las disposiciones que le sean contrarias,\nentre éstas, la Resolución 695 de 2024 .\nDada en Bogotá D.C., a los 19\n\ndías del mes de diciembre de 2025.",
+     "checked_on": "2026-11-22"
+    },
+    {
+     "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2026/02/RESOLUCION-551-DE-2025-ACTUALIZA-EL-VALOR-DERECHOS-DE-INGRESO-Y-SERVICIOS-COMPLEMENTARIOS-A-LAS-AREAS-PROTEGIDAS.pdf",
+     "path": "research_notes/Conocimiento turístico de Los Nevados/booking_fees/evidence/raw/resolucion-551-2025-pnn-2026-02.txt",
+     "quote": "ARTICULO 15. –EXCEPCIONES PROGRAMA DE PROMOCIÓN. Parques Nacionales\nNaturales podrá implementar las excepciones de pago, en relación con el factor\npersonal y de medio de transporte, como parte de un programa de inclusión\nsocial y ambiental, en el marco del deber público y de garantizar los derechos a\nla educación y recreación asociados a la conservación en las áreas protegidas\ndel Sistema de Parques Nacionales Naturales de Colombia.\nLa designación de las áreas protegidas y la fecha de excepción se realizará",
+     "checked_on": "2026-11-22"
+    }
+   ]
+  },
+  {
+   "op": "update",
+   "reason": "v2: apply the review required_change, restore the documented label, and attach the missing quote.",
+   "entry": {
+    "id": "booking_fees.exempt_property_owners",
+    "label": "exentos: dueños de predios dentro del parque",
+    "kind": "rule",
+    "audience": "visitor",
+    "lang": "es",
+    "examples": [
+     "tengo finca dentro del parque, pago entrada?",
+     "soy dueno de un predio en el area protegida",
+     "mi familia tiene tierra dentro del parque, entramos gratis",
+     "propietario dentro del parque no paga?",
+     "tengo predio adentro, me cobran la entrada?",
+     "my farm is inside the park, do I pay to get in",
+     "soy dueno de un predio adentro, yo y mi familia pagamos boleta?",
+     "tengo terreno en el area protegida y quiero entrar",
+     "dueños de tierra en el parque, registro civil para entrar",
+     "familia del dueno del predio, cuanto pagan",
+     "soy propietario y llevo a mi hijo, pagamos",
+     "me toca pedir permiso para entrar a mi predio",
+     "mi conyuge entra por el predio que esta dentro del parque"
+    ],
+    "hard_negatives": [
+     "vivo en una vereda cerca del parque, pago entrada?",
+     "soy del municipio vecino, entro gratis a los nevados"
+    ],
+    "needs": [],
+    "answer": {
+     "short": "Si tienes un predio privado dentro del área, tú, tu cónyuge y tus familiares hasta cuarto grado no pagan entrada. Presenta el registro civil y tus datos quedan en el registro de propietarios del área. Avísalos antes de la visita; dato de la Resolución 551 del 19 de diciembre de 2025; confirma en parquesnacionales.gov.co antes de salir.",
+     "variants": [
+      "Presenta el registro civil y tus datos quedan en el registro de propietarios del área. Avísalos antes de la visita; dato de la Resolución 551 del 19 de diciembre de 2025; confirma en parquesnacionales.gov.co antes de salir. Si tienes un predio privado dentro del área, tú, tu cónyuge y tus familiares hasta cuarto grado no pagan entrada."
+     ]
+    },
+    "sources": [
+     {
+      "label": "Resolución 551 de 2025 · Parques Nacionales Naturales (copia PNN, texto digital)",
+      "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2026/02/RESOLUCION-551-DE-2025-ACTUALIZA-EL-VALOR-DERECHOS-DE-INGRESO-Y-SERVICIOS-COMPLEMENTARIOS-A-LAS-AREAS-PROTEGIDAS.pdf",
+      "retrieved_at": "2026-11-21"
+     }
+    ],
+    "last_verified": "2026-11-21",
+    "valid_until": null,
+    "related": [
+     "booking_fees.exempt_nearby_residents",
+     "booking_fees.exempt_company_staff_inside_park"
+    ],
+    "tags": []
+   },
+   "evidence": [
+    {
+     "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2026/02/RESOLUCION-551-DE-2025-ACTUALIZA-EL-VALOR-DERECHOS-DE-INGRESO-Y-SERVICIOS-COMPLEMENTARIOS-A-LAS-AREAS-PROTEGIDAS.pdf",
+     "path": "research_notes/Conocimiento turístico de Los Nevados/booking_fees/evidence/raw/resolucion-551-2025-pnn-2026-02.txt",
+     "quote": "Los propietarios de predios privados que se encuentren dentro de un área\ndel Sistema de Parques Nacionales Naturales, su cónyuge y familiares hasta\nel cuarto grado de consanguinidad, segundo de afinidad y primero civil, a\ntravés de la presentación del registro civil de nacimiento o matrimonio y\nen caso de unión marital con declaración juramentada; datos que se\ningresarán en el registro de propietarios que lleve el área protegida.",
+     "checked_on": "2026-11-22"
+    },
+    {
+     "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2026/02/RESOLUCION-551-DE-2025-ACTUALIZA-EL-VALOR-DERECHOS-DE-INGRESO-Y-SERVICIOS-COMPLEMENTARIOS-A-LAS-AREAS-PROTEGIDAS.pdf",
+     "path": "research_notes/Conocimiento turístico de Los Nevados/booking_fees/evidence/raw/resolucion-551-2025-pnn-2026-02.txt",
+     "quote": "Los propietarios de predios privados que se encuentren dentro de un área\ndel Sistema de Parques Nacionales Naturales, su cónyuge y familiares hasta\nel cuarto grado de consanguinidad, segundo de afinidad y primero civil, a\ntravés de la presentación del registro civil de nacimiento",
+     "checked_on": "2026-11-22"
+    },
+    {
+     "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2026/02/RESOLUCION-551-DE-2025-ACTUALIZA-EL-VALOR-DERECHOS-DE-INGRESO-Y-SERVICIOS-COMPLEMENTARIOS-A-LAS-AREAS-PROTEGIDAS.pdf",
+     "path": "research_notes/Conocimiento turístico de Los Nevados/booking_fees/evidence/raw/resolucion-551-2025-pnn-2026-02.txt",
+     "quote": "numerales 10, 14 y\n17 del presente capitulo\ndeberán informar previamente los nombres",
+     "checked_on": "2026-11-22"
+    }
+   ]
+  },
+  {
+   "op": "update",
+   "reason": "v2: apply the review required_change, restore the documented label, and attach the missing quote.",
+   "entry": {
+    "id": "booking_fees.exempt_researchers",
+    "label": "exentos: investigadores con proyecto aprobado",
+    "kind": "rule",
+    "audience": "visitor",
+    "lang": "es",
+    "examples": [
+     "soy investigador, pago la entrada al parque?",
+     "tengo permiso de investigacion en los nevados, cobran entrada",
+     "vengo a hacer tesis de campo, entro gratis?",
+     "biologo con proyecto en el parque, exento de pago",
+     "researcher with a permit, do I pay the park fee?",
+     "estudio la fauna del parque, hay exencion",
+     "hago investigacion en el paramo, no pago verdad",
+     "proyecto de investigacion aprobado, entrada gratis",
+     "necesito carta de aprobacion para no pagar como investigador",
+     "soy investigadora de universidad, paso sin cobro",
+     "investigacion academica en nevados, debo pagar",
+     "que papeles pide el investigador para entrar"
+    ],
+    "hard_negatives": [
+     "soy militar y voy en comision, pago entrada?",
+     "vengo en mision oficial de una entidad publica, entro gratis?"
+    ],
+    "needs": [],
+    "answer": {
+     "short": "Los investigadores que desarrollan un proyecto autorizado no pagan entrada, si el jefe del área revisó y aprobó previamente su actividad. Acredítalo con ocho días calendario de anticipación ante el jefe del área protegida. Dato de la Resolución 551 del 19 de diciembre de 2025; confirma en parquesnacionales.gov.co antes de salir.",
+     "variants": [
+      "Acredítalo con ocho días calendario de anticipación ante el jefe del área protegida. Dato de la Resolución 551 del 19 de diciembre de 2025; confirma en parquesnacionales.gov.co antes de salir. Los investigadores que desarrollan un proyecto autorizado no pagan entrada, si el jefe del área revisó y aprobó previamente su actividad."
+     ]
+    },
+    "sources": [
+     {
+      "label": "Resolución 551 de 2025 · Parques Nacionales Naturales (copia PNN, texto digital)",
+      "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2026/02/RESOLUCION-551-DE-2025-ACTUALIZA-EL-VALOR-DERECHOS-DE-INGRESO-Y-SERVICIOS-COMPLEMENTARIOS-A-LAS-AREAS-PROTEGIDAS.pdf",
+      "retrieved_at": "2026-11-21"
+     }
+    ],
+    "last_verified": "2026-11-21",
+    "valid_until": null,
+    "related": [
+     "booking_fees.exempt_donors",
+     "booking_fees.exempt_culture_agents"
+    ],
+    "tags": []
+   },
+   "evidence": [
+    {
+     "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2026/02/RESOLUCION-551-DE-2025-ACTUALIZA-EL-VALOR-DERECHOS-DE-INGRESO-Y-SERVICIOS-COMPLEMENTARIOS-A-LAS-AREAS-PROTEGIDAS.pdf",
+     "path": "research_notes/Conocimiento turístico de Los Nevados/booking_fees/evidence/raw/resolucion-551-2025-pnn-2026-02.txt",
+     "quote": "Los investigadores con previa revisión y aprobación del jefe del área\nprotegida en desarrollo de sus actividades en proyectos autorizados de las\náreas del Sistema de Parques Nacionales Naturales.",
+     "checked_on": "2026-11-22"
+    },
+    {
+     "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2026/02/RESOLUCION-551-DE-2025-ACTUALIZA-EL-VALOR-DERECHOS-DE-INGRESO-Y-SERVICIOS-COMPLEMENTARIOS-A-LAS-AREAS-PROTEGIDAS.pdf",
+     "path": "research_notes/Conocimiento turístico de Los Nevados/booking_fees/evidence/raw/resolucion-551-2025-pnn-2026-02.txt",
+     "quote": "numerales 2, 3, 4, 6, 9, 12, 13, 19 y 20 deberá acreditar la condición\ncorrespondiente con no menos de ocho (8) días calendario",
+     "checked_on": "2026-11-22"
+    }
+   ]
+  },
+  {
+   "op": "update",
+   "reason": "v2: apply the review required_change, restore the documented label, and attach the missing quote.",
+   "entry": {
+    "id": "booking_fees.exempt_tourist_guides_and_providers",
+    "label": "exentos: guías de turismo y prestadores",
+    "kind": "rule",
+    "audience": "visitor",
+    "lang": "es",
+    "examples": [
+     "si contrato guia, el guia paga o yo?",
+     "el guia no paga entrada cierto",
+     "guias acreditados entran sin pagar al parque?",
+     "mi guia tiene que pagar la entrada?",
+     "el prestador del REPSE paga su entrada?",
+     "los guías de la agencia inscrita pagan entrada?",
+     "do tour guides pay the entry fee?",
+     "guia de turismo con credencial, no paga",
+     "yo pago y el guia tambien?",
+     "entrada para el guia de la agencia",
+     "cuanto paga el guia por entrar, nada?",
+     "el guia y el repse, quien paga la entrada",
+     "prestador del repse no paga, yo como visitante si"
+    ],
+    "hard_negatives": [
+     "¿toca ir con guía?",
+     "puedo entrar sin guía"
+    ],
+    "needs": [],
+    "answer": {
+     "short": "Los guías de turismo acreditados y los prestadores inscritos en el REPSE no pagan entrada cuando prestan sus servicios en el área. La exención es para el guía o prestador, no para ti: tú sí pagas tu entrada. Dato de la Resolución 551 del 19 de diciembre de 2025; confirma en parquesnacionales.gov.co antes de salir.",
+     "variants": [
+      "La exención es para el guía o prestador, no para ti: tú sí pagas tu entrada. Dato de la Resolución 551 del 19 de diciembre de 2025; confirma en parquesnacionales.gov.co antes de salir. Los guías de turismo acreditados y los prestadores inscritos en el REPSE no pagan entrada cuando prestan sus servicios en el área."
+     ]
+    },
+    "sources": [
+     {
+      "label": "Resolución 551 de 2025 · Parques Nacionales Naturales (copia PNN, texto digital)",
+      "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2026/02/RESOLUCION-551-DE-2025-ACTUALIZA-EL-VALOR-DERECHOS-DE-INGRESO-Y-SERVICIOS-COMPLEMENTARIOS-A-LAS-AREAS-PROTEGIDAS.pdf",
+      "retrieved_at": "2026-11-21"
+     }
+    ],
+    "last_verified": "2026-11-21",
+    "valid_until": null,
+    "related": [
+     "booking_fees.registered_operator_choice",
+     "booking_fees.guide_required"
+    ],
+    "tags": []
+   },
+   "evidence": [
+    {
+     "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2026/02/RESOLUCION-551-DE-2025-ACTUALIZA-EL-VALOR-DERECHOS-DE-INGRESO-Y-SERVICIOS-COMPLEMENTARIOS-A-LAS-AREAS-PROTEGIDAS.pdf",
+     "path": "research_notes/Conocimiento turístico de Los Nevados/booking_fees/evidence/raw/resolucion-551-2025-pnn-2026-02.txt",
+     "quote": "Los guías de turismo debidamente acreditados que prestan sus servicios en\nla respectiva área protegida según lo señala el artículo 2.2.4.4.10.5 del\ndecreto 1379 de 2021.",
+     "checked_on": "2026-11-22"
+    },
+    {
+     "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2026/02/RESOLUCION-551-DE-2025-ACTUALIZA-EL-VALOR-DERECHOS-DE-INGRESO-Y-SERVICIOS-COMPLEMENTARIOS-A-LAS-AREAS-PROTEGIDAS.pdf",
+     "path": "research_notes/Conocimiento turístico de Los Nevados/booking_fees/evidence/raw/resolucion-551-2025-pnn-2026-02.txt",
+     "quote": "Los Prestadores de Servicios Asociados al Ecoturismo inscritos en el\nRegistro para Prestadores de Servicios Asociados al Ecoturismo, en el\nmarco de la prestación de sus servicios en la respectiva área protegida en\nla que tienen su registro, adicionalmente estos prestadores de servicios\nasociados podrán ingresar en temporada baja para reconocimiento de rutas\no avanzadas.",
+     "checked_on": "2026-11-22"
+    }
+   ]
+  },
+  {
+   "op": "update",
+   "reason": "v2: apply the review required_change, restore the documented label, and attach the missing quote.",
+   "entry": {
+    "id": "booking_fees.exempt_young_children_and_seniors",
+    "label": "exentos: menores de 5 y mayores de 62",
+    "kind": "fact",
+    "audience": "visitor",
+    "lang": "es",
+    "examples": [
+     "los niños pagan entrada?",
+     "mi hijo de 3 años entra gratis?",
+     "abuelos mayores de 62 pagan?",
+     "la entrada es gratis para adultos mayores",
+     "menores de cinco años no pagan al parque",
+     "mi mamá tiene 65, paga ingreso?",
+     "un niño chiquito de cuatro años tiene que pagar?",
+     "se paga para los niños pequeños en Los Nevados",
+     "cuánto paga un niño de 4 años",
+     "tercera edad, descuento en la entrada?",
+     "do kids under 5 pay to enter?",
+     "is entry free for seniors over 62?",
+     "menor de 5 esta exento de pago pero la edad minima no lo deja entrar"
+    ],
+    "hard_negatives": [
+     "las personas con discapacidad pagan entrada?",
+     "discapacidad visual, entro gratis al parque?"
+    ],
+    "needs": [],
+    "answer": {
+     "short": "Si tienes más de 62 años y eres residente en Colombia o miembro de la CAN, no pagas entrada. Los menores de 5 también están exentos, pero no pueden entrar: la edad mínima es 6 años en Brisas, Cisne y Otún, y 15 en el resto de rutas.",
+     "variants": [
+      "Los menores de 5 también están exentos, pero no pueden entrar: la edad mínima es 6 años en Brisas, Cisne y Otún, y 15 en el resto de rutas. Si tienes más de 62 años y eres residente en Colombia o miembro de la CAN, no pagas entrada."
+     ],
+     "detail": "Debes demostrar la edad con cédula de ciudadanía o de extranjería, visa, pasaporte o registro civil. La edad máxima de ingreso está en conflicto (69 o 70 años); ver la entrada de edad máxima."
+    },
+    "sources": [
+     {
+      "label": "Resolución 551 de 2025 · Parques Nacionales Naturales (copia PNN, texto digital)",
+      "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2026/02/RESOLUCION-551-DE-2025-ACTUALIZA-EL-VALOR-DERECHOS-DE-INGRESO-Y-SERVICIOS-COMPLEMENTARIOS-A-LAS-AREAS-PROTEGIDAS.pdf",
+      "retrieved_at": "2026-11-21"
+     },
+     {
+      "label": "Parque Nacional Natural Los Nevados · Parques Nacionales Naturales",
+      "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+      "retrieved_at": "2026-11-21"
+     },
+     {
+      "label": "Resolución 207 de 2023, reglamentación del ecoturismo · PNN",
+      "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2023/08/Resolucion_207_2023_ReglamentacionNevados.pdf",
+      "retrieved_at": "2026-11-21"
+     }
+    ],
+    "last_verified": "2026-11-21",
+    "valid_until": null,
+    "related": [
+     "booking_fees.exempt_disability_visitors",
+     "booking_fees.exemption_no_insurance_waiver",
+     "booking_fees.documents_to_carry"
+    ],
+    "tags": [
+     "exención",
+     "niños",
+     "adulto mayor"
+    ]
+   },
+   "evidence": [
+    {
+     "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2026/02/RESOLUCION-551-DE-2025-ACTUALIZA-EL-VALOR-DERECHOS-DE-INGRESO-Y-SERVICIOS-COMPLEMENTARIOS-A-LAS-AREAS-PROTEGIDAS.pdf",
+     "path": "research_notes/Conocimiento turístico de Los Nevados/booking_fees/evidence/raw/resolucion-551-2025-pnn-2026-02.txt",
+     "quote": "Los niños nacionales o extranjeros residentes en Colombia o miembros de\nla Comunidad Andina de Naciones\nmenores de 5 años, y los adultos\nnacionales o extranjeros mayores de 62 años residentes en Colombia o\nmiembros de la Comunidad Andina de Naciones; quienes deben acreditar\nsu edad, a través de la presentación de cédula de ciudadanía o cédula de\nextranjería colombiana o visa (negocios, temporal o residente), pasaporte,\no registro civil respectivo.",
+     "checked_on": "2026-11-22"
+    },
+    {
+     "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+     "path": "research_notes/Conocimiento turístico de Los Nevados/booking_fees/evidence/raw/pnn_nevados.txt",
+     "quote": "Edad mínima de 6 años\npara entrar a los atractivos del carreteable Brisas-Kumanday, visitar el centro El Cisne o visitar la Laguna del Otún por la cabaña Potosí.",
+     "checked_on": "2026-11-22"
+    },
+    {
+     "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+     "path": "research_notes/Conocimiento turístico de Los Nevados/booking_fees/evidence/raw/pnn_nevados.txt",
+     "quote": "Edad mínima de 15 años\npara el resto de rutas, travesías y cumbres.",
+     "checked_on": "2026-11-22"
+    },
+    {
+     "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2023/08/Resolucion_207_2023_ReglamentacionNevados.pdf",
+     "path": "research_notes/Conocimiento turístico de Los Nevados/booking_fees/evidence/raw/resolucion-207-2023.txt",
+     "quote": "El rango de edad permitido para el ingreso de personas al área protegida es entre los 6 y los 70 años.",
+     "checked_on": "2026-11-22"
+    }
+   ]
+  },
+  {
+   "op": "update",
+   "reason": "v2: apply the review required_change, restore the documented label, and attach the missing quote.",
+   "entry": {
+    "id": "booking_fees.exemption_no_insurance_waiver",
+    "label": "exento de pago tampoco se libra del seguro",
+    "kind": "rule",
+    "audience": "visitor",
+    "lang": "es",
+    "examples": [
+     "si soy exento tengo que pagar seguro?",
+     "si la entrada me sale gratis, el seguro también?",
+     "el seguro también es gratis si no pago entrada",
+     "exento de la entrada pero toca seguro?",
+     "no pago ingreso, entonces no compro póliza",
+     "do exempt visitors still need insurance?",
+     "is insurance required if entry is free?",
+     "menor de 5 años necesita seguro?",
+     "adulto mayor exento necesita póliza",
+     "me perdonan la entrada y igual piden el seguro?",
+     "toca póliza si me exoneran del ingreso",
+     "exoneración del ingreso y el seguro, qué pasa",
+     "estar exento de la tarifa no borra el seguro obligatorio"
+    ],
+    "hard_negatives": [
+     "seguro para entrar a Los Nevados",
+     "puedo ingresar sin seguro"
+    ],
+    "needs": [],
+    "answer": {
+     "short": "No: estar exento de pagar la entrada no quita el seguro obligatorio de accidentes, y la Resolución 273 de 2024 lo exige también a los exentos. Compra la póliza antes de entrar.",
+     "variants": [
+      "No. Estar exento de pagar la entrada no quita el seguro obligatorio de accidentes. La resolución lo exige también a los exentos, según la Resolución 273 de 2024. Compra la póliza antes de entrar."
+     ]
+    },
+    "sources": [
+     {
+      "label": "Resolución 551 de 2025 · Parques Nacionales Naturales (copia PNN, texto digital)",
+      "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2026/02/RESOLUCION-551-DE-2025-ACTUALIZA-EL-VALOR-DERECHOS-DE-INGRESO-Y-SERVICIOS-COMPLEMENTARIOS-A-LAS-AREAS-PROTEGIDAS.pdf",
+      "retrieved_at": "2026-11-21"
+     }
+    ],
+    "last_verified": "2026-11-21",
+    "valid_until": null,
+    "related": [
+     "booking_fees.accident_insurance_requirement",
+     "booking_fees.exempt_young_children_and_seniors"
+    ],
+    "tags": [
+     "seguro",
+     "exención"
+    ]
+   },
+   "evidence": [
+    {
+     "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2026/02/RESOLUCION-551-DE-2025-ACTUALIZA-EL-VALOR-DERECHOS-DE-INGRESO-Y-SERVICIOS-COMPLEMENTARIOS-A-LAS-AREAS-PROTEGIDAS.pdf",
+     "path": "research_notes/Conocimiento turístico de Los Nevados/booking_fees/evidence/raw/resolucion-551-2025-pnn-2026-02.txt",
+     "quote": "PARÁGRAFO 2°: La exención de ingreso no incluye el requisito obligatorio de\nadquisición de seguro de accidenten establecida en la Resolución 273 de 2024",
+     "checked_on": "2026-11-22"
+    }
+   ]
+  },
+  {
+   "op": "update",
+   "reason": "v2: apply the review required_change, restore the documented label, and attach the missing quote.",
+   "entry": {
+    "id": "booking_fees.exemption_not_guaranteed",
+    "label": "exención no garantiza entrar al parque",
+    "kind": "rule",
+    "audience": "visitor",
+    "lang": "es",
+    "examples": [
+     "soy exento pero me pueden negar la entrada?",
+     "si estoy exento siempre puedo entrar al parque?",
+     "tengo exencion, me dejan pasar sin reserva?",
+     "exento de pago, pero no hay cupo, que hago",
+     "si estoy exento, ya me aseguran el cupo?",
+     "exempt means I can always enter?",
+     "aunque sea gratis, me pueden no dejar entrar?",
+     "estar sin cobro alcanza para que me dejen pasar?",
+     "exento tambien paga el carro?",
+     "si no pago entrada, el carro entra gratis?",
+     "soy exento, puedo llevar el carro sin cobro",
+     "si soy gratis, tengo prioridad para entrar",
+     "me aprobaron la exencion y aun asi depende de la capacidad"
+    ],
+    "hard_negatives": [
+     "si soy exento tengo que pagar seguro?",
+     "vivo en una vereda cerca del parque, pago entrada?"
+    ],
+    "needs": [],
+    "answer": {
+     "short": "Estar exento no garantiza tu ingreso. La autorización depende de la capacidad de manejo y de la zonificación del área, salvo para quienes viven de forma permanente allí. La exención también cubre el vehículo, pero no el seguro; dato de la Resolución 551 del 19 de diciembre de 2025; confirma en parquesnacionales.gov.co antes de salir.",
+     "variants": [
+      "La autorización depende de la capacidad de manejo y de la zonificación del área, salvo para quienes viven de forma permanente allí. La exención también cubre el vehículo, pero no el seguro; dato de la Resolución 551 del 19 de diciembre de 2025; confirma en parquesnacionales.gov.co antes de salir. Estar exento no garantiza tu ingreso."
+     ]
+    },
+    "sources": [
+     {
+      "label": "Resolución 551 de 2025 · Parques Nacionales Naturales (copia PNN, texto digital)",
+      "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2026/02/RESOLUCION-551-DE-2025-ACTUALIZA-EL-VALOR-DERECHOS-DE-INGRESO-Y-SERVICIOS-COMPLEMENTARIOS-A-LAS-AREAS-PROTEGIDAS.pdf",
+      "retrieved_at": "2026-11-21"
+     }
+    ],
+    "last_verified": "2026-11-21",
+    "valid_until": null,
+    "related": [
+     "booking_fees.exempt_nearby_residents",
+     "booking_fees.exempt_disability_visitors"
+    ],
+    "tags": []
+   },
+   "evidence": [
+    {
+     "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2026/02/RESOLUCION-551-DE-2025-ACTUALIZA-EL-VALOR-DERECHOS-DE-INGRESO-Y-SERVICIOS-COMPLEMENTARIOS-A-LAS-AREAS-PROTEGIDAS.pdf",
+     "path": "research_notes/Conocimiento turístico de Los Nevados/booking_fees/evidence/raw/resolucion-551-2025-pnn-2026-02.txt",
+     "quote": "En todos los casos anteriormente expuestos la autorización de\ningreso a los exceptuados de pago dependerá de la capacidad de manejo y la\nzonificación del área protegida, salvo para quienes habitan de manera\npermanente en las áreas del Sistema de Parques Nacionales Naturales.",
+     "checked_on": "2026-11-22"
+    },
+    {
+     "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2026/02/RESOLUCION-551-DE-2025-ACTUALIZA-EL-VALOR-DERECHOS-DE-INGRESO-Y-SERVICIOS-COMPLEMENTARIOS-A-LAS-AREAS-PROTEGIDAS.pdf",
+     "path": "research_notes/Conocimiento turístico de Los Nevados/booking_fees/evidence/raw/resolucion-551-2025-pnn-2026-02.txt",
+     "quote": "ARTÍCULO 13. EXCEPCIONES AL PAGO DE LOS DERECHOS DE INGRESO A LAS\nÁREAS PROTEGIDAS. Se encuentran exceptuados del pago del derecho de\ningreso a las áreas protegidas, tanto del factor personal como factor medio de\ntransporte",
+     "checked_on": "2026-11-22"
+    },
+    {
+     "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2026/02/RESOLUCION-551-DE-2025-ACTUALIZA-EL-VALOR-DERECHOS-DE-INGRESO-Y-SERVICIOS-COMPLEMENTARIOS-A-LAS-AREAS-PROTEGIDAS.pdf",
+     "path": "research_notes/Conocimiento turístico de Los Nevados/booking_fees/evidence/raw/resolucion-551-2025-pnn-2026-02.txt",
+     "quote": "PARÁGRAFO 1°: En todos los casos anteriormente expuestos la autorización de\ningreso a los exceptuados de pago dependerá de la capacidad de manejo",
+     "checked_on": "2026-11-22"
+    },
+    {
+     "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2026/02/RESOLUCION-551-DE-2025-ACTUALIZA-EL-VALOR-DERECHOS-DE-INGRESO-Y-SERVICIOS-COMPLEMENTARIOS-A-LAS-AREAS-PROTEGIDAS.pdf",
+     "path": "research_notes/Conocimiento turístico de Los Nevados/booking_fees/evidence/raw/resolucion-551-2025-pnn-2026-02.txt",
+     "quote": "PARÁGRAFO 2°: La exención de ingreso no incluye el requisito obligatorio de\nadquisición de seguro de accidenten establecida en la Resolución 273 de 2024",
+     "checked_on": "2026-11-22"
+    }
+   ]
+  },
+  {
+   "op": "update",
+   "reason": "v2: apply the review required_change, restore the documented label, and attach the missing quote.",
+   "entry": {
+    "id": "booking_fees.exemption_proof_deadline",
+    "label": "plazo para acreditar la exención",
+    "kind": "procedure",
+    "audience": "visitor",
+    "lang": "es",
+    "examples": [
+     "cuanto antes debo pedir la exencion de estudiante",
+     "con cuantos dias de anticipacion acredito la exencion",
+     "me toca avisar con 8 dias para no pagar?",
+     "plazo para pedir exencion de investigador",
+     "cuando tengo que mandar los papeles de la exencion",
+     "how far in advance do I need to request the free entry?",
+     "exencion: hasta cuando tengo que avisar",
+     "la exencion la pido el mismo dia?",
+     "papeles para exencion, con cuanto tiempo",
+     "necesito reportar la exencion antes de ir?",
+     "de funcionario, hasta cuándo aviso pa no pagar?",
+     "si trabajo allá, con cuánto tiempo aviso pa no pagar?",
+     "ocho dias antes para acreditar exencion de funcionario o investigador"
+    ],
+    "hard_negatives": [
+     "si trabajo en parques, la entrada de este parque me sale gratis?",
+     "hay descuento para estudiantes"
+    ],
+    "needs": [],
+    "answer": {
+     "short": "Si tu exención es de funcionarios, personal oficial, estudiantes, investigadores, donantes, personal de empresas, guardaparques, prestadores o agentes culturales, acredítala con ocho días calendario de anticipación ante el jefe del área. Dato de la Resolución 551 del 19 de diciembre de 2025; confirma en parquesnacionales.gov.co antes de salir.",
+     "variants": [
+      "Dato de la Resolución 551 del 19 de diciembre de 2025; confirma en parquesnacionales.gov.co antes de salir. Si tu exención es de funcionarios, personal oficial, estudiantes, investigadores, donantes, personal de empresas, guardaparques, prestadores o agentes culturales, acredítala con ocho días calendario de anticipación ante el jefe del área."
+     ]
+    },
+    "sources": [
+     {
+      "label": "Resolución 551 de 2025 · Parques Nacionales Naturales (copia PNN, texto digital)",
+      "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2026/02/RESOLUCION-551-DE-2025-ACTUALIZA-EL-VALOR-DERECHOS-DE-INGRESO-Y-SERVICIOS-COMPLEMENTARIOS-A-LAS-AREAS-PROTEGIDAS.pdf",
+      "retrieved_at": "2026-11-21"
+     }
+    ],
+    "last_verified": "2026-11-21",
+    "valid_until": null,
+    "related": [
+     "booking_fees.exempt_government_staff",
+     "booking_fees.student_admission_category"
+    ],
+    "tags": []
+   },
+   "evidence": [
+    {
+     "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2026/02/RESOLUCION-551-DE-2025-ACTUALIZA-EL-VALOR-DERECHOS-DE-INGRESO-Y-SERVICIOS-COMPLEMENTARIOS-A-LAS-AREAS-PROTEGIDAS.pdf",
+     "path": "research_notes/Conocimiento turístico de Los Nevados/booking_fees/evidence/raw/resolucion-551-2025-pnn-2026-02.txt",
+     "quote": "deberá acreditar la condición\ncorrespondiente con no menos de ocho (8) días calendario previos a la visita que\nse pretenda efectuar, ante el jefe del área protegida correspondiente, quién\nemitirá aprobación vía electrónica y llevará un informe mensual para control y\nseguimiento.",
+     "checked_on": "2026-11-22"
+    },
+    {
+     "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2026/02/RESOLUCION-551-DE-2025-ACTUALIZA-EL-VALOR-DERECHOS-DE-INGRESO-Y-SERVICIOS-COMPLEMENTARIOS-A-LAS-AREAS-PROTEGIDAS.pdf",
+     "path": "research_notes/Conocimiento turístico de Los Nevados/booking_fees/evidence/raw/resolucion-551-2025-pnn-2026-02.txt",
+     "quote": "numerales 2, 3, 4, 6, 9, 12, 13, 19 y 20 deberá acreditar la condición\ncorrespondiente con no menos de ocho (8) días calendario",
+     "checked_on": "2026-11-22"
+    }
+   ]
+  },
+  {
+   "op": "update",
+   "reason": "v2: apply the review required_change, restore the documented label, and attach the missing quote.",
+   "entry": {
+    "id": "booking_fees.guide_required",
+    "label": "guía obligatorio para ingresar",
+    "kind": "rule",
+    "audience": "visitor",
+    "lang": "es",
+    "examples": [
+     "¿toca ir con guía?",
+     "puedo entrar sin guía",
+     "guía obligatorio en Los Nevados",
+     "se puede hacer el recorrido por mi cuenta",
+     "me obligan a ir con alguien para poder entrar?",
+     "necesito contratar un guía para visitar",
+     "puedo caminar solo por los senderos",
+     "en cualquier sector toca ir con compañía?",
+     "Is a guide required in every sector?",
+     "Can I visit the park without a guide?",
+     "toca pagar guía sí o sí?",
+     "quiero ir sin agencia, eso se puede?",
+     "puedo subir sin guia o el acompanamiento es requisito de ingreso"
+    ],
+    "hard_negatives": [
+     "seguro para entrar a Los Nevados",
+     "¿es obligatoria la póliza?"
+    ],
+    "needs": [],
+    "answer": {
+     "short": "Debes ir acompañado de un guía o de personal de una agencia registrada; no puedes entrar solo. Confirma que tu prestador esté autorizado para el atractivo que quieres visitar. Dato de la ficha de Parques Nacionales consultada en noviembre de 2026; confirma con Parques Nacionales o tu operador antes de salir.",
+     "variants": [
+      "Confirma que tu prestador esté autorizado para el atractivo que quieres visitar. Dato de la ficha de Parques Nacionales consultada en noviembre de 2026; confirma con Parques Nacionales o tu operador antes de salir. Debes ir acompañado de un guía o de personal de una agencia registrada; no puedes entrar solo."
+     ]
+    },
+    "sources": [
+     {
+      "label": "Parque Nacional Natural Los Nevados · Parques Nacionales Naturales",
+      "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+      "retrieved_at": "2026-11-21"
+     },
+     {
+      "label": "Resolución 207 de 2023, reglamentación del ecoturismo · PNN",
+      "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2023/08/Resolucion_207_2023_ReglamentacionNevados.pdf",
+      "retrieved_at": "2026-11-21"
+     }
+    ],
+    "last_verified": "2026-11-21",
+    "valid_until": null,
+    "related": [
+     "booking_fees.registered_operator_choice",
+     "booking_fees.alta_montana_guide_glacier",
+     "booking_fees.group_guide_capacity"
+    ],
+    "tags": [
+     "guía",
+     "acompañamiento",
+     "obligatorio"
+    ]
+   },
+   "evidence": [
+    {
+     "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+     "path": "research_notes/Conocimiento turístico de Los Nevados/booking_fees/evidence/raw/pnn_nevados.txt",
+     "quote": "es obligatorio el servicio de acompañamiento y guianza en todos los sectores.",
+     "checked_on": "2026-11-22"
+    },
+    {
+     "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2023/08/Resolucion_207_2023_ReglamentacionNevados.pdf",
+     "path": "research_notes/Conocimiento turístico de Los Nevados/booking_fees/evidence/raw/resolucion-207-2023.txt",
+     "quote": "Estar acompañado de un guía avalado por el PNN Los Nevados, quien a su vez deberá estar autorizado por una\n     operadora de turismo avalada para realizar tal actividad, ningún visitante podrá ingresar solo",
+     "checked_on": "2026-11-22"
+    },
+    {
+     "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+     "path": "research_notes/Conocimiento turístico de Los Nevados/booking_fees/evidence/raw/pnn_nevados.txt",
+     "quote": "En el Parque Nacional Natural Los Nevados es obligatorio el servicio de acompañamiento y guianza en todos los sectores.",
+     "checked_on": "2026-11-22"
+    },
+    {
+     "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2023/08/Resolucion_207_2023_ReglamentacionNevados.pdf",
+     "path": "research_notes/Conocimiento turístico de Los Nevados/booking_fees/evidence/raw/resolucion-207-2023.txt",
+     "quote": "Estar acompañado de un guía avalado por el PNN Los Nevados",
+     "checked_on": "2026-11-22"
+    }
+   ]
+  },
+  {
+   "op": "update",
+   "reason": "v2: date the changeable rule and cite the passage that supports it.",
+   "entry": {
+    "id": "booking_fees.induction_requirement",
+    "label": "charla de inducción obligatoria",
+    "kind": "rule",
+    "audience": "visitor",
+    "lang": "es",
+    "examples": [
+     "¿tengo que hacer una inducción antes de entrar?",
+     "charla obligatoria para visitar Brisas",
+     "dónde recibo la inducción del parque",
+     "me piden asistir a una charla al llegar",
+     "hay una charla obligatoria antes de pasar?",
+     "hay que escuchar instrucciones antes del recorrido",
+     "la charla de ingreso es obligatoria?",
+     "me puedo saltar la charla en Brisas",
+     "Do I need to attend a visitor briefing?",
+     "Is an induction talk required before entry?",
+     "toca recibir charla antes de entrar al parque?",
+     "como es la induccion para visitantes"
+    ],
+    "hard_negatives": [
+     "qué documentos llevo al parque",
+     "¿toca ir con guía?"
+    ],
+    "needs": [],
+    "answer": {
+     "short": "Debes recibir la charla de inducción de forma presencial, en el punto de ingreso de tu sector y antes de entrar, según la Resolución 207 de 2023. Confirma el punto de tu ruta con tu operador; esta respuesta no fija el lugar de Brisas.",
+     "variants": [
+      "Confirma el punto de tu ruta con tu operador; esta respuesta no fija el lugar de Brisas. Debes recibir la charla de inducción de forma presencial, en el punto de ingreso de tu sector y antes de entrar, según la Resolución 207 de 2023."
+     ],
+     "detail": "Se retira la frase de que en Brisas la charla ocurre en el centro de inducción: la ficha nombra ese centro como inicio del trayecto, no como sede de la charla."
+    },
+    "sources": [
+     {
+      "label": "Parque Nacional Natural Los Nevados · Parques Nacionales Naturales",
+      "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+      "retrieved_at": "2026-11-21"
+     },
+     {
+      "label": "Resolución 207 de 2023, reglamentación del ecoturismo · PNN",
+      "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2023/08/Resolucion_207_2023_ReglamentacionNevados.pdf",
+      "retrieved_at": "2026-11-21"
+     }
+    ],
+    "last_verified": "2026-11-21",
+    "valid_until": null,
+    "related": [
+     "booking_fees.documents_to_carry",
+     "booking_fees.guide_required"
+    ],
+    "tags": [
+     "inducción",
+     "charla",
+     "ingreso"
+    ]
+   },
+   "evidence": [
+    {
+     "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2023/08/Resolucion_207_2023_ReglamentacionNevados.pdf",
+     "path": "research_notes/Conocimiento turístico de Los Nevados/booking_fees/evidence/raw/resolucion-207-2023.txt",
+     "quote": "Recibir una charla de inducción: Se establece como requisito obligatorio para el ingreso al Área Protegida recibir la\ncharla de inducción de manera presencial",
+     "checked_on": "2026-11-22"
+    },
+    {
+     "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+     "path": "research_notes/Conocimiento turístico de Los Nevados/booking_fees/evidence/raw/pnn_nevados.txt",
+     "quote": "la última charla de inducción obligatoria se realiza a la 1:30 p. m.",
+     "checked_on": "2026-11-22"
+    }
+   ]
+  },
+  {
+   "op": "update",
+   "reason": "v2: date the changeable rule and cite the passage that supports it.",
+   "entry": {
+    "id": "booking_fees.insurance_payment_channel",
+    "label": "dónde pagar el seguro",
+    "kind": "procedure",
+    "audience": "visitor",
+    "lang": "es",
+    "examples": [
+     "dónde pago la póliza",
+     "cómo compro el seguro para Brisas",
+     "pago de seguro en UTON",
+     "quién vende el seguro para Otún",
+     "canal para adquirir seguro de accidentes",
+     "se paga con la agencia el seguro?",
+     "seguro de visitantes cómo lo saco",
+     "pagar póliza al operador",
+     "Where do I buy the required accident insurance?",
+     "Who handles insurance payment for Brisas?",
+     "el seguro lo pago llegando o con la agencia?",
+     "cómo tramito el seguro para la visita"
+    ],
+    "hard_negatives": [
+     "seguro para entrar a Los Nevados",
+     "con qué aseguradora saco la póliza"
+    ],
+    "needs": [],
+    "answer": {
+     "short": "En Brisas-Kumanday pagas el seguro a la concesión UTON. En los demás sectores lo pagas a través de la agencia u operador que elijas. Confirma el canal y el costo vigente antes de salir; dato de la ficha de Parques Nacionales consultada en noviembre de 2026; confirma con Parques Nacionales o tu operador antes de salir.",
+     "variants": [
+      "En los demás sectores lo pagas a través de la agencia u operador que elijas. Confirma el canal y el costo vigente antes de salir; dato de la ficha de Parques Nacionales consultada en noviembre de 2026; confirma con Parques Nacionales o tu operador antes de salir. En Brisas-Kumanday pagas el seguro a la concesión UTON."
+     ]
+    },
+    "sources": [
+     {
+      "label": "Parque Nacional Natural Los Nevados · Parques Nacionales Naturales",
+      "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+      "retrieved_at": "2026-11-21"
+     }
+    ],
+    "last_verified": "2026-11-21",
+    "valid_until": null,
+    "related": [
+     "booking_fees.accident_insurance_requirement",
+     "booking_fees.insurer_names_2023"
+    ],
+    "tags": [
+     "seguro",
+     "pago",
+     "UTON"
+    ]
+   },
+   "evidence": [
+    {
+     "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+     "path": "research_notes/Conocimiento turístico de Los Nevados/booking_fees/evidence/raw/pnn_nevados.txt",
+     "quote": "Lo debes pagar a través de la Unión Temporal Operación Nevados (UTON) en el sector Brisas-Kumanday, o a través de la agencia operadora de tu elección en los demás atractivos.",
+     "checked_on": "2026-11-22"
+    }
+   ]
+  },
+  {
+   "op": "update",
+   "reason": "v2: date the changeable rule and cite the passage that supports it.",
+   "entry": {
+    "id": "booking_fees.insurance_price_not_published",
+    "label": "precio del seguro obligatorio",
+    "kind": "fact",
+    "audience": "visitor",
+    "lang": "es",
+    "examples": [
+     "cuanto vale el seguro para entrar",
+     "precio del seguro de accidentes del parque",
+     "cuanto cuesta la poliza obligatoria",
+     "cuanto me cobran por el seguro",
+     "seguro de los nevados cuanto sale",
+     "how much is the mandatory insurance?",
+     "cuanto es el seguro obligatorio al entrar",
+     "vale el seguro aparte de la entrada?",
+     "el seguro lo cobran aparte?",
+     "precio de la poliza para subir a la nieve",
+     "seguro de accidentes cuanto es",
+     "cuanto toca pagar de seguro antes de entrar"
+    ],
+    "hard_negatives": [
+     "seguro para entrar a Los Nevados",
+     "dónde pago la póliza"
+    ],
+    "needs": [],
+    "answer": {
+     "short": "La ficha consultada en noviembre de 2026 y la Resolución 551 del 19 de diciembre de 2025 no publican el precio del seguro obligatorio, y la entrada no lo incluye. En Brisas lo pagas a UTON y en los demás sectores a tu agencia. Pide el precio por escrito antes de confirmar.",
+     "variants": [
+      "En Brisas lo pagas a UTON y en los demás sectores a tu agencia. Pide el precio por escrito antes de confirmar. La ficha consultada en noviembre de 2026 y la Resolución 551 del 19 de diciembre de 2025 no publican el precio del seguro obligatorio, y la entrada no lo incluye."
+     ]
+    },
+    "sources": [
+     {
+      "label": "Parque Nacional Natural Los Nevados · Parques Nacionales Naturales",
+      "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+      "retrieved_at": "2026-11-21"
+     },
+     {
+      "label": "Resolución 551 de 2025 · Parques Nacionales Naturales (copia PNN, texto digital)",
+      "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2026/02/RESOLUCION-551-DE-2025-ACTUALIZA-EL-VALOR-DERECHOS-DE-INGRESO-Y-SERVICIOS-COMPLEMENTARIOS-A-LAS-AREAS-PROTEGIDAS.pdf",
+      "retrieved_at": "2026-11-21"
+     }
+    ],
+    "last_verified": "2026-11-21",
+    "valid_until": null,
+    "related": [
+     "booking_fees.accident_insurance_requirement",
+     "booking_fees.insurance_payment_channel"
+    ],
+    "tags": []
+   },
+   "evidence": [
+    {
+     "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+     "path": "research_notes/Conocimiento turístico de Los Nevados/booking_fees/evidence/raw/pnn_nevados.txt",
+     "quote": "Para visitar el Parque siempre debes adquirir un seguro obligatorio de accidentes otorgado por una compañía aseguradora avalada por Parques Nacionales.",
+     "checked_on": "2026-11-22"
+    },
+    {
+     "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2026/02/RESOLUCION-551-DE-2025-ACTUALIZA-EL-VALOR-DERECHOS-DE-INGRESO-Y-SERVICIOS-COMPLEMENTARIOS-A-LAS-AREAS-PROTEGIDAS.pdf",
+     "path": "research_notes/Conocimiento turístico de Los Nevados/booking_fees/evidence/raw/resolucion-551-2025-pnn-2026-02.txt",
+     "quote": "PARÁGRAFO 2°: La exención de ingreso no incluye el requisito obligatorio de\nadquisición de seguro de accidenten establecida en la Resolución 273 de 2024",
+     "checked_on": "2026-11-22"
+    }
+   ]
+  },
+  {
+   "op": "update",
+   "reason": "v2: date the changeable rule and cite the passage that supports it.",
+   "entry": {
+    "id": "booking_fees.minor_guardian_requirement",
+    "label": "acompañamiento para menores",
+    "kind": "rule",
+    "audience": "visitor",
+    "lang": "es",
+    "examples": [
+     "mi hijo se puede ir solo o le toca un adulto?",
+     "¿mi hijo puede entrar solo?",
+     "acompañante para niños en el parque",
+     "puede ir mi adolescente sin papás",
+     "qué me piden si voy con un menor?",
+     "quién debe acompañar a un menor",
+     "menor de edad y visita a Brisas",
+     "un joven de 16 puede entrar sin adulto",
+     "Do minors need an adult with them?",
+     "Can my teenager visit without a guardian?",
+     "toca ir con un adulto si llevo pelaos?",
+     "mi hija viaja con su tía, puede entrar?"
+    ],
+    "hard_negatives": [
+     "edad mínima en Brisas",
+     "edad máxima para entrar"
+    ],
+    "needs": [],
+    "answer": {
+     "short": "Si llevas a un menor, la ficha consultada en noviembre de 2026 dice que va con adultos cuidadores. En travesías o rutas, la Resolución 207 de 2023 exige superar los 15 años y contar con autorización de los padres o tutores. Confirma el caso con tu operador antes de salir.",
+     "variants": [
+      "En travesías o rutas, la Resolución 207 de 2023 exige superar los 15 años y contar con autorización de los padres o tutores. Confirma el caso con tu operador antes de salir. Si llevas a un menor, la ficha consultada en noviembre de 2026 dice que va con adultos cuidadores."
+     ]
+    },
+    "sources": [
+     {
+      "label": "Parque Nacional Natural Los Nevados · Parques Nacionales Naturales",
+      "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+      "retrieved_at": "2026-11-21"
+     },
+     {
+      "label": "Resolución 207 de 2023, reglamentación del ecoturismo · PNN",
+      "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2023/08/Resolucion_207_2023_ReglamentacionNevados.pdf",
+      "retrieved_at": "2026-11-21"
+     }
+    ],
+    "last_verified": "2026-11-21",
+    "valid_until": null,
+    "related": [
+     "booking_fees.age_minimum_by_attraction",
+     "booking_fees.maximum_entry_age"
+    ],
+    "tags": [
+     "menores",
+     "adulto cuidador"
+    ]
+   },
+   "evidence": [
+    {
+     "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+     "path": "research_notes/Conocimiento turístico de Los Nevados/booking_fees/evidence/raw/pnn_nevados.txt",
+     "quote": "Todos los menores de edad\nvan acompañados de adultos cuidadores.",
+     "checked_on": "2026-11-22"
+    },
+    {
+     "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2023/08/Resolucion_207_2023_ReglamentacionNevados.pdf",
+     "path": "research_notes/Conocimiento turístico de Los Nevados/booking_fees/evidence/raw/resolucion-207-2023.txt",
+     "quote": "superar los 15 años de edad, contar con la autorización de los padres o\n     tutores",
+     "checked_on": "2026-11-22"
+    }
+   ]
+  },
+  {
+   "op": "update",
+   "reason": "v2: apply the review required_change, restore the documented label, and attach the missing quote.",
+   "entry": {
+    "id": "booking_fees.other_sector_reservation",
+    "label": "reserva en otros sectores",
+    "kind": "procedure",
+    "audience": "visitor",
+    "lang": "es",
+    "examples": [
+     "reserva para Santa Isabel",
+     "cisne, otun y el sur tambien obligan a reservar con un operador?",
+     "agendar visita a Quindío-Dulima",
+     "sin reserva puedo entrar a Cisne?",
+     "cómo aparto cupo para la Laguna del Otún",
+     "reserva para los otros sectores",
+     "toca reservar para el Nevado del Tolima?",
+     "cómo gestiono la entrada al Cisne",
+     "Do other Los Nevados sectors require booking?",
+     "Who arranges my reservation for Otun?",
+     "para esos lados sí toca reserva previa?",
+     "quiero visitar otro sector, cómo separo cupo",
+     "cisne otun y quindio obligan reserva, el plazo en dias es otra pregunta"
+    ],
+    "hard_negatives": [
+     "reserva Cisne tres días",
+     "reserva Quindío Dulima"
+    ],
+    "needs": [],
+    "answer": {
+     "short": "En Cisne-Poleka Kasue, Laguna del Otún y Quindío-Dulima la reserva es obligatoria y la gestiona tu agencia u operador registrado. Confirma con él los plazos y requisitos vigentes. Dato de la ficha de Parques Nacionales consultada en noviembre de 2026; confirma con Parques Nacionales o tu operador antes de salir.",
+     "variants": [
+      "Confirma con él los plazos y requisitos vigentes. Dato de la ficha de Parques Nacionales consultada en noviembre de 2026; confirma con Parques Nacionales o tu operador antes de salir. En Cisne-Poleka Kasue, Laguna del Otún y Quindío-Dulima la reserva es obligatoria y la gestiona tu agencia u operador registrado."
+     ]
+    },
+    "sources": [
+     {
+      "label": "Parque Nacional Natural Los Nevados · Parques Nacionales Naturales",
+      "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+      "retrieved_at": "2026-11-21"
+     }
+    ],
+    "last_verified": "2026-11-21",
+    "valid_until": null,
+    "related": [
+     "booking_fees.center_otun_reservation_lead",
+     "booking_fees.quindio_reservation_lead",
+     "booking_fees.registered_operator_choice"
+    ],
+    "tags": [
+     "sectores",
+     "reserva"
+    ]
+   },
+   "evidence": [
+    {
+     "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+     "path": "research_notes/Conocimiento turístico de Los Nevados/booking_fees/evidence/raw/pnn_nevados.txt",
+     "quote": "la reserva sí es obligatoria. La puedes gestionar a través de la agencia operadora registrada que elegiste para tu viaje.",
+     "checked_on": "2026-11-22"
+    },
+    {
+     "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+     "path": "research_notes/Conocimiento turístico de Los Nevados/booking_fees/evidence/raw/pnn_nevados.txt",
+     "quote": "Ingreso a los demás sectores\n: la reserva sí es obligatoria. La puedes gestionar a través de la agencia operadora registrada que elegiste para tu viaje.",
+     "checked_on": "2026-11-22"
+    }
+   ]
+  },
+  {
+   "op": "update",
+   "reason": "v2: date the changeable rule and cite the passage that supports it.",
+   "entry": {
+    "id": "booking_fees.permanence_four_days",
+    "label": "cuántos días dura la entrada pagada",
+    "kind": "rule",
+    "audience": "visitor",
+    "lang": "es",
+    "examples": [
+     "cuantos dias puedo quedarme con la entrada",
+     "la entrada sirve para varios dias en el parque?",
+     "cuanto dura el permiso de ingreso",
+     "puedo entrar un dia y salir al otro con el mismo pago",
+     "dias de permanencia en los nevados",
+     "how many days is the entry valid for?",
+     "tiempo que me deja el pago de entrada",
+     "si compro paquete con agencia cuantos dias son",
+     "me alcanza con la entrada para tres dias de caminata?",
+     "permanencia en el parque con la entrada pagada",
+     "la entrada dura cuatro dias o menos",
+     "dias calendario que cubre la entrada del parque"
+    ],
+    "hard_negatives": [
+     "cómo pago la entrada al parque",
+     "cuánto cuesta entrar en carro"
+    ],
+    "needs": [],
+    "answer": {
+     "short": "Pagar la entrada te da derecho a permanecer en el área cuatro días calendario continuos, según la Resolución 551 del 19 de diciembre de 2025. Si viajas con paquete turístico, el tiempo de permanencia es el que prevea el paquete comprado. Confirma en parquesnacionales.gov.co antes de salir.",
+     "variants": [
+      "Si viajas con paquete turístico, el tiempo de permanencia es el que prevea el paquete comprado. Confirma en parquesnacionales.gov.co antes de salir. Pagar la entrada te da derecho a permanecer en el área cuatro días calendario continuos, según la Resolución 551 del 19 de diciembre de 2025."
+     ]
+    },
+    "sources": [
+     {
+      "label": "Resolución 551 de 2025 · Parques Nacionales Naturales (copia PNN, texto digital)",
+      "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2026/02/RESOLUCION-551-DE-2025-ACTUALIZA-EL-VALOR-DERECHOS-DE-INGRESO-Y-SERVICIOS-COMPLEMENTARIOS-A-LAS-AREAS-PROTEGIDAS.pdf",
+      "retrieved_at": "2026-11-21"
+     }
+    ],
+    "last_verified": "2026-11-21",
+    "valid_until": null,
+    "related": [
+     "booking_fees.entry_payment_channels",
+     "booking_fees.vehicle_entry_fee"
+    ],
+    "tags": []
+   },
+   "evidence": [
+    {
+     "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2026/02/RESOLUCION-551-DE-2025-ACTUALIZA-EL-VALOR-DERECHOS-DE-INGRESO-Y-SERVICIOS-COMPLEMENTARIOS-A-LAS-AREAS-PROTEGIDAS.pdf",
+     "path": "research_notes/Conocimiento turístico de Los Nevados/booking_fees/evidence/raw/resolucion-551-2025-pnn-2026-02.txt",
+     "quote": "termino de cuatro (4) días calendario continuos, conforme al artículo\n2.2.2.1.10.1 del Decreto 1076 de 2015\nTratándose de visitantes con paquete turístico, adquirido con agencias y/o\noperadores turísticos, el derecho de permanencia será por un término igual al\nque prevea el paquete comprado.",
+     "checked_on": "2026-11-22"
+    }
+   ]
+  },
+  {
+   "op": "update",
+   "reason": "v2: apply the review required_change, restore the documented label, and attach the missing quote.",
+   "entry": {
+    "id": "booking_fees.platform_payment_methods",
+    "label": "medios de pago de la plataforma",
+    "kind": "fact",
+    "audience": "visitor",
+    "lang": "es",
+    "examples": [
+     "con que tarjeta puedo pagar la reserva",
+     "aceptan pse para los nevados?",
+     "puedo pagar con daviplata",
+     "medios de pago de la reserva",
+     "se puede pagar con visa en la pagina",
+     "do they accept credit cards for the reservation?",
+     "pago con mastercard para reservar",
+     "pagar con amex en reservas",
+     "como pago la reserva, con pse",
+     "que opciones de pago tiene la plataforma",
+     "pagar con tarjeta de credito en nevados",
+     "pago en linea con daviplata, aceptan",
+     "que medios muestra la plataforma: pse, daviplata o tarjeta",
+     "aceptan visa mastercard o solo pse en la reserva"
+    ],
+    "hard_negatives": [
+     "puedo pagar la reserva en la pagina",
+     "la plataforma cobra cuando reservo?"
+    ],
+    "needs": [],
+    "answer": {
+     "short": "En el código público de reservasnevados.com figuran PSE, Daviplata, Visa, Mastercard y American Express; no se probó una transacción ni una pantalla de pago. Confirma en el paso de pago cuáles aparecen para tu reserva. Dato del código consultado en noviembre de 2026.",
+     "variants": [
+      "Confirma en el paso de pago cuáles aparecen para tu reserva. Dato del código consultado en noviembre de 2026. En el código público de reservasnevados.com figuran PSE, Daviplata, Visa, Mastercard y American Express; no se probó una transacción ni una pantalla de pago."
+     ],
+     "detail": "Los nombres están en el código público del sitio, no en una transacción probada. La entrada del parque también puede pagarse en sede u oficina según la Resolución 551."
+    },
+    "sources": [
+     {
+      "label": "Código público de reservasnevados.com (script principal)",
+      "url": "https://reservasnevados.com/static/js/main.340cd8ff.js",
+      "retrieved_at": "2026-11-21"
+     },
+     {
+      "label": "Sistema de reservas reservasnevados.com",
+      "url": "https://reservasnevados.com/",
+      "retrieved_at": "2026-11-21"
+     },
+     {
+      "label": "Resolución 551 de 2025 · Parques Nacionales Naturales (copia PNN, texto digital)",
+      "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2026/02/RESOLUCION-551-DE-2025-ACTUALIZA-EL-VALOR-DERECHOS-DE-INGRESO-Y-SERVICIOS-COMPLEMENTARIOS-A-LAS-AREAS-PROTEGIDAS.pdf",
+      "retrieved_at": "2026-11-21"
+     }
+    ],
+    "last_verified": "2026-11-21",
+    "valid_until": null,
+    "related": [
+     "booking_fees.platform_pays_services",
+     "booking_fees.entry_payment_channels"
+    ],
+    "tags": []
+   },
+   "evidence": [
+    {
+     "url": "https://reservasnevados.com/static/js/main.340cd8ff.js",
+     "path": "research_notes/Conocimiento turístico de Los Nevados/booking_fees/evidence/raw/reservasnevados_main.js",
+     "quote": "aria-label\":\"PSE\",children:(0,Or.jsx)(\"b\",{children:\"PSE\"})}),(0,Or.jsxs)(\"span\",{className:\"medio-pago-logo medio-pago-logo--daviplata\",\"aria-label\":\"Daviplata\",children:[(0,Or.jsx)(\"b\",{children:\"Davi\"}),(0,Or.jsx)(\"small\",{children:\"Plata\"})]}),(0,Or.jsx)(\"span\",{className:\"medio-pago-logo medio-pago-logo--visa\",\"aria-label\":\"Visa\",children:\"VISA\"}),(0,Or.jsxs)(\"span\",{className:\"medio-pago-logo medio-pago-logo--mastercard\",\"aria-label\":\"Mastercard\",children:[(0,Or.jsx)(\"i\",{}),(0,Or.jsx)(\"i\",{})]}),(0,Or.jsxs)(\"span\",{className:\"medio-pago-logo medio-pago-logo--amex\",\"aria-label\":\"American Express\"",
+     "checked_on": "2026-11-22"
+    },
+    {
+     "url": "https://reservasnevados.com/",
+     "path": "research_notes/Conocimiento turístico de Los Nevados/booking_fees/evidence/raw/reservasnevados_home.html",
+     "quote": "Sistema oficial para reservas del Parque Nacional Natural Nevados, desde este sistema podrás reservar para el sector Brisas Valle de las Tumbas y los operadores autorizados a los demás senderos.",
+     "checked_on": "2026-11-22"
+    },
+    {
+     "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2026/02/RESOLUCION-551-DE-2025-ACTUALIZA-EL-VALOR-DERECHOS-DE-INGRESO-Y-SERVICIOS-COMPLEMENTARIOS-A-LAS-AREAS-PROTEGIDAS.pdf",
+     "path": "research_notes/Conocimiento turístico de Los Nevados/booking_fees/evidence/raw/resolucion-551-2025-pnn-2026-02.txt",
+     "quote": "ARTÍCULO 5. COMPRA DEL DERECHO DE INGRESO. El visitante de las áreas\nprotegidas administradas por Parques Nacionales Naturales de Colombia podrá\npagar el valor de derecho de ingreso así:\n1. Pago presencial: De acuerdo con los procedimientos de cada Área Protegida\nse hará el pago en la sede o en la oficina de atención del usuario de la central\nen Bogotá o en la cuenta bancaria que la entidad establezca.\n2. Pago en Línea: Se podrá hacer el pago a través del enlace ubicado en el sitio\nde internet de la entidad, a través de medios bancarios electrónicos disponibles.\nLos pagos en línea generarán costos por el uso de las plataformas de reservas y\nde los medios de pago, servicios complementarios que deberán ser asumidos\npor el visitante y sumarse al valor final a pagar.",
+     "checked_on": "2026-11-22"
+    },
+    {
+     "url": "https://reservasnevados.com/static/js/main.340cd8ff.js",
+     "path": "research_notes/Conocimiento turístico de Los Nevados/booking_fees/evidence/raw/reservasnevados_main.js",
+     "quote": "aria-label\":\"Medios de pago disponibles\"",
+     "checked_on": "2026-11-22"
+    }
+   ]
+  },
+  {
+   "op": "update",
+   "reason": "v2: apply the review required_change, restore the documented label, and attach the missing quote.",
+   "entry": {
+    "id": "booking_fees.platform_pays_services",
+    "label": "registro y servicios que cobra la plataforma",
+    "kind": "procedure",
+    "audience": "visitor",
+    "lang": "es",
+    "examples": [
+     "puedo pagar la reserva en la pagina",
+     "la plataforma cobra cuando reservo?",
+     "reservo y pago al mismo tiempo",
+     "pago en la web de la reserva, sirve",
+     "pago de servicios en reservasnevados",
+     "can I pay for the booking online?",
+     "se paga al hacer la reserva en linea",
+     "pago en linea con la reserva del parque",
+     "la reserva incluye pago de la entrada?",
+     "lo puedo pagar desde la plataforma",
+     "pagar la visita en la pagina de reservas",
+     "reserva y pago en la misma web"
+    ],
+    "hard_negatives": [
+     "con que tarjeta puedo pagar la reserva",
+     "aceptan pse para los nevados?"
+    ],
+    "needs": [],
+    "answer": {
+     "short": "El radicado 20266200003531 del 18 de mayo de 2026 dice que la plataforma de UTON permite registrar visitantes, validar datos y pagar los servicios ecoturísticos. El mismo texto informa cancelaciones de reservas ya validadas y devoluciones pendientes sin pronunciamiento de fondo. Confirma en el paso de pago qué incluye y el estado de tu reserva.",
+     "variants": [
+      "El mismo texto informa cancelaciones de reservas ya validadas y devoluciones pendientes sin pronunciamiento de fondo. Confirma en el paso de pago qué incluye y el estado de tu reserva. El radicado 20266200003531 del 18 de mayo de 2026 dice que la plataforma de UTON permite registrar visitantes, validar datos y pagar los servicios ecoturísticos."
+     ]
+    },
+    "sources": [
+     {
+      "label": "Respuesta PNN al radicado 20266200001002, 18-05-2026",
+      "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2026/05/Respuesta-Radicado-No.-20266200001002.pdf",
+      "retrieved_at": "2026-11-21"
+     }
+    ],
+    "last_verified": "2026-11-21",
+    "valid_until": null,
+    "related": [
+     "booking_fees.entry_payment_channels",
+     "booking_fees.platform_payment_methods"
+    ],
+    "tags": []
+   },
+   "evidence": [
+    {
+     "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2026/05/Respuesta-Radicado-No.-20266200001002.pdf",
+     "path": "research_notes/Conocimiento turístico de Los Nevados/booking_fees/evidence/raw/radicado_20266200001002.txt",
+     "quote": "registro de\nvisitantes, validación de información y pago de los servicios ecoturísticos\nasociados a la visita",
+     "checked_on": "2026-11-22"
+    },
+    {
+     "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2026/05/Respuesta-Radicado-No.-20266200001002.pdf",
+     "path": "research_notes/Conocimiento turístico de Los Nevados/booking_fees/evidence/raw/radicado_20266200001002.txt",
+     "quote": "recientemente    se    recibieron   notificaciones   informando\n       cancelaciones de reservas",
+     "checked_on": "2026-11-22"
+    },
+    {
+     "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2026/05/Respuesta-Radicado-No.-20266200001002.pdf",
+     "path": "research_notes/Conocimiento turístico de Los Nevados/booking_fees/evidence/raw/radicado_20266200001002.txt",
+     "quote": "Frente a las solicitudes de devolución mencionadas, se informa que el Parque\nNacional Natural Los Nevados no cuenta actualmente con información específica\nque permita emitir un pronunciamiento de fondo",
+     "checked_on": "2026-11-22"
+    }
+   ]
+  },
+  {
+   "op": "update",
+   "reason": "v2: apply the review required_change, restore the documented label, and attach the missing quote.",
+   "entry": {
+    "id": "booking_fees.quindio_reservation_lead",
+    "label": "anticipación para Quindío y Dulima",
+    "kind": "fact",
+    "audience": "visitor",
+    "lang": "es",
+    "examples": [
+     "reserva Quindío Dulima",
+     "¿cuántos días antes para el Tolima?",
+     "plazo de reserva por Salento",
+     "agendar entrada por Anzoátegui",
+     "reserva Nevado del Tolima anticipación",
+     "con cuánto tiempo separo para Dulima",
+     "toca reservar cinco días antes?",
+     "cuanto antes tengo que llamar a la agencia",
+     "How early should I reserve Quindio-Dulima?",
+     "What is the lead time for the Tolima sector?",
+     "para subir por allá hay que cuadrar con tiempo?",
+     "quiero conocer el plazo de reserva del sur"
+    ],
+    "hard_negatives": [
+     "reserva Cisne tres días",
+     "¿cuándo debo reservar para Otún?"
+    ],
+    "needs": [],
+    "answer": {
+     "short": "Para Quindío-Dulima reserva con cinco días hábiles de anticipación, por medio de tu operador registrado. Los plazos pueden cambiar: confirma el cupo antes de viajar. Dato de la ficha de Parques Nacionales consultada en noviembre de 2026; confirma con Parques Nacionales o tu operador antes de salir.",
+     "variants": [
+      "Los plazos pueden cambiar: confirma el cupo antes de viajar. Dato de la ficha de Parques Nacionales consultada en noviembre de 2026; confirma con Parques Nacionales o tu operador antes de salir. Para Quindío-Dulima reserva con cinco días hábiles de anticipación, por medio de tu operador registrado."
+     ]
+    },
+    "sources": [
+     {
+      "label": "Parque Nacional Natural Los Nevados · Parques Nacionales Naturales",
+      "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+      "retrieved_at": "2026-11-21"
+     },
+     {
+      "label": "Protocolo de reservas zona sur, agosto 2023 · PNN",
+      "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2024/02/Protocolo-de-reservas-nevado-del-Tolima.pdf",
+      "retrieved_at": "2026-11-21"
+     }
+    ],
+    "last_verified": "2026-11-21",
+    "valid_until": null,
+    "related": [
+     "booking_fees.center_otun_reservation_lead",
+     "booking_fees.other_sector_reservation"
+    ],
+    "tags": [
+     "cinco días hábiles",
+     "Quindío-Dulima"
+    ]
+   },
+   "evidence": [
+    {
+     "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+     "path": "research_notes/Conocimiento turístico de Los Nevados/booking_fees/evidence/raw/pnn_nevados.txt",
+     "quote": "haz tu reserva con cinco (5) días hábiles antes del día de tu ingreso al Parque.",
+     "checked_on": "2026-11-22"
+    },
+    {
+     "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2024/02/Protocolo-de-reservas-nevado-del-Tolima.pdf",
+     "path": "research_notes/Conocimiento turístico de Los Nevados/booking_fees/evidence/raw/protocolo_reservas_tolima_2024.txt",
+     "quote": "La solicitud de reserva se debe generar con mínimo cinco (5) días hábiles de antelación a la fecha de ingreso al Área Protegida\n        entre los días lunes y viernes según orden de solicitud, sin contar los sábados, domingos o festivos.",
+     "checked_on": "2026-11-22"
+    },
+    {
+     "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+     "path": "research_notes/Conocimiento turístico de Los Nevados/booking_fees/evidence/raw/pnn_nevados.txt",
+     "quote": "Sector Quindío-Dulima:\nhaz tu reserva con cinco (5) días hábiles",
+     "checked_on": "2026-11-22"
+    }
+   ]
+  },
+  {
+   "op": "update",
+   "reason": "v2: date the changeable rule and cite the passage that supports it.",
+   "entry": {
+    "id": "booking_fees.registered_operator_choice",
+    "label": "elegir operador registrado",
+    "kind": "procedure",
+    "audience": "visitor",
+    "lang": "es",
+    "examples": [
+     "cómo sé si el guía está autorizado",
+     "dónde reviso si la agencia sí está registrada?",
+     "lista de operadores de Los Nevados",
+     "qué operador puede llevarme a Cisne",
+     "cómo confirmar un guía oficial",
+     "agencia habilitada para el sector que quiero",
+     "todos los guías sirven para cualquier ruta?",
+     "dónde consultar prestadores autorizados",
+     "How do I check if a guide is registered?",
+     "Are all guides authorized for every trail?",
+     "quiero verificar que la agencia sí esté avalada",
+     "cómo escojo operador para mi atractivo"
+    ],
+    "hard_negatives": [
+     "¿toca ir con guía?",
+     "reserva para Santa Isabel"
+    ],
+    "needs": [],
+    "answer": {
+     "short": "Revisa el listado de prestadores registrados (REPSE) que publica Parques Nacionales y confirma que tu operador esté autorizado para el atractivo que quieres visitar. No todos pueden guiarte en todos los sitios. Dato de la ficha de Parques Nacionales consultada en noviembre de 2026; confirma con Parques Nacionales o tu operador antes de salir.",
+     "variants": [
+      "No todos pueden guiarte en todos los sitios. Dato de la ficha de Parques Nacionales consultada en noviembre de 2026; confirma con Parques Nacionales o tu operador antes de salir. Revisa el listado de prestadores registrados (REPSE) que publica Parques Nacionales y confirma que tu operador esté autorizado para el atractivo que quieres visitar."
+     ]
+    },
+    "sources": [
+     {
+      "label": "Parque Nacional Natural Los Nevados · Parques Nacionales Naturales",
+      "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+      "retrieved_at": "2026-11-21"
+     }
+    ],
+    "last_verified": "2026-11-21",
+    "valid_until": null,
+    "related": [
+     "booking_fees.guide_required",
+     "booking_fees.other_sector_reservation",
+     "booking_fees.alta_montana_guide_glacier"
+    ],
+    "tags": [
+     "REPSE",
+     "operador",
+     "agencia"
+    ]
+   },
+   "evidence": [
+    {
+     "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+     "path": "research_notes/Conocimiento turístico de Los Nevados/booking_fees/evidence/raw/pnn_nevados.txt",
+     "quote": "No todos los prestadores están autorizados para guiarte en todos los atractivos.",
+     "checked_on": "2026-11-22"
+    }
+   ]
+  },
+  {
+   "op": "update",
+   "reason": "v2: apply the review required_change, restore the documented label, and attach the missing quote.",
+   "entry": {
+    "id": "booking_fees.registration_form_required",
+    "label": "formato de ingreso de visitantes",
+    "kind": "rule",
+    "audience": "visitor",
+    "lang": "es",
+    "examples": [
+     "hay que llenar un formato para entrar al parque?",
+     "ese papel de ingreso de visitantes es obligatorio?",
+     "me piden formulario en la entrada, que es",
+     "papeleo para entrar a los nevados",
+     "tengo que llenar un formulario antes de subir?",
+     "is there an entry form for visitors?",
+     "formato de ingreso lo llenan en el punto o antes",
+     "tengo que llevar un formulario impreso",
+     "formulario de visitantes, cuando lo llenan",
+     "registro del visitante, formato",
+     "me toca llenar planilla para entrar",
+     "lleno el formato o lo llena el guia",
+     "formulario de visitantes no reemplaza el pasaporte"
+    ],
+    "hard_negatives": [
+     "qué documentos llevo al parque",
+     "piden cédula para entrar a Los Nevados?"
+    ],
+    "needs": [],
+    "answer": {
+     "short": "Sí: tienes que diligenciar bien el formato de ingreso de visitantes. Pregunta a tu operador cómo entregarlo antes de llegar al control. Dato de la Resolución 207 de 2023; confirma con Parques Nacionales o tu operador antes de salir.",
+     "variants": [
+      "Pregunta a tu operador cómo entregarlo antes de llegar al control. Dato de la Resolución 207 de 2023; confirma con Parques Nacionales o tu operador antes de salir. Sí: tienes que diligenciar bien el formato de ingreso de visitantes."
+     ]
+    },
+    "sources": [
+     {
+      "label": "Resolución 207 de 2023, reglamentación del ecoturismo · PNN",
+      "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2023/08/Resolucion_207_2023_ReglamentacionNevados.pdf",
+      "retrieved_at": "2026-11-21"
+     }
+    ],
+    "last_verified": "2026-11-21",
+    "valid_until": null,
+    "related": [
+     "booking_fees.documents_to_carry",
+     "booking_fees.reservation_data_required"
+    ],
+    "tags": []
+   },
+   "evidence": [
+    {
+     "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2023/08/Resolucion_207_2023_ReglamentacionNevados.pdf",
+     "path": "research_notes/Conocimiento turístico de Los Nevados/booking_fees/evidence/raw/resolucion-207-2023.txt",
+     "quote": "diligenciar debidamente el formato de ingreso",
+     "checked_on": "2026-11-22"
+    }
+   ]
+  },
+  {
+   "op": "update",
+   "reason": "v2: date the changeable rule and cite the passage that supports it.",
+   "entry": {
+    "id": "booking_fees.reservation_by_operator",
+    "label": "quién pide la reserva del parque",
+    "kind": "rule",
+    "audience": "visitor",
+    "lang": "es",
+    "examples": [
+     "quien hace la reserva, yo o la agencia?",
+     "la reserva la hago yo o mi guia",
+     "el operador debe reservar por mi?",
+     "tengo que pedir la reserva por medio de agencia",
+     "puedo reservar directamente en el parque",
+     "who makes the reservation, me or the operator?",
+     "reserva la hace la agencia avalada?",
+     "reservo yo solo o con operador",
+     "la agencia pide el cupo por mi?",
+     "necesito una agencia para hacer la reserva",
+     "reservar por cuenta propia en los nevados",
+     "solicitud de reserva, la hace el operador"
+    ],
+    "hard_negatives": [
+     "reservas para Los Nevados",
+     "dónde reservo Brisas"
+    ],
+    "needs": [],
+    "answer": {
+     "short": "Donde la reserva es obligatoria, la Resolución 207 de 2023 dice que el operador avalado es quien la solicita ante el parque. En Brisas la ficha consultada en noviembre de 2026 remite a reservasnevados.com. Confirma el canal antes de salir.",
+     "variants": [
+      "En Brisas la ficha consultada en noviembre de 2026 remite a reservasnevados.com. Confirma el canal antes de salir. Donde la reserva es obligatoria, la Resolución 207 de 2023 dice que el operador avalado es quien la solicita ante el parque."
+     ]
+    },
+    "sources": [
+     {
+      "label": "Resolución 207 de 2023, reglamentación del ecoturismo · PNN",
+      "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2023/08/Resolucion_207_2023_ReglamentacionNevados.pdf",
+      "retrieved_at": "2026-11-21"
+     },
+     {
+      "label": "Parque Nacional Natural Los Nevados · Parques Nacionales Naturales",
+      "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+      "retrieved_at": "2026-11-21"
+     },
+     {
+      "label": "Sistema de reservas reservasnevados.com",
+      "url": "https://reservasnevados.com/",
+      "retrieved_at": "2026-11-21"
+     }
+    ],
+    "last_verified": "2026-11-21",
+    "valid_until": null,
+    "related": [
+     "booking_fees.reservation_requirements",
+     "booking_fees.brisas_booking_channel"
+    ],
+    "tags": []
+   },
+   "evidence": [
+    {
+     "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2023/08/Resolucion_207_2023_ReglamentacionNevados.pdf",
+     "path": "research_notes/Conocimiento turístico de Los Nevados/booking_fees/evidence/raw/resolucion-207-2023.txt",
+     "quote": "Los operadores avalados por el área protegida deberán solicitar la reservación de ingreso al área protegida de la siguiente",
+     "checked_on": "2026-11-22"
+    },
+    {
+     "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+     "path": "research_notes/Conocimiento turístico de Los Nevados/booking_fees/evidence/raw/pnn_nevados.txt",
+     "quote": "Ingreso a los demás sectores\n: la reserva sí es obligatoria. La puedes gestionar a través de la agencia operadora registrada que elegiste para tu viaje.",
+     "checked_on": "2026-11-22"
+    },
+    {
+     "url": "https://reservasnevados.com/",
+     "path": "research_notes/Conocimiento turístico de Los Nevados/booking_fees/evidence/raw/reservasnevados_home.html",
+     "quote": "Sistema oficial para reservas del Parque Nacional Natural Nevados, desde este sistema podrás reservar para el sector Brisas Valle de las Tumbas",
+     "checked_on": "2026-11-22"
+    }
+   ]
+  },
+  {
+   "op": "update",
+   "reason": "v2: apply the review required_change, restore the documented label, and attach the missing quote.",
+   "entry": {
+    "id": "booking_fees.south_payment_before_review",
+    "label": "pago verificado antes de evaluar reserva",
+    "kind": "procedure",
+    "audience": "visitor",
+    "lang": "es",
+    "examples": [
+     "debo pagar antes de reservar en el sur?",
+     "cuando se paga la reserva del quindio",
+     "primero pago y luego reservo?",
+     "el pago se hace antes de pedir el cupo",
+     "necesito soporte de pago para la reserva",
+     "do I pay before or after booking the south trail?",
+     "recibo de pago para la reserva sur",
+     "pagar la entrada antes de la reserva",
+     "la reserva se aprueba sin pago?",
+     "que documento de pago piden para reservar",
+     "pago y reserva en el tolima, orden",
+     "cuando verifican mi pago para la reserva",
+     "en el sur el pago tiene que estar verificado antes de evaluar la reserva",
+     "sin el recibo de pago no revisan la reserva del tolima"
+    ],
+    "hard_negatives": [
+     "qué datos piden para reservar",
+     "para la reserva necesito la cédula?"
+    ],
+    "needs": [],
+    "answer": {
+     "short": "En el sur el pago debe estar hecho y verificado para que el área evalúe tu reserva junto con los demás documentos; el soporte lo presenta tu operador con la solicitud (protocolo de 2023). Confirma el procedimiento vigente antes de pagar.",
+     "variants": [
+      "Según el protocolo sur de 2023, el pago debe estar hecho y verificado para que el área evalúe tu reserva junto con los demás documentos. El soporte de pago lo presenta tu operador con la solicitud. Confirma el procedimiento vigente antes de pagar."
+     ]
+    },
+    "sources": [
+     {
+      "label": "Protocolo de reservas zona sur, agosto 2023 · PNN",
+      "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2024/02/Protocolo-de-reservas-nevado-del-Tolima.pdf",
+      "retrieved_at": "2026-11-21"
+     }
+    ],
+    "last_verified": "2026-11-21",
+    "valid_until": null,
+    "related": [
+     "booking_fees.reservation_data_required",
+     "booking_fees.south_reservation_order"
+    ],
+    "tags": []
+   },
+   "evidence": [
+    {
+     "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2024/02/Protocolo-de-reservas-nevado-del-Tolima.pdf",
+     "path": "research_notes/Conocimiento turístico de Los Nevados/booking_fees/evidence/raw/protocolo_reservas_tolima_2024.txt",
+     "quote": "Después de ser efectuado y verificado el pago correspondiente según soporte presentado por la empresa de turismo interesada, se\n       evaluará con los demás soportes en el momento de la respectiva solicitud de reserva",
+     "checked_on": "2026-11-22"
+    }
+   ]
+  },
+  {
+   "op": "update",
+   "reason": "v2: apply the review required_change, restore the documented label, and attach the missing quote.",
+   "entry": {
+    "id": "booking_fees.student_admission_category",
+    "label": "estudiantes y colegios: tarifa o exención",
+    "kind": "rule",
+    "audience": "visitor",
+    "lang": "es",
+    "examples": [
+     "hay descuento para estudiantes",
+     "¿cuánto paga un universitario?",
+     "precio de entrada con carné estudiantil",
+     "tarifa estudiante en Los Nevados",
+     "soy estudiante, me cobran menos?",
+     "descuento por estudiar en Colombia",
+     "estudiante extranjero tiene otra tarifa",
+     "puedo usar el carné para pagar menos",
+     "Is there a student discount for park admission?",
+     "Does a student card change the entry fee?",
+     "toca mostrar el carné de la U para descuento?",
+     "soy estudiante y quiero saber mi tarifa",
+     "el carne de la universidad no es tarifa de estudiante"
+    ],
+    "hard_negatives": [
+     "hay descuento en la entrada del parque?",
+     "los niños pagan entrada?",
+     "las personas con discapacidad pagan entrada?"
+    ],
+    "needs": [],
+    "answer": {
+     "short": "La Resolución 551 del 19 de diciembre de 2025 no crea una tarifa de estudiante. Exime a estudiantes y profesores de programas de educación ambiental del parque, en temporada baja, si el jefe del área aprueba el ingreso con ocho días calendario de anticipación. Confirma el caso en parquesnacionales.gov.co.",
+     "variants": [
+      "Exime a estudiantes y profesores de programas de educación ambiental del parque, en temporada baja, si el jefe del área aprueba el ingreso con ocho días calendario de anticipación. Confirma el caso en parquesnacionales.gov.co. La Resolución 551 del 19 de diciembre de 2025 no crea una tarifa de estudiante."
+     ],
+     "detail": "La exención es el numeral 4 del artículo 13, sujeta a la capacidad de manejo del área. No cubre el seguro obligatorio."
+    },
+    "sources": [
+     {
+      "label": "Resolución 551 de 2025 · Parques Nacionales Naturales (copia PNN, texto digital)",
+      "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2026/02/RESOLUCION-551-DE-2025-ACTUALIZA-EL-VALOR-DERECHOS-DE-INGRESO-Y-SERVICIOS-COMPLEMENTARIOS-A-LAS-AREAS-PROTEGIDAS.pdf",
+      "retrieved_at": "2026-11-21"
+     }
+    ],
+    "last_verified": "2026-11-22",
+    "valid_until": null,
+    "related": [
+     "booking_fees.exempt_young_children_and_seniors",
+     "booking_fees.exempt_disability_visitors",
+     "booking_fees.under25_admission_fee"
+    ],
+    "tags": [
+     "estudiante",
+     "tarifa",
+     "descuento"
+    ]
+   },
+   "evidence": [
+    {
+     "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2026/02/RESOLUCION-551-DE-2025-ACTUALIZA-EL-VALOR-DERECHOS-DE-INGRESO-Y-SERVICIOS-COMPLEMENTARIOS-A-LAS-AREAS-PROTEGIDAS.pdf",
+     "path": "research_notes/Conocimiento turístico de Los Nevados/booking_fees/evidence/raw/resolucion-551-2025-pnn-2026-02.txt",
+     "quote": "Los estudiantes y profesores de instituciones públicas o privadas en el\nmarco de programas de educación ambiental desarrollados por el área\nprotegida en temporada baja y con previa revisión y aprobación del jefe del\nárea protegida.",
+     "checked_on": "2026-11-22"
+    },
+    {
+     "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2026/02/RESOLUCION-551-DE-2025-ACTUALIZA-EL-VALOR-DERECHOS-DE-INGRESO-Y-SERVICIOS-COMPLEMENTARIOS-A-LAS-AREAS-PROTEGIDAS.pdf",
+     "path": "research_notes/Conocimiento turístico de Los Nevados/booking_fees/evidence/raw/resolucion-551-2025-pnn-2026-02.txt",
+     "quote": "RESOLUCIÓN 551\n\nDE 19 DE DICIEMBRE DE 2025\n\n“Por medio de la cual se actualiza el valor de los derechos de ingreso y\nservicios complementarios a las áreas protegidas del Sistema de Parques\nNacionales Naturales de Colombia y se unifican disposiciones.”\n\nPara el\nParque Nacional Natural Los Corales del Rosario y San Bernardo la\ntemporada alta se contemplada para las siguientes fechas: entre el primero (1)\nde noviembre y treinta y uno (31) de enero, entre el quince (15) de junio y el\nquince (15) de agosto, semana santa.\nConsecuentemente, la temporada baja estará contemplada en las fechas que no\nse consideran temporada alta.\nVisitante: Persona autorizada por Parques Nacionales Naturales para ingresar en\nuna de las áreas del Sistema de Parques Nacionales Naturales, para visitar o\nrealizar una o varias de las actividades o servicios regulados por el administrador\ndel Sistema en un periodo definido y continuo.\nCAPÍTULO 5\nDEROGATORIA Y VIGENCIA\nARTÍCULO 21. – Publíquese esta resolución en el Diario Oficial y en el sitio de\ninternet de Parques Nacionales Naturales de Colombia.\nComuníquese a las\náreas protegidas mencionadas en esta resolución, a las respectivas Direcciones\nTerritoriales y a las Subdirecciones de la entidad.\nARTÍCULO 22. – La presente resolución rige a partir del primero de enero de\n2026 y deroga a partir de esta fecha las disposiciones que le sean contrarias,\nentre éstas, la Resolución 695 de 2024 .\nDada en Bogotá D.C., a los 19\n\ndías del mes de diciembre de 2025.",
+     "checked_on": "2026-11-22"
+    },
+    {
+     "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2026/02/RESOLUCION-551-DE-2025-ACTUALIZA-EL-VALOR-DERECHOS-DE-INGRESO-Y-SERVICIOS-COMPLEMENTARIOS-A-LAS-AREAS-PROTEGIDAS.pdf",
+     "path": "research_notes/Conocimiento turístico de Los Nevados/booking_fees/evidence/raw/resolucion-551-2025-pnn-2026-02.txt",
+     "quote": "Los estudiantes y profesores de instituciones públicas o privadas en el\nmarco de programas de educación ambiental desarrollados por el área\nprotegida en temporada baja",
+     "checked_on": "2026-11-22"
+    },
+    {
+     "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2026/02/RESOLUCION-551-DE-2025-ACTUALIZA-EL-VALOR-DERECHOS-DE-INGRESO-Y-SERVICIOS-COMPLEMENTARIOS-A-LAS-AREAS-PROTEGIDAS.pdf",
+     "path": "research_notes/Conocimiento turístico de Los Nevados/booking_fees/evidence/raw/resolucion-551-2025-pnn-2026-02.txt",
+     "quote": "numerales 2, 3, 4, 6, 9, 12, 13, 19 y 20 deberá acreditar la condición\ncorrespondiente con no menos de ocho (8) días calendario",
+     "checked_on": "2026-11-22"
+    }
+   ]
+  },
+  {
+   "op": "update",
+   "reason": "v2: apply the review required_change, restore the documented label, and attach the missing quote.",
+   "entry": {
+    "id": "booking_fees.vehicle_not_parking_fee",
+    "label": "pagar el carro no es parqueadero",
+    "kind": "rule",
+    "audience": "visitor",
+    "lang": "es",
+    "examples": [
+     "pago por dejar el carro en el parque?",
+     "lo del carro es pago de parqueadero o qué?",
+     "cobran parqueadero en los nevados",
+     "la tarifa del vehiculo es para estacionar?",
+     "dejo el carro en el parque, cobran por cuidarlo",
+     "is the car fee a parking fee?",
+     "me cobran por guardar el carro al entrar",
+     "tarifa de carro sirve para dejarlo parqueado",
+     "pago por el vehiculo o por estacionarlo",
+     "ese cobro del carro es por estacionarlo?",
+     "cobro de parqueo en el parque nacional",
+     "valor por carro, es solo entrada o parqueadero",
+     "pagar el vehiculo no incluye dejarlo guardado"
+    ],
+    "hard_negatives": [
+     "cuánto cuesta entrar en carro",
+     "precio del carro para ir a Brisas"
+    ],
+    "needs": [],
+    "answer": {
+     "short": "No: el valor por vehículo es el derecho de ingreso al área con un vehículo autorizado. No es un servicio de parqueo ni de estacionamiento, así que no pagas por dejarlo guardado. Dato de la Resolución 551 del 19 de diciembre de 2025; confirma en parquesnacionales.gov.co antes de salir.",
+     "variants": [
+      "No es un servicio de parqueo ni de estacionamiento, así que no pagas por dejarlo guardado. Dato de la Resolución 551 del 19 de diciembre de 2025; confirma en parquesnacionales.gov.co antes de salir. No: el valor por vehículo es el derecho de ingreso al área con un vehículo autorizado."
+     ]
+    },
+    "sources": [
+     {
+      "label": "Resolución 551 de 2025 · Parques Nacionales Naturales (copia PNN, texto digital)",
+      "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2026/02/RESOLUCION-551-DE-2025-ACTUALIZA-EL-VALOR-DERECHOS-DE-INGRESO-Y-SERVICIOS-COMPLEMENTARIOS-A-LAS-AREAS-PROTEGIDAS.pdf",
+      "retrieved_at": "2026-11-21"
+     }
+    ],
+    "last_verified": "2026-11-21",
+    "valid_until": null,
+    "related": [
+     "booking_fees.vehicle_entry_fee",
+     "booking_fees.entry_payment_channels"
+    ],
+    "tags": []
+   },
+   "evidence": [
+    {
+     "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2026/02/RESOLUCION-551-DE-2025-ACTUALIZA-EL-VALOR-DERECHOS-DE-INGRESO-Y-SERVICIOS-COMPLEMENTARIOS-A-LAS-AREAS-PROTEGIDAS.pdf",
+     "path": "research_notes/Conocimiento turístico de Los Nevados/booking_fees/evidence/raw/resolucion-551-2025-pnn-2026-02.txt",
+     "quote": "PARÁGRAFO 2: El valor por factor medio de transporte no constituye un servicio\nde parqueo o alquiler de estacionamiento; corresponde al derecho de ingreso\nal área protegida con un vehículo autorizado.",
+     "checked_on": "2026-11-22"
+    },
+    {
+     "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2026/02/RESOLUCION-551-DE-2025-ACTUALIZA-EL-VALOR-DERECHOS-DE-INGRESO-Y-SERVICIOS-COMPLEMENTARIOS-A-LAS-AREAS-PROTEGIDAS.pdf",
+     "path": "research_notes/Conocimiento turístico de Los Nevados/booking_fees/evidence/raw/resolucion-551-2025-pnn-2026-02.txt",
+     "quote": "PARÁGRAFO 2: El valor por factor medio de transporte no constituye un servicio\nde parqueo o alquiler de estacionamiento",
+     "checked_on": "2026-11-22"
+    }
+   ]
+  }
+ ]
+}

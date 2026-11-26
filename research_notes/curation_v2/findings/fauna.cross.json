@@ -1,0 +1,30 @@
+[
+  {
+    "ids": [
+      "health_safety.no_published_wildlife_protocol",
+      "fauna.injured_wildlife_protocol",
+      "rules.feed_wildlife"
+    ],
+    "problem": "El ejemplo 'debo coger un animal herido o dejarlo quieto' en health_safety.no_published_wildlife_protocol consulta directamente el protocolo de fauna herida que resuelve fauna.injured_wildlife_protocol según la Resolución 207 de 2023, generando solapamiento entre la seguridad del visitante y la protección de la fauna.",
+    "suggestion": "Mantener en health_safety el protocolo general de encuentros fortuitos (distancia, no correr, avisar al guía) y dejar en fauna.injured_wildlife_protocol la consulta específica sobre animales lastimados o crías. Se sugiere a health_safety incorporar '¿qué hago si encuentro un animal herido?' como hard negative."
+  },
+  {
+    "ids": [
+      "geography.sector_cisne_poleka",
+      "fauna.spotting_sector_santa_isabel",
+      "fauna.spotting_sector_otun"
+    ],
+    "problem": "Consultas genéricas sobre sectores como Cisne-Poleka Kasue o Laguna del Otún pueden enrutar entre la descripción geográfica del sector y el avistamiento de fauna y flora en dicho sector.",
+    "suggestion": "Geography debe retener la altitud, límites y acceso del sector geográfico, mientras que fauna responde exclusivamente qué especies de fauna y aves se avistan allí."
+  },
+  {
+    "ids": [
+      "rules.no_hunting",
+      "rules.pets",
+      "fauna.fauna_overview",
+      "fauna.injured_wildlife_protocol"
+    ],
+    "problem": "Prohibiciones de interacción (caza, ingreso de perros, captura de fauna) rozan con las directrices de la Resolución 207 de 2023 en fauna (no tocar, no alimentar, no desplazar).",
+    "suggestion": "Rules conserva el régimen sancionatorio y prohibición legal estricta; fauna entrega la información biológica y la directriz de manejo de animales silvestres."
+  }
+]

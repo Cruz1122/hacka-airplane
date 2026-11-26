@@ -1,0 +1,1715 @@
+{
+  "title": "Before curation v2 historical evaluation",
+  "label": "LEGACY / NOT BLIND",
+  "dataset": "data/knowledge/laya_ft/eval.jsonl",
+  "rows": 1790,
+  "answerable_rows": 1630,
+  "configuration": {
+    "embedder": "intfloat/multilingual-e5-base",
+    "gateway_delta": 0.05,
+    "gateway_max_sections": 5,
+    "pool_k": 5,
+    "laya_model": "models/laya_ft_A/onnx/laya_ft.gather_only.onnx",
+    "laya_description": "ONNX int8 embedding Gather with fp32 layers",
+    "tau_gate": -1.0,
+    "tau_gate_note": "PLAN leaves the numeric floor unspecified; -1.0 disables the absolute floor, retaining top-minus-0.05 gating."
+  },
+  "threshold_calibration": "Not fitted on historical rows. Sealed evaluation will fit thresholds on dev_gate only and report test_blind.",
+  "option_order_robustness": "Deterministic first 200 legacy rows; report sampled answerable n and Wilson interval.",
+  "results": {
+    "flat": {
+      "e5": {
+        "label": "LEGACY_NOT_BLIND",
+        "sections_dir": "research_notes/curation_v2/snapshots/sections_before",
+        "retrieval_mode": "flat",
+        "k": 5,
+        "laya": "none",
+        "n": 1790,
+        "metrics": {
+          "recall@1": {
+            "k": 1031,
+            "n": 1630,
+            "rate": 0.6325,
+            "lo": 0.6088,
+            "hi": 0.6556
+          },
+          "recall@3": {
+            "k": 1339,
+            "n": 1630,
+            "rate": 0.8215,
+            "lo": 0.8021,
+            "hi": 0.8393
+          },
+          "recall@5": {
+            "k": 1428,
+            "n": 1630,
+            "rate": 0.8761,
+            "lo": 0.8592,
+            "hi": 0.8912
+          },
+          "e5_global_recall@1": {
+            "k": 1031,
+            "n": 1630,
+            "rate": 0.6325,
+            "lo": 0.6088,
+            "hi": 0.6556
+          },
+          "e5_global_recall@3": {
+            "k": 1339,
+            "n": 1630,
+            "rate": 0.8215,
+            "lo": 0.8021,
+            "hi": 0.8393
+          },
+          "e5_global_recall@5": {
+            "k": 1428,
+            "n": 1630,
+            "rate": 0.8761,
+            "lo": 0.8592,
+            "hi": 0.8912
+          },
+          "gateway_section_recall": {
+            "k": 0,
+            "n": 1630,
+            "rate": 0.0,
+            "lo": 0.0,
+            "hi": 0.0024
+          },
+          "e5_only_accuracy": {
+            "k": 1031,
+            "n": 1630,
+            "rate": 0.6325,
+            "lo": 0.6088,
+            "hi": 0.6556
+          },
+          "selected_accuracy": {
+            "k": 1031,
+            "n": 1630,
+            "rate": 0.6325,
+            "lo": 0.6088,
+            "hi": 0.6556
+          },
+          "rerank_accuracy_when_valid_in_pool": {
+            "k": 1031,
+            "n": 1428,
+            "rate": 0.722,
+            "lo": 0.6982,
+            "hi": 0.7446
+          },
+          "none_rejection_rate": {
+            "k": 0,
+            "n": 160,
+            "rate": 0.0,
+            "lo": -0.0,
+            "hi": 0.0234
+          },
+          "false_rejections": 0,
+          "false_rejection_rate": {
+            "k": 0,
+            "n": 1630,
+            "rate": 0.0,
+            "lo": 0.0,
+            "hi": 0.0024
+          },
+          "accepted_answer_precision": {
+            "k": 1034,
+            "n": 1790,
+            "rate": 0.5777,
+            "lo": 0.5546,
+            "hi": 0.6003
+          },
+          "coverage": {
+            "k": 1790,
+            "n": 1790,
+            "rate": 1.0,
+            "lo": 0.9979,
+            "hi": 1.0
+          }
+        },
+        "breakdown": {
+          "scenario": {
+            "near_miss": {
+              "n": 0,
+              "accuracy": {
+                "k": 0,
+                "n": 0,
+                "rate": null,
+                "lo": null,
+                "hi": null
+              }
+            },
+            "out_of_scope": {
+              "n": 0,
+              "accuracy": {
+                "k": 0,
+                "n": 0,
+                "rate": null,
+                "lo": null,
+                "hi": null
+              }
+            },
+            "paraphrase": {
+              "n": 1630,
+              "accuracy": {
+                "k": 1031,
+                "n": 1630,
+                "rate": 0.6325,
+                "lo": 0.6088,
+                "hi": 0.6556
+              }
+            }
+          },
+          "section": {
+            "access": {
+              "n": 158,
+              "accuracy": {
+                "k": 88,
+                "n": 158,
+                "rate": 0.557,
+                "lo": 0.4791,
+                "hi": 0.6322
+              }
+            },
+            "actions": {
+              "n": 20,
+              "accuracy": {
+                "k": 14,
+                "n": 20,
+                "rate": 0.7,
+                "lo": 0.481,
+                "hi": 0.8545
+              }
+            },
+            "activities": {
+              "n": 140,
+              "accuracy": {
+                "k": 93,
+                "n": 140,
+                "rate": 0.6643,
+                "lo": 0.5826,
+                "hi": 0.7372
+              }
+            },
+            "booking_fees": {
+              "n": 135,
+              "accuracy": {
+                "k": 93,
+                "n": 135,
+                "rate": 0.6889,
+                "lo": 0.6065,
+                "hi": 0.7608
+              }
+            },
+            "conversation": {
+              "n": 60,
+              "accuracy": {
+                "k": 39,
+                "n": 60,
+                "rate": 0.65,
+                "lo": 0.5236,
+                "hi": 0.7583
+              }
+            },
+            "fauna": {
+              "n": 140,
+              "accuracy": {
+                "k": 97,
+                "n": 140,
+                "rate": 0.6929,
+                "lo": 0.6121,
+                "hi": 0.7633
+              }
+            },
+            "flora_ecosystems": {
+              "n": 136,
+              "accuracy": {
+                "k": 91,
+                "n": 136,
+                "rate": 0.6691,
+                "lo": 0.5863,
+                "hi": 0.7426
+              }
+            },
+            "geography": {
+              "n": 124,
+              "accuracy": {
+                "k": 94,
+                "n": 124,
+                "rate": 0.7581,
+                "lo": 0.6757,
+                "hi": 0.825
+              }
+            },
+            "health_safety": {
+              "n": 139,
+              "accuracy": {
+                "k": 67,
+                "n": 139,
+                "rate": 0.482,
+                "lo": 0.4006,
+                "hi": 0.5644
+              }
+            },
+            "history_culture": {
+              "n": 118,
+              "accuracy": {
+                "k": 76,
+                "n": 118,
+                "rate": 0.6441,
+                "lo": 0.5544,
+                "hi": 0.7247
+              }
+            },
+            "hours_status": {
+              "n": 82,
+              "accuracy": {
+                "k": 52,
+                "n": 82,
+                "rate": 0.6341,
+                "lo": 0.5261,
+                "hi": 0.7302
+              }
+            },
+            "preparation": {
+              "n": 68,
+              "accuracy": {
+                "k": 42,
+                "n": 68,
+                "rate": 0.6176,
+                "lo": 0.4988,
+                "hi": 0.7239
+              }
+            },
+            "rules": {
+              "n": 146,
+              "accuracy": {
+                "k": 81,
+                "n": 146,
+                "rate": 0.5548,
+                "lo": 0.4738,
+                "hi": 0.633
+              }
+            },
+            "services": {
+              "n": 52,
+              "accuracy": {
+                "k": 31,
+                "n": 52,
+                "rate": 0.5962,
+                "lo": 0.4607,
+                "hi": 0.7184
+              }
+            },
+            "unknown": {
+              "n": 0,
+              "accuracy": {
+                "k": 0,
+                "n": 0,
+                "rate": null,
+                "lo": null,
+                "hi": null
+              }
+            },
+            "weather_volcano": {
+              "n": 112,
+              "accuracy": {
+                "k": 73,
+                "n": 112,
+                "rate": 0.6518,
+                "lo": 0.5599,
+                "hi": 0.7337
+              }
+            }
+          }
+        },
+        "option_order_robustness": {
+          "sampled_rows": 0,
+          "result": {
+            "k": 1630,
+            "n": 1630,
+            "rate": 1.0,
+            "lo": 0.9976,
+            "hi": 1.0
+          }
+        },
+        "unseen_topic": {
+          "recall@1": {
+            "k": 105,
+            "n": 162,
+            "rate": 0.6481,
+            "lo": 0.572,
+            "hi": 0.7175
+          },
+          "recall@3": {
+            "k": 139,
+            "n": 162,
+            "rate": 0.858,
+            "lo": 0.796,
+            "hi": 0.9035
+          },
+          "recall@5": {
+            "k": 143,
+            "n": 162,
+            "rate": 0.8827,
+            "lo": 0.8241,
+            "hi": 0.9236
+          },
+          "e5_global_recall@1": {
+            "k": 105,
+            "n": 162,
+            "rate": 0.6481,
+            "lo": 0.572,
+            "hi": 0.7175
+          },
+          "e5_global_recall@3": {
+            "k": 139,
+            "n": 162,
+            "rate": 0.858,
+            "lo": 0.796,
+            "hi": 0.9035
+          },
+          "e5_global_recall@5": {
+            "k": 143,
+            "n": 162,
+            "rate": 0.8827,
+            "lo": 0.8241,
+            "hi": 0.9236
+          },
+          "gateway_section_recall": {
+            "k": 0,
+            "n": 162,
+            "rate": 0.0,
+            "lo": -0.0,
+            "hi": 0.0232
+          },
+          "e5_only_accuracy": {
+            "k": 105,
+            "n": 162,
+            "rate": 0.6481,
+            "lo": 0.572,
+            "hi": 0.7175
+          },
+          "selected_accuracy": {
+            "k": 105,
+            "n": 162,
+            "rate": 0.6481,
+            "lo": 0.572,
+            "hi": 0.7175
+          },
+          "rerank_accuracy_when_valid_in_pool": {
+            "k": 105,
+            "n": 143,
+            "rate": 0.7343,
+            "lo": 0.6564,
+            "hi": 0.7998
+          },
+          "none_rejection_rate": {
+            "k": 0,
+            "n": 0,
+            "rate": null,
+            "lo": null,
+            "hi": null
+          },
+          "false_rejections": 0,
+          "false_rejection_rate": {
+            "k": 0,
+            "n": 162,
+            "rate": 0.0,
+            "lo": -0.0,
+            "hi": 0.0232
+          },
+          "accepted_answer_precision": {
+            "k": 105,
+            "n": 162,
+            "rate": 0.6481,
+            "lo": 0.572,
+            "hi": 0.7175
+          },
+          "coverage": {
+            "k": 162,
+            "n": 162,
+            "rate": 1.0,
+            "lo": 0.9768,
+            "hi": 1.0
+          }
+        },
+        "laptop_latency_ms": {
+          "label": "LAPTOP",
+          "p50": null,
+          "p95": null,
+          "n": 0
+        }
+      },
+      "laya_plus_cos": {
+        "label": "LEGACY_NOT_BLIND",
+        "sections_dir": "research_notes/curation_v2/snapshots/sections_before",
+        "retrieval_mode": "flat",
+        "k": 5,
+        "laya": "int8_gather",
+        "n": 1790,
+        "metrics": {
+          "recall@1": {
+            "k": 1031,
+            "n": 1630,
+            "rate": 0.6325,
+            "lo": 0.6088,
+            "hi": 0.6556
+          },
+          "recall@3": {
+            "k": 1339,
+            "n": 1630,
+            "rate": 0.8215,
+            "lo": 0.8021,
+            "hi": 0.8393
+          },
+          "recall@5": {
+            "k": 1428,
+            "n": 1630,
+            "rate": 0.8761,
+            "lo": 0.8592,
+            "hi": 0.8912
+          },
+          "e5_global_recall@1": {
+            "k": 1031,
+            "n": 1630,
+            "rate": 0.6325,
+            "lo": 0.6088,
+            "hi": 0.6556
+          },
+          "e5_global_recall@3": {
+            "k": 1339,
+            "n": 1630,
+            "rate": 0.8215,
+            "lo": 0.8021,
+            "hi": 0.8393
+          },
+          "e5_global_recall@5": {
+            "k": 1428,
+            "n": 1630,
+            "rate": 0.8761,
+            "lo": 0.8592,
+            "hi": 0.8912
+          },
+          "gateway_section_recall": {
+            "k": 0,
+            "n": 1630,
+            "rate": 0.0,
+            "lo": 0.0,
+            "hi": 0.0024
+          },
+          "e5_only_accuracy": {
+            "k": 1031,
+            "n": 1630,
+            "rate": 0.6325,
+            "lo": 0.6088,
+            "hi": 0.6556
+          },
+          "selected_accuracy": {
+            "k": 1129,
+            "n": 1630,
+            "rate": 0.6926,
+            "lo": 0.6698,
+            "hi": 0.7146
+          },
+          "rerank_accuracy_when_valid_in_pool": {
+            "k": 1129,
+            "n": 1428,
+            "rate": 0.7906,
+            "lo": 0.7687,
+            "hi": 0.8109
+          },
+          "none_rejection_rate": {
+            "k": 88,
+            "n": 160,
+            "rate": 0.55,
+            "lo": 0.4726,
+            "hi": 0.625
+          },
+          "false_rejections": 436,
+          "false_rejection_rate": {
+            "k": 436,
+            "n": 1630,
+            "rate": 0.2675,
+            "lo": 0.2466,
+            "hi": 0.2895
+          },
+          "accepted_answer_precision": {
+            "k": 941,
+            "n": 1266,
+            "rate": 0.7433,
+            "lo": 0.7185,
+            "hi": 0.7666
+          },
+          "coverage": {
+            "k": 1266,
+            "n": 1790,
+            "rate": 0.7073,
+            "lo": 0.6858,
+            "hi": 0.7279
+          }
+        },
+        "breakdown": {
+          "scenario": {
+            "near_miss": {
+              "n": 0,
+              "accuracy": {
+                "k": 0,
+                "n": 0,
+                "rate": null,
+                "lo": null,
+                "hi": null
+              }
+            },
+            "out_of_scope": {
+              "n": 0,
+              "accuracy": {
+                "k": 0,
+                "n": 0,
+                "rate": null,
+                "lo": null,
+                "hi": null
+              }
+            },
+            "paraphrase": {
+              "n": 1630,
+              "accuracy": {
+                "k": 1129,
+                "n": 1630,
+                "rate": 0.6926,
+                "lo": 0.6698,
+                "hi": 0.7146
+              }
+            }
+          },
+          "section": {
+            "access": {
+              "n": 158,
+              "accuracy": {
+                "k": 101,
+                "n": 158,
+                "rate": 0.6392,
+                "lo": 0.5619,
+                "hi": 0.71
+              }
+            },
+            "actions": {
+              "n": 20,
+              "accuracy": {
+                "k": 16,
+                "n": 20,
+                "rate": 0.8,
+                "lo": 0.584,
+                "hi": 0.9193
+              }
+            },
+            "activities": {
+              "n": 140,
+              "accuracy": {
+                "k": 105,
+                "n": 140,
+                "rate": 0.75,
+                "lo": 0.6722,
+                "hi": 0.8144
+              }
+            },
+            "booking_fees": {
+              "n": 135,
+              "accuracy": {
+                "k": 99,
+                "n": 135,
+                "rate": 0.7333,
+                "lo": 0.653,
+                "hi": 0.8007
+              }
+            },
+            "conversation": {
+              "n": 60,
+              "accuracy": {
+                "k": 49,
+                "n": 60,
+                "rate": 0.8167,
+                "lo": 0.7008,
+                "hi": 0.8944
+              }
+            },
+            "fauna": {
+              "n": 140,
+              "accuracy": {
+                "k": 100,
+                "n": 140,
+                "rate": 0.7143,
+                "lo": 0.6345,
+                "hi": 0.7826
+              }
+            },
+            "flora_ecosystems": {
+              "n": 136,
+              "accuracy": {
+                "k": 100,
+                "n": 136,
+                "rate": 0.7353,
+                "lo": 0.6554,
+                "hi": 0.8022
+              }
+            },
+            "geography": {
+              "n": 124,
+              "accuracy": {
+                "k": 90,
+                "n": 124,
+                "rate": 0.7258,
+                "lo": 0.6414,
+                "hi": 0.7967
+              }
+            },
+            "health_safety": {
+              "n": 139,
+              "accuracy": {
+                "k": 78,
+                "n": 139,
+                "rate": 0.5612,
+                "lo": 0.4781,
+                "hi": 0.6409
+              }
+            },
+            "history_culture": {
+              "n": 118,
+              "accuracy": {
+                "k": 86,
+                "n": 118,
+                "rate": 0.7288,
+                "lo": 0.6423,
+                "hi": 0.8009
+              }
+            },
+            "hours_status": {
+              "n": 82,
+              "accuracy": {
+                "k": 60,
+                "n": 82,
+                "rate": 0.7317,
+                "lo": 0.627,
+                "hi": 0.8156
+              }
+            },
+            "preparation": {
+              "n": 68,
+              "accuracy": {
+                "k": 38,
+                "n": 68,
+                "rate": 0.5588,
+                "lo": 0.4408,
+                "hi": 0.6705
+              }
+            },
+            "rules": {
+              "n": 146,
+              "accuracy": {
+                "k": 90,
+                "n": 146,
+                "rate": 0.6164,
+                "lo": 0.5355,
+                "hi": 0.6914
+              }
+            },
+            "services": {
+              "n": 52,
+              "accuracy": {
+                "k": 40,
+                "n": 52,
+                "rate": 0.7692,
+                "lo": 0.6387,
+                "hi": 0.8628
+              }
+            },
+            "unknown": {
+              "n": 0,
+              "accuracy": {
+                "k": 0,
+                "n": 0,
+                "rate": null,
+                "lo": null,
+                "hi": null
+              }
+            },
+            "weather_volcano": {
+              "n": 112,
+              "accuracy": {
+                "k": 77,
+                "n": 112,
+                "rate": 0.6875,
+                "lo": 0.5966,
+                "hi": 0.7659
+              }
+            }
+          }
+        },
+        "option_order_robustness": {
+          "sampled_rows": 200,
+          "result": {
+            "k": 36,
+            "n": 40,
+            "rate": 0.9,
+            "lo": 0.7695,
+            "hi": 0.9604
+          }
+        },
+        "unseen_topic": {
+          "recall@1": {
+            "k": 105,
+            "n": 162,
+            "rate": 0.6481,
+            "lo": 0.572,
+            "hi": 0.7175
+          },
+          "recall@3": {
+            "k": 139,
+            "n": 162,
+            "rate": 0.858,
+            "lo": 0.796,
+            "hi": 0.9035
+          },
+          "recall@5": {
+            "k": 143,
+            "n": 162,
+            "rate": 0.8827,
+            "lo": 0.8241,
+            "hi": 0.9236
+          },
+          "e5_global_recall@1": {
+            "k": 105,
+            "n": 162,
+            "rate": 0.6481,
+            "lo": 0.572,
+            "hi": 0.7175
+          },
+          "e5_global_recall@3": {
+            "k": 139,
+            "n": 162,
+            "rate": 0.858,
+            "lo": 0.796,
+            "hi": 0.9035
+          },
+          "e5_global_recall@5": {
+            "k": 143,
+            "n": 162,
+            "rate": 0.8827,
+            "lo": 0.8241,
+            "hi": 0.9236
+          },
+          "gateway_section_recall": {
+            "k": 0,
+            "n": 162,
+            "rate": 0.0,
+            "lo": -0.0,
+            "hi": 0.0232
+          },
+          "e5_only_accuracy": {
+            "k": 105,
+            "n": 162,
+            "rate": 0.6481,
+            "lo": 0.572,
+            "hi": 0.7175
+          },
+          "selected_accuracy": {
+            "k": 98,
+            "n": 162,
+            "rate": 0.6049,
+            "lo": 0.5281,
+            "hi": 0.677
+          },
+          "rerank_accuracy_when_valid_in_pool": {
+            "k": 98,
+            "n": 143,
+            "rate": 0.6853,
+            "lo": 0.6052,
+            "hi": 0.7557
+          },
+          "none_rejection_rate": {
+            "k": 0,
+            "n": 0,
+            "rate": null,
+            "lo": null,
+            "hi": null
+          },
+          "false_rejections": 50,
+          "false_rejection_rate": {
+            "k": 50,
+            "n": 162,
+            "rate": 0.3086,
+            "lo": 0.2426,
+            "hi": 0.3835
+          },
+          "accepted_answer_precision": {
+            "k": 79,
+            "n": 112,
+            "rate": 0.7054,
+            "lo": 0.6152,
+            "hi": 0.7818
+          },
+          "coverage": {
+            "k": 112,
+            "n": 162,
+            "rate": 0.6914,
+            "lo": 0.6165,
+            "hi": 0.7574
+          }
+        },
+        "laptop_latency_ms": {
+          "label": "LAPTOP",
+          "p50": 194.9,
+          "p95": 254.2,
+          "n": 1790,
+          "scope": "Laya ONNX inference only; retrieval/embed excluded"
+        }
+      }
+    },
+    "gateway": {
+      "e5": {
+        "label": "LEGACY_NOT_BLIND",
+        "sections_dir": "research_notes/curation_v2/snapshots/sections_before",
+        "retrieval_mode": "gateway",
+        "k": 5,
+        "laya": "none",
+        "n": 1790,
+        "metrics": {
+          "recall@1": {
+            "k": 1031,
+            "n": 1630,
+            "rate": 0.6325,
+            "lo": 0.6088,
+            "hi": 0.6556
+          },
+          "recall@3": {
+            "k": 1322,
+            "n": 1630,
+            "rate": 0.811,
+            "lo": 0.7913,
+            "hi": 0.8293
+          },
+          "recall@5": {
+            "k": 1379,
+            "n": 1630,
+            "rate": 0.846,
+            "lo": 0.8277,
+            "hi": 0.8627
+          },
+          "e5_global_recall@1": {
+            "k": 1031,
+            "n": 1630,
+            "rate": 0.6325,
+            "lo": 0.6088,
+            "hi": 0.6556
+          },
+          "e5_global_recall@3": {
+            "k": 1339,
+            "n": 1630,
+            "rate": 0.8215,
+            "lo": 0.8021,
+            "hi": 0.8393
+          },
+          "e5_global_recall@5": {
+            "k": 1428,
+            "n": 1630,
+            "rate": 0.8761,
+            "lo": 0.8592,
+            "hi": 0.8912
+          },
+          "gateway_section_recall": {
+            "k": 1589,
+            "n": 1630,
+            "rate": 0.9748,
+            "lo": 0.9661,
+            "hi": 0.9814
+          },
+          "e5_only_accuracy": {
+            "k": 1031,
+            "n": 1630,
+            "rate": 0.6325,
+            "lo": 0.6088,
+            "hi": 0.6556
+          },
+          "selected_accuracy": {
+            "k": 1031,
+            "n": 1630,
+            "rate": 0.6325,
+            "lo": 0.6088,
+            "hi": 0.6556
+          },
+          "rerank_accuracy_when_valid_in_pool": {
+            "k": 1031,
+            "n": 1379,
+            "rate": 0.7476,
+            "lo": 0.7241,
+            "hi": 0.7699
+          },
+          "none_rejection_rate": {
+            "k": 0,
+            "n": 160,
+            "rate": 0.0,
+            "lo": -0.0,
+            "hi": 0.0234
+          },
+          "false_rejections": 0,
+          "false_rejection_rate": {
+            "k": 0,
+            "n": 1630,
+            "rate": 0.0,
+            "lo": 0.0,
+            "hi": 0.0024
+          },
+          "accepted_answer_precision": {
+            "k": 1034,
+            "n": 1790,
+            "rate": 0.5777,
+            "lo": 0.5546,
+            "hi": 0.6003
+          },
+          "coverage": {
+            "k": 1790,
+            "n": 1790,
+            "rate": 1.0,
+            "lo": 0.9979,
+            "hi": 1.0
+          }
+        },
+        "breakdown": {
+          "scenario": {
+            "near_miss": {
+              "n": 0,
+              "accuracy": {
+                "k": 0,
+                "n": 0,
+                "rate": null,
+                "lo": null,
+                "hi": null
+              }
+            },
+            "out_of_scope": {
+              "n": 0,
+              "accuracy": {
+                "k": 0,
+                "n": 0,
+                "rate": null,
+                "lo": null,
+                "hi": null
+              }
+            },
+            "paraphrase": {
+              "n": 1630,
+              "accuracy": {
+                "k": 1031,
+                "n": 1630,
+                "rate": 0.6325,
+                "lo": 0.6088,
+                "hi": 0.6556
+              }
+            }
+          },
+          "section": {
+            "access": {
+              "n": 158,
+              "accuracy": {
+                "k": 88,
+                "n": 158,
+                "rate": 0.557,
+                "lo": 0.4791,
+                "hi": 0.6322
+              }
+            },
+            "actions": {
+              "n": 20,
+              "accuracy": {
+                "k": 14,
+                "n": 20,
+                "rate": 0.7,
+                "lo": 0.481,
+                "hi": 0.8545
+              }
+            },
+            "activities": {
+              "n": 140,
+              "accuracy": {
+                "k": 93,
+                "n": 140,
+                "rate": 0.6643,
+                "lo": 0.5826,
+                "hi": 0.7372
+              }
+            },
+            "booking_fees": {
+              "n": 135,
+              "accuracy": {
+                "k": 93,
+                "n": 135,
+                "rate": 0.6889,
+                "lo": 0.6065,
+                "hi": 0.7608
+              }
+            },
+            "conversation": {
+              "n": 60,
+              "accuracy": {
+                "k": 39,
+                "n": 60,
+                "rate": 0.65,
+                "lo": 0.5236,
+                "hi": 0.7583
+              }
+            },
+            "fauna": {
+              "n": 140,
+              "accuracy": {
+                "k": 97,
+                "n": 140,
+                "rate": 0.6929,
+                "lo": 0.6121,
+                "hi": 0.7633
+              }
+            },
+            "flora_ecosystems": {
+              "n": 136,
+              "accuracy": {
+                "k": 91,
+                "n": 136,
+                "rate": 0.6691,
+                "lo": 0.5863,
+                "hi": 0.7426
+              }
+            },
+            "geography": {
+              "n": 124,
+              "accuracy": {
+                "k": 94,
+                "n": 124,
+                "rate": 0.7581,
+                "lo": 0.6757,
+                "hi": 0.825
+              }
+            },
+            "health_safety": {
+              "n": 139,
+              "accuracy": {
+                "k": 67,
+                "n": 139,
+                "rate": 0.482,
+                "lo": 0.4006,
+                "hi": 0.5644
+              }
+            },
+            "history_culture": {
+              "n": 118,
+              "accuracy": {
+                "k": 76,
+                "n": 118,
+                "rate": 0.6441,
+                "lo": 0.5544,
+                "hi": 0.7247
+              }
+            },
+            "hours_status": {
+              "n": 82,
+              "accuracy": {
+                "k": 52,
+                "n": 82,
+                "rate": 0.6341,
+                "lo": 0.5261,
+                "hi": 0.7302
+              }
+            },
+            "preparation": {
+              "n": 68,
+              "accuracy": {
+                "k": 42,
+                "n": 68,
+                "rate": 0.6176,
+                "lo": 0.4988,
+                "hi": 0.7239
+              }
+            },
+            "rules": {
+              "n": 146,
+              "accuracy": {
+                "k": 81,
+                "n": 146,
+                "rate": 0.5548,
+                "lo": 0.4738,
+                "hi": 0.633
+              }
+            },
+            "services": {
+              "n": 52,
+              "accuracy": {
+                "k": 31,
+                "n": 52,
+                "rate": 0.5962,
+                "lo": 0.4607,
+                "hi": 0.7184
+              }
+            },
+            "unknown": {
+              "n": 0,
+              "accuracy": {
+                "k": 0,
+                "n": 0,
+                "rate": null,
+                "lo": null,
+                "hi": null
+              }
+            },
+            "weather_volcano": {
+              "n": 112,
+              "accuracy": {
+                "k": 73,
+                "n": 112,
+                "rate": 0.6518,
+                "lo": 0.5599,
+                "hi": 0.7337
+              }
+            }
+          }
+        },
+        "option_order_robustness": {
+          "sampled_rows": 0,
+          "result": {
+            "k": 1630,
+            "n": 1630,
+            "rate": 1.0,
+            "lo": 0.9976,
+            "hi": 1.0
+          }
+        },
+        "unseen_topic": {
+          "recall@1": {
+            "k": 105,
+            "n": 162,
+            "rate": 0.6481,
+            "lo": 0.572,
+            "hi": 0.7175
+          },
+          "recall@3": {
+            "k": 138,
+            "n": 162,
+            "rate": 0.8519,
+            "lo": 0.789,
+            "hi": 0.8984
+          },
+          "recall@5": {
+            "k": 140,
+            "n": 162,
+            "rate": 0.8642,
+            "lo": 0.8029,
+            "hi": 0.9086
+          },
+          "e5_global_recall@1": {
+            "k": 105,
+            "n": 162,
+            "rate": 0.6481,
+            "lo": 0.572,
+            "hi": 0.7175
+          },
+          "e5_global_recall@3": {
+            "k": 139,
+            "n": 162,
+            "rate": 0.858,
+            "lo": 0.796,
+            "hi": 0.9035
+          },
+          "e5_global_recall@5": {
+            "k": 143,
+            "n": 162,
+            "rate": 0.8827,
+            "lo": 0.8241,
+            "hi": 0.9236
+          },
+          "gateway_section_recall": {
+            "k": 158,
+            "n": 162,
+            "rate": 0.9753,
+            "lo": 0.9382,
+            "hi": 0.9904
+          },
+          "e5_only_accuracy": {
+            "k": 105,
+            "n": 162,
+            "rate": 0.6481,
+            "lo": 0.572,
+            "hi": 0.7175
+          },
+          "selected_accuracy": {
+            "k": 105,
+            "n": 162,
+            "rate": 0.6481,
+            "lo": 0.572,
+            "hi": 0.7175
+          },
+          "rerank_accuracy_when_valid_in_pool": {
+            "k": 105,
+            "n": 140,
+            "rate": 0.75,
+            "lo": 0.6722,
+            "hi": 0.8144
+          },
+          "none_rejection_rate": {
+            "k": 0,
+            "n": 0,
+            "rate": null,
+            "lo": null,
+            "hi": null
+          },
+          "false_rejections": 0,
+          "false_rejection_rate": {
+            "k": 0,
+            "n": 162,
+            "rate": 0.0,
+            "lo": -0.0,
+            "hi": 0.0232
+          },
+          "accepted_answer_precision": {
+            "k": 105,
+            "n": 162,
+            "rate": 0.6481,
+            "lo": 0.572,
+            "hi": 0.7175
+          },
+          "coverage": {
+            "k": 162,
+            "n": 162,
+            "rate": 1.0,
+            "lo": 0.9768,
+            "hi": 1.0
+          }
+        },
+        "laptop_latency_ms": {
+          "label": "LAPTOP",
+          "p50": null,
+          "p95": null,
+          "n": 0
+        }
+      },
+      "laya_plus_cos": {
+        "label": "LEGACY_NOT_BLIND",
+        "sections_dir": "research_notes/curation_v2/snapshots/sections_before",
+        "retrieval_mode": "gateway",
+        "k": 5,
+        "laya": "int8_gather",
+        "n": 1790,
+        "metrics": {
+          "recall@1": {
+            "k": 1031,
+            "n": 1630,
+            "rate": 0.6325,
+            "lo": 0.6088,
+            "hi": 0.6556
+          },
+          "recall@3": {
+            "k": 1322,
+            "n": 1630,
+            "rate": 0.811,
+            "lo": 0.7913,
+            "hi": 0.8293
+          },
+          "recall@5": {
+            "k": 1379,
+            "n": 1630,
+            "rate": 0.846,
+            "lo": 0.8277,
+            "hi": 0.8627
+          },
+          "e5_global_recall@1": {
+            "k": 1031,
+            "n": 1630,
+            "rate": 0.6325,
+            "lo": 0.6088,
+            "hi": 0.6556
+          },
+          "e5_global_recall@3": {
+            "k": 1339,
+            "n": 1630,
+            "rate": 0.8215,
+            "lo": 0.8021,
+            "hi": 0.8393
+          },
+          "e5_global_recall@5": {
+            "k": 1428,
+            "n": 1630,
+            "rate": 0.8761,
+            "lo": 0.8592,
+            "hi": 0.8912
+          },
+          "gateway_section_recall": {
+            "k": 1589,
+            "n": 1630,
+            "rate": 0.9748,
+            "lo": 0.9661,
+            "hi": 0.9814
+          },
+          "e5_only_accuracy": {
+            "k": 1031,
+            "n": 1630,
+            "rate": 0.6325,
+            "lo": 0.6088,
+            "hi": 0.6556
+          },
+          "selected_accuracy": {
+            "k": 1127,
+            "n": 1630,
+            "rate": 0.6914,
+            "lo": 0.6686,
+            "hi": 0.7134
+          },
+          "rerank_accuracy_when_valid_in_pool": {
+            "k": 1127,
+            "n": 1379,
+            "rate": 0.8173,
+            "lo": 0.796,
+            "hi": 0.8368
+          },
+          "none_rejection_rate": {
+            "k": 91,
+            "n": 160,
+            "rate": 0.5687,
+            "lo": 0.4913,
+            "hi": 0.643
+          },
+          "false_rejections": 472,
+          "false_rejection_rate": {
+            "k": 472,
+            "n": 1630,
+            "rate": 0.2896,
+            "lo": 0.2681,
+            "hi": 0.3121
+          },
+          "accepted_answer_precision": {
+            "k": 920,
+            "n": 1227,
+            "rate": 0.7498,
+            "lo": 0.7248,
+            "hi": 0.7732
+          },
+          "coverage": {
+            "k": 1227,
+            "n": 1790,
+            "rate": 0.6855,
+            "lo": 0.6636,
+            "hi": 0.7066
+          }
+        },
+        "breakdown": {
+          "scenario": {
+            "near_miss": {
+              "n": 0,
+              "accuracy": {
+                "k": 0,
+                "n": 0,
+                "rate": null,
+                "lo": null,
+                "hi": null
+              }
+            },
+            "out_of_scope": {
+              "n": 0,
+              "accuracy": {
+                "k": 0,
+                "n": 0,
+                "rate": null,
+                "lo": null,
+                "hi": null
+              }
+            },
+            "paraphrase": {
+              "n": 1630,
+              "accuracy": {
+                "k": 1127,
+                "n": 1630,
+                "rate": 0.6914,
+                "lo": 0.6686,
+                "hi": 0.7134
+              }
+            }
+          },
+          "section": {
+            "access": {
+              "n": 158,
+              "accuracy": {
+                "k": 94,
+                "n": 158,
+                "rate": 0.5949,
+                "lo": 0.517,
+                "hi": 0.6683
+              }
+            },
+            "actions": {
+              "n": 20,
+              "accuracy": {
+                "k": 16,
+                "n": 20,
+                "rate": 0.8,
+                "lo": 0.584,
+                "hi": 0.9193
+              }
+            },
+            "activities": {
+              "n": 140,
+              "accuracy": {
+                "k": 108,
+                "n": 140,
+                "rate": 0.7714,
+                "lo": 0.6952,
+                "hi": 0.8332
+              }
+            },
+            "booking_fees": {
+              "n": 135,
+              "accuracy": {
+                "k": 98,
+                "n": 135,
+                "rate": 0.7259,
+                "lo": 0.6452,
+                "hi": 0.7941
+              }
+            },
+            "conversation": {
+              "n": 60,
+              "accuracy": {
+                "k": 47,
+                "n": 60,
+                "rate": 0.7833,
+                "lo": 0.6638,
+                "hi": 0.8688
+              }
+            },
+            "fauna": {
+              "n": 140,
+              "accuracy": {
+                "k": 104,
+                "n": 140,
+                "rate": 0.7429,
+                "lo": 0.6647,
+                "hi": 0.8081
+              }
+            },
+            "flora_ecosystems": {
+              "n": 136,
+              "accuracy": {
+                "k": 100,
+                "n": 136,
+                "rate": 0.7353,
+                "lo": 0.6554,
+                "hi": 0.8022
+              }
+            },
+            "geography": {
+              "n": 124,
+              "accuracy": {
+                "k": 91,
+                "n": 124,
+                "rate": 0.7339,
+                "lo": 0.6499,
+                "hi": 0.8038
+              }
+            },
+            "health_safety": {
+              "n": 139,
+              "accuracy": {
+                "k": 72,
+                "n": 139,
+                "rate": 0.518,
+                "lo": 0.4356,
+                "hi": 0.5994
+              }
+            },
+            "history_culture": {
+              "n": 118,
+              "accuracy": {
+                "k": 89,
+                "n": 118,
+                "rate": 0.7542,
+                "lo": 0.6694,
+                "hi": 0.8231
+              }
+            },
+            "hours_status": {
+              "n": 82,
+              "accuracy": {
+                "k": 60,
+                "n": 82,
+                "rate": 0.7317,
+                "lo": 0.627,
+                "hi": 0.8156
+              }
+            },
+            "preparation": {
+              "n": 68,
+              "accuracy": {
+                "k": 42,
+                "n": 68,
+                "rate": 0.6176,
+                "lo": 0.4988,
+                "hi": 0.7239
+              }
+            },
+            "rules": {
+              "n": 146,
+              "accuracy": {
+                "k": 91,
+                "n": 146,
+                "rate": 0.6233,
+                "lo": 0.5425,
+                "hi": 0.6978
+              }
+            },
+            "services": {
+              "n": 52,
+              "accuracy": {
+                "k": 40,
+                "n": 52,
+                "rate": 0.7692,
+                "lo": 0.6387,
+                "hi": 0.8628
+              }
+            },
+            "unknown": {
+              "n": 0,
+              "accuracy": {
+                "k": 0,
+                "n": 0,
+                "rate": null,
+                "lo": null,
+                "hi": null
+              }
+            },
+            "weather_volcano": {
+              "n": 112,
+              "accuracy": {
+                "k": 75,
+                "n": 112,
+                "rate": 0.6696,
+                "lo": 0.5782,
+                "hi": 0.7499
+              }
+            }
+          }
+        },
+        "option_order_robustness": {
+          "sampled_rows": 200,
+          "result": {
+            "k": 37,
+            "n": 40,
+            "rate": 0.925,
+            "lo": 0.8014,
+            "hi": 0.9742
+          }
+        },
+        "unseen_topic": {
+          "recall@1": {
+            "k": 105,
+            "n": 162,
+            "rate": 0.6481,
+            "lo": 0.572,
+            "hi": 0.7175
+          },
+          "recall@3": {
+            "k": 138,
+            "n": 162,
+            "rate": 0.8519,
+            "lo": 0.789,
+            "hi": 0.8984
+          },
+          "recall@5": {
+            "k": 140,
+            "n": 162,
+            "rate": 0.8642,
+            "lo": 0.8029,
+            "hi": 0.9086
+          },
+          "e5_global_recall@1": {
+            "k": 105,
+            "n": 162,
+            "rate": 0.6481,
+            "lo": 0.572,
+            "hi": 0.7175
+          },
+          "e5_global_recall@3": {
+            "k": 139,
+            "n": 162,
+            "rate": 0.858,
+            "lo": 0.796,
+            "hi": 0.9035
+          },
+          "e5_global_recall@5": {
+            "k": 143,
+            "n": 162,
+            "rate": 0.8827,
+            "lo": 0.8241,
+            "hi": 0.9236
+          },
+          "gateway_section_recall": {
+            "k": 158,
+            "n": 162,
+            "rate": 0.9753,
+            "lo": 0.9382,
+            "hi": 0.9904
+          },
+          "e5_only_accuracy": {
+            "k": 105,
+            "n": 162,
+            "rate": 0.6481,
+            "lo": 0.572,
+            "hi": 0.7175
+          },
+          "selected_accuracy": {
+            "k": 103,
+            "n": 162,
+            "rate": 0.6358,
+            "lo": 0.5594,
+            "hi": 0.706
+          },
+          "rerank_accuracy_when_valid_in_pool": {
+            "k": 103,
+            "n": 140,
+            "rate": 0.7357,
+            "lo": 0.6571,
+            "hi": 0.8018
+          },
+          "none_rejection_rate": {
+            "k": 0,
+            "n": 0,
+            "rate": null,
+            "lo": null,
+            "hi": null
+          },
+          "false_rejections": 52,
+          "false_rejection_rate": {
+            "k": 52,
+            "n": 162,
+            "rate": 0.321,
+            "lo": 0.254,
+            "hi": 0.3963
+          },
+          "accepted_answer_precision": {
+            "k": 81,
+            "n": 110,
+            "rate": 0.7364,
+            "lo": 0.6471,
+            "hi": 0.8097
+          },
+          "coverage": {
+            "k": 110,
+            "n": 162,
+            "rate": 0.679,
+            "lo": 0.6037,
+            "hi": 0.746
+          }
+        },
+        "laptop_latency_ms": {
+          "label": "LAPTOP",
+          "p50": 218.0,
+          "p95": 462.6,
+          "n": 1790,
+          "scope": "Laya ONNX inference only; retrieval/embed excluded"
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,55 @@
+[
+  {
+    "ids": [
+      "actions.report_injury",
+      "actions.report_lost_person",
+      "actions.report_hypothermia",
+      "actions.report_altitude_sickness",
+      "actions.report_storm",
+      "actions.report_fire",
+      "health_safety.lost_person_protocol",
+      "health_safety.hypothermia_first_response",
+      "health_safety.severe_hypothermia_signs_and_care",
+      "health_safety.children_altitude_signs",
+      "health_safety.lightning_strike_victim_first_aid",
+      "services.lost_items",
+      "rules.report_environmental_infractions"
+    ],
+    "problem": "Low leave-one-out scores come from symptom or denunciation questions sitting on app-report entries. The medical or complaint answer lives in the other section.",
+    "suggestion": "Keep first aid, lost-person protocol, lost objects and environmental complaints in their sections. Actions only prepares the local report and says to call 123 when there is signal."
+  },
+  {
+    "ids": [
+      "actions.report_fire",
+      "flora_ecosystems.romerales_fire_october_2024",
+      "flora_ecosystems.africa_paramo_fire_2026"
+    ],
+    "problem": "A live fire report is embedded next to dated páramo-fire explanations.",
+    "suggestion": "Flora keeps the historical fires. Actions keeps the handoff for a fire the visitor is seeing now."
+  },
+  {
+    "ids": [
+      "actions.register_planned_visit",
+      "booking_fees.reservation_requirements",
+      "hours_status.pico_y_placa_hours_murillo"
+    ],
+    "problem": "The ficha also says Cisne-Poleka Kasue and Otún need three business days, Quindío-Dulima five, and a November pico y placa under Resolución 1815 of 24 July 2026. Actions names the two Brisas rules and the resolution, and does not copy the hours.",
+    "suggestion": "booking_fees keeps the 3-day and 5-day lead times; hours_status keeps the plate schedule. Do not merge those entries into actions."
+  },
+  {
+    "ids": [
+      "actions.report_emergency_general",
+      "conversation.emergency_limits"
+    ],
+    "problem": "conversation.emergency_limits says a report might not arrive without a connection. The FSM execute string says the report was sent. The tool implementation only stores a local code.",
+    "suggestion": "The conversation curator should say the report stays on the phone and is not a rescue dispatch. Actions already says the app does not notify rescue."
+  },
+  {
+    "ids": [
+      "actions.report_altitude_sickness",
+      "flora_ecosystems.glaciers_snow_presence"
+    ],
+    "problem": "flora_ecosystems.glaciers_snow_presence uses the altitude example 'persona con dolor de cabeza fuerte en la cumbre' as a hard negative, so actions cannot drop it in this batch.",
+    "suggestion": "Flora owner replaces that hard negative if the example is retired later."
+  }
+]

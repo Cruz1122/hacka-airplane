@@ -1,0 +1,126 @@
+{
+  "section": "critical_r3",
+  "reviewer": "agent 4 / GPT-6 Luna",
+  "ops": [
+    {
+      "id": "health_safety.hypothermia_body_temperature",
+      "op": "update",
+      "verdict": "approve",
+      "entailment": "full",
+      "label_change": "n/a",
+      "examples": "ok",
+      "temporal": "ok",
+      "refetch": "ok",
+      "reason": "El umbral menor de 35 °C, el temblor incontrolable (que puede cesar) y la confusión están citados literalmente. Restauró la etiqueta del corpus; no presenta un estado actual ni promete respuesta de la app.",
+      "required_change": "Ninguno."
+    },
+    {
+      "id": "health_safety.severe_hypothermia_signs_and_care",
+      "op": "update",
+      "verdict": "approve",
+      "entailment": "full",
+      "label_change": "justified",
+      "examples": "ok",
+      "temporal": "ok",
+      "refetch": "ok",
+      "reason": "MedlinePlus respalda mover con poco esfuerzo y cubrir; también se añadió la cita de que el temblor puede cesar. Se eliminó el umbral de 32 °C y la etiqueta distingue esta respuesta de primeros auxilios; no condiciona la guía a una aclaración ni promete evacuación.",
+      "required_change": "Ninguno."
+    },
+    {
+      "id": "weather_volcano.ash_roofs",
+      "op": "update",
+      "verdict": "approve",
+      "entailment": "full",
+      "label_change": "n/a",
+      "examples": "ok",
+      "temporal": "ok",
+      "refetch": "ok",
+      "reason": "La UNGRD fresca confirma retirar sin agua; las citas SGC respaldan no empapar y el peligro de caída/sobrecarga al subir. La instrucción al visitante del parque es única: no limpiar por cuenta propia y avisar al personal. El warning de UNGRD quedó confirmado en las líneas 25–26 de la descarga fresca.",
+      "required_change": "Ninguno."
+    },
+    {
+      "id": "activities.camping_tolima",
+      "op": "update",
+      "verdict": "approve",
+      "entailment": "full",
+      "label_change": "n/a",
+      "examples": "ok",
+      "temporal": "ok",
+      "refetch": "ok",
+      "reason": "La Resolución 207 identifica los puntos transitorios cerca del Nevado del Tolima y respalda pernocte, carpas de tres/cuatro estaciones y prohibición de fogatas y porteo. El texto fecha la regla y pide confirmar si sigue habilitada.",
+      "required_change": "Ninguno."
+    },
+    {
+      "id": "activities.camping_brisas_restricted",
+      "op": "update",
+      "verdict": "approve",
+      "entailment": "full",
+      "label_change": "n/a",
+      "examples": "ok",
+      "temporal": "ok",
+      "refetch": "ok",
+      "reason": "La Resolución 207 nombra el Camping Arenales del sector Brisas como restringido; la descarga DOCX fresca confirma que el camping de Arenales no estaba habilitado en el informe 2024. El texto diferencia el Arenales del Tolima y no lo presenta disponible hoy.",
+      "required_change": "Ninguno."
+    },
+    {
+      "id": "activities.camping_where",
+      "op": "update",
+      "verdict": "approve",
+      "entailment": "full",
+      "label_change": "n/a",
+      "examples": "ok",
+      "temporal": "ok",
+      "refetch": "ok",
+      "reason": "La descarga DOCX fresca confirma el dato histórico de Arenales no habilitado en 2024; la Resolución 207 separa ese camping de los puntos transitorios cercanos al Tolima. La respuesta no garantiza disponibilidad y deriva la confirmación a Parques Nacionales.",
+      "required_change": "Ninguno."
+    }
+  ],
+  "audit_rows": [
+    {
+      "id": "health_safety.hypothermia_body_temperature",
+      "claimed": "primary_ok",
+      "support": "partial",
+      "note": "El excerpt respalda el umbral de 35 °C, pero no los síntomas ni toda la orientación de la respuesta."
+    },
+    {
+      "id": "health_safety.severe_hypothermia_signs_and_care",
+      "claimed": "primary_ok",
+      "support": "partial",
+      "note": "El excerpt respalda mover poco y cubrir, pero no el cese del temblor ni toda la orientación."
+    },
+    {
+      "id": "weather_volcano.ash_roofs",
+      "claimed": "primary_ok",
+      "support": "partial",
+      "note": "El excerpt respalda el riesgo de colapso por humedad, no todas las instrucciones de techo."
+    },
+    {
+      "id": "activities.camping_tolima",
+      "claimed": "primary_ok",
+      "support": "partial",
+      "note": "El excerpt respalda el pernocte transitorio, pero no carpa, fogatas, porteo ni confirmación posterior."
+    },
+    {
+      "id": "activities.camping_brisas_restricted",
+      "claimed": "primary_ok",
+      "support": "partial",
+      "note": "El excerpt respalda la restricción de 2023 en Brisas, pero no el informe de 2024 ni la distinción del Arenales del Tolima."
+    },
+    {
+      "id": "activities.camping_where",
+      "claimed": "primary_ok",
+      "support": "partial",
+      "note": "El excerpt respalda que el camping de Arenales no estaba habilitado en 2024, pero no los puntos transitorios del Tolima."
+    }
+  ],
+  "summary": {
+    "approve": 6,
+    "revise": 0,
+    "reject": 0,
+    "audit_support": {
+      "full": 0,
+      "partial": 6,
+      "none": 0
+    }
+  }
+}

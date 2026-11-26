@@ -1,0 +1,334 @@
+{
+ "section": "activities",
+ "reviewer": "Claude Haiku 5.5 (re-review, fresh; not the author of the proposal)",
+ "ops": [
+  {
+   "id": "activities.aguacerales_stop",
+   "op": "update",
+   "verdict": "revise",
+   "entailment": "partial",
+   "label_change": "n/a",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "n/a",
+   "reason": "La op no trae evidence: la fuente es sólo una URL. 'Brisas – Aguacerales – Arenales – Valle de las tumbas' sí está en res207 (línea del centro de interpretación/recorrido norte). 'Ni se describe como cascada' no aporta. La HN propia que pidió la ronda 1 ya salió.",
+   "required_change": "Añadir cita de res207 con la línea de 'Brisas – Aguacerales – Arenales – Valle de las tumbas'; quitar 'ni se describe como cascada'."
+  },
+  {
+   "id": "activities.birdwatching",
+   "op": "update",
+   "verdict": "revise",
+   "entailment": "partial",
+   "label_change": "n/a",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "n/a",
+   "reason": "La op no trae evidence: la fuente es sólo una URL. La ficha sí dice, para Brisas-Kumanday, 'observación de fauna y flora'; la ronda 1 pidió citar la línea de Brisas y no se citó.",
+   "required_change": "Citar la línea de la ficha de Brisas (fauna y flora) y la de aves de Cisne/Otún, o quitar la frase de Brisas."
+  },
+  {
+   "id": "activities.brisas_valle_tumbas",
+   "op": "update",
+   "verdict": "revise",
+   "entailment": "partial",
+   "label_change": "n/a",
+   "examples": "issues",
+   "temporal": "ok",
+   "refetch": "n/a",
+   "reason": "La op no trae evidence: la fuente es sólo una URL. El recorrido en vehículo y los 4100 m sí están en la ficha, sin cita aquí. 'Análogos a Marte' sin cita. HN+ 'dónde queda el Valle de las Tumbas' es pregunta de esta misma entrada, no una HN.",
+   "required_change": "Citar ficha (4100 m, vehículo hasta Valle del Silencio/Tumbas); citar o quitar 'análogos a Marte'; quitar 'dónde queda el Valle de las Tumbas' de hard_negatives."
+  },
+  {
+   "id": "activities.camping_cisne",
+   "op": "update",
+   "verdict": "revise",
+   "entailment": "partial",
+   "label_change": "n/a",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "n/a",
+   "reason": "La op no trae evidence: la fuente es sólo una URL. Etiqueta nueva aceptada y HN quitada, como pidió la ronda 1. 'Camping condicionado por actividad volcánica u operación' sí figura en res207 (línea del Cisne) y la ficha del 2024 lista El Cisne-camping, pero nada está citado. 'Sin quedar abierto por eso' no tiene fuente.",
+   "required_change": "Citar res207 (camping del Cisne condicionado) y la línea del informe 2024; quitar 'sin quedar abierto por eso'."
+  },
+  {
+   "id": "activities.camping_where",
+   "op": "update",
+   "verdict": "revise",
+   "entailment": "partial",
+   "label_change": "n/a",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "ok",
+   "reason": "Las dos citas de esta op existen en bytes: el informe 2024 'Zona de camping no se encuentra habilitada debido a la actividad volcánica' (verificado en docx descargado y parseado) y res207 'Camping Arenales - Sector Brisas (restringido...)'. Falta: (a) el pernocte transitorio de res207 (Termales Cañón, Arenales, Calvito) no está citado; (b) 'Arenales del sur' no aparece en res207, que dice sólo 'Arenales'; (c) 'sin confirmación posterior de cupos' es ausencia sin fuente; (d) 'Laguna del Otún ... en proceso de acondicionamiento' sí está en res207 (línea 776) pero no citado. Temporal OK: fechado 2023/2024 y remite a Parques/operador.",
+   "required_change": "Citar res207 del pernocte transitorio y la línea de Laguna del Otún en acondicionamiento; quitar 'Arenales del sur' (o sustentarlo) y 'sin confirmación posterior de cupos'. Ver contradicción de camping en la nota de la sección."
+  },
+  {
+   "id": "activities.cloudy_visit_landscape",
+   "op": "update",
+   "verdict": "revise",
+   "entailment": "partial",
+   "label_change": "n/a",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "n/a",
+   "reason": "La op no trae evidence: la fuente es sólo una URL. La etiqueta nueva se mantiene, como pidió la ronda 1. 'Si la cima no se deja ver, el plan publicado sigue siendo ese valle' es una política de cima tapada sin cita: la ronda 1 pidió citarla o quitarla y no se hizo.",
+   "required_change": "Citar la política de cima tapada de la fuente o quitar la frase 'Si ese día la cima no se deja ver ... sigue siendo ese valle' (también en la variante)."
+  },
+  {
+   "id": "activities.conejeras_glacier_edge",
+   "op": "update",
+   "verdict": "revise",
+   "entailment": "partial",
+   "label_change": "n/a",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "n/a",
+   "reason": "La op no trae evidence: la fuente es sólo una URL. La ruta Cisne–Conejeras–borde glaciar cara centro está en res207. La regla de guía de alta montaña para subir progresivamente sí está en la ficha ('Para subir progresivamente a un glaciar: ... solamente por guías especializados en alta montaña'), pero no citada aquí.",
+   "required_change": "Citar la línea de la ficha sobre guías de alta montaña para subir progresivamente y la ruta de res207 (cara centro)."
+  },
+  {
+   "id": "activities.conejeras_hut",
+   "op": "update",
+   "verdict": "approve",
+   "entailment": "full",
+   "label_change": "n/a",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "ok",
+   "reason": "Cita del informe 2024 'Caseta Conejeras / Villamaría, Caldas' verificada en docx descargado y parseado por mí (el verificador no lee .docx). La respuesta sólo afirma que aparece como infraestructura y que no se describe servicio ni pernocte: son ausencias, no afirmaciones nuevas. Corrige la fuente como pidió el hallazgo crítico.",
+   "required_change": "Ninguno."
+  },
+  {
+   "id": "activities.cycling_roads_2017",
+   "op": "update",
+   "verdict": "revise",
+   "entailment": "none",
+   "label_change": "n/a",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "n/a",
+   "reason": "La op no trae evidence: la fuente es sólo una URL. Las tres vías (Brisas–Olleta–Cisne, Cisne–Santa Bárbara–Potosí, Potosí–Muelle) son del plan 2017, que sí las menciona (Olleta, Potosí-Muelle), pero no hay cita. La definición 'bici de montaña por vías autorizadas para vehículos' no aparece en res207 (cero coincidencias de 'ciclomontañismo'). Las fuentes son un PDF 2020 y un PDF 2026: ninguno citado.",
+   "required_change": "Citar en la op el pasaje del plan 2017 con las tres vías y la definición, o quitar la lista y la definición."
+  },
+  {
+   "id": "activities.day_or_multiday",
+   "op": "update",
+   "verdict": "revise",
+   "entailment": "partial",
+   "label_change": "n/a",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "n/a",
+   "reason": "La op no trae evidence: la fuente es sólo una URL. 'Pasadía sin pernoctar en la zona norte (Brisas)' sí está en res207 (línea 634). 'Cisne, Otún y Quindío–Dulima para varios días' está en la ficha (línea de 'travesías de varios días'), sin cita. Las HN de la ronda 1 ya salieron.",
+   "required_change": "Citar res207 (pasadía sin pernoctar, norte) y ficha (travesías de varios días) en la op."
+  },
+  {
+   "id": "activities.horseback_not_allowed",
+   "op": "update",
+   "verdict": "revise",
+   "entailment": "partial",
+   "label_change": "n/a",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "n/a",
+   "reason": "La op no trae evidence: la fuente es sólo una URL. 'Cabalgatas' prohibidas sí están en res207 (lista de actividades prohibidas). 'Las mulas que sí se permiten son de carga, con arrieros avalados': res207 habla de tránsito de mulas o equinos y de arrieros; 'de carga' no lo verifiqué textual. HN ambigua ya retirada.",
+   "required_change": "Citar las dos líneas de res207 (cabalgatas prohibidas; tránsito de mulas con arriero) y quitar 'de carga' si la norma no lo dice."
+  },
+  {
+   "id": "activities.laguna_verde",
+   "op": "update",
+   "verdict": "revise",
+   "entailment": "partial",
+   "label_change": "n/a",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "n/a",
+   "reason": "La op no trae evidence: la fuente es sólo una URL. 'En 2024 estaba en condiciones regulares' está en el informe ('7. Mirador Laguna Verde, Murillo, Tolima: se encuentra actualmente en condiciones regulares'), sin cita. El acceso desde El Cisne, La Cueva o Potosí aparece en res207, sin cita. HN retirada.",
+   "required_change": "Citar la línea del informe 2024 y la de res207 con los accesos; mantener la fecha 2024."
+  },
+  {
+   "id": "activities.mirador_laguna_otun",
+   "op": "update",
+   "verdict": "approve",
+   "entailment": "full",
+   "label_change": "n/a",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "ok",
+   "reason": "Cita 'Mirador Laguna del Otún / Pereira, Risaralda / Se encuentra actualmente en condiciones regulares' verificada en el docx descargado y parseado por mí (el verificador no lee .docx: su 'warn' es un límite de la herramienta, no contenido). La respuesta fecha la condición a 2024 y remite a Parques u operador. Las ausencias (sin tiempos publicados) no son afirmaciones nuevas.",
+   "required_change": "Ninguno."
+  },
+  {
+   "id": "activities.north_route_stops",
+   "op": "update",
+   "verdict": "revise",
+   "entailment": "partial",
+   "label_change": "n/a",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "n/a",
+   "reason": "La op no trae evidence: la fuente es sólo una URL. Las paradas Brisas, Aguacerales, Arenales y Valle de las Tumbas están en res207 (línea del recorrido norte). '4100 m' y 'en vehículo por Arenales' están en la ficha. Ninguna cita en la op. 'Autorizadas' ya salió.",
+   "required_change": "Citar res207 (paradas) y ficha (4100 m y vehículo por Arenales)."
+  },
+  {
+   "id": "activities.otun_cedral_walk",
+   "op": "update",
+   "verdict": "revise",
+   "entailment": "partial",
+   "label_change": "n/a",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "n/a",
+   "reason": "La op no trae evidence: la fuente es sólo una URL. Los 7,5 km y 18 km y el corredor (azufrera, El Mosquito, El Bosque, Peña Bonita, La Pastora) no tienen cita en la op. 'Mosquito' aparece en res207, pero no vi los km en res207 ni en la ficha con esa forma. HN retiradas.",
+   "required_change": "Citar la línea exacta con 7,5 km y 18 km (y el corredor) de la fuente que la contiene, o quitar las cifras."
+  },
+  {
+   "id": "activities.potosi_laguna_road",
+   "op": "update",
+   "verdict": "revise",
+   "entailment": "partial",
+   "label_change": "n/a",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "n/a",
+   "reason": "La op no trae evidence: la fuente es sólo una URL. La ruta Potosí–Corraleja–Asomadera–Muelle–Otún está en res207. Los 11 km están en el informe 2024, pero la respuesta los atribuye a 'un dato de 2024, del plan 2017-2022': atribución contradictoria. 'La pasadía sin dormir llega sólo hasta la Asomadera' no tiene cita. HN retirada.",
+   "required_change": "Corregir la atribución de los 11 km (informe 2024) y citarlos; citar o quitar 'pasadía ... sólo hasta la Asomadera'."
+  },
+  {
+   "id": "activities.regulated_sports",
+   "op": "update",
+   "verdict": "revise",
+   "entailment": "none",
+   "label_change": "n/a",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "n/a",
+   "reason": "La op no trae evidence: la fuente es sólo una URL. 'Requisitos propios, distintos de la visita tradicional' y 'la edición corta no trae el reglamento completo' vienen de la PDF 2026 corta, que no está citada en la op. No verifiqué su texto.",
+   "required_change": "Citar el pasaje de la edición corta 2026 sobre ciclomontañismo y trail running, o quitar la afirmación."
+  },
+  {
+   "id": "activities.ski_and_canyoning",
+   "op": "update",
+   "verdict": "revise",
+   "entailment": "partial",
+   "label_change": "n/a",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "n/a",
+   "reason": "La op no trae evidence: la fuente es sólo una URL. La inclusión de 'sky de montaña, barranquismo o canyoning' dentro de la definición de montañismo sí está en res207 (línea de definiciones). El trámite de montañismo deportivo (Resolución 474 de 2018) también está en res207. Ninguna cita en la op. HN 'puedo esquiar en el nevado' retirada.",
+   "required_change": "Citar la línea de res207 con la definición de montañismo y la de Resolución 474 de 2018."
+  },
+  {
+   "id": "activities.snow_and_glacier_access",
+   "op": "update",
+   "verdict": "revise",
+   "entailment": "partial",
+   "label_change": "n/a",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "n/a",
+   "reason": "La op no trae evidence: la fuente es sólo una URL. 'Desde el 11 de mayo de 2026 están prohibidas la cima y el cráter del Ruiz' viene de la carta 2026-05-11 (en evidence), sin cita en la op. 'Guías especializados ... si subes de forma progresiva' está en la ficha, sin cita. HN retirada, etiqueta nueva aceptada.",
+   "required_change": "Citar el pasaje de la carta 2026-05-11 (cima y cráter prohibidos) y la línea de la ficha sobre guías para subir progresivamente; citar la cumbre del Santa Isabel y el borde glaciar en res207."
+  },
+  {
+   "id": "activities.south_glacier_edge",
+   "op": "update",
+   "verdict": "revise",
+   "entailment": "partial",
+   "label_change": "n/a",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "n/a",
+   "reason": "La op no trae evidence: la fuente es sólo una URL. 'Laguna del Otún – Alsacia – borde glaciar Santa Isabel (cara sur)' está en res207 (línea de rutas del Otún). La regla de guía de alta montaña está en la ficha. Ninguna cita en la op.",
+   "required_change": "Citar la línea de res207 (ruta sur) y la de la ficha (guías de alta montaña); la ronda 1 pidió citar la regla y ya se puede."
+  },
+  {
+   "id": "activities.termales_canon",
+   "op": "update",
+   "verdict": "revise",
+   "entailment": "partial",
+   "label_change": "n/a",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "n/a",
+   "reason": "La op no trae evidence: la fuente es sólo una URL. 'No se permiten los baños terapéuticos en los cuerpos de agua' está en res207 (línea 937), sin cita. 'Parada de la travesía del sur' y 'pernocte transitorio' están en res207 (línea de transitorios), sin cita. La HN 'puedo pasar por Termales del Cañón' ya no es HN: está en examples, como pregunta propia de la entrada, aceptable.",
+   "required_change": "Citar res207 (baños terapéuticos prohibidos, pernocte transitorio, travesía sur)."
+  },
+  {
+   "id": "activities.therapeutic_baths_banned",
+   "op": "update",
+   "verdict": "revise",
+   "entailment": "partial",
+   "label_change": "n/a",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "n/a",
+   "reason": "La op no trae evidence: la fuente es sólo una URL. La prohibición de baños terapéuticos está en res207 (línea 937), sin cita. El '9. Baños de salud' del informe 2024 con atribución a res207 sí existe, pero el texto de la respuesta sigue sin citarlo: la ronda 1 pidió citarlo o quitarlo. Hay conflicto real entre el informe 2024 (lista baños de salud) y la norma (prohíbe baños terapéuticos): la respuesta lo dice, pero sin ambas citas.",
+   "required_change": "Citar res207 (baños terapéuticos) y el informe 2024 ('9. Baños de salud'), y dejar explícito el conflicto."
+  },
+  {
+   "id": "activities.unlisted_activities",
+   "op": "update",
+   "verdict": "revise",
+   "entailment": "none",
+   "label_change": "n/a",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "n/a",
+   "reason": "La op no trae evidence: la fuente es sólo una URL. 'Bote y picnic no están en lo permitido' es una ausencia contra la lista de res207 sin cita. 'Caminata nocturna' no es el término del informe 2024, que dice 'Actividad nocturna: Sector Brisas y Cisne'. 'Esquí solo aparece dentro del montañismo' está en res207 (definición), sin cita.",
+   "required_change": "Citar la lista de res207 de actividades permitidas y la línea 'Actividad nocturna' del informe 2024; usar el término del informe ('actividad nocturna') en vez de 'caminata nocturna'."
+  },
+  {
+   "id": "activities.wildlife_from_trail",
+   "op": "update",
+   "verdict": "revise",
+   "entailment": "partial",
+   "label_change": "n/a",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "n/a",
+   "reason": "La op no trae evidence: la fuente es sólo una URL. La ronda 1 dio por respaldado 'observación de fauna y flora' en el excerpt de auditoría, pero la op no trae esa cita; 'Quindío–Dulima' y 'Cisne/Otún' van sin cita en la op.",
+   "required_change": "Añadir a la op la cita de fauna y flora (ficha: Brisas-Kumanday) y las de Cisne/Otún/Quindío–Dulima, o quitar los sectores sin cita."
+  }
+ ],
+ "audit_rows": [
+  {
+   "id": "activities.camping_where",
+   "claimed": "primary_ok",
+   "support": "partial",
+   "excerpt_changed": true,
+   "note": "El excerpt del informe 2024 ('Zona de camping no se encuentra habilitada...') sostiene el Arenales norte. El resto de la respuesta actual (pernocte transitorio en Tolima, 'Arenales del sur', 'sin confirmación de cupos', Laguna del Otún en acondicionamiento) no está en ese excerpt. Debe dejar de declararse primary_ok."
+  },
+  {
+   "id": "activities.cambio_climatico_trail",
+   "claimed": "primary_ok",
+   "support": "partial",
+   "excerpt_changed": false,
+   "note": "El excerpt (noticia del parque, 2020) sostiene que el sendero 'Cambio climático' fue nombrado para volver a recorrerse. 'En el sector centro' y 'la lista del 4 de agosto de 2023 no trae ese nombre' no están en el excerpt. Es fuente secundaria/vencida (noticia 2020), no primaria vigente; declarar primary_ok es incorrecto. Entrada fuera de la cola: no se modificó en v2."
+  },
+  {
+   "id": "activities.mirador_laguna_otun",
+   "claimed": "primary_ok",
+   "support": "full",
+   "excerpt_changed": true,
+   "note": "El excerpt del informe 2024 contiene la fila completa del mirador (Pereira, Risaralda, condiciones regulares). Respuesta sostenida."
+  },
+  {
+   "id": "activities.conejeras_hut",
+   "claimed": "primary_ok",
+   "support": "full",
+   "excerpt_changed": true,
+   "note": "El excerpt 'Caseta Conejeras / Villamaría, Caldas' sostiene el listado. Las ausencias de servicios no son afirmaciones nuevas. Respuesta sostenida."
+  }
+ ],
+ "summary": {
+  "approve": 2,
+  "revise": 22,
+  "reject": 0,
+  "audit_support": {
+   "full": 2,
+   "partial": 2,
+   "none": 0
+  }
+ }
+}

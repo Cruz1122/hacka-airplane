@@ -1,0 +1,979 @@
+{
+ "section": "rules",
+ "reviewer": "Claude Haiku 5.5 (re-review, fresh; not the author of the proposal)",
+ "ops": [
+  {
+   "id": "rules.abandoning_gear_objects",
+   "op": "update",
+   "verdict": "revise",
+   "entailment": "full",
+   "label_change": "n/a",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "warn",
+   "reason": "Refetch bloqueado: TLS local no verifica la cadena de funcionpublica.gov.co (curl 60); no hay descarga verificada. Cita norma 'Abandonar objetos, vehículos o equipos' y res207 'retirar alimentos, ropa, plásticos, carpas' sostienen la respuesta. Bloqueada por refetch TLS (funcionpublica).",
+   "required_change": "Bloqueada por refetch (TLS). Resolver el refetch del decreto 78153 con descarga verificada; sin eso la op queda fuera."
+  },
+  {
+   "id": "rules.aerosols_sprays_prohibited",
+   "op": "update",
+   "verdict": "revise",
+   "entailment": "partial",
+   "label_change": "n/a",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "ok",
+   "reason": "La cita res207 prohíbe 'productos químicos en aerosoles o en grandes cantidades'. La respuesta amplía a 'No uses aerosoles' y a 'pintes rocas o suelo con spray' (grafiti, no citado).",
+   "required_change": "Acotar a 'productos químicos en aerosoles'; quitar 'ni pintes rocas o suelo con spray'; quitar o citar 'revisa el morral'."
+  },
+  {
+   "id": "rules.aggravating_factors_protected_area",
+   "op": "update",
+   "verdict": "revise",
+   "entailment": "full",
+   "label_change": "n/a",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "warn",
+   "reason": "Refetch bloqueado: TLS local no verifica la cadena de funcionpublica.gov.co (curl 60); no hay descarga verificada. Ley 1333 art. 7 numerales 6, 9 y 10 (en 36879) sostienen dañar recursos en área protegida, obstaculizar autoridad e incumplir medidas preventivas. R1 pidió 9 y 10: ya citados. Bloqueada por refetch TLS.",
+   "required_change": "Bloqueada por refetch (TLS). Resolver refetch de 36879 con descarga verificada. 'Reincidir agrava' no aparece en las citas: citarlo o quitarlo de la variante."
+  },
+  {
+   "id": "rules.agro_industrial_mining_ban",
+   "op": "update",
+   "verdict": "revise",
+   "entailment": "full",
+   "label_change": "n/a",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "warn",
+   "reason": "Refetch bloqueado: TLS local no verifica la cadena de funcionpublica.gov.co (curl 60); no hay descarga verificada. Cita 78153 ítem 3 sostiene agropecuario, industrial, hotelero, minero y petrolero. R1 REQ cumplido. Bloqueada por refetch TLS.",
+   "required_change": "Bloqueada por refetch (TLS). Resolver refetch de 78153 con descarga verificada."
+  },
+  {
+   "id": "rules.audiovisual_permits",
+   "op": "update",
+   "verdict": "revise",
+   "entailment": "partial",
+   "label_change": "n/a",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "ok",
+   "reason": "Res207 exige permisos a 'luces, pantallas, telones...' y ficha a tomas 'con fines comerciales, eventos, deportivas o de investigación'. La respuesta dice 'Para tomas audiovisuales debes solicitar autorización', sin el alcance comercial: sobregeneraliza, y choca con la foto aficionada permitida (res207).",
+   "required_change": "Acotar el short a 'tomas audiovisuales con fines comerciales, eventos, deportivos o de investigación'."
+  },
+  {
+   "id": "rules.authorized_stay_duration",
+   "op": "update",
+   "verdict": "revise",
+   "entailment": "full",
+   "label_change": "n/a",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "warn",
+   "reason": "Refetch bloqueado: TLS local no verifica la cadena de funcionpublica.gov.co (curl 60); no hay descarga verificada. Res207 'podrá permanecer ... durante el tiempo autorizado por el Parque' sostiene el short. 'Sumes noches de campamento' se apoya en el mismo principio. Bloqueada por refetch TLS.",
+   "required_change": "Bloqueada por refetch (TLS). Resolver refetch de 78153 con descarga verificada."
+  },
+  {
+   "id": "rules.avoid_chemicals",
+   "op": "update",
+   "verdict": "revise",
+   "entailment": "full",
+   "label_change": "n/a",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "warn",
+   "reason": "Refetch bloqueado: TLS local no verifica la cadena de funcionpublica.gov.co (curl 60); no hay descarga verificada. Cita 78153 (químicos de efectos residuales, explosivos, obra autorizada) y 78153 (pirotécnicos, sustancias inflamables) sostienen el short. R1 pidió el ítem 13: presente. Bloqueada por refetch TLS.",
+   "required_change": "Bloqueada por refetch (TLS). Resolver refetch de 78153 con descarga verificada."
+  },
+  {
+   "id": "rules.avoid_pollutants",
+   "op": "update",
+   "verdict": "revise",
+   "entailment": "full",
+   "label_change": "n/a",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "warn",
+   "reason": "Refetch bloqueado: TLS local no verifica la cadena de funcionpublica.gov.co (curl 60); no hay descarga verificada. Cita res207 (químicos en grandes cantidades, derrames) y 78153 (vertimiento de sustancias tóxicas) sostienen el short. 'Ciérralo y sácalo contigo' es consejo (sin cita, menor). Bloqueada por refetch TLS.",
+   "required_change": "Bloqueada por refetch (TLS). Resolver refetch de 78153 con descarga verificada."
+  },
+  {
+   "id": "rules.biodegradable_packaging_food",
+   "op": "update",
+   "verdict": "revise",
+   "entailment": "partial",
+   "label_change": "n/a",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "ok",
+   "reason": "Cita res207 'Se deberá utilizar materiales biodegradables' sostiene el uso. 'Genera la menor basura posible' y 'reempaca antes de entrar' no tienen cita.",
+   "required_change": "Quitar 'genera la menor basura posible' y 'reempaca antes de entrar', o citarlos; citar el contexto de la norma (alimentos)."
+  },
+  {
+   "id": "rules.burning_trash_prohibited",
+   "op": "update",
+   "verdict": "revise",
+   "entailment": "partial",
+   "label_change": "n/a",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "warn",
+   "reason": "Refetch bloqueado: TLS local no verifica la cadena de funcionpublica.gov.co (curl 60); no hay descarga verificada. Cita 78153 (incinerar prohibido) y res207 (retomar residuos) sostienen el short. La variante 'genera riesgo de incendio en el páramo' no tiene cita. Bloqueada por refetch TLS.",
+   "required_change": "Bloqueada por refetch (TLS). Quitar 'genera riesgo de incendio en el páramo' o citarlo; resolver refetch de 78153."
+  },
+  {
+   "id": "rules.commercial_photography",
+   "op": "update",
+   "verdict": "revise",
+   "entailment": "full",
+   "label_change": "n/a",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "warn",
+   "reason": "Refetch bloqueado: TLS local no verifica la cadena de funcionpublica.gov.co (curl 60); no hay descarga verificada. Ficha (comercial requiere autorización) y res207 ('toma de imágenes ... no profesional o aficionado') sostienen el short y la variante. R1 REQ cumplido. Bloqueada por refetch TLS.",
+   "required_change": "Bloqueada por refetch (TLS). Resolver refetch de 78153 o de la cita de res207 con descarga verificada."
+  },
+  {
+   "id": "rules.commercial_sound_recording",
+   "op": "update",
+   "verdict": "revise",
+   "entailment": "full",
+   "label_change": "n/a",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "warn",
+   "reason": "Refetch bloqueado: TLS local no verifica la cadena de funcionpublica.gov.co (curl 60); no hay descarga verificada. Cita 78153 (grabaciones de sonido con fines comerciales sin aprobación) sostiene el short. La variante 'esa prohibición no te cubre' es una inferencia razonable; 'evita el playback' no tiene cita (menor). Bloqueada por refetch TLS.",
+   "required_change": "Bloqueada por refetch (TLS). Resolver refetch de 78153; quitar o citar 'evita el playback'."
+  },
+  {
+   "id": "rules.community_service_sanction",
+   "op": "update",
+   "verdict": "approve",
+   "entailment": "full",
+   "label_change": "n/a",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "ok",
+   "reason": "Cita ley 2387/2024: incumplimiento de servicio comunitario y reemplazo de multa solo si la capacidad es insuficiente, 'complementarias en todos los casos'. El short coincide. La cita no muestra el número de artículo (R1 pidió art. 21): el texto citado sostiene la claim.",
+   "required_change": "Ninguno."
+  },
+  {
+   "id": "rules.confiscation_restitution_specimens",
+   "op": "update",
+   "verdict": "revise",
+   "entailment": "full",
+   "label_change": "n/a",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "warn",
+   "reason": "Refetch bloqueado: TLS local no verifica la cadena de funcionpublica.gov.co (curl 60); no hay descarga verificada. Cita ley 2387 'Decomiso definitivo de especímenes...' sostiene 'te los quitan y no te los devuelven'. Ley 1333 art. 7 n.º 6 sostiene el proceso. Bloqueada por refetch TLS.",
+   "required_change": "Bloqueada por refetch (TLS). Resolver refetch de 36879 con descarga verificada."
+  },
+  {
+   "id": "rules.damage_park_infrastructure",
+   "op": "update",
+   "verdict": "revise",
+   "entailment": "partial",
+   "label_change": "n/a",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "warn",
+   "reason": "Refetch bloqueado: TLS local no verifica la cadena de funcionpublica.gov.co (curl 60); no hay descarga verificada. Cita res207 y 78153 sostienen 'no dañes instalaciones'. 'Avísale al personal y no lo manipules' es consejo sin cita (en short y en variante). Bloqueada por refetch TLS.",
+   "required_change": "Bloqueada por refetch (TLS). Quitar o citar 'avisa al personal y no lo manipules'; resolver refetch de 78153."
+  },
+  {
+   "id": "rules.drones",
+   "op": "update",
+   "verdict": "approve",
+   "entailment": "full",
+   "label_change": "n/a",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "ok",
+   "reason": "Cita res207 'No utilizar drones conforme la resolución No. 0543 del 27 de diciembre de 2018' sostiene la prohibición. R1 pidió la cita exacta y quitar 'Deja el dron guardado': hechos.",
+   "required_change": "Ninguno."
+  },
+  {
+   "id": "rules.early_termination_correction_plan",
+   "op": "update",
+   "verdict": "revise",
+   "entailment": "partial",
+   "label_change": "n/a",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "ok",
+   "reason": "Cita ley 2387 sostiene la suspensión a petición del infractor y la advertencia de 'no ser un antecedente'. 'Cierran el caso' y 'las haces tú' no están en las citas.",
+   "required_change": "Quitar 'si comprueban que quedó corregido, cierran el caso' o citarlo; citar 'a petición del presunto infractor' para 'las haces tú'."
+  },
+  {
+   "id": "rules.earth_tone_clothing_wildlife",
+   "op": "update",
+   "verdict": "approve",
+   "entailment": "full",
+   "label_change": "n/a",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "ok",
+   "reason": "Cita res207 ('colores tierra o evitando colores muy vivos ... no perturbar la fauna') sostiene el short. R1 pidió conservar la etiqueta anterior: se verifica abajo.",
+   "required_change": "Ninguno."
+  },
+  {
+   "id": "rules.ecological_customs_checkpoints",
+   "op": "update",
+   "verdict": "approve",
+   "entailment": "full",
+   "label_change": "n/a",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "ok",
+   "reason": "Cita res207 'Someterse a aduanas ecológicas' y 'No ingresar plásticos de un solo uso (Res. 1558)' sostienen el short. R1 REQ cumplido.",
+   "required_change": "Ninguno."
+  },
+  {
+   "id": "rules.entry_bag_checks",
+   "op": "update",
+   "verdict": "approve",
+   "entailment": "full",
+   "label_change": "n/a",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "ok",
+   "reason": "Cita res207 'Participar en los controles ... búsqueda de sustancias psicoactivas, elementos embriagantes, armas, cortopunzantes, equipos de pesca' sostiene el short. 'Déjalos fuera antes de llegar' es consejo, no afirmación de norma.",
+   "required_change": "Ninguno."
+  },
+  {
+   "id": "rules.event_permits",
+   "op": "update",
+   "verdict": "revise",
+   "entailment": "full",
+   "label_change": "n/a",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "warn",
+   "reason": "Refetch bloqueado: TLS local no verifica la cadena de funcionpublica.gov.co (curl 60); no hay descarga verificada. Ficha (eventos requieren autorización) y 78153 (reuniones no autorizadas) sostienen el short. R1 REQ 'en todos los sectores' ya no aparece. Bloqueada por refetch TLS.",
+   "required_change": "Bloqueada por refetch (TLS). Resolver refetch de 78153 con descarga verificada."
+  },
+  {
+   "id": "rules.excavations_prohibited",
+   "op": "update",
+   "verdict": "revise",
+   "entailment": "full",
+   "label_change": "n/a",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "warn",
+   "reason": "Refetch bloqueado: TLS local no verifica la cadena de funcionpublica.gov.co (curl 60); no hay descarga verificada. Res207 (hoyo de gato excepcional) y 78153 (excavaciones salvo autorización) sostienen el short. R1 REQ 'calicatas' retirada. Bloqueada por refetch TLS.",
+   "required_change": "Bloqueada por refetch (TLS). Resolver refetch de 78153 con descarga verificada."
+  },
+  {
+   "id": "rules.feed_wildlife",
+   "op": "update",
+   "verdict": "revise",
+   "entailment": "full",
+   "label_change": "n/a",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "warn",
+   "reason": "Refetch bloqueado: TLS local no verifica la cadena de funcionpublica.gov.co (curl 60); no hay descarga verificada. Res207 (no brindar alimentación para atraer o capturar) y 78153 (suministrar alimentos a los animales) sostienen el short. Bloqueada por refetch TLS.",
+   "required_change": "Bloqueada por refetch (TLS). Resolver refetch de 78153 con descarga verificada."
+  },
+  {
+   "id": "rules.fishing",
+   "op": "update",
+   "verdict": "approve",
+   "entailment": "full",
+   "label_change": "n/a",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "ok",
+   "reason": "Res207 'Realizar actividades de pesca, salvo ... científicos ... debidamente autorizada' sostiene el short y la variante.",
+   "required_change": "Ninguno."
+  },
+  {
+   "id": "rules.flagrancy_foreign_tourists_procedure",
+   "op": "update",
+   "verdict": "revise",
+   "entailment": "full",
+   "label_change": "n/a",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "warn",
+   "reason": "Refetch bloqueado: TLS local no verifica la cadena de funcionpublica.gov.co (curl 60); no hay descarga verificada. Ley 1333 (36879): acta suscrita por el infractor o firmada por un testigo, y preventivas a extranjeros con envío por residencia en otro país. 'Levantan un acta en el sitio' y 'por la Cancillería' no se ven en el extracto citado (cortado a 260 caracteres): verificar en el texto completo. Bloqueada por refetch TLS.",
+   "required_change": "Bloqueada por refetch (TLS). Resolver refetch de 36879; confirmar 'en el sitio' y 'Cancillería' en el texto citado o quitarlos."
+  },
+  {
+   "id": "rules.follow_park_staff",
+   "op": "update",
+   "verdict": "revise",
+   "entailment": "full",
+   "label_change": "n/a",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "warn",
+   "reason": "Refetch bloqueado: TLS local no verifica la cadena de funcionpublica.gov.co (curl 60); no hay descarga verificada. Res207 (acatar recomendaciones de funcionarios y guías autorizados) y 78153 (funcionarios con funciones policivas) sostienen el short. Bloqueada por refetch TLS.",
+   "required_change": "Bloqueada por refetch (TLS). Resolver refetch de 78153 con descarga verificada."
+  },
+  {
+   "id": "rules.geological_soil_samples",
+   "op": "update",
+   "verdict": "revise",
+   "entailment": "partial",
+   "label_change": "n/a",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "ok",
+   "reason": "La cita res207 dice 'Por ningún motivo está permitida la toma de muestras geológicas y edafológicas'. La respuesta permite muestras con permiso 'si es investigación', lo que contradice el texto citado sin reconciliarlo. 'Investigación' remite a research_permissions: no está citado.",
+   "required_change": "Reconciliar: o citar la vía de permiso de investigación (rules.research_permissions) o decir que la norma no permite toma de muestras; no dejar 'pide permiso' sin cita."
+  },
+  {
+   "id": "rules.graffiti_signage",
+   "op": "update",
+   "verdict": "revise",
+   "entailment": "full",
+   "label_change": "n/a",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "warn",
+   "reason": "Refetch bloqueado: TLS local no verifica la cadena de funcionpublica.gov.co (curl 60); no hay descarga verificada. Res207 (rayar o pintar sobre rocas, árboles o estructuras a lo largo del sendero) y 78153 (alterar o remover señales, avisos, vallas y mojones) sostienen el short. Menor: 'a lo largo del sendero' no está en la respuesta. Bloqueada por refetch TLS.",
+   "required_change": "Bloqueada por refetch (TLS). Resolver refetch de 78153; acotar 'rocas, árboles o estructuras' a 'a lo largo del sendero' o aceptar la generalización."
+  },
+  {
+   "id": "rules.intoxication",
+   "op": "update",
+   "verdict": "revise",
+   "entailment": "partial",
+   "label_change": "n/a",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "warn",
+   "reason": "Refetch bloqueado: TLS local no verifica la cadena de funcionpublica.gov.co (curl 60); no hay descarga verificada. Res207 'Ingresar y/o consumir bebidas alcohólicas, sustancias psicoactivas' y 78153 'Embriagarse ... escándalos' sostienen alcohol y embriaguez. 'Entrar en estado de alicoramiento' está en res207 (línea de prohibiciones, 'El ingreso de turistas en estado de alicoramiento'), pero no citado en la op.",
+   "required_change": "Bloqueada por refetch (TLS). Citar la línea 'El ingreso de turistas en estado de alicoramiento o bajo sustancias psicoactivas' de res207. Bloqueada por refetch TLS."
+  },
+  {
+   "id": "rules.leave_natural_objects",
+   "op": "update",
+   "verdict": "revise",
+   "entailment": "partial",
+   "label_change": "n/a",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "warn",
+   "reason": "Refetch bloqueado: TLS local no verifica la cadena de funcionpublica.gov.co (curl 60); no hay descarga verificada. La cita 78153 ('Tomar fotografías ... con fines comerciales') no sostiene 'no te lleves plantas, rocas'. Res207 'Extraer material del suelo, vegetal y/o animal' sí. La excepción de colecta científica está en res207 pero no citada en la op. Bloqueada por refetch TLS.",
+   "required_change": "Bloqueada por refetch (TLS). Reemplazar la cita 78153 por el texto de extracción; citar la colecta con fines científicos de res207; resolver refetch."
+  },
+  {
+   "id": "rules.leave_no_waste",
+   "op": "update",
+   "verdict": "revise",
+   "entailment": "partial",
+   "label_change": "stylistic",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "ok",
+   "reason": "Etiqueta reescrita sin confusión documentada (estilística): la vieja se conserva. Res207 (traer de vuelta residuos; prohibido ocultar bajo rocas o en el suelo) sostienen el short. La variante usa 'retomar ... al lugar de origen' (res207 §6.2, no citado en la op) y la respuesta 'ni siquiera cáscaras' no tiene cita.",
+   "required_change": "Restaurar la etiqueta anterior. Citar §6.2 'retomar sus propios residuos ... al lugar de origen' o quitar esa frase; quitar 'ni siquiera cáscaras o envoltorios' o citarlo."
+  },
+  {
+   "id": "rules.liability_exemptions_force_majeure",
+   "op": "update",
+   "verdict": "revise",
+   "entailment": "full",
+   "label_change": "n/a",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "warn",
+   "reason": "Refetch bloqueado: TLS local no verifica la cadena de funcionpublica.gov.co (curl 60); no hay descarga verificada. Ley 1333 (36879): eximentes de fuerza mayor o caso fortuito y hecho de un tercero, sabotaje o acto terrorista. Lista idéntica al short. 'Explícalo en el proceso' es procedimiento no citado (menor). Bloqueada por refetch TLS.",
+   "required_change": "Bloqueada por refetch (TLS). Resolver refetch de 36879 con descarga verificada."
+  },
+  {
+   "id": "rules.logging_clearing_vegetation",
+   "op": "update",
+   "verdict": "revise",
+   "entailment": "partial",
+   "label_change": "n/a",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "warn",
+   "reason": "Refetch bloqueado: TLS local no verifica la cadena de funcionpublica.gov.co (curl 60); no hay descarga verificada. Cita 78153 (talar, socolar, entresacar, rocerías) sostiene el short. 'Arma la carpa solo donde ya está habilitado' no tiene cita en la op (la norma de camping está en otra cita). Bloqueada por refetch TLS.",
+   "required_change": "Bloqueada por refetch (TLS). Citar la zona habilitada de camping (res207) o quitar 'solo donde ya está habilitado'; resolver refetch."
+  },
+  {
+   "id": "rules.minors_protection",
+   "op": "update",
+   "verdict": "revise",
+   "entailment": "partial",
+   "label_change": "n/a",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "ok",
+   "reason": "Res207 'prohíbe y penaliza la explotación sexual de niños, niñas y adolescentes' sostiene el núcleo. 'Turismo sexual' aparece en res207 pero no está citado; 'es un delito' es paráfrasis de 'penaliza'.",
+   "required_change": "Citar la frase de res207 que contiene 'turismo sexual' o ajustar el texto a 'prohibida y penalizada'."
+  },
+  {
+   "id": "rules.no_discrimination_scandals",
+   "op": "update",
+   "verdict": "revise",
+   "entailment": "full",
+   "label_change": "stylistic",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "warn",
+   "reason": "Etiqueta reescrita sin confusión documentada (estilística): la vieja se conserva. Refetch bloqueado: TLS local no verifica la cadena de funcionpublica.gov.co (curl 60); no hay descarga verificada. 78153 'Hacer discriminaciones de cualquier índole' y 'Embriagarse o provocar ... escándalos' sostienen el short. R1 REQ cumplido. 'Aléjate' es consejo menor. Bloqueada por refetch TLS.",
+   "required_change": "Restaurar la etiqueta anterior. Bloqueada por refetch (TLS). Resolver refetch de 78153 con descarga verificada."
+  },
+  {
+   "id": "rules.no_hunting",
+   "op": "update",
+   "verdict": "approve",
+   "entailment": "full",
+   "label_change": "n/a",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "ok",
+   "reason": "Res207 'Por ningún motivo está permitida la toma de muestras botánicas ni la caza o captura de ejemplares de fauna' sostiene el short. R1 pidió citar la caza: hecho. 'Plumas o nidos' ya no está.",
+   "required_change": "Ninguno."
+  },
+  {
+   "id": "rules.no_introduce_species",
+   "op": "update",
+   "verdict": "revise",
+   "entailment": "full",
+   "label_change": "n/a",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "warn",
+   "reason": "Refetch bloqueado: TLS local no verifica la cadena de funcionpublica.gov.co (curl 60); no hay descarga verificada. Res207 y 78153 ('Introducir transitoria o permanentemente animales, semillas, flores, propágulos') sostienen el short. Bloqueada por refetch TLS.",
+   "required_change": "Bloqueada por refetch (TLS). Resolver refetch de 78153 con descarga verificada."
+  },
+  {
+   "id": "rules.no_mules_arenales_calvito",
+   "op": "update",
+   "verdict": "revise",
+   "entailment": "partial",
+   "label_change": "n/a",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "ok",
+   "reason": "Cita res207 (ingreso de mulas a Arenales y Calvito, exclusivamente a pie) sostiene el short. 'Solo podrán ingresar mulas en caso de rescates y atención de emergencias...' es paráfrasis: la norma dice 'en caso de ser necesario para rescates y condiciones extremas'. La variante 'El Berlín, La Argentina o Buenos Aires' está en res207 pero no citado.",
+   "required_change": "Usar el texto literal de la excepción ('en caso de ser necesario para rescates y condiciones extremas') y citar la lista de porteo de la variante."
+  },
+  {
+   "id": "rules.noise",
+   "op": "update",
+   "verdict": "revise",
+   "entailment": "full",
+   "label_change": "n/a",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "warn",
+   "reason": "Refetch bloqueado: TLS local no verifica la cadena de funcionpublica.gov.co (curl 60); no hay descarga verificada. Res207 y 78153 ('Producir ruidos o utilizar instrumentos o equipos sonoros que perturben') sostienen el short. Bloqueada por refetch TLS.",
+   "required_change": "Bloqueada por refetch (TLS). Resolver refetch de 78153 con descarga verificada."
+  },
+  {
+   "id": "rules.open_fires",
+   "op": "update",
+   "verdict": "revise",
+   "entailment": "partial",
+   "label_change": "n/a",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "warn",
+   "reason": "Refetch bloqueado: TLS local no verifica la cadena de funcionpublica.gov.co (curl 60); no hay descarga verificada. Res207 'Hacer fogatas, estas pueden ocasionar incendios forestales deben portar el camping gas' sostiene riesgo de incendio y camping gas. La segunda cita (78153, armas de fuego/caza/tala) no dice nada sobre fogatas. 'Prohibidas' depende del encabezado de la lista de prohibiciones, no citado. Bloqueada por refetch TLS.",
+   "required_change": "Bloqueada por refetch (TLS). Reemplazar la segunda cita por una que diga fogatas prohibidas (con encabezado de la lista); resolver refetch."
+  },
+  {
+   "id": "rules.park_closure_no_compensation",
+   "op": "update",
+   "verdict": "approve",
+   "entailment": "full",
+   "label_change": "n/a",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "ok",
+   "reason": "Res207 'podrá restringir el ingreso o cerrar los atractivos ... mediante resolución motivada' y 'no compromete a la entidad a indemnizar ... que hayan solicitado su entrada con anticipación' sostienen el short. R1 REQ cumplido. Temporal: es regla general, no estado actual; la respuesta remite a 'estado oficial' sin nombrar el canal.",
+   "required_change": "Ninguno."
+  },
+  {
+   "id": "rules.pets",
+   "op": "update",
+   "verdict": "approve",
+   "entailment": "full",
+   "label_change": "n/a",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "ok",
+   "reason": "Res207 'Ingresar animales domésticos o mascotas' y la respuesta de PNN atención al ciudadano ('no está permitido el ingreso de mascotas') sostienen el short. Canal oficial citado.",
+   "required_change": "Ninguno."
+  },
+  {
+   "id": "rules.playback",
+   "op": "update",
+   "verdict": "approve",
+   "entailment": "full",
+   "label_change": "n/a",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "ok",
+   "reason": "Res207: 'uso de play-back ... en el Área Protegida' y 'Tampoco se permite el uso de playback durante la observación de aves' sostienen el short, incluido 'incluso para observar aves' (R1 pidió citarlo: hecho).",
+   "required_change": "Ninguno."
+  },
+  {
+   "id": "rules.presumption_of_fault_burden_proof",
+   "op": "update",
+   "verdict": "approve",
+   "entailment": "full",
+   "label_change": "n/a",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "ok",
+   "reason": "Ley 2387/2024: 'se presume la culpa o dolo del infractor, quien tendrá a su cargo desvirtuarla' sostiene el short.",
+   "required_change": "Ninguno."
+  },
+  {
+   "id": "rules.preventive_measures",
+   "op": "update",
+   "verdict": "revise",
+   "entailment": "full",
+   "label_change": "n/a",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "warn",
+   "reason": "Refetch bloqueado: TLS local no verifica la cadena de funcionpublica.gov.co (curl 60); no hay descarga verificada. Ley 2387 (costos de medidas preventivas a cargo del infractor) y 36879 (decomiso preventivo) sostienen el short. 'Hasta que decidan el caso' no aparece en el texto citado (menor). Bloqueada por refetch TLS.",
+   "required_change": "Bloqueada por refetch (TLS). Resolver refetch de 36879 y de la ley 2387 con descarga verificada; citar 'hasta que decidan el caso' o quitarlo."
+  },
+  {
+   "id": "rules.report_environmental_infractions",
+   "op": "update",
+   "verdict": "revise",
+   "entailment": "full",
+   "label_change": "n/a",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "warn",
+   "reason": "Refetch bloqueado: TLS local no verifica la cadena de funcionpublica.gov.co (curl 60); no hay descarga verificada. Res207 'Denunciar delitos o penalidades ante los funcionarios del Parque' y 78153 'Denunciar ... la comisión de infracciones' sostienen el short. Bloqueada por refetch TLS.",
+   "required_change": "Bloqueada por refetch (TLS). Resolver refetch de 78153 con descarga verificada."
+  },
+  {
+   "id": "rules.research_permissions",
+   "op": "update",
+   "verdict": "revise",
+   "entailment": "full",
+   "label_change": "n/a",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "warn",
+   "reason": "Refetch bloqueado: TLS local no verifica la cadena de funcionpublica.gov.co (curl 60); no hay descarga verificada. Ficha (actividades de investigación requieren autorización) y res207 (colecta sólo con fines científicos autorizados) sostienen el short. La cita 78153 es sobre pesca científica, no sobre permisos de investigación: no sostiene la claim pero no la contradice (menor). Bloqueada por refetch TLS.",
+   "required_change": "Bloqueada por refetch (TLS). Cambiar la cita 78153 por la de investigación/colecta; resolver refetch."
+  },
+  {
+   "id": "rules.researcher_deliverables_obligation",
+   "op": "update",
+   "verdict": "revise",
+   "entailment": "partial",
+   "label_change": "n/a",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "warn",
+   "reason": "Refetch bloqueado: TLS local no verifica la cadena de funcionpublica.gov.co (curl 60); no hay descarga verificada. La cita 78153 (literal c: duplicados o por lo menos un ejemplar de cada especie/muestra) sostiene sólo el ejemplar. 'Entregar un informe de lo que hiciste y de los resultados' y 'una copia de lo que publiques' no tienen cita. Bloqueada por refetch TLS.",
+   "required_change": "Bloqueada por refetch (TLS). Citar la obligación de informe y de copia de publicaciones (o quitarlas); resolver refetch de 78153."
+  },
+  {
+   "id": "rules.respect_carrying_capacity_limits",
+   "op": "update",
+   "verdict": "approve",
+   "entailment": "full",
+   "label_change": "n/a",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "ok",
+   "reason": "Res207 'Respetar la capacidad de carga ... y el número máximo de personas por grupo' y 'No sobrepasar la capacidad de carga' sostienen el short. R1 pidió reemplazar la segunda cita: hecho.",
+   "required_change": "Ninguno."
+  },
+  {
+   "id": "rules.respect_communities",
+   "op": "update",
+   "verdict": "revise",
+   "entailment": "full",
+   "label_change": "n/a",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "warn",
+   "reason": "Refetch bloqueado: TLS local no verifica la cadena de funcionpublica.gov.co (curl 60); no hay descarga verificada. Res207 'Respetar la cultura y costumbres de los habitantes' y 78153 'Hacer discriminaciones de cualquier índole' sostienen el short. Bloqueada por refetch TLS.",
+   "required_change": "Bloqueada por refetch (TLS). Resolver refetch de 78153 con descarga verificada."
+  },
+  {
+   "id": "rules.restoration_duty_civil_criminal",
+   "op": "update",
+   "verdict": "revise",
+   "entailment": "full",
+   "label_change": "n/a",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "warn",
+   "reason": "Refetch bloqueado: TLS local no verifica la cadena de funcionpublica.gov.co (curl 60); no hay descarga verificada. Ley 2387: la multa 'no exime ... de restaurar el medio ambiente'; 36879: 'sin perjuicio de las acciones civiles, penales' sostienen el short. R1 REQ cumplido. 'Incendio, sacar plantas' de la variante son ejemplos no citados (menor). Bloqueada por refetch TLS.",
+   "required_change": "Bloqueada por refetch (TLS). Resolver refetch de 36879 y ley 2387 con descarga verificada."
+  },
+  {
+   "id": "rules.rock_bolting_prohibited",
+   "op": "update",
+   "verdict": "revise",
+   "entailment": "partial",
+   "label_change": "n/a",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "ok",
+   "reason": "Res207 'Instalación de chapas de seguridad en la roca' sostiene chapas. 'Anclajes fijos' (short y variante) no aparece en la cita.",
+   "required_change": "Quitar 'anclajes fijos' o citarlo."
+  },
+  {
+   "id": "rules.ruia_offender_registry",
+   "op": "update",
+   "verdict": "revise",
+   "entailment": "partial",
+   "label_change": "n/a",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "warn",
+   "reason": "Refetch bloqueado: TLS local no verifica la cadena de funcionpublica.gov.co (curl 60); no hay descarga verificada. 36879: RUIA creado, información pública y 'prueba suficiente para demostrar la reincidencia' sostienen el núcleo. 'Con la falta, el lugar y la sanción' (contenido del registro) no aparece en las citas. Bloqueada por refetch TLS.",
+   "required_change": "Bloqueada por refetch (TLS). Citar el contenido del registro o quitar 'con la falta, el lugar y la sanción'; resolver refetch de 36879."
+  },
+  {
+   "id": "rules.sell_advertise",
+   "op": "update",
+   "verdict": "revise",
+   "entailment": "partial",
+   "label_change": "n/a",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "warn",
+   "reason": "Refetch bloqueado: TLS local no verifica la cadena de funcionpublica.gov.co (curl 60); no hay descarga verificada. 78153 sostiene vender/comerciar/distribuir 'salvo autorizados' y 'propaganda no prevista'. La variante enumera 'agua, comida o artesanías, folletos o avisos publicitarios' sin cita. Bloqueada por refetch TLS.",
+   "required_change": "Bloqueada por refetch (TLS). Quitar la lista de ejemplos de la variante o citarla; resolver refetch de 78153."
+  },
+  {
+   "id": "rules.show_entry_permit_on_request",
+   "op": "update",
+   "verdict": "revise",
+   "entailment": "full",
+   "label_change": "n/a",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "warn",
+   "reason": "Refetch bloqueado: TLS local no verifica la cadena de funcionpublica.gov.co (curl 60); no hay descarga verificada. Res207 'Portar el documento que acredita el derecho de ingreso durante todo el tiempo' y 78153 'Exhibir ... la autorización respectiva e identificarse' sostienen el short. Bloqueada por refetch TLS.",
+   "required_change": "Bloqueada por refetch (TLS). Resolver refetch de 78153 con descarga verificada."
+  },
+  {
+   "id": "rules.social_media_unauthorized_routes",
+   "op": "update",
+   "verdict": "approve",
+   "entailment": "full",
+   "label_change": "n/a",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "ok",
+   "reason": "Carta 2026-05-11 (radicado): incursión no autorizada al glaciar y cráter del Ruiz divulgada en Instagram; 'se dará trámite a las actuaciones' sostienen el caso. R1 pidió limitar la respuesta al caso: hecho. Fechado (mayo 2026) y canal oficial citado. Nota menor: 'ni los promociones' es extensión del caso.",
+   "required_change": "Ninguno."
+  },
+  {
+   "id": "rules.sport_mountaineers_advance_request",
+   "op": "update",
+   "verdict": "approve",
+   "entailment": "full",
+   "label_change": "n/a",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "ok",
+   "reason": "Res207: plan de riesgos y contingencias y coordenadas para campamentos avanzados o vivac sostienen el short. R1 REQ cumplido.",
+   "required_change": "Ninguno."
+  },
+  {
+   "id": "rules.stay_on_routes",
+   "op": "update",
+   "verdict": "approve",
+   "entailment": "full",
+   "label_change": "n/a",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "ok",
+   "reason": "Res207 'Solo se permite el uso de los senderos que se muestran en el siguiente mapa' sostiene el short. R1 REQ cumplido ('sin salirte' ya no aparece).",
+   "required_change": "Ninguno."
+  },
+  {
+   "id": "rules.tent_permit_display",
+   "op": "update",
+   "verdict": "approve",
+   "entailment": "full",
+   "label_change": "n/a",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "ok",
+   "reason": "Res207 'adherir una copia del derecho de ingreso en un lugar visible a la carpa' sostiene el short. R1 pidió conservar la etiqueta anterior: se verifica abajo.",
+   "required_change": "Ninguno."
+  },
+  {
+   "id": "rules.visitor_risk_assumption",
+   "op": "update",
+   "verdict": "revise",
+   "entailment": "full",
+   "label_change": "n/a",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "warn",
+   "reason": "Refetch bloqueado: TLS local no verifica la cadena de funcionpublica.gov.co (curl 60); no hay descarga verificada. 78153 'ninguna responsabilidad ... los visitantes asumen los riesgos' y res207 'Cada persona será responsable de sus objetos personales' sostienen el short. Bloqueada por refetch TLS.",
+   "required_change": "Bloqueada por refetch (TLS). Resolver refetch de 78153 con descarga verificada."
+  },
+  {
+   "id": "rules.weapons",
+   "op": "update",
+   "verdict": "revise",
+   "entailment": "full",
+   "label_change": "n/a",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "warn",
+   "reason": "Refetch bloqueado: TLS local no verifica la cadena de funcionpublica.gov.co (curl 60); no hay descarga verificada. Res207 (controles de ingreso: armas de fuego, cortopunzantes) y 78153 (portar armas de fuego y para caza, pesca, tala) sostienen el short y la variante. Bloqueada por refetch TLS.",
+   "required_change": "Bloqueada por refetch (TLS). Resolver refetch de 78153 con descarga verificada."
+  },
+  {
+   "id": "rules.wildlife_contact_displacement",
+   "op": "update",
+   "verdict": "approve",
+   "entailment": "full",
+   "label_change": "n/a",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "ok",
+   "reason": "Res207 'No intente coger, ni alimentar ni desplazar especies de fauna' sostiene el short. R1 pidió conservar la etiqueta anterior: se verifica abajo.",
+   "required_change": "Ninguno."
+  }
+ ],
+ "audit_rows": [
+  {
+   "id": "rules.stay_on_routes",
+   "claimed": "primary_ok",
+   "support": "full",
+   "excerpt_changed": false,
+   "note": "La excerpt de res207 ('Solo se permite el uso de los senderos que se muestran en el siguiente mapa') sostiene la respuesta; 'tomar rutas alternas prohibido' es inferencia directa. Juicio por excerpt de la fila; la ronda 1 no guardó el excerpt, así que no pude comparar si cambió (se marca false) (no por todas las citas del op)."
+  },
+  {
+   "id": "rules.leave_no_waste",
+   "claimed": "primary_ok",
+   "support": "partial",
+   "excerpt_changed": false,
+   "note": "La excerpt sólo sostiene el entierro/ocultamiento bajo rocas o en el suelo. 'Llévate tus residuos' y 'no los dejes' vienen de otra cita del mismo op, no de esta excerpt. Juicio por excerpt de la fila; la ronda 1 no guardó el excerpt, así que no pude comparar si cambió (se marca false) (no por todas las citas del op)."
+  },
+  {
+   "id": "rules.avoid_chemicals",
+   "claimed": "primary_ok",
+   "support": "partial",
+   "excerpt_changed": false,
+   "note": "La excerpt sostiene pirotécnicos y explosivos. 'Pólvora', 'productos químicos de efectos residuales' y 'obra autorizada' no aparecen en ella. Juicio por excerpt de la fila; la ronda 1 no guardó el excerpt, así que no pude comparar si cambió (se marca false) (no por todas las citas del op)."
+  },
+  {
+   "id": "rules.commercial_photography",
+   "claimed": "primary_ok",
+   "support": "partial",
+   "excerpt_changed": false,
+   "note": "La excerpt sostiene la foto aficionada permitida. La exigencia de autorización para fines comerciales no aparece en ella (está en la ficha, otra cita). Juicio por excerpt de la fila; la ronda 1 no guardó el excerpt, así que no pude comparar si cambió (se marca false) (no por todas las citas del op)."
+  },
+  {
+   "id": "rules.organized_sports",
+   "claimed": "primary_ok",
+   "support": "partial",
+   "excerpt_changed": false,
+   "note": "La excerpt es el preámbulo de la Resolución 474/2018. 'Las carreras necesitan autorización' no aparece. Juicio por excerpt de la fila; la ronda 1 no guardó el excerpt, así que no pude comparar si cambió (se marca false) (no por todas las citas del op)."
+  },
+  {
+   "id": "rules.drones",
+   "claimed": "primary_ok",
+   "support": "full",
+   "excerpt_changed": false,
+   "note": "La excerpt ('No utilizar drones conforme la resolución No. 0543 del 27 de diciembre de 2018') sostiene la prohibición. Juicio por excerpt de la fila; la ronda 1 no guardó el excerpt, así que no pude comparar si cambió (se marca false) (no por todas las citas del op)."
+  },
+  {
+   "id": "rules.playback",
+   "claimed": "primary_ok",
+   "support": "partial",
+   "excerpt_changed": false,
+   "note": "La excerpt sostiene 'no playback durante la observación de aves'. La definición general (reproducir audios de fauna silvestre con dispositivo) no aparece en esta excerpt. Juicio por excerpt de la fila; la ronda 1 no guardó el excerpt, así que no pude comparar si cambió (se marca false) (no por todas las citas del op)."
+  },
+  {
+   "id": "rules.weapons",
+   "claimed": "primary_ok",
+   "support": "partial",
+   "excerpt_changed": false,
+   "note": "La excerpt sostiene portar armas de fuego y elementos de caza/pesca/tala. 'Cortopunzantes' no aparece en ella. Juicio por excerpt de la fila; la ronda 1 no guardó el excerpt, así que no pude comparar si cambió (se marca false) (no por todas las citas del op)."
+  },
+  {
+   "id": "rules.sell_advertise",
+   "claimed": "primary_ok",
+   "support": "partial",
+   "excerpt_changed": false,
+   "note": "La excerpt sostiene vender, comerciar o distribuir salvo autorizados. 'Propaganda no prevista' no aparece en ella. Juicio por excerpt de la fila; la ronda 1 no guardó el excerpt, así que no pude comparar si cambió (se marca false) (no por todas las citas del op)."
+  },
+  {
+   "id": "rules.sanctions_penalties",
+   "claimed": "primary_ok",
+   "support": "partial",
+   "excerpt_changed": false,
+   "note": "La excerpt sostiene la multa de hasta 100.000 SMMLV. 'Amonestación pública o servicio comunitario' como niveles no aparece en ella. Juicio por excerpt de la fila; la ronda 1 no guardó el excerpt, así que no pude comparar si cambió (se marca false) (no por todas las citas del op)."
+  },
+  {
+   "id": "rules.preventive_measures",
+   "claimed": "primary_ok",
+   "support": "partial",
+   "excerpt_changed": false,
+   "note": "La excerpt define el decomiso preventivo. 'Te lo pueden quitar hasta que decidan el caso' y 'lo pagas tú' (costos) no aparecen en ella (costos están en ley 2387, otra cita). Juicio por excerpt de la fila; la ronda 1 no guardó el excerpt, así que no pude comparar si cambió (se marca false) (no por todas las citas del op)."
+  },
+  {
+   "id": "rules.geological_soil_samples",
+   "claimed": "primary_ok",
+   "support": "partial",
+   "excerpt_changed": false,
+   "note": "La excerpt dice 'Por ningún motivo está permitida la toma de muestras geológicas'. La respuesta permite muestras con permiso para investigación, lo que contradice la excerpt sin reconciliarlo. Juicio por excerpt de la fila; la ronda 1 no guardó el excerpt, así que no pude comparar si cambió (se marca false) (no por todas las citas del op)."
+  },
+  {
+   "id": "rules.aerosols_sprays_prohibited",
+   "claimed": "primary_ok",
+   "support": "partial",
+   "excerpt_changed": false,
+   "note": "La excerpt limita la prohibición a 'productos químicos en aerosoles o en grandes cantidades'. La respuesta dice 'No uses aerosoles' y 'pintes rocas con spray', que no aparecen. Juicio por excerpt de la fila; la ronda 1 no guardó el excerpt, así que no pude comparar si cambió (se marca false) (no por todas las citas del op)."
+  },
+  {
+   "id": "rules.agro_industrial_mining_ban",
+   "claimed": "primary_ok",
+   "support": "full",
+   "excerpt_changed": false,
+   "note": "La excerpt (ítem 3: actividades agropecuarias o industriales incluidas hoteleras, mineras y petroleras) sostiene la respuesta; 'ganadería' y 'agricultura' son la categoría agropecuaria. Juicio por excerpt de la fila; la ronda 1 no guardó el excerpt, así que no pude comparar si cambió (se marca false) (no por todas las citas del op)."
+  },
+  {
+   "id": "rules.visitor_risk_assumption",
+   "claimed": "primary_ok",
+   "support": "partial",
+   "excerpt_changed": false,
+   "note": "La excerpt sostiene 'los visitantes asumen los riesgos' y 'ninguna responsabilidad'. 'Cada quien responde por sus cosas' y 'si se te pierde algo' no aparecen en ella. Juicio por excerpt de la fila; la ronda 1 no guardó el excerpt, así que no pude comparar si cambió (se marca false) (no por todas las citas del op)."
+  },
+  {
+   "id": "rules.no_discrimination_scandals",
+   "claimed": "primary_ok",
+   "support": "partial",
+   "excerpt_changed": false,
+   "note": "La excerpt sostiene 'hacer discriminaciones de cualquier índole'. 'Provoques o participes en escándalos' no aparece en ella. Juicio por excerpt de la fila; la ronda 1 no guardó el excerpt, así que no pude comparar si cambió (se marca false) (no por todas las citas del op)."
+  },
+  {
+   "id": "rules.park_closure_no_compensation",
+   "claimed": "primary_ok",
+   "support": "partial",
+   "excerpt_changed": false,
+   "note": "La excerpt sostiene 'no compromete a la entidad a indemnizar ... con anticipación'. Las causas del cierre (seguridad, riesgo, investigación, protección) no aparecen en ella. Juicio por excerpt de la fila; la ronda 1 no guardó el excerpt, así que no pude comparar si cambió (se marca false) (no por todas las citas del op)."
+  },
+  {
+   "id": "rules.pack_animals_weight_overnight",
+   "claimed": "primary_ok",
+   "support": "partial",
+   "excerpt_changed": false,
+   "note": "La excerpt sostiene 80 kg máximos y que no pernoctan en el área. 'Máximo 5 por arriero' y 'sin atajos' no aparecen en ella. Juicio por excerpt de la fila; la ronda 1 no guardó el excerpt, así que no pude comparar si cambió (se marca false) (no por todas las citas del op)."
+  },
+  {
+   "id": "rules.no_mules_arenales_calvito",
+   "claimed": "primary_ok",
+   "support": "partial",
+   "excerpt_changed": false,
+   "note": "La excerpt sostiene que el ingreso de mulas a Arenales y Calvito es sólo a pie. La excepción 'rescates y emergencias' no aparece en la excerpt. Juicio por excerpt de la fila; la ronda 1 no guardó el excerpt, así que no pude comparar si cambió (se marca false) (no por todas las citas del op)."
+  },
+  {
+   "id": "rules.sport_mountaineers_advance_request",
+   "claimed": "primary_ok",
+   "support": "partial",
+   "excerpt_changed": false,
+   "note": "La excerpt sostiene coordenadas para campamentos avanzados o vivac. El plan de riesgos no aparece en ella (está en otra cita del op). Juicio por excerpt de la fila; la ronda 1 no guardó el excerpt, así que no pude comparar si cambió (se marca false) (no por todas las citas del op)."
+  },
+  {
+   "id": "rules.sport_mountaineers_schedule_exit_report",
+   "claimed": "primary_ok",
+   "support": "partial",
+   "excerpt_changed": false,
+   "note": "La excerpt sostiene reportar la salida el mismo día o al día siguiente. 'Avisar 24 horas antes' y 'pierdes el derecho a entrar' no aparecen. Juicio por excerpt de la fila; la ronda 1 no guardó el excerpt, así que no pude comparar si cambió (se marca false) (no por todas las citas del op)."
+  },
+  {
+   "id": "rules.guide_operator_misconduct_ban",
+   "claimed": "primary_ok",
+   "support": "partial",
+   "excerpt_changed": false,
+   "note": "La excerpt sostiene que el guía no bebe 24 horas antes. 'Puede quedar por fuera del parque y del registro de prestadores' no aparece. Juicio por excerpt de la fila; la ronda 1 no guardó el excerpt, así que no pude comparar si cambió (se marca false) (no por todas las citas del op)."
+  },
+  {
+   "id": "rules.social_media_unauthorized_routes",
+   "claimed": "primary_ok",
+   "support": "partial",
+   "excerpt_changed": false,
+   "note": "La excerpt (carta 2026) sostiene 'se dará trámite a las actuaciones'. La denuncia de incursión y la divulgación por Instagram aparecen en otra cita del op, no en esta excerpt. Juicio por excerpt de la fila; la ronda 1 no guardó el excerpt, así que no pude comparar si cambió (se marca false) (no por todas las citas del op)."
+  },
+  {
+   "id": "rules.written_reprimand_mandatory_course",
+   "claimed": "primary_ok",
+   "support": "partial",
+   "excerpt_changed": false,
+   "note": "La excerpt (art. 37) sostiene la amonestación escrita. La publicación en web y alcaldía, y el curso o servicio como consecuencia, no aparecen en ella. Juicio por excerpt de la fila; la ronda 1 no guardó el excerpt, así que no pude comparar si cambió (se marca false) (no por todas las citas del op)."
+  },
+  {
+   "id": "rules.community_service_sanction",
+   "claimed": "primary_ok",
+   "support": "partial",
+   "excerpt_changed": false,
+   "note": "La excerpt sostiene que las medidas reemplazan la multa sólo si la capacidad es insuficiente y pueden ser complementarias. 'Servicio comunitario ambiental o un curso' como tipos no aparece. Juicio por excerpt de la fila; la ronda 1 no guardó el excerpt, así que no pude comparar si cambió (se marca false) (no por todas las citas del op)."
+  },
+  {
+   "id": "rules.early_termination_correction_plan",
+   "claimed": "primary_ok",
+   "support": "partial",
+   "excerpt_changed": false,
+   "note": "La excerpt sostiene 'no ser un antecedente'. 'Las haces tú' y 'cierran el caso' no aparecen en ella. Juicio por excerpt de la fila; la ronda 1 no guardó el excerpt, así que no pude comparar si cambió (se marca false) (no por todas las citas del op)."
+  },
+  {
+   "id": "rules.ruia_offender_registry",
+   "claimed": "primary_ok",
+   "support": "partial",
+   "excerpt_changed": false,
+   "note": "La excerpt sostiene que la información es pública y es prueba de reincidencia. 'Con la falta, el lugar y la sanción' no aparece en ella. Juicio por excerpt de la fila; la ronda 1 no guardó el excerpt, así que no pude comparar si cambió (se marca false) (no por todas las citas del op)."
+  },
+  {
+   "id": "rules.aggravating_factors_protected_area",
+   "claimed": "primary_ok",
+   "support": "partial",
+   "excerpt_changed": false,
+   "note": "La excerpt (numerales 9 y 10) sostiene obstaculizar a la autoridad e incumplir medidas preventivas. 'Dañar recursos de un área protegida' (numeral 6) está en otra cita; 'dentro del parque la falta pesa más' es generalización. Juicio por excerpt de la fila; la ronda 1 no guardó el excerpt, así que no pude comparar si cambió (se marca false) (no por todas las citas del op)."
+  },
+  {
+   "id": "rules.restoration_duty_civil_criminal",
+   "claimed": "primary_ok",
+   "support": "partial",
+   "excerpt_changed": false,
+   "note": "La excerpt sostiene 'sin perjuicio de las acciones civiles y penales'. 'Pagar la multa no te libra de reparar' y 'obras para restaurar' están en otra cita (ley 2387). Juicio por excerpt de la fila; la ronda 1 no guardó el excerpt, así que no pude comparar si cambió (se marca false) (no por todas las citas del op)."
+  },
+  {
+   "id": "rules.flagrancy_foreign_tourists_procedure",
+   "claimed": "primary_ok",
+   "support": "partial",
+   "excerpt_changed": false,
+   "note": "La excerpt sostiene la firma del acta por el infractor o un testigo. 'Levantan un acta en el sitio', extranjeros y 'Cancillería' no aparecen en ella. Juicio por excerpt de la fila; la ronda 1 no guardó el excerpt, así que no pude comparar si cambió (se marca false) (no por todas las citas del op)."
+  },
+  {
+   "id": "rules.no_hunting",
+   "claimed": "primary_ok",
+   "support": "partial",
+   "excerpt_changed": false,
+   "note": "La excerpt sostiene 'ninguna caza o captura de fauna'. 'Llevarte animales' (extraer) no aparece en ella; está en otra cita res207. Juicio por excerpt de la fila; la ronda 1 no guardó el excerpt, así que no pude comparar si cambió (se marca false) (no por todas las citas del op)."
+  }
+ ],
+ "summary": {
+  "approve": 17,
+  "revise": 45,
+  "reject": 0,
+  "audit_support": {
+   "full": 3,
+   "partial": 28,
+   "none": 0
+  }
+ }
+}

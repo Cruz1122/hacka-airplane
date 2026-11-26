@@ -1,0 +1,486 @@
+{
+  "section": "services",
+  "reviewer": "agent 28 / claude-haiku-5-5",
+  "ops": [
+    {
+      "id": "services.brisas_visitor_center",
+      "op": "update",
+      "verdict": "approve",
+      "entailment": "n/a",
+      "label_change": "justified",
+      "examples": "ok",
+      "temporal": "n/a",
+      "refetch": "n/a",
+      "reason": "La etiqueta deja de llamar 'cabaña' a la oferta principal (taquilla e inducción) y separa la entrada de brisas_lodging. Ejemplos y negativos sin pérdidas de consultas cortas.",
+      "required_change": "Ninguno en esta op. La fila de auditoría tiene una atribución errónea de la altitud (ver audit)."
+    },
+    {
+      "id": "services.north_food",
+      "op": "update",
+      "verdict": "revise",
+      "entailment": "n/a",
+      "label_change": "stylistic",
+      "examples": "ok",
+      "temporal": "n/a",
+      "refetch": "n/a",
+      "reason": "'restaurantes' no aparece en la respuesta, que habla de servicio de alimentos. No hay confusión documentada que lo justifique.",
+      "required_change": "Conservar la etiqueta anterior 'comida en Brisas y Arenales'. Ejemplos y negativos pueden quedar."
+    },
+    {
+      "id": "services.toilets",
+      "op": "update",
+      "verdict": "approve",
+      "entailment": "n/a",
+      "label_change": "justified",
+      "examples": "ok",
+      "temporal": "n/a",
+      "refetch": "n/a",
+      "reason": "La etiqueta 'servicios sanitarios y baños para visitantes' es la que pide el cross de services con activities.therapeutic_baths_banned: separa sanitarios de baños termales.",
+      "required_change": "Ninguno."
+    },
+    {
+      "id": "services.first_aid_points",
+      "op": "update",
+      "verdict": "approve",
+      "entailment": "n/a",
+      "label_change": "justified",
+      "examples": "ok",
+      "temporal": "n/a",
+      "refetch": "n/a",
+      "reason": "La etiqueta anterior solo nombraba Arenales; la respuesta también ubica enfermería en Brisas. La nueva corrige el alcance.",
+      "required_change": "Ninguno en esta op."
+    },
+    {
+      "id": "services.cisne_visitor_center",
+      "op": "update",
+      "verdict": "approve",
+      "entailment": "n/a",
+      "label_change": "justified",
+      "examples": "ok",
+      "temporal": "n/a",
+      "refetch": "n/a",
+      "reason": "taxonomy.json pide aclarar 'alojamiento y camas' frente a activities.camping_cisne; la etiqueta nueva lo hace. Negativo 'puedo acampar en El Cisne' añadido.",
+      "required_change": "Ninguno en la op. La fila de auditoría debe corregir la altitud (4100 m frente a 4180 m del informe)."
+    },
+    {
+      "id": "services.potosi_cabin",
+      "op": "update",
+      "verdict": "approve",
+      "entailment": "n/a",
+      "label_change": "justified",
+      "examples": "ok",
+      "temporal": "n/a",
+      "refetch": "n/a",
+      "reason": "La respuesta abre con que Potosí es punto de control y vigilancia; la etiqueta nueva dice eso y separa la cabaña del refugio Campo Alegre.",
+      "required_change": "Ninguno en la op."
+    },
+    {
+      "id": "services.otun_lodging",
+      "op": "update",
+      "verdict": "revise",
+      "entailment": "n/a",
+      "label_change": "stylistic",
+      "examples": "ok",
+      "temporal": "n/a",
+      "refetch": "n/a",
+      "reason": "'campesino' no aparece en la respuesta, que habla de habitantes y de la comunidad de la vereda. Añade un atributo sin cita.",
+      "required_change": "Conservar 'casas de hospedaje en El Bosque' o usar 'hospedaje comunitario en vereda El Bosque', que sí sigue la respuesta."
+    },
+    {
+      "id": "services.tolima_lodging",
+      "op": "update",
+      "verdict": "revise",
+      "entailment": "n/a",
+      "label_change": "stylistic",
+      "examples": "ok",
+      "temporal": "n/a",
+      "refetch": "n/a",
+      "reason": "'fincas' y 'sector Tolima' quitan los nombres que la respuesta usa (Termal Cañón, La Playa, La Primavera), que son el contenido discriminante.",
+      "required_change": "Conservar 'hospedaje en Termal Cañón y La Primavera'."
+    },
+    {
+      "id": "services.brisas_lodging",
+      "op": "update",
+      "verdict": "revise",
+      "entailment": "n/a",
+      "label_change": "stylistic",
+      "examples": "ok",
+      "temporal": "n/a",
+      "refetch": "n/a",
+      "reason": "La etiqueta nueva omite 'confirmar con UTON', que es la incertidumbre central de la respuesta. La etiqueta anterior la conserva.",
+      "required_change": "Conservar 'camas en Brisas: confirmar con UTON'."
+    },
+    {
+      "id": "services.porter_luggage",
+      "op": "update",
+      "verdict": "approve",
+      "entailment": "n/a",
+      "label_change": "justified",
+      "examples": "ok",
+      "temporal": "n/a",
+      "refetch": "n/a",
+      "reason": "La respuesta trata de rutas autorizadas para porteo; la etiqueta nueva lo dice y separa de porter_requirements. Negativos removidos no son consultas de porteo.",
+      "required_change": "Ninguno en la op. La fila de auditoría debe citar el conflicto Juntas/Chilcos."
+    },
+    {
+      "id": "services.uton_services",
+      "op": "update",
+      "verdict": "approve",
+      "entailment": "n/a",
+      "label_change": "justified",
+      "examples": "ok",
+      "temporal": "n/a",
+      "refetch": "n/a",
+      "reason": "services.cross.json pide que sea el panorama general de la concesión; la etiqueta lo expresa. Negativos hacia transporte y reservas (los de access y booking_fees) añadidos según el mismo cross.",
+      "required_change": "Ninguno en la op."
+    },
+    {
+      "id": "services.guide_radios",
+      "op": "update",
+      "verdict": "revise",
+      "entailment": "n/a",
+      "label_change": "stylistic",
+      "examples": "issues",
+      "temporal": "n/a",
+      "refetch": "n/a",
+      "reason": "Quitó 'el guía lleva botiquín?', consulta corta y real (la protege el criterio de Check 6). 'obligatorios' en la etiqueta no fija ninguna confusión documentada.",
+      "required_change": "Restaurar 'el guía lleva botiquín?' como ejemplo y conservar 'radios que llevan los guías'."
+    },
+    {
+      "id": "services.phone_signal",
+      "op": "update",
+      "verdict": "revise",
+      "entailment": "n/a",
+      "label_change": "stylistic",
+      "examples": "ok",
+      "temporal": "n/a",
+      "refetch": "n/a",
+      "reason": "'cobertura y' añade una palabra sin cambiar el contenido ni resolver una confusión documentada.",
+      "required_change": "Conservar 'señal de celular en el parque'."
+    },
+    {
+      "id": "services.charging_power",
+      "op": "update",
+      "verdict": "revise",
+      "entailment": "n/a",
+      "label_change": "stylistic",
+      "examples": "ok",
+      "temporal": "n/a",
+      "refetch": "n/a",
+      "reason": "'puntos para cargar' afirma que hay puntos, y la respuesta dice que no hay puntos confirmados. La etiqueta contradice la respuesta.",
+      "required_change": "Conservar 'carga de celular o batería'. La fila de auditoría (quote_missing) debe quedar sin primary_ok."
+    },
+    {
+      "id": "services.accessibility",
+      "op": "update",
+      "verdict": "revise",
+      "entailment": "n/a",
+      "label_change": "stylistic",
+      "examples": "ok",
+      "temporal": "n/a",
+      "refetch": "n/a",
+      "reason": "'para visitantes con' es relleno; no hay confusión documentada que la etiqueta resuelva.",
+      "required_change": "Conservar 'accesibilidad para movilidad reducida'."
+    },
+    {
+      "id": "services.drinking_water",
+      "op": "update",
+      "verdict": "revise",
+      "entailment": "n/a",
+      "label_change": "stylistic",
+      "examples": "ok",
+      "temporal": "n/a",
+      "refetch": "n/a",
+      "reason": "'disponibilidad de agua potable' no separa esta entrada de flora_ecosystems.coffee_region_water_reserve, que es el cruce documentado en services.cross.json.",
+      "required_change": "Conservar 'agua para tomar en el parque' o usar el término de puntos de abastecimiento que propone el cross."
+    },
+    {
+      "id": "services.shop_ecotienda",
+      "op": "update",
+      "verdict": "revise",
+      "entailment": "n/a",
+      "label_change": "stylistic",
+      "examples": "ok",
+      "temporal": "n/a",
+      "refetch": "n/a",
+      "reason": "'tienda de recuerdos' introduce 'recuerdos', que no aparece en la respuesta: atributo sin cita.",
+      "required_change": "Conservar 'tienda y ecotienda del norte'."
+    },
+    {
+      "id": "services.refugio_cabin",
+      "op": "update",
+      "verdict": "revise",
+      "entailment": "n/a",
+      "label_change": "stylistic",
+      "examples": "ok",
+      "temporal": "n/a",
+      "refetch": "n/a",
+      "reason": "'para dormir' repite lo que la respuesta ya dice; no cambia la discriminación y mueve una etiqueta que Laya conoce.",
+      "required_change": "Conservar 'cabaña El Refugio no habilitada'."
+    },
+    {
+      "id": "services.camp_showers",
+      "op": "update",
+      "verdict": "approve",
+      "entailment": "n/a",
+      "label_change": "justified",
+      "examples": "ok",
+      "temporal": "n/a",
+      "refetch": "n/a",
+      "reason": "La respuesta trata de la cabaña de Arenales. services.cross.json pide separar infraestructura (duchas) de pautas de higiene en preparation.camp_hygiene; la etiqueta nueva lo hace.",
+      "required_change": "Ninguno en la op."
+    },
+    {
+      "id": "services.official_sites",
+      "op": "update",
+      "verdict": "revise",
+      "entailment": "n/a",
+      "label_change": "stylistic",
+      "examples": "issues",
+      "temporal": "n/a",
+      "refetch": "n/a",
+      "reason": "Quitó 'cómo confirmo antes de viajar', consulta corta y real. El cambio de etiqueta no fija una confusión documentada.",
+      "required_change": "Restaurar 'cómo confirmo antes de viajar' y conservar 'dónde confirmar servicios en línea'."
+    },
+    {
+      "id": "services.quindio_dulima",
+      "op": "update",
+      "verdict": "revise",
+      "entailment": "n/a",
+      "label_change": "stylistic",
+      "examples": "ok",
+      "temporal": "n/a",
+      "refetch": "n/a",
+      "reason": "'turísticos' no aparece en la respuesta, que trata de terreno exigente y de necesidades de asistencia.",
+      "required_change": "Conservar 'servicios en Quindío–Dulima'."
+    },
+    {
+      "id": "services.interpretive_guiding",
+      "op": "update",
+      "verdict": "revise",
+      "entailment": "n/a",
+      "label_change": "stylistic",
+      "examples": "ok",
+      "temporal": "n/a",
+      "refetch": "n/a",
+      "reason": "'ambiental' y 'autorizada' no aparecen en la respuesta. labels.json propone otra etiqueta y el curador no la aplicó.",
+      "required_change": "Conservar 'guianza interpretativa en los senderos' o adoptar 'guías registrados para los senderos' de labels.json."
+    },
+    {
+      "id": "services.town_lodging_rnt",
+      "op": "update",
+      "verdict": "revise",
+      "entailment": "n/a",
+      "label_change": "stylistic",
+      "examples": "ok",
+      "temporal": "n/a",
+      "refetch": "n/a",
+      "reason": "'hoteles' no aparece en la respuesta, que habla de alojamiento con RNT. Sustituye un término por otro sin cambiar la confusión.",
+      "required_change": "Conservar 'alojamiento en pueblos cercanos y RNT'."
+    },
+    {
+      "id": "services.lost_items",
+      "op": "update",
+      "verdict": "approve",
+      "entailment": "n/a",
+      "label_change": "justified",
+      "examples": "ok",
+      "temporal": "n/a",
+      "refetch": "n/a",
+      "reason": "services.cross.json pide separar objetos de personas extraviadas (actions.report_lost_person); la etiqueta ya habla de objetos y se añadieron negativos hacia personas.",
+      "required_change": "Ninguno en la op."
+    },
+    {
+      "id": "services.porter_requirements",
+      "op": "update",
+      "verdict": "revise",
+      "entailment": "n/a",
+      "label_change": "stylistic",
+      "examples": "ok",
+      "temporal": "n/a",
+      "refetch": "n/a",
+      "reason": "'acreditación' añade un término que la respuesta no usa. No hay confusión documentada.",
+      "required_change": "Conservar 'requisitos para ser porteador'."
+    },
+    {
+      "id": "services.mule_luggage_registered_only",
+      "op": "update",
+      "verdict": "approve",
+      "entailment": "n/a",
+      "label_change": "justified",
+      "examples": "ok",
+      "temporal": "n/a",
+      "refetch": "n/a",
+      "reason": "taxonomy.json y services.cross.json piden enfocar en transporte de equipaje y separar del paseo prohibido; la etiqueta nueva lo hace.",
+      "required_change": "Ninguno en la op."
+    }
+  ],
+  "audit_rows": [
+    {
+      "id": "services.first_aid_points",
+      "claimed": "primary_ok",
+      "support": "partial",
+      "note": "Enfermería en Brisas y Arenales está en el pasaje. 'Punto de primeros auxilios en Arenales' y la lista de necesidades (Potosí, Otún, Cisne, Valle del Cocora, Juntas, Anzoátegui) no están en el excerpt."
+    },
+    {
+      "id": "services.guide_radios",
+      "claimed": "primary_ok",
+      "support": "full",
+      "note": "Radio obligatorio para guías en el anexo 2023 (botiquín, radio, vestimenta). La frecuencia no se afirma en la respuesta."
+    },
+    {
+      "id": "services.camp_showers",
+      "claimed": "primary_ok",
+      "support": "partial",
+      "note": "Batería de baños y duchas para campistas sí. Cocina, comedor y 'camping no habilitado por actividad volcánica' no están en el excerpt."
+    },
+    {
+      "id": "services.refugio_cabin",
+      "claimed": "primary_ok",
+      "support": "full",
+      "note": "'No habilitada' y 'se debe dar de baja' en el informe 2024."
+    },
+    {
+      "id": "services.porter_requirements",
+      "claimed": "primary_ok",
+      "support": "partial",
+      "note": "El excerpt solo trae el registro. El bloque 'Requisitos' del anexo 2023 incluye 'Ser campesino o arriero local' y 'Ser mayor de edad', así que la respuesta sí tiene soporte en la fuente. La duda de que nada soporte 'mayor de edad' no se confirma. Corregir el excerpt al bloque completo."
+    },
+    {
+      "id": "services.mule_luggage_registered_only",
+      "claimed": "primary_ok",
+      "support": "partial",
+      "note": "Prohibición de cabalgatas con fines turísticos sí. 'Solo arrieros avalados... previa autorización de un funcionario' no está en el excerpt."
+    },
+    {
+      "id": "services.lost_items",
+      "claimed": "primary_ok",
+      "support": "partial",
+      "note": "El excerpt sustenta que el personal no se responsabiliza. El correo general nevados@parquesnacionales.gov.co está en el anexo 2023, pero no en el excerpt. No hay servicio de objetos perdidos: correcto."
+    },
+    {
+      "id": "services.accessibility",
+      "claimed": "primary_ok",
+      "support": "partial",
+      "note": "El excerpt dice que el terreno es más exigente, sin indicar que sea Quindío–Dulima. La ausencia de datos de accesibilidad figura en el informe, no en el excerpt."
+    },
+    {
+      "id": "services.drinking_water",
+      "claimed": "primary_ok",
+      "support": "full",
+      "note": "La recomendación de hidratación de PNN sustenta el consejo. La ausencia de puntos de agua es un negativo y no requiere cita."
+    },
+    {
+      "id": "services.phone_signal",
+      "claimed": "primary_ok",
+      "support": "full",
+      "note": "El excerpt sustenta que el guía lleva radio. La falta de confirmación de cobertura es un negativo."
+    },
+    {
+      "id": "services.charging_power",
+      "claimed": "primary_ok",
+      "support": "none",
+      "note": "Fila con source_status quote_missing, evidence_ref vacío y excerpt vacío, pero marcada primary_ok. La respuesta es negativa, así que no necesita cita positiva; el campo primary_ok no es verdadero."
+    },
+    {
+      "id": "services.toilets",
+      "claimed": "primary_ok",
+      "support": "partial",
+      "note": "Dos baterías de baños en Arenales sí. Baños en Brisas no están en el excerpt."
+    },
+    {
+      "id": "services.porter_luggage",
+      "claimed": "primary_ok",
+      "support": "partial",
+      "note": "'Prohibido en campamentos de Calvito y Arenales' sí. 'Solo El Cedral, Valle de Cocora y Palomar' no está en el excerpt. El conflicto con el informe 2024 (Juntas, Chilcos) queda sin resolver en la cita."
+    },
+    {
+      "id": "services.town_lodging_rnt",
+      "claimed": "primary_ok",
+      "support": "full",
+      "note": "Ventana de renovación del RNT (1 de enero a 31 de marzo) y carácter obligatorio del registro en el excerpt."
+    },
+    {
+      "id": "services.tolima_lodging",
+      "claimed": "primary_ok",
+      "support": "full",
+      "note": "Hospedaje y alimentación en Termal Cañón, predio La Playa y La Primavera. La atribución al plan 2017–2022 está en el detalle, no en el excerpt."
+    },
+    {
+      "id": "services.shop_ecotienda",
+      "claimed": "primary_ok",
+      "support": "partial",
+      "note": "Contenedor y eco-tienda sí. La tienda de UTON en Brisas y 'buenas condiciones' no están en el excerpt."
+    },
+    {
+      "id": "services.brisas_visitor_center",
+      "claimed": "primary_ok",
+      "support": "partial",
+      "note": "El 4100 m y el centro de inducción están en la ficha (pnn_nevados.txt), no en el informe 2024 que la respuesta cita; el informe da 4150 m para Brisas. Taquilla y cabaña no están en el excerpt. Corregir atribución."
+    },
+    {
+      "id": "services.cisne_visitor_center",
+      "claimed": "primary_ok",
+      "support": "partial",
+      "note": "Alojamiento y alimentación sí (informe 2024). Los 4100 m están en la ficha (pnn_nevados.txt), no en el excerpt. El informe 2024 da 4180 m para Cisne: conflicto no declarado en la respuesta."
+    },
+    {
+      "id": "services.uton_services",
+      "claimed": "primary_ok",
+      "support": "partial",
+      "note": "'Prevé taquilla, guianza y alimentos hasta Valle de las Tumbas' sí. 'Gestiona en Brisas reservas, ingreso, transporte, alojamiento y tienda' está en otro pasaje."
+    },
+    {
+      "id": "services.quindio_dulima",
+      "claimed": "primary_ok",
+      "support": "partial",
+      "note": "El excerpt sustenta 'necesidades de asistencia'. Terreno exigente y la lista de sectores no están en él."
+    },
+    {
+      "id": "services.interpretive_guiding",
+      "claimed": "primary_ok",
+      "support": "partial",
+      "note": "Registro de guías (anexo 2023) sí. 'Ofrecen guianza en varios senderos' y 'Ruiz restringido' no están en el excerpt."
+    },
+    {
+      "id": "services.north_food",
+      "claimed": "primary_ok",
+      "support": "full",
+      "note": "Servicio de alimentos en Brisas y Arenales, informe 2024."
+    },
+    {
+      "id": "services.potosi_cabin",
+      "claimed": "primary_ok",
+      "support": "partial",
+      "note": "Hospedaje y alimentación en el refugio Potosí sí. Control y vigilancia, 3920 m y mantenimiento no están en el excerpt."
+    },
+    {
+      "id": "services.otun_lodging",
+      "claimed": "primary_ok",
+      "support": "partial",
+      "note": "La comunidad de la vereda presta servicios en el límite sí. Hospedaje, alimentación y porteo no están en el excerpt, que corta antes de la lista."
+    },
+    {
+      "id": "services.official_sites",
+      "claimed": "primary_ok",
+      "support": "partial",
+      "note": "operacionnevados.co aparece en el excerpt. 'Revisa parquesnacionales.gov.co' y 'página de la concesión UTON' no están en el excerpt."
+    },
+    {
+      "id": "services.brisas_lodging",
+      "claimed": "primary_ok",
+      "support": "full",
+      "note": "La ficha dice que la concesión gestiona alojamiento en Brisas. La duda sobre camas se mantiene correctamente."
+    }
+  ],
+  "summary": {
+    "approve": 10,
+    "revise": 16,
+    "reject": 0,
+    "audit_support": {
+      "full": 8,
+      "partial": 17,
+      "none": 1
+    }
+  }
+}

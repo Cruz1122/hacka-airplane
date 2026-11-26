@@ -1,0 +1,72 @@
+[
+  {
+    "ids": [
+      "booking_fees.induction_requirement",
+      "health_safety.pre_hike_health_disclosure_and_induction",
+      "hours_status.brisas_induction_talk_schedule"
+    ],
+    "problem": "La charla de induccion obligatoria se confunde con la divulgacion de salud previa y con el horario de la ultima charla en Brisas.",
+    "suggestion": "booking_fees conserva que la charla es presencial y previa al ingreso. health_safety conserva el contenido de salud. hours_status conserva la hora."
+  },
+  {
+    "ids": [
+      "booking_fees.brisas_reservation",
+      "hours_status.booking_time_limits_before_visit",
+      "actions.register_planned_visit"
+    ],
+    "problem": "La antelacion de Brisas aparece tambien en hours_status y el registro de la app en actions.",
+    "suggestion": "Dejar en booking_fees la regla de reserva por sector. No fusionar con el horario ni con el formulario de la app."
+  },
+  {
+    "ids": [
+      "booking_fees.vehicle_entry_fee",
+      "access.no_motorcycles",
+      "access.own_car_brisas"
+    ],
+    "problem": "La moto prohibida y el carro propio viven en access; aqui solo esta el derecho de ingreso del vehiculo.",
+    "suggestion": "access explica si la moto o el carro pueden circular. booking_fees explica el valor del derecho de ingreso."
+  },
+  {
+    "ids": [
+      "booking_fees.alta_montana_guide_glacier",
+      "activities.santa_isabel_summit",
+      "activities.snow_and_glacier_access"
+    ],
+    "problem": "El guia de alta montana se confunde con la actividad de cumbre o de glaciar.",
+    "suggestion": "activities describe el recorrido. booking_fees conserva la condicion del guia especializado."
+  },
+  {
+    "ids": [
+      "booking_fees.documents_to_carry",
+      "rules.show_entry_permit_on_request"
+    ],
+    "problem": "El documento de identidad y el deber de mostrar el permiso de ingreso se pisan.",
+    "suggestion": "rules conserva la obligacion de exhibir el permiso. booking_fees lista los documentos de identidad."
+  },
+  {
+    "ids": [
+      "booking_fees.exempt_disability_visitors",
+      "services.accessibility"
+    ],
+    "problem": "La exencion de pago por discapacidad no dice nada de acceso fisico.",
+    "suggestion": "services responde si el sector es accesible. booking_fees solo responde si se cobra la entrada."
+  },
+  {
+    "ids": [
+      "booking_fees.quindio_reservation_lead",
+      "geography.sector_quindio_dulima"
+    ],
+    "problem": "Preguntar por Quindio-Dulima recupera el sector geografico y no el plazo de cinco dias.",
+    "suggestion": "geography describe el sector. booking_fees responde la antelacion de la reserva."
+  },
+  {
+    "ids": [
+      "booking_fees.brisas_booking_channel",
+      "services.uton_services",
+      "booking_fees.brisas_reservation",
+      "services.brisas_lodging"
+    ],
+    "problem": "UTON aparece como canal de reserva, como prestador de servicios y como alojamiento.",
+    "suggestion": "services guarda alojamiento y servicios. booking_fees guarda la pagina de reserva y la regla del fin de semana."
+  }
+]

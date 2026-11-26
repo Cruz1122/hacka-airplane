@@ -1,0 +1,1718 @@
+{
+ "proposal": "research_notes/curation_v2/proposals/hours_status.json",
+ "ops": {
+  "add": 0,
+  "update": 40,
+  "delete": 0
+ },
+ "touched_examples": 506,
+ "touched_loo_top1": 0.5791,
+ "touched_confusions": [
+  {
+   "id": "hours_status.general_opening_schedule",
+   "example": "horarios",
+   "rank": 3,
+   "top1": "conversation.time_or_date_request",
+   "top1_cos": 0.9382,
+   "own_cos": 0.9132
+  },
+  {
+   "id": "hours_status.general_opening_schedule",
+   "example": "la hora limite para entrar es igual en todos los sectores?",
+   "rank": 3,
+   "top1": "booking_fees.sector_entry_fee_difference",
+   "top1_cos": 0.919,
+   "own_cos": 0.8937
+  },
+  {
+   "id": "hours_status.general_opening_schedule",
+   "example": "a qué horas atienden",
+   "rank": 3,
+   "top1": "hours_status.weekend_and_holiday_opening",
+   "top1_cos": 0.937,
+   "own_cos": 0.9265
+  },
+  {
+   "id": "hours_status.general_opening_schedule",
+   "example": "a que hora abre cada sector, brisas, cisne, otun y cocora?",
+   "rank": 8,
+   "top1": "hours_status.cisne_potan_hours",
+   "top1_cos": 0.9091,
+   "own_cos": 0.8885
+  },
+  {
+   "id": "hours_status.general_opening_schedule",
+   "example": "toca madrugar pa entrar al parque?",
+   "rank": 23,
+   "top1": "hours_status.morning_birdwatching_hours",
+   "top1_cos": 0.938,
+   "own_cos": 0.898
+  },
+  {
+   "id": "hours_status.general_opening_schedule",
+   "example": "what are the park opening hours",
+   "rank": 2,
+   "top1": "hours_status.weekday_opening",
+   "top1_cos": 0.9426,
+   "own_cos": 0.921
+  },
+  {
+   "id": "hours_status.general_opening_schedule",
+   "example": "opening and closing times for los nevados",
+   "rank": 59,
+   "top1": "hours_status.weekend_and_holiday_opening",
+   "top1_cos": 0.9557,
+   "own_cos": 0.8491
+  },
+  {
+   "id": "hours_status.park_open_today",
+   "example": "puedo entrar mañana",
+   "rank": 10,
+   "top1": "hours_status.general_opening_schedule",
+   "top1_cos": 0.9346,
+   "own_cos": 0.8895
+  },
+  {
+   "id": "hours_status.park_open_today",
+   "example": "hay cierres",
+   "rank": 4,
+   "top1": "hours_status.conservation_closures",
+   "top1_cos": 0.9184,
+   "own_cos": 0.8994
+  },
+  {
+   "id": "hours_status.park_open_today",
+   "example": "está habilitado el recorrido",
+   "rank": 5,
+   "top1": "access.confirm_road_before",
+   "top1_cos": 0.9411,
+   "own_cos": 0.8944
+  },
+  {
+   "id": "hours_status.park_open_today",
+   "example": "el nevado está cerrado",
+   "rank": 9,
+   "top1": "hours_status.road_closure_status",
+   "top1_cos": 0.9582,
+   "own_cos": 0.8991
+  },
+  {
+   "id": "hours_status.park_open_today",
+   "example": "hoy sí se puede subir al nevado?",
+   "rank": 20,
+   "top1": "hours_status.official_channels_to_check_status",
+   "top1_cos": 0.9285,
+   "own_cos": 0.887
+  },
+  {
+   "id": "hours_status.park_open_today",
+   "example": "hoy si dejan subir turistas?",
+   "rank": 15,
+   "top1": "activities.birdwatching",
+   "top1_cos": 0.8953,
+   "own_cos": 0.8755
+  },
+  {
+   "id": "hours_status.park_open_today",
+   "example": "is the national park open today",
+   "rank": 4,
+   "top1": "hours_status.weekend_and_holiday_opening",
+   "top1_cos": 0.895,
+   "own_cos": 0.8929
+  },
+  {
+   "id": "hours_status.conservation_closures",
+   "example": "cierres programados",
+   "rank": 3,
+   "top1": "hours_status.why_conservation_closures_exist",
+   "top1_cos": 0.9497,
+   "own_cos": 0.9148
+  },
+  {
+   "id": "hours_status.conservation_closures",
+   "example": "toca planear sin que cierren el parque?",
+   "rank": 32,
+   "top1": "booking_fees.reservation_requirements",
+   "top1_cos": 0.8931,
+   "own_cos": 0.8683
+  },
+  {
+   "id": "hours_status.conservation_closures",
+   "example": "cuándo descansa el parque",
+   "rank": 2,
+   "top1": "weather_volcano.park_weather",
+   "top1_cos": 0.9243,
+   "own_cos": 0.9214
+  },
+  {
+   "id": "hours_status.conservation_closures",
+   "example": "cuándo cae el cierre de septiembre y noviembre",
+   "rank": 2,
+   "top1": "hours_status.open_sectors_during_conservation_closures",
+   "top1_cos": 0.9229,
+   "own_cos": 0.9031
+  },
+  {
+   "id": "hours_status.conservation_closures",
+   "example": "cuándo es el cierre después de semana santa",
+   "rank": 3,
+   "top1": "hours_status.general_opening_schedule",
+   "top1_cos": 0.908,
+   "own_cos": 0.9029
+  },
+  {
+   "id": "hours_status.conservation_closures",
+   "example": "y en septiembre cierran, o q?",
+   "rank": 2,
+   "top1": "history_culture.precursors_1984_1985",
+   "top1_cos": 0.8909,
+   "own_cos": 0.8897
+  },
+  {
+   "id": "hours_status.conservation_closures",
+   "example": "which weeks is the park shut",
+   "rank": 3,
+   "top1": "hours_status.weekday_opening",
+   "top1_cos": 0.9476,
+   "own_cos": 0.9124
+  },
+  {
+   "id": "hours_status.brisas_hours",
+   "example": "a qué hora atienden en brisas",
+   "rank": 2,
+   "top1": "hours_status.brisas_open_days",
+   "top1_cos": 0.9481,
+   "own_cos": 0.9441
+  },
+  {
+   "id": "hours_status.brisas_hours",
+   "example": "toca madrugar pa brisas?",
+   "rank": 66,
+   "top1": "hours_status.brisas_induction_talk_schedule",
+   "top1_cos": 0.946,
+   "own_cos": 0.8702
+  },
+  {
+   "id": "hours_status.brisas_hours",
+   "example": "what time does brisas entrance open",
+   "rank": 2,
+   "top1": "hours_status.brisas_open_days",
+   "top1_cos": 0.9459,
+   "own_cos": 0.9263
+  },
+  {
+   "id": "hours_status.brisas_induction_talk_schedule",
+   "example": "horario charla de inducción",
+   "rank": 2,
+   "top1": "booking_fees.induction_requirement",
+   "top1_cos": 0.9354,
+   "own_cos": 0.9258
+  },
+  {
+   "id": "hours_status.brisas_induction_talk_schedule",
+   "example": "cuándo es la última inducción en brisas",
+   "rank": 3,
+   "top1": "hours_status.brisas_hours",
+   "top1_cos": 0.9104,
+   "own_cos": 0.9062
+  },
+  {
+   "id": "hours_status.brisas_induction_talk_schedule",
+   "example": "si no alcanzo la charla puedo entrar",
+   "rank": 13,
+   "top1": "booking_fees.induction_requirement",
+   "top1_cos": 0.9096,
+   "own_cos": 0.8764
+  },
+  {
+   "id": "hours_status.brisas_induction_talk_schedule",
+   "example": "toca madrugar pa la charla?",
+   "rank": 183,
+   "top1": "hours_status.quindio_dulima_juntas_anzoategui_hours",
+   "top1_cos": 0.9511,
+   "own_cos": 0.8515
+  },
+  {
+   "id": "hours_status.brisas_induction_talk_schedule",
+   "example": "what time is the briefing in brisas",
+   "rank": 4,
+   "top1": "hours_status.brisas_open_days",
+   "top1_cos": 0.9067,
+   "own_cos": 0.8937
+  },
+  {
+   "id": "hours_status.brisas_induction_talk_schedule",
+   "example": "what time is the last safety talk",
+   "rank": 2,
+   "top1": "health_safety.pre_hike_health_disclosure_and_induction",
+   "top1_cos": 0.8581,
+   "own_cos": 0.8506
+  },
+  {
+   "id": "hours_status.brisas_exit_time",
+   "example": "si no hay hora fija de salida en brisas, cuando debo estar de vuelta abajo?",
+   "rank": 3,
+   "top1": "hours_status.late_arrival_policy",
+   "top1_cos": 0.9072,
+   "own_cos": 0.894
+  },
+  {
+   "id": "hours_status.brisas_exit_time",
+   "example": "hasta qué hora puedo quedarme en valle de las tumbas",
+   "rank": 9,
+   "top1": "geography.valle_tumbas",
+   "top1_cos": 0.9013,
+   "own_cos": 0.8854
+  },
+  {
+   "id": "hours_status.brisas_exit_time",
+   "example": "cuándo desalojan el sector brisas",
+   "rank": 4,
+   "top1": "geography.sector_brisas_kumanday",
+   "top1_cos": 0.9057,
+   "own_cos": 0.8939
+  },
+  {
+   "id": "hours_status.brisas_exit_time",
+   "example": "y si me toca bajarme rapidito de Brisas?",
+   "rank": 33,
+   "top1": "access.from_pereira_choose",
+   "top1_cos": 0.915,
+   "own_cos": 0.8875
+  },
+  {
+   "id": "hours_status.brisas_exit_time",
+   "example": "hasta qué horas puedo estar arriba",
+   "rank": 18,
+   "top1": "hours_status.general_opening_schedule",
+   "top1_cos": 0.9263,
+   "own_cos": 0.8854
+  },
+  {
+   "id": "hours_status.brisas_exit_time",
+   "example": "toca bajar antes de que oscurezca en brisas?",
+   "rank": 3,
+   "top1": "services.brisas_visitor_center",
+   "top1_cos": 0.9073,
+   "own_cos": 0.9008
+  },
+  {
+   "id": "hours_status.brisas_open_days",
+   "example": "días de atención en brisas",
+   "rank": 3,
+   "top1": "hours_status.brisas_hours",
+   "top1_cos": 0.9481,
+   "own_cos": 0.9212
+  },
+  {
+   "id": "hours_status.brisas_open_days",
+   "example": "puedo ir a brisas cualquier día",
+   "rank": 5,
+   "top1": "hours_status.brisas_hours",
+   "top1_cos": 0.9204,
+   "own_cos": 0.914
+  },
+  {
+   "id": "hours_status.brisas_open_days",
+   "example": "toca ir entre semana o sirve el finde?",
+   "rank": 54,
+   "top1": "hours_status.pnn_administrative_office_hours",
+   "top1_cos": 0.9544,
+   "own_cos": 0.8476
+  },
+  {
+   "id": "hours_status.cisne_potan_hours",
+   "example": "horario cabaña potosí",
+   "rank": 2,
+   "top1": "services.potosi_cabin",
+   "top1_cos": 0.9198,
+   "own_cos": 0.9192
+  },
+  {
+   "id": "hours_status.cisne_potan_hours",
+   "example": "a q hora abren en el alto de santa barbara",
+   "rank": 8,
+   "top1": "access.santa_barbara_control",
+   "top1_cos": 0.9114,
+   "own_cos": 0.8619
+  },
+  {
+   "id": "hours_status.cisne_potan_hours",
+   "example": "horario de entrada a cisne poleka kasue",
+   "rank": 4,
+   "top1": "history_culture.sector_indigenous_names",
+   "top1_cos": 0.9081,
+   "own_cos": 0.8984
+  },
+  {
+   "id": "hours_status.cisne_potan_hours",
+   "example": "toca madrugar pa Potosí?",
+   "rank": 250,
+   "top1": "hours_status.quindio_dulima_juntas_anzoategui_hours",
+   "top1_cos": 0.9491,
+   "own_cos": 0.8442
+  },
+  {
+   "id": "hours_status.laguna_verde_trail_hours",
+   "example": "toca madrugar pa la laguna verde?",
+   "rank": 2,
+   "top1": "hours_status.otun_sector_hours",
+   "top1_cos": 0.943,
+   "own_cos": 0.9316
+  },
+  {
+   "id": "hours_status.santa_isabel_conejeras_prior_day_checkin",
+   "example": "registro sendero conejeras día anterior",
+   "rank": 3,
+   "top1": "activities.conejeras_glacier_edge",
+   "top1_cos": 0.9245,
+   "own_cos": 0.9065
+  },
+  {
+   "id": "hours_status.santa_isabel_conejeras_prior_day_checkin",
+   "example": "me toca ir un dia antes a registrarme pa conejeras",
+   "rank": 2,
+   "top1": "hours_status.morning_birdwatching_hours",
+   "top1_cos": 0.9214,
+   "own_cos": 0.8959
+  },
+  {
+   "id": "hours_status.santa_isabel_conejeras_prior_day_checkin",
+   "example": "el registro se hace el día antes?",
+   "rank": 2,
+   "top1": "activities.santa_isabel_summit",
+   "top1_cos": 0.9257,
+   "own_cos": 0.9055
+  },
+  {
+   "id": "hours_status.santa_isabel_conejeras_prior_day_checkin",
+   "example": "cuándo me registro para el nevado santa isabel",
+   "rank": 4,
+   "top1": "hours_status.santa_isabel_summit_start_hour",
+   "top1_cos": 0.9412,
+   "own_cos": 0.9158
+  },
+  {
+   "id": "hours_status.santa_isabel_conejeras_prior_day_checkin",
+   "example": "do I have to check in the day before Conejeras",
+   "rank": 2,
+   "top1": "access.conejeras_not_brisas",
+   "top1_cos": 0.9129,
+   "own_cos": 0.885
+  },
+  {
+   "id": "hours_status.santa_isabel_summit_start_hour",
+   "example": "hora de salida para el glaciar santa isabel",
+   "rank": 2,
+   "top1": "flora_ecosystems.santa_isabel_projection_three_years",
+   "top1_cos": 0.9398,
+   "own_cos": 0.9289
+  },
+  {
+   "id": "hours_status.santa_isabel_summit_start_hour",
+   "example": "a qué horas se sale de potosí a conejeras",
+   "rank": 6,
+   "top1": "hours_status.cisne_potan_hours",
+   "top1_cos": 0.9211,
+   "own_cos": 0.872
+  },
+  {
+   "id": "hours_status.santa_isabel_summit_start_hour",
+   "example": "hora recomendada para subir al nevado santa isabel",
+   "rank": 2,
+   "top1": "hours_status.santa_isabel_conejeras_prior_day_checkin",
+   "top1_cos": 0.9412,
+   "own_cos": 0.9346
+  },
+  {
+   "id": "hours_status.santa_isabel_summit_start_hour",
+   "example": "a qué hora hay que arrancar pa subir?",
+   "rank": 4,
+   "top1": "hours_status.brisas_exit_time",
+   "top1_cos": 0.9214,
+   "own_cos": 0.9127
+  },
+  {
+   "id": "hours_status.santa_isabel_summit_start_hour",
+   "example": "when should we leave for santa isabel",
+   "rank": 2,
+   "top1": "hours_status.santa_isabel_conejeras_prior_day_checkin",
+   "top1_cos": 0.9057,
+   "own_cos": 0.9041
+  },
+  {
+   "id": "hours_status.otun_sector_hours",
+   "example": "toca madrugar pa la laguna del otún?",
+   "rank": 8,
+   "top1": "hours_status.laguna_verde_trail_hours",
+   "top1_cos": 0.943,
+   "own_cos": 0.9016
+  },
+  {
+   "id": "hours_status.otun_sector_hours",
+   "example": "cuándo abre el sector otún",
+   "rank": 2,
+   "top1": "weather_volcano.current_forecast",
+   "top1_cos": 0.9021,
+   "own_cos": 0.8952
+  },
+  {
+   "id": "hours_status.otun_sector_hours",
+   "example": "hasta qué horas atienden en potosí para el otún",
+   "rank": 2,
+   "top1": "hours_status.cisne_potan_hours",
+   "top1_cos": 0.9358,
+   "own_cos": 0.9317
+  },
+  {
+   "id": "hours_status.cedral_otun_hiking_schedule",
+   "example": "horario caminata el cedral laguna del otun",
+   "rank": 2,
+   "top1": "hours_status.otun_sector_hours",
+   "top1_cos": 0.9243,
+   "own_cos": 0.924
+  },
+  {
+   "id": "hours_status.cedral_otun_hiking_schedule",
+   "example": "toca salir de madrugada desde El Cedral?",
+   "rank": 3,
+   "top1": "access.where_road_ends",
+   "top1_cos": 0.9149,
+   "own_cos": 0.907
+  },
+  {
+   "id": "hours_status.cedral_otun_hiking_schedule",
+   "example": "a q hora arranco caminando pa el otún?",
+   "rank": 3,
+   "top1": "access.choose_otun_trailhead",
+   "top1_cos": 0.9192,
+   "own_cos": 0.8979
+  },
+  {
+   "id": "hours_status.quindio_dulima_cocora_hours",
+   "example": "hasta qué hora dejan registrarse en el cocora",
+   "rank": 2,
+   "top1": "access.cocora_registration",
+   "top1_cos": 0.9359,
+   "own_cos": 0.9166
+  },
+  {
+   "id": "hours_status.quindio_dulima_cocora_hours",
+   "example": "toca madrugar pa cocora?",
+   "rank": 30,
+   "top1": "hours_status.brisas_induction_talk_schedule",
+   "top1_cos": 0.951,
+   "own_cos": 0.8746
+  },
+  {
+   "id": "hours_status.quindio_dulima_juntas_anzoategui_hours",
+   "example": "horario juntas ibagué nevado del tolima",
+   "rank": 3,
+   "top1": "hours_status.tolima_summit_push_hours",
+   "top1_cos": 0.9049,
+   "own_cos": 0.8943
+  },
+  {
+   "id": "hours_status.quindio_dulima_juntas_anzoategui_hours",
+   "example": "a qué hora abren en juntas",
+   "rank": 2,
+   "top1": "hours_status.general_opening_schedule",
+   "top1_cos": 0.9334,
+   "own_cos": 0.9207
+  },
+  {
+   "id": "hours_status.quindio_dulima_juntas_anzoategui_hours",
+   "example": "horario puesto de control anzoátegui",
+   "rank": 2,
+   "top1": "hours_status.anzoategui_pit_la_punta_hours",
+   "top1_cos": 0.9355,
+   "own_cos": 0.9232
+  },
+  {
+   "id": "hours_status.quindio_dulima_juntas_anzoategui_hours",
+   "example": "hasta qué hora dejan entrar por juntas tolima",
+   "rank": 2,
+   "top1": "hours_status.tolima_summit_push_hours",
+   "top1_cos": 0.9005,
+   "own_cos": 0.9002
+  },
+  {
+   "id": "hours_status.quindio_dulima_juntas_anzoategui_hours",
+   "example": "horario de ingreso por el cañón del combeima",
+   "rank": 8,
+   "top1": "hours_status.quindio_dulima_cocora_hours",
+   "top1_cos": 0.8971,
+   "own_cos": 0.8828
+  },
+  {
+   "id": "hours_status.quindio_dulima_juntas_anzoategui_hours",
+   "example": "a qué horas atienden en anzoátegui para el parque",
+   "rank": 3,
+   "top1": "hours_status.anzoategui_pit_la_punta_hours",
+   "top1_cos": 0.9426,
+   "own_cos": 0.9062
+  },
+  {
+   "id": "hours_status.quindio_dulima_juntas_anzoategui_hours",
+   "example": "toca madrugar pa ir a Juntas?",
+   "rank": 442,
+   "top1": "hours_status.brisas_induction_talk_schedule",
+   "top1_cos": 0.9511,
+   "own_cos": 0.8284
+  },
+  {
+   "id": "hours_status.quindio_dulima_juntas_anzoategui_hours",
+   "example": "horario de acceso por la vereda palomar",
+   "rank": 10,
+   "top1": "hours_status.morning_birdwatching_hours",
+   "top1_cos": 0.8916,
+   "own_cos": 0.8625
+  },
+  {
+   "id": "hours_status.quindio_dulima_juntas_anzoategui_hours",
+   "example": "juntas and anzoategui check points schedule",
+   "rank": 2,
+   "top1": "hours_status.anzoategui_pit_la_punta_hours",
+   "top1_cos": 0.8977,
+   "own_cos": 0.8828
+  },
+  {
+   "id": "hours_status.tolima_summit_push_hours",
+   "example": "a qué hora salir desde el campamento arenares",
+   "rank": 57,
+   "top1": "hours_status.camping_arrival_cutoff",
+   "top1_cos": 0.9201,
+   "own_cos": 0.8395
+  },
+  {
+   "id": "hours_status.tolima_summit_push_hours",
+   "example": "a q hora arrancamos pa la cumbre",
+   "rank": 2,
+   "top1": "hours_status.santa_isabel_summit_start_hour",
+   "top1_cos": 0.9206,
+   "own_cos": 0.9173
+  },
+  {
+   "id": "hours_status.tolima_summit_push_hours",
+   "example": "horario de ascenso final al nevado del tolima",
+   "rank": 2,
+   "top1": "hours_status.quindio_dulima_cocora_hours",
+   "top1_cos": 0.9292,
+   "own_cos": 0.9288
+  },
+  {
+   "id": "hours_status.night_entry_prohibition",
+   "example": "dejan pasar carros de noche en brisas",
+   "rank": 6,
+   "top1": "services.brisas_lodging",
+   "top1_cos": 0.9235,
+   "own_cos": 0.8941
+  },
+  {
+   "id": "hours_status.night_entry_prohibition",
+   "example": "se puede caminar de noche por los senderos",
+   "rank": 5,
+   "top1": "booking_fees.guide_required",
+   "top1_cos": 0.9269,
+   "own_cos": 0.8901
+  },
+  {
+   "id": "hours_status.night_entry_prohibition",
+   "example": "de noche no dejan entrar al parque, cierto",
+   "rank": 5,
+   "top1": "history_culture.armero_outside_park",
+   "top1_cos": 0.9135,
+   "own_cos": 0.9039
+  },
+  {
+   "id": "hours_status.night_entry_prohibition",
+   "example": "can I enter los nevados at night",
+   "rank": 7,
+   "top1": "weather_volcano.snow_and_hail",
+   "top1_cos": 0.905,
+   "own_cos": 0.8926
+  },
+  {
+   "id": "hours_status.camping_arrival_cutoff",
+   "example": "hora máxima de llegada a cabañas",
+   "rank": 2,
+   "top1": "hours_status.cisne_potan_hours",
+   "top1_cos": 0.892,
+   "own_cos": 0.889
+  },
+  {
+   "id": "hours_status.camping_arrival_cutoff",
+   "example": "hora máxima para montar carpas en el parque",
+   "rank": 2,
+   "top1": "preparation.mountain_tent",
+   "top1_cos": 0.9173,
+   "own_cos": 0.9132
+  },
+  {
+   "id": "hours_status.camping_arrival_cutoff",
+   "example": "toca estar aquí antes de que oscurezca?",
+   "rank": 475,
+   "top1": "actions.register_arrival_today",
+   "top1_cos": 0.909,
+   "own_cos": 0.8343
+  },
+  {
+   "id": "hours_status.camping_arrival_cutoff",
+   "example": "is there a late arrival limit for camping",
+   "rank": 2,
+   "top1": "hours_status.late_arrival_policy",
+   "top1_cos": 0.8833,
+   "own_cos": 0.8795
+  },
+  {
+   "id": "hours_status.late_arrival_policy",
+   "example": "qué pasa si llego tarde al parque",
+   "rank": 2,
+   "top1": "hours_status.night_entry_prohibition",
+   "top1_cos": 0.9328,
+   "own_cos": 0.9323
+  },
+  {
+   "id": "hours_status.late_arrival_policy",
+   "example": "qué pasa si no llego a la hora en brisas",
+   "rank": 4,
+   "top1": "hours_status.brisas_hours",
+   "top1_cos": 0.9286,
+   "own_cos": 0.9018
+  },
+  {
+   "id": "hours_status.late_arrival_policy",
+   "example": "¿y si ya es tarde, me dejan entrar?",
+   "rank": 2,
+   "top1": "hours_status.night_entry_prohibition",
+   "top1_cos": 0.939,
+   "own_cos": 0.9294
+  },
+  {
+   "id": "hours_status.late_arrival_policy",
+   "example": "si llego tarde pierdo la reserva",
+   "rank": 2,
+   "top1": "booking_fees.cancellation_refund_policy",
+   "top1_cos": 0.9167,
+   "own_cos": 0.9079
+  },
+  {
+   "id": "hours_status.late_arrival_policy",
+   "example": "hay plazo si me coge la tarde para entrar",
+   "rank": 2,
+   "top1": "hours_status.general_opening_schedule",
+   "top1_cos": 0.916,
+   "own_cos": 0.9152
+  },
+  {
+   "id": "hours_status.weekend_and_holiday_opening",
+   "example": "horarios fines de semana",
+   "rank": 3,
+   "top1": "hours_status.weekday_opening",
+   "top1_cos": 0.9513,
+   "own_cos": 0.9237
+  },
+  {
+   "id": "hours_status.weekend_and_holiday_opening",
+   "example": "sabado y domingo el parque abre con el horario de finde?",
+   "rank": 2,
+   "top1": "hours_status.weekday_opening",
+   "top1_cos": 0.9279,
+   "own_cos": 0.9268
+  },
+  {
+   "id": "hours_status.weekend_and_holiday_opening",
+   "example": "el parque abre los puentes festivos",
+   "rank": 3,
+   "top1": "hours_status.weekday_opening",
+   "top1_cos": 0.9183,
+   "own_cos": 0.899
+  },
+  {
+   "id": "hours_status.weekend_and_holiday_opening",
+   "example": "el domingo toca madrugar pa los nevados?",
+   "rank": 9,
+   "top1": "hours_status.morning_birdwatching_hours",
+   "top1_cos": 0.909,
+   "own_cos": 0.8813
+  },
+  {
+   "id": "hours_status.weekend_and_holiday_opening",
+   "example": "a qué hora atienden los domingos",
+   "rank": 4,
+   "top1": "hours_status.general_opening_schedule",
+   "top1_cos": 0.937,
+   "own_cos": 0.9118
+  },
+  {
+   "id": "hours_status.weekend_and_holiday_opening",
+   "example": "horario festivo sector brisas",
+   "rank": 16,
+   "top1": "hours_status.weekday_opening",
+   "top1_cos": 0.9573,
+   "own_cos": 0.8838
+  },
+  {
+   "id": "hours_status.weekend_and_holiday_opening",
+   "example": "cómo opera el parque los fines de semana",
+   "rank": 3,
+   "top1": "hours_status.high_season_operating_changes",
+   "top1_cos": 0.9556,
+   "own_cos": 0.9268
+  },
+  {
+   "id": "hours_status.weekend_and_holiday_opening",
+   "example": "el domingo abren temprano en el cisne?",
+   "rank": 11,
+   "top1": "hours_status.brisas_open_days",
+   "top1_cos": 0.8872,
+   "own_cos": 0.8717
+  },
+  {
+   "id": "hours_status.weekend_and_holiday_opening",
+   "example": "weekend opening hours los nevados",
+   "rank": 17,
+   "top1": "hours_status.general_opening_schedule",
+   "top1_cos": 0.9557,
+   "own_cos": 0.8559
+  },
+  {
+   "id": "hours_status.weekend_and_holiday_opening",
+   "example": "is the park open on public holidays",
+   "rank": 7,
+   "top1": "hours_status.weekday_opening",
+   "top1_cos": 0.9188,
+   "own_cos": 0.8788
+  },
+  {
+   "id": "hours_status.weekday_opening",
+   "example": "abren entre semana el parque",
+   "rank": 3,
+   "top1": "hours_status.general_opening_schedule",
+   "top1_cos": 0.9338,
+   "own_cos": 0.9125
+  },
+  {
+   "id": "hours_status.weekday_opening",
+   "example": "horario del parque en dias habiles",
+   "rank": 9,
+   "top1": "hours_status.general_opening_schedule",
+   "top1_cos": 0.9167,
+   "own_cos": 0.8777
+  },
+  {
+   "id": "hours_status.weekday_opening",
+   "example": "se puede visitar un martes o miercoles",
+   "rank": 2,
+   "top1": "conversation.time_or_date_request",
+   "top1_cos": 0.9082,
+   "own_cos": 0.8904
+  },
+  {
+   "id": "hours_status.weekday_opening",
+   "example": "cómo funciona el parque de lunes a viernes",
+   "rank": 3,
+   "top1": "hours_status.weekend_and_holiday_opening",
+   "top1_cos": 0.9499,
+   "own_cos": 0.91
+  },
+  {
+   "id": "hours_status.weekday_opening",
+   "example": "horario de atencion en semana",
+   "rank": 4,
+   "top1": "hours_status.weekend_and_holiday_opening",
+   "top1_cos": 0.9204,
+   "own_cos": 0.9125
+  },
+  {
+   "id": "hours_status.weekday_opening",
+   "example": "visitar los nevados un dia habil",
+   "rank": 422,
+   "top1": "booking_fees.permanence_four_days",
+   "top1_cos": 0.9116,
+   "own_cos": 0.8529
+  },
+  {
+   "id": "hours_status.weekday_opening",
+   "example": "horario entre semana sector brisas",
+   "rank": 6,
+   "top1": "hours_status.weekend_and_holiday_opening",
+   "top1_cos": 0.9573,
+   "own_cos": 0.8993
+  },
+  {
+   "id": "hours_status.pico_y_placa_hours_murillo",
+   "example": "puedo subir en carro un sábado a brisas?",
+   "rank": 2,
+   "top1": "access.own_car_brisas",
+   "top1_cos": 0.9104,
+   "own_cos": 0.9076
+  },
+  {
+   "id": "hours_status.pico_y_placa_hours_murillo",
+   "example": "los fines de semana a que hora restringen las placas",
+   "rank": 8,
+   "top1": "hours_status.weekend_and_holiday_opening",
+   "top1_cos": 0.9227,
+   "own_cos": 0.8807
+  },
+  {
+   "id": "hours_status.pico_y_placa_hours_murillo",
+   "example": "do I get restricted on the road to brisas",
+   "rank": 71,
+   "top1": "hours_status.road_closure_status",
+   "top1_cos": 0.9174,
+   "own_cos": 0.8378
+  },
+  {
+   "id": "hours_status.pico_y_placa_hours_murillo",
+   "example": "is there a plate restriction on the north access",
+   "rank": 5,
+   "top1": "access.own_car_brisas",
+   "top1_cos": 0.8735,
+   "own_cos": 0.8366
+  },
+  {
+   "id": "hours_status.pico_y_placa_hours_murillo",
+   "example": "does the November rule apply on weekdays",
+   "rank": 2,
+   "top1": "hours_status.weekday_opening",
+   "top1_cos": 0.8362,
+   "own_cos": 0.8349
+  },
+  {
+   "id": "hours_status.pico_y_placa_hours_murillo",
+   "example": "puentes festivos en el acceso al valle",
+   "rank": 63,
+   "top1": "hours_status.weekend_and_holiday_opening",
+   "top1_cos": 0.9149,
+   "own_cos": 0.8331
+  },
+  {
+   "id": "hours_status.pico_y_placa_hours_murillo",
+   "example": "cuando reserve, me toca mirar la placa del carro",
+   "rank": 15,
+   "top1": "booking_fees.south_payment_before_review",
+   "top1_cos": 0.8845,
+   "own_cos": 0.8628
+  },
+  {
+   "id": "hours_status.pico_y_placa_hours_murillo",
+   "example": "brisas valle de las tumbas, cuales carros circulan",
+   "rank": 47,
+   "top1": "access.brisas_tumbas_drive",
+   "top1_cos": 0.9048,
+   "own_cos": 0.8415
+  },
+  {
+   "id": "hours_status.pico_y_placa_hours_murillo",
+   "example": "no es el pico y placa de manizales ciudad",
+   "rank": 5,
+   "top1": "geography.manizales_outside",
+   "top1_cos": 0.8944,
+   "own_cos": 0.863
+  },
+  {
+   "id": "hours_status.high_season_calendar",
+   "example": "cuándo es temporada alta en los nevados",
+   "rank": 2,
+   "top1": "hours_status.low_season_advantages",
+   "top1_cos": 0.946,
+   "own_cos": 0.9438
+  },
+  {
+   "id": "hours_status.high_season_calendar",
+   "example": "cuándo se llena el nevado?",
+   "rank": 2,
+   "top1": "hours_status.reopening_protocol_after_emergencies",
+   "top1_cos": 0.9374,
+   "own_cos": 0.9199
+  },
+  {
+   "id": "hours_status.high_season_calendar",
+   "example": "cuándo viaja más gente al nevado",
+   "rank": 2,
+   "top1": "hours_status.low_season_advantages",
+   "top1_cos": 0.9416,
+   "own_cos": 0.9199
+  },
+  {
+   "id": "hours_status.high_season_calendar",
+   "example": "cuándo hay más visitantes en el parque",
+   "rank": 2,
+   "top1": "booking_fees.maximum_entry_age",
+   "top1_cos": 0.8996,
+   "own_cos": 0.8969
+  },
+  {
+   "id": "hours_status.high_season_calendar",
+   "example": "meses pico de turismo en los nevados",
+   "rank": 3,
+   "top1": "hours_status.low_season_advantages",
+   "top1_cos": 0.9182,
+   "own_cos": 0.9113
+  },
+  {
+   "id": "hours_status.high_season_calendar",
+   "example": "when is the park packed with people",
+   "rank": 3,
+   "top1": "hours_status.high_season_operating_changes",
+   "top1_cos": 0.8954,
+   "own_cos": 0.886
+  },
+  {
+   "id": "hours_status.high_season_calendar",
+   "example": "when is peak tourist season in the park",
+   "rank": 2,
+   "top1": "hours_status.low_season_advantages",
+   "top1_cos": 0.935,
+   "own_cos": 0.886
+  },
+  {
+   "id": "hours_status.low_season_advantages",
+   "example": "cuándo es temporada baja en los nevados",
+   "rank": 4,
+   "top1": "hours_status.high_season_calendar",
+   "top1_cos": 0.946,
+   "own_cos": 0.9146
+  },
+  {
+   "id": "hours_status.low_season_advantages",
+   "example": "cuándo hay menos gente pa subir?",
+   "rank": 2,
+   "top1": "hours_status.santa_isabel_summit_start_hour",
+   "top1_cos": 0.902,
+   "own_cos": 0.8972
+  },
+  {
+   "id": "hours_status.low_season_advantages",
+   "example": "cuándo hay menos gente en el nevado",
+   "rank": 3,
+   "top1": "hours_status.high_season_calendar",
+   "top1_cos": 0.9416,
+   "own_cos": 0.9131
+  },
+  {
+   "id": "hours_status.low_season_advantages",
+   "example": "meses tranquilos para visitar los nevados",
+   "rank": 3,
+   "top1": "hours_status.high_season_calendar",
+   "top1_cos": 0.9182,
+   "own_cos": 0.9119
+  },
+  {
+   "id": "hours_status.low_season_advantages",
+   "example": "when is off peak season in the park",
+   "rank": 8,
+   "top1": "hours_status.high_season_calendar",
+   "top1_cos": 0.935,
+   "own_cos": 0.8525
+  },
+  {
+   "id": "hours_status.high_season_operating_changes",
+   "example": "cómo opera el parque en vacaciones",
+   "rank": 4,
+   "top1": "hours_status.weekend_and_holiday_opening",
+   "top1_cos": 0.9556,
+   "own_cos": 0.9032
+  },
+  {
+   "id": "hours_status.high_season_operating_changes",
+   "example": "en puente festivo cambian las reglas para entrar",
+   "rank": 6,
+   "top1": "hours_status.weekend_and_holiday_opening",
+   "top1_cos": 0.9343,
+   "own_cos": 0.8809
+  },
+  {
+   "id": "hours_status.high_season_operating_changes",
+   "example": "en vacaciones toca llegar más temprano?",
+   "rank": 8,
+   "top1": "hours_status.high_season_calendar",
+   "top1_cos": 0.8866,
+   "own_cos": 0.8657
+  },
+  {
+   "id": "hours_status.high_season_operating_changes",
+   "example": "como funciona el parque cuando se llena de gente",
+   "rank": 3,
+   "top1": "hours_status.weekday_opening",
+   "top1_cos": 0.9062,
+   "own_cos": 0.9032
+  },
+  {
+   "id": "hours_status.high_season_operating_changes",
+   "example": "do they limit visitors in holiday season",
+   "rank": 7,
+   "top1": "history_culture.subject_of_rights",
+   "top1_cos": 0.8838,
+   "own_cos": 0.8507
+  },
+  {
+   "id": "hours_status.volcanic_alert_closures",
+   "example": "cierres por volcán",
+   "rank": 6,
+   "top1": "weather_volcano.volcanic_closures",
+   "top1_cos": 0.9773,
+   "own_cos": 0.9067
+  },
+  {
+   "id": "hours_status.volcanic_alert_closures",
+   "example": "si el volcán está activo cierran el parque",
+   "rank": 2,
+   "top1": "weather_volcano.volcanic_closures",
+   "top1_cos": 0.9488,
+   "own_cos": 0.9396
+  },
+  {
+   "id": "hours_status.volcanic_alert_closures",
+   "example": "cuándo cierran el parque por erupción",
+   "rank": 2,
+   "top1": "weather_volcano.volcanic_closures",
+   "top1_cos": 0.9389,
+   "own_cos": 0.9236
+  },
+  {
+   "id": "hours_status.volcanic_alert_closures",
+   "example": "cómo saber si el parque cerró por el volcán",
+   "rank": 2,
+   "top1": "weather_volcano.volcanic_closures",
+   "top1_cos": 0.9454,
+   "own_cos": 0.9396
+  },
+  {
+   "id": "hours_status.volcanic_alert_closures",
+   "example": "will they close the park if the volcano wakes up",
+   "rank": 2,
+   "top1": "weather_volcano.volcanic_closures",
+   "top1_cos": 0.9133,
+   "own_cos": 0.9124
+  },
+  {
+   "id": "hours_status.volcanic_alert_closures",
+   "example": "alerta amarilla significa que hoy dejan entrar al parque",
+   "rank": 14,
+   "top1": "weather_volcano.alert_not_evacuation",
+   "top1_cos": 0.932,
+   "own_cos": 0.884
+  },
+  {
+   "id": "hours_status.volcanic_alert_closures",
+   "example": "la alerta del ruiz no es el cierre de la cumbre nevada",
+   "rank": 2,
+   "top1": "weather_volcano.current_alert",
+   "top1_cos": 0.9242,
+   "own_cos": 0.9225
+  },
+  {
+   "id": "hours_status.volcanic_alert_closures",
+   "example": "does an orange alert stop visitor entry",
+   "rank": 2,
+   "top1": "weather_volcano.alert_orange_meaning",
+   "top1_cos": 0.8817,
+   "own_cos": 0.865
+  },
+  {
+   "id": "hours_status.weather_emergency_closures",
+   "example": "si llueve mucho cierran el parque",
+   "rank": 6,
+   "top1": "hours_status.volcanic_alert_closures",
+   "top1_cos": 0.9114,
+   "own_cos": 0.8923
+  },
+  {
+   "id": "hours_status.weather_emergency_closures",
+   "example": "cierre por tormenta o vendaval",
+   "rank": 2,
+   "top1": "hours_status.unplanned_midday_closures",
+   "top1_cos": 0.9341,
+   "own_cos": 0.9107
+  },
+  {
+   "id": "hours_status.weather_emergency_closures",
+   "example": "cierran senderos por mal clima",
+   "rank": 3,
+   "top1": "hours_status.why_conservation_closures_exist",
+   "top1_cos": 0.9237,
+   "own_cos": 0.9018
+  },
+  {
+   "id": "hours_status.weather_emergency_closures",
+   "example": "y si hay tormenta eléctrica, cierran?",
+   "rank": 6,
+   "top1": "health_safety.lightning_wait_30_minutes_and_shelters",
+   "top1_cos": 0.9122,
+   "own_cos": 0.8939
+  },
+  {
+   "id": "hours_status.weather_emergency_closures",
+   "example": "qué pasa si hay temporal en los nevados",
+   "rank": 17,
+   "top1": "activities.what_to_visit",
+   "top1_cos": 0.9122,
+   "own_cos": 0.8827
+  },
+  {
+   "id": "hours_status.weather_emergency_closures",
+   "example": "cierre de senderos por crecientes o barro",
+   "rank": 3,
+   "top1": "hours_status.trail_maintenance_temporary_closures",
+   "top1_cos": 0.9241,
+   "own_cos": 0.9018
+  },
+  {
+   "id": "hours_status.weather_emergency_closures",
+   "example": "si está brava la lluvia, cierran el sendero?",
+   "rank": 2,
+   "top1": "hours_status.trail_maintenance_temporary_closures",
+   "top1_cos": 0.9087,
+   "own_cos": 0.9007
+  },
+  {
+   "id": "hours_status.road_closure_status",
+   "example": "está abierta la vía manizales murillo",
+   "rank": 7,
+   "top1": "access.gateway_towns",
+   "top1_cos": 0.9245,
+   "own_cos": 0.8644
+  },
+  {
+   "id": "hours_status.road_closure_status",
+   "example": "cómo anda la vía pa Murillo?",
+   "rank": 11,
+   "top1": "access.from_murillo",
+   "top1_cos": 0.9198,
+   "own_cos": 0.8661
+  },
+  {
+   "id": "hours_status.road_closure_status",
+   "example": "cierres viales hacia los nevados",
+   "rank": 2,
+   "top1": "hours_status.weather_emergency_closures",
+   "top1_cos": 0.9353,
+   "own_cos": 0.9309
+  },
+  {
+   "id": "hours_status.road_closure_status",
+   "example": "estado de la carretera hacia brisas",
+   "rank": 2,
+   "top1": "activities.north_route_stops",
+   "top1_cos": 0.9104,
+   "own_cos": 0.91
+  },
+  {
+   "id": "hours_status.road_closure_status",
+   "example": "está cerrada la vía al nevado",
+   "rank": 2,
+   "top1": "hours_status.park_open_today",
+   "top1_cos": 0.9582,
+   "own_cos": 0.9309
+  },
+  {
+   "id": "hours_status.road_closure_status",
+   "example": "cómo saber si hay paso en la carretera",
+   "rank": 135,
+   "top1": "hours_status.official_channels_to_check_status",
+   "top1_cos": 0.8998,
+   "own_cos": 0.8353
+  },
+  {
+   "id": "hours_status.road_closure_status",
+   "example": "cierran la carretera a murillo por derrumbe",
+   "rank": 8,
+   "top1": "weather_volcano.volcanic_closures",
+   "top1_cos": 0.8787,
+   "own_cos": 0.8661
+  },
+  {
+   "id": "hours_status.road_closure_status",
+   "example": "la vía pa Brisas está cerrada?",
+   "rank": 3,
+   "top1": "access.esperanza_murillo_corridor",
+   "top1_cos": 0.9339,
+   "own_cos": 0.91
+  },
+  {
+   "id": "hours_status.road_closure_status",
+   "example": "estado de vías terciarias a potosí",
+   "rank": 43,
+   "top1": "access.dirt_roads_cisne",
+   "top1_cos": 0.9215,
+   "own_cos": 0.8397
+  },
+  {
+   "id": "hours_status.road_closure_status",
+   "example": "is the road up there in bad shape",
+   "rank": 12,
+   "top1": "access.brisas_tumbas_drive",
+   "top1_cos": 0.8545,
+   "own_cos": 0.8213
+  },
+  {
+   "id": "hours_status.road_closure_status",
+   "example": "is the road to brisas open",
+   "rank": 5,
+   "top1": "hours_status.brisas_open_days",
+   "top1_cos": 0.9371,
+   "own_cos": 0.9095
+  },
+  {
+   "id": "hours_status.official_channels_to_check_status",
+   "example": "dónde consultar si el parque está abierto",
+   "rank": 6,
+   "top1": "hours_status.park_open_today",
+   "top1_cos": 0.9618,
+   "own_cos": 0.9157
+  },
+  {
+   "id": "hours_status.official_channels_to_check_status",
+   "example": "dónde confirmo si abren hoy",
+   "rank": 6,
+   "top1": "hours_status.park_open_today",
+   "top1_cos": 0.9233,
+   "own_cos": 0.8897
+  },
+  {
+   "id": "hours_status.official_channels_to_check_status",
+   "example": "teléfono de parques nacionales para consultar estado",
+   "rank": 9,
+   "top1": "hours_status.pnn_administrative_office_hours",
+   "top1_cos": 0.9389,
+   "own_cos": 0.8809
+  },
+  {
+   "id": "hours_status.official_channels_to_check_status",
+   "example": "página oficial para ver si el nevado está abierto",
+   "rank": 2,
+   "top1": "hours_status.park_open_today",
+   "top1_cos": 0.9193,
+   "own_cos": 0.9179
+  },
+  {
+   "id": "hours_status.official_channels_to_check_status",
+   "example": "redes sociales de parques nacionales nevados",
+   "rank": 9,
+   "top1": "services.official_sites",
+   "top1_cos": 0.9025,
+   "own_cos": 0.8798
+  },
+  {
+   "id": "hours_status.official_channels_to_check_status",
+   "example": "¿cómo sé si hoy hay paso libre al nevado?",
+   "rank": 2,
+   "top1": "hours_status.park_open_today",
+   "top1_cos": 0.9285,
+   "own_cos": 0.9095
+  },
+  {
+   "id": "hours_status.official_channels_to_check_status",
+   "example": "dónde consigo info confiable del parque?",
+   "rank": 3,
+   "top1": "services.official_sites",
+   "top1_cos": 0.9073,
+   "own_cos": 0.9012
+  },
+  {
+   "id": "hours_status.official_channels_to_check_status",
+   "example": "dónde avisan los cierres del parque",
+   "rank": 2,
+   "top1": "hours_status.reopening_protocol_after_emergencies",
+   "top1_cos": 0.9176,
+   "own_cos": 0.9157
+  },
+  {
+   "id": "hours_status.official_channels_to_check_status",
+   "example": "official channels to check park status",
+   "rank": 2,
+   "top1": "hours_status.offline_status_verification_advice",
+   "top1_cos": 0.9025,
+   "own_cos": 0.8927
+  },
+  {
+   "id": "hours_status.official_channels_to_check_status",
+   "example": "who do I call to ask if the park is open",
+   "rank": 2,
+   "top1": "hours_status.offline_status_verification_advice",
+   "top1_cos": 0.9061,
+   "own_cos": 0.9022
+  },
+  {
+   "id": "hours_status.offline_status_verification_advice",
+   "example": "esta aplicación me dice si está abierto hoy",
+   "rank": 3,
+   "top1": "hours_status.official_channels_to_check_status",
+   "top1_cos": 0.9123,
+   "own_cos": 0.8798
+  },
+  {
+   "id": "hours_status.offline_status_verification_advice",
+   "example": "puedo consultar el estado del parque sin señal",
+   "rank": 6,
+   "top1": "services.phone_signal",
+   "top1_cos": 0.9132,
+   "own_cos": 0.8837
+  },
+  {
+   "id": "hours_status.offline_status_verification_advice",
+   "example": "el asistente offline actualiza los cierres",
+   "rank": 2,
+   "top1": "conversation.offline_operation",
+   "top1_cos": 0.8673,
+   "own_cos": 0.8654
+  },
+  {
+   "id": "hours_status.offline_status_verification_advice",
+   "example": "antes de subir, ¿qué reviso pa saber si abre?",
+   "rank": 24,
+   "top1": "rules.entry_bag_checks",
+   "top1_cos": 0.9313,
+   "own_cos": 0.8844
+  },
+  {
+   "id": "hours_status.offline_status_verification_advice",
+   "example": "qué hacer si en la montaña no hay señal para consultar",
+   "rank": 2,
+   "top1": "health_safety.lost_person_protocol",
+   "top1_cos": 0.9132,
+   "own_cos": 0.9024
+  },
+  {
+   "id": "hours_status.offline_status_verification_advice",
+   "example": "esto sirve pa ver si cerraron algo?",
+   "rank": 3,
+   "top1": "booking_fees.exempt_donors",
+   "top1_cos": 0.8943,
+   "own_cos": 0.8844
+  },
+  {
+   "id": "hours_status.why_conservation_closures_exist",
+   "example": "cuál es el motivo del descanso ecológico",
+   "rank": 2,
+   "top1": "hours_status.conservation_closures",
+   "top1_cos": 0.9271,
+   "own_cos": 0.9107
+  },
+  {
+   "id": "hours_status.why_conservation_closures_exist",
+   "example": "por qué descansan los senderos del parque",
+   "rank": 3,
+   "top1": "hours_status.conservation_closures",
+   "top1_cos": 0.9162,
+   "own_cos": 0.8969
+  },
+  {
+   "id": "hours_status.why_conservation_closures_exist",
+   "example": "para qué sirven los cierres programados",
+   "rank": 2,
+   "top1": "hours_status.conservation_closures",
+   "top1_cos": 0.9497,
+   "own_cos": 0.9012
+  },
+  {
+   "id": "hours_status.why_conservation_closures_exist",
+   "example": "por qué se cierran los nevados en ciertas fechas",
+   "rank": 8,
+   "top1": "hours_status.weather_emergency_closures",
+   "top1_cos": 0.9534,
+   "own_cos": 0.8919
+  },
+  {
+   "id": "hours_status.why_conservation_closures_exist",
+   "example": "motivo ambiental para cerrar los senderos",
+   "rank": 3,
+   "top1": "hours_status.trail_maintenance_temporary_closures",
+   "top1_cos": 0.9376,
+   "own_cos": 0.9092
+  },
+  {
+   "id": "hours_status.why_conservation_closures_exist",
+   "example": "why are there conservation closures",
+   "rank": 3,
+   "top1": "hours_status.conservation_closures",
+   "top1_cos": 0.9352,
+   "own_cos": 0.9142
+  },
+  {
+   "id": "hours_status.why_conservation_closures_exist",
+   "example": "why does the park shut down for a few days",
+   "rank": 6,
+   "top1": "hours_status.conservation_closures",
+   "top1_cos": 0.908,
+   "own_cos": 0.8681
+  },
+  {
+   "id": "hours_status.open_sectors_during_conservation_closures",
+   "example": "qué sectores quedan abiertos en el cierre ambiental",
+   "rank": 2,
+   "top1": "hours_status.conservation_closures",
+   "top1_cos": 0.9148,
+   "own_cos": 0.9133
+  },
+  {
+   "id": "hours_status.open_sectors_during_conservation_closures",
+   "example": "brisas abre durante los cierres por conservación",
+   "rank": 2,
+   "top1": "hours_status.brisas_open_days",
+   "top1_cos": 0.9217,
+   "own_cos": 0.9129
+  },
+  {
+   "id": "hours_status.open_sectors_during_conservation_closures",
+   "example": "todo el parque cierra en el descanso ecológico",
+   "rank": 9,
+   "top1": "hours_status.conservation_closures",
+   "top1_cos": 0.9336,
+   "own_cos": 0.8782
+  },
+  {
+   "id": "hours_status.open_sectors_during_conservation_closures",
+   "example": "¿queda algo abierto en el cierre?",
+   "rank": 5,
+   "top1": "hours_status.park_open_today",
+   "top1_cos": 0.8952,
+   "own_cos": 0.8742
+  },
+  {
+   "id": "hours_status.open_sectors_during_conservation_closures",
+   "example": "está abierto el ruiz durante el cierre de conservación",
+   "rank": 3,
+   "top1": "activities.ruiz_glacier_edge",
+   "top1_cos": 0.9089,
+   "own_cos": 0.9013
+  },
+  {
+   "id": "hours_status.open_sectors_during_conservation_closures",
+   "example": "qué recorridos funcionan en los cierres de septiembre y noviembre",
+   "rank": 6,
+   "top1": "hours_status.conservation_closures",
+   "top1_cos": 0.9229,
+   "own_cos": 0.8672
+  },
+  {
+   "id": "hours_status.open_sectors_during_conservation_closures",
+   "example": "se puede entrar a brisas en semana de cierre ambiental",
+   "rank": 2,
+   "top1": "hours_status.brisas_hours",
+   "top1_cos": 0.9211,
+   "own_cos": 0.9123
+  },
+  {
+   "id": "hours_status.open_sectors_during_conservation_closures",
+   "example": "which sectors remain open during conservation closures",
+   "rank": 2,
+   "top1": "hours_status.why_conservation_closures_exist",
+   "top1_cos": 0.9155,
+   "own_cos": 0.9016
+  },
+  {
+   "id": "hours_status.open_sectors_during_conservation_closures",
+   "example": "is brisas open during environmental rest week",
+   "rank": 2,
+   "top1": "hours_status.brisas_open_days",
+   "top1_cos": 0.9269,
+   "own_cos": 0.9066
+  },
+  {
+   "id": "hours_status.reopening_protocol_after_emergencies",
+   "example": "cuándo vuelve a abrir el nevado?",
+   "rank": 5,
+   "top1": "hours_status.high_season_calendar",
+   "top1_cos": 0.9374,
+   "own_cos": 0.8991
+  },
+  {
+   "id": "hours_status.reopening_protocol_after_emergencies",
+   "example": "cuánto tarda en reabrir tras un cierre volcánico",
+   "rank": 5,
+   "top1": "weather_volcano.stay_safe_zone",
+   "top1_cos": 0.9159,
+   "own_cos": 0.9068
+  },
+  {
+   "id": "hours_status.reopening_protocol_after_emergencies",
+   "example": "ya se puede volver a subir, o q?",
+   "rank": 176,
+   "top1": "preparation.fitness_training",
+   "top1_cos": 0.9008,
+   "own_cos": 0.8568
+  },
+  {
+   "id": "hours_status.pnn_administrative_office_hours",
+   "example": "toca llamar entre semana o sirve el sábado?",
+   "rank": 15,
+   "top1": "hours_status.brisas_open_days",
+   "top1_cos": 0.9544,
+   "own_cos": 0.8633
+  },
+  {
+   "id": "hours_status.uton_concession_office_hours",
+   "example": "cuándo atienden en la oficina de brisas en manizales",
+   "rank": 3,
+   "top1": "hours_status.brisas_hours",
+   "top1_cos": 0.9155,
+   "own_cos": 0.8966
+  },
+  {
+   "id": "hours_status.uton_concession_office_hours",
+   "example": "a q hora abre la UTON por Palermo?",
+   "rank": 2,
+   "top1": "access.uton_offices_manizales",
+   "top1_cos": 0.92,
+   "own_cos": 0.8927
+  },
+  {
+   "id": "hours_status.uton_concession_office_hours",
+   "example": "toca ir de mañana a la UTON?",
+   "rank": 18,
+   "top1": "services.uton_services",
+   "top1_cos": 0.9157,
+   "own_cos": 0.8813
+  },
+  {
+   "id": "hours_status.morning_birdwatching_hours",
+   "example": "se puede entrar más temprano para pajarear",
+   "rank": 3,
+   "top1": "hours_status.general_opening_schedule",
+   "top1_cos": 0.8986,
+   "own_cos": 0.8896
+  },
+  {
+   "id": "hours_status.morning_birdwatching_hours",
+   "example": "toca madrugar pa ver pajaritos?",
+   "rank": 7,
+   "top1": "hours_status.quindio_dulima_juntas_anzoategui_hours",
+   "top1_cos": 0.9451,
+   "own_cos": 0.9181
+  },
+  {
+   "id": "hours_status.morning_birdwatching_hours",
+   "example": "a qué hora salen los colibríes y el chivito",
+   "rank": 15,
+   "top1": "fauna.birds_overview",
+   "top1_cos": 0.8827,
+   "own_cos": 0.8515
+  },
+  {
+   "id": "hours_status.morning_birdwatching_hours",
+   "example": "me dejan entrar mas temprano si voy a pajarear",
+   "rank": 8,
+   "top1": "hours_status.santa_isabel_conejeras_prior_day_checkin",
+   "top1_cos": 0.9214,
+   "own_cos": 0.8896
+  },
+  {
+   "id": "hours_status.unplanned_midday_closures",
+   "example": "y si me botan del parque a mitad de día?",
+   "rank": 2,
+   "top1": "rules.authorized_stay_duration",
+   "top1_cos": 0.9061,
+   "own_cos": 0.9057
+  },
+  {
+   "id": "hours_status.unplanned_midday_closures",
+   "example": "nos pueden sacar del nevado de un momento a otro",
+   "rank": 353,
+   "top1": "flora_ecosystems.santa_isabel_low_altitude_cause",
+   "top1_cos": 0.9073,
+   "own_cos": 0.8465
+  },
+  {
+   "id": "hours_status.unplanned_midday_closures",
+   "example": "cierre repentino por tormenta o volcán",
+   "rank": 22,
+   "top1": "hours_status.volcanic_alert_closures",
+   "top1_cos": 0.9425,
+   "own_cos": 0.8707
+  },
+  {
+   "id": "hours_status.unplanned_midday_closures",
+   "example": "si empieza a tronar, ¿toca bajar?",
+   "rank": 114,
+   "top1": "health_safety.lightning_caught_in_open_paramo",
+   "top1_cos": 0.9298,
+   "own_cos": 0.8361
+  },
+  {
+   "id": "hours_status.unplanned_midday_closures",
+   "example": "qué hacer si ordenan evacuar antes de la hora",
+   "rank": 61,
+   "top1": "weather_volcano.alert_not_evacuation",
+   "top1_cos": 0.9124,
+   "own_cos": 0.8579
+  },
+  {
+   "id": "hours_status.unplanned_midday_closures",
+   "example": "what happens if the park closes suddenly during a visit",
+   "rank": 14,
+   "top1": "hours_status.late_arrival_policy",
+   "top1_cos": 0.9002,
+   "own_cos": 0.862
+  },
+  {
+   "id": "hours_status.trail_maintenance_temporary_closures",
+   "example": "cierre temporal por arreglo de puentes o cabañas",
+   "rank": 3,
+   "top1": "hours_status.weather_emergency_closures",
+   "top1_cos": 0.9003,
+   "own_cos": 0.8825
+  },
+  {
+   "id": "hours_status.anzoategui_pit_la_punta_hours",
+   "example": "horario pit anzoátegui",
+   "rank": 2,
+   "top1": "hours_status.quindio_dulima_juntas_anzoategui_hours",
+   "top1_cos": 0.9273,
+   "own_cos": 0.9255
+  },
+  {
+   "id": "hours_status.anzoategui_pit_la_punta_hours",
+   "example": "qué días atiende el punto de información turística de anzoátegui",
+   "rank": 2,
+   "top1": "hours_status.quindio_dulima_juntas_anzoategui_hours",
+   "top1_cos": 0.8963,
+   "own_cos": 0.8942
+  },
+  {
+   "id": "hours_status.anzoategui_pit_la_punta_hours",
+   "example": "horario del punto de control flotante la punta en anzoátegui",
+   "rank": 2,
+   "top1": "hours_status.quindio_dulima_juntas_anzoategui_hours",
+   "top1_cos": 0.9355,
+   "own_cos": 0.9106
+  },
+  {
+   "id": "hours_status.anzoategui_pit_la_punta_hours",
+   "example": "a q hora abren el punto de informacion de anzoategui en el centro",
+   "rank": 2,
+   "top1": "hours_status.quindio_dulima_juntas_anzoategui_hours",
+   "top1_cos": 0.8934,
+   "own_cos": 0.8904
+  },
+  {
+   "id": "hours_status.anzoategui_pit_la_punta_hours",
+   "example": "horario jueves a sábado control la punta vereda la cascada",
+   "rank": 5,
+   "top1": "hours_status.pico_y_placa_hours_murillo",
+   "top1_cos": 0.8825,
+   "own_cos": 0.8612
+  },
+  {
+   "id": "hours_status.anzoategui_pit_la_punta_hours",
+   "example": "a qué hora atienden en la calle 13 de anzoátegui parques nacionales",
+   "rank": 3,
+   "top1": "hours_status.quindio_dulima_juntas_anzoategui_hours",
+   "top1_cos": 0.9426,
+   "own_cos": 0.9086
+  },
+  {
+   "id": "hours_status.anzoategui_pit_la_punta_hours",
+   "example": "dias de atencion en la punta anzoategui tolima porfa",
+   "rank": 4,
+   "top1": "access.from_anzoategui_palomar",
+   "top1_cos": 0.9221,
+   "own_cos": 0.8904
+  }
+ ],
+ "removed_examples": 3,
+ "removed_not_routing": []
+}

@@ -1,0 +1,705 @@
+{
+ "section": "weather_volcano",
+ "reviewer": "agent 25 / claude-haiku-5-5",
+ "ops": [
+  {
+   "id": "weather_volcano.alert_yellow_meaning",
+   "op": "update",
+   "verdict": "revise",
+   "entailment": "partial",
+   "label_change": "justified",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "ok",
+   "reason": "La fecha del esquema (14 sep 2023) está en la cita. La definición («cambios frente al nivel base»), «sismos», «más gases» y «olores» no están en las citas de este op; sí están en sgc-estados-alerta.txt (bloque Amarilla). La etiqueta cumple la confusión documentada (confused_with: red 4, orange 2).",
+   "required_change": "Añadir cita: «Volcán activo con cambios en el comportamiento del nivel base de los parámetros monitoreados» y «niveles moderados de desgasificación» (bloque Amarilla de sgc-estados-alerta.txt). Sismos: «sismos sentidos» del mismo bloque."
+  },
+  {
+   "id": "weather_volcano.alert_orange_meaning",
+   "op": "update",
+   "verdict": "revise",
+   "entailment": "partial",
+   "label_change": "justified",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "ok",
+   "reason": "Probabilidad mayor de erupciones y «no dice el día» están citadas. «Puede haber ceniza» y «olores fuertes» no tienen cita en este op; sí están en el bloque Naranja de sgc-estados-alerta.txt. La etiqueta nueva responde a confused_with (yellow 3, red 2).",
+   "required_change": "Añadir cita del bloque Naranja: «emisiones de ceniza frecuentes (erupciones menores) cuyo volumen no afecta de manera importante el diario vivir» y «olores fuertes e irritantes en zonas cercanas al volcán»."
+  },
+  {
+   "id": "weather_volcano.alert_red_meaning",
+   "op": "update",
+   "verdict": "revise",
+   "entailment": "partial",
+   "label_change": "justified",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "ok",
+   "reason": "La cita de evacuación obligatoria es literal. «Es un volcán en erupción» (definición del color) no tiene cita en este op. Está en sgc-estados-alerta.txt: «Alerta Roja Volcán en erupción».",
+   "required_change": "Añadir cita «Alerta Roja Volcán en erupción» (y, si se quiere, «Erupción mayor (considerable) en curso»)."
+  },
+  {
+   "id": "weather_volcano.alert_green_meaning",
+   "op": "update",
+   "verdict": "revise",
+   "entailment": "partial",
+   "label_change": "n/a",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "ok",
+   "reason": "«Muy baja» y «sismos pequeños» están citados. «Gases, olores, fuentes termales» no están en las citas. «No te autoriza el cráter» no tiene fuente en este op: es una instrucción que la respuesta presenta como parte del esquema del SGC.",
+   "required_change": "1) Añadir cita «salida de gases, algunos olores, fuentes termales» (bloque Verde de sgc-estados-alerta.txt). 2) Para «no te autoriza el cráter», añadir la cita de UNGRD «No se acerque al volcán, ni a ríos que nacen en él» o quitar la frase."
+  },
+  {
+   "id": "weather_volcano.alert_states_nonsequential",
+   "op": "update",
+   "verdict": "approve",
+   "entailment": "full",
+   "label_change": "justified",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "ok",
+   "reason": "Verde→naranja sin amarillo, el esquema no estima días o semanas y la fecha del 14 sep 2023 están citados. La etiqueta responde a confused_with (yellow_upper_access 2, separate_volcano_alerts 2). Ejemplo nuevo natural.",
+   "required_change": "Ninguno."
+  },
+  {
+   "id": "weather_volcano.old_alert_numbers",
+   "op": "update",
+   "verdict": "revise",
+   "entailment": "full",
+   "label_change": "n/a",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "warn",
+   "reason": "El refetch de la herramienta falló (curl 56) y mis tres reintentos también fallaron (2× curl 56, 1× timeout), así que la cita «(II) Erupción probable en término de días o semanas.» no está confirmada en una descarga nueva. La cita sí existe en el texto guardado con hash verificado. El resto (escala numérica dejada de usar desde el 14 sep 2023) está citado.",
+   "required_change": "Repetir el refetch de ungrd-comunidades-erupciones.pdf. Si la cita aparece en la descarga nueva, aprobar sin cambios. Si el servidor sigue caído, el op queda bloqueado."
+  },
+  {
+   "id": "weather_volcano.volcanic_closures",
+   "op": "update",
+   "verdict": "revise",
+   "entailment": "partial",
+   "label_change": "justified",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "ok",
+   "reason": "Resolución 268 (22 oct 2024) y su lista de restricciones están citadas, así como «el Ruiz en alerta amarilla» y la Resolución 259. La frase «puede ordenarse cierre y evacuación en cualquier momento» no está completa en la cita de 268 (la cita termina antes de «en cualquier momento»). Corresponde al hallazgo de contradictions.json (stale): la respuesta debe fechar la restricción, que ya está fechada.",
+   "required_change": "Ampliar la cita de Res. 268 hasta «en cualquier momento se puede tomar la determinación de cierre y evacuación» (sigue en pnn-res-268-2024.txt)."
+  },
+  {
+   "id": "weather_volcano.yellow_upper_access",
+   "op": "update",
+   "verdict": "approve",
+   "entailment": "full",
+   "label_change": "justified",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "ok",
+   "reason": "«Restringir el acceso a la parte alta del volcán (depende del volcán)» está citado y pertenece al bloque Amarilla. La fecha del esquema y la Resolución 268 están citadas. «No abre ni cierra el sector hoy» es un aviso de que no sabemos el estado de hoy, correcto. Coherente con el hallazgo cross de weather_volcano/hours_status (la regla de hours_status debe fecharse allí).",
+   "required_change": "Ninguno en este op. Verificar en la revisión de hours_status que su regla de amarilla quede fechada."
+  },
+  {
+   "id": "weather_volcano.bulletin_kinds",
+   "op": "update",
+   "verdict": "revise",
+   "entailment": "partial",
+   "label_change": "n/a",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "ok",
+   "reason": "«Últimos 20 semanales» y el boletín del 10 al 16 nov 2026 están citados. «Mensuales» (presente en la página del Ruiz) no está en las citas de este op. La lista de boletines está fechada correctamente.",
+   "required_change": "Añadir cita «Boletines mensuales» de sgc-ruiz-boletines.txt."
+  },
+  {
+   "id": "weather_volcano.santa_isabel_bulletin",
+   "op": "update",
+   "verdict": "approve",
+   "entailment": "full",
+   "label_change": "n/a",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "ok",
+   "reason": "El boletín es del 10 al 16 nov 2026 (cita). «Es un volcán activo en estado de reposo» está citado de la ficha de generalidades y se marca como frase no vigente. «No hereda el color del Ruiz» es inferencia por canal propio (boletín propio de Santa Isabel), pero el texto no lo afirma como dato; aceptable porque no da un nivel. El boletín es del 17 nov 2026 según su encabezado: el texto lo llama «ejemplo fechado», correcto.",
+   "required_change": "Ninguno."
+  },
+  {
+   "id": "weather_volcano.machin_bulletin",
+   "op": "update",
+   "verdict": "approve",
+   "entailment": "full",
+   "label_change": "n/a",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "ok",
+   "reason": "Boletín semanal del 10 al 16 nov 2026 y boletines extraordinarios están citados. Cambios frente al nivel base y «volcán activo en estado de reposo» están en la ficha citada. «En el Tolima» es identidad del volcán, no una afirmación nueva.",
+   "required_change": "Ninguno."
+  },
+  {
+   "id": "weather_volcano.ash_water",
+   "op": "update",
+   "verdict": "revise",
+   "entailment": "partial",
+   "label_change": "n/a",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "warn",
+   "reason": "Tres problemas. (1) El refetch de UNGRD falló dos veces y está pendiente. (2) La variante «no un veneno automático» supera la cita: la guía del SGC dice «más que riesgo a producir daños a la salud», no que no sea veneno. (3) «Pueden estar contaminados» y «cerca del volcán» no están en la cita corta de UNGRD. Sí está en el texto completo: «o cercanos al volcán, puede estar contaminada».",
+   "required_change": "1) Quitar «no un veneno automático» de la variante. 2) Citar la frase completa de UNGRD: «Evite consumir agua de ríos o quebradas de montaña o cercanos al volcán, puede estar contaminada». 3) Repetir el refetch de UNGRD."
+  },
+  {
+   "id": "weather_volcano.current_alert",
+   "op": "update",
+   "verdict": "revise",
+   "entailment": "n/a",
+   "label_change": "stylistic",
+   "examples": "issues",
+   "temporal": "ok",
+   "refetch": "n/a",
+   "reason": "La respuesta no cambia (no hay fuente nueva). Dos cambios necesitan corrección. (a) La etiqueta pasa a «alerta de hoy del Ruiz»: promete el dato de hoy, que la respuesta niega. labels.json propone «dónde ver la alerta actual del Ruiz», documentada y distinta de lo aplicado. (b) Se quitan tres ejemplos para moverlos a ovsm_role, pero ovsm_role no responde dos de ellos (ver ese op). Los hard negatives nuevos son correctos.",
+   "required_change": "1) Usar la etiqueta de labels.json «dónde ver la alerta actual del Ruiz» o mantener «alerta vigente del Ruiz»; no «alerta de hoy». 2) Restaurar «el Observatorio de Manizales publica informes» y «cómo saber qué reportó el observatorio», salvo que ovsm_role responda esos casos (ver ovsm_role)."
+  },
+  {
+   "id": "weather_volcano.ovsm_role",
+   "op": "update",
+   "verdict": "revise",
+   "entailment": "n/a",
+   "label_change": "n/a",
+   "examples": "issues",
+   "temporal": "ok",
+   "refetch": "n/a",
+   "reason": "Acepta el ejemplo «toca revisar SGC u Observatorio»: la respuesta dice que la alerta a usar es el boletín del SGC. No acepta los otros dos: «el Observatorio de Manizales publica informes» (la respuesta no dice que publique informes; ovsm-manizales.txt no contiene «publica») y «cómo saber qué reportó el observatorio» (la respuesta no dice cómo consultar sus informes). La fuente del «1986» es secundaria (Alcaldía de Manizales), claimed secondary_only, bien declarada.",
+   "required_change": "Quitar «el Observatorio de Manizales publica informes» y «cómo saber qué reportó el observatorio», o ampliar la respuesta con una fuente que indique dónde consultar sus informes (hoy no hay cita). Conservar «toca revisar SGC u Observatorio»."
+  },
+  {
+   "id": "weather_volcano.summit_visibility",
+   "op": "update",
+   "verdict": "approve",
+   "entailment": "n/a",
+   "label_change": "justified",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "n/a",
+   "reason": "Respuesta sin cambio. La etiqueta nueva corrige confused_with (cloudy_visit_landscape 5). Ejemplo nuevo natural. Pre-existente: «nadie puede garantizar la cumbre despejada» no está en la cita de la nevada; anotado en audit.",
+   "required_change": "Ninguno en este op."
+  },
+  {
+   "id": "weather_volcano.snow_and_hail",
+   "op": "update",
+   "verdict": "approve",
+   "entailment": "n/a",
+   "label_change": "justified",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "n/a",
+   "reason": "Respuesta sin cambio; la fecha del 10 oct 2025 es un hecho fechado. La etiqueta se mueve de la familia «nieve y» de confusiones documentadas (labels.json, flora_ecosystems.glaciers_snow_presence). Hard negatives nuevos correctos.",
+   "required_change": "Ninguno en este op."
+  },
+  {
+   "id": "weather_volcano.park_weather",
+   "op": "update",
+   "verdict": "approve",
+   "entailment": "n/a",
+   "label_change": "n/a",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "n/a",
+   "reason": "Solo hard negatives; la respuesta no cambia. labels.json propone relabel a «épocas de lluvia y seca del parque», no aplicado. No bloquea.",
+   "required_change": "Ninguno. Nota: relabel de labels.json no aplicado."
+  },
+  {
+   "id": "weather_volcano.current_forecast",
+   "op": "update",
+   "verdict": "approve",
+   "entailment": "n/a",
+   "label_change": "justified",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "n/a",
+   "reason": "Respuesta sin cambio. La etiqueta corrige confused_with (park_weather 2, services.official_sites 2). Hard negatives correctos.",
+   "required_change": "Ninguno."
+  },
+  {
+   "id": "weather_volcano.national_forecast_limit",
+   "op": "update",
+   "verdict": "approve",
+   "entailment": "n/a",
+   "label_change": "n/a",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "n/a",
+   "reason": "Solo hard negatives. Respuesta citada (3 días, escala nacional).",
+   "required_change": "Ninguno."
+  },
+  {
+   "id": "weather_volcano.helada_meaning",
+   "op": "update",
+   "verdict": "approve",
+   "entailment": "n/a",
+   "label_change": "justified",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "n/a",
+   "reason": "Respuesta sin cambio. La etiqueta corrige confused_with (helada_night 2). Hard negatives correctos. Pre-existente: «0 °C o menos» no está en la cita (solo la altura); anotado en audit.",
+   "required_change": "Ninguno en este op."
+  },
+  {
+   "id": "weather_volcano.helada_night",
+   "op": "update",
+   "verdict": "approve",
+   "entailment": "n/a",
+   "label_change": "n/a",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "n/a",
+   "reason": "Solo hard negatives. Respuesta sin cambio.",
+   "required_change": "Ninguno."
+  },
+  {
+   "id": "weather_volcano.orange_near_volcano",
+   "op": "update",
+   "verdict": "approve",
+   "entailment": "n/a",
+   "label_change": "justified",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "n/a",
+   "reason": "Respuesta sin cambio. La etiqueta corrige confused_with (alert_orange_meaning 5), documentada.",
+   "required_change": "Ninguno."
+  },
+  {
+   "id": "weather_volcano.volcanic_activity",
+   "op": "update",
+   "verdict": "approve",
+   "entailment": "n/a",
+   "label_change": "n/a",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "n/a",
+   "reason": "Solo hard negatives. Respuesta sin cambio. Pre-existente: sismicidad y SO2 del boletín no están en la cita (solo anomalías térmicas); anotado en audit.",
+   "required_change": "Ninguno en este op."
+  },
+  {
+   "id": "weather_volcano.alert_not_evacuation",
+   "op": "update",
+   "verdict": "approve",
+   "entailment": "n/a",
+   "label_change": "n/a",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "n/a",
+   "reason": "Solo hard negatives. La cita de UNGRD sostiene el mensaje.",
+   "required_change": "Ninguno."
+  },
+  {
+   "id": "weather_volcano.separate_volcano_alerts",
+   "op": "update",
+   "verdict": "approve",
+   "entailment": "n/a",
+   "label_change": "n/a",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "n/a",
+   "reason": "Solo hard negatives. Respuesta sin cambio; separación por volcán correcta (páginas distintas).",
+   "required_change": "Ninguno."
+  },
+  {
+   "id": "weather_volcano.volcanic_gases",
+   "op": "update",
+   "verdict": "approve",
+   "entailment": "n/a",
+   "label_change": "n/a",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "n/a",
+   "reason": "Solo hard negatives. Respuesta sin cambio. Pre-existente: la lista de gases (vapor, CO2, SO2) está en la hoja del Ruiz, no en la cita de SO2 (anotado en audit).",
+   "required_change": "Ninguno en este op."
+  },
+  {
+   "id": "weather_volcano.gases_dilute",
+   "op": "update",
+   "verdict": "approve",
+   "entailment": "n/a",
+   "label_change": "n/a",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "n/a",
+   "reason": "Solo hard negatives. Dilución correctamente acotada: «no vuelve seguro el cráter».",
+   "required_change": "Ninguno."
+  },
+  {
+   "id": "weather_volcano.sulfur_smell",
+   "op": "update",
+   "verdict": "approve",
+   "entailment": "n/a",
+   "label_change": "n/a",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "n/a",
+   "reason": "Solo hard negatives. Respuesta sin cambio; coherente con la cita de azufre y fumarolas.",
+   "required_change": "Ninguno."
+  },
+  {
+   "id": "weather_volcano.pyroclastic_flows",
+   "op": "update",
+   "verdict": "approve",
+   "entailment": "n/a",
+   "label_change": "n/a",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "n/a",
+   "reason": "Solo hard negatives. Respuesta sin cambio.",
+   "required_change": "Ninguno."
+  },
+  {
+   "id": "weather_volcano.ballistic_blocks",
+   "op": "update",
+   "verdict": "approve",
+   "entailment": "n/a",
+   "label_change": "n/a",
+   "examples": "ok",
+   "temporal": "ok",
+   "refetch": "n/a",
+   "reason": "Solo hard negatives. Respuesta sin cambio; proyectiles balísticos citados en el bloque Naranja.",
+   "required_change": "Ninguno."
+  }
+ ],
+ "audit_rows": [
+  {
+   "id": "weather_volcano.park_weather",
+   "claimed": "primary_ok",
+   "support": "full",
+   "note": "La cita sostiene la afirmación principal (none). Patrón bimodal de la ficha. No es el pronóstico del día."
+  },
+  {
+   "id": "weather_volcano.rainy_seasons",
+   "claimed": "primary_ok",
+   "support": "full",
+   "note": "La cita sostiene la afirmación principal (none). La ficha no fija meses. No se rellenan los meses del IDEAM que no volvió a descargar."
+  },
+  {
+   "id": "weather_volcano.weather_by_elevation",
+   "claimed": "primary_ok",
+   "support": "full",
+   "note": "La cita sostiene la afirmación principal (none). El 0.6 °C/100 m es la referencia del IDEAM, no una medición del parque."
+  },
+  {
+   "id": "weather_volcano.summit_visibility",
+   "claimed": "primary_ok",
+   "support": "partial",
+   "note": "La cita explica la nevada por nubosidad húmeda; «nadie puede garantizar la cumbre despejada» es inferencia sin cita."
+  },
+  {
+   "id": "weather_volcano.snow_and_hail",
+   "claimed": "primary_ok",
+   "support": "partial",
+   "note": "La cita solo da la fecha. «Cubrió Ruiz, Santa Isabel, Cisne y Santa Rosa» y «nevada grande» no están en la cita."
+  },
+  {
+   "id": "weather_volcano.current_forecast",
+   "claimed": "primary_ok",
+   "support": "full",
+   "note": "La cita sostiene la afirmación principal (none). La ficha manda al IDEAM y no da el tiempo de una fecha."
+  },
+  {
+   "id": "weather_volcano.alert_yellow_meaning",
+   "claimed": "primary_ok",
+   "support": "partial",
+   "note": "La cita (restringir la parte alta) no sostiene la definición de amarilla. Sí la sostiene la cita de Res. 268 y el bloque Amarilla (pendiente de citar en el op)."
+  },
+  {
+   "id": "weather_volcano.alert_orange_meaning",
+   "claimed": "primary_ok",
+   "support": "full",
+   "note": "La cita sostiene la afirmación principal (needs_date). Naranja no es erupción en curso ni el color de hoy."
+  },
+  {
+   "id": "weather_volcano.alert_red_meaning",
+   "claimed": "primary_ok",
+   "support": "partial",
+   "note": "La cita (evacuación obligatoria) no sostiene «es un volcán en erupción». Sí lo sostiene el bloque Roja."
+  },
+  {
+   "id": "weather_volcano.alert_states_nonsequential",
+   "claimed": "primary_ok",
+   "support": "full",
+   "note": "La cita sostiene la afirmación principal (needs_date). Puede saltar de verde a naranja sin amarillo. Se fecha el 14 de septiembre de 2023."
+  },
+  {
+   "id": "weather_volcano.current_alert",
+   "claimed": "primary_ok",
+   "support": "full",
+   "note": "La cita sostiene la afirmación principal (dated_ok). Ya dice que ese boletín puede no servir. Se mueven las preguntas del observatorio."
+  },
+  {
+   "id": "weather_volcano.volcanic_activity",
+   "claimed": "primary_ok",
+   "support": "partial",
+   "note": "La cita solo sostiene las anomalías térmicas. Sismicidad y SO2 no están en la cita. Pre-existente."
+  },
+  {
+   "id": "weather_volcano.ash_actions",
+   "claimed": "primary_ok",
+   "support": "full",
+   "note": "La cita sostiene la afirmación principal (none). La UNGRD añade sombrilla o capa y cerrar aberturas. No afirma que haya ceniza ahora."
+  },
+  {
+   "id": "weather_volcano.volcanic_gases",
+   "claimed": "primary_ok",
+   "support": "partial",
+   "note": "La cita sostiene el efecto irritante del SO2, no la lista de gases emitidos (vapor, CO2, SO2). Pre-existente."
+  },
+  {
+   "id": "weather_volcano.volcanic_closures",
+   "claimed": "primary_ok",
+   "support": "full",
+   "note": "La cita sostiene la afirmación principal (needs_date). La restricción se leía como vigente. Queda fechada en las resoluciones 268 y 259 de 2024."
+  },
+  {
+   "id": "weather_volcano.no_temperate_seasons",
+   "claimed": "primary_ok",
+   "support": "full",
+   "note": "La cita sostiene la afirmación principal (none). La variación mensual va con las lluvias y el IDEAM la llama no significativa."
+  },
+  {
+   "id": "weather_volcano.freezing_at_altitude",
+   "claimed": "primary_ok",
+   "support": "full",
+   "note": "La cita sostiene la afirmación principal (none). Es el rango de páramo y nevado, no la temperatura de una madrugada."
+  },
+  {
+   "id": "weather_volcano.helada_meaning",
+   "claimed": "primary_ok",
+   "support": "partial",
+   "note": "La cita sostiene la altura (1,5–2 m); «0 °C o menos» no está en la cita. Pre-existente."
+  },
+  {
+   "id": "weather_volcano.helada_night",
+   "claimed": "primary_ok",
+   "support": "partial",
+   "note": "La cita sostiene 2500 m y tropicalidad; «suele ceder al salir el sol» e «IDEAM las ubica en altiplanos» no. Pre-existente."
+  },
+  {
+   "id": "weather_volcano.national_forecast_limit",
+   "claimed": "primary_ok",
+   "support": "full",
+   "note": "La cita sostiene la afirmación principal (none). Escala nacional. No es el valle ni la cumbre."
+  },
+  {
+   "id": "weather_volcano.alert_green_meaning",
+   "claimed": "primary_ok",
+   "support": "full",
+   "note": "La cita sostiene la afirmación principal (needs_date). Verde es reposo, no volcán apagado. Se fecha el esquema."
+  },
+  {
+   "id": "weather_volcano.eruptions_not_predictable",
+   "claimed": "primary_ok",
+   "support": "full",
+   "note": "La cita sostiene la afirmación principal (none). Ningún color da la hora. La respuesta ya manda al boletín."
+  },
+  {
+   "id": "weather_volcano.old_alert_numbers",
+   "claimed": "primary_ok",
+   "support": "full",
+   "note": "La cita sostiene la afirmación principal (needs_date). «Todavía» sonaba a sitio vivo de la UNGRD. El folleto del repositorio sí trae la escala vieja."
+  },
+  {
+   "id": "weather_volcano.alert_not_evacuation",
+   "claimed": "primary_ok",
+   "support": "full",
+   "note": "La cita sostiene la afirmación principal (none). La orden de salir la dan las autoridades. El color no basta."
+  },
+  {
+   "id": "weather_volcano.yellow_upper_access",
+   "claimed": "primary_ok",
+   "support": "full",
+   "note": "La cita sostiene la afirmación principal (needs_date). «Parques ha limitado cumbres» no tenía fecha. Se separa el esquema de 2023 y la Resolución 268."
+  },
+  {
+   "id": "weather_volcano.yellow_ash_wind",
+   "claimed": "primary_ok",
+   "support": "full",
+   "note": "La cita sostiene la afirmación principal (none). Condicional de amarilla. No dice que hoy caiga ceniza."
+  },
+  {
+   "id": "weather_volcano.felt_quakes",
+   "claimed": "primary_ok",
+   "support": "full",
+   "note": "La cita sostiene la afirmación principal (none). El pánico y los deslizamientos están en el folleto de la UNGRD sobre sismos volcánicos. No dice que hoy tiemble."
+  },
+  {
+   "id": "weather_volcano.orange_near_volcano",
+   "claimed": "primary_ok",
+   "support": "full",
+   "note": "La cita sostiene la afirmación principal (none). Riesgo proximal en naranja, no el significado general del color."
+  },
+  {
+   "id": "weather_volcano.red_rivers_roads",
+   "claimed": "primary_ok",
+   "support": "full",
+   "note": "La cita sostiene la afirmación principal (none). Recomendación del esquema si el estado es rojo. No declara rojo hoy."
+  },
+  {
+   "id": "weather_volcano.red_crater_storms",
+   "claimed": "primary_ok",
+   "support": "full",
+   "note": "La cita sostiene la afirmación principal (none). Rayos durante una erupción en rojo. No es la tormenta ordinaria del páramo."
+  },
+  {
+   "id": "weather_volcano.bulletin_kinds",
+   "claimed": "primary_ok",
+   "support": "full",
+   "note": "La cita sostiene la afirmación principal (needs_date). El «20» es el texto de la página. Se ata a la lista que incluye el 10 al 16 de noviembre de 2026."
+  },
+  {
+   "id": "weather_volcano.santa_isabel_bulletin",
+   "claimed": "primary_ok",
+   "support": "full",
+   "note": "La cita sostiene la afirmación principal (claims_current_state). «Todavía» presentaba la frase de la ficha como estado actual. El boletín semanal es otro canal y no se copia su color."
+  },
+  {
+   "id": "weather_volcano.machin_bulletin",
+   "claimed": "primary_ok",
+   "support": "full",
+   "note": "La cita sostiene la afirmación principal (needs_date). La misma ficha trae una línea de cambios frente al nivel base y la frase de reposo. Ninguna es la alerta de hoy."
+  },
+  {
+   "id": "weather_volcano.separate_volcano_alerts",
+   "claimed": "primary_ok",
+   "support": "full",
+   "note": "La cita sostiene la afirmación principal (none). Ruiz, Santa Isabel y Machín tienen páginas distintas. No hay índice vigente del Tolima."
+  },
+  {
+   "id": "weather_volcano.ovsm_role",
+   "claimed": "secondary_only",
+   "support": "full",
+   "note": "La cita del 1986 (Alcaldía, secundaria) sostiene «monitorea desde 1986». Fuente secundaria declarada."
+  },
+  {
+   "id": "weather_volcano.ash_contacts",
+   "claimed": "primary_ok",
+   "support": "full",
+   "note": "La cita sostiene la afirmación principal (none). Instrucción de la guía de ceniza. No dice que haya ceniza ahora."
+  },
+  {
+   "id": "weather_volcano.ash_water",
+   "claimed": "primary_ok",
+   "support": "partial",
+   "note": "La variante «no un veneno automático» supera la cita; «sobre todo un mal sabor» es fiel a «más que riesgo a producir daños». Ver op: revisar."
+  },
+  {
+   "id": "weather_volcano.ash_driving",
+   "claimed": "primary_ok",
+   "support": "full",
+   "note": "La cita sostiene la afirmación principal (none). Si no hay otro modo, a baja velocidad. La guía del SGC dice que el tráfico resuspende la ceniza seca."
+  },
+  {
+   "id": "weather_volcano.ash_roofs",
+   "claimed": "primary_ok",
+   "support": "partial",
+   "note": "BLOQUEADOR CRÍTICO (contradictions.json): la respuesta da dos instrucciones contradictorias (UNGRD: retirar sin agua; SGC: rociar poco). La cita del SGC sostiene solo una. Este entry no está en la propuesta."
+  },
+  {
+   "id": "weather_volcano.ash_asthma",
+   "claimed": "primary_ok",
+   "support": "full",
+   "note": "La cita sostiene la afirmación principal (none). Permanecer adentro. No es un parte de que el parque esté cerrado."
+  },
+  {
+   "id": "weather_volcano.stay_safe_zone",
+   "claimed": "primary_ok",
+   "support": "full",
+   "note": "La cita sostiene la afirmación principal (none). Que deje de caer ceniza no autoriza a acercarse."
+  },
+  {
+   "id": "weather_volcano.lahar_visitor",
+   "claimed": "primary_ok",
+   "support": "partial",
+   "note": "La cita sostiene el ruido del lahar; la definición («agua con material volcánico que baja rápido») no está en la cita. Pre-existente."
+  },
+  {
+   "id": "weather_volcano.ruiz_rivers",
+   "claimed": "primary_ok",
+   "support": "full",
+   "note": "La cita sostiene la afirmación principal (none). Valles estrechos. No entrar a esos cauces si sube la actividad."
+  },
+  {
+   "id": "weather_volcano.tolima_lahars",
+   "claimed": "primary_ok",
+   "support": "full",
+   "note": "La cita sostiene la afirmación principal (dated_ok). Condición del volcán nevado, no el color de hoy ni una erupción pasada."
+  },
+  {
+   "id": "weather_volcano.do_not_approach",
+   "claimed": "primary_ok",
+   "support": "full",
+   "note": "La cita sostiene la afirmación principal (none). La curiosidad no es una ruta. La evacuación usa el punto de encuentro, no la quebrada."
+  },
+  {
+   "id": "weather_volcano.gases_dilute",
+   "claimed": "primary_ok",
+   "support": "full",
+   "note": "La cita sostiene la afirmación principal (none). Dilución lejos del cráter. No vuelve segura la fumarola."
+  },
+  {
+   "id": "weather_volcano.pyroclastic_flows",
+   "claimed": "primary_ok",
+   "support": "full",
+   "note": "La cita sostiene la afirmación principal (none). En naranja el SGC los deja en la parte proximal. En una erupción mayor la columna puede bajar."
+  },
+  {
+   "id": "weather_volcano.ballistic_blocks",
+   "claimed": "primary_ok",
+   "support": "full",
+   "note": "La cita sostiene la afirmación principal (none). Bloques en naranja para quien esté cerca. No es un mirador."
+  },
+  {
+   "id": "weather_volcano.red_column_collapse",
+   "claimed": "primary_ok",
+   "support": "full",
+   "note": "La cita sostiene la afirmación principal (none). Erupción mayor. También lahares de gran extensión en el mismo esquema. No es el estado de hoy."
+  },
+  {
+   "id": "weather_volcano.sulfur_smell",
+   "claimed": "primary_ok",
+   "support": "full",
+   "note": "La cita sostiene la afirmación principal (none). Olores y fumarolas aparecen en la explicación de verde y de amarilla. No invitan al cráter."
+  },
+  {
+   "id": "weather_volcano.rain_by_department",
+   "claimed": "primary_ok",
+   "support": "full",
+   "note": "La cita sostiene la afirmación principal (none). El parque toca varios departamentos. El parte de un pueblo no es el de la cumbre."
+  },
+  {
+   "id": "weather_volcano.ash_resuspends",
+   "claimed": "primary_ok",
+   "support": "full",
+   "note": "La cita sostiene la afirmación principal (none). Puede seguir en el aire después de la caída. No dice que hoy haya ceniza."
+  },
+  {
+   "id": "weather_volcano.evacuation_route",
+   "claimed": "primary_ok",
+   "support": "full",
+   "note": "La cita sostiene la afirmación principal (none). Esta ficha no trae el mapa. La ruta se pregunta en la inducción."
+  },
+  {
+   "id": "weather_volcano.volcanic_alarm",
+   "claimed": "primary_ok",
+   "support": "partial",
+   "note": "«No hay un sonido único publicado» es una afirmación negativa sin cita; la cita solo pide informarse del mecanismo de alarma. Pre-existente."
+  }
+ ],
+ "summary": {
+  "approve": 20,
+  "revise": 10,
+  "reject": 0,
+  "audit_support": {
+   "full": 42,
+   "partial": 12,
+   "none": 0
+  }
+ },
+ "blockers_outside_proposal": [
+  "weather_volcano.ash_roofs: contradicción crítica sin resolver (contradictions.json). La respuesta actual da dos instrucciones opuestas. Requiere una sola instrucción en wave 4."
+ ]
+}

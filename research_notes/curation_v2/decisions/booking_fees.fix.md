@@ -1,0 +1,156 @@
+# booking_fees fix round
+
+Hoy es 2026-11-22. No se aplicó nada al corpus. Las 39 etiquetas estilísticas vuelven al texto de `snapshots/sections_before/booking_fees.json`. Las cinco justificadas usan la etiqueta documentada.
+
+## Revisión
+
+- `booking_fees.under25_admission_fee` revise: done. Acotar la cifra a Brisas, Cisne-Poleka Kasue y Laguna del Otún, y decir que Quindío-Dulima figura en $0. Añadir como evidencia el anexo de la Resolución 551 (fila Nevados, "$12.500 $24.500 $68.000"). Mantener la etiqueta
+- `booking_fees.adult_resident_admission_fee` revise: done. Acotar a los cuatro sectores con cifra, como en la entrada anterior. Usar la etiqueta documentada "tarifa general para mayores de 25". Añadir la fila de la Resolución 551 como evidencia.
+- `booking_fees.foreign_nonresident_admission_fee` revise: done. Quitar "que no pertenecen a la CAN" o citar la regla que lo dice. Acotar el alcance por sector como en las entradas de menores y adultos. Mantener la etiqueta anterior "entrada para extranjero no residente".
+- `booking_fees.sector_entry_fee_difference` revise: done. Mantener el contenido. Recuperar la etiqueta anterior "tarifa según sector de Los Nevados" (cambio estilístico sin confusión documentada).
+- `booking_fees.vehicle_entry_fee` revise: done. Añadir la cita de "No aplica" (fila Cisne-Poleka Kasue y Laguna del Otún) como evidencia. Mantener la etiqueta anterior "tarifa de ingreso en vehículo".
+- `booking_fees.brisas_guide_price` revise: done. Mantener el contenido. Recuperar la etiqueta anterior "precio de la guianza en Brisas" (cambio estilístico).
+- `booking_fees.tariff_annual_update` revise: done. Citar el artículo 12 como evidencia. Mantener la etiqueta anterior "cuándo cambian las tarifas de entrada".
+- `booking_fees.student_admission_category` revise: done. Quitar "No es un descuento por carné". Suavizar "solo quedan exentos" a "la resolución exime a estudiantes y profesores en el programa de educación ambiental…". Citar el artículo 13 numeral 4. Mantener la etiqueta anteri
+- `booking_fees.entry_fee_discounts` revise: done. Mantener el contenido. Recuperar la etiqueta anterior "descuentos en la entrada del parque" (cambio estilístico).
+- `booking_fees.exempt_promotion_programs` revise: done. Citar el artículo 15 para la frase de áreas y fechas. Mantener la etiqueta anterior "entrada gratis con programas de promoción".
+- `booking_fees.exempt_government_staff` revise: done. Añadir el artículo 14 como evidencia para el plazo de ocho días. Mantener la etiqueta anterior "exentos: funcionarios y contratistas de PNN" (la nueva omite a los contratistas).
+- `booking_fees.exempt_company_staff_inside_park` revise: done. Citar el artículo 14 (lista de numerales con ocho días) como evidencia. Mantener la etiqueta anterior "exentos: personal de empresas dentro del parque".
+- `booking_fees.exempt_official_mission` revise: done. Citar el artículo 14. Mantener la etiqueta anterior "exentos: personal oficial en misión".
+- `booking_fees.exempt_researchers` revise: done. Citar el artículo 14. Mantener la etiqueta anterior "exentos: investigadores con proyecto aprobado".
+- `booking_fees.exempt_nearby_residents` revise: done. Añadir como evidencia el artículo 13 numerales 5 y 11 (texto oficial de la página 11 del PDF). Mantener la etiqueta anterior "exentos: residentes de poblados cercanos".
+- `booking_fees.exempt_property_owners` revise: done. Añadir el párrafo del artículo 14 como evidencia. Mantener la etiqueta anterior "exentos: dueños de predios dentro del parque".
+- `booking_fees.exempt_indigenous_communities` revise: done. Añadir el numeral 8 como evidencia. Mantener la etiqueta anterior "exentos: comunidades indígenas y afrocolombianas".
+- `booking_fees.exempt_disability_visitors` revise: done. Añadir el numeral 7 y el artículo 14 como evidencia. Mantener la etiqueta anterior "exención de pago por discapacidad".
+- `booking_fees.exempt_young_children_and_seniors` revise: done. Citar la ficha para las edades mínimas. Mantener la etiqueta anterior "exentos: menores de 5 y mayores de 62".
+- `booking_fees.exemption_no_insurance_waiver` revise: done. Añadir el parágrafo 2 como evidencia. Mantener la etiqueta anterior "exento de pago tampoco se libra del seguro", que es más precisa que la nueva.
+- `booking_fees.exempt_journalists` revise: done. Mantener el contenido. Recuperar la etiqueta anterior "exentos: periodistas acreditados".
+- `booking_fees.exempt_donors` revise: done. Citar el artículo 14. Mantener la etiqueta anterior "exentos: representantes de donantes".
+- `booking_fees.exempt_park_volunteers` revise: done. Citar el artículo 14. Mantener la etiqueta anterior "exentos: guardaparques voluntarios y honorarios".
+- `booking_fees.exempt_police_family` revise: done. Añadir el numeral 16 completo (con la continuación de la página 13) como evidencia. Mantener la etiqueta anterior "exentos: familiares de la fuerza pública fallecida".
+- `booking_fees.exempt_tourist_guides_and_providers` revise: done. Mantener el contenido. Recuperar la etiqueta anterior "exentos: guías de turismo y prestadores".
+- `booking_fees.exempt_culture_agents` revise: done. Citar el artículo 14. Mantener la etiqueta anterior "exentos: agentes culturales registrados".
+- `booking_fees.exemption_not_guaranteed` revise: done. Añadir el encabezado del artículo 13 y los parágrafos 1 y 2 como evidencia. Mantener la etiqueta anterior "exención no garantiza entrar al parque".
+- `booking_fees.exemption_proof_deadline` revise: done. Citar el artículo 14 completo, con la lista de numerales. Mantener la etiqueta anterior "plazo para acreditar la exención".
+- `booking_fees.brisas_reservation` revise: done. Quitar "la más reciente" y "ficha de 2026" para esta regla. Decir que la ficha no tiene fecha editorial (consultada el 21 de noviembre de 2026) y que la Resolución 207 dice lo contrario. Añadir el aviso del radicado 2026
+- `booking_fees.brisas_booking_channel` revise: done. Citar la página del parque sobre UTON como evidencia. Quitar "esta app no realiza reservas" o moverlo a una nota del producto (no es dato de fuente). Añadir el aviso del radicado de mayo de 2026. Usar la etiqueta documen
+- `booking_fees.other_sector_reservation` revise: done. Añadir el encabezado "Ingreso a los demás sectores" a la cita. Mantener la etiqueta anterior "reserva en otros sectores".
+- `booking_fees.center_otun_reservation_lead` revise: done. Añadir el encabezado del sector a la cita. Mantener la etiqueta anterior "anticipación para Cisne y Otún".
+- `booking_fees.quindio_reservation_lead` revise: done. Añadir el encabezado del sector como evidencia. Mantener la etiqueta anterior "anticipación para Quindío y Dulima".
+- `booking_fees.reservation_requirements` revise: done. Citar el encabezado "Ingreso a los demás sectores" y la regla de Brisas. Mantener la etiqueta anterior "reservar para visitar el parque".
+- `booking_fees.age_minimum_by_attraction` revise: done. Mantener el contenido. Recuperar la etiqueta anterior "edad mínima por atractivo".
+- `booking_fees.maximum_entry_age` revise: done. Cambiar "prohíbe" por "restringe" y citar el texto de la 207 (restricción de ingreso). Mantener la etiqueta anterior "edad máxima de ingreso", que es precisa. La etiqueta nueva "en disputa" no es documentada.
+- `booking_fees.guide_required` revise: done. Mantener el contenido. Recuperar la etiqueta anterior "guía obligatorio para ingresar".
+- `booking_fees.documents_to_carry` revise: done. Citar la Resolución 207 para el control. Mantener la etiqueta anterior "documentos para entrar al parque".
+- `booking_fees.registration_form_required` revise: done. Añadir la frase de la Resolución 207 como evidencia. Mantener la etiqueta anterior "formato de ingreso de visitantes".
+- `booking_fees.reservation_data_required` revise: done. Quitar "las rutas" o citarlo. Añadir las citas de la 207 y del protocolo como evidencia. Usar la etiqueta documentada "documentos personales para reservar".
+- `booking_fees.south_payment_before_review` revise: done. Añadir la sección PAGOS del protocolo como evidencia. Mantener la etiqueta anterior "pago verificado antes de evaluar reserva".
+- `booking_fees.platform_pays_services` revise: done. Añadir el aviso del radicado sobre cancelaciones y devoluciones pendientes. Usar la etiqueta documentada, sin cambiar la etiqueta actual por una nueva. La cita del radicado no está en la evidencia (EV NONE).
+- `booking_fees.platform_payment_methods` revise: done. Cambiar a "figuran en el código público del sitio; no se probó una transacción" o quitar la afirmación. Mantener la etiqueta anterior "medios de pago de la plataforma".
+- `booking_fees.vehicle_not_parking_fee` revise: done. Mantener el contenido. Recuperar la etiqueta anterior "pagar el carro no es parqueadero".
+
+## Hallazgos
+
+- `booking_fees.accident_insurance_requirement` critical: done.
+- `booking_fees.adult_resident_admission_fee` critical: done.
+- `booking_fees.age_minimum_by_attraction` critical: done.
+- `booking_fees.alta_montana_guide_glacier` critical: done.
+- `booking_fees.brisas_booking_channel` critical: done.
+- `booking_fees.brisas_guide_price` critical: done.
+- `booking_fees.brisas_reservation` critical: done.
+- `booking_fees.can_countries_fee` critical: done.
+- `booking_fees.center_otun_reservation_lead` critical: done.
+- `booking_fees.documents_to_carry` critical: done.
+- `booking_fees.entry_fee_discounts` critical: done.
+- `booking_fees.entry_payment_channels` critical: done.
+- `booking_fees.exempt_company_staff_inside_park` critical: done.
+- `booking_fees.exempt_culture_agents` critical: done.
+- `booking_fees.exempt_disability_visitors` critical: done.
+- `booking_fees.exempt_donors` critical: done.
+- `booking_fees.exempt_government_staff` critical: done.
+- `booking_fees.exempt_indigenous_communities` critical: done.
+- `booking_fees.exempt_journalists` critical: done.
+- `booking_fees.exempt_nearby_residents` critical: done.
+- `booking_fees.exempt_official_mission` critical: done.
+- `booking_fees.exempt_park_volunteers` critical: done.
+- `booking_fees.exempt_police_family` critical: done.
+- `booking_fees.exempt_promotion_programs` critical: done.
+- `booking_fees.exempt_property_owners` critical: done.
+- `booking_fees.exempt_researchers` critical: done.
+- `booking_fees.exempt_tourist_guides_and_providers` critical: done.
+- `booking_fees.exempt_young_children_and_seniors` critical: done.
+- `booking_fees.exemption_not_guaranteed` critical: done.
+- `booking_fees.exemption_proof_deadline` critical: done.
+- `booking_fees.foreign_nonresident_admission_fee` critical: done.
+- `booking_fees.foreign_resident_definition` critical: done.
+- `booking_fees.guide_price_cisne_otun` critical: done.
+- `booking_fees.guide_required` critical: done.
+- `booking_fees.induction_requirement` critical: done.
+- `booking_fees.insurance_payment_channel` critical: done.
+- `booking_fees.insurance_price_not_published` critical: done.
+- `booking_fees.minor_guardian_requirement` critical: done.
+- `booking_fees.other_sector_reservation` critical: done.
+- `booking_fees.permanence_four_days` critical: done.
+- `booking_fees.platform_payment_methods` critical: done.
+- `booking_fees.quindio_reservation_lead` critical: done.
+- `booking_fees.registered_operator_choice` critical: done.
+- `booking_fees.registration_form_required` critical: done.
+- `booking_fees.reservation_by_operator` critical: done.
+- `booking_fees.reservation_data_required` critical: done.
+- `booking_fees.reservation_requirements` critical: done.
+- `booking_fees.reservation_validation_window` critical: done.
+- `booking_fees.sector_entry_fee_difference` critical: done.
+- `booking_fees.student_admission_category` critical: done.
+- `booking_fees.tariff_annual_update` critical: done.
+- `booking_fees.under25_admission_fee` critical: done.
+- `booking_fees.vehicle_entry_fee` critical: done.
+- `booking_fees.vehicle_not_parking_fee` critical: done.
+- `health_safety.pre_hike_health_disclosure_and_induction` critical: declined: no es de booking_fees.
+- `booking_fees.maximum_entry_age,health_safety.older_adults_altitude_health,booking_fees.exempt_young_children_and_seniors` contradictions: done.
+- `booking_fees.sector_entry_fee_difference,booking_fees.under25_admission_fee,booking_fees.adult_resident_admission_fee,booking_fees.foreign_nonresident_admission_fee` contradictions: done.
+- `booking_fees.vehicle_entry_fee` contradictions: done.
+- `booking_fees.brisas_guide_price` contradictions: done.
+- `booking_fees.reservation_data_required` labels: done.
+- `booking_fees.brisas_reservation` labels: done.
+- `booking_fees.brisas_booking_channel` labels: done.
+- `health_safety.pre_hike_health_disclosure_and_induction` labels: declined: la etiqueta vive en otra sección; aquí no se edita.
+- `booking_fees.adult_resident_admission_fee` labels: done.
+- `booking_fees.platform_pays_services` labels: done.
+- `booking_fees.induction_requirement,health_safety.pre_hike_health_disclosure_and_induction` taxonomy: done.
+- `booking_fees.reservation_data_required,booking_fees.south_payment_before_review` taxonomy: done.
+- `booking_fees.documents_to_carry,booking_fees.registration_form_required` arbiter: done.
+- `access.uton_brisas_transport,services.uton_services,booking_fees.brisas_booking_channel` access.cross.json: done. Se mantienen intents separados; el contraste queda en hard_negatives, no en ejemplos «X, no Y».
+- `actions.register_planned_visit,booking_fees.reservation_requirements,hours_status.pico_y_placa_hours_murillo` actions.cross.json: done. Se mantienen intents separados; el contraste queda en hard_negatives, no en ejemplos «X, no Y».
+- `booking_fees.induction_requirement,health_safety.pre_hike_health_disclosure_and_induction,hours_status.brisas_induction_talk_schedule` booking_fees.cross.json: done. Se mantienen intents separados; el contraste queda en hard_negatives, no en ejemplos «X, no Y».
+- `booking_fees.brisas_reservation,hours_status.booking_time_limits_before_visit,actions.register_planned_visit` booking_fees.cross.json: done. Se mantienen intents separados; el contraste queda en hard_negatives, no en ejemplos «X, no Y».
+- `booking_fees.vehicle_entry_fee,access.no_motorcycles,access.own_car_brisas` booking_fees.cross.json: done. Se mantienen intents separados; el contraste queda en hard_negatives, no en ejemplos «X, no Y».
+- `booking_fees.alta_montana_guide_glacier,activities.santa_isabel_summit,activities.snow_and_glacier_access` booking_fees.cross.json: done. Se mantienen intents separados; el contraste queda en hard_negatives, no en ejemplos «X, no Y».
+- `booking_fees.documents_to_carry,rules.show_entry_permit_on_request` booking_fees.cross.json: done. Se mantienen intents separados; el contraste queda en hard_negatives, no en ejemplos «X, no Y».
+- `booking_fees.exempt_disability_visitors,services.accessibility` booking_fees.cross.json: done. Se mantienen intents separados; el contraste queda en hard_negatives, no en ejemplos «X, no Y».
+- `booking_fees.quindio_reservation_lead,geography.sector_quindio_dulima` booking_fees.cross.json: done. Se mantienen intents separados; el contraste queda en hard_negatives, no en ejemplos «X, no Y».
+- `booking_fees.brisas_booking_channel,services.uton_services,booking_fees.brisas_reservation,services.brisas_lodging` booking_fees.cross.json: done. Se mantienen intents separados; el contraste queda en hard_negatives, no en ejemplos «X, no Y».
+- `conversation.greeting_hello,booking_fees.adult_resident_admission_fee,access.letras_not_the_gate` conversation.cross.json: done. Se mantienen intents separados; el contraste queda en hard_negatives, no en ejemplos «X, no Y».
+- `health_safety.pre_hike_health_disclosure_and_induction,booking_fees.induction_requirement` health_safety.cross.json: done. Se mantienen intents separados; el contraste queda en hard_negatives, no en ejemplos «X, no Y».
+- `health_safety.older_adults_altitude_health,booking_fees.maximum_entry_age` health_safety.cross.json: done. Se mantienen intents separados; el contraste queda en hard_negatives, no en ejemplos «X, no Y».
+- `health_safety.evacuation_and_rescue_reality,booking_fees.accident_insurance_requirement` health_safety.cross.json: done. Se mantienen intents separados; el contraste queda en hard_negatives, no en ejemplos «X, no Y».
+- `booking_fees.exempt_property_owners,history_culture.prior_rights_1973` history_culture.cross.json: done. Se mantienen intents separados; el contraste queda en hard_negatives, no en ejemplos «X, no Y».
+- `hours_status.brisas_induction_talk_schedule,booking_fees.induction_requirement` hours_status.cross.json: done. Se mantienen intents separados; el contraste queda en hard_negatives, no en ejemplos «X, no Y».
+- `preparation.children_gear,activities.children_visit_style,booking_fees.age_minimum` preparation.cross.json: done. Se mantienen intents separados; el contraste queda en hard_negatives, no en ejemplos «X, no Y».
+- `rules.show_entry_permit_on_request,booking_fees.documents_to_carry` rules.cross.json: done. Se mantienen intents separados; el contraste queda en hard_negatives, no en ejemplos «X, no Y».
+- `services.uton_services,access.uton_brisas_transport,booking_fees.brisas_booking_channel` services.cross.json: done. Se mantienen intents separados; el contraste queda en hard_negatives, no en ejemplos «X, no Y».
+
+## Decisiones
+
+- Quindío-Dulima en $0: se cita la fila de la ficha (`0 0 0`) y se limita $12.500, $24.500 y $68.000 a Brisas, Cisne-Poleka Kasue y Laguna del Otún. La Resolución 551 no separa sectores.
+- Edad máxima: se mantienen 69 (ficha, sin fecha editorial) y 70 (Resolución 207). El detalle dice «restringe», con la cita de embarazadas y problemas cardiovasculares o pulmonares.
+- «25 años»: la ficha y la resolución dicen menor de 25 y mayor de 25. El detalle conserva que los 25 cumplidos no tienen columna propia.
+- $22.000: está en la tabla titulada tarifas 2026. La fila no dice persona o grupo, así que no se presenta como valor a pagar.
+- Precio del seguro: ni la ficha ni la Resolución 551 lo publican. No se escribe un monto.
+- «Las rutas» se conservan: la Resolución 207 pide indicar las rutas a realizar. Se cita.
+- 50 ejemplos de `_examples.json` `drop` se quitaron. El contraste queda en los hard_negatives que ya copian ejemplos de la entrada vecina.
+- `south_modify_members`: se quitó «PNN prepara nuevas condiciones». El protocolo dice que está sujeto a cambios.
+- `induction_requirement`: se quitó que la charla de Brisas ocurre en el centro de inducción. La ficha nombra ese centro como inicio del trayecto; la Resolución 207 pone la charla presencial en los puntos de ingreso. La hora de la 1:30 queda en hours_status.
+- `route_check`: `n_removed_not_routing` = 0. Los 50 ejemplos retirados no estaban en el corpus (solo en la propuesta v1), así que el comparador no los cuenta como retirados del corpus.
+- Avisos de `--refetch` (no son `fail`): el PDF de la Resolución 551, reextraído, no conserva los saltos de línea del anexo ni el corte de página de la familia de la Fuerza Pública; las citas sí están en el extracto fijado del manifiesto. `reservasnevados.com` es una aplicación que se pinta en el cliente: la meta «Sistema oficial…» está en el HTML fijado, no en el HTML fresco. En la ficha, «Ingreso a los demás sectores» cambia de espacios al reextraer; el texto fijado sí lo contiene.
+- `can_countries_fee`: ya no dice que el ciudadano de la CAN paga igual que un nacional. Dice que la ficha lo ubica en las columnas de residente.
+- Cruce con health_safety sobre la Resolución 092: no se copia un precio del seguro. Esta sección no tiene ese monto en una cita.

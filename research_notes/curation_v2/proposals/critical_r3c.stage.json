@@ -1,0 +1,334 @@
+{
+  "version": 1,
+  "root": "/home/cruz1122/dev/hacka-airplane",
+  "proposal": {
+    "operations": [
+      {
+        "op": "update",
+        "reason": "The resolution says notify authorities; it does not promise a rescue response. Round 3b (orchestrator, per critical second review): explicit 123 if there is signal (findings/critical.json fix).",
+        "entry": {
+          "id": "health_safety.lost_person_protocol",
+          "label": "qué hacer si alguien se extravía",
+          "kind": "procedure",
+          "audience": "visitor",
+          "lang": "es",
+          "examples": [
+            "me separé del grupo y no encuentro el sendero",
+            "qué hago si me pierdo en la montaña",
+            "cómo evitar perderme en la niebla",
+            "me desorienté y no veo a nadie",
+            "what should I do if I get lost on a hike?",
+            "no encuentro el camino de regreso",
+            "debo seguir caminando si me pierdo",
+            "cómo actuar si alguien se rezaga en la ruta",
+            "me alejé del sendero permitido",
+            "estamos desorientados y baja la neblina",
+            "si alguien se nos pierde, qué hacemos en el momento?",
+            "cómo mantenerme con el grupo en el sendero",
+            "me perdi del grupo, la aplicacion puede pedir que me busquen"
+          ],
+          "hard_negatives": [
+            "cómo evitar que alguien se quede atrás o se pierda en el grupo",
+            "por qué no debo adelantarme ni separarme del guía en el sendero",
+            "qué significa mantener contacto visual y auditivo con el grupo"
+          ],
+          "answer": {
+            "short": "La Resolución 207 del 04 de agosto de 2023 pide caminar unidos, sin salirse de los senderos ni dejar a nadie rezagado. Si alguien se extravía, no te disperses: avisa al guía y llama al 123 si tienes señal. El texto manda dar aviso a las autoridades, no que el rescate vaya a salir. Esta app no te localiza ni hace esa llamada.",
+            "variants": [
+              "No te salgas del sendero ni dejes atrás a nadie: así lo pide la Resolución 207 del 04 de agosto de 2023. Si se pierden, no te disperses, avisa al guía y llama al 123 si hay señal. La app no te rastrea ni confirma que salga un rescate."
+            ],
+            "reflection": null
+          },
+          "sources": [
+            {
+              "label": "Resolución 207 del 04 de agosto de 2023, PNN Los Nevados",
+              "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2023/08/Resolucion_207_2023_ReglamentacionNevados.pdf",
+              "retrieved_at": "2026-11-21"
+            },
+            {
+              "label": "Policía Nacional, líneas de emergencia 123 y 155",
+              "url": "https://www.policia.gov.co/noticia/policia-nacional-sensibiliza-comunidad-sobre-uso-las-lineas-emergencia-123-155",
+              "retrieved_at": "2026-11-22"
+            }
+          ],
+          "last_verified": "2026-11-22",
+          "related": [
+            "health_safety.tell_guide_about_health_change",
+            "health_safety.national_emergency_number_123"
+          ],
+          "tags": [
+            "extraviado",
+            "sendero",
+            "grupo"
+          ]
+        },
+        "evidence": [
+          {
+            "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2023/08/Resolucion_207_2023_ReglamentacionNevados.pdf",
+            "path": "research_notes/Conocimiento turístico de Los Nevados/health_safety/evidence/raw/resolucion-207-2023.txt",
+            "quote": "es sumamente importante permanecer unidos y atentos de que nadie",
+            "checked_on": "2026-11-22"
+          },
+          {
+            "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2023/08/Resolucion_207_2023_ReglamentacionNevados.pdf",
+            "path": "research_notes/Conocimiento turístico de Los Nevados/health_safety/evidence/raw/resolucion-207-2023.txt",
+            "quote": "Realizar el recorrido caminando, sin salirse de los senderos establecidos para realizar la actividad en el atractivo",
+            "checked_on": "2026-11-22"
+          },
+          {
+            "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2023/08/Resolucion_207_2023_ReglamentacionNevados.pdf",
+            "path": "research_notes/Conocimiento turístico de Los Nevados/health_safety/evidence/raw/resolucion-207-2023.txt",
+            "quote": "dar aviso inmediato a las autoridades competentes.",
+            "checked_on": "2026-11-22"
+          },
+          {
+            "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2023/08/Resolucion_207_2023_ReglamentacionNevados.pdf",
+            "path": "research_notes/Conocimiento turístico de Los Nevados/health_safety/evidence/raw/resolucion-207-2023.txt",
+            "quote": "Dada en Bogota D.C., a los 04 del mes de agosto de 2023",
+            "checked_on": "2026-11-22"
+          },
+          {
+            "url": "https://www.policia.gov.co/noticia/policia-nacional-sensibiliza-comunidad-sobre-uso-las-lineas-emergencia-123-155",
+            "path": "research_notes/curation_v2/evidence/actions/policia-123-2023.txt",
+            "quote": "La Línea de emergencia 123, es la línea única de emergencias Nacional",
+            "checked_on": "2026-11-22"
+          }
+        ]
+      },
+      {
+        "op": "update",
+        "reason": "Do not gate chest compressions behind already knowing CPR. Round 3b (orchestrator, per critical second review): action first, explicit 123 if there is signal. r3b-2: check response and breathing first (MedlinePlus order), per critical_r3b review.",
+        "entry": {
+          "id": "health_safety.unresponsive_cpr",
+          "label": "no responde y no respira normal",
+          "kind": "procedure",
+          "audience": "visitor",
+          "lang": "es",
+          "examples": [
+            "la persona no responde qué hago",
+            "cómo hacer reanimación en la montaña",
+            "mi compañero se desmayó y no despierta",
+            "debo dar RCP si no respira",
+            "how to do CPR if someone collapses?",
+            "no respira normalmente qué hago",
+            "empezar compresiones en el pecho",
+            "persona inconsciente que no respira",
+            "cómo pedir ayuda mientras hago RCP",
+            "se desplomó y no responde al llamarlo",
+            "reanimación mientras llega el rescate",
+            "qué hago primero si alguien deja de respirar",
+            "no responde y no respira normal, empiezo las compresiones"
+          ],
+          "hard_negatives": [
+            "alguien se desmayó en el sendero",
+            "qué hago si una persona se desmaya",
+            "me sentí mareado y perdí el conocimiento"
+          ],
+          "answer": {
+            "short": "Toca su hombro, pregúntale en voz alta si está bien y mira si respira con normalidad. Si no responde y no respira normalmente, pide a alguien que avise al guía y llame al 123 si tiene señal, y empuja en el centro del pecho hacia abajo, fuerte y rápido. Esta app no hace esa llamada ni te localiza.",
+            "variants": [
+              "Mira si responde y si respira normal. Si no, que alguien avise al guía y llame al 123 si hay señal, y empuja en el centro del pecho, fuerte y rápido. La app no llama ni te ubica."
+            ],
+            "reflection": null
+          },
+          "sources": [
+            {
+              "label": "MedlinePlus, CPR",
+              "url": "https://medlineplus.gov/cpr.html",
+              "retrieved_at": "2026-11-21"
+            },
+            {
+              "label": "Policía Nacional, líneas de emergencia 123 y 155",
+              "url": "https://www.policia.gov.co/noticia/policia-nacional-sensibiliza-comunidad-sobre-uso-las-lineas-emergencia-123-155",
+              "retrieved_at": "2026-11-22"
+            }
+          ],
+          "last_verified": "2026-11-22",
+          "related": [
+            "health_safety.fainting_response",
+            "health_safety.national_emergency_number_123"
+          ],
+          "tags": [
+            "RCP",
+            "inconsciente",
+            "urgencia"
+          ]
+        },
+        "evidence": [
+          {
+            "url": "https://medlineplus.gov/cpr.html",
+            "path": "research_notes/Conocimiento turístico de Los Nevados/health_safety/evidence/raw/medlineplus_cpr.html",
+            "quote": "Tap their shoulder and shout, \"Are you okay?\" Look to see if they are breathing normally. Gasping or gurgling is not normal breathing. If they do not respond and are not breathing normally, start the steps below right away.</p>",
+            "checked_on": "2026-11-22"
+          },
+          {
+            "url": "https://medlineplus.gov/cpr.html",
+            "path": "research_notes/Conocimiento turístico de Los Nevados/health_safety/evidence/raw/medlineplus_cpr.html",
+            "quote": "Place the heel of one hand on the center of the chest and place your other hand on top.</li>",
+            "checked_on": "2026-11-22"
+          },
+          {
+            "url": "https://medlineplus.gov/cpr.html",
+            "path": "research_notes/Conocimiento turístico de Los Nevados/health_safety/evidence/raw/medlineplus_cpr.html",
+            "quote": "Push straight down, hard and fast to about 2 inches deep.</li>",
+            "checked_on": "2026-11-22"
+          },
+          {
+            "url": "https://www.policia.gov.co/noticia/policia-nacional-sensibiliza-comunidad-sobre-uso-las-lineas-emergencia-123-155",
+            "path": "research_notes/curation_v2/evidence/actions/policia-123-2023.txt",
+            "quote": "La Línea de emergencia 123, es la línea única de emergencias Nacional",
+            "checked_on": "2026-11-22"
+          }
+        ]
+      },
+      {
+        "op": "update",
+        "reason": "Restore three real examples, drop two flagged ones, remove the unsourced summit sentence, and cite Resolución 068 plus the 27 June 2023 bulletin. Round 3b (orchestrator, per re-review required_change): removed the example that weather_volcano.alert_orange_meaning answers better. Resolves the high yellow-alert contradiction (no 'siguen abiertos'). r3b-2: removed the statement about the SGC bulletin index (the live index does show a dated level; a dynamic page is not cited for state).",
+        "entry": {
+          "id": "hours_status.volcanic_alert_closures",
+          "label": "suspensión de ingreso según el color de alerta",
+          "kind": "safety",
+          "audience": "visitor",
+          "lang": "es",
+          "examples": [
+            "cierres por volcán",
+            "cierre por alerta del nevado del ruiz",
+            "si el volcán está activo cierran el parque",
+            "si el volcán anda raro, cierran el parque?",
+            "si suben el ruiz a naranja, el parque cierra la entrada?",
+            "cuándo cierran el parque por erupción",
+            "por qué cerraron por el volcán nevado del ruiz",
+            "cómo saber si el parque cerró por el volcán",
+            "will they close the park if the volcano wakes up",
+            "si pasan el ruiz a naranja cierran el ingreso de turistas",
+            "cierre por actividad volcánica",
+            "cierran brisas si el volcán emite gases",
+            "is the park closed due to volcanic activity"
+          ],
+          "hard_negatives": [
+            "por qué no dejan llegar a la nieve del Ruiz",
+            "el camino Brisas Arenales está restringido",
+            "puedo hacer ciclomontañismo por Brisas",
+            "cierre del parque por el volcán"
+          ],
+          "entities": {
+            "closure_type": [
+              "volcanica"
+            ]
+          },
+          "needs": [],
+          "answer": {
+            "short": "No puedo decir si la alerta de hoy cierra el ingreso: la Resolución 207 de 2023 cita la Resolución 068 del 31 de marzo de 2023, que ordenó el cierre total hasta un informe de la Oficina Asesora de Gestión del Riesgo con base en el Servicio Geológico Colombiano, y el boletín extraordinario del 27 de junio de 2023 devolvió el Ruiz a nivel amarillo. Ese dato de 2023 no autoriza el ingreso de tu visita ni dice el color de hoy. Confirma el boletín vigente del SGC y el aviso de Parques Nacionales (www.parquesnacionales.gov.co).",
+            "variants": [
+              "La Resolución 068 del 31 de marzo de 2023, citada en la Resolución 207, ordenó el cierre total hasta un informe de riesgo basado en el SGC, y el boletín del 27 de junio de 2023 bajó el Ruiz a amarillo. Eso es de 2023 y no autoriza tu ingreso ni dice el nivel de hoy. Confirma el boletín vigente del SGC y el aviso de Parques Nacionales (www.parquesnacionales.gov.co)."
+            ],
+            "steps": [
+              [
+                "No puedo decir si la alerta de hoy cierra el ingreso: la Resolución 207 de 2023 cita la Resolución 068 del 31 de marzo de 2023, que ordenó el cierre total hasta un informe de la Oficina Asesora de Gestión del Riesgo con base en el Servicio Geológico Colombiano, y el boletín extraordinario del 27 de junio de 2023 devolvió el Ruiz a nivel amarillo. Ese dato de 2023 no autoriza el ingreso de tu visita ni dice el color de hoy. Confirma el boletín vigente del SGC y el aviso de Parques Nacionales (www.parquesnacionales.gov.co)."
+              ]
+            ],
+            "detail": null,
+            "reflection": null
+          },
+          "sources": [
+            {
+              "label": "Parques Nacionales · Resolución 207 de 2023",
+              "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2023/08/Resolucion_207_2023_ReglamentacionNevados_.pdf",
+              "retrieved_at": "2026-11-21"
+            }
+          ],
+          "last_verified": "2026-11-22",
+          "valid_until": null,
+          "related": [
+            "hours_status.park_open_today",
+            "hours_status.reopening_protocol_after_emergencies",
+            "weather_volcano.volcanic_closures"
+          ],
+          "tags": [
+            "alerta",
+            "volcán",
+            "ruiz",
+            "cierre",
+            "seguridad"
+          ]
+        },
+        "evidence": [
+          {
+            "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2023/08/Resolucion_207_2023_ReglamentacionNevados_.pdf",
+            "path": "research_notes/Conocimiento turístico de Los Nevados/hours_status/evidence/raw/resolucion_207_2023.txt",
+            "quote": "NIVEL NARANJA o (II): ERUPCION PROBABLE EN TERMING DE DIAS O\nSEMANAS (...).\nQue la Oficina",
+            "checked_on": "2026-11-22"
+          },
+          {
+            "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2023/08/Resolucion_207_2023_ReglamentacionNevados_.pdf",
+            "path": "research_notes/Conocimiento turístico de Los Nevados/hours_status/evidence/raw/resolucion_207_2023.txt",
+            "quote": "Boletm Extraordinario del 27",
+            "checked_on": "2026-11-22"
+          },
+          {
+            "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2023/08/Resolucion_207_2023_ReglamentacionNevados_.pdf",
+            "path": "research_notes/Conocimiento turístico de Los Nevados/hours_status/evidence/raw/resolucion_207_2023.txt",
+            "quote": "de junio de 2023, declara que \"Desoues de 89 dfas en nivel de actividad Narania,\nel volcan",
+            "checked_on": "2026-11-22"
+          },
+          {
+            "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2023/08/Resolucion_207_2023_ReglamentacionNevados_.pdf",
+            "path": "research_notes/Conocimiento turístico de Los Nevados/hours_status/evidence/raw/resolucion_207_2023.txt",
+            "quote": "permite $ambiar su nivel a Amarillo",
+            "checked_on": "2026-11-22"
+          },
+          {
+            "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2023/08/Resolucion_207_2023_ReglamentacionNevados_.pdf",
+            "path": "research_notes/Conocimiento turístico de Los Nevados/hours_status/evidence/raw/resolucion_207_2023.txt",
+            "quote": "www.parquesnacionales.gov.co",
+            "checked_on": "2026-11-22"
+          },
+          {
+            "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2023/08/Resolucion_207_2023_ReglamentacionNevados_.pdf",
+            "path": "research_notes/Conocimiento turístico de Los Nevados/hours_status/evidence/raw/resolucion_207_2023.txt",
+            "quote": "Que Parques Nacionales Naturales de Colombia expidio la Resolucion 068 del 31\nde marzo de 2023, \"Por medio de la $ual se ordena el CIERRE TOTAL y en\nconsecuencia se prohibe el ingreso de visitantes y la prestacion de servicios\necotunsticos en el Parque Nacional Natural Los Nevados\"; la cual resuelve en los\narticulos 1° y 3° que el cierre del Parque Nacional Natural Los Nevados se\nmantendra \"hasta que la Oficina Asesora de Gestion del Riesgo emita el\ncorrespondiente informe tecnico, con bas$ en la informacion que emita el Servicio\nGeologico Colombiano y demas autoridades competentes\" y, por el otro, que las\nactividades misionales, tecnicas, operativas y administrativas se pueden reanudar\ncuando \"cesen los factores de riesgo ile desastre natural que motivan esta\ndecision \",",
+            "checked_on": "2026-11-22"
+          },
+          {
+            "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2023/08/Resolucion_207_2023_ReglamentacionNevados_.pdf",
+            "path": "research_notes/Conocimiento turístico de Los Nevados/hours_status/evidence/raw/resolucion_207_2023.txt",
+            "quote": "Que el Servicio Geologico Colombiano, a traves del Boletm Extraordinario del 27\nde junio de 2023, declara que \"Desoues de 89 dfas en nivel de actividad Narania,\nel volcan ha retornado a un rUve! de menor inestabilidad v la orobabilidad de\nocurrencia de una eruodon de maanitud considerable en terminos de dfas o\nsemanas ha disminuido. lo cual permite $ambiar su nivel a Amarillo.",
+            "checked_on": "2026-11-22"
+          }
+        ]
+      }
+    ]
+  },
+  "base": {
+    "data/knowledge/sections/health_safety.json": "d2b17101f413fa31043e3ee063aa8aaeec5e978e3707b49190e726f6e53538dc",
+    "data/knowledge/sections/rules.json": "1d7b49ca4b44292f457800250f0faa4668a27a3d28735d6bd6e8dba21c6df87b",
+    "data/knowledge/sections/actions.json": "954246420bceb8fe84c07081cdb387f4a134d78b38804f139b5ed19537f2b0f1",
+    "data/knowledge/sections/booking_fees.json": "2fbcc7b5e7cd4589898f13e5bc204ddc5f9574acb4f90151aa027e19ebccd7dc",
+    "data/knowledge/sections/conversation.json": "a8a32868eb0be2b2d1d9a1ef59670688878c1dd1a2b102de9934280ac3919763",
+    "data/knowledge/sections/activities.json": "feaf7441fc0657cc77b366d5ded2d5182d740a84bf63238acc9dbed2d9af3fac",
+    "data/knowledge/sections/geography.json": "3f3ec5f4cf66f763795fdd9f1d791fa3e1cc547707f6d4d32c09610eb53febc4",
+    "data/knowledge/sections/history_culture.json": "cc1a5e638f1fce695b21ab054cc27470f0f94630bca736b02b01e838bb41b697",
+    "data/knowledge/sections/access.json": "53e6c70dedf0a6147080a3c95f183740d0b1d86a69694699fb6a4913ceafd087",
+    "data/knowledge/sections/hours_status.json": "22ebd49371851f935c1b984c90e7332fd71b17763786dbdaaf585c3461eccbb0",
+    "data/knowledge/sections/preparation.json": "c63add03cea48ecbf82f98227fdd7d7039f29ffa6a9eb0032d004493bdc5d790",
+    "data/knowledge/sections/fauna.json": "0bc23a8f3a9874641b8fc7c2ad60dc256c5382fc94e6a4fc6d174e1283aa3211",
+    "data/knowledge/sections/flora_ecosystems.json": "735a94a89c70a8afc9b8e264573e5e6921d14ee22344139d3612eb049b010fa7",
+    "data/knowledge/sections/weather_volcano.json": "32c7b2658d3d1be895ed81a2b4f8c34f9b0b8fc454b3099aa15ab24a2fd61583",
+    "data/knowledge/sections/services.json": "34f4cf127d08fb8b89530836e12d827180e7f9f2043a320bddfb33b149a0dd82",
+    "docs/schemas/knowledge-section.schema.json": "a7b049cddf6e867cbc68c41eff6d16c9e36e4bea73897d944033340cce8161fb",
+    "research_notes/Conocimiento turístico de Los Nevados/coordination/knowledge_additions.json": null,
+    "research_notes/curation_v2/evidence/actions/policia-123-2023.txt": "95b93a5e22481376f1e334544b4a88c06877d6c70ad8b66eae48f7c29b73ff07",
+    "research_notes/Conocimiento turístico de Los Nevados/health_safety/evidence/raw/medlineplus_cpr.html": "4227fffb28bceba31df5b89c5411aa6ce2ff9c9f06ce7fc5ffdb21b728d55b31",
+    "research_notes/Conocimiento turístico de Los Nevados/hours_status/evidence/raw/resolucion_207_2023.txt": "75d1570cba300a96fcd3cd1fae9e3757b347300dd616bbef5438cd01d06cccde",
+    "research_notes/Conocimiento turístico de Los Nevados/health_safety/evidence/raw/resolucion-207-2023.txt": "75d1570cba300a96fcd3cd1fae9e3757b347300dd616bbef5438cd01d06cccde",
+    "research_notes/Conocimiento turístico de Los Nevados/health_safety.research.md": "74149db1b5baf4cac33c309b30c128547a1b672aedb30f1f28e8f901932f225a",
+    "research_notes/Conocimiento turístico de Los Nevados/hours_status.research.md": "5dbd55975df017a3268ff3d703c986c01295271610b0110a4f38bdad7cc1fd21"
+  },
+  "writes": {
+    "data/knowledge/sections/health_safety.json": "398efaf02c75a1f64e9e183426cbc180d4d400a64e55c6071b1a46735544f6d5",
+    "data/knowledge/sections/hours_status.json": "348ec88474b9f07f7e8c429d4993984af94033ae436785e8e6d0ccb2d511c0e2",
+    "research_notes/Conocimiento turístico de Los Nevados/coordination/knowledge_additions.json": "f89d0c4784d541bd97a7d7d69e068dd1b9738f1a85dd52e5f43d7feb5d0b521e",
+    "research_notes/Conocimiento turístico de Los Nevados/health_safety.research.md": "c8d32723c8329bcaf76f2649991ef7e629541b034f1ebe25d2dd331d5fa5a8ea",
+    "research_notes/Conocimiento turístico de Los Nevados/hours_status.research.md": "225f96bf493e5c60f583767ce35169a889132d2260c2d0a2cc8e21216d4fc7a5"
+  }
+}

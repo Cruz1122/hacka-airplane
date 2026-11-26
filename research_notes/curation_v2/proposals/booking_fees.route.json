@@ -1,0 +1,2710 @@
+{
+ "proposal": "research_notes/curation_v2/proposals/booking_fees.json",
+ "ops": {
+  "add": 0,
+  "update": 44,
+  "delete": 0
+ },
+ "touched_examples": 628,
+ "touched_loo_top1": 0.4634,
+ "touched_confusions": [
+  {
+   "id": "booking_fees.under25_admission_fee",
+   "example": "tarifa para estudiante menor de 25",
+   "rank": 2,
+   "top1": "booking_fees.adult_resident_admission_fee",
+   "top1_cos": 0.9367,
+   "own_cos": 0.9274
+  },
+  {
+   "id": "booking_fees.under25_admission_fee",
+   "example": "entrada para extranjero residente joven",
+   "rank": 4,
+   "top1": "booking_fees.adult_resident_admission_fee",
+   "top1_cos": 0.9206,
+   "own_cos": 0.8939
+  },
+  {
+   "id": "booking_fees.under25_admission_fee",
+   "example": "soy de la CAN y tengo 20, cuánto pago",
+   "rank": 3,
+   "top1": "booking_fees.adult_resident_admission_fee",
+   "top1_cos": 0.9098,
+   "own_cos": 0.9
+  },
+  {
+   "id": "booking_fees.under25_admission_fee",
+   "example": "cuánto cuesta para un menor de 25 en Brisas",
+   "rank": 6,
+   "top1": "booking_fees.adult_resident_admission_fee",
+   "top1_cos": 0.967,
+   "own_cos": 0.8958
+  },
+  {
+   "id": "booking_fees.under25_admission_fee",
+   "example": "valor juvenil para Cisne",
+   "rank": 37,
+   "top1": "booking_fees.adult_resident_admission_fee",
+   "top1_cos": 0.9452,
+   "own_cos": 0.8567
+  },
+  {
+   "id": "booking_fees.under25_admission_fee",
+   "example": "tarifa joven residente en Colombia",
+   "rank": 3,
+   "top1": "booking_fees.foreign_nonresident_admission_fee",
+   "top1_cos": 0.924,
+   "own_cos": 0.9167
+  },
+  {
+   "id": "booking_fees.under25_admission_fee",
+   "example": "tengo 22 y soy colombiano, cuanto es la entrada, no la de extranjero",
+   "rank": 3,
+   "top1": "booking_fees.foreign_resident_definition",
+   "top1_cos": 0.9263,
+   "own_cos": 0.9191
+  },
+  {
+   "id": "booking_fees.under25_admission_fee",
+   "example": "menor de 25 residente en colombia, tarifa 2026",
+   "rank": 8,
+   "top1": "booking_fees.adult_resident_admission_fee",
+   "top1_cos": 0.9293,
+   "own_cos": 0.9016
+  },
+  {
+   "id": "booking_fees.adult_resident_admission_fee",
+   "example": "cuesta lo mismo para un residente extranjero?",
+   "rank": 6,
+   "top1": "booking_fees.foreign_resident_definition",
+   "top1_cos": 0.9276,
+   "own_cos": 0.8718
+  },
+  {
+   "id": "booking_fees.adult_resident_admission_fee",
+   "example": "valor entrada adulto para Cisne",
+   "rank": 7,
+   "top1": "booking_fees.under25_admission_fee",
+   "top1_cos": 0.9452,
+   "own_cos": 0.8815
+  },
+  {
+   "id": "booking_fees.adult_resident_admission_fee",
+   "example": "precio adulto en Laguna del Otún",
+   "rank": 24,
+   "top1": "activities.camping_otun",
+   "top1_cos": 0.9246,
+   "own_cos": 0.8803
+  },
+  {
+   "id": "booking_fees.adult_resident_admission_fee",
+   "example": "cuánto vale para un mayor de 25 en Brisas",
+   "rank": 4,
+   "top1": "booking_fees.under25_admission_fee",
+   "top1_cos": 0.967,
+   "own_cos": 0.9012
+  },
+  {
+   "id": "booking_fees.adult_resident_admission_fee",
+   "example": "entrada de adulto, sin ser extranjero",
+   "rank": 4,
+   "top1": "booking_fees.foreign_nonresident_admission_fee",
+   "top1_cos": 0.922,
+   "own_cos": 0.9128
+  },
+  {
+   "id": "booking_fees.adult_resident_admission_fee",
+   "example": "mayor de 25 residente, no es la tarifa del menor",
+   "rank": 2,
+   "top1": "booking_fees.under25_admission_fee",
+   "top1_cos": 0.9293,
+   "own_cos": 0.9275
+  },
+  {
+   "id": "booking_fees.foreign_nonresident_admission_fee",
+   "example": "soy de Estados Unidos cuánto pago",
+   "rank": 5,
+   "top1": "booking_fees.adult_resident_admission_fee",
+   "top1_cos": 0.9182,
+   "own_cos": 0.884
+  },
+  {
+   "id": "booking_fees.foreign_nonresident_admission_fee",
+   "example": "valor para extranjero en Brisas",
+   "rank": 12,
+   "top1": "booking_fees.adult_resident_admission_fee",
+   "top1_cos": 0.9092,
+   "own_cos": 0.8903
+  },
+  {
+   "id": "booking_fees.foreign_nonresident_admission_fee",
+   "example": "entrada para extranjero en Santa Isabel",
+   "rank": 25,
+   "top1": "booking_fees.other_sector_reservation",
+   "top1_cos": 0.9243,
+   "own_cos": 0.8819
+  },
+  {
+   "id": "booking_fees.foreign_nonresident_admission_fee",
+   "example": "How much is admission for a nonresident foreigner?",
+   "rank": 2,
+   "top1": "booking_fees.under25_admission_fee",
+   "top1_cos": 0.875,
+   "own_cos": 0.8715
+  },
+  {
+   "id": "booking_fees.foreign_nonresident_admission_fee",
+   "example": "What does a foreign tourist pay at Los Nevados?",
+   "rank": 68,
+   "top1": "booking_fees.sector_entry_fee_difference",
+   "top1_cos": 0.8869,
+   "own_cos": 0.8279
+  },
+  {
+   "id": "booking_fees.foreign_nonresident_admission_fee",
+   "example": "soy extranjero y no vivo en Colombia, tarifa?",
+   "rank": 6,
+   "top1": "booking_fees.foreign_resident_definition",
+   "top1_cos": 0.9396,
+   "own_cos": 0.8934
+  },
+  {
+   "id": "booking_fees.foreign_nonresident_admission_fee",
+   "example": "cuánto le cobran a un gringo en el parque",
+   "rank": 13,
+   "top1": "booking_fees.brisas_guide_price",
+   "top1_cos": 0.8994,
+   "own_cos": 0.8694
+  },
+  {
+   "id": "booking_fees.foreign_nonresident_admission_fee",
+   "example": "soy turista y no vivo en colombia, cual es la entrada 2026",
+   "rank": 5,
+   "top1": "booking_fees.adult_resident_admission_fee",
+   "top1_cos": 0.9236,
+   "own_cos": 0.8797
+  },
+  {
+   "id": "booking_fees.foreign_nonresident_admission_fee",
+   "example": "extranjero no residente, no la tarifa de la CAN",
+   "rank": 32,
+   "top1": "booking_fees.exemption_no_insurance_waiver",
+   "top1_cos": 0.9244,
+   "own_cos": 0.8948
+  },
+  {
+   "id": "booking_fees.sector_entry_fee_difference",
+   "example": "¿cuesta igual entrar a Brisas y Otún?",
+   "rank": 2,
+   "top1": "hours_status.open_sectors_during_conservation_closures",
+   "top1_cos": 0.8983,
+   "own_cos": 0.8964
+  },
+  {
+   "id": "booking_fees.sector_entry_fee_difference",
+   "example": "tarifas del parque por zonas",
+   "rank": 12,
+   "top1": "booking_fees.vehicle_entry_fee",
+   "top1_cos": 0.9245,
+   "own_cos": 0.8795
+  },
+  {
+   "id": "booking_fees.sector_entry_fee_difference",
+   "example": "diferencia de precio entre Cisne y Dulima",
+   "rank": 38,
+   "top1": "booking_fees.quindio_reservation_lead",
+   "top1_cos": 0.8884,
+   "own_cos": 0.8385
+  },
+  {
+   "id": "booking_fees.sector_entry_fee_difference",
+   "example": "Which Los Nevados sector has no entry fee?",
+   "rank": 71,
+   "top1": "booking_fees.other_sector_reservation",
+   "top1_cos": 0.9094,
+   "own_cos": 0.8363
+  },
+  {
+   "id": "booking_fees.sector_entry_fee_difference",
+   "example": "quindio dulima sale en cero en la ficha y la resolucion no lo separa",
+   "rank": 716,
+   "top1": "booking_fees.quindio_reservation_lead",
+   "top1_cos": 0.903,
+   "own_cos": 0.8126
+  },
+  {
+   "id": "booking_fees.vehicle_entry_fee",
+   "example": "cobran por el vehículo al parque?",
+   "rank": 2,
+   "top1": "booking_fees.vehicle_not_parking_fee",
+   "top1_cos": 0.9581,
+   "own_cos": 0.9212
+  },
+  {
+   "id": "booking_fees.vehicle_entry_fee",
+   "example": "cuánto vale el colectivo para Los Nevados",
+   "rank": 105,
+   "top1": "booking_fees.entry_payment_channels",
+   "top1_cos": 0.8968,
+   "own_cos": 0.8435
+  },
+  {
+   "id": "booking_fees.vehicle_entry_fee",
+   "example": "tarifa de la buseta al parque",
+   "rank": 3,
+   "top1": "booking_fees.sector_entry_fee_difference",
+   "top1_cos": 0.9245,
+   "own_cos": 0.9072
+  },
+  {
+   "id": "booking_fees.vehicle_entry_fee",
+   "example": "do buses pay to enter the park?",
+   "rank": 13,
+   "top1": "booking_fees.entry_payment_channels",
+   "top1_cos": 0.9093,
+   "own_cos": 0.8743
+  },
+  {
+   "id": "booking_fees.brisas_guide_price",
+   "example": "precio de la guianza en el sector norte",
+   "rank": 2,
+   "top1": "booking_fees.guide_price_cisne_otun",
+   "top1_cos": 0.9287,
+   "own_cos": 0.8926
+  },
+  {
+   "id": "booking_fees.brisas_guide_price",
+   "example": "servicio de guia de uton cuanto cobra",
+   "rank": 2,
+   "top1": "booking_fees.guide_price_cisne_otun",
+   "top1_cos": 0.9409,
+   "own_cos": 0.9322
+  },
+  {
+   "id": "booking_fees.brisas_guide_price",
+   "example": "tarifa de interpretacion en el carreteable",
+   "rank": 14,
+   "top1": "activities.interpretive_hiking",
+   "top1_cos": 0.8857,
+   "own_cos": 0.8647
+  },
+  {
+   "id": "booking_fees.brisas_guide_price",
+   "example": "cuanto me cobran por el guia del parque",
+   "rank": 9,
+   "top1": "booking_fees.sector_entry_fee_difference",
+   "top1_cos": 0.9073,
+   "own_cos": 0.8979
+  },
+  {
+   "id": "booking_fees.brisas_guide_price",
+   "example": "guianza brisas cuanto sale",
+   "rank": 2,
+   "top1": "booking_fees.guide_price_cisne_otun",
+   "top1_cos": 0.9215,
+   "own_cos": 0.9188
+  },
+  {
+   "id": "booking_fees.brisas_guide_price",
+   "example": "la ficha dice 22000 de guianza pero no si es por persona",
+   "rank": 3,
+   "top1": "booking_fees.exempt_promotion_programs",
+   "top1_cos": 0.8939,
+   "own_cos": 0.8892
+  },
+  {
+   "id": "booking_fees.tariff_annual_update",
+   "example": "cada cuanto suben los precios del parque",
+   "rank": 10,
+   "top1": "booking_fees.sector_entry_fee_difference",
+   "top1_cos": 0.9199,
+   "own_cos": 0.8823
+  },
+  {
+   "id": "booking_fees.tariff_annual_update",
+   "example": "when do park fees change?",
+   "rank": 9,
+   "top1": "booking_fees.vehicle_not_parking_fee",
+   "top1_cos": 0.8774,
+   "own_cos": 0.8581
+  },
+  {
+   "id": "booking_fees.student_admission_category",
+   "example": "precio de entrada con carné estudiantil",
+   "rank": 4,
+   "top1": "booking_fees.vehicle_entry_fee",
+   "top1_cos": 0.8907,
+   "own_cos": 0.8793
+  },
+  {
+   "id": "booking_fees.student_admission_category",
+   "example": "tarifa estudiante en Los Nevados",
+   "rank": 6,
+   "top1": "booking_fees.entry_payment_channels",
+   "top1_cos": 0.908,
+   "own_cos": 0.894
+  },
+  {
+   "id": "booking_fees.student_admission_category",
+   "example": "estudiante extranjero tiene otra tarifa",
+   "rank": 4,
+   "top1": "booking_fees.foreign_resident_definition",
+   "top1_cos": 0.9247,
+   "own_cos": 0.8963
+  },
+  {
+   "id": "booking_fees.student_admission_category",
+   "example": "Is there a student discount for park admission?",
+   "rank": 5,
+   "top1": "booking_fees.entry_fee_discounts",
+   "top1_cos": 0.9316,
+   "own_cos": 0.8704
+  },
+  {
+   "id": "booking_fees.student_admission_category",
+   "example": "el carne de la universidad no es tarifa de estudiante",
+   "rank": 2,
+   "top1": "booking_fees.exempt_disability_visitors",
+   "top1_cos": 0.9002,
+   "own_cos": 0.8864
+  },
+  {
+   "id": "booking_fees.student_admission_category",
+   "example": "solo el programa ambiental del parque exime al colegio, no un descuento",
+   "rank": 51,
+   "top1": "booking_fees.exempt_promotion_programs",
+   "top1_cos": 0.902,
+   "own_cos": 0.8615
+  },
+  {
+   "id": "booking_fees.entry_fee_discounts",
+   "example": "do they give discounts on park entry?",
+   "rank": 2,
+   "top1": "booking_fees.student_admission_category",
+   "top1_cos": 0.9316,
+   "own_cos": 0.9301
+  },
+  {
+   "id": "booking_fees.entry_fee_discounts",
+   "example": "dan rebajas a agremiaciones en los nevados?",
+   "rank": 47,
+   "top1": "booking_fees.exempt_promotion_programs",
+   "top1_cos": 0.8931,
+   "own_cos": 0.8505
+  },
+  {
+   "id": "booking_fees.entry_fee_discounts",
+   "example": "el descuento del convenio no es la promocion de entrada gratis",
+   "rank": 2,
+   "top1": "booking_fees.exempt_promotion_programs",
+   "top1_cos": 0.9716,
+   "own_cos": 0.9282
+  },
+  {
+   "id": "booking_fees.exempt_promotion_programs",
+   "example": "is there a free-entry program for parks?",
+   "rank": 2,
+   "top1": "booking_fees.entry_fee_discounts",
+   "top1_cos": 0.9049,
+   "own_cos": 0.8997
+  },
+  {
+   "id": "booking_fees.exempt_promotion_programs",
+   "example": "exoneracion por programa de promocion, existe?",
+   "rank": 5,
+   "top1": "booking_fees.exempt_nearby_residents",
+   "top1_cos": 0.9116,
+   "own_cos": 0.9028
+  },
+  {
+   "id": "booking_fees.exempt_promotion_programs",
+   "example": "tengo el pasaporte de parques, entro gratis?",
+   "rank": 9,
+   "top1": "booking_fees.exempt_government_staff",
+   "top1_cos": 0.9442,
+   "own_cos": 0.9114
+  },
+  {
+   "id": "booking_fees.exempt_promotion_programs",
+   "example": "el pasaporte de parques es promocion, no una exencion personal",
+   "rank": 4,
+   "top1": "booking_fees.exempt_park_volunteers",
+   "top1_cos": 0.9432,
+   "own_cos": 0.9234
+  },
+  {
+   "id": "booking_fees.exempt_promotion_programs",
+   "example": "entrada gratis por programa no es el descuento de un convenio",
+   "rank": 2,
+   "top1": "booking_fees.entry_fee_discounts",
+   "top1_cos": 0.9716,
+   "own_cos": 0.9076
+  },
+  {
+   "id": "booking_fees.exempt_government_staff",
+   "example": "trabajo para el ministerio de ambiente, pago la entrada?",
+   "rank": 2,
+   "top1": "booking_fees.exempt_company_staff_inside_park",
+   "top1_cos": 0.9229,
+   "own_cos": 0.9172
+  },
+  {
+   "id": "booking_fees.exempt_government_staff",
+   "example": "soy contratista del parque, tengo que pagar",
+   "rank": 2,
+   "top1": "booking_fees.exempt_company_staff_inside_park",
+   "top1_cos": 0.9272,
+   "own_cos": 0.9221
+  },
+  {
+   "id": "booking_fees.exempt_government_staff",
+   "example": "mi esposa y yo somos contratistas, entramos sin pagar?",
+   "rank": 2,
+   "top1": "booking_fees.exempt_company_staff_inside_park",
+   "top1_cos": 0.9224,
+   "own_cos": 0.9177
+  },
+  {
+   "id": "booking_fees.exempt_government_staff",
+   "example": "servidor publico, ingreso sin cobro a los nevados",
+   "rank": 12,
+   "top1": "booking_fees.exempt_donors",
+   "top1_cos": 0.932,
+   "own_cos": 0.9012
+  },
+  {
+   "id": "booking_fees.exempt_government_staff",
+   "example": "employee of the park, do I need to pay to enter?",
+   "rank": 11,
+   "top1": "booking_fees.exempt_company_staff_inside_park",
+   "top1_cos": 0.9614,
+   "own_cos": 0.9028
+  },
+  {
+   "id": "booking_fees.exempt_government_staff",
+   "example": "contratistas del ministerio no pagan entrada al parque?",
+   "rank": 6,
+   "top1": "booking_fees.exempt_park_volunteers",
+   "top1_cos": 0.9405,
+   "own_cos": 0.9071
+  },
+  {
+   "id": "booking_fees.exempt_government_staff",
+   "example": "la exencion de funcionario de parques cubre a mi pareja",
+   "rank": 10,
+   "top1": "booking_fees.exempt_company_staff_inside_park",
+   "top1_cos": 0.9158,
+   "own_cos": 0.8813
+  },
+  {
+   "id": "booking_fees.exempt_government_staff",
+   "example": "contratista de pnn no es empleado de una empresa de adentro",
+   "rank": 2,
+   "top1": "booking_fees.exempt_company_staff_inside_park",
+   "top1_cos": 0.8887,
+   "own_cos": 0.8776
+  },
+  {
+   "id": "booking_fees.exempt_company_staff_inside_park",
+   "example": "trabajo en la cabaña del parque, pago entrada?",
+   "rank": 8,
+   "top1": "booking_fees.exempt_government_staff",
+   "top1_cos": 0.9493,
+   "own_cos": 0.9155
+  },
+  {
+   "id": "booking_fees.exempt_company_staff_inside_park",
+   "example": "soy trabajador de la concesion, entro sin pagar?",
+   "rank": 9,
+   "top1": "booking_fees.exempt_government_staff",
+   "top1_cos": 0.9224,
+   "own_cos": 0.9021
+  },
+  {
+   "id": "booking_fees.exempt_company_staff_inside_park",
+   "example": "operarios de la cabaña potosi no pagan entrada?",
+   "rank": 2,
+   "top1": "booking_fees.exempt_government_staff",
+   "top1_cos": 0.8922,
+   "own_cos": 0.8864
+  },
+  {
+   "id": "booking_fees.exempt_company_staff_inside_park",
+   "example": "entro por trabajo a una cooperativa en el area, cobran",
+   "rank": 3,
+   "top1": "booking_fees.exempt_donors",
+   "top1_cos": 0.9142,
+   "own_cos": 0.9021
+  },
+  {
+   "id": "booking_fees.exempt_company_staff_inside_park",
+   "example": "work inside the park, do I pay entry fee?",
+   "rank": 9,
+   "top1": "booking_fees.exempt_government_staff",
+   "top1_cos": 0.9614,
+   "own_cos": 0.9057
+  },
+  {
+   "id": "booking_fees.exempt_company_staff_inside_park",
+   "example": "trabajadores de empresa con instalaciones en el parque no pagan?",
+   "rank": 3,
+   "top1": "booking_fees.exempt_property_owners",
+   "top1_cos": 0.9306,
+   "own_cos": 0.9099
+  },
+  {
+   "id": "booking_fees.exempt_company_staff_inside_park",
+   "example": "me toca entrar por mi empleo al parque, hay exencion",
+   "rank": 3,
+   "top1": "booking_fees.exempt_donors",
+   "top1_cos": 0.9364,
+   "own_cos": 0.923
+  },
+  {
+   "id": "booking_fees.exempt_company_staff_inside_park",
+   "example": "entro por mi trabajo en las fuerzas, pago entrada?",
+   "rank": 6,
+   "top1": "booking_fees.exempt_official_mission",
+   "top1_cos": 0.9348,
+   "own_cos": 0.9107
+  },
+  {
+   "id": "booking_fees.exempt_company_staff_inside_park",
+   "example": "exencion por trabajar en una empresa de adentro, no por ser funcionario",
+   "rank": 11,
+   "top1": "booking_fees.exempt_journalists",
+   "top1_cos": 0.9343,
+   "own_cos": 0.9123
+  },
+  {
+   "id": "booking_fees.exempt_company_staff_inside_park",
+   "example": "personal de una asociacion con instalacion dentro del parque",
+   "rank": 3,
+   "top1": "booking_fees.exempt_donors",
+   "top1_cos": 0.91,
+   "own_cos": 0.906
+  },
+  {
+   "id": "booking_fees.exempt_official_mission",
+   "example": "soy militar y voy en comision, pago entrada?",
+   "rank": 2,
+   "top1": "booking_fees.exempt_company_staff_inside_park",
+   "top1_cos": 0.9348,
+   "own_cos": 0.9293
+  },
+  {
+   "id": "booking_fees.exempt_official_mission",
+   "example": "vengo en mision oficial de una entidad publica, entro gratis?",
+   "rank": 2,
+   "top1": "booking_fees.exempt_researchers",
+   "top1_cos": 0.9094,
+   "own_cos": 0.9094
+  },
+  {
+   "id": "booking_fees.exempt_official_mission",
+   "example": "personal del ejercito en comision no paga?",
+   "rank": 2,
+   "top1": "booking_fees.exempt_police_family",
+   "top1_cos": 0.9005,
+   "own_cos": 0.8952
+  },
+  {
+   "id": "booking_fees.exempt_official_mission",
+   "example": "funcionarios de entidades oficiales en mision, exentos?",
+   "rank": 4,
+   "top1": "booking_fees.exempt_journalists",
+   "top1_cos": 0.9223,
+   "own_cos": 0.9085
+  },
+  {
+   "id": "booking_fees.exempt_official_mission",
+   "example": "va a ser una mision de salud, hay exencion",
+   "rank": 3,
+   "top1": "booking_fees.exempt_researchers",
+   "top1_cos": 0.9224,
+   "own_cos": 0.9085
+  },
+  {
+   "id": "booking_fees.exempt_official_mission",
+   "example": "estoy en comision de una institucion publica, no pago cierto",
+   "rank": 8,
+   "top1": "booking_fees.exempt_researchers",
+   "top1_cos": 0.9388,
+   "own_cos": 0.9079
+  },
+  {
+   "id": "booking_fees.exempt_official_mission",
+   "example": "entrada gratis para militares en mision",
+   "rank": 4,
+   "top1": "booking_fees.exempt_promotion_programs",
+   "top1_cos": 0.911,
+   "own_cos": 0.9054
+  },
+  {
+   "id": "booking_fees.exempt_official_mission",
+   "example": "mision medica entra sin pagar a los nevados",
+   "rank": 3,
+   "top1": "booking_fees.exempt_government_staff",
+   "top1_cos": 0.9298,
+   "own_cos": 0.9072
+  },
+  {
+   "id": "booking_fees.exempt_official_mission",
+   "example": "mision oficial del ejercito no es un proyecto de investigacion",
+   "rank": 3,
+   "top1": "booking_fees.exempt_researchers",
+   "top1_cos": 0.8995,
+   "own_cos": 0.875
+  },
+  {
+   "id": "booking_fees.exempt_researchers",
+   "example": "soy investigador, pago la entrada al parque?",
+   "rank": 13,
+   "top1": "booking_fees.exempt_indigenous_communities",
+   "top1_cos": 0.9486,
+   "own_cos": 0.9133
+  },
+  {
+   "id": "booking_fees.exempt_researchers",
+   "example": "vengo a hacer tesis de campo, entro gratis?",
+   "rank": 5,
+   "top1": "booking_fees.exempt_official_mission",
+   "top1_cos": 0.9094,
+   "own_cos": 0.8924
+  },
+  {
+   "id": "booking_fees.exempt_researchers",
+   "example": "biologo con proyecto en el parque, exento de pago",
+   "rank": 3,
+   "top1": "booking_fees.exempt_park_volunteers",
+   "top1_cos": 0.9401,
+   "own_cos": 0.9133
+  },
+  {
+   "id": "booking_fees.exempt_researchers",
+   "example": "researcher with a permit, do I pay the park fee?",
+   "rank": 4,
+   "top1": "booking_fees.exempt_donors",
+   "top1_cos": 0.9263,
+   "own_cos": 0.9041
+  },
+  {
+   "id": "booking_fees.exempt_researchers",
+   "example": "estudio la fauna del parque, hay exencion",
+   "rank": 5,
+   "top1": "booking_fees.exempt_donors",
+   "top1_cos": 0.9343,
+   "own_cos": 0.9121
+  },
+  {
+   "id": "booking_fees.exempt_researchers",
+   "example": "hago investigacion en el paramo, no pago verdad",
+   "rank": 3,
+   "top1": "booking_fees.exempt_official_mission",
+   "top1_cos": 0.9388,
+   "own_cos": 0.9147
+  },
+  {
+   "id": "booking_fees.exempt_researchers",
+   "example": "proyecto de investigacion aprobado, entrada gratis",
+   "rank": 3,
+   "top1": "booking_fees.exempt_donors",
+   "top1_cos": 0.9317,
+   "own_cos": 0.9054
+  },
+  {
+   "id": "booking_fees.exempt_researchers",
+   "example": "soy investigadora de universidad, paso sin cobro",
+   "rank": 2,
+   "top1": "booking_fees.exempt_official_mission",
+   "top1_cos": 0.928,
+   "own_cos": 0.9197
+  },
+  {
+   "id": "booking_fees.exempt_researchers",
+   "example": "que papeles pide el investigador para entrar",
+   "rank": 4,
+   "top1": "rules.research_permissions",
+   "top1_cos": 0.8902,
+   "own_cos": 0.8789
+  },
+  {
+   "id": "booking_fees.exempt_researchers",
+   "example": "exencion de investigador con proyecto, no de una mision oficial",
+   "rank": 15,
+   "top1": "booking_fees.exempt_donors",
+   "top1_cos": 0.9601,
+   "own_cos": 0.912
+  },
+  {
+   "id": "booking_fees.exempt_nearby_residents",
+   "example": "vivo en una vereda cerca del parque, pago entrada?",
+   "rank": 8,
+   "top1": "booking_fees.exempt_property_owners",
+   "top1_cos": 0.9481,
+   "own_cos": 0.9149
+  },
+  {
+   "id": "booking_fees.exempt_nearby_residents",
+   "example": "soy del municipio vecino, entro gratis a los nevados",
+   "rank": 11,
+   "top1": "booking_fees.exempt_indigenous_communities",
+   "top1_cos": 0.9415,
+   "own_cos": 0.9021
+  },
+  {
+   "id": "booking_fees.exempt_nearby_residents",
+   "example": "soy campesino de la zona y paso por el parque",
+   "rank": 3,
+   "top1": "booking_fees.exempt_donors",
+   "top1_cos": 0.9197,
+   "own_cos": 0.9093
+  },
+  {
+   "id": "booking_fees.exempt_nearby_residents",
+   "example": "vivo al lado del nevado, me cobran",
+   "rank": 21,
+   "top1": "booking_fees.exempt_park_volunteers",
+   "top1_cos": 0.9328,
+   "own_cos": 0.8936
+  },
+  {
+   "id": "booking_fees.exempt_nearby_residents",
+   "example": "residente de la region, como demuestro que no pago",
+   "rank": 8,
+   "top1": "booking_fees.exemption_no_insurance_waiver",
+   "top1_cos": 0.9258,
+   "own_cos": 0.9009
+  },
+  {
+   "id": "booking_fees.exempt_nearby_residents",
+   "example": "certificado de residencia para entrar sin pagar",
+   "rank": 25,
+   "top1": "booking_fees.exempt_police_family",
+   "top1_cos": 0.9021,
+   "own_cos": 0.8666
+  },
+  {
+   "id": "booking_fees.exempt_nearby_residents",
+   "example": "i live near the park, do I get free entry?",
+   "rank": 8,
+   "top1": "booking_fees.exempt_company_staff_inside_park",
+   "top1_cos": 0.9241,
+   "own_cos": 0.8913
+  },
+  {
+   "id": "booking_fees.exempt_nearby_residents",
+   "example": "nativo de la zona, hay exencion de entrada?",
+   "rank": 13,
+   "top1": "booking_fees.exempt_journalists",
+   "top1_cos": 0.9376,
+   "own_cos": 0.9022
+  },
+  {
+   "id": "booking_fees.exempt_nearby_residents",
+   "example": "si vivo en un pueblo chiquito al lado y solo voy de paso, me cobran entrada?",
+   "rank": 3,
+   "top1": "booking_fees.exempt_indigenous_communities",
+   "top1_cos": 0.9269,
+   "own_cos": 0.918
+  },
+  {
+   "id": "booking_fees.exempt_nearby_residents",
+   "example": "vecino del parque entra sin pagar porfa",
+   "rank": 11,
+   "top1": "booking_fees.exempt_property_owners",
+   "top1_cos": 0.9289,
+   "own_cos": 0.9037
+  },
+  {
+   "id": "booking_fees.exempt_nearby_residents",
+   "example": "si solo voy de paso por el parque, me cobran?",
+   "rank": 7,
+   "top1": "booking_fees.exempt_government_staff",
+   "top1_cos": 0.9397,
+   "own_cos": 0.918
+  },
+  {
+   "id": "booking_fees.exempt_nearby_residents",
+   "example": "exencion por vivir en un pueblo pequeno, no por tener finca adentro",
+   "rank": 18,
+   "top1": "booking_fees.exempt_property_owners",
+   "top1_cos": 0.9494,
+   "own_cos": 0.9022
+  },
+  {
+   "id": "booking_fees.exempt_nearby_residents",
+   "example": "nativo de un centro poblado chico al lado del parque",
+   "rank": 2,
+   "top1": "flora_ecosystems.espeletia_centroandina_otun",
+   "top1_cos": 0.8977,
+   "own_cos": 0.8961
+  },
+  {
+   "id": "booking_fees.exempt_property_owners",
+   "example": "tengo finca dentro del parque, pago entrada?",
+   "rank": 3,
+   "top1": "booking_fees.exempt_nearby_residents",
+   "top1_cos": 0.9481,
+   "own_cos": 0.9427
+  },
+  {
+   "id": "booking_fees.exempt_property_owners",
+   "example": "mi familia tiene tierra dentro del parque, entramos gratis",
+   "rank": 3,
+   "top1": "booking_fees.exempt_donors",
+   "top1_cos": 0.9207,
+   "own_cos": 0.9191
+  },
+  {
+   "id": "booking_fees.exempt_property_owners",
+   "example": "propietario dentro del parque no paga?",
+   "rank": 6,
+   "top1": "booking_fees.exempt_park_volunteers",
+   "top1_cos": 0.9386,
+   "own_cos": 0.9183
+  },
+  {
+   "id": "booking_fees.exempt_property_owners",
+   "example": "my farm is inside the park, do I pay to get in",
+   "rank": 3,
+   "top1": "booking_fees.exempt_company_staff_inside_park",
+   "top1_cos": 0.943,
+   "own_cos": 0.915
+  },
+  {
+   "id": "booking_fees.exempt_property_owners",
+   "example": "soy propietario y llevo a mi hijo, pagamos",
+   "rank": 2,
+   "top1": "booking_fees.exempt_government_staff",
+   "top1_cos": 0.8988,
+   "own_cos": 0.8951
+  },
+  {
+   "id": "booking_fees.exempt_property_owners",
+   "example": "exencion del dueno del predio, no del vecino del pueblo",
+   "rank": 42,
+   "top1": "booking_fees.exempt_nearby_residents",
+   "top1_cos": 0.9494,
+   "own_cos": 0.889
+  },
+  {
+   "id": "booking_fees.exempt_indigenous_communities",
+   "example": "soy indigena, pago entrada al parque?",
+   "rank": 2,
+   "top1": "booking_fees.exempt_researchers",
+   "top1_cos": 0.9486,
+   "own_cos": 0.9447
+  },
+  {
+   "id": "booking_fees.exempt_indigenous_communities",
+   "example": "comunidad afro, entramos gratis a los nevados",
+   "rank": 11,
+   "top1": "booking_fees.exempt_nearby_residents",
+   "top1_cos": 0.9415,
+   "own_cos": 0.8985
+  },
+  {
+   "id": "booking_fees.exempt_indigenous_communities",
+   "example": "soy raizal, tengo que pagar para entrar?",
+   "rank": 2,
+   "top1": "booking_fees.exempt_journalists",
+   "top1_cos": 0.9108,
+   "own_cos": 0.9061
+  },
+  {
+   "id": "booking_fees.exempt_indigenous_communities",
+   "example": "rom, hay entrada sin cobro?",
+   "rank": 15,
+   "top1": "booking_fees.exemption_not_guaranteed",
+   "top1_cos": 0.8986,
+   "own_cos": 0.879
+  },
+  {
+   "id": "booking_fees.exempt_indigenous_communities",
+   "example": "vivo en el resguardo cerca del parque, no pago",
+   "rank": 18,
+   "top1": "booking_fees.exempt_park_volunteers",
+   "top1_cos": 0.9226,
+   "own_cos": 0.8891
+  },
+  {
+   "id": "booking_fees.exempt_indigenous_communities",
+   "example": "indigenous person, do we pay to enter?",
+   "rank": 2,
+   "top1": "booking_fees.exempt_culture_agents",
+   "top1_cos": 0.9208,
+   "own_cos": 0.9136
+  },
+  {
+   "id": "booking_fees.exempt_indigenous_communities",
+   "example": "si entramos por costumbre del pueblo, cobran?",
+   "rank": 2,
+   "top1": "booking_fees.exempt_nearby_residents",
+   "top1_cos": 0.9151,
+   "own_cos": 0.9118
+  },
+  {
+   "id": "booking_fees.exempt_indigenous_communities",
+   "example": "ceremonia tradicional en el parque, pagan",
+   "rank": 3,
+   "top1": "booking_fees.exempt_park_volunteers",
+   "top1_cos": 0.9198,
+   "own_cos": 0.9023
+  },
+  {
+   "id": "booking_fees.exempt_indigenous_communities",
+   "example": "exencion de comunidad indigena por usos tradicionales, no por ser vecino",
+   "rank": 77,
+   "top1": "booking_fees.exempt_property_owners",
+   "top1_cos": 0.9488,
+   "own_cos": 0.8772
+  },
+  {
+   "id": "booking_fees.exempt_indigenous_communities",
+   "example": "afrocolombiano de la zona entra por costumbre sin pagar entrada",
+   "rank": 2,
+   "top1": "booking_fees.exempt_nearby_residents",
+   "top1_cos": 0.9181,
+   "own_cos": 0.8985
+  },
+  {
+   "id": "booking_fees.exempt_disability_visitors",
+   "example": "discapacidad visual, entro gratis al parque?",
+   "rank": 3,
+   "top1": "booking_fees.exempt_promotion_programs",
+   "top1_cos": 0.9359,
+   "own_cos": 0.9201
+  },
+  {
+   "id": "booking_fees.exempt_disability_visitors",
+   "example": "persona en silla de ruedas, paga entrada?",
+   "rank": 2,
+   "top1": "booking_fees.exempt_tourist_guides_and_providers",
+   "top1_cos": 0.9127,
+   "own_cos": 0.9114
+  },
+  {
+   "id": "booking_fees.exempt_disability_visitors",
+   "example": "do people with disabilities pay the park entrance?",
+   "rank": 2,
+   "top1": "booking_fees.vehicle_entry_fee",
+   "top1_cos": 0.9072,
+   "own_cos": 0.905
+  },
+  {
+   "id": "booking_fees.exempt_disability_visitors",
+   "example": "is entry free for wheelchair users?",
+   "rank": 3,
+   "top1": "booking_fees.exempt_young_children_and_seniors",
+   "top1_cos": 0.9016,
+   "own_cos": 0.8941
+  },
+  {
+   "id": "booking_fees.exempt_disability_visitors",
+   "example": "discapacitado entra sin pagar a Los Nevados?",
+   "rank": 5,
+   "top1": "booking_fees.exempt_government_staff",
+   "top1_cos": 0.9253,
+   "own_cos": 0.9084
+  },
+  {
+   "id": "booking_fees.exempt_disability_visitors",
+   "example": "exencion por discapacidad, no por ser mayor de 62",
+   "rank": 140,
+   "top1": "booking_fees.exempt_young_children_and_seniors",
+   "top1_cos": 0.9611,
+   "own_cos": 0.8693
+  },
+  {
+   "id": "booking_fees.exempt_disability_visitors",
+   "example": "la discapacidad no es la tarifa de estudiante",
+   "rank": 2,
+   "top1": "booking_fees.student_admission_category",
+   "top1_cos": 0.9034,
+   "own_cos": 0.8929
+  },
+  {
+   "id": "booking_fees.exempt_young_children_and_seniors",
+   "example": "los niños pagan entrada?",
+   "rank": 2,
+   "top1": "booking_fees.exempt_disability_visitors",
+   "top1_cos": 0.9071,
+   "own_cos": 0.904
+  },
+  {
+   "id": "booking_fees.exempt_young_children_and_seniors",
+   "example": "la entrada es gratis para adultos mayores",
+   "rank": 5,
+   "top1": "booking_fees.exempt_disability_visitors",
+   "top1_cos": 0.9033,
+   "own_cos": 0.8974
+  },
+  {
+   "id": "booking_fees.exempt_young_children_and_seniors",
+   "example": "mi mamá tiene 65, paga ingreso?",
+   "rank": 2,
+   "top1": "booking_fees.exempt_disability_visitors",
+   "top1_cos": 0.8983,
+   "own_cos": 0.8904
+  },
+  {
+   "id": "booking_fees.exempt_young_children_and_seniors",
+   "example": "se paga para los niños pequeños en Los Nevados",
+   "rank": 17,
+   "top1": "booking_fees.entry_payment_channels",
+   "top1_cos": 0.9246,
+   "own_cos": 0.878
+  },
+  {
+   "id": "booking_fees.exempt_young_children_and_seniors",
+   "example": "tercera edad, descuento en la entrada?",
+   "rank": 3,
+   "top1": "booking_fees.entry_fee_discounts",
+   "top1_cos": 0.9028,
+   "own_cos": 0.8927
+  },
+  {
+   "id": "booking_fees.exempt_young_children_and_seniors",
+   "example": "is entry free for seniors over 62?",
+   "rank": 2,
+   "top1": "booking_fees.exempt_disability_visitors",
+   "top1_cos": 0.9016,
+   "own_cos": 0.8974
+  },
+  {
+   "id": "booking_fees.exempt_young_children_and_seniors",
+   "example": "exencion de mayores de 62 residentes, distinta de la de discapacidad",
+   "rank": 20,
+   "top1": "booking_fees.exempt_disability_visitors",
+   "top1_cos": 0.9611,
+   "own_cos": 0.8899
+  },
+  {
+   "id": "booking_fees.exemption_no_insurance_waiver",
+   "example": "exento de la entrada pero toca seguro?",
+   "rank": 7,
+   "top1": "booking_fees.insurance_price_not_published",
+   "top1_cos": 0.9199,
+   "own_cos": 0.8927
+  },
+  {
+   "id": "booking_fees.exemption_no_insurance_waiver",
+   "example": "no pago ingreso, entonces no compro póliza",
+   "rank": 151,
+   "top1": "booking_fees.exempt_nearby_residents",
+   "top1_cos": 0.9258,
+   "own_cos": 0.8741
+  },
+  {
+   "id": "booking_fees.exemption_no_insurance_waiver",
+   "example": "do exempt visitors still need insurance?",
+   "rank": 2,
+   "top1": "booking_fees.exemption_not_guaranteed",
+   "top1_cos": 0.8839,
+   "own_cos": 0.8805
+  },
+  {
+   "id": "booking_fees.exemption_no_insurance_waiver",
+   "example": "is insurance required if entry is free?",
+   "rank": 2,
+   "top1": "booking_fees.accident_insurance_requirement",
+   "top1_cos": 0.9097,
+   "own_cos": 0.9055
+  },
+  {
+   "id": "booking_fees.exemption_no_insurance_waiver",
+   "example": "menor de 5 años necesita seguro?",
+   "rank": 9,
+   "top1": "rules.minors_protection",
+   "top1_cos": 0.8929,
+   "own_cos": 0.8592
+  },
+  {
+   "id": "booking_fees.exemption_no_insurance_waiver",
+   "example": "adulto mayor exento necesita póliza",
+   "rank": 2,
+   "top1": "booking_fees.exempt_young_children_and_seniors",
+   "top1_cos": 0.8895,
+   "own_cos": 0.8851
+  },
+  {
+   "id": "booking_fees.exempt_journalists",
+   "example": "periodista acreditado entra gratis a los nevados",
+   "rank": 10,
+   "top1": "booking_fees.exempt_promotion_programs",
+   "top1_cos": 0.9135,
+   "own_cos": 0.8906
+  },
+  {
+   "id": "booking_fees.exempt_journalists",
+   "example": "voy a grabar para un canal, me cobran entrada?",
+   "rank": 2,
+   "top1": "booking_fees.exempt_property_owners",
+   "top1_cos": 0.9262,
+   "own_cos": 0.923
+  },
+  {
+   "id": "booking_fees.exempt_journalists",
+   "example": "vengo a cubrir una noticia del volcan, pago",
+   "rank": 3,
+   "top1": "booking_fees.exempt_park_volunteers",
+   "top1_cos": 0.9057,
+   "own_cos": 0.9014
+  },
+  {
+   "id": "booking_fees.exempt_journalists",
+   "example": "I'm a journalist, do I need to pay to enter?",
+   "rank": 2,
+   "top1": "booking_fees.exempt_government_staff",
+   "top1_cos": 0.9232,
+   "own_cos": 0.9173
+  },
+  {
+   "id": "booking_fees.exempt_journalists",
+   "example": "trabajo de prensa en el parque, entrada gratis",
+   "rank": 2,
+   "top1": "booking_fees.exempt_government_staff",
+   "top1_cos": 0.9242,
+   "own_cos": 0.9226
+  },
+  {
+   "id": "booking_fees.exempt_journalists",
+   "example": "medios de comunicacion, exentos de la entrada?",
+   "rank": 5,
+   "top1": "booking_fees.exempt_nearby_residents",
+   "top1_cos": 0.9376,
+   "own_cos": 0.9056
+  },
+  {
+   "id": "booking_fees.exempt_journalists",
+   "example": "exencion del periodista acreditado, no de un funcionario",
+   "rank": 17,
+   "top1": "booking_fees.exempt_donors",
+   "top1_cos": 0.9559,
+   "own_cos": 0.9131
+  },
+  {
+   "id": "booking_fees.exempt_donors",
+   "example": "representante de organismo internacional, entra gratis",
+   "rank": 4,
+   "top1": "booking_fees.exempt_promotion_programs",
+   "top1_cos": 0.9364,
+   "own_cos": 0.9094
+  },
+  {
+   "id": "booking_fees.exempt_donors",
+   "example": "convenio con el parque, no pagamos la entrada?",
+   "rank": 6,
+   "top1": "booking_fees.exempt_park_volunteers",
+   "top1_cos": 0.9306,
+   "own_cos": 0.9214
+  },
+  {
+   "id": "booking_fees.exempt_donors",
+   "example": "donor visit to the park, do we pay the fee?",
+   "rank": 7,
+   "top1": "booking_fees.exempt_researchers",
+   "top1_cos": 0.9263,
+   "own_cos": 0.8906
+  },
+  {
+   "id": "booking_fees.exempt_donors",
+   "example": "verificar donacion en los nevados, sin pagar",
+   "rank": 6,
+   "top1": "booking_fees.exempt_government_staff",
+   "top1_cos": 0.932,
+   "own_cos": 0.9133
+  },
+  {
+   "id": "booking_fees.exempt_donors",
+   "example": "patrocinadora del parque, hay exencion de entrada",
+   "rank": 6,
+   "top1": "booking_fees.exempt_company_staff_inside_park",
+   "top1_cos": 0.9364,
+   "own_cos": 0.9204
+  },
+  {
+   "id": "booking_fees.exempt_donors",
+   "example": "le donamos plata al parque, igual pagamos?",
+   "rank": 2,
+   "top1": "booking_fees.exempt_official_mission",
+   "top1_cos": 0.9232,
+   "own_cos": 0.9225
+  },
+  {
+   "id": "booking_fees.exempt_donors",
+   "example": "vamos de visita por el convenio con la ong",
+   "rank": 4,
+   "top1": "activities.sector_laguna_otun",
+   "top1_cos": 0.8902,
+   "own_cos": 0.8778
+  },
+  {
+   "id": "booking_fees.exempt_donors",
+   "example": "exencion del representante de un donante, no de un investigador",
+   "rank": 15,
+   "top1": "booking_fees.exempt_researchers",
+   "top1_cos": 0.9601,
+   "own_cos": 0.9094
+  },
+  {
+   "id": "booking_fees.exempt_park_volunteers",
+   "example": "guarda parque honorario entra gratis",
+   "rank": 2,
+   "top1": "booking_fees.exempt_promotion_programs",
+   "top1_cos": 0.9198,
+   "own_cos": 0.919
+  },
+  {
+   "id": "booking_fees.exempt_park_volunteers",
+   "example": "guardaparques no pagan entrada al parque?",
+   "rank": 3,
+   "top1": "booking_fees.exempt_government_staff",
+   "top1_cos": 0.9405,
+   "own_cos": 0.9368
+  },
+  {
+   "id": "booking_fees.exempt_park_volunteers",
+   "example": "voluntario de PNN, cuanto tiempo sigo exento",
+   "rank": 2,
+   "top1": "booking_fees.exemption_proof_deadline",
+   "top1_cos": 0.8946,
+   "own_cos": 0.8884
+  },
+  {
+   "id": "booking_fees.exempt_park_volunteers",
+   "example": "honorary park ranger, do I pay to enter?",
+   "rank": 13,
+   "top1": "booking_fees.exempt_government_staff",
+   "top1_cos": 0.9351,
+   "own_cos": 0.8859
+  },
+  {
+   "id": "booking_fees.exempt_park_volunteers",
+   "example": "soy voluntario de los nevados, cobran",
+   "rank": 8,
+   "top1": "booking_fees.exempt_nearby_residents",
+   "top1_cos": 0.9328,
+   "own_cos": 0.9076
+  },
+  {
+   "id": "booking_fees.exempt_park_volunteers",
+   "example": "voluntariado en el parque, exento de pago",
+   "rank": 2,
+   "top1": "booking_fees.exempt_researchers",
+   "top1_cos": 0.9401,
+   "own_cos": 0.9349
+  },
+  {
+   "id": "booking_fees.exempt_park_volunteers",
+   "example": "exencion de guardaparque voluntario, no de funcionario de planta",
+   "rank": 10,
+   "top1": "booking_fees.exempt_promotion_programs",
+   "top1_cos": 0.9432,
+   "own_cos": 0.921
+  },
+  {
+   "id": "booking_fees.exempt_police_family",
+   "example": "documento de pension para entrar sin cobro al parque",
+   "rank": 9,
+   "top1": "booking_fees.exempt_promotion_programs",
+   "top1_cos": 0.9288,
+   "own_cos": 0.8931
+  },
+  {
+   "id": "booking_fees.exempt_police_family",
+   "example": "exencion de la familia del uniformado fallecido, no del militar en mision",
+   "rank": 10,
+   "top1": "booking_fees.exempt_researchers",
+   "top1_cos": 0.9353,
+   "own_cos": 0.9171
+  },
+  {
+   "id": "booking_fees.exempt_tourist_guides_and_providers",
+   "example": "si contrato guia, el guia paga o yo?",
+   "rank": 2,
+   "top1": "booking_fees.guide_required",
+   "top1_cos": 0.9308,
+   "own_cos": 0.9155
+  },
+  {
+   "id": "booking_fees.exempt_tourist_guides_and_providers",
+   "example": "guias acreditados entran sin pagar al parque?",
+   "rank": 4,
+   "top1": "booking_fees.exempt_park_volunteers",
+   "top1_cos": 0.9304,
+   "own_cos": 0.9164
+  },
+  {
+   "id": "booking_fees.exempt_tourist_guides_and_providers",
+   "example": "yo pago y el guia tambien?",
+   "rank": 2,
+   "top1": "booking_fees.guide_required",
+   "top1_cos": 0.9171,
+   "own_cos": 0.9155
+  },
+  {
+   "id": "booking_fees.exempt_culture_agents",
+   "example": "agente cultural, pago entrada al parque?",
+   "rank": 6,
+   "top1": "booking_fees.exempt_researchers",
+   "top1_cos": 0.9344,
+   "own_cos": 0.9119
+  },
+  {
+   "id": "booking_fees.exempt_culture_agents",
+   "example": "tengo registro de cultura, exencion nevados",
+   "rank": 2,
+   "top1": "booking_fees.exempt_researchers",
+   "top1_cos": 0.9191,
+   "own_cos": 0.9143
+  },
+  {
+   "id": "booking_fees.exempt_culture_agents",
+   "example": "cultural agent, do I pay to enter?",
+   "rank": 5,
+   "top1": "booking_fees.exempt_indigenous_communities",
+   "top1_cos": 0.9208,
+   "own_cos": 0.894
+  },
+  {
+   "id": "booking_fees.exempt_culture_agents",
+   "example": "músico registrado, exento en el parque",
+   "rank": 21,
+   "top1": "booking_fees.exempt_researchers",
+   "top1_cos": 0.8992,
+   "own_cos": 0.8713
+  },
+  {
+   "id": "booking_fees.exempt_culture_agents",
+   "example": "gestor cultural, pago la entrada a los nevados",
+   "rank": 5,
+   "top1": "booking_fees.exempt_government_staff",
+   "top1_cos": 0.9263,
+   "own_cos": 0.9143
+  },
+  {
+   "id": "booking_fees.exempt_culture_agents",
+   "example": "exencion de soy cultura solo en temporada baja, no la de investigador",
+   "rank": 13,
+   "top1": "booking_fees.exempt_researchers",
+   "top1_cos": 0.9372,
+   "own_cos": 0.9039
+  },
+  {
+   "id": "booking_fees.exemption_not_guaranteed",
+   "example": "tengo exencion, me dejan pasar sin reserva?",
+   "rank": 6,
+   "top1": "booking_fees.exempt_nearby_residents",
+   "top1_cos": 0.9215,
+   "own_cos": 0.913
+  },
+  {
+   "id": "booking_fees.exemption_not_guaranteed",
+   "example": "exento de pago, pero no hay cupo, que hago",
+   "rank": 6,
+   "top1": "booking_fees.south_reservation_status",
+   "top1_cos": 0.9172,
+   "own_cos": 0.9049
+  },
+  {
+   "id": "booking_fees.exemption_not_guaranteed",
+   "example": "si estoy exento, ya me aseguran el cupo?",
+   "rank": 2,
+   "top1": "rules.respect_carrying_capacity_limits",
+   "top1_cos": 0.9168,
+   "own_cos": 0.913
+  },
+  {
+   "id": "booking_fees.exemption_not_guaranteed",
+   "example": "exempt means I can always enter?",
+   "rank": 3,
+   "top1": "booking_fees.exemption_no_insurance_waiver",
+   "top1_cos": 0.8839,
+   "own_cos": 0.8473
+  },
+  {
+   "id": "booking_fees.exemption_not_guaranteed",
+   "example": "estar sin cobro alcanza para que me dejen pasar?",
+   "rank": 2,
+   "top1": "hours_status.night_entry_prohibition",
+   "top1_cos": 0.9067,
+   "own_cos": 0.9045
+  },
+  {
+   "id": "booking_fees.exemption_not_guaranteed",
+   "example": "exento tambien paga el carro?",
+   "rank": 2,
+   "top1": "booking_fees.exempt_tourist_guides_and_providers",
+   "top1_cos": 0.9007,
+   "own_cos": 0.8932
+  },
+  {
+   "id": "booking_fees.exemption_not_guaranteed",
+   "example": "si no pago entrada, el carro entra gratis?",
+   "rank": 3,
+   "top1": "booking_fees.exemption_no_insurance_waiver",
+   "top1_cos": 0.9256,
+   "own_cos": 0.9025
+  },
+  {
+   "id": "booking_fees.exemption_not_guaranteed",
+   "example": "soy exento, puedo llevar el carro sin cobro",
+   "rank": 2,
+   "top1": "booking_fees.exemption_no_insurance_waiver",
+   "top1_cos": 0.9053,
+   "own_cos": 0.9007
+  },
+  {
+   "id": "booking_fees.exemption_not_guaranteed",
+   "example": "me aprobaron la exencion y aun asi depende de la capacidad",
+   "rank": 3,
+   "top1": "booking_fees.exempt_company_staff_inside_park",
+   "top1_cos": 0.907,
+   "own_cos": 0.9059
+  },
+  {
+   "id": "booking_fees.exemption_proof_deadline",
+   "example": "how far in advance do I need to request the free entry?",
+   "rank": 43,
+   "top1": "booking_fees.reservation_requirements",
+   "top1_cos": 0.9079,
+   "own_cos": 0.8433
+  },
+  {
+   "id": "booking_fees.exemption_proof_deadline",
+   "example": "necesito reportar la exencion antes de ir?",
+   "rank": 2,
+   "top1": "booking_fees.exemption_not_guaranteed",
+   "top1_cos": 0.9215,
+   "own_cos": 0.9143
+  },
+  {
+   "id": "booking_fees.brisas_reservation",
+   "example": "reserva Brisas",
+   "rank": 3,
+   "top1": "booking_fees.brisas_booking_channel",
+   "top1_cos": 0.9421,
+   "own_cos": 0.9313
+  },
+  {
+   "id": "booking_fees.brisas_reservation",
+   "example": "¿debo reservar para ir a Brisas?",
+   "rank": 3,
+   "top1": "services.brisas_lodging",
+   "top1_cos": 0.9599,
+   "own_cos": 0.9344
+  },
+  {
+   "id": "booking_fees.brisas_reservation",
+   "example": "apartar visita al Valle de las Tumbas",
+   "rank": 65,
+   "top1": "activities.brisas_valle_tumbas",
+   "top1_cos": 0.95,
+   "own_cos": 0.8849
+  },
+  {
+   "id": "booking_fees.brisas_reservation",
+   "example": "cuánto antes separo para Brisas",
+   "rank": 11,
+   "top1": "hours_status.brisas_exit_time",
+   "top1_cos": 0.9123,
+   "own_cos": 0.8972
+  },
+  {
+   "id": "booking_fees.brisas_reservation",
+   "example": "¿puedo llegar a Brisas sin agendar?",
+   "rank": 2,
+   "top1": "hours_status.brisas_open_days",
+   "top1_cos": 0.9195,
+   "own_cos": 0.9123
+  },
+  {
+   "id": "booking_fees.brisas_reservation",
+   "example": "reserva para el sector norte del Ruiz",
+   "rank": 66,
+   "top1": "geography.sector_brisas_kumanday",
+   "top1_cos": 0.9214,
+   "own_cos": 0.8653
+  },
+  {
+   "id": "booking_fees.brisas_reservation",
+   "example": "toca sacar cupo para Kumanday",
+   "rank": 19,
+   "top1": "history_culture.ruiz_other_ancestral_names",
+   "top1_cos": 0.9198,
+   "own_cos": 0.8849
+  },
+  {
+   "id": "booking_fees.brisas_reservation",
+   "example": "How early should I book Brisas?",
+   "rank": 5,
+   "top1": "booking_fees.brisas_booking_channel",
+   "top1_cos": 0.9476,
+   "own_cos": 0.8948
+  },
+  {
+   "id": "booking_fees.brisas_reservation",
+   "example": "Can I visit Brisas without a reservation?",
+   "rank": 3,
+   "top1": "activities.short_walks_brisas",
+   "top1_cos": 0.9387,
+   "own_cos": 0.91
+  },
+  {
+   "id": "booking_fees.brisas_reservation",
+   "example": "voy mañana a Brisas, alcanzo a reservar?",
+   "rank": 2,
+   "top1": "services.brisas_lodging",
+   "top1_cos": 0.9385,
+   "own_cos": 0.9344
+  },
+  {
+   "id": "booking_fees.brisas_reservation",
+   "example": "quiero asegurar el cupo de Brisas",
+   "rank": 4,
+   "top1": "booking_fees.reservation_requirements",
+   "top1_cos": 0.9234,
+   "own_cos": 0.905
+  },
+  {
+   "id": "booking_fees.brisas_reservation",
+   "example": "la regla de brisas es el dia, no la pagina web",
+   "rank": 50,
+   "top1": "access.from_villamaria",
+   "top1_cos": 0.924,
+   "own_cos": 0.8831
+  },
+  {
+   "id": "booking_fees.brisas_booking_channel",
+   "example": "dónde reservo Brisas",
+   "rank": 2,
+   "top1": "booking_fees.brisas_reservation",
+   "top1_cos": 0.9377,
+   "own_cos": 0.9209
+  },
+  {
+   "id": "booking_fees.brisas_booking_channel",
+   "example": "página para reservar Valle de las Tumbas",
+   "rank": 6,
+   "top1": "booking_fees.brisas_reservation",
+   "top1_cos": 0.9366,
+   "own_cos": 0.9137
+  },
+  {
+   "id": "booking_fees.brisas_booking_channel",
+   "example": "quién maneja las reservas del sector norte",
+   "rank": 3,
+   "top1": "services.uton_services",
+   "top1_cos": 0.905,
+   "own_cos": 0.8791
+  },
+  {
+   "id": "booking_fees.brisas_booking_channel",
+   "example": "cómo contacto al operador de Brisas",
+   "rank": 13,
+   "top1": "booking_fees.insurance_payment_channel",
+   "top1_cos": 0.9131,
+   "own_cos": 0.8865
+  },
+  {
+   "id": "booking_fees.brisas_booking_channel",
+   "example": "reservas nevados punto com es para Brisas?",
+   "rank": 3,
+   "top1": "booking_fees.brisas_reservation",
+   "top1_cos": 0.9283,
+   "own_cos": 0.9033
+  },
+  {
+   "id": "booking_fees.brisas_booking_channel",
+   "example": "donde hago la reserva para Kumanday",
+   "rank": 12,
+   "top1": "history_culture.kumanday_name",
+   "top1_cos": 0.9156,
+   "own_cos": 0.864
+  },
+  {
+   "id": "booking_fees.brisas_booking_channel",
+   "example": "Where can I book Brisas?",
+   "rank": 2,
+   "top1": "booking_fees.brisas_reservation",
+   "top1_cos": 0.9476,
+   "own_cos": 0.9387
+  },
+  {
+   "id": "booking_fees.brisas_booking_channel",
+   "example": "pásame el sitio para reservar el norte",
+   "rank": 15,
+   "top1": "booking_fees.brisas_reservation",
+   "top1_cos": 0.904,
+   "own_cos": 0.8791
+  },
+  {
+   "id": "booking_fees.brisas_booking_channel",
+   "example": "quiero reservar con el operador autorizado",
+   "rank": 39,
+   "top1": "booking_fees.reservation_by_operator",
+   "top1_cos": 0.9357,
+   "own_cos": 0.8593
+  },
+  {
+   "id": "booking_fees.brisas_booking_channel",
+   "example": "reservasnevados es el canal, no la regla del fin de semana",
+   "rank": 51,
+   "top1": "booking_fees.brisas_reservation",
+   "top1_cos": 0.9068,
+   "own_cos": 0.866
+  },
+  {
+   "id": "booking_fees.other_sector_reservation",
+   "example": "reserva para Santa Isabel",
+   "rank": 44,
+   "top1": "history_culture.santa_isabel_record",
+   "top1_cos": 0.9319,
+   "own_cos": 0.8723
+  },
+  {
+   "id": "booking_fees.other_sector_reservation",
+   "example": "agendar visita a Quindío-Dulima",
+   "rank": 84,
+   "top1": "booking_fees.quindio_reservation_lead",
+   "top1_cos": 0.9568,
+   "own_cos": 0.8723
+  },
+  {
+   "id": "booking_fees.other_sector_reservation",
+   "example": "sin reserva puedo entrar a Cisne?",
+   "rank": 3,
+   "top1": "access.mountain_road_conditions",
+   "top1_cos": 0.9192,
+   "own_cos": 0.9108
+  },
+  {
+   "id": "booking_fees.other_sector_reservation",
+   "example": "cómo aparto cupo para la Laguna del Otún",
+   "rank": 21,
+   "top1": "geography.laguna_otun",
+   "top1_cos": 0.9092,
+   "own_cos": 0.8839
+  },
+  {
+   "id": "booking_fees.other_sector_reservation",
+   "example": "reserva para los otros sectores",
+   "rank": 18,
+   "top1": "booking_fees.center_otun_reservation_lead",
+   "top1_cos": 0.9207,
+   "own_cos": 0.8695
+  },
+  {
+   "id": "booking_fees.other_sector_reservation",
+   "example": "toca reservar para el Nevado del Tolima?",
+   "rank": 39,
+   "top1": "booking_fees.south_reservation_order",
+   "top1_cos": 0.943,
+   "own_cos": 0.8788
+  },
+  {
+   "id": "booking_fees.other_sector_reservation",
+   "example": "cómo gestiono la entrada al Cisne",
+   "rank": 2,
+   "top1": "access.el_cisne_approach",
+   "top1_cos": 0.9398,
+   "own_cos": 0.9108
+  },
+  {
+   "id": "booking_fees.other_sector_reservation",
+   "example": "Do other Los Nevados sectors require booking?",
+   "rank": 126,
+   "top1": "booking_fees.sector_entry_fee_difference",
+   "top1_cos": 0.9094,
+   "own_cos": 0.8181
+  },
+  {
+   "id": "booking_fees.other_sector_reservation",
+   "example": "Who arranges my reservation for Otun?",
+   "rank": 4,
+   "top1": "booking_fees.center_otun_reservation_lead",
+   "top1_cos": 0.9171,
+   "own_cos": 0.8492
+  },
+  {
+   "id": "booking_fees.other_sector_reservation",
+   "example": "para esos lados sí toca reserva previa?",
+   "rank": 10,
+   "top1": "booking_fees.quindio_reservation_lead",
+   "top1_cos": 0.9195,
+   "own_cos": 0.8971
+  },
+  {
+   "id": "booking_fees.other_sector_reservation",
+   "example": "quiero visitar otro sector, cómo separo cupo",
+   "rank": 9,
+   "top1": "booking_fees.reservation_requirements",
+   "top1_cos": 0.9182,
+   "own_cos": 0.8839
+  },
+  {
+   "id": "booking_fees.other_sector_reservation",
+   "example": "fuera de brisas la reserva la pide el operador, no yo en la web",
+   "rank": 5,
+   "top1": "booking_fees.brisas_reservation",
+   "top1_cos": 0.9221,
+   "own_cos": 0.8968
+  },
+  {
+   "id": "booking_fees.center_otun_reservation_lead",
+   "example": "reserva Cisne tres días",
+   "rank": 2,
+   "top1": "weather_volcano.national_forecast_limit",
+   "top1_cos": 0.9379,
+   "own_cos": 0.9215
+  },
+  {
+   "id": "booking_fees.center_otun_reservation_lead",
+   "example": "con cuánta anticipación aparto Santa Isabel",
+   "rank": 31,
+   "top1": "booking_fees.other_sector_reservation",
+   "top1_cos": 0.9135,
+   "own_cos": 0.867
+  },
+  {
+   "id": "booking_fees.center_otun_reservation_lead",
+   "example": "plazo para agendar Laguna del Otún",
+   "rank": 6,
+   "top1": "activities.sector_laguna_otun",
+   "top1_cos": 0.9328,
+   "own_cos": 0.9199
+  },
+  {
+   "id": "booking_fees.center_otun_reservation_lead",
+   "example": "reserva de Conejeras cuándo",
+   "rank": 7,
+   "top1": "hours_status.santa_isabel_conejeras_prior_day_checkin",
+   "top1_cos": 0.9152,
+   "own_cos": 0.8766
+  },
+  {
+   "id": "booking_fees.center_otun_reservation_lead",
+   "example": "¿son días hábiles para hacer la reserva?",
+   "rank": 5,
+   "top1": "booking_fees.reservation_requirements",
+   "top1_cos": 0.932,
+   "own_cos": 0.8904
+  },
+  {
+   "id": "booking_fees.center_otun_reservation_lead",
+   "example": "para el Cisne la reserva sí o sí va con tiempo?",
+   "rank": 2,
+   "top1": "booking_fees.other_sector_reservation",
+   "top1_cos": 0.9183,
+   "own_cos": 0.9108
+  },
+  {
+   "id": "booking_fees.center_otun_reservation_lead",
+   "example": "How far ahead do I book Otun?",
+   "rank": 3,
+   "top1": "booking_fees.other_sector_reservation",
+   "top1_cos": 0.9171,
+   "own_cos": 0.879
+  },
+  {
+   "id": "booking_fees.center_otun_reservation_lead",
+   "example": "What is the booking lead time for Cisne?",
+   "rank": 2,
+   "top1": "booking_fees.guide_price_cisne_otun",
+   "top1_cos": 0.8852,
+   "own_cos": 0.875
+  },
+  {
+   "id": "booking_fees.center_otun_reservation_lead",
+   "example": "me dijeron que son días hábiles, cierto?",
+   "rank": 4,
+   "top1": "access.no_motorcycles",
+   "top1_cos": 0.9042,
+   "own_cos": 0.8904
+  },
+  {
+   "id": "booking_fees.center_otun_reservation_lead",
+   "example": "quiero saber el plazo de reserva para esos sectores",
+   "rank": 19,
+   "top1": "booking_fees.quindio_reservation_lead",
+   "top1_cos": 0.9492,
+   "own_cos": 0.8786
+  },
+  {
+   "id": "booking_fees.center_otun_reservation_lead",
+   "example": "cisne y otun piden tres dias habiles, no cinco",
+   "rank": 2,
+   "top1": "booking_fees.quindio_reservation_lead",
+   "top1_cos": 0.9627,
+   "own_cos": 0.9168
+  },
+  {
+   "id": "booking_fees.quindio_reservation_lead",
+   "example": "reserva Quindío Dulima",
+   "rank": 4,
+   "top1": "geography.sector_quindio_dulima",
+   "top1_cos": 0.9674,
+   "own_cos": 0.9367
+  },
+  {
+   "id": "booking_fees.quindio_reservation_lead",
+   "example": "¿cuántos días antes para el Tolima?",
+   "rank": 7,
+   "top1": "hours_status.tolima_summit_push_hours",
+   "top1_cos": 0.894,
+   "own_cos": 0.8691
+  },
+  {
+   "id": "booking_fees.quindio_reservation_lead",
+   "example": "plazo de reserva por Salento",
+   "rank": 2,
+   "top1": "access.no_official_travel_time",
+   "top1_cos": 0.9075,
+   "own_cos": 0.8966
+  },
+  {
+   "id": "booking_fees.quindio_reservation_lead",
+   "example": "agendar entrada por Anzoátegui",
+   "rank": 19,
+   "top1": "access.from_anzoategui_palomar",
+   "top1_cos": 0.9241,
+   "own_cos": 0.8968
+  },
+  {
+   "id": "booking_fees.quindio_reservation_lead",
+   "example": "reserva Nevado del Tolima anticipación",
+   "rank": 5,
+   "top1": "booking_fees.other_sector_reservation",
+   "top1_cos": 0.9363,
+   "own_cos": 0.9125
+  },
+  {
+   "id": "booking_fees.quindio_reservation_lead",
+   "example": "con cuánto tiempo separo para Dulima",
+   "rank": 10,
+   "top1": "history_culture.dulima",
+   "top1_cos": 0.8932,
+   "own_cos": 0.8636
+  },
+  {
+   "id": "booking_fees.quindio_reservation_lead",
+   "example": "toca reservar cinco días antes?",
+   "rank": 11,
+   "top1": "booking_fees.reservation_requirements",
+   "top1_cos": 0.9335,
+   "own_cos": 0.8953
+  },
+  {
+   "id": "booking_fees.quindio_reservation_lead",
+   "example": "cuanto antes tengo que llamar a la agencia",
+   "rank": 68,
+   "top1": "booking_fees.reservation_by_operator",
+   "top1_cos": 0.9196,
+   "own_cos": 0.8516
+  },
+  {
+   "id": "booking_fees.quindio_reservation_lead",
+   "example": "What is the lead time for the Tolima sector?",
+   "rank": 4,
+   "top1": "activities.sector_tolima",
+   "top1_cos": 0.8922,
+   "own_cos": 0.8621
+  },
+  {
+   "id": "booking_fees.quindio_reservation_lead",
+   "example": "para subir por allá hay que cuadrar con tiempo?",
+   "rank": 217,
+   "top1": "hours_status.santa_isabel_summit_start_hour",
+   "top1_cos": 0.892,
+   "own_cos": 0.8356
+  },
+  {
+   "id": "booking_fees.quindio_reservation_lead",
+   "example": "quiero conocer el plazo de reserva del sur",
+   "rank": 7,
+   "top1": "booking_fees.center_otun_reservation_lead",
+   "top1_cos": 0.9492,
+   "own_cos": 0.8966
+  },
+  {
+   "id": "booking_fees.quindio_reservation_lead",
+   "example": "quindio dulima pide cinco dias habiles, no tres",
+   "rank": 2,
+   "top1": "booking_fees.center_otun_reservation_lead",
+   "top1_cos": 0.9627,
+   "own_cos": 0.9283
+  },
+  {
+   "id": "booking_fees.quindio_reservation_lead",
+   "example": "el plazo del tolima no es el mismo de cisne",
+   "rank": 11,
+   "top1": "access.four_sector_gates",
+   "top1_cos": 0.8942,
+   "own_cos": 0.8598
+  },
+  {
+   "id": "booking_fees.reservation_requirements",
+   "example": "reservas para Los Nevados",
+   "rank": 11,
+   "top1": "weather_volcano.snow_and_hail",
+   "top1_cos": 0.9447,
+   "own_cos": 0.9257
+  },
+  {
+   "id": "booking_fees.reservation_requirements",
+   "example": "cómo aparto el ingreso",
+   "rank": 40,
+   "top1": "access.how_to_choose_sector",
+   "top1_cos": 0.8949,
+   "own_cos": 0.855
+  },
+  {
+   "id": "booking_fees.reservation_requirements",
+   "example": "quiero asegurar un cupo para la visita",
+   "rank": 5,
+   "top1": "booking_fees.brisas_reservation",
+   "top1_cos": 0.9234,
+   "own_cos": 0.8909
+  },
+  {
+   "id": "booking_fees.reservation_requirements",
+   "example": "se puede llegar sin reserva",
+   "rank": 7,
+   "top1": "actions.register_arrival_today",
+   "top1_cos": 0.9137,
+   "own_cos": 0.8855
+  },
+  {
+   "id": "booking_fees.reservation_requirements",
+   "example": "cómo hago una reservacion pal parque",
+   "rank": 5,
+   "top1": "booking_fees.cancellation_refund_policy",
+   "top1_cos": 0.9242,
+   "own_cos": 0.9002
+  },
+  {
+   "id": "booking_fees.reservation_requirements",
+   "example": "voy el finde, me toca sacar reserva?",
+   "rank": 4,
+   "top1": "hours_status.brisas_open_days",
+   "top1_cos": 0.9178,
+   "own_cos": 0.9144
+  },
+  {
+   "id": "booking_fees.reservation_requirements",
+   "example": "quiero dejar listo el ingreso al parque",
+   "rank": 10,
+   "top1": "booking_fees.accident_insurance_requirement",
+   "top1_cos": 0.9302,
+   "own_cos": 0.9092
+  },
+  {
+   "id": "booking_fees.reservation_requirements",
+   "example": "cuántos días antes debo reservar",
+   "rank": 4,
+   "top1": "booking_fees.quindio_reservation_lead",
+   "top1_cos": 0.9335,
+   "own_cos": 0.9246
+  },
+  {
+   "id": "booking_fees.reservation_requirements",
+   "example": "toca reservar con harto tiempo pa brisas?",
+   "rank": 12,
+   "top1": "booking_fees.brisas_reservation",
+   "top1_cos": 0.9373,
+   "own_cos": 0.8907
+  },
+  {
+   "id": "booking_fees.reservation_requirements",
+   "example": "antelación para reservar en cisne y otun",
+   "rank": 3,
+   "top1": "booking_fees.center_otun_reservation_lead",
+   "top1_cos": 0.9161,
+   "own_cos": 0.8886
+  },
+  {
+   "id": "booking_fees.reservation_requirements",
+   "example": "puedo reservar el mismo día de la visita",
+   "rank": 3,
+   "top1": "activities.day_or_multiday",
+   "top1_cos": 0.928,
+   "own_cos": 0.9071
+  },
+  {
+   "id": "booking_fees.reservation_requirements",
+   "example": "brisas entre semana no, el resto del parque si",
+   "rank": 166,
+   "top1": "booking_fees.brisas_reservation",
+   "top1_cos": 0.9107,
+   "own_cos": 0.8577
+  },
+  {
+   "id": "booking_fees.age_minimum_by_attraction",
+   "example": "¿puedo llevar un niño de 8 años al Cisne?",
+   "rank": 26,
+   "top1": "booking_fees.registered_operator_choice",
+   "top1_cos": 0.888,
+   "own_cos": 0.8446
+  },
+  {
+   "id": "booking_fees.age_minimum_by_attraction",
+   "example": "qué edad piden para Otún",
+   "rank": 13,
+   "top1": "booking_fees.center_otun_reservation_lead",
+   "top1_cos": 0.9057,
+   "own_cos": 0.8671
+  },
+  {
+   "id": "booking_fees.age_minimum_by_attraction",
+   "example": "mínimo de edad para hacer una travesía",
+   "rank": 2,
+   "top1": "booking_fees.maximum_entry_age",
+   "top1_cos": 0.9321,
+   "own_cos": 0.8971
+  },
+  {
+   "id": "booking_fees.age_minimum_by_attraction",
+   "example": "edad para subir a una cumbre",
+   "rank": 4,
+   "top1": "booking_fees.group_guide_capacity",
+   "top1_cos": 0.9075,
+   "own_cos": 0.8911
+  },
+  {
+   "id": "booking_fees.age_minimum_by_attraction",
+   "example": "un niño puede visitar Valle de las Tumbas?",
+   "rank": 21,
+   "top1": "activities.brisas_valle_tumbas",
+   "top1_cos": 0.9115,
+   "own_cos": 0.8301
+  },
+  {
+   "id": "booking_fees.age_minimum_by_attraction",
+   "example": "a partir de qué edad dejan entrar",
+   "rank": 2,
+   "top1": "booking_fees.maximum_entry_age",
+   "top1_cos": 0.951,
+   "own_cos": 0.9121
+  },
+  {
+   "id": "booking_fees.age_minimum_by_attraction",
+   "example": "se puede llevar a mi hija de 12 a Potosí",
+   "rank": 20,
+   "top1": "activities.potosi_laguna_road",
+   "top1_cos": 0.8783,
+   "own_cos": 0.8465
+  },
+  {
+   "id": "booking_fees.age_minimum_by_attraction",
+   "example": "Can a child visit Laguna del Otun?",
+   "rank": 47,
+   "top1": "activities.sector_laguna_otun",
+   "top1_cos": 0.8994,
+   "own_cos": 0.8281
+  },
+  {
+   "id": "booking_fees.age_minimum_by_attraction",
+   "example": "mi hijo tiene 10, a qué atractivos puede ir?",
+   "rank": 4,
+   "top1": "activities.children_visit_style",
+   "top1_cos": 0.8749,
+   "own_cos": 0.8734
+  },
+  {
+   "id": "booking_fees.age_minimum_by_attraction",
+   "example": "desde qué edad permiten entrar a Los Nevados",
+   "rank": 5,
+   "top1": "booking_fees.maximum_entry_age",
+   "top1_cos": 0.9589,
+   "own_cos": 0.9121
+  },
+  {
+   "id": "booking_fees.age_minimum_by_attraction",
+   "example": "la edad minima es 6 en brisas y 15 en travesia, no es la edad maxima",
+   "rank": 3,
+   "top1": "booking_fees.maximum_entry_age",
+   "top1_cos": 0.9231,
+   "own_cos": 0.9078
+  },
+  {
+   "id": "booking_fees.maximum_entry_age",
+   "example": "edad máxima para entrar",
+   "rank": 2,
+   "top1": "booking_fees.age_minimum_by_attraction",
+   "top1_cos": 0.951,
+   "own_cos": 0.938
+  },
+  {
+   "id": "booking_fees.maximum_entry_age",
+   "example": "hasta qué edad dejan visitar el parque",
+   "rank": 6,
+   "top1": "booking_fees.age_minimum_by_attraction",
+   "top1_cos": 0.9229,
+   "own_cos": 0.8998
+  },
+  {
+   "id": "booking_fees.maximum_entry_age",
+   "example": "límite de edad para Los Nevados",
+   "rank": 9,
+   "top1": "booking_fees.age_minimum_by_attraction",
+   "top1_cos": 0.9589,
+   "own_cos": 0.8942
+  },
+  {
+   "id": "booking_fees.maximum_entry_age",
+   "example": "adulto mayor puede subir a Brisas",
+   "rank": 69,
+   "top1": "activities.children_visit_style",
+   "top1_cos": 0.9072,
+   "own_cos": 0.8607
+  },
+  {
+   "id": "booking_fees.maximum_entry_age",
+   "example": "edad tope para hacer una ruta",
+   "rank": 2,
+   "top1": "booking_fees.age_minimum_by_attraction",
+   "top1_cos": 0.9321,
+   "own_cos": 0.9047
+  },
+  {
+   "id": "booking_fees.maximum_entry_age",
+   "example": "ponen problema por la edad si ya estoy mayor?",
+   "rank": 4,
+   "top1": "health_safety.older_adults_altitude_health",
+   "top1_cos": 0.8766,
+   "own_cos": 0.8723
+  },
+  {
+   "id": "booking_fees.maximum_entry_age",
+   "example": "Can a 70-year-old visit Los Nevados?",
+   "rank": 13,
+   "top1": "activities.what_to_visit",
+   "top1_cos": 0.8968,
+   "own_cos": 0.8703
+  },
+  {
+   "id": "booking_fees.maximum_entry_age",
+   "example": "mi papá tiene 68, puede ir?",
+   "rank": 2,
+   "top1": "booking_fees.exempt_disability_visitors",
+   "top1_cos": 0.9058,
+   "own_cos": 0.8959
+  },
+  {
+   "id": "booking_fees.guide_required",
+   "example": "guía obligatorio en Los Nevados",
+   "rank": 14,
+   "top1": "weather_volcano.snow_and_hail",
+   "top1_cos": 0.9247,
+   "own_cos": 0.9154
+  },
+  {
+   "id": "booking_fees.guide_required",
+   "example": "se puede hacer el recorrido por mi cuenta",
+   "rank": 24,
+   "top1": "rules.stay_on_routes",
+   "top1_cos": 0.8992,
+   "own_cos": 0.8616
+  },
+  {
+   "id": "booking_fees.guide_required",
+   "example": "necesito contratar un guía para visitar",
+   "rank": 3,
+   "top1": "booking_fees.alta_montana_guide_glacier",
+   "top1_cos": 0.9165,
+   "own_cos": 0.9116
+  },
+  {
+   "id": "booking_fees.guide_required",
+   "example": "puedo caminar solo por los senderos",
+   "rank": 60,
+   "top1": "activities.recreation_zone_trails",
+   "top1_cos": 0.9342,
+   "own_cos": 0.8616
+  },
+  {
+   "id": "booking_fees.guide_required",
+   "example": "en cualquier sector toca ir con compañía?",
+   "rank": 8,
+   "top1": "access.how_to_choose_sector",
+   "top1_cos": 0.8881,
+   "own_cos": 0.8587
+  },
+  {
+   "id": "booking_fees.guide_required",
+   "example": "Is a guide required in every sector?",
+   "rank": 5,
+   "top1": "booking_fees.registered_operator_choice",
+   "top1_cos": 0.8678,
+   "own_cos": 0.8436
+  },
+  {
+   "id": "booking_fees.guide_required",
+   "example": "Can I visit the park without a guide?",
+   "rank": 3,
+   "top1": "hours_status.park_open_today",
+   "top1_cos": 0.8792,
+   "own_cos": 0.8702
+  },
+  {
+   "id": "booking_fees.guide_required",
+   "example": "toca pagar guía sí o sí?",
+   "rank": 2,
+   "top1": "booking_fees.exempt_tourist_guides_and_providers",
+   "top1_cos": 0.9308,
+   "own_cos": 0.928
+  },
+  {
+   "id": "booking_fees.guide_required",
+   "example": "quiero ir sin agencia, eso se puede?",
+   "rank": 9,
+   "top1": "booking_fees.reservation_by_operator",
+   "top1_cos": 0.8895,
+   "own_cos": 0.8733
+  },
+  {
+   "id": "booking_fees.guide_required",
+   "example": "es obligatorio ir con guia, eso no es el seguro de accidentes",
+   "rank": 4,
+   "top1": "preparation.technical_glacier_gear",
+   "top1_cos": 0.9198,
+   "own_cos": 0.9047
+  },
+  {
+   "id": "booking_fees.documents_to_carry",
+   "example": "qué documentos llevo al parque",
+   "rank": 3,
+   "top1": "health_safety.pretrip_medical_advice",
+   "top1_cos": 0.9158,
+   "own_cos": 0.9048
+  },
+  {
+   "id": "booking_fees.documents_to_carry",
+   "example": "piden cédula para entrar a Los Nevados?",
+   "rank": 20,
+   "top1": "rules.show_entry_permit_on_request",
+   "top1_cos": 0.9301,
+   "own_cos": 0.8974
+  },
+  {
+   "id": "booking_fees.documents_to_carry",
+   "example": "llevo registro civil de mi hijo?",
+   "rank": 4,
+   "top1": "preparation.children_gear",
+   "top1_cos": 0.8885,
+   "own_cos": 0.8713
+  },
+  {
+   "id": "booking_fees.documents_to_carry",
+   "example": "necesito llevar el soporte de pago?",
+   "rank": 10,
+   "top1": "booking_fees.south_payment_before_review",
+   "top1_cos": 0.9319,
+   "own_cos": 0.8618
+  },
+  {
+   "id": "booking_fees.documents_to_carry",
+   "example": "tengo que mostrar la póliza en el control?",
+   "rank": 5,
+   "top1": "rules.show_entry_permit_on_request",
+   "top1_cos": 0.8963,
+   "own_cos": 0.8838
+  },
+  {
+   "id": "booking_fees.documents_to_carry",
+   "example": "qué papeles me piden en el punto de control",
+   "rank": 2,
+   "top1": "booking_fees.registration_form_required",
+   "top1_cos": 0.8841,
+   "own_cos": 0.8838
+  },
+  {
+   "id": "booking_fees.documents_to_carry",
+   "example": "what documents do I need to enter the park?",
+   "rank": 2,
+   "top1": "rules.show_entry_permit_on_request",
+   "top1_cos": 0.9235,
+   "own_cos": 0.9048
+  },
+  {
+   "id": "booking_fees.documents_to_carry",
+   "example": "do I need my passport to enter Los Nevados?",
+   "rank": 2,
+   "top1": "access.how_to_choose_sector",
+   "top1_cos": 0.9049,
+   "own_cos": 0.8974
+  },
+  {
+   "id": "booking_fees.documents_to_carry",
+   "example": "formato de ingreso de visitantes, dónde lo lleno",
+   "rank": 13,
+   "top1": "booking_fees.registration_form_required",
+   "top1_cos": 0.9369,
+   "own_cos": 0.8809
+  },
+  {
+   "id": "booking_fees.documents_to_carry",
+   "example": "cedula o pasaporte para el control, distinto del formulario",
+   "rank": 5,
+   "top1": "booking_fees.registration_form_required",
+   "top1_cos": 0.9067,
+   "own_cos": 0.8935
+  },
+  {
+   "id": "booking_fees.registration_form_required",
+   "example": "hay que llenar un formato para entrar al parque?",
+   "rank": 16,
+   "top1": "booking_fees.documents_to_carry",
+   "top1_cos": 0.8953,
+   "own_cos": 0.8752
+  },
+  {
+   "id": "booking_fees.registration_form_required",
+   "example": "ese papel de ingreso de visitantes es obligatorio?",
+   "rank": 10,
+   "top1": "booking_fees.guide_required",
+   "top1_cos": 0.9064,
+   "own_cos": 0.8771
+  },
+  {
+   "id": "booking_fees.registration_form_required",
+   "example": "me piden formulario en la entrada, que es",
+   "rank": 2,
+   "top1": "actions.register_arrival_today",
+   "top1_cos": 0.927,
+   "own_cos": 0.9182
+  },
+  {
+   "id": "booking_fees.registration_form_required",
+   "example": "papeleo para entrar a los nevados",
+   "rank": 96,
+   "top1": "booking_fees.foreign_resident_definition",
+   "top1_cos": 0.9289,
+   "own_cos": 0.8762
+  },
+  {
+   "id": "booking_fees.registration_form_required",
+   "example": "tengo que llenar un formulario antes de subir?",
+   "rank": 2,
+   "top1": "access.hire_vehicle_brisas",
+   "top1_cos": 0.9153,
+   "own_cos": 0.9085
+  },
+  {
+   "id": "booking_fees.registration_form_required",
+   "example": "is there an entry form for visitors?",
+   "rank": 10,
+   "top1": "booking_fees.entry_payment_channels",
+   "top1_cos": 0.888,
+   "own_cos": 0.8728
+  },
+  {
+   "id": "booking_fees.registration_form_required",
+   "example": "formato de ingreso lo llenan en el punto o antes",
+   "rank": 3,
+   "top1": "booking_fees.documents_to_carry",
+   "top1_cos": 0.9255,
+   "own_cos": 0.9117
+  },
+  {
+   "id": "booking_fees.registration_form_required",
+   "example": "formulario de visitantes, cuando lo llenan",
+   "rank": 2,
+   "top1": "booking_fees.documents_to_carry",
+   "top1_cos": 0.9369,
+   "own_cos": 0.9182
+  },
+  {
+   "id": "booking_fees.registration_form_required",
+   "example": "registro del visitante, formato",
+   "rank": 3,
+   "top1": "booking_fees.documents_to_carry",
+   "top1_cos": 0.9123,
+   "own_cos": 0.8929
+  },
+  {
+   "id": "booking_fees.registration_form_required",
+   "example": "me toca llenar planilla para entrar",
+   "rank": 2,
+   "top1": "booking_fees.exempt_property_owners",
+   "top1_cos": 0.9047,
+   "own_cos": 0.9009
+  },
+  {
+   "id": "booking_fees.registration_form_required",
+   "example": "el formato de ingreso es un papel distinto de la cedula",
+   "rank": 2,
+   "top1": "booking_fees.documents_to_carry",
+   "top1_cos": 0.9094,
+   "own_cos": 0.9035
+  },
+  {
+   "id": "booking_fees.reservation_data_required",
+   "example": "qué datos piden para reservar",
+   "rank": 2,
+   "top1": "booking_fees.south_payment_before_review",
+   "top1_cos": 0.9468,
+   "own_cos": 0.9457
+  },
+  {
+   "id": "booking_fees.reservation_data_required",
+   "example": "tengo que dar los nombres de todos en la reserva",
+   "rank": 3,
+   "top1": "access.tumbas_and_silencio_same_road",
+   "top1_cos": 0.9021,
+   "own_cos": 0.8932
+  },
+  {
+   "id": "booking_fees.reservation_data_required",
+   "example": "qué me piden al hacer la reserva del sur",
+   "rank": 4,
+   "top1": "booking_fees.quindio_reservation_lead",
+   "top1_cos": 0.9321,
+   "own_cos": 0.908
+  },
+  {
+   "id": "booking_fees.reservation_data_required",
+   "example": "la reserva pide pago antes de confirmar?",
+   "rank": 5,
+   "top1": "booking_fees.south_payment_before_review",
+   "top1_cos": 0.9417,
+   "own_cos": 0.8993
+  },
+  {
+   "id": "booking_fees.reservation_data_required",
+   "example": "para reservar piden póliza?",
+   "rank": 2,
+   "top1": "booking_fees.south_payment_before_review",
+   "top1_cos": 0.9247,
+   "own_cos": 0.9145
+  },
+  {
+   "id": "booking_fees.reservation_data_required",
+   "example": "lugar de procedencia en la reserva, es obligatorio?",
+   "rank": 3,
+   "top1": "booking_fees.reservation_requirements",
+   "top1_cos": 0.9088,
+   "own_cos": 0.8918
+  },
+  {
+   "id": "booking_fees.reservation_data_required",
+   "example": "what info do I need to book a visit?",
+   "rank": 4,
+   "top1": "booking_fees.reservation_requirements",
+   "top1_cos": 0.8978,
+   "own_cos": 0.8781
+  },
+  {
+   "id": "booking_fees.reservation_data_required",
+   "example": "documents needed to make the reservation",
+   "rank": 6,
+   "top1": "booking_fees.south_payment_before_review",
+   "top1_cos": 0.8992,
+   "own_cos": 0.8781
+  },
+  {
+   "id": "booking_fees.reservation_data_required",
+   "example": "reserva sendero Tolima, qué papeles",
+   "rank": 29,
+   "top1": "booking_fees.south_payment_before_review",
+   "top1_cos": 0.9042,
+   "own_cos": 0.8659
+  },
+  {
+   "id": "booking_fees.reservation_data_required",
+   "example": "datos de cada persona para solicitar el cupo del parque",
+   "rank": 8,
+   "top1": "rules.event_permits",
+   "top1_cos": 0.897,
+   "own_cos": 0.8833
+  },
+  {
+   "id": "booking_fees.south_payment_before_review",
+   "example": "cuando se paga la reserva del quindio",
+   "rank": 2,
+   "top1": "booking_fees.south_reservation_order",
+   "top1_cos": 0.8907,
+   "own_cos": 0.8888
+  },
+  {
+   "id": "booking_fees.south_payment_before_review",
+   "example": "primero pago y luego reservo?",
+   "rank": 3,
+   "top1": "booking_fees.platform_pays_services",
+   "top1_cos": 0.9442,
+   "own_cos": 0.9027
+  },
+  {
+   "id": "booking_fees.south_payment_before_review",
+   "example": "necesito soporte de pago para la reserva",
+   "rank": 2,
+   "top1": "booking_fees.documents_to_carry",
+   "top1_cos": 0.9319,
+   "own_cos": 0.9278
+  },
+  {
+   "id": "booking_fees.south_payment_before_review",
+   "example": "pagar la entrada antes de la reserva",
+   "rank": 6,
+   "top1": "booking_fees.reservation_data_required",
+   "top1_cos": 0.9417,
+   "own_cos": 0.9162
+  },
+  {
+   "id": "booking_fees.south_payment_before_review",
+   "example": "la reserva se aprueba sin pago?",
+   "rank": 2,
+   "top1": "booking_fees.reservation_data_required",
+   "top1_cos": 0.9129,
+   "own_cos": 0.8963
+  },
+  {
+   "id": "booking_fees.south_payment_before_review",
+   "example": "que documento de pago piden para reservar",
+   "rank": 3,
+   "top1": "booking_fees.reservation_data_required",
+   "top1_cos": 0.9468,
+   "own_cos": 0.9278
+  },
+  {
+   "id": "booking_fees.platform_pays_services",
+   "example": "pago de servicios en reservasnevados",
+   "rank": 2,
+   "top1": "booking_fees.platform_payment_methods",
+   "top1_cos": 0.9022,
+   "own_cos": 0.9019
+  },
+  {
+   "id": "booking_fees.platform_pays_services",
+   "example": "can I pay for the booking online?",
+   "rank": 3,
+   "top1": "booking_fees.entry_payment_channels",
+   "top1_cos": 0.9117,
+   "own_cos": 0.8833
+  },
+  {
+   "id": "booking_fees.platform_pays_services",
+   "example": "la reserva incluye pago de la entrada?",
+   "rank": 3,
+   "top1": "booking_fees.south_payment_before_review",
+   "top1_cos": 0.9371,
+   "own_cos": 0.9113
+  },
+  {
+   "id": "booking_fees.platform_pays_services",
+   "example": "lo puedo pagar desde la plataforma",
+   "rank": 2,
+   "top1": "booking_fees.platform_payment_methods",
+   "top1_cos": 0.9252,
+   "own_cos": 0.9142
+  },
+  {
+   "id": "booking_fees.platform_pays_services",
+   "example": "pagar la reserva no es la lista de pse o visa",
+   "rank": 3,
+   "top1": "booking_fees.exempt_promotion_programs",
+   "top1_cos": 0.9252,
+   "own_cos": 0.9228
+  },
+  {
+   "id": "booking_fees.platform_payment_methods",
+   "example": "aceptan pse para los nevados?",
+   "rank": 19,
+   "top1": "preparation.neck_gaiter",
+   "top1_cos": 0.8912,
+   "own_cos": 0.8727
+  },
+  {
+   "id": "booking_fees.platform_payment_methods",
+   "example": "se puede pagar con visa en la pagina",
+   "rank": 4,
+   "top1": "booking_fees.platform_pays_services",
+   "top1_cos": 0.9288,
+   "own_cos": 0.8742
+  },
+  {
+   "id": "booking_fees.platform_payment_methods",
+   "example": "do they accept credit cards for the reservation?",
+   "rank": 3,
+   "top1": "booking_fees.reservation_data_required",
+   "top1_cos": 0.8831,
+   "own_cos": 0.8741
+  },
+  {
+   "id": "booking_fees.platform_payment_methods",
+   "example": "que opciones de pago tiene la plataforma",
+   "rank": 2,
+   "top1": "booking_fees.platform_pays_services",
+   "top1_cos": 0.9252,
+   "own_cos": 0.8872
+  },
+  {
+   "id": "booking_fees.platform_payment_methods",
+   "example": "pagar con tarjeta de credito en nevados",
+   "rank": 12,
+   "top1": "booking_fees.entry_payment_channels",
+   "top1_cos": 0.9068,
+   "own_cos": 0.8803
+  },
+  {
+   "id": "booking_fees.platform_payment_methods",
+   "example": "pago en linea con daviplata, aceptan",
+   "rank": 2,
+   "top1": "booking_fees.platform_pays_services",
+   "top1_cos": 0.9063,
+   "own_cos": 0.9062
+  },
+  {
+   "id": "booking_fees.platform_payment_methods",
+   "example": "aceptan visa mastercard o solo pse en la reserva",
+   "rank": 2,
+   "top1": "booking_fees.platform_pays_services",
+   "top1_cos": 0.9245,
+   "own_cos": 0.9169
+  },
+  {
+   "id": "booking_fees.vehicle_not_parking_fee",
+   "example": "pago por dejar el carro en el parque?",
+   "rank": 2,
+   "top1": "booking_fees.vehicle_entry_fee",
+   "top1_cos": 0.9581,
+   "own_cos": 0.9302
+  },
+  {
+   "id": "booking_fees.vehicle_not_parking_fee",
+   "example": "cobran parqueadero en los nevados",
+   "rank": 4,
+   "top1": "booking_fees.exempt_park_volunteers",
+   "top1_cos": 0.9181,
+   "own_cos": 0.8998
+  },
+  {
+   "id": "booking_fees.vehicle_not_parking_fee",
+   "example": "dejo el carro en el parque, cobran por cuidarlo",
+   "rank": 2,
+   "top1": "rules.preventive_measures",
+   "top1_cos": 0.9305,
+   "own_cos": 0.9302
+  },
+  {
+   "id": "booking_fees.vehicle_not_parking_fee",
+   "example": "is the car fee a parking fee?",
+   "rank": 2,
+   "top1": "booking_fees.vehicle_entry_fee",
+   "top1_cos": 0.9147,
+   "own_cos": 0.8843
+  },
+  {
+   "id": "booking_fees.vehicle_not_parking_fee",
+   "example": "cobro de parqueo en el parque nacional",
+   "rank": 4,
+   "top1": "booking_fees.vehicle_entry_fee",
+   "top1_cos": 0.9151,
+   "own_cos": 0.904
+  }
+ ],
+ "removed_examples": 0,
+ "removed_not_routing": []
+}

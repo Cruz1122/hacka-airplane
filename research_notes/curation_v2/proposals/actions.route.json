@@ -1,0 +1,518 @@
+{
+ "proposal": "research_notes/curation_v2/proposals/actions.json",
+ "ops": {
+  "add": 0,
+  "update": 10,
+  "delete": 0
+ },
+ "touched_examples": 137,
+ "touched_loo_top1": 0.5401,
+ "touched_confusions": [
+  {
+   "id": "actions.register_planned_visit",
+   "example": "registro de visita para el puente festivo",
+   "rank": 2,
+   "top1": "hours_status.weekend_and_holiday_opening",
+   "top1_cos": 0.925,
+   "own_cos": 0.9172
+  },
+  {
+   "id": "actions.register_planned_visit",
+   "example": "registrar visita al Otún el mes que viene",
+   "rank": 21,
+   "top1": "activities.sector_laguna_otun",
+   "top1_cos": 0.9281,
+   "own_cos": 0.8863
+  },
+  {
+   "id": "actions.register_planned_visit",
+   "example": "reg visita pa el sabado pa seis personas",
+   "rank": 33,
+   "top1": "hours_status.weekday_opening",
+   "top1_cos": 0.8826,
+   "own_cos": 0.8624
+  },
+  {
+   "id": "actions.register_arrival_today",
+   "example": "ya estoy en Brisas, anoto a mi grupo",
+   "rank": 5,
+   "top1": "access.letras_not_the_gate",
+   "top1_cos": 0.9128,
+   "own_cos": 0.8939
+  },
+  {
+   "id": "actions.register_arrival_today",
+   "example": "me registro ahorita que llegué al parque",
+   "rank": 10,
+   "top1": "booking_fees.reservation_requirements",
+   "top1_cos": 0.9112,
+   "own_cos": 0.8873
+  },
+  {
+   "id": "actions.register_arrival_today",
+   "example": "llegamos al Otún, ¿cómo anoto a los cuatro?",
+   "rank": 20,
+   "top1": "access.choose_otun_trailhead",
+   "top1_cos": 0.8969,
+   "own_cos": 0.863
+  },
+  {
+   "id": "actions.report_emergency_general",
+   "example": "es una emergencia y no sé a quién llamar",
+   "rank": 3,
+   "top1": "actions.report_offline_emergency",
+   "top1_cos": 0.936,
+   "own_cos": 0.9265
+  },
+  {
+   "id": "actions.report_emergency_general",
+   "example": "emergency on the trail, how do I report it",
+   "rank": 2,
+   "top1": "services.lost_items",
+   "top1_cos": 0.9105,
+   "own_cos": 0.9091
+  },
+  {
+   "id": "actions.report_injury",
+   "example": "se lastimó alguien del grupo",
+   "rank": 4,
+   "top1": "actions.report_lost_person",
+   "top1_cos": 0.9099,
+   "own_cos": 0.8853
+  },
+  {
+   "id": "actions.report_injury",
+   "example": "se cayó y se lastimó la pierna",
+   "rank": 2,
+   "top1": "health_safety.fainting_response",
+   "top1_cos": 0.9164,
+   "own_cos": 0.9048
+  },
+  {
+   "id": "actions.report_injury",
+   "example": "reportar un accidente en el sendero",
+   "rank": 2,
+   "top1": "rules.report_environmental_infractions",
+   "top1_cos": 0.9312,
+   "own_cos": 0.9185
+  },
+  {
+   "id": "actions.report_injury",
+   "example": "mi amigo se torció el tobillo",
+   "rank": 5,
+   "top1": "actions.report_altitude_sickness",
+   "top1_cos": 0.9248,
+   "own_cos": 0.9055
+  },
+  {
+   "id": "actions.report_injury",
+   "example": "se fracturo la mano, no puede mover los dedos",
+   "rank": 2,
+   "top1": "health_safety.frostbite_warning_signs",
+   "top1_cos": 0.9259,
+   "own_cos": 0.9225
+  },
+  {
+   "id": "actions.report_injury",
+   "example": "un señor quedó tirado en el sendero, ¿qué hago para avisar?",
+   "rank": 3,
+   "top1": "rules.report_environmental_infractions",
+   "top1_cos": 0.9153,
+   "own_cos": 0.9131
+  },
+  {
+   "id": "actions.report_injury",
+   "example": "me caí y me duele mucho la rodilla",
+   "rank": 7,
+   "top1": "health_safety.sprain_first_aid",
+   "top1_cos": 0.9316,
+   "own_cos": 0.9048
+  },
+  {
+   "id": "actions.report_injury",
+   "example": "compañero herido, no puede caminar",
+   "rank": 2,
+   "top1": "health_safety.unresponsive_cpr",
+   "top1_cos": 0.925,
+   "own_cos": 0.9225
+  },
+  {
+   "id": "actions.report_injury",
+   "example": "one of my friends fell and hurt his leg",
+   "rank": 4,
+   "top1": "actions.report_offline_emergency",
+   "top1_cos": 0.9052,
+   "own_cos": 0.8826
+  },
+  {
+   "id": "actions.report_injury",
+   "example": "a hiker got injured, can I report it?",
+   "rank": 6,
+   "top1": "services.lost_items",
+   "top1_cos": 0.8904,
+   "own_cos": 0.8789
+  },
+  {
+   "id": "actions.report_injury",
+   "example": "se cayo un companero en el sendero y quiero preparar el reporte de la lesion",
+   "rank": 2,
+   "top1": "actions.report_storm",
+   "top1_cos": 0.9206,
+   "own_cos": 0.9185
+  },
+  {
+   "id": "actions.report_lost_person",
+   "example": "se perdio mi amigo en el paramo",
+   "rank": 13,
+   "top1": "actions.report_hypothermia",
+   "top1_cos": 0.8925,
+   "own_cos": 0.8729
+  },
+  {
+   "id": "actions.report_lost_person",
+   "example": "perdí de vista a mi hijo en el sendero",
+   "rank": 13,
+   "top1": "services.lost_items",
+   "top1_cos": 0.9065,
+   "own_cos": 0.8759
+  },
+  {
+   "id": "actions.report_lost_person",
+   "example": "una persona no volvió del recorrido",
+   "rank": 5,
+   "top1": "health_safety.lost_person_protocol",
+   "top1_cos": 0.8865,
+   "own_cos": 0.8761
+  },
+  {
+   "id": "actions.report_lost_person",
+   "example": "persona desaparecida en la montaña",
+   "rank": 2,
+   "top1": "health_safety.lost_person_protocol",
+   "top1_cos": 0.9034,
+   "own_cos": 0.8831
+  },
+  {
+   "id": "actions.report_lost_person",
+   "example": "mi compañero se separó del grupo y no aparece",
+   "rank": 3,
+   "top1": "health_safety.unresponsive_cpr",
+   "top1_cos": 0.936,
+   "own_cos": 0.9191
+  },
+  {
+   "id": "actions.report_lost_person",
+   "example": "se nos perdió un señor en la laguna",
+   "rank": 4,
+   "top1": "services.lost_items",
+   "top1_cos": 0.9066,
+   "own_cos": 0.8729
+  },
+  {
+   "id": "actions.report_lost_person",
+   "example": "alguien del grupo está perdido desde hace rato",
+   "rank": 3,
+   "top1": "actions.report_injury",
+   "top1_cos": 0.9099,
+   "own_cos": 0.8994
+  },
+  {
+   "id": "actions.report_lost_person",
+   "example": "mi esposa se quedó atrás y no la veo",
+   "rank": 5,
+   "top1": "health_safety.lost_person_protocol",
+   "top1_cos": 0.9128,
+   "own_cos": 0.8963
+  },
+  {
+   "id": "actions.report_lost_person",
+   "example": "se nos perdió la niña",
+   "rank": 2,
+   "top1": "actions.report_storm",
+   "top1_cos": 0.8848,
+   "own_cos": 0.8699
+  },
+  {
+   "id": "actions.report_lost_person",
+   "example": "a person is lost on the trail, I need help",
+   "rank": 7,
+   "top1": "health_safety.suspected_fracture_first_aid",
+   "top1_cos": 0.8883,
+   "own_cos": 0.8714
+  },
+  {
+   "id": "actions.report_lost_person",
+   "example": "no encuentro a mi grupo",
+   "rank": 11,
+   "top1": "flora_ecosystems.complex_flora_1036",
+   "top1_cos": 0.911,
+   "own_cos": 0.8942
+  },
+  {
+   "id": "actions.report_altitude_sickness",
+   "example": "mi compañera tiene mal de altura",
+   "rank": 6,
+   "top1": "health_safety.fainting_response",
+   "top1_cos": 0.9157,
+   "own_cos": 0.9111
+  },
+  {
+   "id": "actions.report_altitude_sickness",
+   "example": "mi hermano está muy mareado por la altura",
+   "rank": 2,
+   "top1": "actions.report_hypothermia",
+   "top1_cos": 0.9238,
+   "own_cos": 0.9111
+  },
+  {
+   "id": "actions.report_altitude_sickness",
+   "example": "se desmayó por la altura",
+   "rank": 6,
+   "top1": "health_safety.fainting_response",
+   "top1_cos": 0.9196,
+   "own_cos": 0.8943
+  },
+  {
+   "id": "actions.report_altitude_sickness",
+   "example": "persona con dolor de cabeza fuerte en la cumbre",
+   "rank": 13,
+   "top1": "health_safety.children_altitude_signs",
+   "top1_cos": 0.8853,
+   "own_cos": 0.8619
+  },
+  {
+   "id": "actions.report_altitude_sickness",
+   "example": "le dio mal de montaña a mi amigo",
+   "rank": 4,
+   "top1": "actions.report_injury",
+   "top1_cos": 0.9248,
+   "own_cos": 0.91
+  },
+  {
+   "id": "actions.report_altitude_sickness",
+   "example": "el soroche se puso grave",
+   "rank": 2,
+   "top1": "health_safety.severe_altitude_warning_signs",
+   "top1_cos": 0.925,
+   "own_cos": 0.921
+  },
+  {
+   "id": "actions.report_altitude_sickness",
+   "example": "reportar soroche",
+   "rank": 2,
+   "top1": "health_safety.altitude_sickness_symptoms",
+   "top1_cos": 0.9152,
+   "own_cos": 0.9131
+  },
+  {
+   "id": "actions.report_altitude_sickness",
+   "example": "tiene soroche y ya no habla bien",
+   "rank": 2,
+   "top1": "health_safety.hace_may_appear_days_later",
+   "top1_cos": 0.9226,
+   "own_cos": 0.9187
+  },
+  {
+   "id": "actions.report_altitude_sickness",
+   "example": "mi primo no responde bien después de subir",
+   "rank": 3,
+   "top1": "health_safety.children_altitude_signs",
+   "top1_cos": 0.9293,
+   "own_cos": 0.9044
+  },
+  {
+   "id": "actions.report_altitude_sickness",
+   "example": "el soroche de mi amigo empeoro y quiero preparar el reporte de mal de altura",
+   "rank": 3,
+   "top1": "actions.report_injury",
+   "top1_cos": 0.918,
+   "own_cos": 0.9089
+  },
+  {
+   "id": "actions.report_hypothermia",
+   "example": "mi amigo está congelado y no habla bien",
+   "rank": 3,
+   "top1": "health_safety.severe_hypothermia_signs_and_care",
+   "top1_cos": 0.9316,
+   "own_cos": 0.9283
+  },
+  {
+   "id": "actions.report_hypothermia",
+   "example": "compañero con hipotermia",
+   "rank": 2,
+   "top1": "health_safety.hypothermia_first_response",
+   "top1_cos": 0.9155,
+   "own_cos": 0.9141
+  },
+  {
+   "id": "actions.report_hypothermia",
+   "example": "tiene frio y tirita mucho",
+   "rank": 9,
+   "top1": "health_safety.hypothermia_warning_signs",
+   "top1_cos": 0.908,
+   "own_cos": 0.8838
+  },
+  {
+   "id": "actions.report_hypothermia",
+   "example": "mi hermano está temblando y muy confundido",
+   "rank": 8,
+   "top1": "actions.report_altitude_sickness",
+   "top1_cos": 0.9238,
+   "own_cos": 0.8924
+  },
+  {
+   "id": "actions.report_hypothermia",
+   "example": "se mojó con la lluvia y tiembla feo",
+   "rank": 2,
+   "top1": "health_safety.hypothermia_first_response",
+   "top1_cos": 0.8834,
+   "own_cos": 0.8801
+  },
+  {
+   "id": "actions.report_hypothermia",
+   "example": "mi compañero se quedó sin fuerzas por el frío",
+   "rank": 3,
+   "top1": "health_safety.severe_hypothermia_signs_and_care",
+   "top1_cos": 0.9416,
+   "own_cos": 0.9283
+  },
+  {
+   "id": "actions.report_hypothermia",
+   "example": "hay una persona con hipotermia en el sendero",
+   "rank": 3,
+   "top1": "health_safety.fainting_response",
+   "top1_cos": 0.905,
+   "own_cos": 0.9004
+  },
+  {
+   "id": "actions.report_hypothermia",
+   "example": "tiritando sin control, necesito ayuda",
+   "rank": 18,
+   "top1": "actions.report_emergency_general",
+   "top1_cos": 0.9121,
+   "own_cos": 0.8846
+  },
+  {
+   "id": "actions.report_hypothermia",
+   "example": "someone is shivering uncontrollably and confused",
+   "rank": 2,
+   "top1": "health_safety.severe_hypothermia_signs_and_care",
+   "top1_cos": 0.8581,
+   "own_cos": 0.851
+  },
+  {
+   "id": "actions.report_hypothermia",
+   "example": "I think my friend has hypothermia, what do I report?",
+   "rank": 4,
+   "top1": "actions.report_altitude_sickness",
+   "top1_cos": 0.9235,
+   "own_cos": 0.8879
+  },
+  {
+   "id": "actions.report_storm",
+   "example": "truenos y rayos en la cumbre",
+   "rank": 9,
+   "top1": "weather_volcano.snow_and_hail",
+   "top1_cos": 0.8911,
+   "own_cos": 0.8685
+  },
+  {
+   "id": "actions.report_storm",
+   "example": "tormenta con granizo y rayos en el páramo",
+   "rank": 3,
+   "top1": "health_safety.lightning_storm_safety",
+   "top1_cos": 0.9327,
+   "own_cos": 0.8989
+  },
+  {
+   "id": "actions.report_storm",
+   "example": "hay rayos y no sabemos qué hacer",
+   "rank": 5,
+   "top1": "actions.report_offline_emergency",
+   "top1_cos": 0.9073,
+   "own_cos": 0.8974
+  },
+  {
+   "id": "actions.report_storm",
+   "example": "está tronando muy duro y hay rayos",
+   "rank": 2,
+   "top1": "actions.report_hypothermia",
+   "top1_cos": 0.9024,
+   "own_cos": 0.8974
+  },
+  {
+   "id": "actions.report_storm",
+   "example": "cayeron rayos al lado del grupo y quiero preparar el reporte de la tormenta",
+   "rank": 2,
+   "top1": "actions.report_injury",
+   "top1_cos": 0.9206,
+   "own_cos": 0.918
+  },
+  {
+   "id": "actions.report_fire",
+   "example": "se está quemando el pajonal",
+   "rank": 3,
+   "top1": "flora_ecosystems.romerales_fire_october_2024",
+   "top1_cos": 0.9205,
+   "own_cos": 0.9046
+  },
+  {
+   "id": "actions.report_fire",
+   "example": "reportar candela en la montaña",
+   "rank": 5,
+   "top1": "actions.report_emergency_general",
+   "top1_cos": 0.9123,
+   "own_cos": 0.8926
+  },
+  {
+   "id": "actions.report_fire",
+   "example": "wildfire near the trail, what do I do",
+   "rank": 11,
+   "top1": "actions.report_emergency_general",
+   "top1_cos": 0.8952,
+   "own_cos": 0.8569
+  },
+  {
+   "id": "actions.report_fire",
+   "example": "hay candela en el pajonal y quiero preparar el reporte del incendio",
+   "rank": 2,
+   "top1": "actions.report_storm",
+   "top1_cos": 0.9096,
+   "own_cos": 0.9024
+  },
+  {
+   "id": "actions.report_offline_emergency",
+   "example": "ya no tengo datos y mi compañero está grave",
+   "rank": 14,
+   "top1": "health_safety.unresponsive_cpr",
+   "top1_cos": 0.9312,
+   "own_cos": 0.8965
+  },
+  {
+   "id": "actions.report_offline_emergency",
+   "example": "no me sale señal y se perdió alguien del grupo",
+   "rank": 2,
+   "top1": "actions.report_lost_person",
+   "top1_cos": 0.9342,
+   "own_cos": 0.9111
+  },
+  {
+   "id": "actions.report_offline_emergency",
+   "example": "sin internet en el páramo y necesitamos ayuda",
+   "rank": 3,
+   "top1": "actions.report_emergency_general",
+   "top1_cos": 0.9091,
+   "own_cos": 0.8972
+  },
+  {
+   "id": "actions.report_offline_emergency",
+   "example": "my friend is hurt and I have no signal",
+   "rank": 2,
+   "top1": "actions.report_injury",
+   "top1_cos": 0.9052,
+   "own_cos": 0.8991
+  }
+ ],
+ "removed_examples": 6,
+ "removed_not_routing": []
+}
