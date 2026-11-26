@@ -1,0 +1,271 @@
+{
+"shard": "T4_X00",
+"mix": {
+"colloquial": 4,
+"misspelled": 3,
+"fragment": 2,
+"situational": 2,
+"english": 1
+},
+"per_entry": 12,
+"entries": [
+{
+"entry_id": "conversation.greeting_hello",
+"label": "saludo al iniciar la conversación",
+"kind": "chat",
+"key_facts": [
+"¡Hola! Soy el asistente del Parque Nacional Natural Los Nevados. Pregúntame lo que necesites para tu visita."
+],
+"examples": [
+"hola",
+"buenas",
+"holaa, buenos días"
+],
+"do_not_ask": [
+"qué puedes hacer por el visitante",
+"primera vez y no sé qué preguntar"
+]
+},
+{
+"entry_id": "conversation.how_are_you",
+"label": "preguntar cómo está el asistente",
+"kind": "chat",
+"key_facts": [
+"Todo bien por aquí, gracias por preguntar. Dime en qué te ayudo del parque."
+],
+"examples": [
+"cómo estás",
+"cómo vas hoy",
+"¿todo bien contigo?"
+],
+"do_not_ask": [
+"saludo al iniciar la conversación",
+"qué puedes hacer por el visitante"
+]
+},
+{
+"entry_id": "conversation.thanks",
+"label": "agradecer la ayuda recibida",
+"kind": "chat",
+"key_facts": [
+"¡Con gusto! Si necesitas algo más del parque, aquí estoy."
+],
+"examples": [
+"gracias",
+"muchas gracias",
+"mil gracias, me sirvió"
+],
+"do_not_ask": [
+"despedida al terminar la conversación",
+"pedir más detalle del tema anterior"
+]
+},
+{
+"entry_id": "conversation.goodbye",
+"label": "despedida al terminar la conversación",
+"kind": "chat",
+"key_facts": [
+"¡Hasta luego! Que tengas una buena visita. Antes de viajar, confirma en las fuentes oficiales las condiciones del parque."
+],
+"examples": [
+"chao",
+"hasta luego",
+"nos vemos, gracias y chao"
+],
+"do_not_ask": [
+"agradecer la ayuda recibida",
+"uso del asistente sin internet"
+]
+},
+{
+"entry_id": "conversation.capabilities_overview",
+"label": "qué puedes hacer por el visitante",
+"kind": "chat",
+"key_facts": [
+"Te ayudo con cómo llegar, reservas, horarios, clima, seguridad, actividades, reglas, fauna, flora y la historia del parque. Esta app no envía reportes ni solicita rescate: avisa al guía o al personal del parque y, si tienes señal, llama al 123."
+],
+"examples": [
+"qué puedes hacer",
+"para qué sirves",
+"en qué me puedes ayudar"
+],
+"do_not_ask": [
+"primera vez y no sé qué preguntar",
+"límites del asistente en emergencias",
+"uso del asistente sin internet"
+]
+},
+{
+"entry_id": "conversation.first_time_help",
+"label": "primera vez y no sé qué preguntar",
+"kind": "chat",
+"key_facts": [
+"Empieza por tu tema: cómo llegar, horarios, clima, qué llevar o qué visitar. Dime desde qué ciudad sales o qué te preocupa, y seguimos desde ahí."
+],
+"examples": [
+"es mi primera vez y no sé qué preguntar",
+"nunca he venido, ¿por dónde empiezo?",
+"no sé ni qué pedirte"
+],
+"do_not_ask": [
+"qué puedes hacer por el visitante",
+"saludo al iniciar la conversación"
+]
+},
+{
+"entry_id": "conversation.ai_identity",
+"label": "aclarar si el asistente es robot o persona",
+"kind": "chat",
+"key_facts": [
+"No, no soy una persona: soy un asistente automático que responde con textos preparados del parque, guardados en tu teléfono. Pregúntame lo que necesites para tu visita."
+],
+"examples": [
+"eres un robot?",
+"eres una persona real?",
+"eres una inteligencia artificial"
+],
+"do_not_ask": [
+"qué puedes hacer por el visitante",
+"contactar o hablar con personal del parque",
+"uso del asistente sin internet"
+]
+},
+{
+"entry_id": "conversation.language_request",
+"label": "pedir respuestas en otro idioma",
+"kind": "rule",
+"key_facts": [
+"Por ahora mis respuestas están en español y no puedo garantizar traducciones. Si quieres, pregúntame en español y te respondo con lo que tengo."
+],
+"examples": [
+"puedes hablar en inglés",
+"respóndeme en inglés por favor",
+"cambia el idioma a english"
+],
+"do_not_ask": [
+"qué puedes hacer por el visitante",
+"poemas, código o textos sin fuente"
+]
+},
+{
+"entry_id": "conversation.free_generation_limits",
+"label": "poemas, código o textos sin fuente",
+"kind": "chat",
+"key_facts": [
+"No escribo poemas ni código: mi función es responder sobre el parque con información guardada. Si quieres, dime qué tema del parque te interesa."
+],
+"examples": [
+"escríbeme un poema",
+"hazme un código en python",
+"escribe un cuento sobre el páramo"
+],
+"do_not_ask": [
+"pedir respuestas en otro idioma",
+"qué puedes hacer por el visitante",
+"de dónde sale la información"
+]
+},
+{
+"entry_id": "conversation.feedback_wrong_answer",
+"label": "queja por una respuesta equivocada",
+"kind": "chat",
+"key_facts": [
+"Lamento que la respuesta no te haya servido. Dime qué preguntaste y qué necesitabas, y confirma el dato en la fuente oficial del tema."
+],
+"examples": [
+"esa respuesta está mal",
+"me diste info errada",
+"no es lo que pregunté"
+],
+"do_not_ask": [
+"de dónde sale la información",
+"pedir que repita o aclare"
+]
+},
+{
+"entry_id": "conversation.insults_to_assistant",
+"label": "insultos o groserías hacia el asistente",
+"kind": "chat",
+"key_facts": [
+"Entiendo que estés molesto. Puedo intentar ayudarte con tu visita al parque, así que dime qué necesitas."
+],
+"examples": [
+"eres un inútil",
+"qué bobada, no sirves para nada",
+"eres tonto"
+],
+"do_not_ask": [
+"queja por una respuesta equivocada",
+"pregunta ajena al parque"
+]
+},
+{
+"entry_id": "conversation.park_complaint_channel",
+"label": "cómo presentar una queja al parque",
+"kind": "procedure",
+"key_facts": [
+"Para una queja formal sobre el parque, usa el Formulario PQRSDF del portal oficial de Parques Nacionales Naturales de Colombia (parquesnacionales.gov.co), cuando tengas conexión. Desde aquí no puedo enviarla por ti."
+],
+"examples": [
+"quiero poner una queja contra el parque",
+"cómo pongo una queja formal",
+"a quién le reclamo por el servicio del parque"
+],
+"do_not_ask": [
+"contactar o hablar con personal del parque",
+"queja por una respuesta equivocada"
+]
+},
+{
+"entry_id": "conversation.human_contact_request",
+"label": "contactar o hablar con personal del parque",
+"kind": "procedure",
+"key_facts": [
+"No puedo conectarte con una persona desde aquí. Para hablar con el parque, revisa los canales de atención en la página oficial de Parques Nacionales Naturales y confirma los datos antes de llamar."
+],
+"examples": [
+"quiero hablar con una persona",
+"me comunicas con alguien del parque",
+"pásame con un humano"
+],
+"do_not_ask": [
+"cómo presentar una queja al parque",
+"aclarar si el asistente es robot o persona"
+]
+},
+{
+"entry_id": "conversation.joke_request",
+"label": "pedir un chiste al asistente",
+"kind": "chat",
+"key_facts": [
+"Los chistes no son mi fuerte, pero puedo contarte algo interesante del parque si me dices qué tema te gusta."
+],
+"examples": [
+"cuéntame un chiste",
+"hazme reír",
+"sabes algún chiste?"
+],
+"do_not_ask": [
+"pregunta ajena al parque",
+"qué puedes hacer por el visitante"
+]
+},
+{
+"entry_id": "conversation.off_topic_question",
+"label": "pregunta ajena al parque",
+"kind": "chat",
+"key_facts": [
+"Eso queda fuera de lo que puedo responder. Pregúntame por el parque Los Nevados: cómo llegar, el clima o qué llevar."
+],
+"examples": [
+"quién ganó el partido de ayer",
+"qué opinas de la política",
+"cuánto es 45 por 12"
+],
+"do_not_ask": [
+"qué puedes hacer por el visitante",
+"pedir un chiste al asistente"
+]
+}
+]
+}

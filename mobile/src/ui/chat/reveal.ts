@@ -6,13 +6,13 @@ import { useSyncExternalStore } from 'react';
 
 import { replyDoc } from './markdown';
 
-/** About as fast as a fast model streams tokens, counting a word and its whitespace as one. */
-export const WORDS_PER_SECOND = 40;
+/** Calm, readable token-streaming pace, counting a word and its whitespace as one. */
+export const WORDS_PER_SECOND = 16;
 const MS_PER_WORD = 1000 / WORDS_PER_SECOND;
 /**
- * The frame loop moves the streams at most this often (~15 Hz), so a reply arrives in chunks of
- * two or three words, as a model's tokens do. Each move re-renders and re-lays out the bubble;
- * one per word (40 Hz) tripled the chat's long tasks on a throttled web run.
+ * The frame loop moves the streams at most this often (~15 Hz), so a reply arrives smoothly word
+ * by word without hammering layout. Each move re-renders and re-lays out the bubble; higher
+ * cadences tripled the chat's long tasks on a throttled web run.
  */
 const CHUNK_MS = 66;
 const NO_KEYWORDS: readonly string[] = [];

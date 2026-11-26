@@ -7,9 +7,8 @@ import { alerts, EMPTY_GROUP, members, step, type GroupState } from '@/core/grou
 import { lane } from '@/core/group/lane';
 import { GROUP_POLICY } from '@/core/group/policy';
 import { dbmAtMeters } from '@/core/group/signal';
-import { memberId, type GuideMember, type Member, type MemberId } from '@/core/group/types';
+import { memberId, type GuideMember, type Member, type MemberId, type MemberLook } from '@/core/group/types';
 import { fill, t } from '@/i18n';
-import { AlertDistance } from '@/ui/group/AlertDistance';
 import { EmptyLane } from '@/ui/group/EmptyLane';
 import { GroupAlertBanner } from '@/ui/group/GroupAlertBanner';
 import { GroupLane, laneHeightFor, ZoneLegend } from '@/ui/group/GroupLane';
@@ -25,11 +24,35 @@ type LanePreset = Exclude<Preset, 'meters' | 'empty' | 'roles' | 'signal'>;
 
 const SELF = memberId('lab-guide');
 const REAR = memberId('lab-rear');
-const guide: GuideMember = { id: SELF, role: 'guide', name: 'Marta', slot: 'front' };
-const rear: Member = { id: REAR, role: 'guide', name: 'Julián', slot: 'rear' };
+const guide: GuideMember = {
+  id: SELF,
+  role: 'guide',
+  name: 'Marta',
+  slot: 'front',
+  look: { accessory: 'guideHat', tint: 'ink' },
+};
+const rear: Member = {
+  id: REAR,
+  role: 'guide',
+  name: 'Julián',
+  slot: 'rear',
+  look: { accessory: 'guideHat', tint: 'sun' },
+};
 const NAMES = ['Ana', 'Tomás', 'Lucía', 'Sofía', 'Mateo'];
+const LOOKS: MemberLook[] = [
+  { accessory: 'flower', tint: 'lupine' },
+  { accessory: 'beanie', tint: 'sky' },
+  { accessory: 'bandana', tint: 'sun' },
+  { accessory: 'visitorCap', tint: 'ink' },
+  { accessory: 'flower', tint: 'sun' },
+];
 const V = NAMES.map((_, i) => memberId(`lab-v${i}`));
-const visitors: Member[] = NAMES.map((name, i) => ({ id: V[i], role: 'visitor', name }));
+const visitors: Member[] = NAMES.map((name, i) => ({
+  id: V[i],
+  role: 'visitor',
+  name,
+  look: LOOKS[i],
+}));
 
 /** observer, subject, dBm, and the second the readings stop (default: never). */
 type Feed = [MemberId, MemberId, number, number?];
@@ -149,27 +172,32 @@ function PresetPreview({ preset }: { preset: LanePreset }) {
   return <LanePreview state={state} />;
 }
 
-/** The real slider over a group at fixed meters: zones and dots follow the guide's distance. */
+/** Adjusting the alert distance directly on the lane moves the zones over fixed visitors. */
 function MetersPreview() {
   const [meters, setMeters] = useState<number>(GROUP_POLICY.alertMeters.default);
   const state = useMemo(() => metersPreset(meters), [meters]);
-  return (
-    <LanePreview state={state}>
-      <AlertDistance meters={meters} onChange={setMeters} />
-    </LanePreview>
-  );
+  return <LanePreview state={state} alertMeters={meters} onAlertMetersChange={setMeters} />;
 }
 
-function LanePreview({ state, children }: { state: GroupState; children?: React.ReactNode }) {
+function LanePreview({
+  state,
+  alertMeters,
+  onAlertMetersChange,
+}: {
+  state: GroupState;
+  alertMeters?: number;
+  onAlertMetersChange?: (meters: number) => void;
+}) {
   const names = useMemo(() => new Map(members(state).map((m) => [m.id, m.name])), [state]);
   const view = lane(state, SELF);
   return (
     <View style={styles.sheet}>
       <GroupAlertBanner alerts={alerts(state, SELF)} nameOf={(a) => names.get(a.id) ?? ''} />
-      {children}
       <GroupLane
         lane={view}
         selfId={SELF}
+        alertMeters={alertMeters}
+        onAlertMetersChange={onAlertMetersChange}
         width={LANE_W}
         height={laneHeightFor(view.dots.length, view.bottom !== null)}
       />

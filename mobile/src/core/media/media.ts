@@ -6,6 +6,7 @@ export interface MediaPhoto {
   file: string;
   author: string;
   license: string;
+  url?: string;
 }
 
 export interface MediaItem {
@@ -39,9 +40,10 @@ export type MediaPick =
       items: [MediaPickItem, MediaPickItem] | [MediaPickItem, MediaPickItem, MediaPickItem];
     };
 
-export const MEDIA_CHANCE = 0.5;
-/** Right after a reply that showed photos, so they stay a surprise. */
-export const MEDIA_CHANCE_AFTER_MEDIA = 0.2;
+/** Every eligible answer with catalog photos shows them (no per-chat throttle). */
+export const MEDIA_CHANCE = 1;
+/** No cooldown after a reply that showed photos. */
+export const MEDIA_CHANCE_AFTER_MEDIA = 1;
 export const MAX_MEDIA_ITEMS = 3;
 
 const PICTURE_ASK =
@@ -64,9 +66,9 @@ export interface MediaQuery {
 }
 
 /**
- * Whether this answer shows photos, and which. `rng` is drawn in this order, and only for a
- * decision actually taken: the chance (once per eligible answer), then the layout (only with 2-3
- * items: below 0.5 rows, else columns), then one photo variant per item, in topic order.
+ * Whether this answer shows photos, and which. `rng` is drawn only for decisions actually taken:
+ * the layout (only with 2-3 items: below 0.5 rows, else columns), then one photo variant per item,
+ * in topic order.
  */
 export function pickMedia(
   catalog: MediaCatalog,

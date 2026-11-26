@@ -35,9 +35,8 @@ Find where a park topic is authored, validated, and turned into the JSON the pho
 
 ## Related docs
 
-The docs linked above drift from the code in four places:
+The docs linked above include implementation notes and remaining gaps:
 
-- `system-map.md` says 843 entries. The sections hold 806 at this commit.
 - The app README calls `answer_policy.json` legacy. `export_nlu.py` still reads it for `emergency_direct` ids.
 - `validate_knowledge.py` reads the schema copy in `research_notes/.../inputs/`. The copy matches `docs/schemas/` today, but no code keeps the two in sync.
 - `phase1/`, `phase2/`, `raw/`, and `laya_ft*/` are read by `experiments/laya`, the coordination tools, and `research_notes/dataset_final/tools/build_dataset.py`, not by the export. This page does not trace them.

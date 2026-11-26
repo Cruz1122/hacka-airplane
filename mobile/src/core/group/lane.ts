@@ -12,7 +12,7 @@ import {
 } from './groupState';
 import { GROUP_POLICY } from './policy';
 import { metersAtDbm, type EdgeFilter } from './signal';
-import type { GuideMember, MemberId, Zone } from './types';
+import type { GuideMember, MemberId, MemberLook, Zone } from './types';
 
 export type DotStatus = Zone | 'unseen';
 
@@ -23,6 +23,8 @@ export interface LaneDot {
   t: number;
   status: DotStatus;
   alerting: boolean;
+  /** What this visitor's Pet wears over the radio, when sent. */
+  look?: MemberLook;
 }
 
 /** A labelled distance on a one-guide line. */
@@ -115,6 +117,7 @@ export function lane(state: GroupState, self: MemberId): Lane {
       t: t ?? 0,
       status: p.kind === 'tracked' ? p.zone : 'unseen',
       alerting: alerting.has(m.id),
+      ...(m.look ? { look: m.look } : {}),
     });
   }
   return { top, bottom, dots, scale: bottom ? null : scale };

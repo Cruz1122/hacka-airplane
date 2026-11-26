@@ -7,9 +7,33 @@ import { Pressable, Text } from 'react-native';
 import { createRoot, type Root, type TestInstance } from 'test-renderer';
 
 import { t } from '@/i18n';
-import { AppNavBar } from '@/ui/AppNavBar';
 
 import TabsLayout from '../../../app/(tabs)/_layout';
+
+// No jest setup wires Reanimated or gesture-handler (their own mocks boot the native module).
+jest.mock('react-native-reanimated', () => {
+  const { View } = jest.requireActual('react-native');
+  return {
+    __esModule: true,
+    default: { View },
+    useSharedValue: (value: number) => ({
+      value,
+      set(v: number) {
+        this.value = v;
+      },
+    }),
+    useAnimatedStyle: (style: () => object) => style(),
+    withTiming: (value: number) => value,
+  };
+});
+jest.mock('react-native-gesture-handler', () => {
+  const { View } = jest.requireActual('react-native');
+  return {
+    GestureHandlerRootView: View,
+    GestureDetector: ({ children }: { children: unknown }) => children,
+    usePanGesture: () => ({}),
+  };
+});
 
 let mockDone = false;
 jest.mock('@/onboarding/launch', () => ({
@@ -20,12 +44,7 @@ jest.mock('@/onboarding/launch', () => ({
 }));
 
 function Chat() {
-  return (
-    <>
-      <Text>chat screen</Text>
-      <AppNavBar active="chat" />
-    </>
-  );
+  return <Text>chat screen</Text>;
 }
 
 /** Stands in for the group screen: local state (a session) and the route's params. */
@@ -38,7 +57,6 @@ function Group() {
       <Pressable accessibilityRole="button" onPress={() => setJoined((n) => n + 1)}>
         <Text>{`joined ${joined}`}</Text>
       </Pressable>
-      <AppNavBar active="group" />
     </>
   );
 }
@@ -96,6 +114,16 @@ async function open(url: string) {
     while (node && !node.props.onClick) node = node.parent;
     return node!;
   };
+  const byButtonLabel = (label: string) => {
+    const found = all(
+      (n) =>
+        n.props.accessibilityRole === 'button' &&
+        n.props.accessibilityLabel === label &&
+        typeof n.props.onClick === 'function',
+    );
+    expect(found.length).toBeGreaterThan(0);
+    return found[0];
+  };
   const tab = (label: string) =>
     all((n) => n.props.accessibilityRole === 'tab' && n.props.accessibilityLabel === label).filter(
       (n) => n.props.onClick,
@@ -104,6 +132,7 @@ async function open(url: string) {
     path: () => texts().find((s) => s.startsWith('path '))?.slice(5),
     has: (text: string) => texts().includes(text),
     pressText: (text: string) => press(byText(text)),
+    pressButton: (label: string) => press(byButtonLabel(label)),
     // Both tabs stay mounted with their own bar; the visible one is where `label` is not selected.
     pressTab: (label: string) => press(tab(label).find((n) => !n.props.accessibilityState.selected)!),
     back: () => act(async () => router.back()),
@@ -152,4 +181,21 @@ it('opens a link into Grupo directly, and its Chat tab never shows the onboardin
   await app.pressTab(t.nav.chat);
   expect(app.path()).toBe('/');
   expect(app.has('onboarding')).toBe(false);
+});
+
+it('opens Accessibility and Settings overlays from CloudNavBar without losing active tab state', async () => {
+  mockDone = true;
+  const app = await open('/group?from=link');
+  await app.pressText('joined 0');
+  expect(app.has('joined 1')).toBe(true);
+
+  await app.pressButton(t.nav.accessibility);
+  expect(app.has(t.accessibilityPanel.title)).toBe(true);
+  expect(app.path()).toBe('/group');
+
+  await app.pressButton(t.nav.settings);
+  expect(app.has(t.settingsPanel.title)).toBe(true);
+  expect(app.has(t.settingsPanel.savedSources.title)).toBe(true);
+  expect(app.has(t.settingsPanel.about.title)).toBe(true);
+  expect(app.has('joined 1')).toBe(true);
 });

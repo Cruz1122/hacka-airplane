@@ -51,11 +51,130 @@ export const en: Labels = {
     next: 'Next',
     start: 'Start exploring',
   },
+  trail: {
+    title: 'Brisas route',
+    subtitle: 'Vehicle route to Valle de las Tumbas',
+    stationA11y: 'Station {n}: {name}. {mark}',
+    marks: {
+      brisas: 'Frailejón',
+      aguacerales: 'Spectacled bear',
+      arenales: 'Puma',
+      valleLunar: 'Páramo fox',
+      valleTumbas: 'Andean condor',
+    },
+    stations: {
+      brisas: {
+        name: 'Brisas induction centre',
+        blurb: 'Check-in, required briefing and departure. About 4,100 m a.s.l.',
+      },
+      aguacerales: {
+        name: 'Aguacerales sector',
+        blurb: 'First interpretation stop: páramo and volcanic remains.',
+      },
+      arenales: {
+        name: 'Arenales',
+        blurb: 'Volcanic ground, ash and moon-like formations.',
+      },
+      valleLunar: {
+        name: 'Valle Lunar',
+        blurb: 'A panoramic stop of high landscape value on the route.',
+      },
+      valleTumbas: {
+        name: 'Valle de las Tumbas / Valle del Silencio',
+        blurb: 'End of the vehicle route. Furthest access when Ruiz is at yellow alert.',
+      },
+    },
+    back: 'Back',
+    photo: 'Image {n} of this stage',
+    photoCredit: 'Photo: {author}',
+    photoCreditA11y: 'Image {n} of this stage. Photo: {author}',
+    camera: {
+      prompt: 'Take a photo of this station.',
+      take: 'Take photo',
+      denied: 'Camera permission denied. Enable it in settings to photograph this station.',
+      unavailable: 'The camera is not available here.',
+      capturedA11y: 'Photo taken at this station',
+    },
+    pages: {
+      brisas: [
+        {
+          subtitle: 'Induction centre',
+          body: 'The **Brisas** visitor centre is the gateway to the superpáramos. You must register and hear a briefing on the rules; a **guide** is assigned there to accompany you to Valle de las Tumbas.\n\nIn the northern sector the route runs from the induction centre to Valle de Tumbas, with entry between **8:00 a.m.** and **2:00 p.m.**',
+        },
+        {
+          subtitle: 'How to get there',
+          body: 'Access to the northern zone, on the western slope of **Nevado del Ruiz**, follows the road from La Esperanza–El Ocho (Manizales) to **Murillo** (Tolima).\n\nAfter about 18 km a turnoff leads to Brisas at **4,100 m a.s.l.** From there the authorised visitor route continues to Valle de las Tumbas at **4,450 m**.',
+        },
+        {
+          subtitle: 'The park',
+          body: '**Los Nevados National Natural Park** was declared a protected area in **1974** (Inderena agreement 015 of 1973 and resolution 148 of 30 April 1974).\n\nIt began at about 38,000 hectares and by the end of 2023 covered **61,377.49 ha**: 47.1% in Tolima, 35.6% in Risaralda, 13.5% in Caldas and 3.8% in Quindío.',
+        },
+      ],
+      aguacerales: [
+        {
+          subtitle: 'Superpáramo',
+          body: 'From Brisas the dirt track crosses **superpáramos**: belts of glacial retreat, with mosses, lichens and hardy herbs.\n\n**Aguacerales** is among the first stops on that route: mosses that drink from the ice, before the ashes of Arenales and Valle Lunar.',
+        },
+        {
+          subtitle: 'Frailejones',
+          body: 'Above **3,000 m**, cloud forest and meadows give way to páramo, ruled by **frailejones** endemic to the northern Andes.\n\nThe plant captures fog water and carries it to the soil; **condors** and tiny chivito hummingbirds are seen among the frailejones at these heights.',
+        },
+        {
+          subtitle: 'Water and glaciers',
+          body: 'The páramo is the region’s main **water regulator**. The park holds **50%** of Colombia’s snow-capped mountains: Kumanday (Ruiz), Poleka Kasue (Santa Isabel) and Dulima (Tolima).\n\nClimate change has sped glacier melt over the last **70 years**.',
+        },
+      ],
+      arenales: [
+        {
+          subtitle: 'Ash fields',
+          body: '**Arenales** is the volcanic-ash stretch on the dirt route toward Valle de las Tumbas.\n\nTogether with Aguacerales and Valle Lunar it forms the otherworldly volcanic landscape of this superpáramo of Ruiz.',
+        },
+        {
+          subtitle: 'The volcano',
+          body: 'Ruiz is an active **stratovolcano** **5,321 m** high, 28 km southeast of Manizales. It has two parasitic cones, **La Olleta** and La Piraña, and the active **Arenas** crater, 870 × 830 m across and 247 m deep.\n\nIn pre-Columbian times it was called Cumanday (White Hill), Tabuchía (fire) or Tama (Great Father).',
+        },
+        {
+          subtitle: 'Activity',
+          body: 'The volcano covers more than **200 km²**. Arenas crater is about 1 km wide. Eruptions have been documented since **1570**; the current eruption began in November **2014**, with gas-and-ash emissions and seismicity.\n\nThe Colombian Geological Survey keeps the alert at **yellow**, the second of four levels.',
+        },
+      ],
+      valleLunar: [
+        {
+          subtitle: 'The stop',
+          body: '**Valle Lunar** is one of the highest-value landscape stops on the superpáramo road, between the ashes of Arenales and the end at Valle de las Tumbas.',
+        },
+        {
+          subtitle: 'Four nevados',
+          body: 'On this high plateau stand **Ruiz**, **Santa Isabel**, **Quindío** and **Tolima**, among fumaroles, craters, high-mountain lakes and páramos.\n\nThe lunar landscape of Nevado del Ruiz is one of the most cited views on this route.',
+        },
+        {
+          subtitle: 'Ecosystems',
+          body: 'The park, on the Central Cordillera, protects **páramos**, superpáramos, high-Andean wetlands, Andean forests and glaciers.\n\nRuiz offers glaciers, volcanic rock and tectonic and geothermal terrain.',
+        },
+      ],
+      valleTumbas: [
+        {
+          subtitle: 'End of the route',
+          body: 'This is the end of the authorised visitor route, at **4,450 m a.s.l.** **Valle de las Tumbas** is a desolate place above 4,000 m, with lunar landscapes, geysers and waterfalls.\n\nIt is the usual destination of visits that leave from Brisas.',
+        },
+        {
+          subtitle: 'The name',
+          body: 'The name comes from volcanic formations and fumaroles that look like a cemetery. The **Quimbaya** were not buried here, but it was a pilgrimage site: ceramics interpreted as offerings have been found.',
+        },
+        {
+          subtitle: '13 November 1985',
+          body: 'On **13 November 1985** the Ruiz eruption sent lahars that destroyed **Armero**, killing about **25,000** people.\n\nThe volcano remains active; in 2012 a mini-eruption felt from the Brisas cabin closed the park for nine months, and the alert remains **yellow**.',
+        },
+      ],
+    },
+  },
   chatScreen: {
-    greeting: "Hi! I'm {pet}. Ask me about trails, weather, rules or safety in the park.",
+    greeting: "Hi! I'm {pet}, your companion in Los Nevados. What would you like to discover today? Ask me what to pack for the páramo, or send me a photo of something you find along the trail.",
+    greetingKeywords: ['{pet}', 'Los Nevados', 'what to pack for the páramo', 'a photo'],
     newChat: 'New conversation',
     typing: '{pet} is thinking',
     seconds: '{s} s',
+    milliseconds: '{ms} ms',
     sources: {
       showOne: 'See the source of this answer',
       showMany: 'See the {n} sources of this answer',
@@ -64,6 +183,8 @@ export const en: Labels = {
       open: 'Open link',
       openLabel: 'Open {title}',
       retrieved: 'Retrieved {date}',
+      favoriteLabel: 'Save {title} to favorites',
+      unfavoriteLabel: 'Remove {title} from favorites',
     },
     media: {
       // What a screen reader hears for the credit pill on a photo (it shows only the author).
@@ -86,6 +207,8 @@ export const en: Labels = {
     group: 'Group',
     route: 'Route',
     disabled: '{tab}, coming soon',
+    settings: 'Settings',
+    accessibility: 'Accessibility',
   },
   group: {
     title: 'Group',
@@ -117,13 +240,16 @@ export const en: Labels = {
     alertsMore: 'and {n} more alerts',
     lane: 'Group line, front to back',
     alertDistance: 'Alert distance',
-    alertDistanceHint: 'You get an alert when a visitor goes farther than this.',
+    alertDistanceHint: 'Drag or tap to choose how far a visitor can go before an alert.',
     alertDistanceScale: 'Near up to {near} m · alert past {alert} m',
+    alertDecrease: 'Shorter alert distance',
+    alertIncrease: 'Longer alert distance',
     cancelGuide: 'Cancel',
     cancelGuideHint: 'Stops guiding and goes back to choosing a role',
     cancelSearch: 'Stop searching',
     cancelSearchHint: 'Stops searching and goes back to choosing a role',
     leaveGroup: 'Leave group',
+    leaveShort: 'Leave',
     leaveGroupHint: 'Ends the group connection and goes back to choosing a role',
     meters: '{m} m',
     laneMark: '{zone} up to {m} m',
@@ -158,9 +284,102 @@ export const en: Labels = {
       lostBody: 'Your guide cannot find you. Stay on the trail and look for them.',
     },
   },
+  accessibilityPanel: {
+    title: 'Accessibility',
+    close: 'Close accessibility',
+    reset: 'Reset',
+    resetHint: 'Restore all accessibility settings to their defaults',
+    textSize: {
+      title: 'Text size',
+      body: 'Respects your device text size and lets you enlarge it with a live preview.',
+      decrease: 'Decrease text size',
+      increase: 'Increase text size',
+      sliderHint: 'Drag or choose a step to adjust text size',
+      percent: '{pct}%',
+      levels: {
+        normal: 'Normal',
+        large: 'Large',
+        larger: 'Larger',
+        extra: 'Extra',
+      },
+      previewLabel: 'Preview',
+      previewTitle: 'Valle de las Tumbas',
+      previewBody: 'At 4,450 m above sea level, bring a waterproof jacket and water for the páramo trail.',
+    },
+    highContrast: {
+      title: 'High contrast',
+      body: 'Strengthens text and borders for clear reading in bright sunlight.',
+    },
+    reduceMotion: {
+      title: 'Reduce motion',
+      body: 'Stops decorative animations and shows replies all at once.',
+      systemActive: 'Also enabled in your device settings.',
+    },
+    colorVision: {
+      title: 'Color vision',
+      body: 'Adapts the color palette while keeping icons and text on every status.',
+      previewLabel: 'Statuses with icon and color',
+      modes: {
+        none: { label: 'Standard', hint: 'Original park palette' },
+        protanopia: { label: 'Protanopia', hint: 'Red-green (reduced red sensitivity)' },
+        deuteranopia: { label: 'Deuteranopia', hint: 'Red-green (reduced green sensitivity)' },
+        tritanopia: { label: 'Tritanopia', hint: 'Blue-yellow' },
+      },
+      statuses: {
+        near: 'Near',
+        alert: 'Alert',
+        unseen: 'No signal',
+      },
+    },
+  },
+  settingsPanel: {
+    title: 'Settings',
+    close: 'Close settings',
+    back: 'Back to settings',
+    savedSources: {
+      title: 'Saved sources',
+      countZero: 'No saved sources yet',
+      countOne: '1 saved source',
+      countMany: '{n} saved sources',
+      emptyTitle: 'No saved sources',
+      emptyBody: 'When you open the sources on a chat reply, tap the star to keep them here.',
+      removedNotice: 'Removed from saved sources',
+      undo: 'Undo',
+    },
+    about: {
+      title: 'About',
+      menuSubtitle: 'Nevados · v{version}',
+      version: 'Version {version}',
+      summary:
+        'Offline companion for exploring Los Nevados National Natural Park with verified information and group sync.',
+      offlineTitle: 'Built for airplane mode',
+      offlineBody:
+        'Knowledge chat, trail stations, and group sync run directly on your device without needing internet.',
+      sourcesTitle: 'Reference sources',
+      sourcesBody:
+        'Content based on Parques Nacionales Naturales de Colombia, Servicio Geológico Colombiano (SGC), IDEAM, and iNaturalist.',
+      creditsTitle: 'Credits and licenses',
+      creditsBody:
+        'Manrope and Bricolage Grotesque fonts (OFL), Lucide icons (ISC), and photo credits on every image.',
+    },
+  },
   dev: {
     lab: 'Onboarding Lab',
     design: 'Components',
+    groupSim: {
+      barLabel: 'Temporary simulator (web)',
+      guideNearbyOn: 'Guide nearby: on',
+      guideNearbyOff: 'Simulate guide nearby',
+      addVisitor: '+ Visitor',
+      addVisitorCount: '+ Visitor ({n})',
+      addOtherGuide: '+ Other guide',
+      removeOtherGuide: 'Remove other guide',
+      clear: 'Clear',
+      simulateGuide: 'Simulate guide',
+      near: 'Near',
+      away: 'Far',
+      lost: 'No signal',
+    },
     workshop: {
       title: 'Components',
       position: '{n} / {name}',

@@ -5,6 +5,7 @@
 | [`retrieval-architecture.md`](retrieval-architecture.md) | **The architecture**: vector gateway, the 15 gates and their strategies (declared vs running), shared embedder, follow-ups, decision layer, parameters |
 | [`architecture.md`](architecture.md) | Current design: runtime pipeline, assets, regeneration, renderers, what is legacy |
 | [`system-map.md`](system-map.md) | The web of the whole repo: every data flow with its script, blast radius per change, nodes not rebuildable from git |
+| [`agent-index/`](agent-index/README.md) | Task-first index to 30 code maps for the repository's source, data, tools, and tests |
 | [`knowledge-contract.md`](knowledge-contract.md) | Schema and rules of a knowledge entry (read by `kb.py`, the `add-park-knowledge` skill and its tests; do not move) |
 | [`schemas/`](schemas/) | JSON Schema of a section file (read by code; do not move) |
 | [`../mobile/README.md`](../mobile/README.md) | Mobile developer guide |

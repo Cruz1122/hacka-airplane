@@ -1,33 +1,46 @@
 // Compact 22-byte BLE beacon frame (44 hex chars) carried after the 2-byte "NV" magic prefix.
-// Layout (version 2):
-//   [0]     version (high nibble = 2) | flags (bit0=guide, bit1=rear, bit2=syncing, bit3=nfcCard)
+// Layout (version 3):
+//   [0]     version (high nibble = 3) | flags (bit0=guide, bit1=rear, bit2=syncing, bit3=nfcCard)
 //   [1..2]  groupId   (uint16 BE; 0 = unpaired visitor searching)
 //   [3..4]  senderId  (uint16 BE; 1..65535)
 //   [5]     echoFrontRssi (int8; 0 = unheard, -127..-1 = dBm)
 //   [6]     echoRearRssi  (int8; 0 = unheard, -127..-1 = dBm)
-//   [7..16] name UTF-8 (10 bytes, truncated on code-point boundary, zero-padded)
+//   [7..15] name UTF-8 (9 bytes, truncated on code-point boundary, zero-padded)
+//   [16]    look (uint8; 0 = absent; low 3 bits = accessory, bits 3..5 = tint)
 //   [17]    alertMeters (uint8; 0 = absent; guides only)
 //   [18..21] auth tag (uint32 BE; 0 until group-key signing lands)
-// Version 1 had an 11-byte name in [7..17] and no alertMeters; it still decodes (alertMeters
-// absent) so this build hears phones running an older one. Older builds drop version 2 frames.
+// Version 2 had a 10-byte name in [7..16] and no look; version 1 had an 11-byte name in [7..17]
+// and no alertMeters or look. Both still decode so this build hears phones running older ones.
 // `nfcCard` tells NFC-capable visitors to wait for a tap instead of pairing over BLE proximity;
 // decoders that predate it ignore the bit.
 //
 // NFC pairing record (the guide's HCE answer to SELECT AID, before the status word):
-//   [0]     version (high nibble = 2) | flags (bit1=rear)
+//   [0]     version (high nibble = 3) | flags (bit1=rear)
 //   [1..2]  groupId      (uint16 BE; non-zero)
 //   [3..4]  guide shortId (uint16 BE; non-zero)
 //   [5]     alertMeters  (uint8; 0 = absent)
-//   [6]     name length N (0..PAIRING_NAME_MAX_BYTES)
-//   [7..]   name UTF-8 (N bytes, truncated on code-point boundary)
-// Version 1 had no alertMeters byte (name length at [5]) and still decodes.
+//   [6]     look         (uint8; 0 = absent)
+//   [7]     name length N (0..PAIRING_NAME_MAX_BYTES)
+//   [8..]   name UTF-8 (N bytes, truncated on code-point boundary)
+// Version 2 had no look byte (name length at [6]); version 1 had neither alertMeters nor look
+// (name length at [5]). Both still decode.
 import { GROUP_POLICY } from './policy';
-import { memberId, type GuideSlot, type Member, type MemberId } from './types';
+import {
+  memberId,
+  type GuideSlot,
+  type Member,
+  type MemberAccessory,
+  type MemberId,
+  type MemberLook,
+  type MemberTint,
+} from './types';
 
-export const BEACON_VERSION = 2;
+export const BEACON_VERSION = 3;
 export const BEACON_BYTES = 22;
-export const BEACON_NAME_MAX_BYTES = 10;
+export const BEACON_NAME_MAX_BYTES = 9;
+const BEACON_V2_NAME_MAX_BYTES = 10;
 const BEACON_V1_NAME_MAX_BYTES = 11;
+const BEACON_LOOK_INDEX = 16;
 const BEACON_ALERT_METERS_INDEX = 17;
 
 const FLAG_GUIDE = 0x01;
@@ -35,10 +48,21 @@ const FLAG_REAR = 0x02;
 const FLAG_SYNCING = 0x04;
 const FLAG_NFC_CARD = 0x08;
 
-export const PAIRING_VERSION = 2;
+export const PAIRING_VERSION = 3;
 export const PAIRING_NAME_MAX_BYTES = 32;
-const PAIRING_HEADER_BYTES = 7;
+const PAIRING_HEADER_BYTES = 8;
+const PAIRING_V2_HEADER_BYTES = 7;
 const PAIRING_V1_HEADER_BYTES = 6;
+
+const LOOK_ACCESSORIES: readonly (MemberAccessory | 'none')[] = [
+  'none',
+  'guideHat',
+  'visitorCap',
+  'beanie',
+  'bandana',
+  'flower',
+];
+const LOOK_TINTS: readonly MemberTint[] = ['ink', 'sky', 'sun', 'lupine'];
 
 export interface BeaconFrame {
   readonly groupId: number;
@@ -53,6 +77,8 @@ export interface BeaconFrame {
   readonly name: string;
   /** Guide only: its alert distance in meters; absent when it set none (or a v1 frame). */
   readonly alertMeters?: number;
+  /** What this phone's Pet wears; absent on v1/v2 frames or when unset. */
+  readonly look?: MemberLook;
   readonly tag: number;
 }
 
@@ -63,6 +89,7 @@ export interface PairingRecord {
   readonly slot: GuideSlot;
   readonly name: string;
   readonly alertMeters?: number;
+  readonly look?: MemberLook;
 }
 
 const SHORT_ID_PREFIX = 'g-';
@@ -112,8 +139,9 @@ export function memberFromBeacon(frame: BeaconFrame, fallbackName: string): Memb
         name,
         slot: frame.slot,
         ...withAlertMeters(frame.alertMeters),
+        ...withLook(frame.look),
       }
-    : { id, role: 'visitor', name };
+    : { id, role: 'visitor', name, ...withLook(frame.look) };
 }
 
 /** Spread into a guide Member so an absent distance leaves no `alertMeters` key behind. */
@@ -121,6 +149,38 @@ export function withAlertMeters(meters: number | undefined): {
   alertMeters?: number;
 } {
   return meters === undefined ? {} : { alertMeters: meters };
+}
+
+/** Spread into a Member/frame so an absent look leaves no `look` key behind. */
+export function withLook(look: MemberLook | undefined): { look?: MemberLook } {
+  if (!look || (look.accessory === undefined && look.tint === undefined)) return {};
+  return { look };
+}
+
+export function sameLook(a: MemberLook | undefined, b: MemberLook | undefined): boolean {
+  return a?.accessory === b?.accessory && a?.tint === b?.tint;
+}
+
+function encodeLook(look: MemberLook | undefined): number {
+  if (!look) return 0;
+  const accIdx = look.accessory ? LOOK_ACCESSORIES.indexOf(look.accessory) + 1 : 0;
+  const tintIdx =
+    look.accessory !== 'none' && look.tint ? LOOK_TINTS.indexOf(look.tint) + 1 : 0;
+  return (accIdx & 0x07) | ((tintIdx & 0x07) << 3);
+}
+
+function decodeLook(byte: number): MemberLook | undefined {
+  if (byte === 0) return undefined;
+  const accCode = byte & 0x07;
+  const tintCode = (byte >>> 3) & 0x07;
+  const accessory = accCode > 0 ? LOOK_ACCESSORIES[accCode - 1] : undefined;
+  const tint = tintCode > 0 ? LOOK_TINTS[tintCode - 1] : undefined;
+  if (!accessory && !tint) return undefined;
+  if (accessory === 'none') return { accessory: 'none' };
+  return {
+    ...(accessory ? { accessory } : {}),
+    ...(tint ? { tint } : {}),
+  };
 }
 
 function encodeAlertMeters(meters: number | undefined): number {
@@ -237,6 +297,7 @@ export function encodeBeacon(frame: BeaconFrame): string {
 
   const nameBytes = encodeUtf8Bounded(frame.name, BEACON_NAME_MAX_BYTES);
   for (let i = 0; i < nameBytes.length; i++) buf[7 + i] = nameBytes[i];
+  buf[BEACON_LOOK_INDEX] = encodeLook(frame.look);
   buf[BEACON_ALERT_METERS_INDEX] =
     frame.role === 'guide' ? encodeAlertMeters(frame.alertMeters) : 0;
 
@@ -253,7 +314,7 @@ export function decodeBeacon(payloadHex: string): BeaconFrame | null {
   const buf = hexToBytes(payloadHex);
   if (!buf) return null;
   const version = buf[0] >>> 4;
-  if (version !== BEACON_VERSION && version !== 1) return null;
+  if (version !== BEACON_VERSION && version !== 2 && version !== 1) return null;
   const flags = buf[0] & 0x0f;
   const isGuide = (flags & FLAG_GUIDE) !== 0;
   const groupId = (buf[1] << 8) | buf[2];
@@ -261,7 +322,13 @@ export function decodeBeacon(payloadHex: string): BeaconFrame | null {
   if (senderId === 0) return null;
 
   const tag = ((buf[18] << 24) | (buf[19] << 16) | (buf[20] << 8) | buf[21]) >>> 0;
-  const nameBytes = version === 1 ? BEACON_V1_NAME_MAX_BYTES : BEACON_NAME_MAX_BYTES;
+  const nameBytes =
+    version === 1
+      ? BEACON_V1_NAME_MAX_BYTES
+      : version === 2
+        ? BEACON_V2_NAME_MAX_BYTES
+        : BEACON_NAME_MAX_BYTES;
+  const look = version >= 3 ? decodeLook(buf[BEACON_LOOK_INDEX]) : undefined;
   const alertMeters =
     version === 1 || !isGuide ? undefined : decodeAlertMeters(buf[BEACON_ALERT_METERS_INDEX]);
   return {
@@ -275,6 +342,7 @@ export function decodeBeacon(payloadHex: string): BeaconFrame | null {
     echoRearRssi: decodeRssi(buf[6]),
     name: decodeUtf8Bytes(buf.subarray(7, 7 + nameBytes)),
     ...withAlertMeters(alertMeters),
+    ...withLook(look),
     tag,
   };
 }
@@ -288,18 +356,24 @@ export function encodePairing(record: PairingRecord): string {
   buf[3] = (record.guideShortId >>> 8) & 0xff;
   buf[4] = record.guideShortId & 0xff;
   buf[5] = encodeAlertMeters(record.alertMeters);
-  buf[6] = name.length;
+  buf[6] = encodeLook(record.look);
+  buf[7] = name.length;
   buf.set(name, PAIRING_HEADER_BYTES);
   return bytesToHex(buf);
 }
 
-/** Parses an NFC pairing record (v1 or v2); null for anything malformed. */
+/** Parses an NFC pairing record (v1, v2, or v3); null for anything malformed. */
 export function decodePairing(hex: string): PairingRecord | null {
   const buf = hexToBytes(hex);
   if (!buf || buf.length === 0) return null;
   const version = buf[0] >>> 4;
-  if (version !== PAIRING_VERSION && version !== 1) return null;
-  const header = version === 1 ? PAIRING_V1_HEADER_BYTES : PAIRING_HEADER_BYTES;
+  if (version !== PAIRING_VERSION && version !== 2 && version !== 1) return null;
+  const header =
+    version === 1
+      ? PAIRING_V1_HEADER_BYTES
+      : version === 2
+        ? PAIRING_V2_HEADER_BYTES
+        : PAIRING_HEADER_BYTES;
   if (buf.length < header) return null;
   const groupId = (buf[1] << 8) | buf[2];
   const guideShortId = (buf[3] << 8) | buf[4];
@@ -312,6 +386,7 @@ export function decodePairing(hex: string): PairingRecord | null {
     slot: (buf[0] & FLAG_REAR) !== 0 ? 'rear' : 'front',
     name: decodeUtf8Bytes(buf.subarray(header)),
     ...withAlertMeters(version === 1 ? undefined : decodeAlertMeters(buf[5])),
+    ...withLook(version >= 3 ? decodeLook(buf[6]) : undefined),
   };
 }
 

@@ -12,6 +12,7 @@ export type KnowledgeRow =
       id: string;
       role: 'assistant';
       reply: KnowledgeReply;
+      keywords?: readonly string[];
       timing?: KnowledgeTiming;
       /** Photos under the answer, decided once when the reply arrived. */
       media?: MediaPick;
@@ -40,6 +41,11 @@ export interface KnowledgeChatOptions {
 }
 
 const message = (e: unknown) => (e instanceof Error ? e.message : String(e));
+const now = (): number => (typeof performance !== 'undefined' ? performance.now() : Date.now());
+const elapsedTiming = (startedAt: number): KnowledgeTiming => {
+  const totalMs = Math.max(1, Math.round(now() - startedAt));
+  return { rulesMs: totalMs, embedMs: 0, retrieveMs: 0, rerankMs: 0, totalMs };
+};
 
 const unknownPhoto = 'No logro identificar lo que hay en tu imagen. ¿Podrías preguntarle a tu guía turístico por esto?';
 const editPhoto = 'No puedo editar imágenes. Puedo intentar identificar lo que aparece en la foto.';
@@ -102,12 +108,21 @@ export class KnowledgeChat {
   async ask(text: string): Promise<void> {
     const q = text.trim();
     if (!q || this.state.busy) return;
+    const startedAt = now();
     this.push({ id: this.id(), role: 'user', text: q }, true);
     const lastUser = this.state.rows.slice(0, -1).findLast(row => row.role === 'user');
     const capability = requestsPhotoEdit(normalizeRequest(q), !!lastUser?.photoUri) && !detectSafety(q).urgent
       ? editPhoto : capabilityReply(q);
     if (capability) {
-      this.push({ id: this.id(), role: 'assistant', reply: { type: 'abstain', text: capability } }, false);
+      this.push(
+        {
+          id: this.id(),
+          role: 'assistant',
+          reply: { type: 'abstain', text: capability },
+          timing: elapsedTiming(startedAt),
+        },
+        false,
+      );
       return;
     }
     try {
@@ -118,7 +133,7 @@ export class KnowledgeChat {
           id: this.id(),
           role: 'assistant',
           reply: r.reply,
-          timing: r.timing,
+          timing: r.timing.totalMs > 0 ? r.timing : { ...r.timing, totalMs: Math.max(1, now() - startedAt) },
           ...(media ? { media } : {}),
         },
         false,
@@ -130,6 +145,7 @@ export class KnowledgeChat {
 
   async askPhoto(photoUri: string, caption: string, classify: () => Promise<PhotoMatch | undefined>): Promise<void> {
     if (this.state.busy) return;
+    const startedAt = now();
     const generation = this.generation;
     const text = caption.trim();
     const words = normalizeRequest(text);
@@ -143,16 +159,18 @@ export class KnowledgeChat {
         return;
       }
       if (requestsPhotoEdit(words, true)) {
-        this.photoMessage(editPhoto);
+        this.photoMessage(editPhoto, startedAt);
         return;
       }
       const match = await classify();
       if (generation !== this.generation) return;
+      const classifyMs = Math.max(0, now() - startedAt);
       if (!match) {
-        this.photoMessage(unknownPhoto);
+        this.photoMessage(unknownPhoto, startedAt);
         return;
       }
       if ('id' in match) {
+        const totalMs = Math.max(1, Math.round(classifyMs));
         this.push({
           id: this.id(),
           role: 'assistant',
@@ -163,14 +181,18 @@ export class KnowledgeChat {
             text: `La foto se parece a ${match.label}.\n\n${match.description}`,
             sources: [match.source],
           },
+          timing: { rulesMs: 0, embedMs: 0, retrieveMs: totalMs, rerankMs: 0, totalMs },
         }, false);
         return;
       }
       const identify = /^(?:(?:dime )?que (?:es (?:esto|eso|lo que (?:encontre|vi))|(?:ves|hay)(?: (?:aqui|aca|en (?:esta |la )?(?:foto|imagen)))?)|(?:mira|mire)(?: (?:esto|eso|mi selfie|lo que (?:encontre|vi)))?|identifica (?:esto|la foto)|mirame(?: en (?:esta |la )?foto)?|miranos(?: en (?:esta |la )?foto)?)$/;
       if ('kind' in match) {
-        this.photoMessage(!words || identify.test(words)
-          ? '¡Te identifico a ti pasándola muy bien en nuestro parque!'
-          : unknownPhoto);
+        const describePerson = !words || identify.test(words);
+        this.photoMessage(describePerson
+          ? 'Parece que hay una persona en la foto. ¿Qué tal si exploramos lo que la rodea? Envíame una foto de una planta, un animal o un paisaje del parque.'
+          : unknownPhoto, startedAt, describePerson
+            ? ['una persona', 'una planta, un animal o un paisaje del parque']
+            : undefined);
         return;
       }
       const useCaption = !!text && !identify.test(words);
@@ -189,10 +211,18 @@ export class KnowledgeChat {
         text: [usesVisualEntry ? `La foto se parece a ${match.label}.` : undefined, description, base.text].filter(Boolean).join('\n\n'),
         ...(usesVisualEntry && 'source' in match ? { sources: [match.source, ...base.sources] } : {}),
       };
-      this.push({ id: this.id(), role: 'assistant', reply, timing: result.timing }, false);
+      this.push(
+        {
+          id: this.id(),
+          role: 'assistant',
+          reply,
+          timing: { ...result.timing, totalMs: result.timing.totalMs + classifyMs },
+        },
+        false,
+      );
     } catch {
       if (generation !== this.generation) return;
-      this.photoMessage(unknownPhoto);
+      this.photoMessage(unknownPhoto, startedAt);
     }
   }
 
@@ -224,8 +254,11 @@ export class KnowledgeChat {
     return pickMedia(this.media, { topicId: reply.id, userText, afterMedia }, this.rng);
   }
 
-  private photoMessage(text: string): void {
-    this.push({ id: this.id(), role: 'assistant', reply: { type: 'abstain', text } }, false);
+  private photoMessage(text: string, startedAt: number, keywords?: readonly string[]): void {
+    this.push(
+      { id: this.id(), role: 'assistant', reply: { type: 'abstain', text }, timing: elapsedTiming(startedAt), ...(keywords ? { keywords } : {}) },
+      false,
+    );
   }
 
   private id(): string {

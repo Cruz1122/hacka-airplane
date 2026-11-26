@@ -4,6 +4,7 @@ import { useState } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 
 import { fill, t } from '@/i18n';
+import { AccessibilitySheet } from '@/ui/AccessibilitySheet';
 import { Chip } from '@/ui/Chip';
 import { CloudNavBar, NAV_BAR_HEIGHT, type NavTab } from '@/ui/CloudNavBar';
 import { UserAvatar } from '@/ui/chat/Avatars';
@@ -11,6 +12,7 @@ import { TypingBubble } from '@/ui/chat/TypingBubble';
 import { PageDots } from '@/ui/PageDots';
 import { PET_NAME } from '@/ui/pet/petCore';
 import { PrimaryButton } from '@/ui/PrimaryButton';
+import { SettingsSheet } from '@/ui/SettingsSheet';
 import { brand, spacing, type } from '@/ui/theme/tokens';
 
 import { ActionButton, Choices, Field, Stage, Status, Toggle, type LabProps } from './chrome';
@@ -23,6 +25,7 @@ export function ButtonsLab({ wide }: LabProps) {
   const [last, setLast] = useState<{ name: string; count: number } | null>(null);
   const [tab, setTab] = useState<NavTab>('chat');
   const [navWidth, setNavWidth] = useState(0);
+  const [openSheet, setOpenSheet] = useState<'accessibility' | 'settings' | null>(null);
   const hit = (name: string) =>
     setLast((l) => ({ name, count: l?.name === name ? l.count + 1 : 1 }));
 
@@ -56,9 +59,18 @@ export function ButtonsLab({ wide }: LabProps) {
             active={tab}
             top={spacing.md}
             screenWidth={navWidth}
+            activeSide={openSheet}
             onSelect={(next) => {
               setTab(next);
               hit(`CloudNavBar · ${t.nav[next]}`);
+            }}
+            onAccessibility={() => {
+              setOpenSheet((prev) => (prev === 'accessibility' ? null : 'accessibility'));
+              hit(`CloudNavBar · ${t.nav.accessibility}`);
+            }}
+            onSettings={() => {
+              setOpenSheet((prev) => (prev === 'settings' ? null : 'settings'));
+              hit(`CloudNavBar · ${t.nav.settings}`);
             }}
           />
         )}
@@ -69,10 +81,28 @@ export function ButtonsLab({ wide }: LabProps) {
   const controls = (
     <>
       <Toggle label="chevron" value={chevron} onChange={setChevron} />
+      <View style={styles.row}>
+        <ActionButton
+          icon="accessibility"
+          label={t.nav.accessibility}
+          onPress={() => setOpenSheet('accessibility')}
+        />
+        <ActionButton
+          icon="settings"
+          label={t.nav.settings}
+          onPress={() => setOpenSheet('settings')}
+        />
+      </View>
       <Status>{last ? fill(w.pressed, last) : w.notPressed}</Status>
     </>
   );
-  return <Stage wide={wide} preview={preview} controls={controls} />;
+  return (
+    <>
+      <Stage wide={wide} preview={preview} controls={controls} />
+      <AccessibilitySheet open={openSheet === 'accessibility'} onClose={() => setOpenSheet(null)} />
+      <SettingsSheet open={openSheet === 'settings'} onClose={() => setOpenSheet(null)} />
+    </>
+  );
 }
 
 export function IndicatorsLab({ wide }: LabProps) {

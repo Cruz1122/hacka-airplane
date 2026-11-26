@@ -18,12 +18,18 @@ export const ChatBackdrop = memo(function ChatBackdrop({
   layout,
   time,
   rise,
+  extraLift = 0,
+  hideScene = false,
 }: {
   width: number;
   height: number;
   layout: ChatLayout;
-  /** Vertical move of the vapor sheet (negative = up, at most layout.keyboardLift). */
-  rise?: Animated.Value;
+  /** Vertical move of the vapor sheet (negative = up, at most max(keyboardLift, extraLift)). */
+  rise?: Animated.WithAnimatedValue<number>;
+  /** Extra lift height needed when the mist collapses to the top nav bar during a long chat. */
+  extraLift?: number;
+  /** Unmount the mountain illustration while the raised mist completely covers it. */
+  hideScene?: boolean;
   /** Idle-motion time the clouds and mist stand still at (the onboarding's, after the handoff). */
   time: number | null;
 }) {
@@ -33,17 +39,20 @@ export const ChatBackdrop = memo(function ChatBackdrop({
   );
   // Drawn at the zoomed size rather than scaled as a view, so Android never upscales a raster.
   const rect = layout.sceneRect;
+  const maxLift = Math.max(layout.keyboardLift, extraLift);
   return (
     <View style={StyleSheet.absoluteFill} pointerEvents="none">
-      <View style={{ position: 'absolute', left: rect.left, top: rect.top }}>
-        <SceneCanvas doc={doc} width={rect.width} height={rect.height} />
-      </View>
-      {/* Rising with the keyboard, the mist covers the ranges; taller by the lift so no sky shows
-          under it on the way up. */}
+      {!hideScene && (
+        <View style={{ position: 'absolute', left: rect.left, top: rect.top }}>
+          <SceneCanvas doc={doc} width={rect.width} height={rect.height} />
+        </View>
+      )}
+      {/* Rising with the keyboard or a long chat, the mist covers the ranges; taller by the max
+          lift so no sky shows under it on the way up. */}
       <Animated.View
         style={[styles.sheet, { top: layout.sheetTop, transform: [{ translateY: rise ?? 0 }] }]}
       >
-        <CloudCard width={width} height={height - layout.sheetTop + layout.keyboardLift}>
+        <CloudCard width={width} height={height - layout.sheetTop + maxLift}>
           {null}
         </CloudCard>
       </Animated.View>

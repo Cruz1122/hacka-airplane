@@ -1,8 +1,8 @@
-// What an assistant answer rests on: a sheet over the chat listing each source, with its link when
-// it has one and the passage itself when it does not. One sheet per screen, not one per bubble, so
-// opening it never resizes a list row (the list would jump to its end) and no open state can
-// follow a recycled row onto another message.
-import { useCallback, useEffect, useRef, useState } from 'react';
+// What an assistant answer rests on: a redesigned bottom sheet listing each source card with its
+// favicon preview, main URL fragment, clock-icon timestamp, favorite toggle, and icon-only link
+// button on the same row. One sheet per screen, not one per bubble, so opening it never resizes a
+// list row and no open state can follow a recycled row onto another message.
+import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import {
   Animated,
   BackHandler,
@@ -17,16 +17,24 @@ import {
 } from 'react-native';
 
 import { fill, t } from '@/i18n';
+import {
+  sourceFavoriteKey,
+  toggleFavoriteSource,
+  useFavoriteSources,
+} from '@/state/favoriteSources';
 
 import { Icon } from '../icons/Icon';
-import { brand, type } from '../theme/tokens';
+import { brand, fonts, radius, spacing, type } from '../theme/tokens';
+import { scaleSize, useAccessibilityTheme } from '../useAccessibilityTheme';
 import { useReducedMotion } from '../useReducedMotion';
 
 import type { ChatSource } from './citations';
+import { formatSourceLink, SourceFaviconBall, sourcePreviewFor } from './SourceFavicon';
 
 const copy = t.chatScreen.sources;
 /** Web pages only: a source never opens another app or runs a script. */
 const WEB_LINK = /^https?:\/\/\S+$/i;
+const USE_NATIVE_DRIVER = Platform.OS !== 'web';
 
 export interface SourcesSheetProps {
   /** The sources to list; null or empty keeps the sheet closed. */
@@ -48,8 +56,11 @@ function OpenSheet({
   bottom = 0,
   reducedMotion = false,
 }: SourcesSheetProps & { sources: ChatSource[] }) {
+  const { palette, scaled, highContrast, borderWidth } = useAccessibilityTheme();
   const reduced = useReducedMotion() || reducedMotion;
   const [shown] = useState(() => new Animated.Value(reduced ? 1 : 0));
+  const favorites = useFavoriteSources();
+  const favoriteKeys = useMemo(() => new Set(favorites.map((f) => f.key)), [favorites]);
   // Leaving, the chat under the sheet already takes touches. Keyed by the sources it is closing,
   // so asking for others while it leaves makes it take touches again.
   const [closingFor, setClosingFor] = useState<ChatSource[] | null>(null);
@@ -65,7 +76,7 @@ function OpenSheet({
       toValue: 1,
       duration: 260,
       easing: Easing.out(Easing.quad),
-      useNativeDriver: true,
+      useNativeDriver: USE_NATIVE_DRIVER,
     });
     anim.start();
     return () => anim.stop();
@@ -79,7 +90,7 @@ function OpenSheet({
       toValue: 0,
       duration: 200,
       easing: Easing.in(Easing.quad),
-      useNativeDriver: true,
+      useNativeDriver: USE_NATIVE_DRIVER,
     });
     leaving.current = anim;
     anim.start(({ finished }) => {
@@ -108,7 +119,13 @@ function OpenSheet({
         style={[
           StyleSheet.absoluteFill,
           styles.scrim,
-          { opacity: shown.interpolate({ inputRange: [0, 1], outputRange: [0, 0.28] }) },
+          {
+            backgroundColor: palette.ink,
+            opacity: shown.interpolate({
+              inputRange: [0, 1],
+              outputRange: [0, highContrast ? 0.42 : 0.28],
+            }),
+          },
         ]}
       >
         {/* Tapping outside closes too; screen readers get the labelled close button instead. */}
@@ -117,7 +134,12 @@ function OpenSheet({
       <Animated.View
         style={[
           styles.sheet,
-          { paddingBottom: bottom + 16 },
+          {
+            paddingBottom: bottom + 16,
+            backgroundColor: palette.card,
+            borderTopWidth: highContrast ? borderWidth : 0,
+            borderColor: palette.ink,
+          },
           {
             opacity: shown,
             transform: [
@@ -127,22 +149,38 @@ function OpenSheet({
         ]}
         accessibilityViewIsModal
       >
+        <View style={[styles.handle, { backgroundColor: palette.primarySoft }]} aria-hidden />
         <View style={styles.header}>
-          <Text style={styles.title} accessibilityRole="header">
-            {copy.title}
-          </Text>
+          <View style={styles.titleRow}>
+            <Text style={[styles.title, scaled.title, { color: palette.ink }]} accessibilityRole="header">
+              {copy.title}
+            </Text>
+            <View style={[styles.countBadge, { backgroundColor: palette.cardShade }]} aria-hidden>
+              <Text style={[styles.countText, { color: palette.ink }]}>{sources.length}</Text>
+            </View>
+          </View>
           <Pressable
             onPress={close}
             accessibilityRole="button"
             accessibilityLabel={copy.close}
-            style={({ pressed }) => [styles.close, pressed && styles.closePressed]}
+            style={({ pressed }) => [
+              styles.close,
+              { outlineColor: palette.primary },
+              pressed && { backgroundColor: palette.cardShade },
+            ]}
           >
-            <Icon name="x" size={20} color={brand.ink} />
+            <Icon name="x" size={20} color={palette.ink} />
           </Pressable>
         </View>
         <ScrollView style={styles.list} contentContainerStyle={styles.listContent}>
           {sources.map((s, i) => (
-            <SourceItem key={s.id} source={s} first={i === 0} />
+            <SourceCard
+              key={s.id}
+              source={s}
+              index={i}
+              saved={favoriteKeys.has(sourceFavoriteKey(s))}
+              reduced={reduced}
+            />
           ))}
         </ScrollView>
       </Animated.View>
@@ -150,32 +188,152 @@ function OpenSheet({
   );
 }
 
-function SourceItem({ source, first }: { source: ChatSource; first: boolean }) {
+function SourceCard({
+  source,
+  index,
+  saved,
+  reduced,
+}: {
+  source: ChatSource;
+  index: number;
+  saved: boolean;
+  reduced: boolean;
+}) {
+  const { palette, textScale, highContrast, borderWidth } = useAccessibilityTheme();
   const url = source.url && WEB_LINK.test(source.url) ? source.url : null;
+  const fragment = useMemo(() => formatSourceLink(url ?? undefined), [url]);
+  const preview = useMemo(() => sourcePreviewFor(source, index), [source, index]);
+  const [starScale] = useState(() => new Animated.Value(1));
   const open = () => {
     if (!url) return;
     Linking.openURL(url).catch((e: unknown) =>
       console.warn(`Could not open source ${source.id} (${url})`, e),
     );
   };
+  const toggleFav = () => {
+    toggleFavoriteSource(source);
+    if (reduced) return;
+    starScale.setValue(0.84);
+    Animated.spring(starScale, {
+      toValue: 1,
+      stiffness: 420,
+      damping: 20,
+      useNativeDriver: USE_NATIVE_DRIVER,
+    }).start();
+  };
   return (
-    <View style={[styles.item, !first && styles.itemDivided]}>
-      <Text style={styles.itemTitle}>{source.title}</Text>
-      {source.excerpt ? <Text style={styles.excerpt}>{source.excerpt}</Text> : null}
-      {source.date ? (
-        <Text style={styles.date}>{fill(copy.retrieved, { date: source.date })}</Text>
-      ) : null}
-      {url ? (
-        <Pressable
-          onPress={open}
-          accessibilityRole="link"
-          accessibilityLabel={fill(copy.openLabel, { title: source.title })}
-          style={({ pressed }) => [styles.link, pressed && styles.linkPressed]}
+    <View
+      style={[
+        styles.card,
+        {
+          borderColor: highContrast ? palette.ink : palette.cardShade,
+          borderWidth,
+          backgroundColor: palette.card,
+          boxShadow: `0 2px 10px ${palette.glow}`,
+        },
+      ]}
+    >
+      <View style={styles.cardHead}>
+        <SourceFaviconBall preview={preview} size={28} ringColor={palette.cardShade} />
+        <View style={styles.cardHeadText}>
+          <Text
+            style={[
+              styles.itemTitle,
+              {
+                color: palette.ink,
+                fontSize: scaleSize(15, textScale),
+                lineHeight: scaleSize(20, textScale),
+              },
+            ]}
+          >
+            {source.title}
+          </Text>
+          {fragment ? (
+            <Text
+              style={[
+                styles.linkFragment,
+                {
+                  color: palette.primary,
+                  fontSize: scaleSize(12, textScale),
+                  lineHeight: scaleSize(16, textScale),
+                },
+              ]}
+              numberOfLines={1}
+              ellipsizeMode="tail"
+            >
+              {fragment}
+            </Text>
+          ) : null}
+        </View>
+      </View>
+      {source.excerpt ? (
+        <Text
+          style={[
+            styles.excerpt,
+            {
+              color: palette.inkMuted,
+              fontSize: scaleSize(14, textScale),
+              lineHeight: scaleSize(20, textScale),
+            },
+          ]}
         >
-          <Icon name="externalLink" size={16} color={brand.ink} />
-          <Text style={styles.linkText}>{copy.open}</Text>
-        </Pressable>
+          {source.excerpt}
+        </Text>
       ) : null}
+      <View style={styles.cardFooter}>
+        <View style={styles.dateRow}>
+          {source.date ? (
+            <>
+              <Icon name="clock" size={13} color={palette.inkMuted} strokeWidth={2} />
+              <Text style={[styles.date, { color: palette.inkMuted }]}>{source.date}</Text>
+            </>
+          ) : null}
+        </View>
+        <View style={styles.actions}>
+          <Animated.View style={{ transform: [{ scale: starScale }] }}>
+            <Pressable
+              onPress={toggleFav}
+              hitSlop={4}
+              accessibilityRole="button"
+              accessibilityState={{ selected: saved }}
+              accessibilityLabel={fill(saved ? copy.unfavoriteLabel : copy.favoriteLabel, {
+                title: source.title,
+              })}
+              style={({ pressed }) => [
+                styles.iconAction,
+                {
+                  backgroundColor: saved ? palette.primary : palette.cardShade,
+                  outlineColor: palette.primary,
+                },
+                pressed && styles.iconActionPressed,
+              ]}
+            >
+              <Icon
+                name="star"
+                size={16}
+                color={saved ? palette.onPrimary : palette.ink}
+                fill={saved ? palette.onPrimary : 'none'}
+                strokeWidth={2}
+              />
+            </Pressable>
+          </Animated.View>
+          {url ? (
+            <Pressable
+              onPress={open}
+              hitSlop={4}
+              accessibilityRole="link"
+              accessibilityLabel={fill(copy.openLabel, { title: source.title })}
+              style={({ pressed }) => [
+                styles.iconAction,
+                { backgroundColor: palette.cardShade, outlineColor: palette.primary },
+                pressed && styles.iconActionPressed,
+              ]}
+            >
+              <Icon name="externalLink" size={16} color={palette.ink} strokeWidth={2} />
+            </Pressable>
+          ) : null}
+        </View>
+      </View>
     </View>
   );
 }
@@ -185,22 +343,52 @@ const styles = StyleSheet.create({
   overlay: { justifyContent: 'flex-end', alignItems: 'center' },
   scrim: { backgroundColor: brand.ink },
   sheet: {
-    maxHeight: '72%',
+    maxHeight: '76%',
     width: '100%',
     maxWidth: 560,
     paddingTop: 8,
-    borderTopLeftRadius: 26,
-    borderTopRightRadius: 26,
+    borderTopLeftRadius: 28,
+    borderTopRightRadius: 28,
     backgroundColor: brand.card,
+  },
+  handle: {
+    width: 36,
+    height: 4,
+    borderRadius: 2,
+    backgroundColor: brand.primarySoft,
+    alignSelf: 'center',
+    marginBottom: 6,
   },
   header: {
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
-    paddingLeft: 22,
+    paddingLeft: 20,
     paddingRight: 10,
+    paddingBottom: 8,
+  },
+  titleRow: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 8,
   },
   title: { ...type.title, color: brand.ink },
+  countBadge: {
+    minWidth: 24,
+    height: 22,
+    paddingHorizontal: 7,
+    borderRadius: radius.pill,
+    backgroundColor: brand.cardShade,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  countText: {
+    fontFamily: fonts.bold,
+    fontSize: 12,
+    lineHeight: 16,
+    color: brand.ink,
+    fontVariant: ['tabular-nums'],
+  },
   close: {
     width: 44,
     height: 44,
@@ -211,24 +399,81 @@ const styles = StyleSheet.create({
   },
   closePressed: { backgroundColor: brand.cardShade },
   list: { flexGrow: 0 },
-  listContent: { paddingHorizontal: 22, paddingBottom: 4 },
-  item: { paddingVertical: 14, gap: 6 },
-  itemDivided: { borderTopWidth: StyleSheet.hairlineWidth, borderTopColor: brand.cardShade },
-  itemTitle: { ...type.label, color: brand.ink },
-  excerpt: { ...type.body, color: brand.inkMuted },
-  date: { ...type.caption, color: brand.inkMuted },
-  link: {
+  listContent: { paddingHorizontal: 18, paddingTop: 4, paddingBottom: 8, gap: 10 },
+  card: {
+    borderRadius: 18,
+    borderWidth: 1,
+    borderColor: brand.cardShade,
+    backgroundColor: brand.card,
+    paddingHorizontal: 14,
+    paddingVertical: 12,
+    gap: 10,
+    boxShadow: `0 2px 10px ${brand.glow}`,
+  },
+  cardHead: {
     flexDirection: 'row',
     alignItems: 'center',
-    alignSelf: 'flex-start',
+    gap: 10,
+  },
+  cardHeadText: {
+    flex: 1,
+    gap: 2,
+  },
+  itemTitle: {
+    ...type.label,
+    fontSize: 15,
+    lineHeight: 20,
+    color: brand.ink,
+  },
+  linkFragment: {
+    ...type.caption,
+    fontSize: 12,
+    lineHeight: 16,
+    color: brand.primary,
+  },
+  excerpt: {
+    ...type.body,
+    fontSize: 14,
+    lineHeight: 20,
+    color: brand.inkMuted,
+  },
+  cardFooter: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    gap: spacing.sm,
+  },
+  dateRow: {
+    flex: 1,
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 5,
+  },
+  date: {
+    ...type.caption,
+    fontSize: 12,
+    lineHeight: 16,
+    color: brand.inkMuted,
+    fontVariant: ['tabular-nums'],
+  },
+  actions: {
+    flexDirection: 'row',
+    alignItems: 'center',
     gap: 8,
-    minHeight: 44,
-    paddingHorizontal: 14,
-    marginTop: 2,
-    borderRadius: 22,
+  },
+  iconAction: {
+    width: 36,
+    height: 36,
+    borderRadius: 18,
+    alignItems: 'center',
+    justifyContent: 'center',
     backgroundColor: brand.cardShade,
     outlineColor: brand.primary,
   },
-  linkPressed: { opacity: 0.85 },
-  linkText: { ...type.label, color: brand.ink },
+  iconActionSaved: {
+    backgroundColor: brand.primary,
+  },
+  iconActionPressed: {
+    opacity: 0.8,
+  },
 });

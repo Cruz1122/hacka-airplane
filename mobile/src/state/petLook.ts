@@ -1,10 +1,10 @@
 // The phone owner's two Pets, one as a guide and one as a visitor: what each wears and in which
-// colors. Kept on the device (expo-sqlite kv-store, like settings) and shared by every screen
-// through one module store.
-// Only this phone sees it for now: the radio does not carry it to the other phones yet.
+// colors. Kept on the device (expo-sqlite kv-store, like settings), shared by every screen
+// through one module store, and carried over the BLE/NFC group radio as `MemberLook`.
 import Storage from 'expo-sqlite/kv-store';
 import { useSyncExternalStore } from 'react';
 
+import type { MemberLook } from '@/core/group/types';
 import {
   defaultTint,
   PET_ACCESSORIES,
@@ -68,6 +68,28 @@ export function wornBy(look: PetLook, role: PetRole): { accessory?: PetAccessory
         ? undefined
         : look.accessory;
   if (!accessory) return {};
+  return { accessory, tint: look.tint ?? defaultTint(accessory) };
+}
+
+/** Resolves a local PetLook into the wire-ready MemberLook sent over BLE/NFC. */
+export function memberLookOf(look: PetLook, role: PetRole): MemberLook {
+  const worn = wornBy(look, role);
+  if (!worn.accessory) return { accessory: 'none' };
+  return { accessory: worn.accessory, ...(worn.tint ? { tint: worn.tint } : {}) };
+}
+
+/** Resolves a peer's wire MemberLook into what its Pet wears on the lane. */
+export function wornFromMember(
+  look: MemberLook | undefined,
+  role: PetRole,
+): { accessory?: PetAccessory; tint?: PetTint } {
+  if (!look) {
+    const accessory: PetAccessory = role === 'guide' ? 'guideHat' : 'visitorCap';
+    return { accessory, tint: defaultTint(accessory) };
+  }
+  if (look.accessory === 'none') return {};
+  const accessory: PetAccessory =
+    look.accessory ?? (role === 'guide' ? 'guideHat' : 'visitorCap');
   return { accessory, tint: look.tint ?? defaultTint(accessory) };
 }
 

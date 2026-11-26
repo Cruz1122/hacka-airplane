@@ -9,9 +9,10 @@ import { useEffect, useState } from 'react';
 import { Animated, Easing, Platform, Pressable, StyleSheet, Text, View } from 'react-native';
 
 import { Icon } from '../icons/Icon';
-import type { PetAccessory, PetTint } from '../pet/petCore';
+import { PET_FACE_VIEWBOX, type PetAccessory, type PetTint } from '../pet/petCore';
 import { Pet } from '../pet/Pet';
 import { brand, spacing, type } from '../theme/tokens';
+import { useAccessibilityTheme } from '../useAccessibilityTheme';
 import { useReducedMotion } from '../useReducedMotion';
 
 import { roleCircleSize } from './roleCardSize';
@@ -58,6 +59,7 @@ export function RoleCard({
   disabled = false,
 }: RoleCardProps) {
   const reduced = useReducedMotion();
+  const { palette, scaled, highContrast } = useAccessibilityTheme();
   const [height, setHeight] = useState(ROLE_CARD_MIN);
   const [cardFocused, setCardFocused] = useState(false);
   const [cardPressed, setCardPressed] = useState(false);
@@ -159,7 +161,8 @@ export function RoleCard({
   };
 
   const active = cardPressed || selected;
-  const circle = roleCircleSize(height, width, 2 * spacing.lg + LABEL_ROOM);
+  const labelRoom = scaled.title.lineHeight + spacing.md;
+  const circle = roleCircleSize(height, width, 2 * spacing.lg + labelRoom);
   return (
     <Animated.View
       style={[
@@ -178,6 +181,7 @@ export function RoleCard({
           style={[
             StyleSheet.absoluteFill,
             styles.pulseHalo,
+            { borderColor: palette.primary },
             {
               opacity: pulse.interpolate({
                 inputRange: [0, 0.2, 0.75, 1],
@@ -209,8 +213,12 @@ export function RoleCard({
         style={[
           StyleSheet.absoluteFill,
           styles.card,
-          cardFocused && styles.focused,
-          active && styles.cardPressed,
+          {
+            backgroundColor: palette.card,
+            borderColor: highContrast ? palette.ink : palette.primarySoft,
+          },
+          cardFocused && [styles.focused, { borderColor: palette.primary }],
+          active && { backgroundColor: palette.cardShade, borderColor: palette.primary },
         ]}
       />
       <View style={styles.content} pointerEvents="box-none">
@@ -222,15 +230,21 @@ export function RoleCard({
             importantForAccessibility="no-hide-descendants"
             style={[
               styles.circle,
-              active && styles.circleActive,
-              { width: circle, height: circle, borderRadius: circle / 2 },
+              {
+                backgroundColor: palette.primary,
+                borderColor: active ? palette.primary : palette.primarySoft,
+                width: circle,
+                height: circle,
+                borderRadius: circle / 2,
+              },
             ]}
           >
             <Pet
-              size={circle * 0.74}
+              size={circle * 0.9}
               emotion="happy"
               accessory={wears.accessory}
               tint={wears.tint}
+              crop={PET_FACE_VIEWBOX}
               lookAround
             />
           </View>
@@ -247,12 +261,17 @@ export function RoleCard({
               // On the circle's lower right edge.
               style={({ pressed }) => [
                 styles.pencil,
-                { left: circle * 0.854 - PENCIL / 2, top: circle * 0.854 - PENCIL / 2 },
+                {
+                  borderColor: palette.card,
+                  backgroundColor: palette.ink,
+                  left: circle * 0.854 - PENCIL / 2,
+                  top: circle * 0.854 - PENCIL / 2,
+                },
                 pencilFocused && styles.focused,
                 pressed && styles.pencilPressed,
               ]}
             >
-              <Icon name={editing ? 'check' : 'pencil'} size={16} color={brand.onPrimary} />
+              <Icon name={editing ? 'check' : 'pencil'} size={16} color={palette.onPrimary} />
             </Pressable>
           )}
         </View>
@@ -263,18 +282,25 @@ export function RoleCard({
           accessibilityElementsHidden
           importantForAccessibility="no-hide-descendants"
         >
-          <Text style={styles.label} numberOfLines={2}>
+          <Text
+            style={[
+              styles.label,
+              {
+                fontSize: scaled.title.fontSize,
+                lineHeight: scaled.title.lineHeight,
+                color: palette.ink,
+              },
+            ]}
+            numberOfLines={2}
+          >
             {label}
           </Text>
-          <Icon name="chevronRight" size={20} color={brand.primary} strokeWidth={2.4} />
+          <Icon name="chevronRight" size={20} color={palette.primary} strokeWidth={2.4} />
         </View>
       </View>
     </Animated.View>
   );
 }
-
-/** The label's line plus its gap under the circle. */
-const LABEL_ROOM = type.title.lineHeight + spacing.md;
 
 const styles = StyleSheet.create({
   root: { flex: 1, minHeight: ROLE_CARD_MIN },

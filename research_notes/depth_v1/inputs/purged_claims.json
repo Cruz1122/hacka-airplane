@@ -1,0 +1,17 @@
+{
+ "_doc": "Claims the section quality reviews purged as unsupported (correction-receipt.md). check_depth.py rejects any depth sentence or paraphrase matching one (folded text, regex). A claim may come back only via T3b with a captured primary source, logged in DECISION_LOG.",
+ "patterns": [
+  {"re": "\\b1\\s*(a|-|–|y)\\s*2\\s*(cm|centimetros?)\\b", "why": "frailejón growth rate purged (flora receipt H1)"},
+  {"re": "albedo|reflectividad.{0,30}\\b(80|90)\\b", "why": "albedo % purged (flora receipt)"},
+  {"re": "(mas de|>)\\s*90\\s*%", "why": "páramo >90% water share purged (flora receipt)"},
+  {"re": "\\b3\\s*(a|-|–)\\s*4 millones", "why": "beneficiary census purged (flora receipt)"},
+  {"re": "\\b5\\s*(a|-|–)\\s*10\\s*(°|grados)", "why": "invented pajonal microclimate (flora receipt)"},
+  {"re": "polylepis.{0,80}3\\.?500", "why": "Polylepis 3,500 m purged; PNN says above 3,000 m"},
+  {"re": "\\b(16:30|17:30)\\b", "why": "invented camping cutoff / rescue activation (hours_status receipt)"},
+  {"re": "926\\.?320", "why": "comparendo amount removed (actions receipt)"},
+  {"re": "\\bn95\\b", "why": "no official N95 guidance (weather_volcano receipt)"},
+  {"re": "formalmente decretad", "why": "VOC not formally decreed (flora receipt)"},
+  {"re": "pseudothelphusid", "why": "river crabs entry removed, no presence record (fauna receipt)"},
+  {"re": "comite.{0,40}certific.{0,40}(terreno|seguro)", "why": "invented reopening committee (hours_status receipt)"}
+ ]
+}

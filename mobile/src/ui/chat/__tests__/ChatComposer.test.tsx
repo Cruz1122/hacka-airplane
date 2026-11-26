@@ -37,6 +37,7 @@ function mount(props: Partial<ChatComposerProps>) {
     render,
     field,
     button,
+    all: (pred: (n: TestInstance) => boolean) => root.container.queryAll(pred),
     type: (text: string) => act(() => field().props.onChangeText(text)),
     submit: () => act(() => field().props.onSubmitEditing()),
     press: () => act(() => button().props.onClick(PRESS)),
@@ -104,5 +105,18 @@ describe('ChatComposer (docked)', () => {
     expect(c.button().props.accessibilityState).toEqual({ disabled: false });
     c.render({ variant: 'docked', disabled: true });
     expect(c.button().props.accessibilityState).toEqual({ disabled: true });
+  });
+
+  it('shows the framed photo attachment preview, enables sending, and removes it on press', () => {
+    const onRemovePhoto = jest.fn();
+    const c = mount({ variant: 'docked', photoUri: 'file:///frailejon.jpg', onRemovePhoto });
+    expect(c.button().props.accessibilityState).toEqual({ disabled: false });
+    expect(c.all((n) => n.type === 'Image')).toHaveLength(1);
+    const removeBtn = c.all(
+      (n) => n.type === 'View' && n.props.accessibilityLabel === 'Quitar foto',
+    );
+    expect(removeBtn).toHaveLength(1);
+    act(() => removeBtn[0].props.onClick(PRESS));
+    expect(onRemovePhoto).toHaveBeenCalledTimes(1);
   });
 });

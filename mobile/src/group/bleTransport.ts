@@ -21,8 +21,10 @@ import {
   encodePairing,
   memberFromBeacon,
   memberIdToShortId,
+  sameLook,
   shortIdToMemberId,
   withAlertMeters,
+  withLook,
   type BeaconFrame,
 } from '@/core/group/wire';
 
@@ -207,6 +209,7 @@ export function createBleTransport(
                 slot: self.slot,
                 name: self.name,
                 ...withAlertMeters(ownAlertMeters()),
+                ...withLook(self.look),
               })
             : null,
         );
@@ -235,6 +238,7 @@ export function createBleTransport(
           echoRearRssi: self.role === 'visitor' ? (echoes.rear?.rssi ?? null) : null,
           name: self.name,
           ...withAlertMeters(ownAlertMeters()),
+          ...withLook(self.look),
           tag: 0,
         };
         return encodeBeacon(frame);
@@ -314,6 +318,7 @@ export function createBleTransport(
                 name: record.name || defaultGuideName,
                 slot: record.slot,
                 ...withAlertMeters(record.alertMeters),
+                ...withLook(record.look),
               };
               const heard = heardGuides.get(record.guideShortId);
               const fresh =
@@ -365,22 +370,36 @@ export function createBleTransport(
           known.set(frame.senderId, peer);
           if (peer.role === 'guide') registerGuide(peer);
           onEvent({ kind: 'joined', member: peer });
-        } else if (
-          peer.role === 'guide' &&
-          frame.role === 'guide' &&
-          peer.alertMeters !== frame.alertMeters
-        ) {
-          // Keep the stored name: an NFC join carries up to 32 bytes of it, a beacon only 10.
-          peer = {
-            id: peer.id,
-            role: 'guide',
-            name: peer.name,
-            slot: peer.slot,
-            ...withAlertMeters(frame.alertMeters),
-          };
-          known.set(frame.senderId, peer);
-          radio.log(`guide ${frame.senderId} alert meters ${frame.alertMeters ?? 'none'}`);
-          onEvent({ kind: 'joined', member: peer });
+        } else {
+          const alertChanged =
+            peer.role === 'guide' &&
+            frame.role === 'guide' &&
+            peer.alertMeters !== frame.alertMeters;
+          const lookChanged = !sameLook(peer.look, frame.look);
+          if (alertChanged || lookChanged) {
+            // Keep the stored name: an NFC join carries up to 32 bytes of it, a beacon only 9.
+            peer =
+              peer.role === 'guide'
+                ? {
+                    id: peer.id,
+                    role: 'guide',
+                    name: peer.name,
+                    slot: peer.slot,
+                    ...withAlertMeters(frame.role === 'guide' ? frame.alertMeters : peer.alertMeters),
+                    ...withLook(frame.look),
+                  }
+                : {
+                    id: peer.id,
+                    role: 'visitor',
+                    name: peer.name,
+                    ...withLook(frame.look),
+                  };
+            known.set(frame.senderId, peer);
+            if (alertChanged) {
+              radio.log(`guide ${frame.senderId} alert meters ${frame.alertMeters ?? 'none'}`);
+            }
+            onEvent({ kind: 'joined', member: peer });
+          }
         }
 
         onEvent({

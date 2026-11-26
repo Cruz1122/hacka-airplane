@@ -1,0 +1,8 @@
+# T7 review (safety)
+## Findings
+- [high] /home/cruz1122/dev/hacka-airplane/mobile/src/core/knowledge/engine.ts:309 — Continuation can serve an unapproved depth-layer text for an `emergency_direct` entry, bypassing the R6.6 approved-paraphrase set. Proof: `cd mobile && npx jest src/core/knowledge/__tests__/zz_review_safety.test.ts --runInBand --verbose -t 'urgent entries|urgent text'` passed the scratch case that asks `c.gamma` non-urgently, then asserts the following `sigue` reply is exactly `UNAPPROVED EMERGENCY LAYER`; the layer is served by `serveLayer` without checking `d.rotation`. Fix: reject depth-layer continuation for emergency entries or apply an explicit second-verifier-approved allowlist to every emergency text path.
+- [med] /home/cruz1122/dev/hacka-airplane/mobile/src/core/knowledge/assets.ts:320 — `policy.continuation` absent/null is not byte-compatible with the old engine when `assets.depth` is present: depth validation still runs and can reject assets the old engine ignored. Proof: `cd mobile && npx jest src/core/knowledge/__tests__/zz_review_safety.test.ts --runInBand` observed `KnowledgeAssetError: depth not-in-catalog not in catalog` in the test expecting construction not to throw with continuation disabled (1 failed, 2 passed). Fix: skip depth validation and depth use entirely when `assets.policy.continuation == null`.
+
+## Checked, no defect
+- Urgent text containing the cue (`auxilio sigue`) did not enter continuation: the scratch test passed, retained the urgent banner, embedded the message, and the next `sigue` returned the no-state text.
+- Existing continuation safety/state suite: `npx jest src/core/knowledge/__tests__/continuation.test.ts --runInBand` — 193 passed.

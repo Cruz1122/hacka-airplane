@@ -121,6 +121,54 @@ describe('toChatRows', () => {
     expect(reply.media).toBe(media);
   });
 
+  it('drops editorial placeholder sources so unsourced replies show no sources badge', () => {
+    const rows: KnowledgeRow[] = [
+      {
+        id: 'k7',
+        role: 'assistant',
+        reply: {
+          type: 'answer',
+          id: 'conversation.greeting_hello',
+          title: 'Saludo',
+          text: '¡Hola!',
+          sources: [
+            {
+              title: 'Texto editorial del asistente; no es comunicación oficial de PNN',
+              url: 'https://www.parquesnacionales.gov.co/',
+              date: '2026-11-21',
+            },
+          ],
+        },
+      },
+      {
+        id: 'k8',
+        role: 'assistant',
+        reply: {
+          type: 'answer',
+          id: 'conversation.capabilities_overview',
+          title: 'Qué puedo hacer',
+          text: 'Te ayudo con el parque.',
+          sources: [
+            {
+              title: 'Texto editorial del asistente; no es comunicación oficial de PNN',
+              url: 'https://www.parquesnacionales.gov.co/',
+            },
+            { title: 'Policía Nacional', url: 'https://www.policia.gov.co/' },
+          ],
+        },
+      },
+    ];
+    const [hello, caps] = toChatRows(rows, 'ERR');
+    expect(hello.sources).toBeUndefined();
+    expect(caps.sources).toEqual([
+      {
+        id: 'conversation.capabilities_overview#0',
+        title: 'Policía Nacional',
+        url: 'https://www.policia.gov.co/',
+      },
+    ]);
+  });
+
   it('shows the i18n error text, never the raw error', () => {
     expect(toChatRows([{ id: 'k4', role: 'assistant', error: 'embedder gone' }], 'ERR')).toEqual([
       { id: 'k4', role: 'assistant', text: 'ERR' },

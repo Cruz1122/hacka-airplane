@@ -6,6 +6,7 @@ import {
   Animated,
   Easing,
   Image,
+  Platform,
   Pressable,
   StyleSheet,
   Text,
@@ -18,9 +19,12 @@ import Svg, { Path } from 'react-native-svg';
 import { t } from '@/i18n';
 import { Icon } from '../icons/Icon';
 import { brand, type } from '../theme/tokens';
+import { useAccessibilityTheme } from '../useAccessibilityTheme';
 import { useReducedMotion } from '../useReducedMotion';
 
 export type ComposerVariant = 'floating' | 'docked';
+
+const USE_NATIVE_DRIVER = Platform.OS !== 'web';
 
 export interface ChatComposerProps {
   /** Sending is blocked while a turn is being processed; typing still works. */
@@ -46,10 +50,6 @@ export interface ChatComposerProps {
    * focus (the start of the field when it is empty); null once it loses focus. The Pet looks there.
    */
   onCaret?: (point: { x: number; y: number } | null) => void;
-  /** Docked only: a pen button left of the field that starts a new conversation. */
-  onNewChat?: () => void;
-  /** Docked only: the pen button's accessibility label (required with `onNewChat`). */
-  newChatLabel?: string;
 }
 
 /** Docked geometry in pt, named so the shape can be tuned in one place. */
@@ -100,6 +100,7 @@ function FloatingComposer({
   initialText,
   onHasTextChange,
 }: ChatComposerProps) {
+  const { palette, scaled } = useAccessibilityTheme();
   const { text, setText, canSend, submit } = useDraft(
     initialText,
     disabled,
@@ -107,16 +108,29 @@ function FloatingComposer({
     onHasTextChange,
   );
   return (
-    <View style={floating.bar}>
+    <View
+      style={[
+        floating.bar,
+        { backgroundColor: palette.card, borderColor: palette.cardShade },
+      ]}
+    >
       <TextInput
         value={text}
         onChangeText={setText}
         placeholder={placeholder}
-        placeholderTextColor={brand.inkMuted}
-        selectionColor={brand.primarySoft}
+        placeholderTextColor={palette.inkMuted}
+        selectionColor={palette.primarySoft}
         onSubmitEditing={submit}
         returnKeyType="send"
-        style={floating.input}
+        style={[
+          floating.input,
+          {
+            fontSize: scaled.body.fontSize,
+            lineHeight: scaled.body.lineHeight,
+            backgroundColor: palette.cardShade,
+            color: palette.ink,
+          },
+        ]}
       />
       <Pressable
         onPress={submit}
@@ -124,12 +138,15 @@ function FloatingComposer({
         accessibilityRole="button"
         accessibilityLabel={sendLabel}
         accessibilityState={{ disabled: !canSend }}
-        style={({ pressed }) => [floating.send, { opacity: !canSend ? 0.45 : pressed ? 0.85 : 1 }]}
+        style={({ pressed }) => [
+          floating.send,
+          { backgroundColor: palette.ink, opacity: !canSend ? 0.45 : pressed ? 0.85 : 1 },
+        ]}
       >
         <Svg width={20} height={20} viewBox="0 0 24 24">
           <Path
             d="M4 12 H18 M12 5.5 L18.5 12 L12 18.5"
-            stroke={brand.onPrimary}
+            stroke={palette.onPrimary}
             strokeWidth={2.4}
             strokeLinecap="round"
             strokeLinejoin="round"
@@ -154,9 +171,8 @@ function DockedComposer({
   floor = DOCK.floor,
   reducedMotion = false,
   onCaret,
-  onNewChat,
-  newChatLabel,
 }: ChatComposerProps) {
+  const { palette, scaled, highContrast } = useAccessibilityTheme();
   const { text, setText, canSend, submit } = useDraft(
     initialText,
     disabled,
@@ -165,11 +181,13 @@ function DockedComposer({
     !!photoUri,
   );
   const [focused, setFocused] = useState(false);
+  const [photoFocused, setPhotoFocused] = useState(false);
   const { field, onMirrorLayout } = useCaret(text, focused, onCaret);
   const still = useReducedMotion() || reducedMotion;
   // Native-driver opacity/scale only: the model runs on the same device as this screen.
   const [ready] = useState(() => new Animated.Value(canSend ? 1 : 0));
   const [press] = useState(() => new Animated.Value(1));
+  const [photoPress] = useState(() => new Animated.Value(1));
   useEffect(() => {
     const to = canSend ? 1 : 0;
     if (still) return ready.setValue(to);
@@ -177,114 +195,236 @@ function DockedComposer({
       toValue: to,
       duration: 160,
       easing: Easing.out(Easing.quad),
-      useNativeDriver: true,
+      useNativeDriver: USE_NATIVE_DRIVER,
     });
     anim.start();
     return () => anim.stop();
   }, [canSend, still, ready]);
   const pressTo = (toValue: number, duration: number) => {
     if (still) return press.setValue(1);
-    Animated.timing(press, { toValue, duration, useNativeDriver: true }).start();
+    Animated.timing(press, { toValue, duration, useNativeDriver: USE_NATIVE_DRIVER }).start();
   };
+  const photoPressTo = (toValue: number) => {
+    if (still) return photoPress.setValue(1);
+    Animated.spring(photoPress, {
+      toValue,
+      stiffness: 420,
+      damping: 24,
+      useNativeDriver: USE_NATIVE_DRIVER,
+    }).start();
+  };
+  const hasPhoto = !!photoUri;
   return (
     <View>
-      {photoUri && (
-        <View style={docked.attachment}>
-          <Image source={{ uri: photoUri }} accessible accessibilityLabel={t.chatScreen.photo.attached} style={docked.thumbnail} />
-          <Pressable
-            accessibilityRole="button"
-            accessibilityLabel={t.chatScreen.photo.remove}
-            onPress={onRemovePhoto}
-            style={docked.removePhoto}
-          >
-            <Icon name="x" color={brand.ink} size={18} />
-          </Pressable>
-        </View>
-      )}
       <View style={[docked.row, { paddingHorizontal: DOCK.inset - DOCK.fillet }]}>
-        <Shoulder side="left" />
-        <View style={docked.tab}>
-          {onNewChat && (
-            <Pressable
-              onPress={onNewChat}
-              accessibilityRole="button"
-              accessibilityLabel={newChatLabel}
-              style={({ pressed }) => [docked.newChat, pressed && docked.newChatPressed]}
-            >
-              <Icon name="squarePen" size={20} color={brand.ink} />
-            </Pressable>
-          )}
-          {onPhoto && (
-            <Pressable
-              accessibilityRole="button"
-              accessibilityLabel={t.chatScreen.photo.identify}
-              disabled={disabled}
-              onPress={onPhoto}
-              style={docked.photo}
-            >
-              <Icon name="camera" color={disabled ? brand.inkMuted : brand.primary} />
-            </Pressable>
-          )}
-          <View style={docked.fieldBox}>
-            <TextInput
-              ref={field}
-              value={text}
-              onChangeText={setText}
-              placeholder={photoUri ? t.chatScreen.photo.captionPlaceholder : placeholder}
-              placeholderTextColor={brand.inkMuted}
-              selectionColor={brand.primarySoft}
-              onSubmitEditing={submit}
-              onFocus={() => setFocused(true)}
-              onBlur={() => setFocused(false)}
-              returnKeyType="send"
-              style={[docked.field, focused && docked.fieldFocused]}
-            />
-            {onCaret && (
-              // Same font, one unwrapped line: its width is how far the text runs in the field.
-              <Text
-                style={docked.mirror}
-                numberOfLines={1}
-                onTextLayout={onMirrorLayout}
-                aria-hidden
-                accessibilityElementsHidden
-                importantForAccessibility="no-hide-descendants"
-              >
-                {text}
-              </Text>
+        <Shoulder side="left" fill={palette.cardShade} />
+        <View style={[docked.tab, { backgroundColor: palette.cardShade }]}>
+          {photoUri ? (
+            <PhotoAttachment key={photoUri} uri={photoUri} onRemove={onRemovePhoto} still={still} />
+          ) : null}
+          <View style={docked.inputRow}>
+            {onPhoto && (
+              <Animated.View style={{ transform: [{ scale: photoPress }] }}>
+                <Pressable
+                  accessibilityRole="button"
+                  accessibilityLabel={t.chatScreen.photo.identify}
+                  accessibilityState={{ disabled, selected: hasPhoto }}
+                  disabled={disabled}
+                  onPress={onPhoto}
+                  onPressIn={() => photoPressTo(0.9)}
+                  onPressOut={() => photoPressTo(1)}
+                  onFocus={() => setPhotoFocused(true)}
+                  onBlur={() => setPhotoFocused(false)}
+                  style={({ pressed }) => [
+                    docked.photo,
+                    {
+                      backgroundColor: palette.card,
+                      borderColor: highContrast ? palette.ink : palette.primarySoft,
+                      borderWidth: highContrast ? 2 : 1,
+                    },
+                    hasPhoto && {
+                      backgroundColor: palette.primary,
+                      borderColor: palette.primary,
+                    },
+                    pressed &&
+                      (hasPhoto
+                        ? { backgroundColor: palette.primaryLight, borderColor: palette.primaryLight }
+                        : { backgroundColor: palette.primarySoft, borderColor: palette.primary }),
+                    photoFocused && docked.photoFocused,
+                    disabled && docked.photoDisabled,
+                  ]}
+                >
+                  <Icon
+                    name="camera"
+                    size={20}
+                    strokeWidth={2.1}
+                    color={
+                      disabled ? palette.inkMuted : hasPhoto ? palette.onPrimary : palette.primary
+                    }
+                  />
+                </Pressable>
+              </Animated.View>
             )}
-          </View>
-          <Animated.View
-            style={{
-              opacity: ready.interpolate({ inputRange: [0, 1], outputRange: [0.4, 1] }),
-              transform: [
-                {
-                  scale: Animated.multiply(
-                    ready.interpolate({ inputRange: [0, 1], outputRange: [0.9, 1] }),
-                    press,
-                  ),
-                },
-              ],
-            }}
-          >
-            <Pressable
-              onPress={submit}
-              onPressIn={() => pressTo(0.92, 120)}
-              onPressOut={() => pressTo(1, 160)}
-              disabled={!canSend}
-              accessibilityRole="button"
-              accessibilityLabel={sendLabel}
-              accessibilityState={{ disabled: !canSend }}
-              style={docked.send}
+            <View style={docked.fieldBox}>
+              <TextInput
+                ref={field}
+                value={text}
+                onChangeText={setText}
+                placeholder={photoUri ? t.chatScreen.photo.captionPlaceholder : placeholder}
+                placeholderTextColor={palette.inkMuted}
+                selectionColor={palette.primarySoft}
+                onSubmitEditing={submit}
+                onFocus={() => setFocused(true)}
+                onBlur={() => setFocused(false)}
+                returnKeyType="send"
+                style={[
+                  docked.field,
+                  {
+                    fontSize: scaled.body.fontSize,
+                    lineHeight: scaled.body.lineHeight,
+                    backgroundColor: palette.card,
+                    color: palette.ink,
+                    borderColor: highContrast ? palette.ink : palette.primarySoft,
+                    borderWidth: highContrast ? 2 : 1,
+                  },
+                  focused && { borderColor: palette.primary, outlineWidth: 2 },
+                ]}
+              />
+              {onCaret && (
+                // Same font, one unwrapped line: its width is how far the text runs in the field.
+                <Text
+                  style={[
+                    docked.mirror,
+                    { fontSize: scaled.body.fontSize, lineHeight: scaled.body.lineHeight },
+                  ]}
+                  numberOfLines={1}
+                  onTextLayout={onMirrorLayout}
+                  aria-hidden
+                  accessibilityElementsHidden
+                  importantForAccessibility="no-hide-descendants"
+                >
+                  {text}
+                </Text>
+              )}
+            </View>
+            <Animated.View
+              style={{
+                opacity: ready.interpolate({ inputRange: [0, 1], outputRange: [0.4, 1] }),
+                transform: [
+                  {
+                    scale: Animated.multiply(
+                      ready.interpolate({ inputRange: [0, 1], outputRange: [0.9, 1] }),
+                      press,
+                    ),
+                  },
+                ],
+              }}
             >
-              <Icon name="arrowUp" size={22} color={brand.onPrimary} strokeWidth={2.4} />
-            </Pressable>
-          </Animated.View>
+              <Pressable
+                onPress={submit}
+                onPressIn={() => pressTo(0.92, 120)}
+                onPressOut={() => pressTo(1, 160)}
+                disabled={!canSend}
+                accessibilityRole="button"
+                accessibilityLabel={sendLabel}
+                accessibilityState={{ disabled: !canSend }}
+                style={[docked.send, { backgroundColor: palette.ink }]}
+              >
+                <Icon name="arrowUp" size={22} color={palette.onPrimary} strokeWidth={2.4} />
+              </Pressable>
+            </Animated.View>
+          </View>
         </View>
-        <Shoulder side="right" />
+        <Shoulder side="right" fill={palette.cardShade} />
       </View>
       {/* Drawn after the row and 1 pt into it, so no seam shows between tab and base. */}
-      <View style={[docked.floor, { height: floor + 1 }]} />
+      <View style={[docked.floor, { height: floor + 1, backgroundColor: palette.cardShade }]} />
     </View>
+  );
+}
+
+/** Framed thumbnail tucked inside the top of the docked composer with a compact corner dismiss chip. */
+function PhotoAttachment({
+  uri,
+  onRemove,
+  still,
+}: {
+  uri: string;
+  onRemove?: () => void;
+  still: boolean;
+}) {
+  const [enter] = useState(() => new Animated.Value(still ? 1 : 0));
+  const [imageReady] = useState(() => new Animated.Value(still ? 1 : 0));
+  const shownRef = useRef(still);
+
+  useEffect(() => {
+    if (still) {
+      enter.setValue(1);
+      return;
+    }
+    const anim = Animated.timing(enter, {
+      toValue: 1,
+      duration: 200,
+      easing: Easing.out(Easing.cubic),
+      useNativeDriver: USE_NATIVE_DRIVER,
+    });
+    anim.start();
+    return () => anim.stop();
+  }, [enter, still]);
+
+  const onLoaded = useCallback(() => {
+    if (shownRef.current) return;
+    shownRef.current = true;
+    if (still) {
+      imageReady.setValue(1);
+      return;
+    }
+    Animated.timing(imageReady, {
+      toValue: 1,
+      duration: 180,
+      easing: Easing.out(Easing.cubic),
+      useNativeDriver: USE_NATIVE_DRIVER,
+    }).start();
+  }, [imageReady, still]);
+
+  return (
+    <Animated.View
+      style={[
+        docked.attachmentRow,
+        {
+          opacity: enter,
+          transform: [
+            { translateY: enter.interpolate({ inputRange: [0, 1], outputRange: [6, 0] }) },
+            { scale: enter.interpolate({ inputRange: [0, 1], outputRange: [0.95, 1] }) },
+          ],
+        },
+      ]}
+    >
+      <View style={docked.attachmentCard}>
+        <View style={docked.thumbnailFrame}>
+          <Animated.View style={[StyleSheet.absoluteFill, { opacity: imageReady }]}>
+            <Image
+              source={{ uri }}
+              accessible
+              accessibilityLabel={t.chatScreen.photo.attached}
+              resizeMode="cover"
+              onLoad={onLoaded}
+              onLoadEnd={onLoaded}
+              style={docked.thumbnail}
+            />
+          </Animated.View>
+        </View>
+        <Pressable
+          accessibilityRole="button"
+          accessibilityLabel={t.chatScreen.photo.remove}
+          onPress={onRemove}
+          hitSlop={10}
+          style={({ pressed }) => [docked.removePhoto, pressed && docked.removePhotoPressed]}
+        >
+          <Icon name="x" color={brand.onPrimary} size={12} strokeWidth={2.6} />
+        </Pressable>
+      </View>
+    </Animated.View>
   );
 }
 
@@ -322,7 +462,7 @@ function useCaret(
  * One extra pt column reaches under the tab so the seam never shows. Explicit numeric size: a
  * bare <svg> on web keeps its intrinsic 300 px width.
  */
-function Shoulder({ side }: { side: 'left' | 'right' }) {
+function Shoulder({ side, fill = brand.cardShade }: { side: 'left' | 'right'; fill?: string }) {
   const r = DOCK.fillet;
   const w = r + 1;
   const d =
@@ -337,7 +477,7 @@ function Shoulder({ side }: { side: 'left' | 'right' }) {
       style={side === 'left' ? docked.shoulderLeft : docked.shoulderRight}
       pointerEvents="none"
     >
-      <Path d={d} fill={brand.cardShade} />
+      <Path d={d} fill={fill} />
     </Svg>
   );
 }
@@ -387,8 +527,7 @@ const docked = StyleSheet.create({
   tab: {
     flex: 1,
     minWidth: 0,
-    flexDirection: 'row',
-    alignItems: 'center',
+    flexDirection: 'column',
     gap: 8,
     paddingTop: 8,
     paddingHorizontal: 8,
@@ -397,19 +536,70 @@ const docked = StyleSheet.create({
     borderTopRightRadius: DOCK.radius,
     backgroundColor: brand.cardShade,
   },
-  newChat: {
-    width: 44,
+  inputRow: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 8,
+  },
+  attachmentRow: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    paddingTop: 4,
+    paddingHorizontal: 4,
+  },
+  attachmentCard: {
+    position: 'relative',
+  },
+  thumbnailFrame: {
+    width: 64,
+    height: 64,
+    borderRadius: 14,
+    overflow: 'hidden',
+    backgroundColor: brand.card,
+  },
+  thumbnail: { width: '100%', height: '100%' },
+  removePhoto: {
+    position: 'absolute',
+    top: -6,
+    right: -6,
+    width: 24,
+    height: 24,
+    borderRadius: 12,
+    backgroundColor: brand.ink,
+    borderWidth: 2,
+    borderColor: brand.cardShade,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  removePhotoPressed: { opacity: 0.78 },
+  photo: {
+    width: 46,
     height: 46,
     borderRadius: 16,
+    borderWidth: 1,
+    borderColor: brand.primarySoft,
+    backgroundColor: brand.card,
     alignItems: 'center',
     justifyContent: 'center',
     outlineColor: brand.primary,
+    outlineStyle: 'solid',
+    outlineWidth: 0,
+    outlineOffset: 2,
   },
-  newChatPressed: { backgroundColor: brand.primarySoft },
-  attachment: { alignSelf: 'flex-start', flexDirection: 'row', marginLeft: DOCK.inset, marginBottom: 6, borderRadius: 14, padding: 6, backgroundColor: brand.cardShade },
-  thumbnail: { width: 72, height: 60, borderRadius: 8 },
-  removePhoto: { width: 44, height: 44, alignItems: 'center', justifyContent: 'center' },
-  photo: { width: 44, height: 44, alignItems: 'center', justifyContent: 'center' },
+  photoActive: {
+    backgroundColor: brand.primary,
+    borderColor: brand.primary,
+  },
+  photoPressed: {
+    backgroundColor: brand.primarySoft,
+    borderColor: brand.primary,
+  },
+  photoActivePressed: {
+    backgroundColor: brand.primaryLight,
+    borderColor: brand.primaryLight,
+  },
+  photoFocused: { outlineWidth: 2 },
+  photoDisabled: { opacity: 0.45 },
   fieldBox: { flex: 1, minWidth: 0 },
   mirror: {
     ...type.body,

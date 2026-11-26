@@ -105,7 +105,7 @@ describe('group BLE wire codec', () => {
     expect(decodeBeacon('')).toBeNull();
     expect(decodeBeacon('a2')).toBeNull();
     expect(decodeBeacon('zz'.repeat(BEACON_BYTES))).toBeNull();
-    // Version 3
+    // Version 4
     const valid = encodeBeacon({
       groupId: 1,
       senderId: 2,
@@ -118,7 +118,7 @@ describe('group BLE wire codec', () => {
       name: 'Ana',
       tag: 0,
     });
-    expect(decodeBeacon('30' + valid.slice(2))).toBeNull();
+    expect(decodeBeacon('40' + valid.slice(2))).toBeNull();
     // senderId == 0
     expect(decodeBeacon(valid.slice(0, 6) + '0000' + valid.slice(10))).toBeNull();
   });
@@ -207,6 +207,38 @@ describe('group BLE wire codec', () => {
     expect(visitor).not.toHaveProperty('alertMeters');
   });
 
+  it('carries Pet skins (accessory + tint, and explicit bare head) for guides and visitors', () => {
+    const withFlower: BeaconFrame = {
+      ...guideFrame,
+      role: 'visitor',
+      alertMeters: undefined,
+      look: { accessory: 'flower', tint: 'lupine' },
+    };
+    const decodedVisitor = decodeBeacon(encodeBeacon(withFlower));
+    expect(decodedVisitor?.look).toEqual({ accessory: 'flower', tint: 'lupine' });
+    expect(memberFromBeacon(decodedVisitor!, 'Visitante')).toEqual({
+      id: 'g-00e6',
+      role: 'visitor',
+      name: 'Marta',
+      look: { accessory: 'flower', tint: 'lupine' },
+    });
+
+    const bareGuide: BeaconFrame = {
+      ...guideFrame,
+      look: { accessory: 'none' },
+    };
+    const decodedGuide = decodeBeacon(encodeBeacon(bareGuide));
+    expect(decodedGuide?.look).toEqual({ accessory: 'none' });
+    expect(memberFromBeacon(decodedGuide!, 'Guía')).toEqual({
+      id: 'g-00e6',
+      role: 'guide',
+      name: 'Marta',
+      slot: 'front',
+      alertMeters: 45,
+      look: { accessory: 'none' },
+    });
+  });
+
   it('snaps an off-policy alert byte into the policy range', () => {
     const hex = encodeBeacon(guideFrame);
     const withByte = (b: string) => hex.slice(0, 34) + b + hex.slice(36);
@@ -216,13 +248,30 @@ describe('group BLE wire codec', () => {
     expect(decodeBeacon(encodeBeacon({ ...guideFrame, alertMeters: 999 }))?.alertMeters).toBe(150);
   });
 
-  it('bounds the v2 name to 10 bytes', () => {
+  it('bounds the v3 name to 9 bytes', () => {
     const decoded = decodeBeacon(encodeBeacon({ ...guideFrame, name: 'Maximiliano Ruiz' }));
-    expect(decoded?.name).toBe('Maximilian');
+    expect(decoded?.name).toBe('Maximilia');
     expect(decoded?.alertMeters).toBe(45);
   });
 
-  it('still decodes a v1 frame from an older build: 11-byte name, no alert distance', () => {
+  it('still decodes v2 and v1 frames from older builds', () => {
+    // version 2 | guide, group 0x0042, sender 0x00e6, no echoes, "Maximilian", alertMeters 45, tag 0.
+    const v2 = '21' + '0042' + '00e6' + '0000' + '4d6178696d696c69616e' + '2d' + '00000000';
+    expect(v2).toHaveLength(BEACON_BYTES * 2);
+    expect(decodeBeacon(v2)).toEqual({
+      groupId: 0x0042,
+      senderId: 0x00e6,
+      role: 'guide',
+      slot: 'front',
+      syncing: false,
+      nfcCard: false,
+      echoFrontRssi: null,
+      echoRearRssi: null,
+      name: 'Maximilian',
+      alertMeters: 45,
+      tag: 0,
+    });
+
     // version 1 | guide+syncing, group 0x0042, sender 0x00e6, no echoes, "Maximiliano", tag 0.
     const v1 = '15' + '0042' + '00e6' + '0000' + '4d6178696d696c69616e6f' + '00000000';
     expect(v1).toHaveLength(BEACON_BYTES * 2);
@@ -259,19 +308,28 @@ describe('group NFC pairing record', () => {
     };
     expect(decodePairing(encodePairing(front))).toEqual(front);
     expect(decodePairing(encodePairing(rear))).toEqual(rear);
-    expect(encodePairing(front)).toBe('204242' + '00e6' + '00' + '05' + '4d61727461');
+    expect(encodePairing(front)).toBe('304242' + '00e6' + '00' + '00' + '05' + '4d61727461');
   });
 
-  it('round-trips the alert distance and still decodes a v1 record', () => {
+  it('round-trips the alert distance and Pet skin, and still decodes v2 and v1 records', () => {
     const record: PairingRecord = {
       groupId: 0x4242,
       guideShortId: 0x00e6,
       slot: 'front',
       name: 'Marta',
       alertMeters: 60,
+      look: { accessory: 'beanie', tint: 'sun' },
     };
-    expect(encodePairing(record)).toBe('204242' + '00e6' + '3c' + '05' + '4d61727461');
     expect(decodePairing(encodePairing(record))).toEqual(record);
+    // v2 record (alertMeters, no look)
+    expect(decodePairing('204242' + '00e6' + '3c' + '05' + '4d61727461')).toEqual({
+      groupId: 0x4242,
+      guideShortId: 0x00e6,
+      slot: 'front',
+      name: 'Marta',
+      alertMeters: 60,
+    });
+    // v1 record (no alertMeters, no look)
     expect(decodePairing('124242' + '00e6' + '05' + '4d61727461')).toEqual({
       groupId: 0x4242,
       guideShortId: 0x00e6,
@@ -299,8 +357,8 @@ describe('group NFC pairing record', () => {
     expect(decodePairing(valid.slice(0, -1))).toBeNull(); // odd hex
     expect(decodePairing(valid.slice(0, -2))).toBeNull(); // name shorter than its length byte
     expect(decodePairing(valid + '00')).toBeNull(); // trailing byte
-    expect(decodePairing('30' + valid.slice(2))).toBeNull(); // version 3
-    expect(decodePairing('200000' + valid.slice(6))).toBeNull(); // groupId 0
+    expect(decodePairing('40' + valid.slice(2))).toBeNull(); // version 4
+    expect(decodePairing('300000' + valid.slice(6))).toBeNull(); // groupId 0
     expect(decodePairing(valid.slice(0, 6) + '0000' + valid.slice(10))).toBeNull(); // guide 0
     expect(decodePairing('zz' + valid.slice(2))).toBeNull();
   });

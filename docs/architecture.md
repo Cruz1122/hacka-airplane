@@ -86,12 +86,13 @@ Evaluation: `experiments/nlu/evaluate.py`, `gguf_eval.py`, `context_eval.py` on 
 
 ## Onboarding and rendering
 
-| Platform | Scene and Pet renderer |
-|---|---|
-| Android/iOS | `@shopify/react-native-skia`: `src/onboarding/SceneCanvas.native.tsx` + `skia/drawScene.ts`, `src/ui/pet/PetVaporCanvas.native.tsx` + `drawPet.ts` |
-| Web (Lab, design catalog, previews) | `react-native-svg`: `src/onboarding/NevadoScene.tsx`, `src/ui/pet/PetVaporFigure.tsx` |
+| Platform or surface | Scene renderer | Pet renderer |
+|---|---|---|
+| Android/iOS | `@shopify/react-native-skia`: `src/onboarding/SceneCanvas.native.tsx` + `skia/drawScene.ts` | `src/ui/pet/PetVaporCanvas.native.tsx` + `drawPet.ts` |
+| Web onboarding | Canvas2D: `src/onboarding/SceneCanvas.tsx` + `canvas2d/drawScene2d.ts` | `src/ui/pet/PetVaporCanvas.tsx` + `drawPetCanvas2d.ts` |
+| Web Lab and design previews | SVG reference: `src/onboarding/NevadoScene.tsx` | `src/ui/pet/PetVaporFigure.tsx` |
 
-Both renderers draw the same `SceneDoc` (`src/onboarding/scene/`). The SVG renderer is the reference: a new body kind must be added to both. Native moved to Skia because react-native-svg on Android redraws every changed layer into a CPU bitmap; on the reference phone that meant ~230 ms frames, against ~10 ms with Skia.
+The renderers draw the same `SceneDoc` (`src/onboarding/scene/`). The SVG renderer is the visual reference. Add a new body kind to the web Canvas2D renderer, the native Skia renderer, and the SVG reference. Native moved to Skia because react-native-svg on Android redraws every changed layer into a CPU bitmap; on the reference phone that meant ~230 ms frames, against ~10 ms with Skia.
 
 ## Legacy
 

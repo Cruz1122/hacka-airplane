@@ -8,6 +8,21 @@ export const memberId = (raw: string): MemberId => raw as MemberId;
 
 export type GuideSlot = 'front' | 'rear';
 
+/** Pet accessory ids shared over the group radio (matches `PET_ACCESSORIES` in ui/pet). */
+export type MemberAccessory = 'guideHat' | 'visitorCap' | 'beanie' | 'bandana' | 'flower';
+
+/** Pet accessory tint ids shared over the group radio (matches `PET_TINTS` in ui/pet). */
+export type MemberTint = 'ink' | 'sky' | 'sun' | 'lupine';
+
+/**
+ * What a member's Pet wears over the radio. Absent on a `Member` means the peer ran an older
+ * build or sent no look (fall back to the role's default); `accessory: 'none'` means bare head.
+ */
+export interface MemberLook {
+  readonly accessory?: MemberAccessory | 'none';
+  readonly tint?: MemberTint;
+}
+
 export type Member =
   | {
       id: MemberId;
@@ -17,8 +32,10 @@ export type Member =
       /** The guide's alert distance in meters (slider). Absent: `GROUP_POLICY.alertMeters.default`.
        *  A transport re-emits `joined` for a guide whose distance changes. */
       alertMeters?: number;
+      /** What this guide's Pet wears, carried in the BLE beacon and NFC card. */
+      look?: MemberLook;
     }
-  | { id: MemberId; role: 'visitor'; name: string };
+  | { id: MemberId; role: 'visitor'; name: string; look?: MemberLook };
 
 export type GuideMember = Extract<Member, { role: 'guide' }>;
 export type VisitorMember = Extract<Member, { role: 'visitor' }>;

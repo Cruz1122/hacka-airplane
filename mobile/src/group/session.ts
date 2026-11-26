@@ -1,6 +1,6 @@
 // The group screen's flow as one value: choosing a role, guiding, or visiting.
-import type { GuideMember, MemberId, VisitorMember } from '@/core/group/types';
-import { randomShortId, shortIdToMemberId } from '@/core/group/wire';
+import type { GuideMember, MemberId, MemberLook, VisitorMember } from '@/core/group/types';
+import { randomShortId, shortIdToMemberId, withLook } from '@/core/group/wire';
 
 export type Session =
   | { kind: 'choosing' }
@@ -15,11 +15,24 @@ export const newMemberId = (): MemberId => shortIdToMemberId(randomShortId());
  * with one, it joins as the second guide in the slot that one left free. A new group starts in
  * sync mode so visitors can pair right away.
  */
-export function guideSession(name: string, id: MemberId, syncing: GuideMember[]): Session {
+export function guideSession(
+  name: string,
+  id: MemberId,
+  syncing: GuideMember[],
+  look?: MemberLook,
+): Session {
   const slot = syncing.some((g) => g.slot === 'front') ? 'rear' : 'front';
-  return { kind: 'guide', self: { id, role: 'guide', name, slot }, syncing: true };
+  return {
+    kind: 'guide',
+    self: { id, role: 'guide', name, slot, ...withLook(look) },
+    syncing: true,
+  };
 }
 
-export function visitorSession(name: string, id: MemberId): Session {
-  return { kind: 'visitor', self: { id, role: 'visitor', name }, link: 'searching' };
+export function visitorSession(name: string, id: MemberId, look?: MemberLook): Session {
+  return {
+    kind: 'visitor',
+    self: { id, role: 'visitor', name, ...withLook(look) },
+    link: 'searching',
+  };
 }

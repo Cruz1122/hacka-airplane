@@ -19,6 +19,7 @@ import {
   type LayoutChangeEvent,
   type NativeScrollEvent,
   type NativeSyntheticEvent,
+  Platform,
   StyleSheet,
   useWindowDimensions,
   View,
@@ -36,6 +37,9 @@ import { revealRows } from '@/ui/chat/MediaGallery';
 import { replyReveal } from '@/ui/chat/reveal';
 import { SourcesSheet } from '@/ui/chat/SourcesSheet';
 import { TypingBubble } from '@/ui/chat/TypingBubble';
+import { useChatNavFade } from '@/ui/AppNavBar';
+import { VAPOR_BODY_TOP } from '@/ui/CloudCard';
+import { NAV_BAR_HEIGHT } from '@/ui/CloudNavBar';
 import { PET_NAME, type VoiceState } from '@/ui/pet/petCore';
 import { brand } from '@/ui/theme/tokens';
 import { useReducedMotion } from '@/ui/useReducedMotion';
@@ -55,6 +59,7 @@ export interface ChatRow {
   photoUri?: string;
   /** The catalog entry whose `short` this text is; picks the keywords set in bold. */
   entryId?: string;
+  keywords?: readonly string[];
   latencyMs?: number;
   /** Validated references of an assistant reply; none means no source button. */
   sources?: ChatSource[];
@@ -80,7 +85,7 @@ export interface ChatViewProps {
   onPhoto?: () => void;
   photoUri?: string;
   onRemovePhoto?: () => void;
-  /** Starts a new conversation (the composer's pen button). */
+  /** Starts a new conversation. */
   onReset: () => void;
   /** The cloud navigation bar, drawn over the header and under the sources sheet. */
   nav?: ReactNode;
@@ -89,10 +94,28 @@ export interface ChatViewProps {
 const MAX_COLUMN = 720;
 /** Points the sheet rises before the navigation bar is fully faded out. */
 const NAV_FADE = 60;
+const USE_NATIVE_DRIVER = Platform.OS !== 'web';
+/** Scroll thresholds (with hysteresis) to raise the mist in a long chat and bring mountains back. */
+const COLLAPSE_AT = 48;
+const EXPAND_AT = 16;
+const COLLAPSE_MIN_OVERFLOW = 36;
+const MIST_COLLAPSE = { duration: 240, easing: Easing.out(Easing.cubic) };
+const FLASHLIST_DISABLE_MVCP = { disabled: true } as const;
 const keyExtractor = (m: ChatRow) => m.id;
 const greeting = (
-  <ChatBubble role="assistant" text={fill(t.chatScreen.greeting, { pet: PET_NAME })} />
+  <ChatBubble
+    role="assistant"
+    text={fill(t.chatScreen.greeting, { pet: PET_NAME })}
+    keywords={t.chatScreen.greetingKeywords.map((keyword) => fill(keyword, { pet: PET_NAME }))}
+  />
 );
+
+/** Formats response time without rounding fast offline answers down to "0.0 s". */
+export function formatLatency(ms: number): string {
+  const rounded = Math.max(1, Math.round(ms));
+  if (rounded < 1000) return fill(t.chatScreen.milliseconds, { ms: rounded });
+  return fill(t.chatScreen.seconds, { s: (rounded / 1000).toFixed(1) });
+}
 
 /** Messages scrolling up melt into the sheet instead of being cut at the list's edge. */
 function TopFade() {
@@ -219,8 +242,12 @@ function useKeyboardMotion(occlusion: number, maxRise: number) {
     }
     const curve = occlusion > 0 ? KEYBOARD_IN : KEYBOARD_OUT;
     const anim = Animated.parallel([
-      Animated.timing(composerY, { toValue: -occlusion, ...curve, useNativeDriver: true }),
-      Animated.timing(sheetY, { toValue: -rise, ...curve, useNativeDriver: true }),
+      Animated.timing(composerY, {
+        toValue: -occlusion,
+        ...curve,
+        useNativeDriver: USE_NATIVE_DRIVER,
+      }),
+      Animated.timing(sheetY, { toValue: -rise, ...curve, useNativeDriver: USE_NATIVE_DRIVER }),
     ]);
     anim.start(({ finished }) => {
       if (finished) setPad((p) => (p.held ? { ...p, held: 0 } : p));
@@ -249,7 +276,10 @@ type ListRef = RefObject<React.ComponentRef<typeof FlashList<ChatRow>> | null>;
  * scroll per line would stack. Reading back (dragging, or the offset moving up away from the end)
  * stops it until the reader is near the end again or sends a message.
  */
-function useListFollow(list: ListRef) {
+function useListFollow(
+  list: ListRef,
+  onScrollMetrics?: (offset: number, contentHeight: number, viewportHeight: number) => void,
+) {
   const following = useRef(true);
   const dragging = useRef(false);
   const scroll = useRef({ offset: 0, gap: 0, ownUntil: -Infinity });
@@ -299,6 +329,7 @@ function useListFollow(list: ListRef) {
           following.current = false;
         }
         s.offset = offset;
+        onScrollMetrics?.(offset, contentSize.height, layoutMeasurement.height);
       },
       onScrollBeginDrag: () => {
         dragging.current = true;
@@ -309,8 +340,98 @@ function useListFollow(list: ListRef) {
         if (scroll.current.gap > NEAR_END) following.current = false;
       },
     }),
-    [list, toEnd],
+    [list, onScrollMetrics, toEnd],
   );
+}
+
+/**
+ * Raises the mist to the bottom limit of the top nav bar during a long scrolled chat and unmounts
+ * the mountains once covered; remounts the mountains immediately when scrolling back to the top.
+ */
+function useMistCollapse(
+  collapsed: boolean,
+  sheetLift: number,
+  convLift: number,
+  still: boolean,
+) {
+  const [progress] = useState(() => new Animated.Value(collapsed ? 1 : 0));
+  const [phase, setPhase] = useState({
+    collapsed,
+    layoutCollapsed: collapsed,
+    sceneHidden: collapsed,
+  });
+  if (phase.collapsed !== collapsed) {
+    setPhase(
+      collapsed
+        ? { collapsed: true, layoutCollapsed: true, sceneHidden: still }
+        : { collapsed: false, layoutCollapsed: !still, sceneHidden: false },
+    );
+  }
+  const prev = useRef(collapsed);
+
+  useEffect(() => {
+    if (prev.current === collapsed) return;
+    prev.current = collapsed;
+    if (collapsed) {
+      if (still) {
+        progress.setValue(1);
+        return;
+      }
+      const anim = Animated.timing(progress, {
+        toValue: 1,
+        ...MIST_COLLAPSE,
+        useNativeDriver: USE_NATIVE_DRIVER,
+      });
+      anim.start(({ finished }) => {
+        if (finished) setPhase((p) => (p.collapsed ? { ...p, sceneHidden: true } : p));
+      });
+      return () => anim.stop();
+    }
+    if (still) {
+      progress.setValue(0);
+      return;
+    }
+    const anim = Animated.timing(progress, {
+      toValue: 0,
+      ...MIST_COLLAPSE,
+      useNativeDriver: USE_NATIVE_DRIVER,
+    });
+    anim.start(({ finished }) => {
+      if (finished) setPhase((p) => (!p.collapsed ? { ...p, layoutCollapsed: false } : p));
+    });
+    return () => anim.stop();
+  }, [collapsed, progress, still]);
+
+  const sheetScrollY = useMemo(
+    () => progress.interpolate({ inputRange: [0, 1], outputRange: [0, -sheetLift] }),
+    [progress, sheetLift],
+  );
+  const convOffsetY = useMemo(
+    () => progress.interpolate({ inputRange: [0, 1], outputRange: [convLift, 0] }),
+    [progress, convLift],
+  );
+  const circleOpacity = useMemo(
+    () => progress.interpolate({ inputRange: [0, 0.65, 1], outputRange: [1, 0, 0] }),
+    [progress],
+  );
+  const circleScrollY = useMemo(
+    () => progress.interpolate({ inputRange: [0, 1], outputRange: [0, -36] }),
+    [progress],
+  );
+  const circleScale = useMemo(
+    () => progress.interpolate({ inputRange: [0, 1], outputRange: [1, 0.78] }),
+    [progress],
+  );
+
+  return {
+    layoutCollapsed: phase.layoutCollapsed,
+    sceneHidden: phase.sceneHidden,
+    sheetScrollY,
+    convOffsetY,
+    circleOpacity,
+    circleScrollY,
+    circleScale,
+  };
 }
 
 function ChatContent(p: ChatViewProps & { width: number; tall: number; viewBottom: number }) {
@@ -322,6 +443,40 @@ function ChatContent(p: ChatViewProps & { width: number; tall: number; viewBotto
     () => chatLayout(headerScene, p.width, tall, { top: insets.top, bottom: insets.bottom }),
     [p.width, tall, insets.top, insets.bottom],
   );
+  // Bottom limit of the compact top nav bar where the raised mist and expanded list meet it.
+  const navLimit = insets.top + 2 + NAV_BAR_HEIGHT + 6;
+  // Bring the solid mist body right up behind the nav bar's midline so the vapor puffs frame it
+  // and no mountain peaks peek out when SceneCanvas unmounts.
+  const sheetScrollLift = Math.max(
+    0,
+    Math.ceil(layout.sheetTop + VAPOR_BODY_TOP - (navLimit - 22)),
+  );
+  const convScrollLift = Math.max(0, Math.round(layout.listTop - navLimit));
+  const [scrollCollapsed, setScrollCollapsed] = useState(false);
+  if (scrollCollapsed && p.messages.length === 0) setScrollCollapsed(false);
+  const keyboardOpenRef = useRef(keyboard.open);
+  useEffect(() => {
+    keyboardOpenRef.current = keyboard.open;
+  }, [keyboard.open]);
+
+  const onScrollMetrics = useCallback(
+    (offset: number, contentHeight: number, viewportHeight: number) => {
+      if (keyboardOpenRef.current) return;
+      setScrollCollapsed((was) => {
+        if (!was) {
+          // Only collapse when the chat still overflows after expanding, so scrolling back up
+          // always has room to bring the mountains back cleanly without oscillation.
+          return (
+            offset > COLLAPSE_AT &&
+            contentHeight > viewportHeight + convScrollLift + COLLAPSE_MIN_OVERFLOW
+          );
+        }
+        return offset > EXPAND_AT;
+      });
+    },
+    [convScrollLift],
+  );
+
   // One sheet for the screen: the bubbles only say which sources to list.
   const [sheet, setSheet] = useState<ChatSource[] | null>(null);
   const openSheet = useCallback((sources: ChatSource[]) => {
@@ -335,25 +490,32 @@ function ChatContent(p: ChatViewProps & { width: number; tall: number; viewBotto
         role={item.role}
         text={item.text}
         photoUri={item.photoUri}
-        keywords={keywordsFor(item.entryId)}
+        keywords={item.keywords ?? keywordsFor(item.entryId)}
         revealId={item.role === 'assistant' ? item.id : undefined}
         entryId={item.id}
         sources={item.sources}
         onOpenSources={openSheet}
         media={item.media}
-        meta={
-          item.latencyMs != null
-            ? fill(t.chatScreen.seconds, { s: (item.latencyMs / 1000).toFixed(1) })
-            : undefined
-        }
+        meta={item.latencyMs != null ? formatLatency(item.latencyMs) : undefined}
       />
     ),
     [openSheet],
   );
   const list = useRef<React.ComponentRef<typeof FlashList<ChatRow>>>(null);
-  const follow = useListFollow(list);
+  const follow = useListFollow(list, onScrollMetrics);
   // Keyboard open: the mist, the circle and the conversation rise over the ranges together.
   const motion = useKeyboardMotion(keyboard.bottom, layout.keyboardLift);
+  const still = useReducedMotion();
+  const mist = useMistCollapse(
+    scrollCollapsed && p.messages.length > 0 && !keyboard.open,
+    sheetScrollLift,
+    convScrollLift,
+    still,
+  );
+  const backdropRise = useMemo(
+    () => Animated.add(motion.sheetY, mist.sheetScrollY),
+    [motion.sheetY, mist.sheetScrollY],
+  );
   const { release, toEnd } = follow;
   useEffect(() => {
     if (motion.dropping > 0) release(motion.dropping);
@@ -374,7 +536,6 @@ function ChatContent(p: ChatViewProps & { width: number; tall: number; viewBotto
   );
   const seen = useReplyReveal(p.messages);
   const voice = usePetVoice(p.messages, p.busy, seen);
-  const still = useReducedMotion();
   const [shown] = useState(() => new Animated.Value(p.fadeIn ? 0 : 1));
   useEffect(() => {
     if (!p.fadeIn) return;
@@ -383,11 +544,21 @@ function ChatContent(p: ChatViewProps & { width: number; tall: number; viewBotto
       toValue: 1,
       duration: 280,
       easing: Easing.out(Easing.quad),
-      useNativeDriver: true,
+      useNativeDriver: USE_NATIVE_DRIVER,
     });
     anim.start();
     return () => anim.stop();
   }, [p.fadeIn, shown, still]);
+  const navFadeOpacity = useMemo(
+    () =>
+      motion.sheetY.interpolate({
+        inputRange: [-NAV_FADE, 0],
+        outputRange: [0, 1],
+        extrapolate: 'clamp',
+      }),
+    [motion.sheetY],
+  );
+  useChatNavFade(p.nav ? null : navFadeOpacity, keyboard.open || !!sheet);
   const ready = p.model.status === 'ready';
   // The docked composer's base strip covers the home indicator, so the sheet needs no padding.
   const floor = keyboard.open ? DOCK.floor : Math.max(insets.bottom, DOCK.floor);
@@ -398,10 +569,24 @@ function ChatContent(p: ChatViewProps & { width: number; tall: number; viewBotto
         height={tall}
         layout={layout}
         time={p.sceneTime}
-        rise={motion.sheetY}
+        rise={backdropRise}
+        extraLift={sheetScrollLift}
+        hideScene={mist.sceneHidden}
       />
       <Animated.View
-        style={[StyleSheet.absoluteFill, { transform: [{ translateY: motion.sheetY }] }]}
+        style={[
+          StyleSheet.absoluteFill,
+          mist.layoutCollapsed
+            ? {
+                opacity: mist.circleOpacity,
+                transform: [
+                  { translateY: motion.sheetY },
+                  { translateY: mist.circleScrollY },
+                  { scale: mist.circleScale },
+                ],
+              }
+            : { transform: [{ translateY: motion.sheetY }] },
+        ]}
         pointerEvents="none"
       >
         <PetCircle
@@ -411,13 +596,22 @@ function ChatContent(p: ChatViewProps & { width: number; tall: number; viewBotto
           voice={voice}
           ready={ready}
           loading={p.model.status === 'loading'}
+          hidden={mist.sceneHidden}
           gaze={gaze}
         />
       </Animated.View>
       <Animated.View style={[StyleSheet.absoluteFill, { opacity: shown }]} pointerEvents="box-none">
         <View style={[styles.body, { top: layout.listTop }]}>
           <Animated.View
-            style={[styles.conversation, { transform: [{ translateY: motion.sheetY }] }]}
+            style={[
+              styles.conversation,
+              mist.layoutCollapsed
+                ? {
+                    marginTop: -convScrollLift,
+                    transform: [{ translateY: motion.sheetY }, { translateY: mist.convOffsetY }],
+                  }
+                : { transform: [{ translateY: motion.sheetY }] },
+            ]}
           >
             <View style={[styles.column, styles.list]}>
               <FlashList
@@ -425,6 +619,8 @@ function ChatContent(p: ChatViewProps & { width: number; tall: number; viewBotto
                 data={p.messages}
                 renderItem={renderItem}
                 keyExtractor={keyExtractor}
+                drawDistance={900}
+                maintainVisibleContentPosition={FLASHLIST_DISABLE_MVCP}
                 ListHeaderComponent={greeting}
                 ListFooterComponent={
                   p.busy ? (
@@ -458,8 +654,6 @@ function ChatContent(p: ChatViewProps & { width: number; tall: number; viewBotto
                   photoUri={p.photoUri}
                   onRemovePhoto={p.onRemovePhoto}
                   onCaret={gaze.set}
-                  onNewChat={p.onReset}
-                  newChatLabel={t.chatScreen.newChat}
                 />
               </View>
             </View>
@@ -468,16 +662,7 @@ function ChatContent(p: ChatViewProps & { width: number; tall: number; viewBotto
         {p.nav && (
           // The circle rises into the bar's place while typing, so the bar fades out of its way.
           <Animated.View
-            style={[
-              StyleSheet.absoluteFill,
-              {
-                opacity: motion.sheetY.interpolate({
-                  inputRange: [-NAV_FADE, 0],
-                  outputRange: [0, 1],
-                  extrapolate: 'clamp',
-                }),
-              },
-            ]}
+            style={[StyleSheet.absoluteFill, { opacity: navFadeOpacity }]}
             pointerEvents={keyboard.open ? 'none' : 'box-none'}
           >
             {p.nav}

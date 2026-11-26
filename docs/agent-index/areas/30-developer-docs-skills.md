@@ -11,6 +11,7 @@ This page maps the human docs, the agent instructions, and the repo skills. It s
 - Contracts that code reads: [`knowledge-contract.md`](../../knowledge-contract.md) and [`schemas/knowledge-section.schema.json`](../../schemas/knowledge-section.schema.json). `experiments/laya/kb.py` and `.agents/skills/add-park-knowledge/scripts/knowledge.py` load the schema by path in `SCHEMA`. Keep both paths.
 - Agent instructions: [`mobile/AGENTS.md`](../../../mobile/AGENTS.md) holds the Expo rules and checks. The repo root has no `AGENTS.md` or `CLAUDE.md`. The root [`README.md`](../../../README.md) is the nearest equivalent.
 - Skills: `.agents/skills/add-park-knowledge/` is the knowledge editing skill. `.claude/skills/add-park-knowledge` is a symlink to it. `.claude/skills/` also holds `mobile-offline-stack`, `app-design`, and `hackathon-lean`.
+- Agent speed skills live in `.agents/skills/` with symlinks in `.claude/skills/`: `repo-search-budget` (scoped search, files never to read whole), `mobile-verify-fast` (smallest check, run times, Metro and adb traps), and `shared-checkout` (concurrent chats, `scripts/link-worktree-deps.sh` for fresh worktrees).
 
 ## Runtime or data flow
 

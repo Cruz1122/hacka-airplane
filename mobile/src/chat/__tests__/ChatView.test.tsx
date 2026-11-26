@@ -10,7 +10,7 @@ import { mediaRevealId } from '@/ui/chat/MediaGallery';
 import { replyReveal } from '@/ui/chat/reveal';
 
 import { chatLayout } from '../chatLayout';
-import { ChatView, type ChatRow, type ChatViewProps } from '../ChatView';
+import { ChatView, formatLatency, type ChatRow, type ChatViewProps } from '../ChatView';
 import { headerScene } from '../headerScene';
 
 // The list is a stub that records its props and scroll calls; the backdrop and the Pet are memo
@@ -22,6 +22,10 @@ const mockList = {
   scrollToOffset: jest.fn(),
 };
 const mockRenders = { backdrop: 0, circle: 0 };
+const mockProps = {
+  backdrop: {} as Record<string, any>,
+  circle: {} as Record<string, any>,
+};
 let mockReduced = false;
 
 jest.mock('react-native-safe-area-context', () =>
@@ -45,14 +49,16 @@ jest.mock('@shopify/flash-list', () => {
   };
 });
 jest.mock('../ChatBackdrop', () => ({
-  ChatBackdrop: jest.requireActual('react').memo(() => {
+  ChatBackdrop: jest.requireActual('react').memo((props: Record<string, unknown>) => {
     mockRenders.backdrop++;
+    mockProps.backdrop = props;
     return null;
   }),
 }));
 jest.mock('../PetCircle', () => ({
-  PetCircle: jest.requireActual('react').memo(() => {
+  PetCircle: jest.requireActual('react').memo((props: Record<string, unknown>) => {
     mockRenders.circle++;
+    mockProps.circle = props;
     return null;
   }),
 }));
@@ -344,5 +350,43 @@ describe('ChatView photos', () => {
     expect(replyReveal.revealing(mediaRevealId('p4'))).toBe(true);
     expect(replyReveal.shown(mediaRevealId('p4'))).toBe(0); // its captions wait for the text
     chat.unmount();
+  });
+
+  it('configures FlashList with generous drawDistance and disabled maintainVisibleContentPosition', () => {
+    const chat = mount();
+    expect(mockList.props.drawDistance).toBe(900);
+    expect(mockList.props.maintainVisibleContentPosition).toEqual({ disabled: true });
+    chat.unmount();
+  });
+});
+
+describe('ChatView mist collapse', () => {
+  it('unmounts the mountains once scrolled down in a long chat and remounts them on scroll up', () => {
+    const chat = mount();
+    expect(mockProps.backdrop.hideScene).toBe(false);
+    expect(mockProps.circle.hidden).toBe(false);
+    // Scroll down in a tall chat (content 1400 > viewport 400 + lift + overflow).
+    act(() => mockList.props.onScroll(scrolled(120, 1400, 400)));
+    // Scene stays mounted while the mist rises, then unmounts when covered.
+    expect(mockProps.backdrop.hideScene).toBe(false);
+    finishMotion();
+    expect(mockProps.backdrop.hideScene).toBe(true);
+    expect(mockProps.circle.hidden).toBe(true);
+    // Scrolling back to the top remounts the mountains immediately before the mist glides down.
+    act(() => mockList.props.onScroll(scrolled(0, 1400, 400)));
+    expect(mockProps.backdrop.hideScene).toBe(false);
+    expect(mockProps.circle.hidden).toBe(false);
+    finishMotion();
+    chat.unmount();
+  });
+});
+
+describe('formatLatency', () => {
+  it('shows milliseconds for fast responses and seconds for longer ones without 0.0 s', () => {
+    expect(formatLatency(0)).toBe('1 ms');
+    expect(formatLatency(14.4)).toBe('14 ms');
+    expect(formatLatency(640)).toBe('640 ms');
+    expect(formatLatency(1000)).toBe('1.0 s');
+    expect(formatLatency(1460)).toBe('1.5 s');
   });
 });

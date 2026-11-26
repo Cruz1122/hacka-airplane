@@ -58,16 +58,9 @@ const ask = (topicId: string, userText = 'háblame de eso', afterMedia = false) 
 });
 
 describe('pickMedia', () => {
-  it('shows photos on half of eligible answers', () => {
-    expect(pickMedia(CATALOG, ask('fauna.condor'), dice(0.49, 0))).not.toBeNull();
-    expect(pickMedia(CATALOG, ask('fauna.condor'), dice(0.51))).toBeNull();
-  });
-
-  it('drops to 0.2 right after a reply that showed photos', () => {
-    expect(
-      pickMedia(CATALOG, ask('fauna.condor', 'y el cóndor', true), dice(0.19, 0)),
-    ).not.toBeNull();
-    expect(pickMedia(CATALOG, ask('fauna.condor', 'y el cóndor', true), dice(0.21))).toBeNull();
+  it('always shows photos on eligible answers regardless of dice or prior photos', () => {
+    expect(pickMedia(CATALOG, ask('fauna.condor'), dice(0.99))).not.toBeNull();
+    expect(pickMedia(CATALOG, ask('fauna.condor', 'y el cóndor', true), dice(0.99))).not.toBeNull();
   });
 
   it('always shows them when the user asks for a picture, even right after photos', () => {
@@ -82,7 +75,7 @@ describe('pickMedia', () => {
   });
 
   it('shows one item as a single photo with the caption parts', () => {
-    expect(pickMedia(CATALOG, ask('fauna.condor'), dice(0, 0.6))).toEqual({
+    expect(pickMedia(CATALOG, ask('fauna.condor'), dice(0.6))).toEqual({
       layout: 'single',
       items: [
         {
@@ -96,19 +89,19 @@ describe('pickMedia', () => {
   });
 
   it('keeps a place without a scientific name', () => {
-    expect(pickMedia(CATALOG, ask('places.otun'), dice(0, 0))?.items[0]).toMatchObject({
+    expect(pickMedia(CATALOG, ask('places.otun'), dice(0))?.items[0]).toMatchObject({
       common: 'Laguna del Otún',
       scientific: null,
     });
   });
 
   it('splits two or three items between rows and columns', () => {
-    expect(pickMedia(CATALOG, ask('fauna.mammals'), dice(0, 0.49, 0, 0))?.layout).toBe('rows');
-    expect(pickMedia(CATALOG, ask('fauna.mammals'), dice(0, 0.5, 0, 0))?.layout).toBe('columns');
+    expect(pickMedia(CATALOG, ask('fauna.mammals'), dice(0.49, 0, 0))?.layout).toBe('rows');
+    expect(pickMedia(CATALOG, ask('fauna.mammals'), dice(0.5, 0, 0))?.layout).toBe('columns');
   });
 
   it('shows at most the first three items, in topic order, each with its rolled photo', () => {
-    const pick = pickMedia(CATALOG, ask('flora.paramo'), dice(0, 0.9, 0.99, 0.5, 0));
+    const pick = pickMedia(CATALOG, ask('flora.paramo'), dice(0.9, 0.99, 0.5, 0));
     expect(pick?.layout).toBe('columns');
     expect(pick?.items.map((i) => [i.id, i.photo.file])).toEqual([
       ['frailejon', 'frailejon.3.webp'],

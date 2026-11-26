@@ -1,0 +1,268 @@
+{
+"shard": "T4_X01",
+"mix": {
+"colloquial": 4,
+"misspelled": 3,
+"fragment": 2,
+"situational": 2,
+"english": 1
+},
+"per_entry": 12,
+"entries": [
+{
+"entry_id": "conversation.repeat_or_unclear",
+"label": "pedir que repita o aclare",
+"kind": "chat",
+"key_facts": [
+"Claro. Dime el tema, como acceso, horarios o clima, y te repito el texto preparado; no tengo otra versión más sencilla."
+],
+"examples": [
+"repite por favor",
+"no entendí",
+"otra vez"
+],
+"do_not_ask": [
+"queja por una respuesta equivocada",
+"pedir más detalle del tema anterior"
+]
+},
+{
+"entry_id": "conversation.acknowledge_ok",
+"label": "confirmación corta tipo listo o ok",
+"kind": "chat",
+"key_facts": [
+"Perfecto. Si quieres seguir con el tema o preguntar otra cosa, aquí estoy."
+],
+"examples": [
+"ok",
+"listo",
+"entendido"
+],
+"do_not_ask": [
+"pedir más detalle del tema anterior",
+"agradecer la ayuda recibida"
+]
+},
+{
+"entry_id": "conversation.cancel_topic",
+"label": "dejar el tema que estábamos viendo",
+"kind": "chat",
+"key_facts": [
+"Listo, dejamos ese tema. ¿Qué quieres consultar ahora? Si tenías un registro o un reporte en curso, revisa la pantalla antes de seguir, porque no lo doy por enviado."
+],
+"examples": [
+"olvídalo",
+"déjalo así",
+"no, cambiemos de tema"
+],
+"do_not_ask": [
+"confirmación corta tipo listo o ok",
+"qué puedes hacer por el visitante"
+]
+},
+{
+"entry_id": "conversation.compliment_reply",
+"label": "cumplido al asistente",
+"kind": "chat",
+"key_facts": [
+"¡Gracias, qué amable! Me alegra poder ayudarte. ¿Qué quieres saber del parque?"
+],
+"examples": [
+"qué buen asistente",
+"eres muy útil",
+"te quedó bien"
+],
+"do_not_ask": [
+"agradecer la ayuda recibida",
+"saludo al iniciar la conversación"
+]
+},
+{
+"entry_id": "conversation.more_detail_followup",
+"label": "pedir más detalle del tema anterior",
+"kind": "chat",
+"key_facts": [
+"Claro, te cuento más sobre el tema anterior. Si no tengo más detalle preparado para ese punto, te digo dónde consultarlo."
+],
+"examples": [
+"cuéntame más",
+"y eso qué más?",
+"sigue, explícame mejor"
+],
+"do_not_ask": [
+"confirmación corta tipo listo o ok",
+"pedir que repita o aclare"
+]
+},
+{
+"entry_id": "conversation.info_source_trust",
+"label": "de dónde sale la información",
+"kind": "explanation",
+"key_facts": [
+"La información viene de fuentes oficiales como Parques Nacionales Naturales y el Servicio Geológico Colombiano. Como las condiciones del parque pueden cambiar, consulta sus canales oficiales antes de tu viaje y cuando tengas conexión."
+],
+"examples": [
+"de dónde sacas la info",
+"qué fuente usas",
+"eso sale de algún lado oficial?"
+],
+"do_not_ask": [
+"queja por una respuesta equivocada",
+"uso del asistente sin internet"
+]
+},
+{
+"entry_id": "conversation.offline_operation",
+"label": "uso del asistente sin internet",
+"kind": "explanation",
+"key_facts": [
+"Sí, puedes consultarme sin señal si tienes un modelo local instalado y seleccionado. Esta app no recibe alertas en tiempo real, así que confirma los datos que cambian con la fuente oficial cuando tengas conexión."
+],
+"examples": [
+"funcionas sin internet?",
+"necesito datos para usarte",
+"sin señal sirves?"
+],
+"do_not_ask": [
+"de dónde sale la información",
+"despedida al terminar la conversación"
+]
+},
+{
+"entry_id": "conversation.emergency_limits",
+"label": "límites del asistente en emergencias",
+"kind": "safety",
+"key_facts": [
+"No: esta app no llama, no envía reportes ni te localiza. Si hay peligro, avisa de inmediato al guía o al personal y, si tienes señal, llama al 123. Si necesitas pautas de seguridad o preparar un reporte en el dispositivo, dime qué ocurrió."
+],
+"examples": [
+"sirves en una emergencia?",
+"puedo confiar en ti si me pasa algo grave",
+"si me accidento me ayudas?"
+],
+"do_not_ask": [
+"qué puedes hacer por el visitante",
+"uso del asistente sin internet"
+]
+},
+{
+"entry_id": "conversation.history_storage",
+"label": "dónde se guarda el historial",
+"kind": "explanation",
+"key_facts": [
+"No, la app no conserva el texto del chat en el historial. El historial local solo muestra registros de visita o reportes generados en el dispositivo."
+],
+"examples": [
+"guardas mi conversación?",
+"dónde queda el historial",
+"qué pasa con lo que escribo"
+],
+"do_not_ask": [
+"uso del asistente sin internet",
+"aclarar si el asistente es robot o persona"
+]
+},
+{
+"entry_id": "conversation.no_outside_actions",
+"label": "llamadas, recordatorios y mensajes",
+"kind": "chat",
+"key_facts": [
+"No puedo hacer llamadas, enviar mensajes ni crear recordatorios por ti. Para eso usa tu teléfono, y aquí sigo disponible para preguntas del parque."
+],
+"examples": [
+"me llamas un taxi",
+"puedes llamar a mi mamá",
+"envía esto por whatsapp"
+],
+"do_not_ask": [
+"qué puedes hacer por el visitante",
+"solicitar ubicación gps o mapa en vivo"
+]
+},
+{
+"entry_id": "conversation.location_map_request",
+"label": "solicitar ubicación gps o mapa en vivo",
+"kind": "chat",
+"key_facts": [
+"No. En esta versión no uso tu ubicación ni tengo un mapa en vivo. Para llegar, pregúntame la ruta desde tu ciudad, y si te perdiste, revisa las indicaciones de seguridad."
+],
+"examples": [
+"¿La app puede mostrar mi ubicación?",
+"¿Tienes GPS para ubicarme?",
+"muéstrame un mapa"
+],
+"do_not_ask": [
+"límites del asistente en emergencias",
+"llamadas, recordatorios y mensajes"
+]
+},
+{
+"entry_id": "conversation.voice_reading_request",
+"label": "leer en voz alta o dictar",
+"kind": "chat",
+"key_facts": [
+"Por ahora no puedo leerte en voz alta ni escuchar tu voz. Escribe tu pregunta y te respondo por texto."
+],
+"examples": [
+"puedes leerme la respuesta",
+"háblame en voz alta",
+"dictar mensaje"
+],
+"do_not_ask": [
+"qué puedes hacer por el visitante",
+"pedir respuestas en otro idioma"
+]
+},
+{
+"entry_id": "conversation.opinion_request",
+"label": "opinión personal del asistente",
+"kind": "chat",
+"key_facts": [
+"No tengo opiniones personales, pero puedo darte información del parque y su fuente para que decidas tú."
+],
+"examples": [
+"qué opinas del parque",
+"cuál es tu lugar favorito",
+"tú qué harías"
+],
+"do_not_ask": [
+"pregunta ajena al parque",
+"qué puedes hacer por el visitante"
+]
+},
+{
+"entry_id": "conversation.time_or_date_request",
+"label": "consultar la hora actual o la fecha",
+"kind": "chat",
+"key_facts": [
+"No tengo un reloj confiable sin conexión, así que mira la hora y la fecha en tu teléfono. Para saber los horarios del parque, consulta la página oficial."
+],
+"examples": [
+"qué hora es",
+"qué día es hoy",
+"me dices la fecha"
+],
+"do_not_ask": [
+"qué puedes hacer por el visitante",
+"pregunta ajena al parque"
+]
+},
+{
+"entry_id": "conversation.summary_request",
+"label": "pedir una respuesta más corta",
+"kind": "chat",
+"key_facts": [
+"Claro. Dime el tema en una palabra (acceso, horarios, clima o qué llevar) y te respondo en pocas palabras."
+],
+"examples": [
+"resúmelo",
+"dime en corto",
+"muy largo, resúmelo"
+],
+"do_not_ask": [
+"pedir más detalle del tema anterior",
+"pedir que repita o aclare"
+]
+}
+]
+}
