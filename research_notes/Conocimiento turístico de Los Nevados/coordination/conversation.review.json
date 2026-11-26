@@ -1,0 +1,17 @@
+{
+  "sample_seed": 20261121,
+  "sampled_ids": [
+    "conversation.acknowledge_ok",
+    "conversation.first_time_help",
+    "conversation.free_generation_limits",
+    "conversation.park_complaint_channel",
+    "conversation.location_map_request"
+  ],
+  "status": "minor_corrections_or_global_review",
+  "findings": [
+    "Sampled first_time_help, free_generation_limits, park_complaint_channel, location_map_request and sample remaining entry inspected; no transmission or translation promises in sample.",
+    "App capability assertions derive from repository inspection or user-specified target behavior, not PNN. Current sources point to PNN with editorial caveat: retain explicit distinction in log and final delivery; never present park page as proof of app storage/location behavior.",
+    "location_map_request examples include dónde estoy, which may mean a lost visitor. Narrow generic location examples or ensure safety clarification so conversation does not divert an emergency into casual chat.",
+    "more_detail_followup and repeat_or_unclear require runtime conversational context; verify they route to curated depth/repetition rather than promise generated expansion."
+  ]
+}

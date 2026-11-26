@@ -1,0 +1,48 @@
+import json, pathlib
+base=pathlib.Path('/home/cruz1122/dev/hacka-airplane')
+PNN='https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/'
+SGC='https://www.sgc.gov.co/'
+EVID='https://www.sgc.gov.co/Noticias/Paginas/Boletines-volcanicos.aspx'
+def mk(id,label,examples,short,source='pnn',neg=None,variant=None,tags=None):
+ u=PNN if source=='pnn' else SGC
+ name='Parques Nacionales Naturales de Colombia' if source=='pnn' else 'Servicio Geológico Colombiano'
+ return {'id':'weather_volcano.'+id,'label':label,'kind':'explanation' if source=='pnn' else 'safety','audience':'visitor','lang':'es','examples':examples,'hard_negatives':neg or [],'needs':[],'answer':{'short':short,'variants':[variant or short]},'sources':[{'label':name,'url':u,'retrieved_at':'2026-11-21'}], 'last_verified':'2026-11-21','related':[],'tags':tags or []}
+entries=[
+mk('park_climate','clima del parque',[
+'cómo es el clima en Los Nevados','qué clima hace en el parque','clima general','is it cold in Los Nevados National Park','qué tiempo suele hacer allá','cómo es el clima en la montaña','allá hace frío o calor','el nevado tiene clima frío','como es el clima en los nevados','qué clima debo esperar en el parque','clima de alta montaña','how is the weather in the park'],
+'El parque tiene un clima de montaña que cambia con la topografía y los pisos térmicos. Consulta un pronóstico actualizado para el sector y el día de tu visita.',neg=['qué ropa llevo para el frío','cómo llego al parque'],tags=['clima','montaña']),
+mk('bimodal_rainfall','lluvias durante el año',[
+'llueve todo el año en el parque','cómo se distribuyen las lluvias','hay temporadas de lluvia','lluvias en Los Nevados','qué meses son lluviosos','el clima tiene temporadas marcadas','cómo cambia la lluvia en el año','dos temporadas de lluvia','dos épocas secas y lluviosas','llueve mucho en la montaña','does it rain throughout the year','rainy seasons in the park'],
+'Parques Nacionales describe un régimen bimodal: hay dos periodos lluviosos y dos secos a lo largo del año. Eso no permite asegurar el tiempo de un día concreto; revisa el pronóstico antes de salir.',tags=['lluvia','temporadas']),
+mk('seasonal_weather','clima por temporada',[
+'cuál es la mejor temporada por el clima','en qué época llueve menos','cuándo viajar por el tiempo','se puede elegir temporada seca','qué temporada me recomienda','hay meses secos en Los Nevados','voy en temporada de lluvias qué espero','clima en época seca','temporada para visitar por clima','qué meses son mejores para el clima','best season for weather','does the dry season guarantee sun'],
+'La ficha del parque menciona dos periodos secos y dos lluviosos, pero no garantiza condiciones favorables en una fecha. Revisa el pronóstico y los avisos oficiales justo antes del viaje.',tags=['temporada','pronóstico']),
+mk('weather_by_elevation','variación por altura',[
+'por qué cambia el clima según la altura','hace el mismo clima en todo el parque','el clima cambia al subir','diferencias de temperatura por sectores','qué tan variable es el clima en la montaña','cada altura tiene otro clima','clima arriba y abajo','se siente más frío mientras se asciende','weather by elevation in the park','is the weather the same at every altitude','como cambia el tiempo con la altura','varía mucho el clima entre zonas'],
+'La temperatura varía por los cambios estacionales y por los pisos térmicos de la topografía montañosa. No extrapoles el clima de un pueblo o acceso a todo el recorrido.',tags=['altura','temperatura']),
+mk('daily_forecast','pronóstico para la visita',[
+'qué clima va a hacer mañana en el parque','dónde miro el pronóstico de hoy','pronóstico Los Nevados','va a llover el día de mi visita','cómo verifico el tiempo antes de ir','forecast for tomorrow at Los Nevados','dime si estará soleado este fin de semana','necesito el clima actualizado','el pronóstico del parque para hoy','va a estar despejado cuando suba','dónde consulto el tiempo por sector','se puede saber el clima exacto de la visita'],
+'No puedo confirmar el pronóstico del día desde esta ficha. Consulta el IDEAM antes de salir y vuelve a revisar las condiciones con el operador o las autoridades del sector.',source='pnn',tags=['pronóstico','IDEAM']),
+mk('summit_visibility','visibilidad de la cumbre',[
+'se alcanza a ver la cumbre','estará despejado para ver el nevado','voy a poder ver el Ruiz','la cima se ve desde el recorrido','qué tan probable es ver el volcán','se ve el nevado con nubes','visibilidad de la cumbre','va a estar nublado arriba','can I see the summit today','will the volcano be visible','me garantizan ver el nevado','si llueve se ve la cumbre'],
+'La visibilidad puede cambiar con las condiciones del día, así que no se puede garantizar que veas la cumbre. Revisa el pronóstico antes de ir y disfruta también el paisaje que esté visible.',tags=['visibilidad','nubosidad']),
+mk('ruiz_volcano_activity','actividad del Nevado del Ruiz',[
+'actividad del volcán','está activo el Nevado del Ruiz','cómo es la actividad del nevado','el Ruiz sigue activo','va a hacer erupción','hay actividad volcánica en el Ruiz','qué señales vigila el SGC','se puede saber si va a erupcionar','volcán activo cerca del parque','is Nevado del Ruiz an active volcano','how is the volcano monitored','qué está pasando con el volcán'],
+'El Nevado del Ruiz es un volcán activo y el SGC monitorea señales como sismos y emisiones de gases o ceniza. No es posible predecir aquí una erupción; consulta los boletines recientes del SGC cuando tengas conexión.',source='sgc',neg=['qué pasó en Armero en 1985','qué camino lleva a Brisas'],tags=['volcán','monitoreo']),
+mk('current_alert','alerta volcánica vigente',[
+'qué alerta tiene hoy el Ruiz','nivel de alerta del volcán hoy','alerta actual Nevado del Ruiz','sigue en alerta el volcán','qué nivel reporta el SGC','alerta volcánica vigente','hay alerta para visitar Los Nevados','is there a current alert for Nevado del Ruiz','what is the volcano alert today','cuál es el último nivel de actividad','dónde consulto la alerta de hoy','hay alguna alerta ahora mismo'],
+'No puedo confirmar aquí el nivel vigente, porque las alertas cambian. Antes de viajar, consulta el boletín más reciente del Servicio Geológico Colombiano y sigue las indicaciones de las autoridades.',source='sgc',neg=['qué significa la alerta amarilla','qué pasó en la erupción de 1985'],tags=['alerta','boletín']),
+mk('alert_levels_meaning','significado de niveles de alerta',[
+'qué significa cada alerta del SGC','cómo se interpreta el nivel naranja','qué quiere decir alerta amarilla','qué implica el nivel verde del volcán','cómo entender las alertas volcánicas','niveles de actividad del Ruiz explicación','diferencia entre alertas volcánicas','qué debe hacer un turista con alerta naranja','what do volcano alert levels mean','qué significa que cambie el nivel','como se lee la alerta del volcán','qué acciones indica cada nivel'],
+'Los niveles y sus implicaciones deben interpretarse con la guía oficial vigente del SGC, que no pude consultar desde este entorno. Revisa el boletín y las instrucciones de las autoridades antes de tomar decisiones de viaje.',source='sgc',neg=['qué nivel tiene hoy el Ruiz','cómo se registra una visita'],tags=['niveles','interpretación']),
+mk('ash_emission','emisión de ceniza volcánica',[
+'qué hago si el volcán emite ceniza','hay ceniza del Ruiz hoy','ceniza volcánica en Los Nevados','el volcán está botando ceniza','dónde miro avisos de ceniza','emisión de ceniza Nevado del Ruiz','puede caer ceniza en mi visita','ash emissions near the park','is there ash today','el SGC informó ceniza qué hago','cómo saber si cayó ceniza','qué autoridad informa sobre ceniza'],
+'No puedo confirmar si hay emisiones o caída de ceniza en este momento. Consulta el boletín y avisos oficiales del SGC antes de viajar y sigue las instrucciones de las autoridades locales.',source='sgc',neg=['qué ceniza se ve en el Valle de las Tumbas','cómo era la erupción de 1985'],tags=['ceniza','emisiones'])
+]
+for i,e in enumerate(entries):
+ e['related']=[entries[(i+1)%len(entries)]['id'],entries[(i+2)%len(entries)]['id']]
+# negatives are real examples from other entries to satisfy the retrieval evaluation contract
+for e, target_ids in zip(entries, [[4,6],[4,7],[5,6],[1,5],[1,6],[0,7],[0,4],[6,4],[7,6],[6,5]]):
+ e['hard_negatives']=[entries[j]['examples'][0] for j in target_ids[:2]]
+data={'contract_version':1,'id':'weather_volcano','order':3,'title':'Clima y actividad volcánica','description':'Clima de montaña, lluvias, visibilidad y consulta de alertas oficiales del Nevado del Ruiz para planear la visita.','retrieval':{'profile':'safety','bm25_weight':0.25,'top_k':3,'min_score':None,'entity_filters':[]},'clarification':{'between_entries':'¿Te refieres a {label_a} o a {label_b}?','bank':['¿Quieres saber del clima general o del pronóstico para tu fecha?','¿Tu duda es sobre lluvias, temperatura o visibilidad?','¿Preguntas por la actividad del volcán o por el nivel de alerta?','¿Buscas saber qué significa un nivel o cuál es el vigente?','¿Quieres información del clima o de una emisión de ceniza?'],'slot_questions':{},'fallback':'Puedo orientarte sobre clima, lluvia, visibilidad y dónde consultar avisos volcánicos oficiales. Para condiciones del día, verifica la fuente oficial antes de viajar.'},'featured':[e['id'] for e in entries[:5]],'entries':entries}
+path=base/'data/knowledge/sections/weather_volcano.json'; path.write_text(json.dumps(data,ensure_ascii=False,indent=2)+'\n')

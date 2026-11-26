@@ -1,0 +1,90 @@
+{
+  "contract_version": 1,
+  "id": "fauna",
+  "order": 11,
+  "title": "Fauna",
+  "description": "Animales del parque: aves y mamíferos de alta montaña.",
+  "retrieval": {
+    "profile": "explain",
+    "top_k": 2
+  },
+  "clarification": {
+    "between_entries": "¿Te refieres a {label_a} o a {label_b}?",
+    "bank": [
+      "¿Te interesan las aves o los mamíferos?",
+      "¿Buscas una especie en particular?"
+    ],
+    "fallback": "No tengo esa especie, pero puedo contarte sobre las aves y mamíferos del parque."
+  },
+  "featured": [
+    "fauna.birds",
+    "fauna.mammals"
+  ],
+  "entries": [
+    {
+      "id": "fauna.birds",
+      "label": "las aves del parque",
+      "kind": "explanation",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "aves",
+        "pájaros",
+        "hay cóndores",
+        "qué colibríes hay",
+        "chivito de páramo",
+        "avistamiento de aves",
+        "aves endémicas",
+        "hay aves que solo viven aquí"
+      ],
+      "answer": {
+        "short": "Entre las aves registradas están el chivito de páramo, el cóndor andino y el periquito de los nevados. La presencia de una especie en el parque no garantiza verla durante el recorrido.",
+        "variants": [
+          "Si te gustan las aves, entre las especies registradas están el chivito de páramo, el cóndor andino y el periquito de los nevados. Verlas durante tu recorrido depende de las condiciones y de dónde estés."
+        ],
+        "steps": [
+          [
+            "Entre las aves registradas en Los Nevados están el chivito de páramo, el cóndor andino y el periquito de los nevados."
+          ],
+          [
+            "El chivito de páramo es un colibrí propio de la región. Se alimenta del néctar de las flores de frailejón."
+          ],
+          [
+            "Para observar fauna durante tu visita, sigue los recorridos habilitados. Los avistamientos dependen del lugar y las condiciones del día."
+          ]
+        ]
+      },
+      "sources": [
+        {
+          "label": "Parques Nacionales Naturales",
+          "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+          "retrieved_at": "2026-11-21"
+        }
+      ]
+    },
+    {
+      "id": "fauna.mammals",
+      "label": "los mamíferos del parque",
+      "kind": "explanation",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "mamíferos",
+        "hay pumas",
+        "hay dantas",
+        "qué mamíferos se encuentran",
+        "qué es una danta de montaña"
+      ],
+      "answer": {
+        "short": "La danta de montaña, el puma y la guagua loba están entre los mamíferos registrados en el parque. Observa la fauna a distancia."
+      },
+      "sources": [
+        {
+          "label": "Parques Nacionales Naturales",
+          "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+          "retrieved_at": "2026-11-21"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,314 @@
+% Results report for run r2 (real phone). Every figure comes from `uv run python
+% reports/r2/numbers.py` and from results/{r2-phone,r2-phone-raw,r2-phone-deploy,
+% r2-laptop-v2}/metrics/*.csv (regenerate with `nevados-bench score --run-id <id>`).
+\documentclass[11pt,a4paper]{article}
+
+\usepackage[spanish,es-tabla,es-nodecimaldot]{babel}
+\usepackage{libertinus}
+\usepackage[a4paper,top=27mm,bottom=27mm,left=26mm,right=26mm]{geometry}
+\usepackage{microtype}
+\usepackage{booktabs}
+\usepackage{tabularx}
+\usepackage{array}
+\usepackage{xcolor}
+\usepackage{titlesec}
+\usepackage{fancyhdr}
+\usepackage{enumitem}
+\usepackage{caption}
+\usepackage{float}
+\usepackage[hidelinks]{hyperref}
+
+\definecolor{accent}{HTML}{1F3A5F}
+\definecolor{muted}{HTML}{6B7280}
+\definecolor{rule}{HTML}{C9CED6}
+
+\titleformat{\section}{\Large\bfseries\color{accent}}{\thesection}{0.8em}{}
+\titleformat{\subsection}{\large\bfseries}{\thesubsection}{0.8em}{}
+\titlespacing*{\section}{0pt}{2.2ex plus .6ex}{1.0ex}
+\titlespacing*{\subsection}{0pt}{1.8ex plus .4ex}{0.7ex}
+
+\pagestyle{fancy}
+\fancyhf{}
+\renewcommand{\headrulewidth}{0.3pt}
+\renewcommand{\headrule}{{\color{rule}\hrule width\headwidth height\headrulewidth}}
+\fancyhead[L]{\small\color{muted}Asistente sin conexión PNN Los Nevados}
+\fancyhead[R]{\small\color{muted}Medición r2 en el teléfono · Informe de resultados}
+\fancyfoot[C]{\small\color{muted}\thepage}
+
+\captionsetup{font=small,labelfont=bf,skip=6pt}
+\setlist{itemsep=2pt,topsep=4pt,leftmargin=1.4em}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt}
+\renewcommand{\arraystretch}{1.12}
+\newcolumntype{R}{>{\raggedleft\arraybackslash}X}
+\newcolumntype{L}{>{\raggedright\arraybackslash}X}
+\newcommand{\m}[1]{\texttt{#1}}
+\newcommand{\nd}{\textcolor{muted}{--}}
+
+\begin{document}
+
+% ------------------------------------------------------------------ title block
+\thispagestyle{empty}
+\vspace*{-6mm}
+{\color{accent}\rule{\textwidth}{1.2pt}}
+
+\vspace{5mm}
+{\huge\bfseries\raggedright Latencia real en el teléfono y decisión de ajuste fino\par}
+\vspace{3mm}
+{\Large Informe de resultados de la medición r2\par}
+\vspace{5mm}
+{\color{accent}\rule{\textwidth}{0.4pt}}
+
+\vspace{5mm}
+\begin{tabularx}{\textwidth}{@{}lL@{}}
+\textbf{Contexto} & Hackatón del 26 de noviembre de 2026. Asistente sin conexión para las cuatro estaciones ecoturísticas del PNN Los Nevados. Continúa el benchmark r1, que eligió Gemma 4 E2B.\\[3pt]
+\textbf{Dispositivo} & Moto Edge 60 Fusion: MediaTek Dimensity 7300 (MT6878), Android 16, 8\,GB de RAM. Inferencia en los 4 núcleos Cortex-A78.\\[3pt]
+\textbf{Ejecución} & 17 y 18 de noviembre de 2026.\\[3pt]
+\textbf{Alcance} & Los cuatro finalistas de r1: Gemma 4 E2B, Qwen3-1.7B, Granite 4.0 Micro y Qwen3-0.6B, todos en Q4\_K\_M.\\
+\end{tabularx}
+
+\vspace{6mm}
+\section*{Resumen ejecutivo}
+
+\textbf{Decisión, según la regla fijada antes de medir: ajuste fino LoRA de un enrutador pequeño sobre Qwen3-0.6B.} Gemma funciona en el teléfono con la misma calidad que en el portátil, pero un turno de diálogo tarda 6,1\,s en la mediana y 12,8\,s en el percentil 95, por encima del objetivo de 5\,s y 10\,s.
+
+\begin{itemize}
+\item \textbf{La calidad no cambia al pasar al teléfono.} En los 240 casos de enrutado, Gemma da la misma salida que en el portátil en 227; la tasa de acierto pasa de 75,4\,\% a 73,8\,\%, dentro del ruido.
+\item \textbf{El cuello de botella es el paso de enrutado}: 6,4\,s de mediana dentro de un diálogo, de los cuales 4,5\,s son la escritura de unos 33 tokens de JSON. La respuesta ya no cuesta tiempo de modelo, porque se devuelven los pasajes oficiales literalmente.
+\item \textbf{Ningún otro finalista resuelve la latencia sin ajuste.} Qwen3-1.7B tarda lo mismo por turno y acierta menos; Granite 4.0 Micro es el más lento (9,9\,s por turno). \textbf{Qwen3-0.6B ya cumple la latencia} (2,8\,s y 5,8\,s por turno), pero sin ajuste completa bien el 61\,\% de los diálogos frente al 81\,\% de Gemma: el ajuste debe cerrar esa brecha de acierto, no de velocidad.
+\item \textbf{Se corrigieron dos causas de lentitud en el servidor}: la caché de un solo prompt, que disparaba el percentil 95 a 31\,s, y un envoltorio de código Markdown que el formato de chat de Gemma permitía antes del JSON.
+\item \textbf{Para la demostración ya hay un asistente funcional}: Gemma con los controles en código, a unos 6\,s por turno. El enrutador ajustado solo lo sustituye si iguala su acierto.
+\end{itemize}
+
+\textbf{Principal limitación.} El ajuste fino aún no existe; su viabilidad es una hipótesis. Además, los controles en código se diseñaron mirando los fallos de r1, así que los diálogos usados aquí no son un conjunto de prueba independiente.
+
+\newpage
+
+% ------------------------------------------------------------------ method
+\section{Objetivo y método}
+
+r1 midió todo en un portátil con un perfil restringido que imita al teléfono. Esas latencias solo servían para ordenar modelos. r2 responde a la pregunta que quedó abierta: si Gemma es lo bastante rápido en el teléfono real, o si hace falta ajuste fino.
+
+\subsection{Regla de decisión}
+
+La regla se fijó antes de ver ningún dato del teléfono (tabla~\ref{tab:rule}). El objetivo es el turno completo que ve el visitante: la suma de todas las llamadas al modelo que provoca un mensaje.
+
+\begin{table}[H]
+\centering\small
+\caption{Regla de decisión fijada antes de medir.}\label{tab:rule}
+\begin{tabularx}{\textwidth}{@{}LL@{}}
+\toprule
+Resultado en el teléfono (Gemma, ventana de 4.096) & Decisión\\
+\midrule
+Turno p50 $\le$ 5\,s y p95 $\le$ 10\,s, sin limitación térmica fuerte & Sin ajuste fino\\
+Enrutado $>$ 2\,s, respuesta aceptable & LoRA de un enrutador en Qwen3-0.6B\\
+Gemma no cabe en memoria o supera el doble del objetivo & Qwen3-1.7B como modelo único\\
+Salidas distintas a las del portátil & Revisar la compilación antes de decidir\\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\subsection{Entorno de medición}
+
+\begin{tabularx}{\textwidth}{@{}lL@{}}
+\toprule
+Motor & llama.cpp \m{b12375}, el mismo commit que r1, compilado de forma estática con el NDK r27c. Se ejecuta por \m{adb} en \m{/data/local/tmp}, sin root, sin Termux y sin aplicación.\\
+Hilos & 4, fijados a los núcleos A78 (\m{taskset f0}).\\
+Generación & Temperatura 0, semilla fija, razonamiento desactivado, ventana de 4.096 tokens.\\
+Harness & El mismo de r1, con \m{--target phone}: el portátil envía las peticiones por \m{adb forward} y lee memoria, temperatura y frecuencia del teléfono.\\
+Configuración de despliegue & Llamadas con esquema JSON por \m{/completion} y caché de prompts en RAM de 512\,MiB (\m{--cache-ram 512}); ver sección~\ref{sec:fixes}.\\
+\bottomrule
+\end{tabularx}
+
+\subsection{Mediciones}
+
+\begin{table}[H]
+\centering\small
+\caption{Lotes ejecutados. B8 es el asistente completo: controles en código y respuestas extractivas.}\label{tab:batches}
+\begin{tabularx}{\textwidth}{@{}llLl@{}}
+\toprule
+Lote & Dónde & Qué mide & Modelos\\
+\midrule
+B6 & Teléfono & Lectura, escritura, memoria y 30 turnos sostenidos & 4\\
+B2 & Teléfono & Enrutado con 8 herramientas, 240 casos & Gemma, Qwen3-1.7B, Qwen3-0.6B\\
+B8 & Teléfono & Turno completo en 36 diálogos de 3, 6 y 12 turnos & 4\\
+B7 & Portátil & Diálogos con respuesta generada, con y sin controles & Gemma\\
+B8 & Portátil & Igual que B8 en el teléfono, para comparar calidad & Gemma\\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+Las tasas llevan intervalos de Wilson al 95\,\%. Los percentiles son de rango más cercano. Ningún modelo actúa como juez.
+
+% ------------------------------------------------------------------ results
+\section{Resultados}
+
+\subsection{Velocidad y memoria (B6)}
+
+\begin{table}[H]
+\centering\small
+\caption{Velocidad en el teléfono. Mediana; lectura de un prompt de 1.000 tokens sin caché. Entre paréntesis, el factor respecto al perfil de teléfono del portátil en r1.}\label{tab:speed}
+\begin{tabularx}{\textwidth}{@{}lRRRR@{}}
+\toprule
+Modelo & Lectura (tok/s) & Escritura (tok/s) & 1.000 tokens en frío (s) & Memoria pico (GiB)\\
+\midrule
+\m{qwen3-0.6b} & 171 (1,16) & 33,9 (0,74) & 5,9 & 1,25\\
+\m{gemma4-e2b} & 109 (0,84) & 8,8 (0,67) & 9,2 & 3,63\\
+\m{qwen3-1.7b} & 70 (1,19) & 12,8 (0,72) & 14,4 & 2,59\\
+\m{granite4-micro} & 29 (1,07) & 6,7 (0,71) & 34,4 & 4,13\\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\begin{itemize}
+\item \textbf{La escritura es un 30\,\% más lenta que en el portátil} en los cuatro modelos (factor 0,67--0,74). La lectura varía entre 0,84 y 1,19.
+\item \textbf{Con caché, la primera palabra llega en 0,05--0,2\,s} en todos los modelos. Sin caché, leer 2.000 tokens cuesta 21\,s en Gemma y 75\,s en Granite.
+\item \textbf{Sin pérdida de velocidad en 30 turnos seguidos}: variación de $-4$\,\% a $0$\,\%, con la CPU entre 59 y 64\,°C y la frecuencia entre 1,7 y 2,2\,GHz.
+\item \textbf{El teléfono llega al estado térmico 3 (\emph{severe}) al final de cada lote}, con la carcasa a 44--46\,°C. No redujo la velocidad en estas mediciones, pero una sesión larga al sol sí podría.
+\end{itemize}
+
+\subsection{Calidad: teléfono frente a portátil (B2)}
+
+Con las mismas entradas, Gemma produjo la misma salida en 227 de 240 casos. El acierto de enrutado pasó de 75,4\,\% a 73,8\,\% y el de Qwen3-1.7B quedó igual. Las diferencias se explican por la aritmética distinta de ARM y x86; la compilación es correcta. Los resultados de calidad de r1 siguen valiendo en el teléfono.
+
+\begin{table}[H]
+\centering\small
+\caption{Enrutado en el teléfono, 240 casos, sin los controles en código.}\label{tab:route}
+\begin{tabularx}{\textwidth}{@{}lRRRR@{}}
+\toprule
+Modelo & Acierto & Aclaración correcta & p50 (s) & p95 (s)\\
+\midrule
+\m{gemma4-e2b}, \m{/completion} & 75,4\,\% & 40,0\,\% & 3,6 & 9,8\\
+\m{gemma4-e2b}, chat & 73,8\,\% & 32,5\,\% & 4,8 & 10,9\\
+\m{qwen3-1.7b}, chat & 63,8\,\% & 0,0\,\% & 3,0 & 8,3\\
+\m{qwen3-0.6b}, chat & 45,8\,\% & 5,0\,\% & 1,7 & 3,6\\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+En r1, los controles en código subieron el acierto de Gemma de 181 a 207 casos de 240 y eliminaron los 26 argumentos inventados. Esa mejora se calculó sobre las salidas ya registradas y aplica igual en el teléfono.
+
+\subsection{Turno completo (B8)}\label{sec:turn}
+
+B8 ejecuta el asistente tal como se desplegaría: cada mensaje pasa por enrutado o extracción de un dato, los controles validan la llamada, y las respuestas informativas son los pasajes oficiales citados literalmente. Por eso un turno usa casi siempre una sola llamada al modelo (0,95 de media).
+
+\begin{table}[H]
+\centering\small
+\caption{Latencia por turno en el teléfono con la configuración de despliegue. Objetivo: p50 $\le$ 5\,s y p95 $\le$ 10\,s.}\label{tab:turn}
+\begin{tabularx}{\textwidth}{@{}lrrRRRR@{}}
+\toprule
+Modelo & Diálogos & Turnos & p50 (s) & p95 (s) & $\le$ 5\,s & Diálogos correctos\\
+\midrule
+\m{gemma4-e2b} & 36 & 252 & 6,1 & 12,8 & 32\,\% & 80,6\,\%\\
+\m{qwen3-1.7b} & 30 & 180 & 5,9 & 11,8 & 36\,\% & 80,0\,\%\\
+\m{granite4-micro} & 28 & 156 & 9,9 & 22,7 & 12\,\% & 78,6\,\%\\
+\m{qwen3-0.6b} & 36 & 252 & 2,8 & 5,8 & 89\,\% & 61,1\,\%\\
+\midrule
+\m{gemma4-e2b} sin caché en RAM & 30 & 180 & 6,0 & 31,2 & 36\,\% & \nd\\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\begin{itemize}
+\item \textbf{Gemma no cumple el objetivo, pero tampoco lo duplica}: 6,1\,s frente a 5\,s y 12,8\,s frente a 10\,s.
+\item \textbf{El enrutado explica casi todo el tiempo.} Dentro del diálogo tarda 6,4\,s de mediana: 1,5\,s en leer unos 100 tokens nuevos y 4,5\,s en escribir 33 tokens de JSON. La extracción de un dato tarda 4,4\,s, sobre todo en leer su prompt de unos 330 tokens.
+\item \textbf{Qwen3-1.7B no es más rápido en el diálogo}: escribe menos tokens, pero lee más despacio que Gemma. Su ventaja de B2 desaparece cuando el historial crece.
+\item \textbf{Qwen3-0.6B cumple el objetivo sin ajuste}: 2,8\,s y 5,8\,s, con el 89\,\% de los turnos en 5\,s o menos. Su problema es el acierto: ejecuta con argumentos equivocados en el 31\,\% de los diálogos, frente al 14\,\% de Gemma.
+\item \textbf{Teléfono y portátil fallan los mismos diálogos.} Gemma falla los mismos 7 de 36 en ambos equipos.
+\end{itemize}
+
+\subsection{Controles en código y respuesta extractiva (portátil)}
+
+En el portátil se compararon tres variantes del asistente con Gemma. B7 agotó su tope de tiempo en 29 de los 36 diálogos; la comparación justa es sobre esos 29.
+
+\begin{table}[H]
+\centering\small
+\caption{Diálogos completados correctamente (portátil, Gemma).}\label{tab:arms}
+\begin{tabularx}{\textwidth}{@{}lRRRR@{}}
+\toprule
+Variante & Correctos (29 comunes) & Correctos (36) & Repeticiones & Turno p50 (s)\\
+\midrule
+Respuesta generada, sin controles & 26 & \nd & 10,3\,\% & 18,5\\
+Respuesta generada, con controles & 26 & \nd & 3,4\,\% & 19,9\\
+Respuesta extractiva, con controles & 25 & 29 & 13,9\,\% & 5,0\\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\begin{itemize}
+\item \textbf{La respuesta extractiva cuesta un diálogo de 29 y ahorra tres cuartas partes del tiempo} en el portátil: elimina la llamada más cara, que es redactar la respuesta.
+\item \textbf{Los fallos que quedan son correcciones durante el llenado de datos}: el visitante cambia la fecha (dlg-13) o la estación (dlg-18) y el asistente ejecuta con el valor anterior. Ocurren con y sin controles; es una debilidad de la máquina de estados, corregible en código.
+\item Estas latencias del portátil se tomaron sin caché en RAM y no se usan para la decisión.
+\end{itemize}
+
+% ------------------------------------------------------------------ fixes
+\section{Problemas encontrados y corregidos}\label{sec:fixes}
+
+\begin{enumerate}
+\item \textbf{Caché de un solo prompt.} Con \m{--cache-ram 0}, cada extracción expulsaba de la caché el prefijo del enrutador, unos 2.000 tokens, y el siguiente enrutado los volvía a leer: unos 20\,s en el teléfono. Con \m{--cache-ram 512}, el percentil 95 del turno bajó de 31,2\,s a 12,8\,s y el máximo de 40\,s a 28\,s.
+\item \textbf{Envoltorio Markdown en el JSON.} El formato de chat de Gemma en \m{b12375} permite que la salida con esquema empiece con un bloque \m{```json} y venga indentada: entre 6 y 10 tokens inútiles, cerca de 1\,s en el teléfono. Enviar esas llamadas por \m{/completion} bajó la mediana de 32 a 25 tokens y no empeoró el acierto (tabla~\ref{tab:route}).
+\item \textbf{Hueco en el control de argumentos.} El control solo revisaba los argumentos obligatorios y aceptaba como fuente los mensajes del propio asistente. Una respuesta extractiva que citaba un sendero bastaba para que \m{trail\_id} pasara a un reporte de emergencia. Ahora los argumentos opcionales que el visitante no dijo se descartan, y solo cuentan sus mensajes. Re-evaluado sobre r1, no rompe ningún caso que antes pasaba.
+\item \textbf{Etiquetas de variante mal registradas.} En B7 y B8, las llamadas al modelo quedaban etiquetadas como \emph{sin controles} sin importar la variante. Se corrigió el harness con una prueba de regresión, y los datos afectados se repararon con un script que conserva el original.
+\item \textbf{Colisión de puertos.} El servidor del portátil y el reenvío al teléfono usaban el mismo puerto local 8080, lo que interrumpió cuatro pasos del teléfono. Las corridas del portátil usan ahora el 8081.
+\end{enumerate}
+
+La batería de pruebas pasa completa (359 pruebas) y el linter no reporta problemas.
+
+% ------------------------------------------------------------------ decision
+\section{Decisión}
+
+\begin{table}[H]
+\centering\small
+\caption{Aplicación de la regla a los datos de la tabla~\ref{tab:turn}.}\label{tab:decision}
+\begin{tabularx}{\textwidth}{@{}lLl@{}}
+\toprule
+Condición & Dato medido & ¿Se cumple?\\
+\midrule
+Turno p50 $\le$ 5\,s y p95 $\le$ 10\,s & 6,1\,s y 12,8\,s & No\\
+Enrutado $>$ 2\,s con respuesta aceptable & Enrutado 6,4\,s; la respuesta no usa el modelo & \textbf{Sí}\\
+Sin memoria o más del doble del objetivo & Cabe (3,6\,GiB); 1,2 y 1,3 veces el objetivo & No\\
+Salidas distintas al portátil & 227 de 240 idénticas & No\\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\textbf{Resultado: ajuste fino LoRA de un enrutador sobre Qwen3-0.6B.} La medición de B8 respalda la elección: el modelo base ya cumple la latencia en el teléfono, así que el ajuste solo tiene que subir el acierto, de 61\,\% a al menos el 81\,\% de Gemma.
+
+\subsection{Por qué puede bastar un solo modelo pequeño}
+
+Con respuestas extractivas, Gemma solo enruta y extrae datos; nunca redacta. Si el enrutador ajustado también extrae datos, Qwen3-0.6B puede ser el único modelo del teléfono: 1,25\,GiB de memoria en lugar de 3,6\,GiB, y escritura cuatro veces más rápida. Mantener dos modelos cargados a la vez no es recomendable, porque el teléfono solo tiene unos 1,5\,GB libres en reposo.
+
+\subsection{Criterios de aceptación del ajuste}
+
+\begin{itemize}
+\item \textbf{Acierto}: igual o mejor que Gemma con controles en el enrutado y en los diálogos, medido sobre casos nuevos que no se usen para entrenar.
+\item \textbf{Latencia}: turno p50 $\le$ 5\,s y p95 $\le$ 10\,s en el teléfono con la configuración de despliegue.
+\item \textbf{Respaldo}: si no cumple, se despliega Gemma con la configuración actual, que ya funciona a unos 6\,s por turno.
+\end{itemize}
+
+\subsection{Mejoras en código, independientes del ajuste}
+
+\begin{itemize}
+\item Aplicar las correcciones del visitante durante el llenado de datos, que explican la mayoría de los diálogos fallidos.
+\item Compartir un prefijo común entre los prompts de extracción para que la caché los aproveche; hoy cada extracción se lee entera.
+\end{itemize}
+
+% ------------------------------------------------------------------ prototype
+\section{Prototipo}
+
+Existe un chat web local sobre la máquina de estados con controles (\m{nevados-bench app}). Usa solo la biblioteca estándar de Python, no carga recursos externos y habla con \m{llama-server} por \m{localhost}. Ya usa \m{/completion} para las llamadas con esquema y espera un servidor con \m{--cache-ram 512}.
+
+No se verificó en el teléfono: el chat no se ha ejecutado contra el servidor del teléfono, y el empaquetado dentro de Termux con modo avión no se ha probado.
+
+% ------------------------------------------------------------------ limits
+\section{Limitaciones}
+
+\begin{itemize}
+\item \textbf{Los diálogos no son un conjunto independiente}: los controles se diseñaron a partir de los fallos de r1 sobre estas mismas suites.
+\item \textbf{El mundo es ficticio}: estaciones, senderos y valores inventados; hay que repetir la evaluación con los datos oficiales del parque.
+\item \textbf{Un solo teléfono, temperatura ambiente de interior}: no se midió al sol ni con la batería baja.
+\item \textbf{Mediciones del portátil con interferencias}: una prueba de caché compartió núcleos con B7 hacia las 02:15 del 18 de noviembre. Solo afecta latencias del portátil, que no entran en la decisión.
+\item \textbf{Cobertura parcial}: algunos lotes agotaron su tope de tiempo antes de los 36 diálogos; las tablas indican el número ejecutado.
+\end{itemize}
+
+\end{document}

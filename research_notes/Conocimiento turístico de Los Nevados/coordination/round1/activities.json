@@ -1,0 +1,4295 @@
+{
+  "contract_version": 1,
+  "id": "activities",
+  "order": 8,
+  "title": "Qué hacer y qué visitar",
+  "description": "Recorridos, senderos, miradores, cumbres, camping, fotografía y otras actividades de visita en Los Nevados, según el sector.",
+  "retrieval": {
+    "profile": "explain",
+    "bm25_weight": 0.35,
+    "top_k": 2,
+    "min_score": null,
+    "entity_filters": [
+      "sector"
+    ]
+  },
+  "clarification": {
+    "between_entries": "¿Te refieres a {label_a} o a {label_b}?",
+    "bank": [
+      "¿Buscas una salida corta por Brisas o una travesía de varios días?",
+      "¿Quieres caminar, ver un mirador o intentar una cumbre autorizada?",
+      "¿Te interesa el Ruiz, Santa Isabel, la Laguna del Otún o el Tolima?",
+      "¿Preguntas por acampar, por fotografiar o por un sendero?",
+      "¿Es una visita con niños o un ascenso de alta montaña?",
+      "¿Quieres saber si esa actividad está permitida o cómo es el recorrido?"
+    ],
+    "slot_questions": {
+      "sector": "¿En qué sector quieres hacer la actividad: Brisas, Santa Isabel, Laguna del Otún o Tolima?"
+    },
+    "fallback": "No tengo ese recorrido con ese nombre. Puedo contarte qué se visita en Brisas, Santa Isabel, la Laguna del Otún o el Tolima, y qué cumbres están autorizadas. Confirma siempre el sendero con Parques Nacionales antes de salir."
+  },
+  "featured": [
+    "activities.what_to_visit",
+    "activities.brisas_valle_tumbas",
+    "activities.ruiz_summit_closed",
+    "activities.camping_where",
+    "activities.sector_tolima"
+  ],
+  "entries": [
+    {
+      "id": "activities.what_to_visit",
+      "label": "qué puedes visitar en el parque",
+      "kind": "explanation",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "qué puedo visitar",
+        "qué hay para hacer en Los Nevados",
+        "qué lugares puedo conocer",
+        "qué recorrido me recomienda para empezar",
+        "actividades en el parque nacional",
+        "qué se hace en cada sector",
+        "quiero un plan de visita sin cumbre",
+        "que hay pa hacer en los nevados",
+        "cual es el paseo mas facil",
+        "entre Brisas y el Tolima qué elijo",
+        "what can I do in Los Nevados",
+        "which part of the park should a first-time visitor pick"
+      ],
+      "hard_negatives": [
+        "cómo llego desde Manizales",
+        "cuánto cuesta la entrada",
+        "a qué hora abren Brisas"
+      ],
+      "needs": [],
+      "answer": {
+        "short": "Hay cuatro sectores de visita en la ficha: Brisas–Kumanday, Cisne–Poleka Kasue, Laguna del Otún y Quindío–Dulima. Elige Brisas si buscas una salida corta, en vehículo y con caminatas breves; los otros sectores son para varios días, más sendero o una cumbre técnica. Cada uno cambia de cupo y de condiciones, así que confirma el que elegiste antes de salir.",
+        "variants": [
+          "La ficha reparte la visita en cuatro sectores. Brisas sirve para una jornada corta; Santa Isabel, el Otún y el Tolima piden más camino o una cumbre. Confirma cupo y estado del sector antes de viajar."
+        ],
+        "detail": "Brisas–Kumanday se asocia al paisaje del Ruiz hasta el Valle de las Tumbas. Cisne–Poleka Kasue ofrece páramo, borde glaciar, cumbre del Santa Isabel y Laguna Verde. En el Otún está la laguna más grande del parque. Quindío–Dulima concentra el montañismo cerca del Tolima.",
+        "steps": [
+          [
+            "Mira primero cuánto tiempo tienes: un día apunta a Brisas; varios días abren Otún, Santa Isabel o Tolima."
+          ],
+          [
+            "Dentro de cada sector solo cuentan los senderos que el parque tenga habilitados para tu fecha."
+          ],
+          [
+            "El plan de marzo de 2026 anuncia ajustes de senderos, pero la ficha de visita sigue organizada en esos cuatro sectores."
+          ]
+        ],
+        "reflection": "Puedes armar un buen día con el paisaje que sí esté habilitado, aunque la cima se quede entre nubes."
+      },
+      "sources": [
+        {
+          "label": "Parques Nacionales Naturales de Colombia, ficha PNN Los Nevados",
+          "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "last_verified": "2026-11-21",
+      "related": [
+        "activities.brisas_valle_tumbas",
+        "activities.day_or_multiday",
+        "activities.sector_tolima"
+      ],
+      "tags": [
+        "sectores",
+        "visita",
+        "primera vez"
+      ],
+      "entities": {
+        "sector": [
+          "brisas",
+          "santa_isabel",
+          "otun",
+          "tolima"
+        ]
+      }
+    },
+    {
+      "id": "activities.brisas_valle_tumbas",
+      "label": "recorrido Brisas al Valle de las Tumbas",
+      "kind": "explanation",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "qué es el Valle de las Tumbas",
+        "cómo es el paseo de Brisas",
+        "Valle del Silencio qué se recorre",
+        "quiero ir al valle cerca del Ruiz",
+        "el carreteable de Brisas qué muestra",
+        "se ve el superpáramo en ese valle",
+        "Brisas hasta las Tumbas es en carro",
+        "que hay en el valle de las tumbas",
+        "el valle del silencio es el mismo",
+        "me llevan hasta el valle o me dejan en Brisas",
+        "what is the drive from Brisas to Valle de las Tumbas",
+        "is Valle del Silencio the same place as Valle de las Tumbas"
+      ],
+      "hard_negatives": [
+        "dónde queda exactamente el valle en el mapa",
+        "reserva para el sector norte del Ruiz",
+        "puedo subir en moto a Brisas"
+      ],
+      "needs": [],
+      "answer": {
+        "short": "El paseo de Brisas sale del centro de inducción, a unos 4100 metros, y sigue en vehículo por Arenales hasta el Valle de las Tumbas, también llamado Valle del Silencio. Vas a ver superpáramo y el paisaje volcánico del Ruiz, no a entrar al cráter. Confirma qué tramo está habilitado el día de tu visita.",
+        "variants": [
+          "En Brisas el recorrido publicado va en vehículo desde el centro de inducción, cerca de 4100 metros, hasta el Valle de las Tumbas o Valle del Silencio. Es para mirar el superpáramo y el Ruiz desde ese tramo, no para hacer cumbre."
+        ]
+      },
+      "sources": [
+        {
+          "label": "Parques Nacionales Naturales de Colombia, ficha PNN Los Nevados",
+          "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+          "retrieved_at": "2026-11-21"
+        },
+        {
+          "label": "Parques Nacionales Naturales, Resolución 207 del 4 de agosto de 2023",
+          "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2023/08/Resolucion_207_2023_ReglamentacionNevados_.pdf",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "last_verified": "2026-11-21",
+      "related": [
+        "activities.ruiz_summit_closed",
+        "activities.north_route_stops",
+        "activities.cloudy_visit_landscape"
+      ],
+      "tags": [
+        "brisas",
+        "valle de las tumbas",
+        "valle del silencio"
+      ],
+      "entities": {
+        "sector": [
+          "brisas"
+        ]
+      }
+    },
+    {
+      "id": "activities.north_route_stops",
+      "label": "paradas del recorrido norte",
+      "kind": "fact",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "qué paradas tiene el carreteable del Ruiz",
+        "pasamos por Aguacerales",
+        "Arenales del norte queda antes de las Tumbas",
+        "el orden del recorrido en Brisas",
+        "dónde está Aguacerales en la ruta",
+        "se baja en el valle o solo se mira",
+        "nombres de las estaciones del norte",
+        "aguacerales arenales y tumbas son seguidos",
+        "hay varias paradas o es un solo punto",
+        "el recorrido norte en que orden va",
+        "what stops are on the northern scenic road",
+        "does the Brisas route pass Aguacerales before the valley"
+      ],
+      "hard_negatives": [
+        "cuántos kilómetros hay de Manizales a Brisas",
+        "a qué hora es la última charla",
+        "pico y placa para subir a Brisas"
+      ],
+      "needs": [],
+      "answer": {
+        "short": "La reglamentación de 2023 nombra un solo recorrido norte: centro de interpretación Brisas, Aguacerales, Arenales y Valle de las Tumbas. La ficha lo describe como un trayecto en vehículo hasta el valle. Esas fuentes no publican los tiempos entre paradas; el operador te dice el orden del día.",
+        "variants": [
+          "En el norte el sendero autorizado va de Brisas a Aguacerales, luego Arenales y termina en el Valle de las Tumbas. Se recorre en vehículo y el parque no publicó la duración de cada parada."
+        ]
+      },
+      "sources": [
+        {
+          "label": "Parques Nacionales Naturales, Resolución 207 del 4 de agosto de 2023",
+          "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2023/08/Resolucion_207_2023_ReglamentacionNevados_.pdf",
+          "retrieved_at": "2026-11-21"
+        },
+        {
+          "label": "Parques Nacionales Naturales de Colombia, ficha PNN Los Nevados",
+          "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "last_verified": "2026-11-21",
+      "related": [
+        "activities.brisas_valle_tumbas",
+        "activities.arenales_two_places",
+        "activities.short_walks_brisas"
+      ],
+      "tags": [
+        "aguacerales",
+        "arenales",
+        "paradas"
+      ],
+      "entities": {
+        "sector": [
+          "brisas"
+        ]
+      }
+    },
+    {
+      "id": "activities.arenales_two_places",
+      "label": "dos sitios llamados Arenales",
+      "kind": "explanation",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "Arenales del Ruiz y Arenales del Tolima",
+        "cuál Arenales es el del valle",
+        "me confundí con el campamento Arenales",
+        "Arenales es una parada o un camping",
+        "hay dos Arenales en el parque",
+        "el Arenales de Brisas se puede dormir",
+        "Arenales de la cumbre del Tolima",
+        "arenales es lo mismo en todo el parque",
+        "cuando dicen arenales de cual hablan",
+        "no sé si Arenales queda en el norte",
+        "which Arenales is on the way to the Ruiz valley",
+        "is the Arenales camp the same as the Brisas stop"
+      ],
+      "hard_negatives": [
+        "cómo llego en carro hasta Brisas",
+        "puedo acampar esta noche sin reserva",
+        "altura del Nevado del Ruiz"
+      ],
+      "needs": [],
+      "answer": {
+        "short": "Arenales, en el recorrido de Brisas, es una zona del camino hacia el Valle de las Tumbas. Otro Arenales queda en la ruta de cumbre del Tolima y allí la norma de 2023 hablaba de un campamento de travesía. No son el mismo punto: pregunta siempre en qué sector está el Arenales de tu plan.",
+        "variants": [
+          "Si vas por Brisas, Arenales es una parte del recorrido en vehículo hacia el valle. El Arenales del Tolima es otro lugar, asociado a la travesía de cumbre. Confirma el sector para no mezclarlos."
+        ]
+      },
+      "sources": [
+        {
+          "label": "Parques Nacionales Naturales, Resolución 207 del 4 de agosto de 2023",
+          "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2023/08/Resolucion_207_2023_ReglamentacionNevados_.pdf",
+          "retrieved_at": "2026-11-21"
+        },
+        {
+          "label": "Parques Nacionales Naturales de Colombia, ficha PNN Los Nevados",
+          "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "last_verified": "2026-11-21",
+      "related": [
+        "activities.north_route_stops",
+        "activities.camping_tolima",
+        "activities.camping_brisas_restricted"
+      ],
+      "tags": [
+        "arenales",
+        "homónimo",
+        "sector"
+      ],
+      "entities": {
+        "sector": [
+          "brisas",
+          "tolima"
+        ]
+      }
+    },
+    {
+      "id": "activities.ruiz_summit_closed",
+      "label": "cima y cráter del Ruiz",
+      "kind": "fact",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "puedo subir al cráter",
+        "se puede llegar a la cima del Ruiz",
+        "puedo caminar por el glaciar del Ruiz",
+        "puedo entrar al cráter Arenas",
+        "cómo hago cumbre en el Nevado del Ruiz",
+        "me dejan pisar la nieve del Ruiz",
+        "quiero asomarme al cráter",
+        "se puede subir a la nieve del ruiz",
+        "hay forma de llegar al crater",
+        "el glaciar del Ruiz está abierto a turistas",
+        "can I hike to the Ruiz crater",
+        "is the summit of Nevado del Ruiz open to visitors"
+      ],
+      "hard_negatives": [
+        "qué alerta tiene hoy el Ruiz",
+        "cuánto mide el Nevado del Ruiz",
+        "qué pasó en Armero en 1985"
+      ],
+      "needs": [],
+      "answer": {
+        "short": "No está permitido ascender a la cima ni al cráter del Nevado del Ruiz. El paseo turístico del norte termina en el Valle de las Tumbas y no es una entrada al glaciar. El parque lo reiteró por escrito en mayo de 2026; igual confirma la restricción antes de viajar, porque depende de la reglamentación vigente.",
+        "variants": [
+          "La cima y el cráter del Ruiz no son un recorrido de visitante. Desde Brisas se llega al Valle de las Tumbas, sin pasar al glaciar. Esa prohibición la sostuvo el parque en mayo de 2026 y conviene reconfirmarla."
+        ],
+        "detail": "La carta del jefe del área protegida, del 11 de mayo de 2026, dice que la Resolución 207 de 2023 incluye la prohibición de ascender a la cima y al cráter del Ruiz. En esa resolución el sendero norte autorizado llega hasta el Valle de las Tumbas.",
+        "steps": [
+          [
+            "Planea el norte como un recorrido hasta el Valle de las Tumbas, no como un intento de cumbre."
+          ],
+          [
+            "Si alguien te ofrece el cráter o la nieve del Ruiz, no es un recorrido publicado para el visitante."
+          ],
+          [
+            "La alerta del día se consulta en el Servicio Geológico Colombiano; esta ficha no trae el nivel vigente."
+          ]
+        ]
+      },
+      "sources": [
+        {
+          "label": "PNN Los Nevados, radicado 20266200003411 del 11 de mayo de 2026",
+          "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2026/05/Respuesta-Radicado-Ano%CC%81nimo-No.-20264700042282.pdf",
+          "retrieved_at": "2026-11-21"
+        },
+        {
+          "label": "Parques Nacionales Naturales de Colombia, ficha PNN Los Nevados",
+          "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+          "retrieved_at": "2026-11-21"
+        },
+        {
+          "label": "Parques Nacionales Naturales, Resolución 207 del 4 de agosto de 2023",
+          "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2023/08/Resolucion_207_2023_ReglamentacionNevados_.pdf",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "last_verified": "2026-11-21",
+      "related": [
+        "activities.brisas_valle_tumbas",
+        "activities.snow_and_glacier_access",
+        "activities.refugio_not_the_route"
+      ],
+      "tags": [
+        "cráter",
+        "cumbre",
+        "ruiz",
+        "prohibido"
+      ],
+      "entities": {
+        "sector": [
+          "brisas"
+        ]
+      }
+    },
+    {
+      "id": "activities.cloudy_visit_landscape",
+      "label": "visita cuando la cima está nublada",
+      "kind": "explanation",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "si está nublado qué hago en el recorrido",
+        "vale la pena ir si no se ve la cima",
+        "qué miro en el valle cuando hay niebla",
+        "el paseo sirve aunque el Ruiz no aparezca",
+        "puedo disfrutar Brisas sin ver la cumbre",
+        "nubes tapan el volcán y ya vamos en camino",
+        "que se ve si el volcan esta escondido",
+        "si amanece cerrado igual recorro el valle",
+        "me da rabia si no se destapa el nevado",
+        "el paisaje del valle alcanza sin cumbre",
+        "is the valley worth it when the peak is hidden",
+        "what do I actually see if the summit stays in cloud"
+      ],
+      "hard_negatives": [
+        "estará despejado para ver el nevado",
+        "qué clima va a hacer mañana en el parque",
+        "va a llover el día de mi visita"
+      ],
+      "needs": [],
+      "answer": {
+        "short": "Si la cima del Ruiz amanece tapada, el recorrido autorizado sigue siendo el paisaje que tienes delante: superpáramo y el Valle de las Tumbas. La ficha no promete ver el volcán despejado. Pregunta al operador cómo está el tramo ese día; el pronóstico, cuando tengas señal, lo miras en la fuente meteorológica.",
+        "variants": [
+          "Una cima entre nubes no borra el paseo de Brisas: el valle y el superpáramo son el recorrido publicado. Nadie puede garantizarte el Ruiz despejado. El estado del día lo confirmas con el operador."
+        ],
+        "reflection": "Puedes disfrutar el tramo que sí está a tu alcance aunque no elijas cómo amanece la cima."
+      },
+      "sources": [
+        {
+          "label": "Parques Nacionales Naturales de Colombia, ficha PNN Los Nevados",
+          "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "last_verified": "2026-11-21",
+      "related": [
+        "activities.brisas_valle_tumbas",
+        "activities.superparamo_landscape",
+        "activities.summit_views_cisne"
+      ],
+      "tags": [
+        "nubes",
+        "paisaje",
+        "sin cumbre"
+      ],
+      "entities": {
+        "sector": [
+          "brisas"
+        ]
+      }
+    },
+    {
+      "id": "activities.snow_and_glacier_access",
+      "label": "dónde el recorrido toca el hielo",
+      "kind": "explanation",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "en qué sector sí hay nieve",
+        "puedo pisar hielo en Santa Isabel",
+        "el Ruiz tiene nieve para el turista",
+        "dónde se acerca uno al glaciar",
+        "la nieve es solo de mirar o se camina",
+        "quiero ver hielo sin subir al Ruiz",
+        "en el Tolima el glaciar es de la cumbre",
+        "se camina sobre el hielo o se mira de lejos",
+        "hay nieve en Brisas o solo piedras",
+        "borde del glaciar cuenta como pisar nieve",
+        "where can visitors actually approach ice",
+        "does the Brisas tour reach the snow"
+      ],
+      "hard_negatives": [
+        "por qué se están derritiendo los glaciares",
+        "hay nieve todo el año según el Ideam",
+        "qué es un glaciar"
+      ],
+      "needs": [],
+      "answer": {
+        "short": "En Brisas no entras al glaciar del Ruiz: el paseo llega al Valle de las Tumbas. El hielo de visita está en otros recorridos autorizados, como el borde glaciar del Santa Isabel y la cumbre del Tolima por el glaciar Schimmer, siempre con el guía que corresponda. No te prometo nieve a la vista: las nubes y el retroceso del hielo cambian lo que encuentras.",
+        "variants": [
+          "El norte del Ruiz no es un paseo sobre nieve. El borde del Santa Isabel y la ruta Schimmer del Tolima son los acercamientos al hielo que sí aparecen como recorridos regulados. Confirma que sigan abiertos y no cuentes con ver hielo sí o sí."
+        ]
+      },
+      "sources": [
+        {
+          "label": "Parques Nacionales Naturales de Colombia, ficha PNN Los Nevados",
+          "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+          "retrieved_at": "2026-11-21"
+        },
+        {
+          "label": "PNN Los Nevados, radicado 20266200003411 del 11 de mayo de 2026",
+          "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2026/05/Respuesta-Radicado-Ano%CC%81nimo-No.-20264700042282.pdf",
+          "retrieved_at": "2026-11-21"
+        },
+        {
+          "label": "Parques Nacionales Naturales, Resolución 207 del 4 de agosto de 2023",
+          "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2023/08/Resolucion_207_2023_ReglamentacionNevados_.pdf",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "last_verified": "2026-11-21",
+      "related": [
+        "activities.ruiz_summit_closed",
+        "activities.conejeras_glacier_edge",
+        "activities.tolima_summit_schimmer"
+      ],
+      "tags": [
+        "nieve",
+        "glaciar",
+        "hielo"
+      ],
+      "entities": {
+        "sector": [
+          "brisas",
+          "santa_isabel",
+          "tolima"
+        ]
+      }
+    },
+    {
+      "id": "activities.short_walks_brisas",
+      "label": "caminatas cortas en Brisas",
+      "kind": "explanation",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "hay caminatas cortas en Brisas",
+        "se puede bajar del carro a caminar",
+        "Brisas es solo mirador o también se camina",
+        "un paseo a pie de poca distancia",
+        "no quiero una travesía, solo estirar las piernas",
+        "caminar un rato en el sector norte",
+        "el norte es para gente que no va a trekear",
+        "hay sendero peatonal largo en Brisas",
+        "se camina todo el valle o tramos cortos",
+        "brincar del vehiculo y caminar un poco",
+        "are there short walks around Brisas",
+        "can I stretch my legs or is it only a vehicle tour"
+      ],
+      "hard_negatives": [
+        "qué ropa llevo para caminar",
+        "puedo ir en bicicleta por Brisas",
+        "está permitido salir del carreteable"
+      ],
+      "needs": [],
+      "answer": {
+        "short": "La ficha recomienda Brisas justamente para una visita ocasional y caminatas cortas, y a la vez dice que el trayecto al valle sigue en vehículo. No publica la longitud de un sendero a pie separado. Camina solo donde te indiquen en el recorrido habilitado y no lo conviertas en una expedición por tu cuenta.",
+        "variants": [
+          "Brisas está pensado como salida corta, con tramos a pie breves y el valle en vehículo. No hay una distancia oficial de una caminata larga en ese sector. Sigue el tramo que te habiliten ese día."
+        ]
+      },
+      "sources": [
+        {
+          "label": "Parques Nacionales Naturales de Colombia, ficha PNN Los Nevados",
+          "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "last_verified": "2026-11-21",
+      "related": [
+        "activities.brisas_valle_tumbas",
+        "activities.vehicle_or_on_foot",
+        "activities.day_or_multiday"
+      ],
+      "tags": [
+        "caminata corta",
+        "brisas",
+        "a pie"
+      ],
+      "entities": {
+        "sector": [
+          "brisas"
+        ]
+      }
+    },
+    {
+      "id": "activities.superparamo_landscape",
+      "label": "paisaje de superpáramo en Brisas",
+      "kind": "explanation",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "cómo se ve el paisaje de Brisas",
+        "eso parece la luna o Marte",
+        "qué paisaje hay en el valle",
+        "el superpáramo se recorre en el norte",
+        "piedras y ceniza en el camino al valle",
+        "es un paisaje pelado cerca del Ruiz",
+        "quiero ver el paisaje lunar del parque",
+        "como es el paramo alto en brisas",
+        "hay frailejones todo el camino o ya es piedra",
+        "el valle es verde o es roca",
+        "what does the landscape on the Brisas road look like",
+        "is the valley a rocky high-mountain landscape"
+      ],
+      "hard_negatives": [
+        "qué es el superpáramo",
+        "qué planta crece en el superpáramo",
+        "por qué el páramo produce agua"
+      ],
+      "needs": [],
+      "answer": {
+        "short": "En el recorrido de Brisas la ficha describe paisajes de superpáramo, roca y formaciones que comparan con un paisaje de otro mundo, junto a huellas del pasado geológico. Es lo que vas a mirar desde el vehículo y las paradas habilitadas. Cómo funciona ese ecosistema es otro tema; aquí se trata de lo que encuentras en el paseo.",
+        "variants": [
+          "El paseo norte es, sobre todo, superpáramo y roca volcánica hasta el Valle de las Tumbas. La ficha lo cuenta como un paisaje extremo, no como un bosque. Lo recorres por el tramo autorizado."
+        ]
+      },
+      "sources": [
+        {
+          "label": "Parques Nacionales Naturales de Colombia, ficha PNN Los Nevados",
+          "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "last_verified": "2026-11-21",
+      "related": [
+        "activities.brisas_valle_tumbas",
+        "activities.geology_watching",
+        "activities.cloudy_visit_landscape"
+      ],
+      "tags": [
+        "superpáramo",
+        "paisaje",
+        "brisas"
+      ],
+      "entities": {
+        "sector": [
+          "brisas"
+        ]
+      }
+    },
+    {
+      "id": "activities.geology_watching",
+      "label": "observación geológica en la visita",
+      "kind": "explanation",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "puedo ver geología en el parque",
+        "observar rocas y el volcán de lejos",
+        "hay recorrido de observación geológica",
+        "me interesa el paisaje volcánico",
+        "se puede mirar el cráter sin subirlo",
+        "actividad de geología para visitantes",
+        "quiero entender las formas del valle",
+        "se permiten fotos a las rocas",
+        "puedo partir una piedra para verla",
+        "geologia del ruiz desde el camino",
+        "can I join a geology viewing visit",
+        "is looking at the volcanic landscape an allowed activity"
+      ],
+      "hard_negatives": [
+        "me puedo llevar una piedra de recuerdo",
+        "cómo se llama el cráter principal",
+        "el Ruiz es un estratovolcán"
+      ],
+      "needs": [],
+      "answer": {
+        "short": "La observación geológica es una actividad de la ficha en Brisas y también en Cisne, Otún y el sector del Tolima. Se hace desde el sendero o el carreteable habilitado, mirando el paisaje volcánico. No está permitido llevarte rocas ni picar el material: eso queda por fuera de la visita.",
+        "variants": [
+          "Puedes observar el paisaje geológico en los sectores donde la ficha ofrece esa actividad. Mira desde el recorrido autorizado y deja las rocas en su sitio."
+        ]
+      },
+      "sources": [
+        {
+          "label": "Parques Nacionales Naturales de Colombia, ficha PNN Los Nevados",
+          "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+          "retrieved_at": "2026-11-21"
+        },
+        {
+          "label": "Parques Nacionales Naturales, Resolución 207 del 4 de agosto de 2023",
+          "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2023/08/Resolucion_207_2023_ReglamentacionNevados_.pdf",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "last_verified": "2026-11-21",
+      "related": [
+        "activities.superparamo_landscape",
+        "activities.azufrera_stop",
+        "activities.photography_amateur"
+      ],
+      "tags": [
+        "geología",
+        "rocas",
+        "volcán"
+      ]
+    },
+    {
+      "id": "activities.vehicle_or_on_foot",
+      "label": "ir en vehículo o caminando",
+      "kind": "explanation",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "el valle se hace a pie o en carro",
+        "Brisas es un tour en vehículo",
+        "los otros sectores son caminando",
+        "puedo caminar desde Brisas hasta el valle",
+        "dónde toca ir a pie sí o sí",
+        "el parque tiene paseo en carro y trekking",
+        "solo el norte es motorizado",
+        "en el Tolima no hay carretera escenica",
+        "se recorre todo el parque en campero",
+        "cual sector es caminado y cual en carro",
+        "which visits are by vehicle and which are hikes",
+        "do I have to walk to reach Valle de las Tumbas"
+      ],
+      "hard_negatives": [
+        "puedo subir en moto al atractivo",
+        "hay bus público hasta la laguna",
+        "dónde dejo el carro parqueado"
+      ],
+      "needs": [],
+      "answer": {
+        "short": "Hasta el Valle de las Tumbas la ficha dice que el trayecto sigue en vehículo cubierto. En Cisne, Otún y Tolima la visita es de sendero, travesía o cumbre, y el parque no presta un transporte interno general. No uses el carreteable del norte como si fuera una caminata libre: muévete en el modo que corresponda a tu sector.",
+        "variants": [
+          "El valle del Ruiz se recorre en vehículo cubierto. Los otros sectores se caminan o se hacen en travesía, sin un bus del parque por dentro. Confirma el modo de tu recorrido con el operador."
+        ]
+      },
+      "sources": [
+        {
+          "label": "Parques Nacionales Naturales de Colombia, ficha PNN Los Nevados",
+          "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "last_verified": "2026-11-21",
+      "related": [
+        "activities.brisas_valle_tumbas",
+        "activities.short_walks_brisas",
+        "activities.day_or_multiday"
+      ],
+      "tags": [
+        "vehículo",
+        "a pie",
+        "carreteable"
+      ],
+      "entities": {
+        "sector": [
+          "brisas",
+          "santa_isabel",
+          "otun",
+          "tolima"
+        ]
+      }
+    },
+    {
+      "id": "activities.sector_santa_isabel",
+      "label": "qué hacer en Santa Isabel",
+      "kind": "explanation",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "qué se visita en Santa Isabel",
+        "Poleka Kasue qué actividades tiene",
+        "el sector del Cisne qué ofrece",
+        "puedo conocer el nevado Santa Isabel",
+        "actividades cerca del paramillo del Cisne",
+        "Santa Isabel es cumbre o también páramo",
+        "qué hay alrededor de El Cisne",
+        "que se hace en poleka kasue",
+        "el cisne es solo un refugio o hay senderos",
+        "quiero el nevado santa isabel sin ser expedicion",
+        "what can visitors do around Nevado Santa Isabel",
+        "is Cisne only a lodge or are there hikes"
+      ],
+      "hard_negatives": [
+        "cómo llegar a Potosí desde Villamaría",
+        "reserva para Santa Isabel",
+        "tarifa para entrar al Cisne"
+      ],
+      "needs": [],
+      "answer": {
+        "short": "En Cisne–Poleka Kasue caminas páramo y puedes ver el Ruiz, el Santa Isabel y el paramillo del Cisne. La ficha ofrece borde glaciar, la cumbre del Santa Isabel o la Laguna Verde por sendero habilitado. El centro El Cisne está a unos 4100 metros; las vías para llegar las confirma el operador, porque no forman parte de la actividad.",
+        "variants": [
+          "El sector de Santa Isabel es páramo, vistas a los nevados y tres planes distintos: borde del hielo, cumbre o Laguna Verde. El Cisne queda cerca de 4100 metros. Confirma cuál de esos tres está abierto."
+        ],
+        "detail": "La ficha distingue el centro El Cisne de las cabañas La Cueva y Potosí como puntos desde los que empieza la visita. El cómo llegar por Villamaría o Santa Rosa corresponde al acceso, no al recorrido interno."
+      },
+      "sources": [
+        {
+          "label": "Parques Nacionales Naturales de Colombia, ficha PNN Los Nevados",
+          "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "last_verified": "2026-11-21",
+      "related": [
+        "activities.santa_isabel_summit",
+        "activities.conejeras_glacier_edge",
+        "activities.laguna_verde"
+      ],
+      "tags": [
+        "santa isabel",
+        "cisne",
+        "poleka kasue"
+      ],
+      "entities": {
+        "sector": [
+          "santa_isabel"
+        ]
+      }
+    },
+    {
+      "id": "activities.santa_isabel_summit",
+      "label": "cumbre del Nevado Santa Isabel",
+      "kind": "procedure",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "puedo subir a la cumbre del Santa Isabel",
+        "la cima de Poleka Kasue está permitida",
+        "ascenso al Nevado Santa Isabel",
+        "hacer cumbre en Santa Isabel con guía",
+        "la cumbre se registra el día anterior",
+        "es una cumbre técnica o una caminata",
+        "quiero la cima centro del Santa Isabel",
+        "se puede hacer cumbre en poleka",
+        "santa isabel si deja subir a la punta",
+        "no es lo mismo el borde que la cima",
+        "can visitors summit Nevado Santa Isabel",
+        "is the Santa Isabel summit a casual day hike"
+      ],
+      "hard_negatives": [
+        "puedo subir al cráter del Ruiz",
+        "síntomas del mal de altura",
+        "edad para subir a una cumbre"
+      ],
+      "needs": [],
+      "answer": {
+        "short": "La ficha sí contempla ascender a la cumbre del Nevado Santa Isabel, con un guía de alta montaña y por el sendero autorizado. En la norma de 2023 el paso por el control de esa cima es el día anterior, no el mismo día de un paseo corto. No es una caminata de Brisas: si te sientes mal, dísela al guía y no sigas subiendo.",
+        "variants": [
+          "Subir al Santa Isabel es una cumbre autorizada, no un paseo libre. Exige guía de alta montaña y, según la reglamentación de 2023, presentarte en el control el día anterior. Confirma que esa cima siga habilitada."
+        ],
+        "reflection": "Llegar arriba no es la meta si tu cuerpo pide devolverse: el guía está para ese momento."
+      },
+      "sources": [
+        {
+          "label": "Parques Nacionales Naturales de Colombia, ficha PNN Los Nevados",
+          "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+          "retrieved_at": "2026-11-21"
+        },
+        {
+          "label": "Parques Nacionales Naturales, Resolución 207 del 4 de agosto de 2023",
+          "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2023/08/Resolucion_207_2023_ReglamentacionNevados_.pdf",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "last_verified": "2026-11-21",
+      "related": [
+        "activities.conejeras_glacier_edge",
+        "activities.high_mountain_guide",
+        "activities.sector_santa_isabel"
+      ],
+      "tags": [
+        "cumbre",
+        "santa isabel",
+        "alta montaña"
+      ],
+      "entities": {
+        "sector": [
+          "santa_isabel"
+        ]
+      }
+    },
+    {
+      "id": "activities.conejeras_glacier_edge",
+      "label": "borde glaciar por Conejeras",
+      "kind": "explanation",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "qué es el sendero Conejeras",
+        "borde glaciar del Santa Isabel cara centro",
+        "Conejeras llega a la nieve o al borde",
+        "puedo ir a Conejeras sin hacer cumbre",
+        "diferencia entre Conejeras y la cima",
+        "el glaciar por la cara centro",
+        "caminata al borde del hielo en El Cisne",
+        "conejeras es la ruta del santa isabel",
+        "se toca el hielo en conejeras o solo se mira",
+        "quiero el borde y no la punta",
+        "what is the Conejeras glacier-edge walk",
+        "does Conejeras go to the summit or only the ice edge"
+      ],
+      "hard_negatives": [
+        "me salgo del sendero para ver el glaciar de cerca",
+        "cómo reservo Conejeras con tres días",
+        "horario de ingreso a Conejeras"
+      ],
+      "needs": [],
+      "answer": {
+        "short": "Conejeras es el sendero al borde glaciar del Santa Isabel por la cara centro, listado en la norma de 2023 y distinto de la cumbre. La idea es acercarte al límite del hielo con guía, no tratarlo como un paseo sobre el glaciar del Ruiz. La ficha no publica distancia ni duración: pídeselas al operador y confirma que el tramo siga abierto.",
+        "variants": [
+          "Por Conejeras se va al borde del glaciar del Santa Isabel, cara centro, sin que eso sea la cumbre. No hay kilómetros oficiales en la ficha. Va con guía y solo si el parque lo tiene habilitado."
+        ]
+      },
+      "sources": [
+        {
+          "label": "Parques Nacionales Naturales, Resolución 207 del 4 de agosto de 2023",
+          "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2023/08/Resolucion_207_2023_ReglamentacionNevados_.pdf",
+          "retrieved_at": "2026-11-21"
+        },
+        {
+          "label": "Parques Nacionales Naturales de Colombia, ficha PNN Los Nevados",
+          "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "last_verified": "2026-11-21",
+      "related": [
+        "activities.santa_isabel_summit",
+        "activities.south_glacier_edge",
+        "activities.snow_and_glacier_access"
+      ],
+      "tags": [
+        "conejeras",
+        "borde glaciar",
+        "cara centro"
+      ],
+      "entities": {
+        "sector": [
+          "santa_isabel"
+        ]
+      }
+    },
+    {
+      "id": "activities.south_glacier_edge",
+      "label": "borde glaciar por la cara sur",
+      "kind": "explanation",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "borde glaciar del Santa Isabel por el Otún",
+        "la ruta de Alsacia al hielo",
+        "cara sur del Santa Isabel para visitantes",
+        "desde la laguna se llega al glaciar",
+        "Alsacia es un sendero o un alojamiento",
+        "el borde sur es distinto de Conejeras",
+        "puedo ver el hielo saliendo del Otún",
+        "cara sur del santa isabel esta habilitada",
+        "alsacia queda camino al glaciar",
+        "no confundir la cara sur del Tolima",
+        "is there a glacier-edge trail from Laguna del Otún",
+        "what is the Alsacia approach to Santa Isabel"
+      ],
+      "hard_negatives": [
+        "la cara sur del Tolima está abierta",
+        "cómo llego de Pereira a El Cedral",
+        "puedo acampar en Alsacia"
+      ],
+      "needs": [],
+      "answer": {
+        "short": "La norma de 2023 lista un sendero desde la Laguna del Otún hacia Alsacia y el borde glaciar del Santa Isabel por la cara sur. No es Conejeras y no es una ruta turística del Tolima. Se camina con el acompañamiento que exija el parque y solo si ese sendero sigue autorizado.",
+        "variants": [
+          "Desde el Otún existe un acercamiento al borde sur del glaciar del Santa Isabel, por Alsacia. Es otro sendero, no la cara centro ni el Tolima. Confirma si sigue en la oferta antes de incluirlo."
+        ]
+      },
+      "sources": [
+        {
+          "label": "Parques Nacionales Naturales, Resolución 207 del 4 de agosto de 2023",
+          "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2023/08/Resolucion_207_2023_ReglamentacionNevados_.pdf",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "last_verified": "2026-11-21",
+      "related": [
+        "activities.conejeras_glacier_edge",
+        "activities.sector_laguna_otun",
+        "activities.tolima_closed_routes"
+      ],
+      "tags": [
+        "alsacia",
+        "cara sur",
+        "santa isabel"
+      ],
+      "entities": {
+        "sector": [
+          "otun",
+          "santa_isabel"
+        ]
+      }
+    },
+    {
+      "id": "activities.laguna_verde",
+      "label": "sendero mirador Laguna Verde",
+      "kind": "explanation",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "qué es la Laguna Verde",
+        "hay mirador en Laguna Verde",
+        "sendero a Laguna Verde desde El Cisne",
+        "Laguna Verde es una cumbre o una caminata",
+        "puedo conocer Laguna Verde en el día",
+        "el mirador de la laguna verde",
+        "Laguna Verde queda en el sector Cisne",
+        "laguna verde se puede visitar",
+        "es una laguna para caminar o para acampar",
+        "no es la laguna del otun verdad",
+        "what is the Laguna Verde trail",
+        "is Laguna Verde a summit or a lookout hike"
+      ],
+      "hard_negatives": [
+        "puedo bañarme en la Laguna Verde",
+        "a qué hora abre el sendero Laguna Verde",
+        "cuánto cuesta Laguna Verde"
+      ],
+      "needs": [],
+      "answer": {
+        "short": "Laguna Verde es un sendero habilitado del sector Cisne, con mirador, y la ficha lo separa de la cumbre del Santa Isabel. La norma de 2023 lo incluye entre los recorridos permitidos. La ficha no publica distancia ni duración: el operador te las debe decir, y no la uses como excusa para salirte hacia el glaciar.",
+        "variants": [
+          "La Laguna Verde se visita por un sendero con mirador en Cisne, no como cumbre. Está en la lista de 2023 y la ficha la ofrece como caminata. Pide tiempo y distancia a quien te guíe."
+        ]
+      },
+      "sources": [
+        {
+          "label": "Parques Nacionales Naturales de Colombia, ficha PNN Los Nevados",
+          "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+          "retrieved_at": "2026-11-21"
+        },
+        {
+          "label": "Parques Nacionales Naturales, Resolución 207 del 4 de agosto de 2023",
+          "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2023/08/Resolucion_207_2023_ReglamentacionNevados_.pdf",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "last_verified": "2026-11-21",
+      "related": [
+        "activities.sector_santa_isabel",
+        "activities.santa_isabel_summit",
+        "activities.no_swimming"
+      ],
+      "tags": [
+        "laguna verde",
+        "mirador",
+        "cisne"
+      ],
+      "entities": {
+        "sector": [
+          "santa_isabel"
+        ]
+      }
+    },
+    {
+      "id": "activities.conservation_values_trail",
+      "label": "sendero de valores de conservación",
+      "kind": "fact",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "qué es el sendero de valores objeto de conservación",
+        "hay un sendero interpretativo en El Cisne",
+        "el sendero VOC del parque",
+        "caminata de conservación en Cisne",
+        "ese sendero corto del centro El Cisne",
+        "valores objeto de conservación se pueden recorrer",
+        "existe un sendero además de Conejeras y Laguna Verde",
+        "el sendero de valores donde empieza",
+        "es una trocha educativa en el cisne",
+        "no encuentro el nombre de ese camino",
+        "is there an interpretation trail at El Cisne",
+        "what is the conservation-values path"
+      ],
+      "hard_negatives": [
+        "qué especies protege el parque",
+        "puedo salirme a ver fauna",
+        "horario del centro El Cisne"
+      ],
+      "needs": [],
+      "answer": {
+        "short": "En Cisne la norma de 2023 lista un sendero llamado Valores Objeto de Conservación, aparte de Laguna Verde y de Conejeras. No trae distancia, duración ni paradas. Pídele el recorrido real al operador y no lo confundas con la cumbre.",
+        "variants": [
+          "Hay un sendero de valores de conservación en el sector Cisne, nombrado en la reglamentación de 2023. Esas fuentes no publican largo ni tiempo. Confírmalo con quien opere tu visita."
+        ]
+      },
+      "sources": [
+        {
+          "label": "Parques Nacionales Naturales, Resolución 207 del 4 de agosto de 2023",
+          "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2023/08/Resolucion_207_2023_ReglamentacionNevados_.pdf",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "last_verified": "2026-11-21",
+      "related": [
+        "activities.sector_santa_isabel",
+        "activities.laguna_verde",
+        "activities.trail_duration_gap"
+      ],
+      "tags": [
+        "sendero",
+        "cisne",
+        "interpretación"
+      ],
+      "entities": {
+        "sector": [
+          "santa_isabel"
+        ]
+      }
+    },
+    {
+      "id": "activities.summit_views_cisne",
+      "label": "ver los nevados desde El Cisne",
+      "kind": "explanation",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "desde El Cisne se ven los nevados",
+        "alcanzo a ver el Ruiz y el Santa Isabel juntos",
+        "el paramillo del Cisne se ve en ese sector",
+        "miradores hacia las tres cumbres",
+        "qué montañas se observan en Poleka",
+        "la vista del sector Cisne",
+        "se ven los volcanes sin subirlos",
+        "desde el cisne se ve kumanday",
+        "quiero una vista de varios nevados",
+        "el paisaje desde el centro de visitantes",
+        "which peaks can you see from El Cisne",
+        "can I see Ruiz and Santa Isabel without climbing them"
+      ],
+      "hard_negatives": [
+        "visibilidad de la cumbre",
+        "estará despejado para ver el nevado",
+        "altura del Santa Isabel"
+      ],
+      "needs": [],
+      "answer": {
+        "short": "La ficha dice que desde Cisne–Poleka Kasue observas el Ruiz, el Santa Isabel y el paramillo del Cisne. Esa vista depende de las nubes del día: el sector ofrece el paisaje, no una garantía de cumbres despejadas. Si la niebla baja, igual estás en el páramo del recorrido habilitado.",
+        "variants": [
+          "En ese sector la visita incluye la vista hacia el Ruiz, el Santa Isabel y el paramillo del Cisne, cuando el día deja ver. No es un pronóstico ni una cumbre. Disfruta el páramo que tengas delante."
+        ]
+      },
+      "sources": [
+        {
+          "label": "Parques Nacionales Naturales de Colombia, ficha PNN Los Nevados",
+          "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "last_verified": "2026-11-21",
+      "related": [
+        "activities.sector_santa_isabel",
+        "activities.cloudy_visit_landscape",
+        "activities.paramillo_cisne_view"
+      ],
+      "tags": [
+        "vista",
+        "cisne",
+        "nevados"
+      ],
+      "entities": {
+        "sector": [
+          "santa_isabel"
+        ]
+      }
+    },
+    {
+      "id": "activities.paramillo_cisne_view",
+      "label": "paramillo del Cisne en el paisaje",
+      "kind": "explanation",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "puedo subir al paramillo del Cisne",
+        "el paramillo del Cisne tiene nieve o solo roca",
+        "se visita el paramillo del Cisne",
+        "hay cumbre turística del Cisne",
+        "quiero caminar el paramillo",
+        "el Cisne se ve desde el sector",
+        "paramillo del cisne esta abierto",
+        "es lo mismo cisne que santa isabel",
+        "me llevan al paramillo o solo lo miro",
+        "hay sendero a la punta del Cisne",
+        "can I climb Paramillo del Cisne",
+        "is the Cisne a viewpoint or a summit trip"
+      ],
+      "hard_negatives": [
+        "qué altura tiene el paramillo del Cisne",
+        "sendero nuevo del paramillo de Santa Rosa",
+        "cómo llego al alto de Santa Bárbara"
+      ],
+      "needs": [],
+      "answer": {
+        "short": "La ficha presenta el paramillo del Cisne como parte de lo que se observa en ese sector, junto al Ruiz y al Santa Isabel. No hay una cumbre turística publicada solo para el paramillo del Cisne. Si tu plan dice “subir al Cisne”, aclara si se refieren a la cumbre del Santa Isabel o a mirar el paramillo.",
+        "variants": [
+          "El paramillo del Cisne se contempla en la visita del sector. No aparece como una cima turística propia en los senderos que revisé. Pregunta si el nombre del plan es la cumbre del Santa Isabel."
+        ]
+      },
+      "sources": [
+        {
+          "label": "Parques Nacionales Naturales de Colombia, ficha PNN Los Nevados",
+          "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+          "retrieved_at": "2026-11-21"
+        },
+        {
+          "label": "Parques Nacionales Naturales, Resolución 207 del 4 de agosto de 2023",
+          "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2023/08/Resolucion_207_2023_ReglamentacionNevados_.pdf",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "last_verified": "2026-11-21",
+      "related": [
+        "activities.summit_views_cisne",
+        "activities.santa_isabel_summit",
+        "activities.quindio_summit_not_listed"
+      ],
+      "tags": [
+        "paramillo",
+        "cisne",
+        "vista"
+      ],
+      "entities": {
+        "sector": [
+          "santa_isabel"
+        ]
+      }
+    },
+    {
+      "id": "activities.sector_laguna_otun",
+      "label": "visitar la Laguna del Otún",
+      "kind": "explanation",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "puedo visitar la Laguna del Otún",
+        "qué se hace en la laguna más grande",
+        "el sector Otún qué ofrece",
+        "conocer la Laguna del Otún caminando",
+        "la laguna está rodeada de paramillos",
+        "quiero ver el Otún y los humedales",
+        "actividad en la laguna del otun",
+        "la laguna del otun es visitable",
+        "se llega a mirar la laguna o a dar la vuelta",
+        "otun es sendero y paisaje de paramo",
+        "what is the visit to Laguna del Otún like",
+        "can I see the largest lake in the park"
+      ],
+      "hard_negatives": [
+        "la Laguna del Otún es zona Ramsar",
+        "cómo llego de Pereira al Otún",
+        "reserva de la Laguna del Otún"
+      ],
+      "needs": [],
+      "answer": {
+        "short": "En el sector Otún la visita es conocer la Laguna del Otún, la más grande del parque según la ficha, entre los paramillos del Quindío y Santa Rosa. El camino cruza páramo y un complejo de humedales. No es un balneario: se recorre por la ruta habilitada y el acceso por Potosí queda cerca de 3920 metros.",
+        "variants": [
+          "La Laguna del Otún es el gran atractivo de ese sector: la ficha la señala como la laguna más grande, en medio de páramo y humedales. Se visita por el sendero, sin bañarse. Potosí, un punto de entrada, está a unos 3920 metros."
+        ]
+      },
+      "sources": [
+        {
+          "label": "Parques Nacionales Naturales de Colombia, ficha PNN Los Nevados",
+          "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "last_verified": "2026-11-21",
+      "related": [
+        "activities.otun_cedral_walk",
+        "activities.otun_wetland_walk",
+        "activities.camping_otun"
+      ],
+      "tags": [
+        "laguna del otún",
+        "páramo",
+        "visita"
+      ],
+      "entities": {
+        "sector": [
+          "otun"
+        ]
+      }
+    },
+    {
+      "id": "activities.otun_wetland_walk",
+      "label": "humedales en el camino al Otún",
+      "kind": "explanation",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "el camino a la laguna pasa humedales",
+        "hay colchones de agua en el sendero",
+        "musgos y pantanos camino al Otún",
+        "se camina entre humedales altoandinos",
+        "el paseo del Otún es solo la laguna o también el pantano",
+        "puedo pisar los colchones de agua",
+        "el sendero cruza turberas",
+        "hay charcos y musgo en la ruta del otun",
+        "el camino es humedo antes de la laguna",
+        "se rodean los pantanos o se cruzan",
+        "does the trail to Laguna del Otún cross wetlands",
+        "what wetland landscape do you walk through"
+      ],
+      "hard_negatives": [
+        "qué es un humedal altoandino",
+        "puedo recoger musgo",
+        "por qué el páramo guarda agua"
+      ],
+      "needs": [],
+      "answer": {
+        "short": "La ficha dice que el recorrido a la Laguna del Otún atraviesa páramo bien conservado y un complejo de humedales, con musgos y colchones de agua en distintos tramos. Camina por el sendero habilitado y no te salgas a pisar esos colchones para acortar. El valor ecológico del humedal es otro tema; en la visita se trata de cruzarlo con cuidado.",
+        "variants": [
+          "Hacia la laguna no solo ves el agua grande: el camino pasa por humedales, musgos y colchones. Quédate en la huella del sendero. No es una zona para explorar el pantano por fuera."
+        ]
+      },
+      "sources": [
+        {
+          "label": "Parques Nacionales Naturales de Colombia, ficha PNN Los Nevados",
+          "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "last_verified": "2026-11-21",
+      "related": [
+        "activities.sector_laguna_otun",
+        "activities.otun_cedral_walk",
+        "activities.wildlife_from_trail"
+      ],
+      "tags": [
+        "humedal",
+        "musgo",
+        "sendero"
+      ],
+      "entities": {
+        "sector": [
+          "otun"
+        ]
+      }
+    },
+    {
+      "id": "activities.asomadera_day",
+      "label": "pasadía hasta la Asomadera",
+      "kind": "explanation",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "qué es la Asomadera",
+        "puedo hacer una pasadía hasta la Asomadera",
+        "el mirador de Potosí sin pernoctar",
+        "carreteable hasta Asomadera",
+        "Asomadera es un día de campo o una cumbre",
+        "llegar a la Asomadera y devolverse",
+        "pasadía en el sector centro",
+        "la asomadera se visita de dia",
+        "sin camping hasta el mirador",
+        "Potosí Asomadera es un paseo corto",
+        "what is a day trip to Asomadera",
+        "can I visit Asomadera without camping"
+      ],
+      "hard_negatives": [
+        "cómo reservo con tres días de anticipación",
+        "a qué hora atienden en Potosí",
+        "distancia en carro hasta Potosí"
+      ],
+      "needs": [],
+      "answer": {
+        "short": "La Asomadera es un mirador del carreteable de interpretación que sale de Potosí, y la norma de 2023 permite una pasadía por el sector centro hasta ese punto, sin pernoctar. No es la cumbre del Santa Isabel ni la vuelta completa a la laguna. Confirma si ese tramo está en operación el día que vas.",
+        "variants": [
+          "Puedes plantear una ida y regreso hasta la Asomadera, que la reglamentación trata como pasadía. Es un mirador del camino de Potosí, no una cima. Verifica que el tramo siga habilitado."
+        ]
+      },
+      "sources": [
+        {
+          "label": "Parques Nacionales Naturales, Resolución 207 del 4 de agosto de 2023",
+          "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2023/08/Resolucion_207_2023_ReglamentacionNevados_.pdf",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "last_verified": "2026-11-21",
+      "related": [
+        "activities.victor_mariposa_lagoons",
+        "activities.day_or_multiday",
+        "activities.sector_laguna_otun"
+      ],
+      "tags": [
+        "asomadera",
+        "pasadía",
+        "mirador"
+      ],
+      "entities": {
+        "sector": [
+          "otun",
+          "santa_isabel"
+        ]
+      }
+    },
+    {
+      "id": "activities.victor_mariposa_lagoons",
+      "label": "lagunas Víctor y Mariposa",
+      "kind": "fact",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "dónde quedan Laguna Víctor y Laguna Mariposa",
+        "puedo ver la Laguna de Víctor",
+        "Laguna Mariposa es un sendero",
+        "las lagunas pequeñas cerca de la Asomadera",
+        "hay otras lagunas además del Otún",
+        "el desvío a Víctor y Mariposa",
+        "se visitan esas dos lagunas en el día",
+        "laguna de victor esta habilitada",
+        "mariposa es una laguna del parque",
+        "no son la laguna verde",
+        "can I visit Laguna Víctor and Laguna Mariposa",
+        "are those small lakes on the Potosí road"
+      ],
+      "hard_negatives": [
+        "me puedo bañar en la laguna",
+        "qué aves hay en las lagunas",
+        "la Laguna del Otún cuántas hectáreas tiene"
+      ],
+      "needs": [],
+      "answer": {
+        "short": "La norma de 2023 incluye, en el carreteable de Potosí hacia la Asomadera, un sendero al mirador y a la Laguna de Víctor y la Laguna Mariposa. Son un atractivo de ese camino, no la Laguna del Otún ni la Laguna Verde. Ese texto no publica la distancia; pregunta al operador y no entres al agua.",
+        "variants": [
+          "Víctor y Mariposa aparecen como lagunas de un sendero junto al mirador de la Asomadera. No las confundas con el Otún o con Laguna Verde. El largo del desvío no está en la norma que revisé."
+        ]
+      },
+      "sources": [
+        {
+          "label": "Parques Nacionales Naturales, Resolución 207 del 4 de agosto de 2023",
+          "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2023/08/Resolucion_207_2023_ReglamentacionNevados_.pdf",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "last_verified": "2026-11-21",
+      "related": [
+        "activities.asomadera_day",
+        "activities.sector_laguna_otun",
+        "activities.no_swimming"
+      ],
+      "tags": [
+        "laguna víctor",
+        "laguna mariposa",
+        "mirador"
+      ],
+      "entities": {
+        "sector": [
+          "otun",
+          "santa_isabel"
+        ]
+      }
+    },
+    {
+      "id": "activities.otun_cedral_walk",
+      "label": "caminata larga hasta la laguna",
+      "kind": "fact",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "cuánto se camina hasta la Laguna del Otún",
+        "la caminata desde El Cedral es larga",
+        "kilómetros a pie hasta la laguna",
+        "Peña Bonita queda en ese camino",
+        "del Cedral a la laguna es trek",
+        "18 kilómetros hasta el Otún",
+        "el camino pasa por La Pastora",
+        "es una caminata de un día o de más",
+        "cuanto toca caminar desde el cedral",
+        "la ruta a pie no es un mirador corto",
+        "how long is the walk from El Cedral to the lake",
+        "is Peña Bonita on the way to Laguna del Otún"
+      ],
+      "hard_negatives": [
+        "por dónde salgo de Pereira hacia El Cedral",
+        "hay transporte hasta la laguna",
+        "a qué hora abren el Cedral"
+      ],
+      "needs": [],
+      "answer": {
+        "short": "Por el lado de Pereira la ficha calcula unos 7,5 km a pie hasta el límite del parque y unos 18 km hasta la Laguna del Otún. La norma de 2023 arma ese camino con Peña Bonita, la azufrera, la Laguna El Mosquito, El Bosque y La Pastora. Es una caminata larga: confirma el estado del sendero y si tu plan necesita camping.",
+        "variants": [
+          "La subida a pie desde El Cedral no es un paseo corto: la ficha habla de unos 7,5 km al límite y unos 18 km a la laguna. En el camino están Peña Bonita y otros puntos. Revisa si te toca dormir."
+        ]
+      },
+      "sources": [
+        {
+          "label": "Parques Nacionales Naturales de Colombia, ficha PNN Los Nevados",
+          "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+          "retrieved_at": "2026-11-21"
+        },
+        {
+          "label": "Parques Nacionales Naturales, Resolución 207 del 4 de agosto de 2023",
+          "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2023/08/Resolucion_207_2023_ReglamentacionNevados_.pdf",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "last_verified": "2026-11-21",
+      "related": [
+        "activities.sector_laguna_otun",
+        "activities.laguna_mosquito",
+        "activities.camping_otun"
+      ],
+      "tags": [
+        "el cedral",
+        "distancia",
+        "peña bonita"
+      ],
+      "entities": {
+        "sector": [
+          "otun"
+        ]
+      }
+    },
+    {
+      "id": "activities.laguna_mosquito",
+      "label": "Laguna El Mosquito en la ruta",
+      "kind": "fact",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "qué es la Laguna El Mosquito",
+        "paso por la Laguna del Mosquito",
+        "El Mosquito queda antes del Otún",
+        "puedo quedarme en la Laguna El Mosquito",
+        "esa laguna pequeña del camino a El Cedral",
+        "Mosquito es un punto del sendero",
+        "se visita El Mosquito sola o de paso",
+        "laguna del mosquito esta en la travesia",
+        "no es un zancudo, es una laguna",
+        "donde cae el mosquito en la ruta",
+        "what is Laguna El Mosquito",
+        "is El Mosquito a stop on the Otún trail"
+      ],
+      "hard_negatives": [
+        "hay mosquitos en el páramo",
+        "puedo pescar en El Mosquito",
+        "mapa de la laguna"
+      ],
+      "needs": [],
+      "answer": {
+        "short": "Laguna El Mosquito, o Laguna del Mosquito en otro tramo del mismo texto, es un punto de los senderos del Otún hacia El Cedral y hacia el Cocora en la norma de 2023. No es un destino con ficha propia de distancia ni de camping. La ves de paso en la ruta autorizada, sin bañarte ni pescar.",
+        "variants": [
+          "El Mosquito es una laguna del camino, no un paseo aparte con datos publicados. Aparece en las travesías del Otún. Se mira desde el sendero habilitado."
+        ]
+      },
+      "sources": [
+        {
+          "label": "Parques Nacionales Naturales, Resolución 207 del 4 de agosto de 2023",
+          "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2023/08/Resolucion_207_2023_ReglamentacionNevados_.pdf",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "last_verified": "2026-11-21",
+      "related": [
+        "activities.otun_cedral_walk",
+        "activities.otun_cocora_traverse",
+        "activities.no_fishing"
+      ],
+      "tags": [
+        "laguna el mosquito",
+        "sendero",
+        "otún"
+      ],
+      "entities": {
+        "sector": [
+          "otun"
+        ]
+      }
+    },
+    {
+      "id": "activities.azufrera_stop",
+      "label": "parada en la azufrera",
+      "kind": "explanation",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "qué es la azufrera del camino",
+        "puedo acercarme a la azufrera",
+        "huele a azufre en el sendero del Otún",
+        "la azufrera es una terma o un mirador",
+        "se entra a la fumarola",
+        "punto de geología en la ruta al Cedral",
+        "azufre en el camino a la laguna",
+        "la azufrera deja recoger piedras",
+        "es peligroso el olor a azufre",
+        "azufrera queda entre la laguna y el cedral",
+        "what is the sulfur stop on the Otún trail",
+        "can I walk up to the fumarole"
+      ],
+      "hard_negatives": [
+        "me puedo llevar una roca de azufre",
+        "hay termales para bañarse",
+        "el volcán está en alerta naranja"
+      ],
+      "needs": [],
+      "answer": {
+        "short": "La azufrera es un punto del sendero entre la Laguna del Otún y El Cedral, en la lista de 2023, para observación geológica. No es un baño termal ni un permiso para recoger material. No te metas a una emisión: obsérvala solo si el guía te confirma que ese tramo del sendero está habilitado.",
+        "variants": [
+          "En esa ruta la azufrera es una parada geológica del camino, no una piscina ni una mina. Mira desde donde el guía indique y no recojas muestras."
+        ]
+      },
+      "sources": [
+        {
+          "label": "Parques Nacionales Naturales, Resolución 207 del 4 de agosto de 2023",
+          "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2023/08/Resolucion_207_2023_ReglamentacionNevados_.pdf",
+          "retrieved_at": "2026-11-21"
+        },
+        {
+          "label": "Parques Nacionales Naturales de Colombia, ficha PNN Los Nevados",
+          "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "last_verified": "2026-11-21",
+      "related": [
+        "activities.otun_cedral_walk",
+        "activities.geology_watching",
+        "activities.termales_canon"
+      ],
+      "tags": [
+        "azufrera",
+        "azufre",
+        "geología"
+      ],
+      "entities": {
+        "sector": [
+          "otun"
+        ]
+      }
+    },
+    {
+      "id": "activities.otun_cocora_traverse",
+      "label": "travesía del Otún al Cocora",
+      "kind": "explanation",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "se puede cruzar del Otún al Cocora",
+        "travesía larga por la cuchilla de Berlín",
+        "del Otún a Salento por el parque",
+        "pasar por Buenos Aires y Mojón de Cárdenas",
+        "una travesía que une Risaralda y Quindío",
+        "el camino del Otún sale al Valle del Cocora",
+        "es de varios días ese cruce",
+        "berlin queda en la travesia del otun",
+        "puedo hacer otun cocora con camping",
+        "no es la misma del cañon del combeima",
+        "can I traverse from Laguna del Otún to Cocora",
+        "is the Otún–Cocora crossing a multi-day route"
+      ],
+      "hard_negatives": [
+        "cómo llego al Valle del Cocora en carro",
+        "reserva con cinco días para el Tolima",
+        "edad mínima de la travesía"
+      ],
+      "needs": [],
+      "answer": {
+        "short": "La norma de 2023 describe una travesía de la Laguna del Otún hacia el Valle del Cocora, por la azufrera, la Laguna del Mosquito, la cuchilla de Berlín, Buenos Aires y la finca Mojón de Cárdenas. Es un cruce de varios tramos, no una pasadía de Brisas. No hay duración oficial: organízala con un operador y confirma si sigue ofertada.",
+        "variants": [
+          "Existe un cruce autorizado, en la norma de 2023, desde el Otún hasta el Cocora por Berlín y Buenos Aires. No lo tomes como un día suelto ni por tu cuenta. El tiempo te lo define quien opere la travesía."
+        ]
+      },
+      "sources": [
+        {
+          "label": "Parques Nacionales Naturales, Resolución 207 del 4 de agosto de 2023",
+          "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2023/08/Resolucion_207_2023_ReglamentacionNevados_.pdf",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "last_verified": "2026-11-21",
+      "related": [
+        "activities.otun_cedral_walk",
+        "activities.combeima_cocora_traverse",
+        "activities.day_or_multiday"
+      ],
+      "tags": [
+        "travesía",
+        "cocora",
+        "berlín"
+      ],
+      "entities": {
+        "sector": [
+          "otun",
+          "tolima"
+        ]
+      }
+    },
+    {
+      "id": "activities.el_bosque_houses",
+      "label": "casas de la vereda El Bosque",
+      "kind": "explanation",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "puedo dormir en una casa de El Bosque",
+        "hospedaje de familias en la vereda El Bosque",
+        "casas tradicionales camino a la laguna",
+        "la estadía con habitantes del Otún",
+        "hay alojamiento rural dentro de la visita",
+        "quedarme en casa de campesinos del sector",
+        "El Bosque es camping o casa",
+        "se puede arrendar casa en la vereda",
+        "los habitantes historicos reciben gente",
+        "no es el centro de visitantes",
+        "can I stay in a traditional house in El Bosque",
+        "are local houses part of the Otún visit"
+      ],
+      "hard_negatives": [
+        "hay hotel en el parque",
+        "dónde reservo alojamiento",
+        "el parque tiene cabañas con baño"
+      ],
+      "needs": [],
+      "answer": {
+        "short": "La ficha dice que en el sector Otún puedes hacer estadía en casas tradicionales de habitantes históricos de la vereda El Bosque. No es una habitación que este asistente pueda reservar, ni un servicio garantizado. Acuérdala con un operador registrado y pregunta si esa opción sigue disponible para tu fecha.",
+        "variants": [
+          "Las casas de El Bosque aparecen en la ficha como parte de la experiencia del Otún, con familias del lugar. Tienes que coordinarlas con un operador y confirmar que sigan recibiéndote."
+        ]
+      },
+      "sources": [
+        {
+          "label": "Parques Nacionales Naturales de Colombia, ficha PNN Los Nevados",
+          "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "last_verified": "2026-11-21",
+      "related": [
+        "activities.sector_laguna_otun",
+        "activities.camping_otun",
+        "activities.otun_cedral_walk"
+      ],
+      "tags": [
+        "el bosque",
+        "casa",
+        "estadía"
+      ],
+      "entities": {
+        "sector": [
+          "otun"
+        ]
+      }
+    },
+    {
+      "id": "activities.sector_tolima",
+      "label": "qué hacer en el Tolima",
+      "kind": "explanation",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "qué se hace en el Nevado del Tolima",
+        "Dulima qué actividades tiene",
+        "el sector Quindío es montañismo",
+        "puedo conocer el Tolima sin ser experto",
+        "actividades cerca del volcán Tolima",
+        "el sur del parque es más duro",
+        "travesías del Nevado del Tolima",
+        "que hay en quindio dulima",
+        "el tolima es para caminar varios dias",
+        "no es el mismo paseo de Brisas",
+        "what can visitors do around Nevado del Tolima",
+        "is the Tolima sector mainly mountaineering"
+      ],
+      "hard_negatives": [
+        "puedo entrar por el Cocora",
+        "con cuántos días reservo el Tolima",
+        "cómo se llama Dulima en la historia"
+      ],
+      "needs": [],
+      "answer": {
+        "short": "Quindío–Dulima es el sector de los atractivos junto al Nevado del Tolima, para senderismo y travesías. La ficha dice que allí también caben las actividades de los otros sectores, pero el terreno es más exigente y lo principal es el montañismo. Cocora, Juntas y Anzoátegui son puertas de acceso: la ruta y el cupo se confirman con un operador registrado.",
+        "variants": [
+          "En el Tolima la visita es de sendero y de travesía, más exigente que Brisas, con el montañismo como actividad central. Los accesos existen, pero el plan interno lo armas con un operador y con el tramo que esté autorizado."
+        ],
+        "detail": "La ficha nombra el Valle del Cocora, la vereda Juntas y la vereda Palomar de Anzoátegui como caminos hacia el límite del parque. Esas distancias de aproximación son acceso. La actividad, una vez dentro, es la travesía o la cumbre autorizada."
+      },
+      "sources": [
+        {
+          "label": "Parques Nacionales Naturales de Colombia, ficha PNN Los Nevados",
+          "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "last_verified": "2026-11-21",
+      "related": [
+        "activities.tolima_ecosystem_transition",
+        "activities.tolima_summit_schimmer",
+        "activities.demanding_south"
+      ],
+      "tags": [
+        "tolima",
+        "dulima",
+        "montañismo"
+      ],
+      "entities": {
+        "sector": [
+          "tolima"
+        ]
+      }
+    },
+    {
+      "id": "activities.tolima_ecosystem_transition",
+      "label": "del bosque altoandino al glaciar",
+      "kind": "explanation",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "en el Tolima se ven varios ecosistemas",
+        "la travesía pasa de bosque a glaciar",
+        "subpáramo páramo y superpáramo en el sur",
+        "el camino del Tolima cambia de paisaje",
+        "empiezo en bosque y termino en hielo",
+        "qué paisajes cruzo hacia Dulima",
+        "la ruta sur no es solo páramo pelado",
+        "se ve el cambio de vegetacion en la subida",
+        "del bosque nublado hasta el hielo",
+        "quiero ver esa transicion de ecosistemas",
+        "does the Tolima trek cross from forest to glacier",
+        "what landscapes do you pass on the southern trails"
+      ],
+      "hard_negatives": [
+        "qué es el bosque altoandino",
+        "hay palma de cera en el parque",
+        "a qué altura empieza el páramo"
+      ],
+      "needs": [],
+      "answer": {
+        "short": "En los recorridos de Quindío–Dulima la ficha describe el paso del bosque altoandino al glaciar, por subpáramo, páramo y superpáramo. Es el paisaje de la travesía, no una clase de ecología. Vas a ver ese cambio solo si tu ruta autorizada cubre esos pisos, y el hielo final no está garantizado a la vista.",
+        "variants": [
+          "La caminata del Tolima está contada como un cambio de paisaje: bosque altoandino, páramos y, al final, el glaciar. Depende de la ruta que tengas habilitada. No es un paseo de un solo escenario."
+        ]
+      },
+      "sources": [
+        {
+          "label": "Parques Nacionales Naturales de Colombia, ficha PNN Los Nevados",
+          "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "last_verified": "2026-11-21",
+      "related": [
+        "activities.sector_tolima",
+        "activities.combeima_cocora_traverse",
+        "activities.snow_and_glacier_access"
+      ],
+      "tags": [
+        "bosque",
+        "páramo",
+        "transición"
+      ],
+      "entities": {
+        "sector": [
+          "tolima"
+        ]
+      }
+    },
+    {
+      "id": "activities.tolima_summit_schimmer",
+      "label": "cumbre por el glaciar Schimmer",
+      "kind": "procedure",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "puedo hacer cumbre en el Tolima",
+        "la ruta del glaciar Schimmer",
+        "Arenales a la cumbre del Tolima",
+        "subir a Dulima por el hielo autorizado",
+        "la cima del Tolima para turistas",
+        "Schimmer es el glaciar de la visita",
+        "cumbre del nevado del tolima con guía",
+        "se sube el tolima por arenales",
+        "esa cumbre no es de un solo dia",
+        "quiero la punta del tolima bien hecha",
+        "can visitors summit Tolima via Schimmer glacier",
+        "is the Schimmer route the tourist summit"
+      ],
+      "hard_negatives": [
+        "puedo subir por la cara sur del Tolima",
+        "guía obligatorio para cualquier sector",
+        "mal de altura en la cumbre"
+      ],
+      "needs": [],
+      "answer": {
+        "short": "La cumbre turística del Tolima que nombra la norma de 2023 va de Arenales al glaciar Schimmer, con guía de alta montaña y dentro de una travesía, no como una salida de Brisas. Otros glaciares del mismo volcán no están en esa operación turística. Confirma que Schimmer siga siendo la ruta habilitada: el plan de 2026 actualiza el marco y la versión corta no repite la lista.",
+        "variants": [
+          "Si la cumbre del Tolima está en tu plan, la ruta turística escrita en 2023 es Arenales–Schimmer. Es alta montaña con campamentos de por medio. No la mezcles con otras caras del volcán y confirma que siga autorizada."
+        ]
+      },
+      "sources": [
+        {
+          "label": "Parques Nacionales Naturales, Resolución 207 del 4 de agosto de 2023",
+          "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2023/08/Resolucion_207_2023_ReglamentacionNevados_.pdf",
+          "retrieved_at": "2026-11-21"
+        },
+        {
+          "label": "Parques Nacionales Naturales de Colombia, ficha PNN Los Nevados",
+          "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+          "retrieved_at": "2026-11-21"
+        },
+        {
+          "label": "Parques Nacionales Naturales, versión corta del POE Los Nevados 2026",
+          "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2026/03/PUBLICACIO%CC%81N-PNN-LOS-NEVADOS-2026-V2.pdf",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "last_verified": "2026-11-21",
+      "related": [
+        "activities.tolima_closed_routes",
+        "activities.camping_tolima",
+        "activities.high_mountain_guide"
+      ],
+      "tags": [
+        "schimmer",
+        "cumbre",
+        "tolima"
+      ],
+      "entities": {
+        "sector": [
+          "tolima"
+        ]
+      }
+    },
+    {
+      "id": "activities.tolima_closed_routes",
+      "label": "rutas del Tolima solo deportivas",
+      "kind": "fact",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "puedo subir por la cara sur del Tolima",
+        "el glaciar Dulima está abierto al turismo",
+        "ruta por el glaciar Ambala",
+        "Krauss Totare o Combeima se pueden hacer",
+        "el glaciar Pijao es de visitantes",
+        "hay varias vías de hielo en el Tolima",
+        "una ruta distinta a Schimmer",
+        "la cara sur la operan las agencias",
+        "puedo escoger otro glaciar del tolima",
+        "esas rutas son solo de clubes",
+        "are the other Tolima glaciers open to tourists",
+        "can a normal group use the south face of Tolima"
+      ],
+      "hard_negatives": [
+        "alerta del volcán hoy",
+        "quiero registrar una expedición deportiva en la app",
+        "cómo se llama el cráter del Ruiz"
+      ],
+      "needs": [],
+      "answer": {
+        "short": "La norma de 2023 dice que la cara sur del Tolima y los glaciares Dulima, Ambala, Krauss, Totare, Combeima y Pijao no están en la operación turística. Esas rutas quedan para montañistas de clubes con el procedimiento deportivo, no para un grupo de visita. No las tomes por tu cuenta; pregunta si esa restricción sigue igual.",
+        "variants": [
+          "Schimmer es la cumbre turística escrita en 2023. La cara sur y los otros glaciares nombrados no son producto de agencia: son régimen de club deportivo. Confirma el estado actual antes de dejarte ofrecer otra ruta."
+        ]
+      },
+      "sources": [
+        {
+          "label": "Parques Nacionales Naturales, Resolución 207 del 4 de agosto de 2023",
+          "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2023/08/Resolucion_207_2023_ReglamentacionNevados_.pdf",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "last_verified": "2026-11-21",
+      "related": [
+        "activities.tolima_summit_schimmer",
+        "activities.sport_mountaineering",
+        "activities.ruiz_summit_closed"
+      ],
+      "tags": [
+        "cara sur",
+        "glaciares",
+        "no turístico"
+      ],
+      "entities": {
+        "sector": [
+          "tolima"
+        ]
+      }
+    },
+    {
+      "id": "activities.combeima_cocora_traverse",
+      "label": "travesía del Combeima al Cocora",
+      "kind": "explanation",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "la travesía entre Juntas y el Cocora",
+        "cruzar el Tolima de Ibagué a Salento",
+        "camino por Termales del Cañón y la Laguna del Encanto",
+        "Alto Nieves y Estrella de Agua son del recorrido",
+        "la ruta sur larga del parque",
+        "se puede atravesar el sector Dulima",
+        "travesía del cañón del Combeima",
+        "de juntas al valle del cocora por dentro",
+        "esa travesia lleva varios campamentos",
+        "no es un dia de ida y vuelta",
+        "what is the Combeima to Cocora traverse",
+        "does the long south route pass Laguna del Encanto"
+      ],
+      "hard_negatives": [
+        "kilómetros de Ibagué a Juntas",
+        "cinco días hábiles para reservar",
+        "qué empaco para varios días"
+      ],
+      "needs": [],
+      "answer": {
+        "short": "La norma de 2023 describe una travesía larga entre Juntas y el Valle del Cocora, con puntos como La Pradera, Estambul, Alto Nieves, Escuela El Salto, Termales del Cañón, Laguna del Encanto, Valle de Placer y Estrella de Agua. Es el cruce del sur, con pernocta, no un paseo de mirador. La duración no está publicada: la define el operador si el tramo sigue abierto.",
+        "variants": [
+          "Ese cruce del Tolima une el lado de Juntas con el Cocora y pasa por la Laguna del Encanto y Termales del Cañón. Es una travesía de campamento. Esa norma no publica el tiempo."
+        ]
+      },
+      "sources": [
+        {
+          "label": "Parques Nacionales Naturales, Resolución 207 del 4 de agosto de 2023",
+          "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2023/08/Resolucion_207_2023_ReglamentacionNevados_.pdf",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "last_verified": "2026-11-21",
+      "related": [
+        "activities.laguna_encanto",
+        "activities.termales_canon",
+        "activities.sector_tolima"
+      ],
+      "tags": [
+        "travesía",
+        "combeima",
+        "cocora"
+      ],
+      "entities": {
+        "sector": [
+          "tolima"
+        ]
+      }
+    },
+    {
+      "id": "activities.laguna_encanto",
+      "label": "Laguna del Encanto en la travesía",
+      "kind": "fact",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "puedo conocer la Laguna del Encanto",
+        "la Laguna del Encanto queda en el Tolima",
+        "se visita El Encanto de pasadía",
+        "Encanto es una parada de la travesía sur",
+        "quiero la laguna del encanto sola",
+        "está en el camino entre Cañón y Cocora",
+        "Laguna del Encanto se nada o se mira",
+        "el encanto es laguna de trekking",
+        "como llego solo hasta el encanto",
+        "no es la laguna del otun",
+        "can I visit Laguna del Encanto",
+        "is Encanto a standalone trip or part of the traverse"
+      ],
+      "hard_negatives": [
+        "altura de la Laguna del Encanto",
+        "puedo bañarme en El Encanto",
+        "hay cóndores en la laguna"
+      ],
+      "needs": [],
+      "answer": {
+        "short": "La Laguna del Encanto aparece en la travesía sur de la norma de 2023, entre Termales del Cañón y el rumbo al Cocora. No aparece como pasadía propia, ni con distancia, ni con permiso para bañarse. Se conoce dentro de la ruta autorizada, con operador, si ese tramo está habilitado.",
+        "variants": [
+          "El Encanto es una laguna de la travesía del Tolima, no un paseo suelto con ficha de horario. La miras desde el sendero de la ruta que tengas autorizada."
+        ]
+      },
+      "sources": [
+        {
+          "label": "Parques Nacionales Naturales, Resolución 207 del 4 de agosto de 2023",
+          "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2023/08/Resolucion_207_2023_ReglamentacionNevados_.pdf",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "last_verified": "2026-11-21",
+      "related": [
+        "activities.combeima_cocora_traverse",
+        "activities.no_swimming",
+        "activities.sector_tolima"
+      ],
+      "tags": [
+        "laguna del encanto",
+        "travesía",
+        "tolima"
+      ],
+      "entities": {
+        "sector": [
+          "tolima"
+        ]
+      }
+    },
+    {
+      "id": "activities.termales_canon",
+      "label": "Termales del Cañón en la ruta",
+      "kind": "explanation",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "qué son los Termales del Cañón",
+        "me puedo bañar en Termales Cañón",
+        "Termales del Cañón es un spa",
+        "hay pozos calientes en la travesía",
+        "el cañón es campamento o balneario",
+        "Termales del Ruiz y Termales del Cañón",
+        "pasar la noche en Termales del Cañón",
+        "termales canon deja meterse al agua",
+        "es una parada de la ruta del tolima",
+        "no confundir con el hotel de termales",
+        "are the Cañón hot springs a place to bathe",
+        "what is Termales del Cañón on the Tolima trek"
+      ],
+      "hard_negatives": [
+        "los termales de Santa Rosa cómo se visitan",
+        "precio de la entrada a los termales",
+        "puedo ir a Termales del Ruiz de spa"
+      ],
+      "needs": [],
+      "answer": {
+        "short": "Termales del Cañón es un punto de paso y de campamento en las travesías del Tolima, según la norma de 2023, no un balneario del parque. Los baños terapéuticos en el agua del área protegida no están permitidos. No lo confundas con unos termales de carretera fuera de la ruta: aquí se pernocta o se sigue, según tu autorización.",
+        "variants": [
+          "En la travesía, Termales del Cañón es campamento y punto del camino. No es una poza para bañarse. La norma prohíbe los baños terapéuticos dentro del parque."
+        ]
+      },
+      "sources": [
+        {
+          "label": "Parques Nacionales Naturales, Resolución 207 del 4 de agosto de 2023",
+          "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2023/08/Resolucion_207_2023_ReglamentacionNevados_.pdf",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "last_verified": "2026-11-21",
+      "related": [
+        "activities.camping_tolima",
+        "activities.no_swimming",
+        "activities.combeima_cocora_traverse"
+      ],
+      "tags": [
+        "termales del cañón",
+        "campamento",
+        "no baño"
+      ],
+      "entities": {
+        "sector": [
+          "tolima"
+        ]
+      }
+    },
+    {
+      "id": "activities.chilcos_trail",
+      "label": "sendero Los Chilcos",
+      "kind": "explanation",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "qué es el sendero Los Chilcos",
+        "la ruta de Anzoátegui al Cañón",
+        "Los Chilcos pasa por la Laguna Bombona",
+        "entrar por Palomar hacia Termales",
+        "Chilcos es una travesía del oriente",
+        "desde La Punta se sigue al parque",
+        "el camino de Anzoátegui no es Brisas",
+        "los chilcos llegan a termales del cañon",
+        "vancouver es un predio del sendero",
+        "se puede hacer chilcos en un dia",
+        "what is the Los Chilcos trail",
+        "does Chilcos start from Anzoátegui toward the canyon"
+      ],
+      "hard_negatives": [
+        "cómo llego en carro a Anzoátegui",
+        "horario de ingreso por Palomar",
+        "necesito reserva de cinco días"
+      ],
+      "needs": [],
+      "answer": {
+        "short": "Los Chilcos es la ruta que la norma de 2023 describe desde Anzoátegui y Palomar, por la Laguna Bombona y el predio Vancouver, hasta Termales del Cañón. Es una travesía del suroriente, no una mañana en Brisas. Confirma cupo, guía y si el tramo sigue habilitado; la duración no viene publicada.",
+        "variants": [
+          "Por Anzoátegui el sendero nombrado es Los Chilcos, hasta Termales del Cañón, pasando por Bombona. Es travesía. El tiempo y el cupo los confirma el operador."
+        ]
+      },
+      "sources": [
+        {
+          "label": "Parques Nacionales Naturales, Resolución 207 del 4 de agosto de 2023",
+          "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2023/08/Resolucion_207_2023_ReglamentacionNevados_.pdf",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "last_verified": "2026-11-21",
+      "related": [
+        "activities.laguna_bombona",
+        "activities.termales_canon",
+        "activities.sector_tolima"
+      ],
+      "tags": [
+        "chilcos",
+        "anzoátegui",
+        "palomar"
+      ],
+      "entities": {
+        "sector": [
+          "tolima"
+        ]
+      }
+    },
+    {
+      "id": "activities.laguna_bombona",
+      "label": "Laguna Bombona en Los Chilcos",
+      "kind": "fact",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "qué es la Laguna Bombona",
+        "Bombona queda en el sendero de Anzoátegui",
+        "puedo ir solo a la Laguna Bombona",
+        "Bombona es camping o de paso",
+        "la laguna del camino Los Chilcos",
+        "se nada en Bombona",
+        "Laguna Bombona está antes de Vancouver",
+        "bombona es una parada de chilcos",
+        "quiero la laguna bombona de dia",
+        "no aparece en la ficha corta",
+        "what is Laguna Bombona",
+        "is Bombona its own hike or a point on Chilcos"
+      ],
+      "hard_negatives": [
+        "profundidad de la Laguna Bombona",
+        "puedo pescar en Bombona",
+        "aves de esa laguna"
+      ],
+      "needs": [],
+      "answer": {
+        "short": "La Laguna Bombona es un punto del sendero Los Chilcos en la norma de 2023, entre Palomar y el predio Vancouver, camino a Termales del Cañón. No tiene ficha propia de distancia, horario ni camping. Se recorre dentro de esa travesía autorizada, sin bañarse.",
+        "variants": [
+          "Bombona no es un paseo suelto: es una laguna del camino de Los Chilcos. La miras si tu ruta autorizada pasa por ahí. No hay datos publicados de largo ni de pernocta en ese punto."
+        ]
+      },
+      "sources": [
+        {
+          "label": "Parques Nacionales Naturales, Resolución 207 del 4 de agosto de 2023",
+          "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2023/08/Resolucion_207_2023_ReglamentacionNevados_.pdf",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "last_verified": "2026-11-21",
+      "related": [
+        "activities.chilcos_trail",
+        "activities.no_swimming",
+        "activities.trail_duration_gap"
+      ],
+      "tags": [
+        "bombona",
+        "chilcos",
+        "laguna"
+      ],
+      "entities": {
+        "sector": [
+          "tolima"
+        ]
+      }
+    },
+    {
+      "id": "activities.paramillo_quindio_trail",
+      "label": "sendero anunciado del Quindío",
+      "kind": "fact",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "ya abrió el sendero del paramillo del Quindío",
+        "el camino nuevo del Quindío",
+        "puedo recorrer el Paramillo del Quindío",
+        "anunciaron un sendero en 2026",
+        "el paramillo del Quindío es visitable",
+        "sendero para prestadores de Salento",
+        "cuándo habilitan ese camino",
+        "el paramillo del quindio ya se puede caminar",
+        "hay fecha del sendero nuevo",
+        "no sé si está abierto o solo anunciado",
+        "is the new Quindío paramillo trail open",
+        "when can visitors hike the announced Quindío path"
+      ],
+      "hard_negatives": [
+        "altura del paramillo del Quindío",
+        "cumbre del Nevado del Quindío",
+        "cómo llego a Salento"
+      ],
+      "needs": [],
+      "answer": {
+        "short": "En marzo de 2026 el parque anunció un sendero nuevo en el paramillo del Quindío, asociado a prestadores locales. La noticia no trae distancia, dificultad ni día de apertura, y dice que con ese y otro camino el parque contará con 15 senderos. No lo des por abierto: pregunta a Parques Nacionales si ya se puede recorrer.",
+        "variants": [
+          "El sendero del paramillo del Quindío fue anunciado en 2026, sin ficha de largo ni de fecha. Hasta que el parque lo publique como visita, no lo pongas en el plan."
+        ]
+      },
+      "sources": [
+        {
+          "label": "Parques Nacionales Naturales, noticia del Plan de Ordenamiento Ecoturístico, 6 de marzo de 2026",
+          "url": "https://www.parquesnacionales.gov.co/sala-prensa/noticias/el-parque-nacional-natural-los-nevados-lanza-nuevo-plan-de-ordenamiento-ecoturistico-para-fortalecer-la-conservacion-en-la-alta-montana/",
+          "retrieved_at": "2026-11-21"
+        },
+        {
+          "label": "Parques Nacionales Naturales, versión corta del POE Los Nevados 2026",
+          "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2026/03/PUBLICACIO%CC%81N-PNN-LOS-NEVADOS-2026-V2.pdf",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "last_verified": "2026-11-21",
+      "related": [
+        "activities.quindio_summit_not_listed",
+        "activities.paramillo_santa_rosa_trail",
+        "activities.four_or_five_sectors"
+      ],
+      "tags": [
+        "paramillo del quindío",
+        "sendero nuevo",
+        "2026"
+      ],
+      "entities": {
+        "sector": [
+          "tolima"
+        ]
+      }
+    },
+    {
+      "id": "activities.paramillo_santa_rosa_trail",
+      "label": "sendero anunciado de Santa Rosa",
+      "kind": "fact",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "hay sendero en el paramillo de Santa Rosa",
+        "el camino nuevo con las familias de Santa Rosa",
+        "puedo subir ya al paramillo de Santa Rosa",
+        "anuncio del sendero de Santa Rosa de Cabal",
+        "ese paramillo quedó habilitado",
+        "acuerdos de conservación y el sendero",
+        "Paramillo de Santa Rosa para visitantes",
+        "el de santa rosa ya esta abierto",
+        "cuando inauguran ese sendero",
+        "es distinto del paramillo del Cisne",
+        "is the Santa Rosa paramillo trail open to visitors",
+        "what is known about the new Santa Rosa path"
+      ],
+      "hard_negatives": [
+        "cómo llego a Santa Rosa de Cabal",
+        "termales de Santa Rosa",
+        "altura del paramillo de Santa Rosa"
+      ],
+      "needs": [],
+      "answer": {
+        "short": "El otro sendero anunciado en marzo de 2026 queda en el paramillo de Santa Rosa y se plantea con acuerdos de conservación con familias del sector. Tampoco publica distancia ni apertura. No es el paramillo del Cisne ni una cumbre que puedas improvisar: espera a que el parque diga que ya se recorre.",
+        "variants": [
+          "El plan de 2026 anuncia un sendero en el paramillo de Santa Rosa, armado con familias del lugar. Sin fecha ni recorrido publicado, no lo trates como una visita disponible."
+        ]
+      },
+      "sources": [
+        {
+          "label": "Parques Nacionales Naturales, noticia del Plan de Ordenamiento Ecoturístico, 6 de marzo de 2026",
+          "url": "https://www.parquesnacionales.gov.co/sala-prensa/noticias/el-parque-nacional-natural-los-nevados-lanza-nuevo-plan-de-ordenamiento-ecoturistico-para-fortalecer-la-conservacion-en-la-alta-montana/",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "last_verified": "2026-11-21",
+      "related": [
+        "activities.paramillo_quindio_trail",
+        "activities.paramillo_cisne_view",
+        "activities.four_or_five_sectors"
+      ],
+      "tags": [
+        "santa rosa",
+        "paramillo",
+        "sendero nuevo"
+      ],
+      "entities": {
+        "sector": [
+          "otun"
+        ]
+      }
+    },
+    {
+      "id": "activities.quindio_summit_not_listed",
+      "label": "cumbre del Nevado del Quindío",
+      "kind": "fact",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "puedo hacer cumbre en el Nevado del Quindío",
+        "la cima del Quindío está autorizada",
+        "subir al Quindío como al Santa Isabel",
+        "hay ruta de hielo al Nevado del Quindío",
+        "el Quindío se asciende con guía",
+        "quiero la punta del paramillo o del nevado",
+        "cumbre del quindio para turistas",
+        "el quindio deja subir a la cima",
+        "no encuentro esa cumbre en la lista",
+        "es lo mismo el sendero nuevo que la cima",
+        "can visitors summit Nevado del Quindío",
+        "is there an official Quindío summit route"
+      ],
+      "hard_negatives": [
+        "cuánto mide el Nevado del Quindío",
+        "el sendero anunciado del paramillo",
+        "departamentos del parque"
+      ],
+      "needs": [],
+      "answer": {
+        "short": "No hay una cumbre turística del Nevado del Quindío en los senderos de la norma de 2023 ni en la ficha. El anuncio de 2026 habla de un sendero en el paramillo, no de llegar a una cima. Hasta que el parque lo publique, no planees ese ascenso.",
+        "variants": [
+          "La cima del Quindío no está en la oferta de cumbres que revisé. Un sendero anunciado en el paramillo no equivale a subir al nevado. Pregunta antes de dejar que te lo vendan como cumbre."
+        ]
+      },
+      "sources": [
+        {
+          "label": "Parques Nacionales Naturales, Resolución 207 del 4 de agosto de 2023",
+          "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2023/08/Resolucion_207_2023_ReglamentacionNevados_.pdf",
+          "retrieved_at": "2026-11-21"
+        },
+        {
+          "label": "Parques Nacionales Naturales de Colombia, ficha PNN Los Nevados",
+          "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+          "retrieved_at": "2026-11-21"
+        },
+        {
+          "label": "Parques Nacionales Naturales, noticia del Plan de Ordenamiento Ecoturístico, 6 de marzo de 2026",
+          "url": "https://www.parquesnacionales.gov.co/sala-prensa/noticias/el-parque-nacional-natural-los-nevados-lanza-nuevo-plan-de-ordenamiento-ecoturistico-para-fortalecer-la-conservacion-en-la-alta-montana/",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "last_verified": "2026-11-21",
+      "related": [
+        "activities.paramillo_quindio_trail",
+        "activities.santa_isabel_summit",
+        "activities.tolima_summit_schimmer"
+      ],
+      "tags": [
+        "quindío",
+        "cumbre",
+        "no listada"
+      ],
+      "entities": {
+        "sector": [
+          "tolima"
+        ]
+      }
+    },
+    {
+      "id": "activities.olleta_pirana_not_a_visit",
+      "label": "cráteres La Olleta y La Piraña",
+      "kind": "fact",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "puedo ir al cráter La Olleta",
+        "La Piraña se visita",
+        "el Caballete de la Olleta es un sendero",
+        "quiero conocer los cráteres pequeños",
+        "La Olleta es parte del paseo de Brisas",
+        "se puede asomar a La Piraña",
+        "esos cráteres están en algún recorrido",
+        "la olleta esta abierta al publico",
+        "piraña es un mirador o un crater",
+        "me dijeron que la olleta se camina",
+        "can I visit La Olleta crater",
+        "is Caballete de la Olleta a hiking destination"
+      ],
+      "hard_negatives": [
+        "puedo entrar al cráter del Ruiz",
+        "nombre del cráter principal",
+        "actividad volcánica de hoy"
+      ],
+      "needs": [],
+      "answer": {
+        "short": "La ficha nombra los cráteres La Olleta y La Piraña como parte del complejo volcánico, no como senderos de visita. En la norma de 2023, Caballete de la Olleta aparece como referencia de una vía entre Brisas y el Cisne, no como permiso para entrar a un cráter. Quédate en los recorridos publicados.",
+        "variants": [
+          "La Olleta y La Piraña no están en la lista de paseos. Ver el nombre en una descripción de la vía no abre el cráter. El recorrido de visitante sigue siendo el que el parque tenga habilitado."
+        ]
+      },
+      "sources": [
+        {
+          "label": "Parques Nacionales Naturales de Colombia, ficha PNN Los Nevados",
+          "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+          "retrieved_at": "2026-11-21"
+        },
+        {
+          "label": "Parques Nacionales Naturales, Resolución 207 del 4 de agosto de 2023",
+          "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2023/08/Resolucion_207_2023_ReglamentacionNevados_.pdf",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "last_verified": "2026-11-21",
+      "related": [
+        "activities.ruiz_summit_closed",
+        "activities.geology_watching",
+        "activities.authorized_trail_names"
+      ],
+      "tags": [
+        "olleta",
+        "piraña",
+        "cráter"
+      ],
+      "entities": {
+        "sector": [
+          "brisas",
+          "santa_isabel"
+        ]
+      }
+    },
+    {
+      "id": "activities.refugio_not_the_route",
+      "label": "el refugio no es el destino",
+      "kind": "fact",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "el recorrido llega al refugio del Ruiz",
+        "puedo visitar el refugio del nevado",
+        "me dejan en el refugio o en el valle",
+        "el refugio sigue siendo parada turística",
+        "quiero dormir en el refugio del Ruiz",
+        "hasta dónde llega el carro, al refugio",
+        "el refugio está antes del cráter",
+        "el refugio del ruiz esta en el paseo",
+        "no sé si el valle reemplazó al refugio",
+        "alguien me ofreció el refugio",
+        "does the tourist route still go to the Ruiz refuge",
+        "is the refuge the end of the Brisas visit"
+      ],
+      "hard_negatives": [
+        "hay alojamiento en Brisas",
+        "puedo subir al cráter",
+        "a qué hora cierra el ingreso"
+      ],
+      "needs": [],
+      "answer": {
+        "short": "El destino que publica la ficha en el norte es el Valle de las Tumbas, también llamado Valle del Silencio, no el refugio ni el cráter. La ficha vigente no lo muestra como parada del recorrido. Si te lo ofrecen como punto final, pide que te muestren que el parque lo tiene habilitado; si no, el plan es el valle.",
+        "variants": [
+          "La visita norte publicada termina en el Valle de las Tumbas, no en el refugio. No uses un mapa viejo que lleve más arriba. Confirma el tramo del día con el operador."
+        ]
+      },
+      "sources": [
+        {
+          "label": "Parques Nacionales Naturales de Colombia, ficha PNN Los Nevados",
+          "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+          "retrieved_at": "2026-11-21"
+        },
+        {
+          "label": "PNN Los Nevados, radicado 20266200003411 del 11 de mayo de 2026",
+          "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2026/05/Respuesta-Radicado-Ano%CC%81nimo-No.-20264700042282.pdf",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "last_verified": "2026-11-21",
+      "related": [
+        "activities.brisas_valle_tumbas",
+        "activities.ruiz_summit_closed",
+        "activities.camping_brisas_restricted"
+      ],
+      "tags": [
+        "refugio",
+        "valle",
+        "límite"
+      ],
+      "entities": {
+        "sector": [
+          "brisas"
+        ]
+      }
+    },
+    {
+      "id": "activities.authorized_trail_names",
+      "label": "nombres de senderos autorizados",
+      "kind": "explanation",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "qué senderos están autorizados",
+        "lista de caminos del parque",
+        "cuáles rutas se pueden ofrecer",
+        "los nombres oficiales de los recorridos",
+        "hay más senderos que los cuatro sectores",
+        "qué caminos salen en la reglamentación",
+        "un operador me inventó una trocha",
+        "cuales son las rutas permitidas",
+        "la lista de senderos de 2023",
+        "15 senderos ya están todos abiertos",
+        "which trail names are officially allowed",
+        "how many routes did the park actually publish"
+      ],
+      "hard_negatives": [
+        "puedo caminar por donde quiera",
+        "me salgo del sendero para una foto",
+        "por dónde sí puedo cortar camino"
+      ],
+      "needs": [],
+      "answer": {
+        "short": "La norma de 2023 publica una lista concreta: el carreteable de Brisas al valle, senderos de Cisne y del Otún, y las travesías del sur hacia el Tolima y el Cocora. El plan de 2026 evaluó 26 rutas y dejó 15 con resultado favorable, pero la versión corta no las nombra una por una. Si un camino no está en la oferta vigente del parque, no es una visita.",
+        "variants": [
+          "No todo camino que se ve en el mapa es un sendero de visita. Hay una lista de 2023 y un plan de 2026 que anuncia 15 favorables sin detallarlos en el resumen. Pide el nombre oficial del recorrido antes de salir."
+        ]
+      },
+      "sources": [
+        {
+          "label": "Parques Nacionales Naturales, Resolución 207 del 4 de agosto de 2023",
+          "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2023/08/Resolucion_207_2023_ReglamentacionNevados_.pdf",
+          "retrieved_at": "2026-11-21"
+        },
+        {
+          "label": "Parques Nacionales Naturales, noticia del Plan de Ordenamiento Ecoturístico, 6 de marzo de 2026",
+          "url": "https://www.parquesnacionales.gov.co/sala-prensa/noticias/el-parque-nacional-natural-los-nevados-lanza-nuevo-plan-de-ordenamiento-ecoturistico-para-fortalecer-la-conservacion-en-la-alta-montana/",
+          "retrieved_at": "2026-11-21"
+        },
+        {
+          "label": "Parques Nacionales Naturales, versión corta del POE Los Nevados 2026",
+          "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2026/03/PUBLICACIO%CC%81N-PNN-LOS-NEVADOS-2026-V2.pdf",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "last_verified": "2026-11-21",
+      "related": [
+        "activities.trail_duration_gap",
+        "activities.four_or_five_sectors",
+        "activities.paramillo_quindio_trail"
+      ],
+      "tags": [
+        "senderos",
+        "lista",
+        "autorizados"
+      ]
+    },
+    {
+      "id": "activities.day_or_multiday",
+      "label": "salida de un día o varios",
+      "kind": "explanation",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "puedo ir y volver el mismo día",
+        "qué sector es de pasadía",
+        "cuáles visitas necesitan camping",
+        "Brisas es de un día y el Tolima no",
+        "una travesía de varios días",
+        "diferencia entre pasadía y travesía",
+        "quiero dormir en el parque o no",
+        "el otun se puede hacer sin dormir",
+        "santa isabel cumbre es mas de un dia",
+        "pasadia hasta la asomadera cuenta",
+        "which visits are day trips and which need overnight",
+        "is everything in the park a one-day excursion"
+      ],
+      "hard_negatives": [
+        "qué ropa llevo para varios días",
+        "horario de ingreso por sector",
+        "dónde reservo la pasadía"
+      ],
+      "needs": [],
+      "answer": {
+        "short": "La ficha separa Brisas, de visita ocasional y caminatas cortas, de los otros sectores, pensados para varios días o cumbres técnicas. La norma de 2023 también habla de pasadía sin pernoctar hasta la Asomadera, y de travesías en el sur. Elige según los días que tengas y confirma si tu ruta se duerme en un camping autorizado.",
+        "variants": [
+          "Un día alcanza para Brisas y para algunas pasadías del centro. Cumbres y cruces del sur se arman con noche en el parque. No mezcles los dos ritmos en el mismo plan sin preguntar."
+        ]
+      },
+      "sources": [
+        {
+          "label": "Parques Nacionales Naturales de Colombia, ficha PNN Los Nevados",
+          "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+          "retrieved_at": "2026-11-21"
+        },
+        {
+          "label": "Parques Nacionales Naturales, Resolución 207 del 4 de agosto de 2023",
+          "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2023/08/Resolucion_207_2023_ReglamentacionNevados_.pdf",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "last_verified": "2026-11-21",
+      "related": [
+        "activities.what_to_visit",
+        "activities.camping_where",
+        "activities.demanding_south"
+      ],
+      "tags": [
+        "pasadía",
+        "travesía",
+        "días"
+      ]
+    },
+    {
+      "id": "activities.demanding_south",
+      "label": "travesías exigentes del sur",
+      "kind": "explanation",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "el sur es más difícil que Brisas",
+        "el Tolima exige condición física",
+        "una travesía no es para improvisar",
+        "qué tan duro es Quindío–Dulima",
+        "el terreno del sur es exigente",
+        "puedo intentar el Tolima si nunca he trekkeado",
+        "la ficha dice que hay que prepararse",
+        "el sur no es un paseo familiar corto",
+        "dulima es montaña de verdad",
+        "me advirtieron que el tolima es duro",
+        "how demanding is the southern sector",
+        "is the Tolima trek suitable for a casual walker"
+      ],
+      "hard_negatives": [
+        "qué entrenamiento hago antes",
+        "síntomas de mal de altura",
+        "edad mínima para la travesía"
+      ],
+      "needs": [],
+      "answer": {
+        "short": "La ficha dice que en Quindío–Dulima el terreno es más exigente y que la actividad principal es el montañismo, así que hace falta preparación previa. No te doy un plan de entrenamiento ni te digo que vas a estar bien: eso lo hablas con el operador y, si tienes dudas de salud, con un médico antes de comprometerme a la cumbre.",
+        "variants": [
+          "El sector del Tolima no está descrito como una caminata suave. Es montañismo y travesía. Si nunca has hecho algo parecido, dilo al operador antes de comprar el plan."
+        ]
+      },
+      "sources": [
+        {
+          "label": "Parques Nacionales Naturales de Colombia, ficha PNN Los Nevados",
+          "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "last_verified": "2026-11-21",
+      "related": [
+        "activities.sector_tolima",
+        "activities.day_or_multiday",
+        "activities.high_mountain_guide"
+      ],
+      "tags": [
+        "exigencia",
+        "sur",
+        "montañismo"
+      ],
+      "entities": {
+        "sector": [
+          "tolima"
+        ]
+      }
+    },
+    {
+      "id": "activities.trail_duration_gap",
+      "label": "duración de cada sendero",
+      "kind": "fact",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "cuántas horas dura cada sendero",
+        "qué dificultad tiene Laguna Verde",
+        "el tiempo oficial de Conejeras",
+        "hay una tabla de horas y kilómetros",
+        "qué tan largo es Schimmer en horas",
+        "grado de dificultad de Los Chilcos",
+        "me pueden decir el tiempo exacto",
+        "cuanto se demora la cumbre del tolima",
+        "la ficha trae duracion de las rutas",
+        "sin el dato no sé si me alcanza el dia",
+        "how many hours is each official trail",
+        "where is the difficulty rating for these hikes"
+      ],
+      "hard_negatives": [
+        "cuánto se demora el carro desde Manizales",
+        "horario de apertura de Brisas",
+        "pronóstico para calcular el tiempo"
+      ],
+      "needs": [],
+      "answer": {
+        "short": "Ni la ficha ni la reglamentación consultada publican horas de camino ni un grado de dificultad para cada sendero. Brisas se presenta como salida corta en vehículo; las travesías del sur usan campamentos, así que no caben en la misma jornada. El tiempo de tu ruta te lo dice el operador: no uses una cifra que no venga del parque.",
+        "variants": [
+          "No hay una tabla oficial de duración en esas fuentes. Lo corto es Brisas; lo largo, las travesías con camping. Para horas concretas, pregunta a quien opere ese sendero."
+        ]
+      },
+      "sources": [
+        {
+          "label": "Parques Nacionales Naturales de Colombia, ficha PNN Los Nevados",
+          "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+          "retrieved_at": "2026-11-21"
+        },
+        {
+          "label": "Parques Nacionales Naturales, Resolución 207 del 4 de agosto de 2023",
+          "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2023/08/Resolucion_207_2023_ReglamentacionNevados_.pdf",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "last_verified": "2026-11-21",
+      "related": [
+        "activities.authorized_trail_names",
+        "activities.day_or_multiday",
+        "activities.otun_cedral_walk"
+      ],
+      "tags": [
+        "duración",
+        "dificultad",
+        "vacío"
+      ]
+    },
+    {
+      "id": "activities.camping_where",
+      "label": "dónde está permitido acampar",
+      "kind": "procedure",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "se puede acampar",
+        "puedo llevar carpa",
+        "dónde se duerme en el parque",
+        "hay zonas de camping autorizadas",
+        "pasar la noche con carpa",
+        "acampar en Los Nevados",
+        "la ficha dice que hay camping",
+        "se puede dormir en el parque",
+        "camping solo en sitios nombrados",
+        "no se acampa en cualquier parte",
+        "where is camping allowed in the park",
+        "can I bring a tent and sleep inside"
+      ],
+      "hard_negatives": [
+        "qué saco de dormir llevo",
+        "el refugio del Ruiz tiene camas",
+        "puedo hacer una fogata de camping"
+      ],
+      "needs": [],
+      "answer": {
+        "short": "Acampar no es libre en cualquier parte. La norma de 2023, que el parque seguía citando en mayo de 2026, nombra la Laguna del Otún, condiciona El Cisne, restringe Arenales de Brisas y habilita de forma transitoria Termales del Cañón, Arenales del Tolima y Calvito. El resumen del plan de 2026 no republica esa lista: confirma el sitio de tu fecha antes de subir la carpa.",
+        "variants": [
+          "La carpa solo cabe en zonas que el parque tenga habilitadas, no donde se te ocurra. La lista detallada es la de 2023 y puede haber cambiado con el plan nuevo. Pregunta el punto exacto antes de viajar."
+        ],
+        "detail": "La ficha pide, si vas a acampar en zona permitida, carpa, sleeping, cocina y comida para bajas temperaturas. La norma de 2023 pedía carpas de tres o cuatro estaciones para temperaturas bajo 0 °C. No hagas fogata: el mismo texto la prohíbe y habla de estufa de camping.",
+        "steps": [
+          [
+            "Elige el sector primero: no es el mismo camping el del Otún, el del Cisne o el del Tolima."
+          ],
+          [
+            "Pide al operador el nombre del sitio y si esa noche está habilitado."
+          ],
+          [
+            "Lleva equipo de alta montaña y saca del parque todo lo que ensucies. La fogata no hace parte del camping."
+          ]
+        ]
+      },
+      "sources": [
+        {
+          "label": "Parques Nacionales Naturales, Resolución 207 del 4 de agosto de 2023",
+          "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2023/08/Resolucion_207_2023_ReglamentacionNevados_.pdf",
+          "retrieved_at": "2026-11-21"
+        },
+        {
+          "label": "PNN Los Nevados, radicado 20266200003411 del 11 de mayo de 2026",
+          "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2026/05/Respuesta-Radicado-Ano%CC%81nimo-No.-20264700042282.pdf",
+          "retrieved_at": "2026-11-21"
+        },
+        {
+          "label": "Parques Nacionales Naturales de Colombia, ficha PNN Los Nevados",
+          "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+          "retrieved_at": "2026-11-21"
+        },
+        {
+          "label": "Parques Nacionales Naturales, versión corta del POE Los Nevados 2026",
+          "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2026/03/PUBLICACIO%CC%81N-PNN-LOS-NEVADOS-2026-V2.pdf",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "last_verified": "2026-11-21",
+      "related": [
+        "activities.camping_otun",
+        "activities.camping_tolima",
+        "activities.no_camping_outside"
+      ],
+      "tags": [
+        "camping",
+        "carpa",
+        "pernoctar"
+      ]
+    },
+    {
+      "id": "activities.camping_otun",
+      "label": "camping junto a la Laguna del Otún",
+      "kind": "fact",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "puedo acampar en la Laguna del Otún",
+        "hay camping al lado de la laguna",
+        "dormir en carpa en el Otún",
+        "la zona de camping del POE es el Otún",
+        "pernoctar en la laguna grande",
+        "el camping del Otún está en acondicionamiento",
+        "carpa en el sector de la laguna",
+        "se duerme en el otun con autorizacion",
+        "la laguna es el camping principal",
+        "otun si tiene zona de carpas",
+        "can I camp at Laguna del Otún",
+        "is the lake the main campsite in the park"
+      ],
+      "hard_negatives": [
+        "casa de El Bosque es lo mismo que camping",
+        "puedo bañarme al amanecer en la laguna",
+        "reserva del camping con tres días"
+      ],
+      "needs": [],
+      "answer": {
+        "short": "La norma de 2023 señala la Laguna del Otún como zona de camping del ordenamiento, y dice que estaba en acondicionamiento. No es un permiso automático para armar la carpa donde quieras a la orilla. Confirma cupo, punto exacto y si esa zona sigue habilitada; la versión corta de 2026 no lo repite.",
+        "variants": [
+          "El camping asociado a la Laguna del Otún es el que la norma de 2023 trata como zona del plan. Igual hay que confirmar el punto y el cupo. No armes la carpa en la orilla por tu cuenta."
+        ]
+      },
+      "sources": [
+        {
+          "label": "Parques Nacionales Naturales, Resolución 207 del 4 de agosto de 2023",
+          "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2023/08/Resolucion_207_2023_ReglamentacionNevados_.pdf",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "last_verified": "2026-11-21",
+      "related": [
+        "activities.camping_where",
+        "activities.sector_laguna_otun",
+        "activities.el_bosque_houses"
+      ],
+      "tags": [
+        "camping",
+        "otún",
+        "laguna"
+      ],
+      "entities": {
+        "sector": [
+          "otun"
+        ]
+      }
+    },
+    {
+      "id": "activities.camping_cisne",
+      "label": "camping en el centro El Cisne",
+      "kind": "fact",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "puedo acampar en El Cisne",
+        "hay camping al lado del centro",
+        "dormir en carpa en Poleka",
+        "el camping del Cisne depende del volcán",
+        "El Cisne tiene zona de carpas",
+        "pernoctar en el sector Santa Isabel",
+        "camping Cisne está condicionado",
+        "se puede dejar la carpa en el cisne",
+        "el centro tiene camping o solo camas",
+        "poleka deja acampar",
+        "can I camp at El Cisne visitor center",
+        "is camping at Cisne always available"
+      ],
+      "hard_negatives": [
+        "el centro El Cisne tiene hotel",
+        "edad para visitar el centro",
+        "cómo reservo alojamiento en El Cisne"
+      ],
+      "needs": [],
+      "answer": {
+        "short": "La norma de 2023 nombra un camping en el centro El Cisne, condicionado por la actividad volcánica o por la operación de los servicios. No lo tomes como una zona siempre abierta. Pregunta al operador si esa noche se puede pernoctar ahí o si solo hay otro tipo de estadía.",
+        "variants": [
+          "En El Cisne hubo un camping previsto, pero la norma lo deja sujeto a la operación y al volcán. No llegues con la carpa asumiendo que hay campo. Confírmalo para tu fecha."
+        ]
+      },
+      "sources": [
+        {
+          "label": "Parques Nacionales Naturales, Resolución 207 del 4 de agosto de 2023",
+          "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2023/08/Resolucion_207_2023_ReglamentacionNevados_.pdf",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "last_verified": "2026-11-21",
+      "related": [
+        "activities.camping_where",
+        "activities.sector_santa_isabel",
+        "activities.camping_brisas_restricted"
+      ],
+      "tags": [
+        "camping",
+        "cisne",
+        "condicionado"
+      ],
+      "entities": {
+        "sector": [
+          "santa_isabel"
+        ]
+      }
+    },
+    {
+      "id": "activities.camping_brisas_restricted",
+      "label": "camping restringido en Brisas",
+      "kind": "fact",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "se puede pasar la noche en el sector de Brisas",
+        "hay camping en Arenales del norte",
+        "pasar la noche en el Valle de las Tumbas",
+        "el sector del Ruiz deja carpa",
+        "Brisas es solo de día",
+        "Arenales de Brisas está restringido por el volcán",
+        "me quedo a dormir después del valle",
+        "en brisas se puede acampar",
+        "el norte no tiene noche de camping",
+        "quiero ver el amanecer desde una carpa en el valle",
+        "can I camp on the Brisas side of Ruiz",
+        "is Valle de las Tumbas a day visit only"
+      ],
+      "hard_negatives": [
+        "horario hasta las 2 de la tarde",
+        "el refugio tiene habitaciones",
+        "alerta amarilla permite dormir arriba"
+      ],
+      "needs": [],
+      "answer": {
+        "short": "El recorrido de Brisas al Valle de las Tumbas es una visita de día. La norma de 2023 deja el camping de Arenales, en ese sector norte, restringido por la actividad volcánica. No planees amanecer en carpa ahí salvo que el parque te diga por escrito que esa restricción cambió.",
+        "variants": [
+          "En el norte no cuentes con camping: Arenales de Brisas quedó restringido por el volcán en la norma de 2023. El plan publicado es entrar y salir en la jornada."
+        ]
+      },
+      "sources": [
+        {
+          "label": "Parques Nacionales Naturales, Resolución 207 del 4 de agosto de 2023",
+          "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2023/08/Resolucion_207_2023_ReglamentacionNevados_.pdf",
+          "retrieved_at": "2026-11-21"
+        },
+        {
+          "label": "Parques Nacionales Naturales de Colombia, ficha PNN Los Nevados",
+          "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "last_verified": "2026-11-21",
+      "related": [
+        "activities.camping_where",
+        "activities.brisas_valle_tumbas",
+        "activities.arenales_two_places"
+      ],
+      "tags": [
+        "brisas",
+        "camping",
+        "restringido"
+      ],
+      "entities": {
+        "sector": [
+          "brisas"
+        ]
+      }
+    },
+    {
+      "id": "activities.camping_tolima",
+      "label": "campamentos en el Tolima",
+      "kind": "fact",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "dónde se duerme en la travesía del Tolima",
+        "campamentos de Termales, Arenales y Calvito",
+        "puedo acampar en El Calvito",
+        "Arenales del Tolima es camping de cumbre",
+        "los campamentos del sur son transitorios",
+        "pernoctar camino a Schimmer",
+        "Calvito no deja entrar mulas",
+        "carpa de alta montaña en el Tolima",
+        "se duerme en termales canon arenales y calvito",
+        "esos camping eran medida transitoria",
+        "where are the Tolima trek camps",
+        "can I camp at Calvito or Arenales on the summit route"
+      ],
+      "hard_negatives": [
+        "porteo hasta Calvito",
+        "fogata para cocinar en el campamento",
+        "capacidad de 35 personas"
+      ],
+      "needs": [],
+      "answer": {
+        "short": "Para la travesía del Tolima, la norma de 2023 habilitó de manera transitoria Termales del Cañón, Arenales y Calvito, con carpas de tres o cuatro estaciones para temperaturas bajo 0 °C. A Calvito y Arenales no sube el porteo en mula: el tramo final es a pie. Son cupos limitados y sujetos a revisión; confirma cuáles siguen abiertos.",
+        "variants": [
+          "Los campamentos escritos para el Tolima son Cañón, Arenales y Calvito, como medida transitoria de 2023. La carpa tiene que servir bajo cero y el tramo a Calvito y Arenales se hace caminando. Verifica el sitio antes de salir."
+        ]
+      },
+      "sources": [
+        {
+          "label": "Parques Nacionales Naturales, Resolución 207 del 4 de agosto de 2023",
+          "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2023/08/Resolucion_207_2023_ReglamentacionNevados_.pdf",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "last_verified": "2026-11-21",
+      "related": [
+        "activities.camping_where",
+        "activities.termales_canon",
+        "activities.luggage_portage"
+      ],
+      "tags": [
+        "calvito",
+        "arenales",
+        "campamento"
+      ],
+      "entities": {
+        "sector": [
+          "tolima"
+        ]
+      }
+    },
+    {
+      "id": "activities.no_camping_outside",
+      "label": "acampar por fuera de los sitios",
+      "kind": "fact",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "puedo armar la carpa donde me guste",
+        "un vivac fuera de la zona",
+        "acampar a la orilla sin permiso",
+        "si no hay cupo duermo en el páramo",
+        "camping libre en Los Nevados",
+        "montar carpa al lado del sendero",
+        "pernoctar fuera del campamento nombrado",
+        "me quedo en una roca con la carpa",
+        "sin zona asignada igual acampo",
+        "el vivac improvisado se puede",
+        "can I pitch a tent anywhere on the trail",
+        "is wild camping allowed if the sites are full"
+      ],
+      "hard_negatives": [
+        "los montañistas de club pueden pedir un vivac",
+        "sanción por acampar mal",
+        "hacer fogata si no hay estufa"
+      ],
+      "needs": [],
+      "answer": {
+        "short": "La norma de 2023 prohíbe acampar fuera de los puntos habilitados, aunque en el mismo texto abra unos sitios transitorios del Tolima. Si el cupo está lleno, no armes la carpa en el páramo: cambia la fecha o el sector. Un vivac de expedición deportiva es otro trámite, no una solución de esa noche.",
+        "variants": [
+          "La carpa va en el sitio autorizado, no en el primer plano que te guste. Quedarte por fuera porque no hubo cupo no está permitido. Reprograma con el operador."
+        ]
+      },
+      "sources": [
+        {
+          "label": "Parques Nacionales Naturales, Resolución 207 del 4 de agosto de 2023",
+          "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2023/08/Resolucion_207_2023_ReglamentacionNevados_.pdf",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "last_verified": "2026-11-21",
+      "related": [
+        "activities.camping_where",
+        "activities.sport_mountaineering",
+        "activities.camping_brisas_restricted"
+      ],
+      "tags": [
+        "camping libre",
+        "prohibido",
+        "vivac"
+      ]
+    },
+    {
+      "id": "activities.photography_amateur",
+      "label": "fotos de recuerdo en la visita",
+      "kind": "explanation",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "puedo tomar fotos",
+        "está permitida la fotografía",
+        "quiero fotografiar el paisaje",
+        "fotos con el celular en el sendero",
+        "video casero del paseo",
+        "fotografía no comercial",
+        "puedo grabar el valle para mi familia",
+        "se pueden tomar fotos en brisas",
+        "fotos de recuerdo sin permiso especial",
+        "la camara personal si entra",
+        "can I take personal photos in the park",
+        "is casual photography allowed on the trails"
+      ],
+      "hard_negatives": [
+        "puedo hacer fotos para una marca",
+        "permiso para filmar un documental",
+        "puedo volar un dron para la foto"
+      ],
+      "needs": [],
+      "answer": {
+        "short": "Sí puedes tomar fotos y video de recuerdo: la ficha incluye la fotografía no comercial, y en Brisas la nombra junto con la observación del paisaje. Hazlas desde el punto habilitado, sin estudio de luces ni telones. Si las imágenes son para vender o para una marca, o si piensas en un dron, eso ya pide autorización del parque.",
+        "variants": [
+          "La cámara personal y el video familiar caben en la visita. No armes un set ni uses dron. Una producción paga es otro permiso, no este paseo."
+        ],
+        "reflection": "Una buena foto también es la que dejas el páramo igual que lo encontraste."
+      },
+      "sources": [
+        {
+          "label": "Parques Nacionales Naturales de Colombia, ficha PNN Los Nevados",
+          "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+          "retrieved_at": "2026-11-21"
+        },
+        {
+          "label": "Parques Nacionales Naturales, Resolución 207 del 4 de agosto de 2023",
+          "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2023/08/Resolucion_207_2023_ReglamentacionNevados_.pdf",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "last_verified": "2026-11-21",
+      "related": [
+        "activities.photo_places",
+        "activities.geology_watching",
+        "activities.wildlife_from_trail"
+      ],
+      "tags": [
+        "fotografía",
+        "recuerdo",
+        "celular"
+      ]
+    },
+    {
+      "id": "activities.photo_places",
+      "label": "dónde sale mejor la foto",
+      "kind": "explanation",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "dónde fotografío el Ruiz",
+        "el mejor punto para una foto del valle",
+        "fotos del glaciar en Santa Isabel",
+        "la laguna del Otún para fotografía",
+        "qué sector sirve para paisaje",
+        "un retrato con el nevado detrás",
+        "miradores para foto",
+        "brisa o el otun para fotos de paisaje",
+        "quiero la foto del superparamo",
+        "la transicion del tolima se puede fotografiar",
+        "where are the scenic photo spots for visitors",
+        "which sector is best for a landscape photo"
+      ],
+      "hard_negatives": [
+        "sesión de producto en Brisas",
+        "va a estar despejado para la foto",
+        "puedo salirme del sendero para el ángulo"
+      ],
+      "needs": [],
+      "answer": {
+        "short": "Las fotos de paisaje salen de lo que cada sector muestra: el valle y el superpáramo en Brisas, los nevados y el borde del hielo en Santa Isabel, la laguna en el Otún, y el cambio de bosque a glaciar en el Tolima. Nada de eso garantiza cielo despejado. Retrata desde el recorrido habilitado, no desde un atajo.",
+        "variants": [
+          "Elige el sector según el paisaje que quieres: valle del Ruiz, hielo del Santa Isabel, laguna del Otún o la subida del Tolima. La nube manda ese día. No dejes el sendero por un ángulo."
+        ]
+      },
+      "sources": [
+        {
+          "label": "Parques Nacionales Naturales de Colombia, ficha PNN Los Nevados",
+          "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "last_verified": "2026-11-21",
+      "related": [
+        "activities.photography_amateur",
+        "activities.cloudy_visit_landscape",
+        "activities.summit_views_cisne"
+      ],
+      "tags": [
+        "foto",
+        "paisaje",
+        "mirador"
+      ]
+    },
+    {
+      "id": "activities.birdwatching",
+      "label": "observar aves en los senderos",
+      "kind": "explanation",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "hay avistamiento de aves",
+        "puedo pajarear en el parque",
+        "observación de aves en el Otún",
+        "birding en Cisne y en el Tolima",
+        "se pueden ver aves en los senderos",
+        "pajarear sin playback",
+        "quiero ir a mirar aves del páramo",
+        "en brisas tambien hay pajarerada",
+        "las aves se observan con guia",
+        "no me garantizan un colibri",
+        "can I go birdwatching in the park",
+        "which sectors list bird observation as an activity"
+      ],
+      "hard_negatives": [
+        "hay cóndores en el parque",
+        "qué colibríes viven aquí",
+        "puedo usar playback para atraerlos"
+      ],
+      "needs": [],
+      "answer": {
+        "short": "La ficha ofrece observación de aves en Cisne–Poleka Kasue, en la Laguna del Otún y, por las mismas actividades, en Quindío–Dulima. En Brisas habla de observación de fauna y flora, no de un paseo específico de aves. Mira desde el sendero, sin playback y sin comida para atraerlas: ver una especie no está garantizado.",
+        "variants": [
+          "Pajarear está en la oferta de Cisne, Otún y el sector del Tolima. No pongas cantos grabados ni comida. Que el ave esté registrada en el parque no quiere decir que aparezca en tu hora."
+        ]
+      },
+      "sources": [
+        {
+          "label": "Parques Nacionales Naturales de Colombia, ficha PNN Los Nevados",
+          "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+          "retrieved_at": "2026-11-21"
+        },
+        {
+          "label": "Parques Nacionales Naturales, Resolución 207 del 4 de agosto de 2023",
+          "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2023/08/Resolucion_207_2023_ReglamentacionNevados_.pdf",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "last_verified": "2026-11-21",
+      "related": [
+        "activities.wildlife_from_trail",
+        "activities.sector_laguna_otun",
+        "activities.photography_amateur"
+      ],
+      "tags": [
+        "aves",
+        "pajarear",
+        "sendero"
+      ],
+      "entities": {
+        "sector": [
+          "santa_isabel",
+          "otun",
+          "tolima"
+        ]
+      }
+    },
+    {
+      "id": "activities.wildlife_from_trail",
+      "label": "mirar fauna sin acercarse",
+      "kind": "explanation",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "puedo observar animales en el recorrido",
+        "ver fauna y flora desde el sendero",
+        "si aparece un animal qué hago",
+        "me puedo acercar a una danta",
+        "observación de naturaleza en la visita",
+        "no alimentar a lo que vea",
+        "mirar sin tocar",
+        "si veo un venado lo dejo quieto",
+        "la actividad es observar no perseguir",
+        "en todos los sectores se puede mirar fauna",
+        "what should I do if I see an animal on the trail",
+        "is wildlife watching allowed from the path"
+      ],
+      "hard_negatives": [
+        "qué mamíferos hay en el parque",
+        "el oso de anteojos vive aquí",
+        "puedo darle comida a un ave"
+      ],
+      "needs": [],
+      "answer": {
+        "short": "Observar fauna y flora es parte de la visita en los sectores que nombra la ficha. Si aparece un animal, míralo de lejos: no lo toques, no lo alimentes y no lo muevas del lugar. Que la especie esté en el parque no te asegura el encuentro, y perseguirla no es la actividad.",
+        "variants": [
+          "La naturaleza se mira desde el recorrido, sin acercarte a cogerla ni a cebarla. El parque ofrece esa observación; no ofrece un animal a pedido."
+        ]
+      },
+      "sources": [
+        {
+          "label": "Parques Nacionales Naturales de Colombia, ficha PNN Los Nevados",
+          "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+          "retrieved_at": "2026-11-21"
+        },
+        {
+          "label": "Parques Nacionales Naturales, Resolución 207 del 4 de agosto de 2023",
+          "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2023/08/Resolucion_207_2023_ReglamentacionNevados_.pdf",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "last_verified": "2026-11-21",
+      "related": [
+        "activities.birdwatching",
+        "activities.geology_watching",
+        "activities.otun_wetland_walk"
+      ],
+      "tags": [
+        "fauna",
+        "observar",
+        "distancia"
+      ]
+    },
+    {
+      "id": "activities.children_visit_style",
+      "label": "visita con niños al parque",
+      "kind": "explanation",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "qué pueden hacer los niños",
+        "voy con mi hijo qué recorrido sirve",
+        "una salida familiar corta",
+        "Brisas es mejor que una cumbre con niños",
+        "actividades para ir con pelaos",
+        "el valle se puede hacer con familia",
+        "no quiero una travesía con los niños",
+        "con niños se va a brisas o al tolima",
+        "un plan suave para la familia",
+        "los niños aguantan el paseo en carro",
+        "what activities work for a family with kids",
+        "is Brisas the short option if I travel with children"
+      ],
+      "hard_negatives": [
+        "edad mínima en Brisas",
+        "mi hijo puede entrar solo",
+        "cómo afecta la altura a los niños"
+      ],
+      "needs": [],
+      "answer": {
+        "short": "Con niños, la opción corta que describe la ficha es Brisas: vehículo y caminatas breves, no una cumbre. El centro El Cisne y la llegada a la Laguna del Otún por Potosí también están separados de las travesías y las cumbres, que son más exigentes. La edad mínima cambia según el atractivo y la publica el parque: confírmala y ve siempre con un adulto cuidador.",
+        "variants": [
+          "Para una familia, Brisas es la visita breve. Las cumbres y las travesías del sur son otro nivel. Antes de prometer el plan, revisa la edad que pide ese atractivo y no subas si alguien se siente mal."
+        ]
+      },
+      "sources": [
+        {
+          "label": "Parques Nacionales Naturales de Colombia, ficha PNN Los Nevados",
+          "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "last_verified": "2026-11-21",
+      "related": [
+        "activities.short_walks_brisas",
+        "activities.what_to_visit",
+        "activities.demanding_south"
+      ],
+      "tags": [
+        "niños",
+        "familia",
+        "brisas"
+      ],
+      "entities": {
+        "sector": [
+          "brisas",
+          "santa_isabel",
+          "otun"
+        ]
+      }
+    },
+    {
+      "id": "activities.cycling_as_sport",
+      "label": "bicicleta y ciclomontañismo",
+      "kind": "fact",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "puedo entrar en bicicleta",
+        "hay cicla en el parque",
+        "ciclomontañismo en Los Nevados",
+        "llevar la bici al valle",
+        "se puede pedalear hasta la laguna",
+        "la bicicleta es un deporte regulado",
+        "no es un paseo de cicla alquilada",
+        "puedo subir en bici por brisas",
+        "el plan de 2026 habla de ciclomontañismo",
+        "una vuelta en bicicleta por el paramo",
+        "can I ride a bicycle inside the park",
+        "is mountain biking a regular visitor activity"
+      ],
+      "hard_negatives": [
+        "voy a hacer una carrera ciclística",
+        "puedo subir en moto",
+        "organizar una competencia"
+      ],
+      "needs": [],
+      "answer": {
+        "short": "La bicicleta no aparece como un paseo libre del visitante. El plan de 2026 menciona el ciclomontañismo entre los deportes de montaña, con requisitos distintos a los de una visita corriente, y el recorrido de Brisas se hace en vehículo cubierto. Si quieres llevar bici, pide autorización al parque; una carrera con inscritos es otro trámite.",
+        "variants": [
+          "No hay un tour de cicla en la ficha. El ciclomontañismo figura como deporte regulado en el plan de 2026, y Brisas se recorre en vehículo. Confirma cualquier pedal antes de cargar la bici."
+        ]
+      },
+      "sources": [
+        {
+          "label": "Parques Nacionales Naturales, versión corta del POE Los Nevados 2026",
+          "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2026/03/PUBLICACIO%CC%81N-PNN-LOS-NEVADOS-2026-V2.pdf",
+          "retrieved_at": "2026-11-21"
+        },
+        {
+          "label": "Parques Nacionales Naturales de Colombia, ficha PNN Los Nevados",
+          "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "last_verified": "2026-11-21",
+      "related": [
+        "activities.trail_running_sport",
+        "activities.sport_mountaineering",
+        "activities.vehicle_or_on_foot"
+      ],
+      "tags": [
+        "bicicleta",
+        "ciclomontañismo",
+        "deporte"
+      ]
+    },
+    {
+      "id": "activities.trail_running_sport",
+      "label": "correr en los senderos del parque",
+      "kind": "fact",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "puedo salir a correr en el páramo",
+        "trail running en Los Nevados",
+        "trotar por los senderos",
+        "una carrera personal sin inscripción",
+        "correr hasta la laguna",
+        "el trote es actividad de visitante",
+        "puedo entrenar en los caminos del parque",
+        "salgo a trotar por brisas",
+        "correr esta en el plan deportivo",
+        "no es una competencia, es salir a correr",
+        "can I go for a trail run in the park",
+        "is jogging on the trails allowed for visitors"
+      ],
+      "hard_negatives": [
+        "se puede organizar una carrera de trail",
+        "permiso para una competencia de montaña",
+        "puedo correr de noche"
+      ],
+      "needs": [],
+      "answer": {
+        "short": "Salir a trotar por tu cuenta no es una actividad de la ficha. El plan de 2026 sí nombra el trail running entre los deportes que tienen requisitos propios, distintos de la visita con guía. Si quieres correr, entra por esa autorización; convocar una carrera ya es un evento deportivo aparte.",
+        "variants": [
+          "Correr en el páramo no es el paseo del visitante. El plan lo deja como deporte con reglas, no como un entreno libre. Una carrera organizada necesita otro permiso."
+        ]
+      },
+      "sources": [
+        {
+          "label": "Parques Nacionales Naturales, versión corta del POE Los Nevados 2026",
+          "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2026/03/PUBLICACIO%CC%81N-PNN-LOS-NEVADOS-2026-V2.pdf",
+          "retrieved_at": "2026-11-21"
+        },
+        {
+          "label": "Parques Nacionales Naturales de Colombia, ficha PNN Los Nevados",
+          "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "last_verified": "2026-11-21",
+      "related": [
+        "activities.cycling_as_sport",
+        "activities.sport_mountaineering",
+        "activities.night_hike_not_offered"
+      ],
+      "tags": [
+        "trail",
+        "correr",
+        "deporte"
+      ]
+    },
+    {
+      "id": "activities.horseback_not_allowed",
+      "label": "cabalgata dentro del parque",
+      "kind": "fact",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "puedo hacer cabalgata",
+        "me subo a un caballo en el sendero",
+        "hay paseo a caballo hasta la laguna",
+        "la mula me puede llevar sentado",
+        "cabalgata turística en Los Nevados",
+        "recorrer montado el páramo",
+        "los arrieros alquilan caballo para uno",
+        "se puede montar a caballo en el parque",
+        "un paseo ecuestre por el otun",
+        "la mula es para el turista o para la carga",
+        "can I take a horseback ride in the park",
+        "are tourist horse trips allowed on the trails"
+      ],
+      "hard_negatives": [
+        "puedo llevar a mi perro",
+        "porteo de maletas con mula",
+        "alquiler de caballo en Cocora"
+      ],
+      "needs": [],
+      "answer": {
+        "short": "No está permitida la cabalgata turística: la norma de 2023 prohíbe recorrer el parque montado y usar caballos o mulas para llevar pasajeros. Si ves un arriero con mulas, es carga autorizada, no un paseo para subirte. Una excepción de movilidad la tiene que autorizar el parque; no la improvises.",
+        "variants": [
+          "No hay cabalgata de visita. Las mulas de porteo no son para que el turista vaya montado. El paseo es a pie, en el sendero que te corresponda."
+        ]
+      },
+      "sources": [
+        {
+          "label": "Parques Nacionales Naturales, Resolución 207 del 4 de agosto de 2023",
+          "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2023/08/Resolucion_207_2023_ReglamentacionNevados_.pdf",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "last_verified": "2026-11-21",
+      "related": [
+        "activities.luggage_portage",
+        "activities.vehicle_or_on_foot",
+        "activities.authorized_trail_names"
+      ],
+      "tags": [
+        "cabalgata",
+        "caballo",
+        "mula"
+      ]
+    },
+    {
+      "id": "activities.luggage_portage",
+      "label": "porteo del equipaje en la travesía",
+      "kind": "procedure",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "quién carga las maletas en la travesía",
+        "hay porteo de equipaje",
+        "un arriero me lleva el morral",
+        "hasta dónde llega la mula con la carga",
+        "porteo por El Cedral hasta El Berlín",
+        "por Cocora el porteo para en La Playa",
+        "en Palomar la carga va hasta el Cañón",
+        "la mula no sube a Calvito",
+        "puedo mandar el equipo y yo ir a pie",
+        "el porteo no es un paseo montado",
+        "how does luggage portage work on the long treks",
+        "where do the mules stop carrying bags"
+      ],
+      "hard_negatives": [
+        "me subo en la mula si estoy cansado",
+        "cabalgata hasta el campamento",
+        "precio del arriero"
+      ],
+      "needs": [],
+      "answer": {
+        "short": "En las travesías del sur puedes coordinar porteo de maletas con un arriero autorizado, solo hasta los puntos de la norma de 2023: hacia El Berlín por El Cedral; hasta La Argentina, Buenos Aires, La Primavera o La Playa por Cocora; y hasta Termales del Cañón por Palomar. No incluye Calvito ni Arenales, y no es un asiento para ti. Confírmalo con el operador.",
+        "variants": [
+          "La mula carga equipaje en tramos del sur y se devuelve antes de Calvito y Arenales. Tú sigues a pie. No es cabalgata ni un servicio universal en todo el parque."
+        ]
+      },
+      "sources": [
+        {
+          "label": "Parques Nacionales Naturales, Resolución 207 del 4 de agosto de 2023",
+          "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2023/08/Resolucion_207_2023_ReglamentacionNevados_.pdf",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "last_verified": "2026-11-21",
+      "related": [
+        "activities.horseback_not_allowed",
+        "activities.camping_tolima",
+        "activities.combeima_cocora_traverse"
+      ],
+      "tags": [
+        "porteo",
+        "mula",
+        "equipaje"
+      ],
+      "entities": {
+        "sector": [
+          "tolima",
+          "otun"
+        ]
+      }
+    },
+    {
+      "id": "activities.no_swimming",
+      "label": "bañarse en lagunas o quebradas",
+      "kind": "fact",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "me puedo bañar en la laguna",
+        "hay balneario en el Otún",
+        "meterse a la Laguna Verde",
+        "un baño en la quebrada del camino",
+        "baños terapéuticos en el páramo",
+        "refrescarme en el agua del parque",
+        "la laguna es para nadar",
+        "puedo mojarme los pies en el humedal",
+        "termas dentro del area protegida",
+        "chapuzon en el encanto",
+        "can I swim in Laguna del Otún",
+        "is bathing in park lakes allowed"
+      ],
+      "hard_negatives": [
+        "Termales del Cañón es un spa",
+        "puedo tomar agua de la laguna",
+        "contaminar la quebrada con jabón"
+      ],
+      "needs": [],
+      "answer": {
+        "short": "No están permitidos los baños terapéuticos en lagunas, quebradas u otros cuerpos de agua del parque. Las lagunas se contemplan desde el sendero. Ni la ficha ni la norma de 2023 habilitan un balneario.",
+        "variants": [
+          "El agua del parque no es una piscina. La norma prohíbe los baños terapéuticos. Mira la laguna y sigue el sendero."
+        ]
+      },
+      "sources": [
+        {
+          "label": "Parques Nacionales Naturales, Resolución 207 del 4 de agosto de 2023",
+          "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2023/08/Resolucion_207_2023_ReglamentacionNevados_.pdf",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "last_verified": "2026-11-21",
+      "related": [
+        "activities.sector_laguna_otun",
+        "activities.termales_canon",
+        "activities.boat_not_offered"
+      ],
+      "tags": [
+        "baño",
+        "laguna",
+        "prohibido"
+      ]
+    },
+    {
+      "id": "activities.no_fishing",
+      "label": "pescar en las lagunas",
+      "kind": "fact",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "puedo pescar en la Laguna del Otún",
+        "hay pesca deportiva",
+        "llevar caña a la laguna",
+        "trucha en el parque",
+        "pescar en El Mosquito o en el Encanto",
+        "la pesca está permitida para visitantes",
+        "echo el anzuelo un rato",
+        "se puede pescar con permiso de turista",
+        "llevo equipo de pesca en el morral",
+        "la laguna tiene peces para sacar",
+        "can I fish in the park lakes",
+        "is sport fishing allowed at Laguna del Otún"
+      ],
+      "hard_negatives": [
+        "puedo soltar peces en una laguna",
+        "investigación con muestras de agua",
+        "qué animales viven en la laguna"
+      ],
+      "needs": [],
+      "answer": {
+        "short": "Pescar no es una actividad de visita. La norma de 2023 la prohíbe, salvo investigación autorizada, y prevé que en el control no entren equipos de pesca. Deja la laguna para mirarla desde el sendero.",
+        "variants": [
+          "No hay pesca turística en las lagunas. La excepción es un permiso científico, no una caña en la maleta. En el ingreso te pueden impedir pasar el equipo."
+        ]
+      },
+      "sources": [
+        {
+          "label": "Parques Nacionales Naturales, Resolución 207 del 4 de agosto de 2023",
+          "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2023/08/Resolucion_207_2023_ReglamentacionNevados_.pdf",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "last_verified": "2026-11-21",
+      "related": [
+        "activities.no_swimming",
+        "activities.sector_laguna_otun",
+        "activities.wildlife_from_trail"
+      ],
+      "tags": [
+        "pesca",
+        "laguna",
+        "prohibido"
+      ]
+    },
+    {
+      "id": "activities.sport_mountaineering",
+      "label": "montañismo deportivo autorizado",
+      "kind": "procedure",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "entro como montañista de club",
+        "expedición deportiva al parque",
+        "permiso de andinismo",
+        "soy deportista y no voy con agencia turística",
+        "la resolución de montañismo deportivo",
+        "pedir autorización para una expedición",
+        "club de montaña y seguro de rescate",
+        "15 días hábiles para la solicitud deportiva",
+        "el regimen deportivo es distinto a la visita",
+        "no quiero la ruta turistica sino la deportiva",
+        "how do sport mountaineers request entry",
+        "is a climbing-club trip different from a guided tour"
+      ],
+      "hard_negatives": [
+        "puedo subir al cráter del Ruiz con el club",
+        "organizar una carrera",
+        "quiero registrar mi visita en la app"
+      ],
+      "needs": [],
+      "answer": {
+        "short": "El montañismo deportivo no es la visita turística corriente: la norma de 2023, al aplicar la resolución 474 de 2018, pide autorización, credencial de club u organización que avale, seguro de accidentes y rescate, itinerario y una solicitud con al menos 15 días hábiles. El plan de 2026 mantiene un régimen deportivo cuyo texto completo no está en la versión corta, así que confírmalo. Esa vía no abre el cráter del Ruiz.",
+        "variants": [
+          "Si entras como deportista de club, el trámite no es el del turista de un día: hay autorización, seguro de rescate e itinerario. Los 15 días hábiles son la referencia de 2023. Vuelve a preguntar, porque el plan de 2026 reúne esas reglas."
+        ]
+      },
+      "sources": [
+        {
+          "label": "Parques Nacionales Naturales, Resolución 207 del 4 de agosto de 2023",
+          "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2023/08/Resolucion_207_2023_ReglamentacionNevados_.pdf",
+          "retrieved_at": "2026-11-21"
+        },
+        {
+          "label": "Parques Nacionales Naturales, versión corta del POE Los Nevados 2026",
+          "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2026/03/PUBLICACIO%CC%81N-PNN-LOS-NEVADOS-2026-V2.pdf",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "last_verified": "2026-11-21",
+      "related": [
+        "activities.tolima_closed_routes",
+        "activities.high_mountain_guide",
+        "activities.cycling_as_sport"
+      ],
+      "tags": [
+        "deporte",
+        "club",
+        "autorización"
+      ]
+    },
+    {
+      "id": "activities.high_mountain_guide",
+      "label": "guía especializado para el glaciar",
+      "kind": "explanation",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "quién guía una cumbre",
+        "hace falta guía de alta montaña",
+        "el intérprete puede llevarme al glaciar",
+        "para pisar hielo qué guía piden",
+        "guía especializado en la cima",
+        "subir progresivamente a un glaciar",
+        "no es el mismo guía de una caminata corta",
+        "la cumbre del santa isabel que guia lleva",
+        "un interprete local no hace cima",
+        "el grupo del glaciar va con especialista",
+        "do glacier hikes need a high-mountain guide",
+        "can a local interpreter lead a summit"
+      ],
+      "hard_negatives": [
+        "puedo entrar sin guía",
+        "toca pagar guía sí o sí",
+        "cómo contrato un operador"
+      ],
+      "needs": [],
+      "answer": {
+        "short": "Si el plan avanza sobre un glaciar o busca cumbre, la ficha exige que el grupo vaya con guías especializados en alta montaña. La norma de 2023 no deja que un intérprete del patrimonio haga la cumbre. En cualquier visita entras con personal registrado: el tipo de guía cambia con la actividad.",
+        "variants": [
+          "La caminata y la cumbre no usan el mismo perfil. Para el glaciar, la ficha pide guía de alta montaña. Un acompañante general no reemplaza esa cumbre."
+        ]
+      },
+      "sources": [
+        {
+          "label": "Parques Nacionales Naturales de Colombia, ficha PNN Los Nevados",
+          "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+          "retrieved_at": "2026-11-21"
+        },
+        {
+          "label": "Parques Nacionales Naturales, Resolución 207 del 4 de agosto de 2023",
+          "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2023/08/Resolucion_207_2023_ReglamentacionNevados_.pdf",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "last_verified": "2026-11-21",
+      "related": [
+        "activities.santa_isabel_summit",
+        "activities.tolima_summit_schimmer",
+        "activities.snow_and_glacier_access"
+      ],
+      "tags": [
+        "guía",
+        "alta montaña",
+        "glaciar"
+      ]
+    },
+    {
+      "id": "activities.relaxation_without_baths",
+      "label": "relajación sin entrar al agua",
+      "kind": "explanation",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "puedo hacer yoga en el páramo",
+        "un momento de relajación en el mirador",
+        "meditar en el sendero está permitido",
+        "actividad de bienestar sin dañar",
+        "relajación y salud en la visita",
+        "puedo sentarme a contemplar",
+        "sin químicos ni aerosoles en el páramo",
+        "un ejercicio suave de respiracion",
+        "bienestar si, baño en la laguna no",
+        "la contemplacion es una actividad",
+        "can I do a quiet wellness stop on the trail",
+        "is relaxation allowed if I stay out of the water"
+      ],
+      "hard_negatives": [
+        "baños terapéuticos en la laguna",
+        "puedo usar aerosol de aromaterapia",
+        "evento de yoga con inscripción"
+      ],
+      "needs": [],
+      "answer": {
+        "short": "La norma de 2023 permite actividades de relajación y bienestar si no afectan el páramo ni el agua. No incluyen bañarse ni usar aerosoles o químicos en cantidad que puedan derramarse. Hazlo en el sitio autorizado, sin dejar residuos y sin convertirlo en un evento.",
+        "variants": [
+          "Puedes parar a contemplar o a relajarte en el recorrido, con cuidado. El agua y los químicos quedan por fuera. Un encuentro masivo ya sería un evento con permiso."
+        ]
+      },
+      "sources": [
+        {
+          "label": "Parques Nacionales Naturales, Resolución 207 del 4 de agosto de 2023",
+          "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2023/08/Resolucion_207_2023_ReglamentacionNevados_.pdf",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "last_verified": "2026-11-21",
+      "related": [
+        "activities.no_swimming",
+        "activities.asomadera_day",
+        "activities.photography_amateur"
+      ],
+      "tags": [
+        "relajación",
+        "contemplación",
+        "bienestar"
+      ]
+    },
+    {
+      "id": "activities.boat_not_offered",
+      "label": "bote en la Laguna del Otún",
+      "kind": "fact",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "hay paseo en bote en el Otún",
+        "el muelle es para embarcar",
+        "puedo remar en la laguna",
+        "kayak en la Laguna del Otún",
+        "paseo en lancha por la laguna",
+        "Muelle significa que hay botes",
+        "alquiler de bote en el parque",
+        "se puede navegar la laguna",
+        "un recorrido acuatico por el otun",
+        "el muelle del sendero es un embarcadero",
+        "is there a boat ride on Laguna del Otún",
+        "does the place name Muelle mean I can take a boat"
+      ],
+      "hard_negatives": [
+        "me puedo bañar en la laguna",
+        "cómo llego caminando a la laguna",
+        "pesca desde una lancha"
+      ],
+      "needs": [],
+      "answer": {
+        "short": "No hay un paseo en bote, kayak o lancha publicado para la Laguna del Otún. La palabra Muelle sale en el nombre de un sendero de 2023, como lugar del camino, no como embarcadero turístico. La visita es mirar la laguna desde la ruta habilitada.",
+        "variants": [
+          "Nadie publicó un paseo en bote. Muelle, en esa lista, es un punto del sendero. La laguna se contempla desde la orilla del recorrido, sin embarcación."
+        ]
+      },
+      "sources": [
+        {
+          "label": "Parques Nacionales Naturales, Resolución 207 del 4 de agosto de 2023",
+          "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2023/08/Resolucion_207_2023_ReglamentacionNevados_.pdf",
+          "retrieved_at": "2026-11-21"
+        },
+        {
+          "label": "Parques Nacionales Naturales de Colombia, ficha PNN Los Nevados",
+          "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "last_verified": "2026-11-21",
+      "related": [
+        "activities.sector_laguna_otun",
+        "activities.no_swimming",
+        "activities.otun_cedral_walk"
+      ],
+      "tags": [
+        "bote",
+        "muelle",
+        "laguna"
+      ],
+      "entities": {
+        "sector": [
+          "otun"
+        ]
+      }
+    },
+    {
+      "id": "activities.picnic_on_trail",
+      "label": "comer durante el recorrido",
+      "kind": "fact",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "hay zona de picnic",
+        "dónde almuerzo en el sendero",
+        "mesas para comer en Brisas",
+        "puedo hacer un picnic en el páramo",
+        "un sitio para sentarme a comer",
+        "la comida se come en el camino",
+        "hay kiosco de almuerzo en la laguna",
+        "picnic autorizado en el valle",
+        "dejo la basura del almuerzo en un punto",
+        "comer sin zona de picnic",
+        "is there a picnic area on the trails",
+        "where do visitors eat lunch during a hike"
+      ],
+      "hard_negatives": [
+        "hay cafetería en el parque",
+        "qué comida empaco",
+        "puedo botar la envoltura en el páramo"
+      ],
+      "needs": [],
+      "answer": {
+        "short": "Ni la ficha ni la norma de 2023 describen una zona de picnic con mesas. Puedes llevar comida para el recorrido y consumirla sin salirte del sendero, y te llevas empaques y sobras. Pregunta al operador si en tu ruta hay un punto concreto para sentarte.",
+        "variants": [
+          "No hay un picnic descrito como atractivo. Come lo que lleves y regrésalo todo contigo. El operador sabe si en ese sendero hay un alto para el almuerzo."
+        ]
+      },
+      "sources": [
+        {
+          "label": "Parques Nacionales Naturales de Colombia, ficha PNN Los Nevados",
+          "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+          "retrieved_at": "2026-11-21"
+        },
+        {
+          "label": "Parques Nacionales Naturales, Resolución 207 del 4 de agosto de 2023",
+          "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2023/08/Resolucion_207_2023_ReglamentacionNevados_.pdf",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "last_verified": "2026-11-21",
+      "related": [
+        "activities.day_or_multiday",
+        "activities.short_walks_brisas",
+        "activities.camping_where"
+      ],
+      "tags": [
+        "picnic",
+        "comida",
+        "sendero"
+      ]
+    },
+    {
+      "id": "activities.night_hike_not_offered",
+      "label": "caminata nocturna en el parque",
+      "kind": "fact",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "puedo caminar de noche",
+        "hay senderismo nocturno",
+        "un recorrido para ver estrellas caminando",
+        "salir al valle después del atardecer",
+        "trek de noche hacia la laguna",
+        "la caminata nocturna está ofertada",
+        "de noche se puede seguir el sendero",
+        "hay tour nocturno en brisas",
+        "caminar cuando ya cerró el ingreso",
+        "la noche es solo para quien duerme en camping",
+        "is there a night hike in Los Nevados",
+        "can I walk the trails after dark"
+      ],
+      "hard_negatives": [
+        "a qué hora cierran la entrada",
+        "puedo acampar para ver el amanecer",
+        "pronóstico de la noche"
+      ],
+      "needs": [],
+      "answer": {
+        "short": "No hay una caminata nocturna publicada como actividad turística. Permaneces el tiempo que autorice el parque y, si duermes, solo en un camping habilitado. Los horarios de ingreso cambian por sector: confírmalos antes de salir, esta respuesta no trae el horario de tu sector.",
+        "variants": [
+          "Caminar de noche no es un producto de la ficha. El día de visita tiene horario de ingreso y la noche, si existe, es la del camping autorizado. Pregunta ese horario en el sector que elegiste."
+        ]
+      },
+      "sources": [
+        {
+          "label": "Parques Nacionales Naturales de Colombia, ficha PNN Los Nevados",
+          "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+          "retrieved_at": "2026-11-21"
+        },
+        {
+          "label": "Parques Nacionales Naturales, Resolución 207 del 4 de agosto de 2023",
+          "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2023/08/Resolucion_207_2023_ReglamentacionNevados_.pdf",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "last_verified": "2026-11-21",
+      "related": [
+        "activities.camping_where",
+        "activities.day_or_multiday",
+        "activities.short_walks_brisas"
+      ],
+      "tags": [
+        "noche",
+        "senderismo",
+        "horario"
+      ]
+    },
+    {
+      "id": "activities.four_or_five_sectors",
+      "label": "cuatro sectores y la propuesta nueva",
+      "kind": "explanation",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "son cuatro o cinco sectores",
+        "el plan de 2026 cambió los sectores",
+        "hay un sector Santa Isabel Murillo aparte",
+        "Otún y el paramillo de Santa Rosa son otro sector",
+        "la ficha dice cuatro y la noticia dice más",
+        "cuál división uso para planear",
+        "los sectores de manejo nuevos",
+        "brissas cisne otun y dulima siguen",
+        "ya existe el quinto sector",
+        "con cual mapa de sectores me quedo",
+        "does the park have four visitor areas or five",
+        "should I plan with the 2026 sector proposal"
+      ],
+      "hard_negatives": [
+        "por qué entrada se ingresa desde Murillo",
+        "los departamentos del parque",
+        "el parque y el volcán son lo mismo"
+      ],
+      "needs": [],
+      "answer": {
+        "short": "La ficha del parque sigue contando cuatro sectores de visita: Brisas–Kumanday, Cisne–Poleka Kasue, Laguna del Otún y Quindío–Dulima. El plan presentado en marzo de 2026 propone una división de manejo con cinco nombres, entre ellos Santa Isabel–Murillo y el Otún con el paramillo de Santa Rosa. Hasta que esa propuesta esté publicada como entrada abierta, organiza el viaje con los cuatro de la ficha.",
+        "variants": [
+          "Para el visitante, hoy la ficha habla de cuatro sectores. El plan de 2026 propone cinco nombres de manejo y senderos nuevos, sin convertirlos todavía en la guía de la página. Confirma por cuál puerta vas a entrar."
+        ]
+      },
+      "sources": [
+        {
+          "label": "Parques Nacionales Naturales de Colombia, ficha PNN Los Nevados",
+          "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+          "retrieved_at": "2026-11-21"
+        },
+        {
+          "label": "Parques Nacionales Naturales, versión corta del POE Los Nevados 2026",
+          "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2026/03/PUBLICACIO%CC%81N-PNN-LOS-NEVADOS-2026-V2.pdf",
+          "retrieved_at": "2026-11-21"
+        },
+        {
+          "label": "Parques Nacionales Naturales, noticia del Plan de Ordenamiento Ecoturístico, 6 de marzo de 2026",
+          "url": "https://www.parquesnacionales.gov.co/sala-prensa/noticias/el-parque-nacional-natural-los-nevados-lanza-nuevo-plan-de-ordenamiento-ecoturistico-para-fortalecer-la-conservacion-en-la-alta-montana/",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "last_verified": "2026-11-21",
+      "related": [
+        "activities.what_to_visit",
+        "activities.paramillo_santa_rosa_trail",
+        "activities.sector_santa_isabel"
+      ],
+      "tags": [
+        "sectores",
+        "2026",
+        "ficha"
+      ]
+    },
+    {
+      "id": "activities.visit_profiles",
+      "label": "perfiles de visita del plan",
+      "kind": "explanation",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "qué tipo de visitante soy",
+        "las tres experiencias de visita",
+        "perfil recreativo o montañista",
+        "el plan habla de un aventurero deportivo",
+        "cuál experiencia me corresponde",
+        "EV1 EV2 y EV3 qué significan",
+        "cómo elige el parque el tipo de visita",
+        "soy paseante o expedicionario",
+        "el perfil deportivo es otra entrada",
+        "tres maneras de visitar los nevados",
+        "what are the three visitor profiles in the 2026 plan",
+        "how do I know if my trip is recreational or expedition style"
+      ],
+      "hard_negatives": [
+        "qué puedes hacer tú como asistente",
+        "reserva según el perfil",
+        "tarifa del montañista"
+      ],
+      "needs": [],
+      "answer": {
+        "short": "El plan de 2026 habla de tres perfiles: visitante recreativo, montañista de expedición y aventurero deportivo, y de tres experiencias de visita. La versión corta no asigna cada sendero a un perfil. Para elegir, la ficha es más clara: Brisas si quieres una salida corta; los otros sectores si buscas varios días o una cumbre técnica.",
+        "variants": [
+          "Esos tres perfiles están en el plan, pero el resumen no dice qué sendero es cuál. Usa la división práctica de la ficha: día corto en Brisas, o travesía y cumbre en los otros sectores."
+        ]
+      },
+      "sources": [
+        {
+          "label": "Parques Nacionales Naturales, versión corta del POE Los Nevados 2026",
+          "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2026/03/PUBLICACIO%CC%81N-PNN-LOS-NEVADOS-2026-V2.pdf",
+          "retrieved_at": "2026-11-21"
+        },
+        {
+          "label": "Parques Nacionales Naturales de Colombia, ficha PNN Los Nevados",
+          "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "last_verified": "2026-11-21",
+      "related": [
+        "activities.what_to_visit",
+        "activities.day_or_multiday",
+        "activities.sport_mountaineering"
+      ],
+      "tags": [
+        "perfil",
+        "experiencia",
+        "plan"
+      ]
+    },
+    {
+      "id": "activities.induction_talk",
+      "label": "charla de inducción del recorrido",
+      "kind": "explanation",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "qué es la charla de inducción",
+        "hay una charla antes de caminar",
+        "la inducción es obligatoria",
+        "me explican el recorrido al entrar",
+        "la charla del parque no la reemplaza el celular",
+        "tengo que oír la inducción",
+        "briefing antes del sendero",
+        "la charla de entrada es parte de la visita",
+        "sin la charla no empieza el recorrido",
+        "el guia y el parque dan indicaciones",
+        "what is the mandatory induction talk",
+        "do I have to attend a briefing before the hike"
+      ],
+      "hard_negatives": [
+        "a qué hora es la última charla en Brisas",
+        "la charla reemplaza al guía",
+        "puedo entrar sin registrarme"
+      ],
+      "needs": [],
+      "answer": {
+        "short": "Antes de recorrer, el parque hace una charla de inducción obligatoria en el punto de ingreso. No la reemplaza esta guía ni un video. La hora depende del sector y puede cambiar: confírmala con el operador cuando tengas cómo comunicarte.",
+        "variants": [
+          "La visita incluye una charla obligatoria en el ingreso. Aquí no te la puedo dar completa ni decirte la hora de tu sector. Escúchala allá y sigue lo que indiquen ese día."
+        ]
+      },
+      "sources": [
+        {
+          "label": "Parques Nacionales Naturales de Colombia, ficha PNN Los Nevados",
+          "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+          "retrieved_at": "2026-11-21"
+        },
+        {
+          "label": "Parques Nacionales Naturales, Resolución 207 del 4 de agosto de 2023",
+          "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2023/08/Resolucion_207_2023_ReglamentacionNevados_.pdf",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "last_verified": "2026-11-21",
+      "related": [
+        "activities.what_to_visit",
+        "activities.high_mountain_guide",
+        "activities.authorized_trail_names"
+      ],
+      "tags": [
+        "inducción",
+        "charla",
+        "ingreso"
+      ]
+    },
+    {
+      "id": "activities.ski_not_offered",
+      "label": "esquí de montaña no ofertado",
+      "kind": "fact",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "se puede esquiar en el parque",
+        "hay esquí en el Santa Isabel",
+        "barranquismo en las quebradas",
+        "escalada en hielo para turistas",
+        "un día de esquí en el Ruiz",
+        "deporte de nieve para visitantes",
+        "puedo alquilar esquís",
+        "el sky de montaña esta en la oferta",
+        "canyoning en los nevados",
+        "la nieve sirve para esquiar",
+        "can I ski in Los Nevados",
+        "is canyoning offered to regular visitors"
+      ],
+      "hard_negatives": [
+        "puedo pisar el glaciar del Ruiz",
+        "cumbre por el glaciar Schimmer",
+        "organizar una competencia"
+      ],
+      "needs": [],
+      "answer": {
+        "short": "El esquí de montaña, el barranquismo y la escalada en hielo aparecen dentro de la definición deportiva de la norma de 2023, no como un paseo de la ficha. No hay alquiler de esquís ni un día de nieve para el visitante. Si practicas ese deporte, entra por la autorización de montañismo y no por tu cuenta, y el cráter del Ruiz sigue cerrado.",
+        "variants": [
+          "No te van a ofrecer un día de esquí en la entrada. Esas prácticas, si acaso, caben en el régimen deportivo, no en el paseo de Brisas. Confirma cualquier plan de esos con el parque."
+        ]
+      },
+      "sources": [
+        {
+          "label": "Parques Nacionales Naturales, Resolución 207 del 4 de agosto de 2023",
+          "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2023/08/Resolucion_207_2023_ReglamentacionNevados_.pdf",
+          "retrieved_at": "2026-11-21"
+        },
+        {
+          "label": "Parques Nacionales Naturales de Colombia, ficha PNN Los Nevados",
+          "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "last_verified": "2026-11-21",
+      "related": [
+        "activities.sport_mountaineering",
+        "activities.snow_and_glacier_access",
+        "activities.ruiz_summit_closed"
+      ],
+      "tags": [
+        "esquí",
+        "barranquismo",
+        "no ofertado"
+      ]
+    }
+  ]
+}

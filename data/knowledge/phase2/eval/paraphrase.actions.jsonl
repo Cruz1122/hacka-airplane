@@ -1,0 +1,22 @@
+{"q": "qiero dejar agendada la visita pa otro dia", "expected": ["actions.register_planned_visit"]}
+{"q": "Quiero registrar el ingreso para una fecha posterior, con el sector y el grupo.", "expected": ["actions.register_planned_visit"]}
+{"q": "ya llegamos a la entrada, registranos hoy", "expected": ["actions.register_arrival_today"], "near_copy": true}
+{"q": "Estamos en el puesto ahora mismo y hay que dejar constancia de la llegada de hoy.", "expected": ["actions.register_arrival_today"]}
+{"q": "nesecito reportar una hemergencia", "expected": ["actions.report_emergency_general"]}
+{"q": "Se presentó un peligro y quiero dejar el reporte de emergencia.", "expected": ["actions.report_emergency_general"]}
+{"q": "un compañero se cayo y quedo herido, no camina", "expected": ["actions.report_injury"], "near_copy": true}
+{"q": "Hay una persona lesionada que no puede seguir y hay que reportar el accidente.", "expected": ["actions.report_injury"]}
+{"q": "no aparece alguien del grupo, se nos perdio en el camino", "expected": ["actions.report_lost_person"]}
+{"q": "Someone from our group has disappeared on the hike.", "expected": ["actions.report_lost_person"]}
+{"q": "le dio el mal de altitd y va peor", "expected": ["actions.report_altitude_sickness"]}
+{"q": "Alguien del grupo está mal por la altura y quiero dejarlo reportado.", "expected": ["actions.report_altitude_sickness"]}
+{"q": "esta con ipotermia, ya no coordina del frio", "expected": ["actions.report_hypothermia"]}
+{"q": "Una persona está confundida por el frío y casi no se mueve.", "expected": ["actions.report_hypothermia"]}
+{"q": "hay rayos encima, qiero reportar la tormenta", "expected": ["actions.report_storm"]}
+{"q": "Está cayendo una tormenta eléctrica muy cerca del grupo.", "expected": ["actions.report_storm"]}
+{"q": "veo humo y fuego cerca de la gente", "expected": ["actions.report_fire"]}
+{"q": "Hay un incendio en el sector y necesito reportarlo.", "expected": ["actions.report_fire"]}
+{"q": "sin senal y con una emergencia encima", "expected": ["actions.report_offline_emergency"]}
+{"q": "There is no phone signal and I still need to report an emergency.", "expected": ["actions.report_offline_emergency"]}
+{"q": "ya estamos hoy en la entrada, ayudame a registrar el grupo con sector, personas y tipo de visitante", "expected": ["actions.register_arrival_today"], "replaces_near_copy": "ya llegamos a la entrada, registranos hoy"}
+{"q": "alguien del grupo se cayo y no puede caminar, esta aplicacion avisa sola a rescate", "expected": ["actions.report_injury"], "replaces_near_copy": "un compañero se cayo y quedo herido, no camina"}

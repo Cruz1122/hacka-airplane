@@ -1,0 +1,113 @@
+{
+  "contract_version": 1,
+  "id": "hours_status",
+  "order": 6,
+  "title": "Horarios y apertura",
+  "description": "Horarios de ingreso, si el parque está abierto y cierres temporales por conservación.",
+  "retrieval": {
+    "profile": "lookup",
+    "top_k": 2
+  },
+  "clarification": {
+    "between_entries": "¿Te refieres a {label_a} o a {label_b}?",
+    "bank": [
+      "¿Quieres el horario de ingreso o saber si está abierto?",
+      "¿Para qué sector y qué fecha?"
+    ],
+    "fallback": "No tengo ese horario, pero puedo contarte el horario de ingreso por Brisas."
+  },
+  "featured": [
+    "hours_status.entry_hours",
+    "hours_status.is_open",
+    "hours_status.conservation_closures"
+  ],
+  "entries": [
+    {
+      "id": "hours_status.entry_hours",
+      "label": "los horarios de ingreso",
+      "kind": "fact",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "horarios",
+        "cuándo abre",
+        "a qué hora abren",
+        "a qué hora cierran",
+        "hasta qué hora dejan entrar",
+        "a qué hora puedo entrar",
+        "a qué horas atienden"
+      ],
+      "answer": {
+        "short": "El horario publicado para el ingreso por Brisas es de 8:00 a. m. a 2:00 p. m., con la última charla obligatoria a la 1:30 p. m. Confirma el horario y la apertura para tu fecha.",
+        "variants": [
+          "Para Brisas, la referencia publicada es de 8:00 a. m. a 2:00 p. m. La última charla obligatoria empieza a la 1:30 p. m. Confirma el horario y la apertura para el día que vayas."
+        ],
+        "steps": [
+          [
+            "Para Brisas, la ficha publica ingreso de 8:00 a. m. a 2:00 p. m. y última charla obligatoria a la 1:30 p. m. Confirma la apertura y el horario para tu fecha."
+          ],
+          [
+            "Los otros sectores tienen horarios distintos. Revisa el punto de registro del recorrido que hayas elegido."
+          ]
+        ]
+      },
+      "sources": [
+        {
+          "label": "Parques Nacionales Naturales",
+          "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "last_verified": "2026-11-21"
+    },
+    {
+      "id": "hours_status.is_open",
+      "label": "si el parque está abierto",
+      "kind": "fact",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "está abierto hoy",
+        "está cerrado hoy",
+        "puedo entrar mañana",
+        "hay cierres",
+        "hoy hay acceso",
+        "está habilitado el recorrido",
+        "puedo visitar el parque hoy"
+      ],
+      "answer": {
+        "short": "La apertura se confirma con Parques Nacionales para la fecha y el sector que vas a visitar. Esta guía funciona sin conexión y solo tiene información general sobre el acceso."
+      },
+      "sources": [
+        {
+          "label": "Parques Nacionales Naturales",
+          "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+          "retrieved_at": "2026-11-21"
+        }
+      ]
+    },
+    {
+      "id": "hours_status.conservation_closures",
+      "label": "los cierres por conservación",
+      "kind": "fact",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "cierres ambientales",
+        "cierres programados",
+        "por qué cierran el parque",
+        "por qué cierra por temporadas"
+      ],
+      "answer": {
+        "short": "El parque programa cierres temporales para reducir la presión de las visitas y hacer monitoreo ambiental. La ficha oficial publica el calendario y los avisos de acceso por sector."
+      },
+      "sources": [
+        {
+          "label": "Parques Nacionales Naturales",
+          "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+          "retrieved_at": "2026-11-21"
+        }
+      ]
+    }
+  ]
+}

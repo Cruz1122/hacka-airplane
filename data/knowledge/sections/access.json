@@ -1,0 +1,4661 @@
+{
+  "contract_version": 1,
+  "id": "access",
+  "order": 4,
+  "title": "Cómo llegar y accesos",
+  "description": "Rutas por tierra, sectores, porterías y transporte hasta el Parque Nacional Natural Los Nevados, desde las ciudades y veredas que publica Parques Nacionales.",
+  "retrieval": {
+    "profile": "procedure",
+    "bm25_weight": 0.2,
+    "top_k": 2,
+    "min_score": null,
+    "entity_filters": [
+      "origin",
+      "sector"
+    ]
+  },
+  "clarification": {
+    "between_entries": "¿Te refieres a {label_a} o a {label_b}?",
+    "bank": [
+      "¿Desde qué ciudad sales?",
+      "¿Vas a Brisas, al Cisne, a la Laguna del Otún o al sector del Tolima?",
+      "¿Quieres el tramo en carro o el acceso que sigue a pie?",
+      "¿Sales por Caldas, Risaralda, Quindío o Tolima?",
+      "¿Buscas el centro Brisas o la cabaña Potosí?",
+      "¿Vas en carro propio, en tour o preguntas por bus?",
+      "¿El pueblo de Santa Isabel o el sector del nevado?",
+      "¿La vía de Murillo o la del Valle del Cocora?"
+    ],
+    "slot_questions": {
+      "origin": "¿Desde qué ciudad sales?",
+      "sector": "¿A qué sector vas: Brisas, Cisne–Santa Isabel, Laguna del Otún o Quindío–Dulima?"
+    },
+    "fallback": "No tengo esa ruta con ese nombre. Puedo explicarte la vía desde Manizales o Murillo hasta Brisas, desde Pereira por El Cedral, desde Villamaría o Santa Rosa hasta Potosí, y desde Salento por Cocora. Dime la ciudad y el sector."
+  },
+  "featured": [
+    "access.from_manizales",
+    "access.four_sector_gates",
+    "access.from_murillo",
+    "access.own_car_brisas",
+    "access.from_salento_cocora"
+  ],
+  "entries": [
+    {
+      "id": "access.how_to_choose_sector",
+      "label": "elegir la vía según tu ciudad",
+      "kind": "procedure",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "pa' los nevados, ¿por dónde es la entrada?",
+        "qué vía me sirve si todavía no escojo sector",
+        "salgo mañana y no sé cuál portería me queda cerca",
+        "como hago pa llegar, hay varias entradas",
+        "no se si me toca caldas o tolima",
+        "ayúdame a escoger la puerta según mi ciudad",
+        "which entrance should I use for Los Nevados",
+        "I have not picked a sector, how do I choose the road",
+        "voy en carro, por qué lado se entra al parque",
+        "¿hay una caseta pa' todo o una por sector?",
+        "dime las entradas antes de comprar el pasaje",
+        "segun la ciudad de donde salgo, por cual sector me toca entrar?"
+      ],
+      "hard_negatives": [
+        "quiero ir en vehículo, cuál puerta",
+        "solo uso la puerta del sector que voy a visitar",
+        "me piden formulario en la entrada, que es"
+      ],
+      "answer": {
+        "short": "Cada sector tiene su entrada: Brisas, desde Manizales o Murillo; el Cisne, desde Villamaría o Santa Rosa de Cabal; el Otún, desde Potosí o Pereira (El Cedral); y el sur, desde Cocora, Juntas o Palomar. Confirma con UTON las restricciones de circulación de noviembre de 2026.",
+        "variants": [
+          "Primero elige la puerta según tu ciudad: Manizales o Murillo para Brisas, Villamaría o Santa Rosa para el Cisne, Pereira para El Cedral. Confirma con UTON las restricciones de circulación de noviembre de 2026."
+        ],
+        "steps": [
+          [
+            "Desde Manizales la referencia es la carretera hacia Bogotá por Letras y luego el corredor La Esperanza–Murillo hasta Brisas. Desde Murillo se toma ese mismo corredor. Si entras a Brisas en noviembre, un fin de semana o puente, revisa el pico y placa ambiental del Tolima, Resolución 1815 del 24 de julio de 2026, de 5:00 a. m. a 4:00 p. m."
+          ],
+          [
+            "Desde Villamaría o Santa Rosa de Cabal se llega por vías destapadas a la cabaña Potosí y al alto de Santa Bárbara."
+          ],
+          [
+            "Desde Pereira caminas después de La Florida y El Cedral. Desde Salento sigues la vereda Cocora; desde Ibagué, la vereda Juntas; desde Anzoátegui, la vereda Palomar."
+          ]
+        ],
+        "detail": "Si entras a Brisas en noviembre, un fin de semana o puente, revisa el pico y placa ambiental del Tolima, Resolución 1815 del 24 de julio de 2026, de 5:00 a. m. a 4:00 p. m."
+      },
+      "sources": [
+        {
+          "label": "Parques Nacionales Naturales de Colombia — Parque Nacional Natural Los Nevados",
+          "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "last_verified": "2026-11-21",
+      "related": [
+        "access.four_sector_gates",
+        "access.gateway_towns",
+        "access.always_by_land"
+      ],
+      "tags": [
+        "entrada",
+        "sector",
+        "ciudad",
+        "vía"
+      ],
+      "entities": {
+        "origin": [
+          "manizales",
+          "murillo",
+          "villamaria",
+          "santa_rosa",
+          "pereira",
+          "salento",
+          "ibague",
+          "anzoategui"
+        ]
+      },
+      "needs": [
+        "origin"
+      ]
+    },
+    {
+      "id": "access.four_sector_gates",
+      "label": "cuatro sectores y sus entradas",
+      "kind": "explanation",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "cuántas entradas tiene el parque",
+        "cuáles son los cuatro sectores para entrar",
+        "brisas cisne otun y tolima son porterías distintas",
+        "cuántas porterías hay y cuáles son",
+        "me explicas las puertas del parque sin el paseo",
+        "is there more than one gate at Los Nevados",
+        "name the four entrances and where each one starts",
+        "sector brisas kumanday por donde se entra",
+        "pa' Dulima y Poleka, ¿es la misma caseta?",
+        "quiero la lista corta de porterías",
+        "cuál portería me sirve pa' el Cisne?",
+        "cuál puerta me queda más a mano"
+      ],
+      "hard_negatives": [
+        "cuántas hectáreas tiene el parque",
+        "como hago pa llegar, hay varias entradas",
+        "la entrada dura cuatro dias o menos"
+      ],
+      "answer": {
+        "short": "Cuatro sectores: Brisas–Kumanday, por La Esperanza–Murillo; el Cisne–Poleka Kasue, desde Villamaría o Santa Rosa a Potosí y Santa Bárbara; el Otún, por Potosí o Pereira hasta El Cedral; y Quindío–Dulima, por Cocora, Juntas o Palomar. Confirma con UTON las restricciones de circulación de noviembre de 2026.",
+        "variants": [
+          "Son cuatro puertas: norte por La Esperanza–Murillo a Brisas, Cisne por las destapadas a Potosí y Santa Bárbara, Otún por Potosí o El Cedral, y sur (Quindío–Dulima) por Cocora, Juntas o Palomar. Confirma con UTON las restricciones de circulación de noviembre de 2026."
+        ],
+        "detail": "Si entras a Brisas en noviembre, un fin de semana o puente, revisa el pico y placa ambiental del Tolima, Resolución 1815 del 24 de julio de 2026, de 5:00 a. m. a 4:00 p. m."
+      },
+      "sources": [
+        {
+          "label": "Parques Nacionales Naturales de Colombia — Parque Nacional Natural Los Nevados",
+          "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "last_verified": "2026-11-21",
+      "related": [
+        "access.how_to_choose_sector",
+        "access.departments_of_access",
+        "access.where_road_ends"
+      ],
+      "tags": [
+        "sectores",
+        "portería",
+        "brisas",
+        "otún"
+      ]
+    },
+    {
+      "id": "access.departments_of_access",
+      "label": "entradas en los cuatro departamentos",
+      "kind": "fact",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "desde Caldas hay puerta o me toca otra?",
+        "el parque se entra por caldas",
+        "en Risaralda sí se puede entrar por algún lado?",
+        "por cual departamento se entra a brisas, al cisne, al otun y al sur?",
+        "desde el tolima por donde subo",
+        "which department has a gate",
+        "can I enter from Quindío and from Tolima",
+        "caldas y tolima tienen entradas distintas",
+        "santa rosa es risaralda, esa vía sirve",
+        "salento queda en el quindio, ahi empiezo",
+        "murillo es tolima pero no se si es el sur",
+        "pa' salir desde el Tolima, ¿qué puerta me toca?"
+      ],
+      "hard_negatives": [
+        "caldas risaralda quindio y tolima entran en el paramo",
+        "en la subida al tolima se cruza ese borde",
+        "Tolima Quindío y Risaralda se tocan ahí"
+      ],
+      "answer": {
+        "short": "Caldas lleva a Brisas y al Cisne; Risaralda, a Potosí desde Santa Rosa y a El Cedral desde Pereira; el Quindío, a Salento y Cocora; y el Tolima, a Murillo (norte) y a Juntas o Palomar desde Anzoátegui (sur). Confirma con UTON las restricciones de circulación de noviembre de 2026.",
+        "variants": [
+          "Caldas lleva a Brisas o al Cisne, Risaralda a Potosí o El Cedral, el Quindío a Cocora y el Tolima a Murillo, Juntas o Palomar. Confirma con UTON las restricciones de circulación de noviembre de 2026."
+        ],
+        "detail": "Si entras a Brisas en noviembre, un fin de semana o puente, revisa el pico y placa ambiental del Tolima, Resolución 1815 del 24 de julio de 2026, de 5:00 a. m. a 4:00 p. m."
+      },
+      "sources": [
+        {
+          "label": "Parques Nacionales Naturales de Colombia — Parque Nacional Natural Los Nevados",
+          "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "last_verified": "2026-11-21",
+      "related": [
+        "access.four_sector_gates",
+        "access.gateway_towns",
+        "access.from_ibague_choose"
+      ],
+      "tags": [
+        "caldas",
+        "risaralda",
+        "quindío",
+        "tolima"
+      ]
+    },
+    {
+      "id": "access.gateway_towns",
+      "label": "pueblos desde donde sale la vía",
+      "kind": "fact",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "si mi pueblo no sale en las vias, igual hay entrada publicada?",
+        "qué cascos sirven de punto de partida",
+        "manizales murillo y salento están en la ruta",
+        "anzoategui cuenta como salida",
+        "mi pueblo no sale en la lista, qué hago",
+        "which towns can I start from to reach the park",
+        "can I start the Quindío road from Armenia",
+        "villamaria y santa rosa si estan escritas",
+        "pa' llegar, ¿de qué pueblos salen las rutas?",
+        "hay una lista corta de municipios de salida",
+        "vivo en un pueblo chiquito, ¿hay ruta pa' llegar?",
+        "cuáles pueblos sirven pa' salir, sin atajos?",
+        "cómo entro desde herveo",
+        "¿en Casabianca hay portería?",
+        "¿y del casco de Santa Isabel sí se puede entrar?",
+        "¿Herveo y Casabianca quedan dentro del parque?",
+        "desde herveo hay camino hasta el parque",
+        "is there a visitor route from Herveo",
+        "can I enter from Casabianca",
+        "quiero la puerta oficial, no un atajo",
+        "que hago si mi pueblo no esta en la lista",
+        "¿Herveo o Casabianca me dejan entrar?",
+        "si mi pueblo no aparece, por donde entro"
+      ],
+      "hard_negatives": [
+        "me pasan los nombres de los senderos pa' ir?",
+        "si no mando las coordenadas del campamento avanzado, me niegan la entrada?",
+        "si la veo en el mapa, puedo entrar por ahi"
+      ],
+      "answer": {
+        "short": "Rutas: Manizales, Murillo, Villamaría, Santa Rosa de Cabal, Pereira, Salento, Ibagué y Anzoátegui. Si el tuyo no está (Herveo, Casabianca o el casco de Santa Isabel), no tengo ruta verificada: entra por tu portería con un operador registrado. Confirma con UTON las restricciones de circulación de noviembre de 2026.",
+        "variants": [
+          "Esos ocho son los pueblos de salida publicados. Otro pueblo no tiene un camino verificado aquí: usa la puerta de tu sector con un operador registrado. Confirma con UTON las restricciones de circulación de noviembre de 2026."
+        ],
+        "detail": "La reglamentación transitoria de diciembre de 2023 describe la vía Armenia–Salento–Valle del Cocora como aproximación al Quindío. En ese mismo documento el texto dice 25 km y la tabla 37 km, así que ninguna de las dos se usa como distancia. La página actual empieza el acceso del Quindío en Salento, por la vereda Cocora. Si entras a Brisas en noviembre, un fin de semana o puente, revisa el pico y placa ambiental del Tolima, Resolución 1815 del 24 de julio de 2026, de 5:00 a. m. a 4:00 p. m."
+      },
+      "sources": [
+        {
+          "label": "Parques Nacionales Naturales de Colombia — Parque Nacional Natural Los Nevados",
+          "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+          "retrieved_at": "2026-11-21"
+        },
+        {
+          "label": "Parques Nacionales Naturales — Reglamentación transitoria de ecoturismo, PNN Los Nevados, diciembre de 2023",
+          "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2023/12/ANEXO-PNN-NEVADOS.pdf",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "last_verified": "2026-11-21",
+      "related": [
+        "access.how_to_choose_sector",
+        "access.always_by_land"
+      ],
+      "tags": [
+        "pueblos",
+        "salida",
+        "manizales",
+        "salento"
+      ]
+    },
+    {
+      "id": "access.always_by_land",
+      "label": "al parque solo se llega por tierra",
+      "kind": "fact",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "se puede volar hasta cerca del nevado?",
+        "hay vuelo hasta la portería",
+        "hay pista en brisas",
+        "¿hay helicóptero pa' subir al valle?",
+        "el parque tiene aeropuerto",
+        "can I fly directly to the gate",
+        "is there an airstrip at Los Nevados",
+        "solo hay transporte terrestre, cierto",
+        "dejo el avión en manizales y sigo por carretera",
+        "no hay vuelo al nevado, toca por tierra",
+        "como se llega si no hay aeropuerto adentro",
+        "avioneta pa' entrar al nevado, ¿sirve?"
+      ],
+      "hard_negatives": [
+        "no busco un vuelo a la caseta, busco la carretera",
+        "entrar con arriero y mula a Los Nevados",
+        "en modo avión sí funciona?"
+      ],
+      "answer": {
+        "short": "Al parque se llega siempre por transporte terrestre, y cada sector tiene su propia entrada. Llega a la puerta que elegiste y sigue esa carretera o ese camino.",
+        "variants": [
+          "El cómo llegar oficial es por tierra, con una entrada distinta en cada sector. Elige la puerta y sigue esa vía."
+        ],
+        "detail": "Si entras a Brisas en noviembre, un fin de semana o puente, revisa el pico y placa ambiental del Tolima, Resolución 1815 del 24 de julio de 2026, de 5:00 a. m. a 4:00 p. m."
+      },
+      "sources": [
+        {
+          "label": "Parques Nacionales Naturales de Colombia — Parque Nacional Natural Los Nevados",
+          "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "last_verified": "2026-11-21",
+      "related": [
+        "access.no_public_bus",
+        "access.from_bogota",
+        "hours_status.pico_y_placa_hours_murillo"
+      ],
+      "tags": [
+        "terrestre",
+        "avión",
+        "portería"
+      ]
+    },
+    {
+      "id": "access.from_manizales",
+      "label": "cómo llegar desde Manizales",
+      "kind": "procedure",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "ruta manizales brisas",
+        "qué carretera agarro en Manizales hacia el parque",
+        "salgo del centro de Manizales, por dónde sigo",
+        "cómo me meto a Brisas saliendo de Manizales?",
+        "cual via cojo pa brisas saliendo de manizales",
+        "voy en carro desde Manizales, dónde me desvío",
+        "pa' Brisas desde Manizales, ¿cómo voy?",
+        "de manizales al valle de las tumbas por cual lado",
+        "how do I drive from Manizales to the Brisas gate",
+        "leaving Manizales, which road reaches the park entrance",
+        "¿desde Manizales se sube por Letras hasta Brisas?",
+        "me voy pal nevado desde Manizales, ¿por dónde cojo?"
+      ],
+      "hard_negatives": [
+        "lodo del Lagunilla por la vía de Manizales",
+        "salgo de Manizales hacia el parque",
+        "dejo el avión en manizales y sigo por carretera",
+        "llegué a Manizales y quiero subir mañana"
+      ],
+      "answer": {
+        "short": "Desde Manizales toma la vía a Bogotá por Letras y, en el parador La Esperanza, sigue el corredor hacia Murillo hasta el centro de visitantes Brisas. Guíate por los nombres, no por un solo poste de kilómetro. Confirma con UTON las restricciones de circulación de noviembre de 2026.",
+        "variants": [
+          "Sales de Manizales por la vía a Bogotá, giras en La Esperanza hacia el corredor de Murillo y llegas a Brisas. Sigue los nombres, no un solo kilómetro. Confirma con UTON las restricciones de circulación de noviembre de 2026."
+        ],
+        "detail": "La página actual nombra la vía Letras y el corredor, sin poste. La guía en inglés de abril de 2016 pone el giro en el kilómetro 23 y luego 14 km hasta el cruce de Murillo. La reglamentación transitoria de diciembre de 2023 dice el kilómetro 45 en La Esperanza o El Ocho, y 1 km entre el cruce de Murillo y Brisas. El Servicio Geológico, en una página sin fecha de publicación visible, habla de unos 18 km por la vía La Esperanza–Murillo antes del desvío a Brisas. Si entras a Brisas en noviembre, un fin de semana o puente, revisa el pico y placa ambiental del Tolima, Resolución 1815 del 24 de julio de 2026, de 5:00 a. m. a 4:00 p. m."
+      },
+      "sources": [
+        {
+          "label": "Parques Nacionales Naturales de Colombia — Parque Nacional Natural Los Nevados",
+          "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+          "retrieved_at": "2026-11-21"
+        },
+        {
+          "label": "Parques Nacionales Naturales — Reglamentación transitoria de ecoturismo, PNN Los Nevados, diciembre de 2023",
+          "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2023/12/ANEXO-PNN-NEVADOS.pdf",
+          "retrieved_at": "2026-11-21"
+        },
+        {
+          "label": "Servicio Geológico Colombiano — Generalidades del volcán Nevado del Ruiz",
+          "url": "https://www2.sgc.gov.co/sgc/volcanes/VolcanNevadoRuiz/Paginas/generalidades-volcan-nevado-ruiz.aspx",
+          "retrieved_at": "2026-11-21"
+        },
+        {
+          "label": "Parques Nacionales Naturales — How to get there, Los Nevados, version 1, April 2016",
+          "url": "https://old.parquesnacionales.gov.co/portal/en/ecotourism/andean-region/los-nevados-national-natural-park/how-to-get-there/",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "last_verified": "2026-11-21",
+      "related": [
+        "access.letras_highway",
+        "access.esperanza_murillo_corridor",
+        "access.brisas_visitor_center"
+      ],
+      "tags": [
+        "manizales",
+        "letras",
+        "brisas"
+      ],
+      "entities": {
+        "origin": [
+          "manizales"
+        ],
+        "sector": [
+          "brisas"
+        ]
+      }
+    },
+    {
+      "id": "access.from_murillo",
+      "label": "cómo llegar desde Murillo",
+      "kind": "procedure",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "cómo salir de Murillo hacia el parque",
+        "de la cabecera de Murillo a Brisas",
+        "¿Murillo me queda antes de Brisas o después?",
+        "corredor esperanza murillo saliendo del pueblo",
+        "entro por murillo al sector norte",
+        "how do I get from Murillo to Brisas",
+        "is the town of Murillo the gate",
+        "voy en carro desde murillo, falta mucho",
+        "pa' Brisas desde Murillo, ¿cuál vía cojo?",
+        "el mismo corredor que viene de manizales, lo tomo al revés",
+        "desde el casco de murillo cual via",
+        "no es el nevado del tolima, busco brisas"
+      ],
+      "hard_negatives": [
+        "brisas se va por murillo",
+        "cómo anda la vía pa Murillo?",
+        "el bus a murillo me deja en brisas"
+      ],
+      "answer": {
+        "short": "Desde la cabecera de Murillo tomas el corredor La Esperanza–Murillo hasta el centro de visitantes Brisas. Murillo no es la portería en sí. Confirma con UTON las restricciones de circulación de noviembre de 2026.",
+        "variants": [
+          "Sales del pueblo de Murillo por el corredor hacia La Esperanza y entras al parque en Brisas, no en la plaza. Confirma con UTON las restricciones de circulación de noviembre de 2026."
+        ],
+        "detail": "Si entras a Brisas en noviembre, un fin de semana o puente, revisa el pico y placa ambiental del Tolima, Resolución 1815 del 24 de julio de 2026, de 5:00 a. m. a 4:00 p. m."
+      },
+      "sources": [
+        {
+          "label": "Parques Nacionales Naturales de Colombia — Parque Nacional Natural Los Nevados",
+          "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "last_verified": "2026-11-21",
+      "related": [
+        "access.esperanza_murillo_corridor",
+        "access.murillo_is_north_not_tolima",
+        "access.brisas_visitor_center"
+      ],
+      "tags": [
+        "murillo",
+        "brisas",
+        "corredor"
+      ],
+      "entities": {
+        "origin": [
+          "murillo"
+        ],
+        "sector": [
+          "brisas"
+        ]
+      }
+    },
+    {
+      "id": "access.esperanza_murillo_corridor",
+      "label": "corredor vial La Esperanza Murillo",
+      "kind": "explanation",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "qué es el corredor la esperanza murillo",
+        "la esperanza es la portería o solo el parador",
+        "el ocho queda sobre la vía a bogotá",
+        "por ese corredor se llega a brisas",
+        "sirve viniendo de manizales y tambien de murillo",
+        "what is the La Esperanza–Murillo corridor",
+        "do I enter the park at the La Esperanza stop",
+        "¿después del parador pa' dónde sigo?",
+        "cómo se llama la vía pa' Brisas?",
+        "no me quiero bajar en el restaurante de la esperanza",
+        "via esperanza murillo hasta el centro de visitantes",
+        "El Ocho y La Esperanza son el mismo sitio o no?"
+      ],
+      "hard_negatives": [
+        "la esperanza el ocho murillo y brisas",
+        "corredor esperanza murillo saliendo del pueblo",
+        "brisas sobre el corredor esperanza murillo"
+      ],
+      "answer": {
+        "short": "Ese corredor La Esperanza–Murillo te lleva a Brisas, vengas de Manizales o de Murillo. La Esperanza, o El Ocho, es un parador y no la portería (dato de diciembre de 2023): sigue hasta Brisas.",
+        "variants": [
+          "No te registres en el parador: el reglamento de diciembre de 2023 llama La Esperanza o El Ocho al desvío, y la entrada es Brisas."
+        ],
+        "detail": "Si entras a Brisas en noviembre, un fin de semana o puente, revisa el pico y placa ambiental del Tolima, Resolución 1815 del 24 de julio de 2026, de 5:00 a. m. a 4:00 p. m."
+      },
+      "sources": [
+        {
+          "label": "Parques Nacionales Naturales de Colombia — Parque Nacional Natural Los Nevados",
+          "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "last_verified": "2026-11-21",
+      "related": [
+        "access.from_manizales",
+        "access.from_murillo",
+        "hours_status.pico_y_placa_hours_murillo"
+      ],
+      "tags": [
+        "esperanza",
+        "murillo",
+        "corredor"
+      ],
+      "entities": {
+        "sector": [
+          "brisas"
+        ]
+      }
+    },
+    {
+      "id": "access.letras_highway",
+      "label": "carretera Manizales Bogotá por Letras",
+      "kind": "fact",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "vía letras es la de manizales a bogotá",
+        "por letras se sale hacia el parque",
+        "¿la vía a Bogotá es la de Letras, sí o no?",
+        "letras queda antes de brisas",
+        "cojo la via a bogota y despues el corredor",
+        "is Letras the Manizales–Bogotá road",
+        "do I stay on the Letras highway until the gate",
+        "despues de letras falta el desvio",
+        "pa' Brisas, ¿me sirve la vía a Bogotá por Letras?",
+        "¿la de Letras es carretera pavimentada o trocha?",
+        "salgo por letras rumbo al nevado",
+        "manizales bogota por donde dicen letras"
+      ],
+      "hard_negatives": [
+        "vi el letrero de letras, es la caseta",
+        "¿la ruta de Bogotá pa' Manizales pasa por Letras?",
+        "desde manizales, bus a letras"
+      ],
+      "answer": {
+        "short": "Vía Letras es el nombre de uso de la carretera Manizales–Bogotá. Desde ahí tomas el corredor La Esperanza–Murillo hacia Brisas; Letras no es la portería.",
+        "variants": [
+          "Tomas la Manizales–Bogotá, la que llaman Letras, y más adelante el corredor hacia Brisas. Quedarte en Letras no es entrar al parque."
+        ],
+        "detail": "Si entras a Brisas en noviembre, un fin de semana o puente, revisa el pico y placa ambiental del Tolima, Resolución 1815 del 24 de julio de 2026, de 5:00 a. m. a 4:00 p. m."
+      },
+      "sources": [
+        {
+          "label": "Parques Nacionales Naturales de Colombia — Parque Nacional Natural Los Nevados",
+          "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "last_verified": "2026-11-21",
+      "related": [
+        "access.letras_not_the_gate",
+        "access.from_manizales",
+        "hours_status.pico_y_placa_hours_murillo"
+      ],
+      "tags": [
+        "letras",
+        "bogotá",
+        "carretera"
+      ],
+      "entities": {
+        "origin": [
+          "manizales",
+          "bogota"
+        ],
+        "sector": [
+          "brisas"
+        ]
+      }
+    },
+    {
+      "id": "access.letras_not_the_gate",
+      "label": "Letras no es la entrada",
+      "kind": "fact",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "letras es la entrada del parque",
+        "me bajo en letras y ya entré",
+        "la portería queda en letras",
+        "vi el letrero de letras, es la caseta",
+        "llego a Letras y ya estoy en Brisas, ¿no?",
+        "is Letras the park entrance",
+        "I thought the gate was at Letras",
+        "letras o brisas, cual es la caseta",
+        "no quiero registrarme en el punto equivocado",
+        "después de Letras todavía falta mucho pa' Brisas?",
+        "el control del parque no es letras",
+        "¿y entonces dónde queda la caseta si no es Letras?"
+      ],
+      "hard_negatives": [
+        "desde manizales, bus a letras",
+        "por letras se sale hacia el parque",
+        "ya llegué a la entrada, quiero registrarme"
+      ],
+      "answer": {
+        "short": "Letras no es la entrada: es solo un punto de la vía Manizales–Bogotá. Sigue hasta el centro de visitantes Brisas, después de La Esperanza–Murillo.",
+        "variants": [
+          "Si paras en Letras todavía no has entrado. Sigue al corredor y regístrate en Brisas."
+        ],
+        "detail": "Si entras a Brisas en noviembre, un fin de semana o puente, revisa el pico y placa ambiental del Tolima, Resolución 1815 del 24 de julio de 2026, de 5:00 a. m. a 4:00 p. m."
+      },
+      "sources": [
+        {
+          "label": "Parques Nacionales Naturales de Colombia — Parque Nacional Natural Los Nevados",
+          "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "last_verified": "2026-11-21",
+      "related": [
+        "access.letras_highway",
+        "access.brisas_visitor_center",
+        "hours_status.pico_y_placa_hours_murillo"
+      ],
+      "tags": [
+        "letras",
+        "portería",
+        "brisas"
+      ],
+      "entities": {
+        "sector": [
+          "brisas"
+        ]
+      }
+    },
+    {
+      "id": "access.la_enea_alternate",
+      "label": "ruta alterna por La Enea",
+      "kind": "procedure",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "¿por La Enea sí se pasa pa' Brisas?",
+        "¿hay vía alterna por los termales del Ruiz?",
+        "barrio la enea hacia brisas",
+        "gallinazo es camino al parque",
+        "hay otra entrada desde manizales distinta a letras",
+        "is the La Enea road an official alternate",
+        "can I reach Brisas past the Ruiz hot springs",
+        "no quiero ir por la esperanza, hay otro empalme",
+        "por La Enea y Gallinazo, ¿cómo sigo pa' Brisas?",
+        "¿esa vía alterna todavía está activa?",
+        "entro por los termales y empalmo a la via de brisas",
+        "ruta la enea la publican ahora"
+      ],
+      "hard_negatives": [
+        "pa' Brisas desde Manizales, ¿cómo voy?",
+        "el trayecto de Brisas a las Tumbas",
+        "por ese corredor se llega a brisas"
+      ],
+      "answer": {
+        "short": "Una vía alterna de diciembre de 2023 sale de Manizales por La Enea, Gallinazo y los Termales del Ruiz y empalma con la de Brisas; era transitoria. Pregunta al operador si sigue habilitada y confirma con UTON las restricciones de noviembre de 2026.",
+        "variants": [
+          "La Enea, Gallinazo y los termales aparecen como vía alterna en el reglamento de diciembre de 2023, no como la ruta principal. Pregunta si el empalme está abierto. Confirma con UTON las restricciones de noviembre de 2026."
+        ],
+        "detail": "En la tabla de ese reglamento de diciembre de 2023, adaptada del POE, el tramo Manizales–La Enea–Termales del Ruiz–cabaña Brisas figura como 34 km. La página actual de visita no repite esa distancia. Si entras a Brisas en noviembre, un fin de semana o puente, revisa el pico y placa ambiental del Tolima, Resolución 1815 del 24 de julio de 2026, de 5:00 a. m. a 4:00 p. m."
+      },
+      "sources": [
+        {
+          "label": "Parques Nacionales Naturales de Colombia — Parque Nacional Natural Los Nevados",
+          "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+          "retrieved_at": "2026-11-21"
+        },
+        {
+          "label": "Parques Nacionales Naturales — Reglamentación transitoria de ecoturismo, PNN Los Nevados, diciembre de 2023",
+          "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2023/12/ANEXO-PNN-NEVADOS.pdf",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "last_verified": "2026-11-21",
+      "related": [
+        "access.from_manizales",
+        "access.termales_ruiz_not_gate",
+        "access.manizales_brisas_distance"
+      ],
+      "tags": [
+        "la enea",
+        "termales",
+        "alterna"
+      ],
+      "entities": {
+        "origin": [
+          "manizales"
+        ],
+        "sector": [
+          "brisas"
+        ]
+      }
+    },
+    {
+      "id": "access.termales_ruiz_not_gate",
+      "label": "Termales del Ruiz no es la portería",
+      "kind": "fact",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "los termales del ruiz son la entrada",
+        "llego al termal y ya entré, ¿sí o no?",
+        "la gruta es la caseta de registro",
+        "pasando por el termal ya me dejan subir al valle?",
+        "el termal reemplaza a brisas",
+        "are the Ruiz hot springs the gate",
+        "is La Gruta where I check in",
+        "vi los termales y crei que era la porteria",
+        "¿después del baño sigo pal parque o ahí termina?",
+        "¿o sea que los termales no son la portería?",
+        "brisa o termales, donde me registro",
+        "el termal queda de paso y la caseta es otra"
+      ],
+      "hard_negatives": [
+        "entro por los termales y empalmo a la via de brisas",
+        "ya llegué a la entrada, quiero registrarme",
+        "esa parada termal de la travesía"
+      ],
+      "answer": {
+        "short": "Los termales del Ruiz y La Gruta no son la portería: solo marcan la vía alterna (dato de diciembre de 2023). Entra por Brisas.",
+        "variants": [
+          "Llegar al termal no reemplaza el registro. Esa referencia está en la vía alterna de diciembre de 2023; la entrada publicada sigue siendo Brisas."
+        ],
+        "detail": "Si entras a Brisas en noviembre, un fin de semana o puente, revisa el pico y placa ambiental del Tolima, Resolución 1815 del 24 de julio de 2026, de 5:00 a. m. a 4:00 p. m."
+      },
+      "sources": [
+        {
+          "label": "Parques Nacionales Naturales de Colombia — Parque Nacional Natural Los Nevados",
+          "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+          "retrieved_at": "2026-11-21"
+        },
+        {
+          "label": "Parques Nacionales Naturales — Reglamentación transitoria de ecoturismo, PNN Los Nevados, diciembre de 2023",
+          "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2023/12/ANEXO-PNN-NEVADOS.pdf",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "last_verified": "2026-11-21",
+      "related": [
+        "access.la_enea_alternate",
+        "access.brisas_visitor_center",
+        "hours_status.pico_y_placa_hours_murillo"
+      ],
+      "tags": [
+        "termales",
+        "la gruta",
+        "brisas"
+      ],
+      "entities": {
+        "sector": [
+          "brisas"
+        ]
+      }
+    },
+    {
+      "id": "access.brisas_visitor_center",
+      "label": "centro de visitantes Brisas",
+      "kind": "fact",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "dónde queda el centro de visitantes brisas",
+        "brisas es la portería del norte",
+        "centro de inducción y centro de visitantes es el mismo",
+        "pa' Kumanday también es Brisas, ¿no?",
+        "¿cómo le dicen a la caseta del norte?",
+        "where is the Brisas visitor center",
+        "is Brisas the north gate",
+        "¿de Brisas sale el carro pal valle?",
+        "no queda en letras ni en murillo",
+        "brisas sobre el corredor esperanza murillo",
+        "registro del norte en que centro",
+        "valle del silencio sale de ese centro"
+      ],
+      "hard_negatives": [
+        "deje una chaqueta en el centro de Brisas",
+        "el norte se entra por brisas",
+        "por ese corredor se llega a brisas"
+      ],
+      "answer": {
+        "short": "Brisas es la portería del sector norte (Brisas–Kumanday), sobre La Esperanza–Murillo; de ahí sale el carreteable al Valle de las Tumbas o del Silencio. Si vas un fin de semana o puente de noviembre, revisa el pico y placa de ese acceso antes de subir.",
+        "variants": [
+          "El registro del norte es Brisas, y ahí empieza el recorrido en vehículo hacia el valle, después del corredor, no en Letras. Confirma con UTON las restricciones de noviembre de 2026."
+        ],
+        "detail": "Si entras a Brisas en noviembre, un fin de semana o puente, revisa el pico y placa ambiental del Tolima, Resolución 1815 del 24 de julio de 2026, de 5:00 a. m. a 4:00 p. m."
+      },
+      "sources": [
+        {
+          "label": "Parques Nacionales Naturales de Colombia — Parque Nacional Natural Los Nevados",
+          "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "last_verified": "2026-11-21",
+      "related": [
+        "access.from_manizales",
+        "access.brisas_entry_altitude",
+        "hours_status.pico_y_placa_hours_murillo"
+      ],
+      "tags": [
+        "brisas",
+        "centro",
+        "portería"
+      ],
+      "entities": {
+        "sector": [
+          "brisas"
+        ]
+      }
+    },
+    {
+      "id": "access.brisas_entry_altitude",
+      "label": "altura de la entrada Brisas",
+      "kind": "fact",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "a qué altura queda brisas",
+        "la portería está a 4100",
+        "cota del centro de inducción",
+        "brisas queda tan alto como la cima",
+        "¿qué tan alto queda la portería del norte, en metros?",
+        "how high is the Brisas gate",
+        "is 4100 the summit or the entrance",
+        "altitud aproximada de brisas",
+        "¿ya llego a Brisas y estoy casi en esa altura?",
+        "no es la altura del valle ni del crater",
+        "qué tan arriba queda el centro de inducción",
+        "altura de la caseta, no de la nieve"
+      ],
+      "hard_negatives": [
+        "altura del valle, no de brisas",
+        "¿el registro es allá en el alto y no en Brisas?",
+        "4100 metros es el centro o la cima"
+      ],
+      "answer": {
+        "short": "El centro de inducción Brisas está a unos 4100 m. Tómala como la altura de la entrada, no como la de la cima ni la del final del carreteable.",
+        "variants": [
+          "Cuando te registras en Brisas estás cerca de 4100 m. Esa cota es de la portería, no de la cumbre."
+        ],
+        "detail": "La página dice «a 4100 metros de altitud aproximadamente». La reglamentación transitoria de diciembre de 2023 anota el control de Brisas en 4.107 m. El Servicio Geológico también indica 4100 m para Brisas, en una página sin fecha de publicación visible. Ninguna de esas cotas es la cumbre."
+      },
+      "sources": [
+        {
+          "label": "Parques Nacionales Naturales de Colombia — Parque Nacional Natural Los Nevados",
+          "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+          "retrieved_at": "2026-11-21"
+        },
+        {
+          "label": "Parques Nacionales Naturales — Reglamentación transitoria de ecoturismo, PNN Los Nevados, diciembre de 2023",
+          "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2023/12/ANEXO-PNN-NEVADOS.pdf",
+          "retrieved_at": "2026-11-21"
+        },
+        {
+          "label": "Servicio Geológico Colombiano — Generalidades del volcán Nevado del Ruiz",
+          "url": "https://www2.sgc.gov.co/sgc/volcanes/VolcanNevadoRuiz/Paginas/generalidades-volcan-nevado-ruiz.aspx",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "last_verified": "2026-11-21",
+      "related": [
+        "access.brisas_visitor_center",
+        "access.tumbas_end_altitude",
+        "access.potosi_control"
+      ],
+      "tags": [
+        "altura",
+        "brisas",
+        "4100"
+      ]
+    },
+    {
+      "id": "access.brisas_tumbas_drive",
+      "label": "carreteable de Brisas a Tumbas",
+      "kind": "procedure",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "el carreteable de brisas sigue en carro hasta las tumbas?",
+        "de brisas a tumbas hay carreteable",
+        "¿hasta el valle del Silencio sí se puede ir en carro?",
+        "¿de Brisas a la cumbre se sube a pie?",
+        "el atractivo del norte es por carretera",
+        "is the valley a drive from Brisas",
+        "can I walk the summit from that road",
+        "¿el valle del silencio se hace en carro cubierto?",
+        "despues del centro de induccion sigue el carro",
+        "arenales queda en ese trayecto",
+        "¿es carretera o trocha de Brisas pal valle?",
+        "como es el carreteable del sector brisas"
+      ],
+      "hard_negatives": [
+        "Brisas es un recorrido en vehículo",
+        "de Brisas pa' el valle, ¿se puede ir en carro?",
+        "por ese corredor se llega a brisas"
+      ],
+      "answer": {
+        "short": "De Brisas al Valle de las Tumbas vas en vehículo cubierto, pasando por Arenales: no es un sendero a la cima. Si vas un fin de semana o puente de noviembre, revisa el pico y placa de ese acceso antes de subir.",
+        "variants": [
+          "De Brisas al valle vas en vehículo cubierto, pasando por Arenales. No es un sendero a la cumbre. Confirma con UTON las restricciones de circulación de noviembre de 2026."
+        ],
+        "detail": "Si entras a Brisas en noviembre, un fin de semana o puente, revisa el pico y placa ambiental del Tolima, Resolución 1815 del 24 de julio de 2026, de 5:00 a. m. a 4:00 p. m."
+      },
+      "sources": [
+        {
+          "label": "Parques Nacionales Naturales de Colombia — Parque Nacional Natural Los Nevados",
+          "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "last_verified": "2026-11-21",
+      "related": [
+        "access.covered_vehicle_required",
+        "access.tumbas_and_silencio_same_road",
+        "hours_status.pico_y_placa_hours_murillo"
+      ],
+      "tags": [
+        "carreteable",
+        "tumbas",
+        "arenales"
+      ],
+      "entities": {
+        "sector": [
+          "brisas"
+        ]
+      }
+    },
+    {
+      "id": "access.tumbas_and_silencio_same_road",
+      "label": "Tumbas y Valle del Silencio",
+      "kind": "explanation",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "¿valle de las Tumbas y valle del Silencio son el mismo camino?",
+        "¿el valle del silencio es otra puerta?",
+        "me dijeron tumbas y en la reserva dice silencio",
+        "¿tengo que buscar dos porterías, una pa' cada nombre?",
+        "el mismo carreteable tiene dos nombres",
+        "are Tumbas and Valle del Silencio different gates",
+        "which name is the end of the Brisas road",
+        "no quiero ir al valle equivocado",
+        "silencio o tumbas, entro por brisas igual",
+        "es un solo atractivo con dos letreros",
+        "la reserva dice silencio y yo pedia tumbas",
+        "¿entonces cuál nombre pongo al reservar?"
+      ],
+      "hard_negatives": [
+        "página para reservar Valle de las Tumbas",
+        "el valle y el silencio son el mismo sitio",
+        "me dieron dos cotas distintas del valle"
+      ],
+      "answer": {
+        "short": "Tumbas y Silencio son dos nombres del mismo recorrido en carro que sale de Brisas. No busques dos porterías: entras por el centro de visitantes y el vehículo sigue hasta ese valle.",
+        "variants": [
+          "Es un solo tramo con dos letreros: si la reserva dice Silencio y tú pediste Tumbas, es el mismo final desde Brisas."
+        ]
+      },
+      "sources": [
+        {
+          "label": "Parques Nacionales Naturales de Colombia — Parque Nacional Natural Los Nevados",
+          "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "last_verified": "2026-11-21",
+      "related": [
+        "access.brisas_tumbas_drive",
+        "access.brisas_visitor_center",
+        "access.tumbas_end_altitude"
+      ],
+      "tags": [
+        "tumbas",
+        "silencio",
+        "nombre"
+      ],
+      "entities": {
+        "sector": [
+          "brisas"
+        ]
+      }
+    },
+    {
+      "id": "access.tumbas_end_altitude",
+      "label": "altura al final del carreteable",
+      "kind": "fact",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "a qué altura termina el carro",
+        "cota del valle de las tumbas",
+        "¿el carro sube hasta la cima del valle?",
+        "cuantos metros hay en tumbas",
+        "la nieve empieza donde para el vehículo",
+        "how high is the end of the Brisas road",
+        "does the car reach the snow line",
+        "altura del valle, no de brisas",
+        "me dieron dos cotas distintas del valle",
+        "4.400 o 4.450, cual uso",
+        "¿ya publicaron a qué altura queda el valle?",
+        "no quiero confundir la porteria con el final"
+      ],
+      "hard_negatives": [
+        "no es la altura del valle ni del crater",
+        "no es solo el clima del dia, es la altura del nevado",
+        "el carro se queda en brisas mientras subo al valle"
+      ],
+      "answer": {
+        "short": "No hay una altura única y vigente para el final del carreteable en el Valle de las Tumbas. No la uses para creer que el carro llega a la nieve: el tramo habilitado lo define Parques para tu fecha.",
+        "variants": [
+          "No hay una cifra única y vigente del final del valle. Una altura vieja no prueba que el vehículo llegue a la nieve."
+        ],
+        "detail": "El Servicio Geológico ubica el Valle de las Tumbas a 4450 m en su página de generalidades, que no muestra fecha de publicación. La guía de Parques de abril de 2016 decía 4,400 m y 5 km después de Brisas, y en ese texto ligaba el sector a una alerta amarilla desde 2010. La página actual no repite esa alerta ni elige una de esas cotas. El mismo Servicio Geológico pide consultar a Parques por las restricciones vigentes."
+      },
+      "sources": [
+        {
+          "label": "Parques Nacionales Naturales de Colombia — Parque Nacional Natural Los Nevados",
+          "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+          "retrieved_at": "2026-11-21"
+        },
+        {
+          "label": "Servicio Geológico Colombiano — Generalidades del volcán Nevado del Ruiz",
+          "url": "https://www2.sgc.gov.co/sgc/volcanes/VolcanNevadoRuiz/Paginas/generalidades-volcan-nevado-ruiz.aspx",
+          "retrieved_at": "2026-11-21"
+        },
+        {
+          "label": "Parques Nacionales Naturales — How to get there, Los Nevados, version 1, April 2016",
+          "url": "https://old.parquesnacionales.gov.co/portal/en/ecotourism/andean-region/los-nevados-national-natural-park/how-to-get-there/",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "last_verified": "2026-11-21",
+      "related": [
+        "access.brisas_entry_altitude",
+        "access.brisas_tumbas_drive",
+        "access.from_bogota"
+      ],
+      "tags": [
+        "altura",
+        "tumbas",
+        "valle"
+      ]
+    },
+    {
+      "id": "access.own_car_brisas",
+      "label": "llegar en carro propio a Brisas",
+      "kind": "procedure",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "puedo subir en mi carro",
+        "llego a brisas con el vehículo propio",
+        "se puede entrar en carro particular",
+        "¿mi carro sí alcanza a pasar la portería?",
+        "puedo entrar con mi vehiculo",
+        "can I drive my own car to Brisas",
+        "is a private car allowed at the north gate",
+        "voy en carro de la casa hasta el centro",
+        "pa' llegar a Brisas en carro, ¿qué necesito?",
+        "carro propio si, moto no",
+        "subo en el mío o me toca dejarlo abajo",
+        "¿el carro particular sube hasta Brisas sin problema?"
+      ],
+      "hard_negatives": [
+        "de Brisas pa' el valle, ¿se puede ir en carro?",
+        "vehículo propio, cuánto es la entrada",
+        "quiero ir en vehículo, cuál puerta"
+      ],
+      "answer": {
+        "short": "Sí puedes llegar en tu carro al centro de visitantes Brisas. Para seguir al Valle de las Tumbas necesitas un vehículo cubierto, propio o contratado; la moto no entra al atractivo. Confirma con UTON las restricciones de circulación de noviembre de 2026.",
+        "variants": [
+          "Tu carro llega a Brisas. Para seguir al valle tiene que ser cubierto, y la moto no está permitida en el atractivo. Confirma con UTON las restricciones de circulación de noviembre de 2026."
+        ],
+        "detail": "Si entras a Brisas en noviembre, un fin de semana o puente, revisa el pico y placa ambiental del Tolima, Resolución 1815 del 24 de julio de 2026, de 5:00 a. m. a 4:00 p. m."
+      },
+      "sources": [
+        {
+          "label": "Parques Nacionales Naturales de Colombia — Parque Nacional Natural Los Nevados",
+          "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "last_verified": "2026-11-21",
+      "related": [
+        "access.covered_vehicle_required",
+        "access.no_motorcycles",
+        "access.parking_at_brisas"
+      ],
+      "tags": [
+        "carro",
+        "brisas",
+        "propio"
+      ],
+      "entities": {
+        "sector": [
+          "brisas"
+        ]
+      }
+    },
+    {
+      "id": "access.no_motorcycles",
+      "label": "las motos no entran a Brisas",
+      "kind": "rule",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "puedo ir en moto",
+        "¿con la moto sí se puede entrar a Brisas?",
+        "enduro hasta el valle",
+        "moto de viaje la dejan pasar",
+        "está prohibida la moto en el atractivo",
+        "are motorcycles allowed at Brisas",
+        "can I ride to the valley",
+        "en la lista de vehiculos la moto sale prohibida",
+        "hay alguna excepcion para motos",
+        "¿si subo en moto y la dejo en la portería sí?",
+        "¿la moto tampoco sube pa' el valle?",
+        "me dijeron que entre semana la moto sí entra, ¿será?"
+      ],
+      "hard_negatives": [
+        "de Brisas pa' el valle, ¿se puede ir en carro?",
+        "parce, ¿puedo rodar en bici por Brisas?",
+        "me puedo subir a una mula pa' ir al valle?"
+      ],
+      "answer": {
+        "short": "No se permite el ingreso de motos al atractivo de Brisas, y las tablas de vehículos lo marcan prohibido. Confirma con UTON las restricciones de circulación de noviembre de 2026.",
+        "variants": [
+          "La moto no entra al atractivo de Brisas. Confirma con UTON las restricciones de circulación de noviembre de 2026."
+        ],
+        "detail": "Si entras a Brisas en noviembre, un fin de semana o puente, revisa el pico y placa ambiental del Tolima, Resolución 1815 del 24 de julio de 2026, de 5:00 a. m. a 4:00 p. m."
+      },
+      "sources": [
+        {
+          "label": "Parques Nacionales Naturales de Colombia — Parque Nacional Natural Los Nevados",
+          "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "last_verified": "2026-11-21",
+      "related": [
+        "access.own_car_brisas",
+        "access.covered_vehicle_required",
+        "access.bus_or_van_entry"
+      ],
+      "tags": [
+        "moto",
+        "prohibido",
+        "brisas"
+      ],
+      "entities": {
+        "sector": [
+          "brisas"
+        ]
+      }
+    },
+    {
+      "id": "access.covered_vehicle_required",
+      "label": "vehículo cubierto hacia el valle",
+      "kind": "rule",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "¿el valle pide carro con techo?",
+        "puedo seguir en carro destapado",
+        "un convertible pasa de brisas a tumbas",
+        "¿un carro sin techo sí sirve pa' el valle?",
+        "el mío tiene techo, sirve",
+        "does the valley require a covered vehicle",
+        "is an open jeep allowed past Brisas",
+        "propio o contratado, los dos sirven si van cubiertos",
+        "¿la moto sirve en vez del carro cubierto?",
+        "¿vehículo cubierto es el que tiene techo?",
+        "contratar el carro alla mismo",
+        "antes de subir pregunto si el mío vale"
+      ],
+      "hard_negatives": [
+        "el carro se queda en brisas mientras subo al valle",
+        "de Brisas pa' el valle, ¿se puede ir en carro?",
+        "carro propio si, moto no"
+      ],
+      "answer": {
+        "short": "Del centro Brisas al valle se va en vehículo cubierto, propio o contratado. No está aclarado si un carro sin techo cuenta; la moto no entra. Confírmalo con UTON antes de subir.",
+        "variants": [
+          "El tramo del valle es en vehículo cubierto. No está aclarado el carro sin techo; pregúntale a UTON y no cuentes con la moto."
+        ],
+        "detail": "Si entras a Brisas en noviembre, un fin de semana o puente, revisa el pico y placa ambiental del Tolima, Resolución 1815 del 24 de julio de 2026, de 5:00 a. m. a 4:00 p. m."
+      },
+      "sources": [
+        {
+          "label": "Parques Nacionales Naturales de Colombia — Parque Nacional Natural Los Nevados",
+          "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "last_verified": "2026-11-21",
+      "related": [
+        "access.brisas_tumbas_drive",
+        "access.hire_vehicle_brisas",
+        "hours_status.pico_y_placa_hours_murillo"
+      ],
+      "tags": [
+        "cubierto",
+        "valle",
+        "uton"
+      ],
+      "entities": {
+        "sector": [
+          "brisas"
+        ]
+      }
+    },
+    {
+      "id": "access.parking_at_brisas",
+      "label": "dejar el carro en el centro",
+      "kind": "fact",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "¿en Brisas hay dónde dejar el carro?",
+        "dejo el carro en el centro de visitantes",
+        "cuántos cupos hay para parquear",
+        "plano de celdas en brisas",
+        "puedo dejar el carro y seguir en otro",
+        "is there a parking lot at Brisas",
+        "how many parking spaces are published",
+        "llego en el mío y lo dejo en la caseta",
+        "no encuentro un mapa del parqueadero",
+        "el carro se queda en brisas mientras subo al valle",
+        "¿dónde me parqueo cuando llegue a Brisas?",
+        "¿y el parqueadero del centro, cómo es?"
+      ],
+      "hard_negatives": [
+        "deje una chaqueta en el centro de Brisas",
+        "dejan pasar carros de noche en brisas",
+        "pa' llegar a Brisas en carro, ¿qué necesito?"
+      ],
+      "answer": {
+        "short": "No tengo publicado un parqueadero, cupos ni plano de Brisas. Puedes llegar en tu vehículo y el valle se recorre en vehículo cubierto: pregunta a UTON dónde dejar el carro. Si vas un fin de semana o puente de noviembre, revisa el pico y placa de ese acceso.",
+        "variants": [
+          "No hay parqueadero, cupos ni plano publicados. Llegas en tu vehículo y el valle sigue en vehículo cubierto; pregunta a UTON dónde dejarlo."
+        ],
+        "detail": "Si entras a Brisas en noviembre, un fin de semana o puente, revisa el pico y placa ambiental del Tolima, Resolución 1815 del 24 de julio de 2026, de 5:00 a. m. a 4:00 p. m."
+      },
+      "sources": [
+        {
+          "label": "Parques Nacionales Naturales de Colombia — Parque Nacional Natural Los Nevados",
+          "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "last_verified": "2026-11-21",
+      "related": [
+        "access.own_car_brisas",
+        "access.hire_vehicle_brisas",
+        "hours_status.pico_y_placa_hours_murillo"
+      ],
+      "tags": [
+        "parqueadero",
+        "brisas",
+        "carro"
+      ],
+      "entities": {
+        "sector": [
+          "brisas"
+        ]
+      }
+    },
+    {
+      "id": "access.hire_vehicle_brisas",
+      "label": "contratar vehículo en Brisas",
+      "kind": "procedure",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "contrato el carro en brisas",
+        "¿en la portería consigo carro pal valle?",
+        "lo puedo reservar antes de subir",
+        "uton alquila el recorrido",
+        "propio o contratado allí mismo",
+        "can I hire the valley vehicle at Brisas",
+        "should I book the car before I arrive",
+        "no llevo carro, ¿allá arriba se consigue uno?",
+        "el transporte del norte lo gestiona la concesion",
+        "quiero el carro del valle con la uton",
+        "¿lo contrato antes o ya en la caseta?",
+        "¿es bus público o el carro del recorrido?"
+      ],
+      "hard_negatives": [
+        "pago por el vehiculo o por estacionarlo",
+        "llego a brisas con el vehículo propio",
+        "de Brisas pa' el valle, ¿se puede ir en carro?"
+      ],
+      "answer": {
+        "short": "En Brisas puedes contratar el vehículo cubierto para el valle, allí mismo o con anticipación. La concesión UTON gestiona ese transporte, y no hay un cupo numerado publicado. Confirma con UTON las restricciones de circulación de noviembre de 2026.",
+        "variants": [
+          "Puedes contratar el vehículo del valle con UTON, allí o por adelantado. No hay un cupo publicado. Confirma con UTON las restricciones de circulación de noviembre de 2026."
+        ],
+        "detail": "Si entras a Brisas en noviembre, un fin de semana o puente, revisa el pico y placa ambiental del Tolima, Resolución 1815 del 24 de julio de 2026, de 5:00 a. m. a 4:00 p. m."
+      },
+      "sources": [
+        {
+          "label": "Parques Nacionales Naturales de Colombia — Parque Nacional Natural Los Nevados",
+          "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "last_verified": "2026-11-21",
+      "related": [
+        "access.uton_brisas_transport",
+        "access.covered_vehicle_required",
+        "access.uton_offices_manizales"
+      ],
+      "tags": [
+        "uton",
+        "contratar",
+        "vehículo"
+      ],
+      "entities": {
+        "sector": [
+          "brisas"
+        ]
+      }
+    },
+    {
+      "id": "access.bus_or_van_entry",
+      "label": "bus o buseta hacia Brisas",
+      "kind": "fact",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "puedo entrar en bus",
+        "¿una buseta sí sube hasta Brisas?",
+        "un microbus entra al valle",
+        "¿el colectivo me deja en la portería?",
+        "¿pagando la tarifa del bus ya me dejan subir?",
+        "does a fee category mean my bus can enter",
+        "is a van allowed on the Brisas road today",
+        "bus o buseta, ¿cuál sí entra?",
+        "quiero subir un bus de 30 y no se si cabe",
+        "la moto no, pero el bus si o no",
+        "¿Pagar la tarifa del bus garantiza que lo dejen entrar?",
+        "¿Qué debo confirmar antes de subir una buseta?"
+      ],
+      "hard_negatives": [
+        "el bus dice nevado pero no aclara si para en brisas",
+        "el bus dice el ocho, es la entrada",
+        "si hay tarifa de buseta, entonces hay ruta de bus"
+      ],
+      "answer": {
+        "short": "Las tarifas de Brisas nombran bus o buseta, pero eso no autoriza el ingreso de hoy: el valle pide vehículo cubierto. Confírmalo con UTON antes de ir.",
+        "variants": [
+          "Que haya una categoría de bus en la tarifa no autoriza el ingreso de hoy. El valle pide vehículo cubierto, y UTON confirma el vehículo."
+        ],
+        "detail": "En el bloque de Brisas la página lista automóvil, colectivo y buseta, y en otro cuadro automóvil, microbús o buseta, y bus. La moto figura prohibida en ambos. Los valores en pesos están en la tabla de 2026 y no se responden aquí. Ninguno de los dos cuadros dice que el vehículo esté autorizado en la vía durante el pico y placa de noviembre. Si entras a Brisas en noviembre, un fin de semana o puente, revisa el pico y placa ambiental del Tolima, Resolución 1815 del 24 de julio de 2026, de 5:00 a. m. a 4:00 p. m."
+      },
+      "sources": [
+        {
+          "label": "Parques Nacionales Naturales de Colombia — Parque Nacional Natural Los Nevados",
+          "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "last_verified": "2026-11-21",
+      "related": [
+        "access.no_motorcycles",
+        "access.no_public_bus",
+        "hours_status.pico_y_placa_hours_murillo"
+      ],
+      "tags": [
+        "bus",
+        "buseta",
+        "tarifa"
+      ],
+      "entities": {
+        "sector": [
+          "brisas"
+        ]
+      }
+    },
+    {
+      "id": "access.taxi_not_published",
+      "label": "taxi hasta la portería",
+      "kind": "fact",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "hay taxi hasta brisas",
+        "un taxi me deja en la portería",
+        "tomo un taxi en manizales al parque",
+        "¿hay una ruta de taxi publicada pa' el parque?",
+        "el taxi cuenta como transporte del parque",
+        "is there an official taxi to the gate",
+        "can a taxi drive me to Brisas",
+        "¿y taxi pa' Brisas, sí o no?",
+        "uber o taxi hasta el centro de visitantes",
+        "si el taxi sube, igual mira el pico y placa",
+        "el taxi lo pone la concesion o lo consigo yo",
+        "¿se puede llegar a Brisas en taxi?"
+      ],
+      "hard_negatives": [
+        "llego a brisas con el vehículo propio",
+        "me llamas un taxi",
+        "en brisas el transporte lo maneja uton o lo pone el parque?"
+      ],
+      "answer": {
+        "short": "No tengo una ruta de taxi publicada hasta la portería, ni está descrita como servicio del parque. A Brisas llegas en tu vehículo o con el transporte que gestiona UTON. Confirma con UTON las restricciones de circulación de noviembre de 2026.",
+        "variants": [
+          "No hay un taxi oficial escrito en cómo llegar. Si un carro particular sube a Brisas, no queda exento del pico y placa de noviembre. Confirma con UTON las restricciones de circulación de noviembre de 2026."
+        ],
+        "detail": "Si entras a Brisas en noviembre, un fin de semana o puente, revisa el pico y placa ambiental del Tolima, Resolución 1815 del 24 de julio de 2026, de 5:00 a. m. a 4:00 p. m."
+      },
+      "sources": [
+        {
+          "label": "Parques Nacionales Naturales de Colombia — Parque Nacional Natural Los Nevados",
+          "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "last_verified": "2026-11-21",
+      "related": [
+        "access.hire_vehicle_brisas",
+        "access.no_public_bus",
+        "access.covered_vehicle_required"
+      ],
+      "tags": [
+        "taxi",
+        "brisas",
+        "transporte"
+      ],
+      "entities": {
+        "sector": [
+          "brisas"
+        ]
+      }
+    },
+    {
+      "id": "access.no_park_shuttle",
+      "label": "el parque no opera transporte interno",
+      "kind": "fact",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "hay bus interno del parque",
+        "¿el parque me lleva de un sector a otro?",
+        "hay shuttle de brisas al valle",
+        "¿la buseta del parque me sube al valle?",
+        "transporte al interior lo pone el parque",
+        "does the park run an internal shuttle",
+        "is there a park bus between gates",
+        "quien opera el transporte si el parque no",
+        "en brisas es la uton, en los otros un operador",
+        "no hay carro oficial de un sector a otro",
+        "tengo que coordinar el transporte yo",
+        "¿hay buseta que lo lleve de la portería al atractivo?"
+      ],
+      "hard_negatives": [
+        "no sé si el bus nevado es el parque",
+        "en brisas el transporte lo maneja uton o lo pone el parque?",
+        "el taxi cuenta como transporte del parque"
+      ],
+      "answer": {
+        "short": "El parque no ofrece transporte entre sectores: en Brisas lo gestiona UTON; en los demás, coordina tú mismo o con un operador registrado.",
+        "variants": [
+          "No hay un shuttle del parque entre porterías. Brisas se mueve con UTON; los otros sectores, con un operador registrado o por tu cuenta."
+        ],
+        "detail": "Si entras a Brisas en noviembre, un fin de semana o puente, revisa el pico y placa ambiental del Tolima, Resolución 1815 del 24 de julio de 2026, de 5:00 a. m. a 4:00 p. m."
+      },
+      "sources": [
+        {
+          "label": "Parques Nacionales Naturales de Colombia — Parque Nacional Natural Los Nevados",
+          "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "last_verified": "2026-11-21",
+      "related": [
+        "access.no_public_bus",
+        "access.uton_brisas_transport",
+        "hours_status.pico_y_placa_hours_murillo"
+      ],
+      "tags": [
+        "transporte",
+        "uton",
+        "interno"
+      ]
+    },
+    {
+      "id": "access.no_public_bus",
+      "label": "bus público hasta la portería",
+      "kind": "fact",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "hay bus urbano hasta brisas",
+        "qué bus intermunicipal llega a la portería",
+        "ruta de bus público al parque",
+        "me bajo del bus en la caseta",
+        "¿de la terminal sale bus pal nevado?",
+        "is there a public bus to the gate",
+        "which city bus stops at Brisas",
+        "¿cuál empresa de bus sí sube al parque?",
+        "si hay tarifa de buseta, entonces hay ruta de bus",
+        "como llego en transporte publico al sector norte",
+        "hay colectivo de pueblo en pueblo hasta la entrada",
+        "¿cada cuánto pasa el bus pa' la portería?"
+      ],
+      "hard_negatives": [
+        "puedo entrar en bus",
+        "hay un bus llamado nevado en la terminal",
+        "hay bus interno del parque"
+      ],
+      "answer": {
+        "short": "No tengo una ruta de bus urbano ni intermunicipal publicada hasta una portería, ni empresa ni horario. Que la tarifa de Brisas nombre bus o buseta no crea esa línea. Confirma con UTON las restricciones de circulación de noviembre de 2026.",
+        "variants": [
+          "No hay un bus público escrito hasta la caseta. La categoría de la tarifa es otra cosa. Confirma con UTON las restricciones de circulación de noviembre de 2026."
+        ],
+        "detail": "Si entras a Brisas en noviembre, un fin de semana o puente, revisa el pico y placa ambiental del Tolima, Resolución 1815 del 24 de julio de 2026, de 5:00 a. m. a 4:00 p. m."
+      },
+      "sources": [
+        {
+          "label": "Parques Nacionales Naturales de Colombia — Parque Nacional Natural Los Nevados",
+          "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "last_verified": "2026-11-21",
+      "related": [
+        "access.no_park_shuttle",
+        "access.always_by_land",
+        "access.organized_tour_transport"
+      ],
+      "tags": [
+        "bus",
+        "público",
+        "ruta"
+      ]
+    },
+    {
+      "id": "access.uton_brisas_transport",
+      "label": "transporte de Brisas con UTON",
+      "kind": "procedure",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "en brisas el transporte lo maneja uton o lo pone el parque?",
+        "uton es la concesión del norte",
+        "operacion nevados organiza el carro",
+        "la uton gestiona transporte y guianza allá",
+        "pa' Brisas, ¿UTON es la que me lleva?",
+        "who runs transport at Brisas",
+        "is UTON the north operator",
+        "¿la concesión del norte tiene página en internet?",
+        "reservas ingreso y transporte van con la concesion",
+        "¿quién mueve la gente en Brisas, la UTON?",
+        "¿en el Cisne también me sirve UTON?",
+        "brisa kumanday se coordina con uton"
+      ],
+      "hard_negatives": [
+        "en brisas es la uton, en los otros un operador",
+        "UTON da alojamiento en Brisas",
+        "brisas con uton dentro del plan"
+      ],
+      "answer": {
+        "short": "En Brisas–Kumanday el operador autorizado es la concesión UTON: gestiona reservas, ingreso, guianza, transporte y tienda. Su sitio es https://www.operacionnevados.co. Confirma con UTON las restricciones de circulación de noviembre de 2026.",
+        "variants": [
+          "El transporte del sector norte se pide a UTON, la concesión de Brisas. Su web es https://www.operacionnevados.co. Confirma con UTON las restricciones de circulación de noviembre de 2026."
+        ],
+        "detail": "Si entras a Brisas en noviembre, un fin de semana o puente, revisa el pico y placa ambiental del Tolima, Resolución 1815 del 24 de julio de 2026, de 5:00 a. m. a 4:00 p. m."
+      },
+      "sources": [
+        {
+          "label": "Parques Nacionales Naturales de Colombia — Parque Nacional Natural Los Nevados",
+          "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "last_verified": "2026-11-21",
+      "related": [
+        "access.uton_offices_manizales",
+        "access.hire_vehicle_brisas",
+        "access.operator_transport_other"
+      ],
+      "tags": [
+        "uton",
+        "brisas",
+        "concesión"
+      ],
+      "entities": {
+        "sector": [
+          "brisas"
+        ]
+      }
+    },
+    {
+      "id": "access.uton_offices_manizales",
+      "label": "oficinas de UTON en Manizales",
+      "kind": "fact",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "dónde queda la oficina de uton",
+        "dirección de la concesión en manizales",
+        "carrera 26a 68-44 es de uton",
+        "calle 70 27-70 también es oficina",
+        "barrio palermo, la concesion atiende ahi",
+        "UTON office addresses in Manizales",
+        "what phone numbers can I call UTON in Manizales",
+        "¿hasta qué hora atienden en las oficinas de UTON?",
+        "¿UTON tiene oficina por el lado de Palermo?",
+        "celulares 321 506 6031 y 322 360 3637",
+        "atienden lunes a viernes mañana y tarde",
+        "¿la oficina de UTON en Manizales abre hoy?"
+      ],
+      "hard_negatives": [
+        "la uton gestiona transporte y guianza allá",
+        "horario oficina uton manizales",
+        "¿y el correo de UTON pa' el norte cuál es?"
+      ],
+      "answer": {
+        "short": "Las oficinas de UTON en Manizales están en la carrera 26A #68-44 (barrio Palermo) y en la calle 70 #27-70; atienden de lunes a viernes de 8:00 a. m. a 12:00 m. y de 2:00 p. m. a 5:00 p. m. Celulares: 321 506 6031 y 322 360 3637. Pueden cambiar: confírmalos antes de ir.",
+        "variants": [
+          "Son dos sedes en Manizales, en Palermo y la calle 70, con horario entre semana y celulares publicados. Confírmalos antes de ir, porque pueden cambiar."
+        ]
+      },
+      "sources": [
+        {
+          "label": "Parques Nacionales Naturales de Colombia — Parque Nacional Natural Los Nevados",
+          "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "last_verified": "2026-11-21",
+      "related": [
+        "access.uton_brisas_transport",
+        "access.park_email_routes",
+        "access.park_or_concession_contact"
+      ],
+      "tags": [
+        "uton",
+        "oficina",
+        "teléfono"
+      ],
+      "entities": {
+        "origin": [
+          "manizales"
+        ]
+      }
+    },
+    {
+      "id": "access.park_email_routes",
+      "label": "correo del parque para la visita",
+      "kind": "fact",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "correo del parque los nevados",
+        "nevados@parquesnacionales.gov.co",
+        "a qué mail escribo por la vía",
+        "email del area protegida",
+        "escribir al parque antes de salir",
+        "what email can I use to write to the park",
+        "is nevados@parquesnacionales.gov.co the visit address",
+        "no es el correo de la concesion",
+        "dudas de la visita al area protegida",
+        "cual es el correo que si es del parque",
+        "¿y el correo de UTON pa' el norte cuál es?",
+        "¿a qué correo mando el mensaje al parque?"
+      ],
+      "hard_negatives": [
+        "el correo del parque no reserva el valle",
+        "me comunicas con alguien del parque",
+        "quiero entrenar en el parque, a quién escribo"
+      ],
+      "answer": {
+        "short": "Para dudas de la visita, el correo publicado del área protegida es nevados@parquesnacionales.gov.co. No es el de la concesión UTON. Si el mensaje rebota, revisa la página oficial.",
+        "variants": [
+          "El correo visible del área es nevados@parquesnacionales.gov.co. Úsalo para la visita, y confírmalo en la página oficial si cambia."
+        ]
+      },
+      "sources": [
+        {
+          "label": "Parques Nacionales Naturales de Colombia — Parque Nacional Natural Los Nevados",
+          "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "last_verified": "2026-11-21",
+      "related": [
+        "access.park_or_concession_contact",
+        "access.confirm_road_before",
+        "access.uton_offices_manizales"
+      ],
+      "tags": [
+        "correo",
+        "contacto",
+        "parques"
+      ]
+    },
+    {
+      "id": "access.park_or_concession_contact",
+      "label": "parque o concesión, a quién escribir",
+      "kind": "procedure",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "escribo a uton o al parque",
+        "¿con quién hablo pa' Brisas, UTON o el parque?",
+        "los otros sectores no son uton",
+        "a quien le pido el transporte del norte",
+        "el correo del parque no reserva el valle",
+        "who do I contact for Brisas versus another sector",
+        "is the park email the same as UTON",
+        "concesion para brisas, agencia para el resto",
+        "¿el correo del parque sirve pa' reservar?",
+        "pa' el Cisne, ¿también le pido el carro a UTON?",
+        "dos contactos distintos segun el sector",
+        "uton en brisas y operador registrado en los demas"
+      ],
+      "hard_negatives": [
+        "brisas con uton dentro del plan",
+        "en brisas es la uton, en los otros un operador",
+        "pa' Brisas, ¿UTON es la que me lleva?"
+      ],
+      "answer": {
+        "short": "En Brisas, coordina ingreso y transporte con UTON; en los demás, con un operador registrado. El correo nevados@parquesnacionales.gov.co es del parque, no de UTON.",
+        "variants": [
+          "UTON es el contacto del norte. Los demás sectores van con su operador, y el correo del parque no reemplaza a la concesión."
+        ],
+        "detail": "Si entras a Brisas en noviembre, un fin de semana o puente, revisa el pico y placa ambiental del Tolima, Resolución 1815 del 24 de julio de 2026, de 5:00 a. m. a 4:00 p. m."
+      },
+      "sources": [
+        {
+          "label": "Parques Nacionales Naturales de Colombia — Parque Nacional Natural Los Nevados",
+          "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "last_verified": "2026-11-21",
+      "related": [
+        "access.park_email_routes",
+        "access.uton_brisas_transport",
+        "hours_status.pico_y_placa_hours_murillo"
+      ],
+      "tags": [
+        "contacto",
+        "uton",
+        "correo"
+      ]
+    },
+    {
+      "id": "access.stay_on_official_gate",
+      "label": "usar la portería publicada",
+      "kind": "rule",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "¿me puedo meter por un hueco que vi en el mapa?",
+        "¿hay atajo sin caseta pa' subir más rápido?",
+        "entro por donde salen los de la vereda",
+        "¿me puedo colar sin registrarme?",
+        "una trocha mas corta que la porteria",
+        "can I skip the official gate",
+        "is an unmarked track an entrance",
+        "solo uso la puerta del sector que voy a visitar",
+        "no mezclo brisas con cocora en el mismo ingreso",
+        "el mapa muestra una linea, esa cuenta",
+        "me registro solo en el control oficial de mi sector",
+        "atajo de moto o de a pie por fuera"
+      ],
+      "hard_negatives": [
+        "si la veo en el mapa, puedo entrar por ahi",
+        "quiero la puerta oficial, no un atajo",
+        "entrada de adulto, sin ser extranjero"
+      ],
+      "answer": {
+        "short": "Entra solo por la portería publicada de tu sector y regístrate ahí. Un trazo en un mapa no es una entrada verificada. Brisas, Potosí y Santa Bárbara, El Cedral, Cocora, Juntas y Palomar no se intercambian entre sí.",
+        "variants": [
+          "Usa solo la puerta publicada del sector que vas a visitar. No tomes un atajo que no esté publicado aquí."
+        ]
+      },
+      "sources": [
+        {
+          "label": "Parques Nacionales Naturales de Colombia — Parque Nacional Natural Los Nevados",
+          "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "last_verified": "2026-11-21",
+      "related": [
+        "access.brisas_visitor_center",
+        "access.circuit_not_scenic_loop",
+        "access.esperanza_murillo_corridor"
+      ],
+      "tags": [
+        "portería",
+        "registro",
+        "atajo"
+      ]
+    },
+    {
+      "id": "access.ignore_single_kilometer",
+      "label": "no fiarse de un solo kilómetro",
+      "kind": "explanation",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "en qué kilómetro me desvío",
+        "¿me desvío en el poste 23 o en el 45?",
+        "cuantos kilometros hay antes de brisas",
+        "el ocho queda en el km 45",
+        "la esperanza es el km 23",
+        "which kilometer marker is the turnoff",
+        "why do the official kilometer posts disagree",
+        "18 km y luego el desvio, es el de ahora",
+        "los postes no cuadran, ¿y ahí qué hago?",
+        "sigo los nombres y no el numero",
+        "la esperanza el ocho murillo y brisas",
+        "un solo km me puede dejar mal"
+      ],
+      "hard_negatives": [
+        "74 kilometros es adentro o afuera",
+        "esos kilometros se hacen caminando o en carro",
+        "25 o 37 kilometros, cual es"
+      ],
+      "answer": {
+        "short": "Guíate por los nombres, no por un solo poste: La Esperanza, El Ocho, Murillo y Brisas, sobre la vía Manizales–Bogotá. Las cifras publicadas no coinciden: confírmalas con el operador.",
+        "variants": [
+          "Los nombres que sí se repiten son La Esperanza, El Ocho, Murillo y Brisas. Confirma las cifras con el operador antes de salir."
+        ],
+        "detail": "La guía en inglés de abril de 2016 pone el giro en el kilómetro 23 de La Esperanza y luego 14 km hasta el cruce de Murillo. La reglamentación transitoria de diciembre de 2023 dice el kilómetro 45 en La Esperanza o El Ocho, y 1 km entre el cruce de Murillo y Brisas. El Servicio Geológico, en su página de generalidades y sin fecha de publicación visible, habla de unos 18 km por la vía La Esperanza–Murillo antes del desvío. La página actual nombra el corredor y no publica un poste. Si entras a Brisas en noviembre, un fin de semana o puente, revisa el pico y placa ambiental del Tolima, Resolución 1815 del 24 de julio de 2026, de 5:00 a. m. a 4:00 p. m."
+      },
+      "sources": [
+        {
+          "label": "Parques Nacionales Naturales de Colombia — Parque Nacional Natural Los Nevados",
+          "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+          "retrieved_at": "2026-11-21"
+        },
+        {
+          "label": "Parques Nacionales Naturales — Reglamentación transitoria de ecoturismo, PNN Los Nevados, diciembre de 2023",
+          "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2023/12/ANEXO-PNN-NEVADOS.pdf",
+          "retrieved_at": "2026-11-21"
+        },
+        {
+          "label": "Servicio Geológico Colombiano — Generalidades del volcán Nevado del Ruiz",
+          "url": "https://www2.sgc.gov.co/sgc/volcanes/VolcanNevadoRuiz/Paginas/generalidades-volcan-nevado-ruiz.aspx",
+          "retrieved_at": "2026-11-21"
+        },
+        {
+          "label": "Parques Nacionales Naturales — How to get there, Los Nevados, version 1, April 2016",
+          "url": "https://old.parquesnacionales.gov.co/portal/en/ecotourism/andean-region/los-nevados-national-natural-park/how-to-get-there/",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "last_verified": "2026-11-21",
+      "related": [
+        "access.esperanza_murillo_corridor",
+        "access.from_manizales",
+        "hours_status.pico_y_placa_hours_murillo"
+      ],
+      "tags": [
+        "kilómetro",
+        "esperanza",
+        "desvío"
+      ],
+      "entities": {
+        "sector": [
+          "brisas"
+        ]
+      }
+    },
+    {
+      "id": "access.manizales_brisas_distance",
+      "label": "distancia Manizales hasta Brisas",
+      "kind": "fact",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "cuántos kilómetros de manizales a brisas",
+        "¿cuántos kilómetros son de Manizales pa' Brisas?",
+        "¿los 28 km al volcán son la carretera a Brisas?",
+        "la distancia en carro de manizales a brisas si aparece",
+        "manizales brisas cuantos km",
+        "how far is the drive from Manizales to Brisas",
+        "is 28 km the road distance",
+        "no quiero la distancia en linea recta",
+        "me dijeron que eran unos 40 km, sera",
+        "la distancia del volcan no es el recorrido en carro",
+        "cuanto falta por carretera de verdad",
+        "distancia del centro de manizales a la porteria"
+      ],
+      "hard_negatives": [
+        "brisas a cuantos metros queda",
+        "cuantos kilometros hay antes de brisas",
+        "a cuantos kilometros de manizales queda el ruiz"
+      ],
+      "answer": {
+        "short": "No tengo los kilómetros por carretera de Manizales a Brisas, y la distancia del volcán a la ciudad no es ese recorrido. Confirma con UTON las restricciones de circulación de noviembre de 2026.",
+        "variants": [
+          "El kilometraje vigente de Manizales a Brisas no está publicado. La distancia en línea recta al volcán no sirve como recorrido. Confirma con UTON las restricciones de circulación de noviembre de 2026."
+        ],
+        "detail": "La reglamentación transitoria de diciembre de 2023 anota 40 km para Manizales–La Esperanza–cabaña Brisas. El Servicio Geológico indica 28 km al sureste de Manizales como posición del volcán, en una página sin fecha de publicación visible. No son la misma medida, y la página actual no repite los 40 km. Si entras a Brisas en noviembre, un fin de semana o puente, revisa el pico y placa ambiental del Tolima, Resolución 1815 del 24 de julio de 2026, de 5:00 a. m. a 4:00 p. m."
+      },
+      "sources": [
+        {
+          "label": "Parques Nacionales Naturales de Colombia — Parque Nacional Natural Los Nevados",
+          "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+          "retrieved_at": "2026-11-21"
+        },
+        {
+          "label": "Parques Nacionales Naturales — Reglamentación transitoria de ecoturismo, PNN Los Nevados, diciembre de 2023",
+          "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2023/12/ANEXO-PNN-NEVADOS.pdf",
+          "retrieved_at": "2026-11-21"
+        },
+        {
+          "label": "Servicio Geológico Colombiano — Generalidades del volcán Nevado del Ruiz",
+          "url": "https://www2.sgc.gov.co/sgc/volcanes/VolcanNevadoRuiz/Paginas/generalidades-volcan-nevado-ruiz.aspx",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "last_verified": "2026-11-21",
+      "related": [
+        "access.from_manizales",
+        "access.la_enea_alternate",
+        "access.ignore_single_kilometer"
+      ],
+      "tags": [
+        "distancia",
+        "manizales",
+        "brisas"
+      ],
+      "entities": {
+        "origin": [
+          "manizales"
+        ],
+        "sector": [
+          "brisas"
+        ]
+      }
+    },
+    {
+      "id": "access.from_bogota",
+      "label": "cómo llegar desde Bogotá",
+      "kind": "procedure",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "cómo llego desde bogotá al parque",
+        "salgo de bogotá, por cuál puerta",
+        "¿la ruta de Bogotá pa' Manizales pasa por Letras?",
+        "¿tengo que meterme a Manizales antes del desvío?",
+        "de Bogotá pal Cocora, ¿cuál es la vía?",
+        "how do I get to the park from Bogotá",
+        "must I reach Manizales city before the Letras turnoff",
+        "bogota a brisas por la carretera a caldas",
+        "si voy al tolima no paso por manizales",
+        "el desvio de la esperanza se toma en la via, sin meterme a la ciudad",
+        "de Bogotá, ¿cuál puerta me toca usar?",
+        "no busco un vuelo a la caseta, busco la carretera"
+      ],
+      "hard_negatives": [
+        "pa' salir desde el Tolima, ¿qué puerta me toca?",
+        "pa' Brisas, ¿me sirve la vía a Bogotá por Letras?",
+        "salgo del centro de Manizales, por dónde sigo"
+      ],
+      "answer": {
+        "short": "Desde Bogotá no hay portería propia. Para Brisas, sigue la vía a Manizales por Letras y el corredor La Esperanza–Murillo. Para el Cisne, el Otún o el Tolima usa la puerta de ese sector; no desvíes a Manizales.",
+        "variants": [
+          "Para Brisas sigues la Bogotá–Manizales por Letras y giras al corredor de La Esperanza; no hace falta cruzar la ciudad. Cocora, Juntas, Palomar, Pereira, Villamaría y Santa Rosa son otras puertas."
+        ],
+        "detail": "El Servicio Geológico ubica el Nevado del Ruiz a 140 km al noroeste de Bogotá y a 28 km al sureste de Manizales. Esa página de generalidades no muestra fecha de publicación. Es la posición del volcán, no los kilómetros de carretera hasta una portería. Si entras a Brisas en noviembre, un fin de semana o puente, revisa el pico y placa ambiental del Tolima, Resolución 1815 del 24 de julio de 2026, de 5:00 a. m. a 4:00 p. m."
+      },
+      "sources": [
+        {
+          "label": "Parques Nacionales Naturales de Colombia — Parque Nacional Natural Los Nevados",
+          "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+          "retrieved_at": "2026-11-21"
+        },
+        {
+          "label": "Servicio Geológico Colombiano — Generalidades del volcán Nevado del Ruiz",
+          "url": "https://www2.sgc.gov.co/sgc/volcanes/VolcanNevadoRuiz/Paginas/generalidades-volcan-nevado-ruiz.aspx",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "last_verified": "2026-11-21",
+      "related": [
+        "access.letras_highway",
+        "access.from_ibague_choose",
+        "hours_status.pico_y_placa_hours_murillo"
+      ],
+      "tags": [
+        "bogotá",
+        "letras",
+        "brisas"
+      ],
+      "entities": {
+        "origin": [
+          "bogota"
+        ]
+      }
+    },
+    {
+      "id": "access.from_medellin",
+      "label": "cómo llegar desde Medellín",
+      "kind": "procedure",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "cómo llego desde medellín",
+        "¿hay vía oficial de Medellín pal parque?",
+        "salgo de medellín, cuál portería",
+        "¿Qué entrada uso si salgo de Medellín?",
+        "desde antioquia por donde entro",
+        "how do I get there from Medellín",
+        "is there an official Medellín-to-gate road",
+        "¿A qué ciudad de acceso debo llegar desde Medellín?",
+        "¿primero elijo el sector o salgo directo de Medellín?",
+        "¿Me conviene llegar a Pereira o a Manizales desde Medellín?",
+        "de Medellín pal nevado, ¿por dónde?",
+        "¿Dónde confirmo el trayecto de Medellín a la entrada?"
+      ],
+      "hard_negatives": [
+        "segun la ciudad de donde salgo, por cual sector me toca entrar?",
+        "pa' salir desde el Tolima, ¿qué puerta me toca?",
+        "salgo del centro de Manizales, por dónde sigo"
+      ],
+      "answer": {
+        "short": "Desde Medellín no tengo una ruta oficial completa: elige el sector (Brisas por Letras y La Esperanza, el Cisne por Villamaría o Santa Rosa, el Otún por Potosí o El Cedral, el sur por Cocora, Juntas o Palomar) y coordina el traslado con tu operador. Si vas a Brisas, confirma las restricciones de noviembre de 2026.",
+        "variants": [
+          "Desde Medellín, coordina con tu operador el traslado a la ciudad de tu sector; no tengo un trayecto oficial completo. Si eliges Brisas, confirma las restricciones de noviembre de 2026."
+        ],
+        "detail": "Si entras a Brisas en noviembre, un fin de semana o puente, revisa el pico y placa ambiental del Tolima, Resolución 1815 del 24 de julio de 2026, de 5:00 a. m. a 4:00 p. m."
+      },
+      "sources": [
+        {
+          "label": "Parques Nacionales Naturales de Colombia — Parque Nacional Natural Los Nevados",
+          "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "last_verified": "2026-11-21",
+      "related": [
+        "access.from_manizales",
+        "access.from_pereira_choose",
+        "access.always_by_land"
+      ],
+      "tags": [
+        "medellín",
+        "ruta",
+        "portería"
+      ],
+      "entities": {
+        "origin": [
+          "medellin"
+        ]
+      }
+    },
+    {
+      "id": "access.no_official_travel_time",
+      "label": "sin tiempo oficial de viaje",
+      "kind": "fact",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "cuánto me demoro en carro",
+        "hay un tiempo de viaje oficial desde manizales hasta brisas o nadie lo publica?",
+        "cuanto es la caminata a la laguna",
+        "¿cuánto tiempo se demora uno en llegar al valle?",
+        "¿son 7 horas de viaje, más o menos?",
+        "how long is the drive to the gate",
+        "is there an official walking or driving time",
+        "no me des un tiempo de una guia vieja",
+        "minutos hasta el valle",
+        "cuanto tardo de salento al limite",
+        "hay un tiempo oficial de viaje o no lo dan",
+        "demora del camino, dato oficial"
+      ],
+      "hard_negatives": [
+        "la entrada dura cuatro dias o menos",
+        "límite de hora para llegar a acampar",
+        "cuánto se demora solo hasta El Mosquito"
+      ],
+      "answer": {
+        "short": "No tengo un tiempo oficial de carro ni de caminata, así que no te doy horas de guías viejas. Confirma el tramo con el operador del sector.",
+        "variants": [
+          "No hay una duración vigente publicada. Un horario viejo no es tu tiempo de carretera; confirma el tramo antes de salir."
+        ]
+      },
+      "sources": [
+        {
+          "label": "Parques Nacionales Naturales de Colombia — Parque Nacional Natural Los Nevados",
+          "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "last_verified": "2026-11-21",
+      "related": [
+        "access.cedral_walk_distances",
+        "access.confirm_road_before",
+        "hours_status.pico_y_placa_hours_murillo"
+      ],
+      "tags": [
+        "tiempo",
+        "carro",
+        "caminata"
+      ]
+    },
+    {
+      "id": "access.from_villamaria",
+      "label": "cómo llegar desde Villamaría",
+      "kind": "procedure",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "cómo llego desde villamaria",
+        "¿de Villamaría pa' Potosí, cuál vereda?",
+        "la via del cisne sale de villamaria",
+        "veredas el paramo y potosi",
+        "de villamaria a santa barbara",
+        "how do I get there from Villamaría",
+        "which villages lead from Villamaría to the park",
+        "no es la via de brisas, es la del cisne",
+        "tres trochas destapadas desde ese municipio",
+        "villamaria caldas al sector santa isabel",
+        "salgo de Villamaría pa' la cabaña, ¿cuál vía cojo?",
+        "potosi y el paramo son las veredas"
+      ],
+      "hard_negatives": [
+        "queda en Villamaría esa caseta",
+        "veredas El Páramo y Potosí salen de Villamaría",
+        "posada en Villamaria para la madrugada"
+      ],
+      "answer": {
+        "short": "Desde Villamaría sales por las veredas El Páramo o Potosí hacia la cabaña Potosí y el alto de Santa Bárbara. Son carreteras terciarias destapadas del sector Cisne–Poleka Kasue, igual que la de Santa Rosa: no tomes el corredor de Brisas.",
+        "variants": [
+          "Sales de Villamaría hacia El Páramo o Potosí y llegas a Potosí o a Santa Bárbara por carretera destapada. Esa no es la entrada de Brisas."
+        ]
+      },
+      "sources": [
+        {
+          "label": "Parques Nacionales Naturales de Colombia — Parque Nacional Natural Los Nevados",
+          "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "last_verified": "2026-11-21",
+      "related": [
+        "access.villamaria_not_brisas_road",
+        "access.potosi_control",
+        "access.dirt_roads_cisne"
+      ],
+      "tags": [
+        "villamaría",
+        "potosí",
+        "cisne"
+      ],
+      "entities": {
+        "origin": [
+          "villamaria"
+        ],
+        "sector": [
+          "cisne"
+        ]
+      }
+    },
+    {
+      "id": "access.villamaria_not_brisas_road",
+      "label": "Villamaría no es la vía de Brisas",
+      "kind": "explanation",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "¿de Villamaría uno llega a Brisas?",
+        "por villamaria llego al ruiz en carro",
+        "la via de villamaria es la del norte",
+        "confundo villamaria con manizales",
+        "el cisne y brisas salen del mismo pueblo",
+        "does Villamaría lead to the Brisas gate",
+        "is Villamaría on the Letras road",
+        "voy pal valle de las Tumbas, ¿Villamaría me sirve?",
+        "santa isabel se entra por villamaria, el ruiz no",
+        "no cojo la misma carretera para los dos sectores",
+        "villamaria es puerta del cisne",
+        "brisas se va por letras, no por estas veredas"
+      ],
+      "hard_negatives": [
+        "el Ruiz es de Manizales o de Villamaría",
+        "tour al cisne por villamaria o santa rosa",
+        "el glaciar del Ruiz pasa por Villamaría"
+      ],
+      "answer": {
+        "short": "Villamaría te lleva al Cisne, por El Páramo o Potosí, hasta Potosí y Santa Bárbara. Para Brisas usa el corredor La Esperanza–Murillo, desde Manizales o Murillo, no esas veredas.",
+        "variants": [
+          "Si buscas Brisas, no armes el viaje por Villamaría. Esa vía va al sector del Cisne y de Santa Isabel."
+        ]
+      },
+      "sources": [
+        {
+          "label": "Parques Nacionales Naturales de Colombia — Parque Nacional Natural Los Nevados",
+          "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "last_verified": "2026-11-21",
+      "related": [
+        "access.from_villamaria",
+        "access.from_manizales",
+        "access.circuit_not_scenic_loop"
+      ],
+      "tags": [
+        "villamaría",
+        "brisas",
+        "cisne"
+      ],
+      "entities": {
+        "origin": [
+          "villamaria"
+        ],
+        "sector": [
+          "cisne",
+          "brisas"
+        ]
+      }
+    },
+    {
+      "id": "access.la_cueva_on_the_road",
+      "label": "La Cueva en la vía del Cisne",
+      "kind": "fact",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "la cueva queda de camino",
+        "cabaña la cueva es control",
+        "¿paso por La Cueva pa' Santa Bárbara?",
+        "¿La Cueva es otra puerta distinta?",
+        "desde la cueva tambien se accede al cisne",
+        "is La Cueva a separate gate",
+        "where is La Cueva on the Villamaría road",
+        "la cueva y potosi son cabañas del mismo sector",
+        "no es un pueblo, es un punto del camino",
+        "el centro el cisne tambien se alcanza desde la cueva",
+        "via villamaria la cueva santa barbara",
+        "me citaron en la cueva, es del cisne"
+      ],
+      "hard_negatives": [
+        "La Cueva y Potosí son entradas de esa visita",
+        "La Cueva es salida de los senderos del Cisne",
+        "La Cueva sirve para ir a esa laguna"
+      ],
+      "answer": {
+        "short": "La Cueva es una cabaña del sector Cisne, en la vía de Villamaría hacia Santa Bárbara; desde ahí y desde Potosí también llegas al centro El Cisne. No la uses como portería de Brisas.",
+        "variants": [
+          "La Cueva queda sobre el acceso del Cisne, no es una entrada del Ruiz por Brisas. Potosí y Santa Bárbara son los controles que nombra cómo llegar."
+        ],
+        "detail": "La reglamentación transitoria de diciembre de 2023 describe el ingreso desde Villamaría hasta La Cueva–Santa Bárbara, o por La Telaraña–Hortensias–Potosí. La página actual no repite los kilómetros de esa tabla."
+      },
+      "sources": [
+        {
+          "label": "Parques Nacionales Naturales de Colombia — Parque Nacional Natural Los Nevados",
+          "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+          "retrieved_at": "2026-11-21"
+        },
+        {
+          "label": "Parques Nacionales Naturales — Reglamentación transitoria de ecoturismo, PNN Los Nevados, diciembre de 2023",
+          "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2023/12/ANEXO-PNN-NEVADOS.pdf",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "last_verified": "2026-11-21",
+      "related": [
+        "access.from_villamaria",
+        "access.santa_barbara_control",
+        "access.el_cisne_approach"
+      ],
+      "tags": [
+        "la cueva",
+        "cisne",
+        "cabaña"
+      ],
+      "entities": {
+        "sector": [
+          "cisne"
+        ]
+      }
+    },
+    {
+      "id": "access.potosi_control",
+      "label": "cabaña Potosí como control",
+      "kind": "fact",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "potosi es un control del parque",
+        "la cabaña potosi a que altura esta",
+        "¿cómo hago pa' llegar a Potosí en carro?",
+        "potosi sirve para el cisne y para el otun",
+        "3920 es la cabaña o la cima",
+        "where is the Potosí control cabin",
+        "how high is the Potosí cabin",
+        "¿en Potosí dónde toca registrarse?",
+        "desde villamaria o santa rosa se llega alla",
+        "potosi no es brisas",
+        "potosi queda a unos 3920 o mas bien es la cima",
+        "control de la cabaña, no del pueblo"
+      ],
+      "hard_negatives": [
+        "3920 metros es Potosí o es la laguna",
+        "refugio Potosí",
+        "potosi queda a cuanto para esa visita"
+      ],
+      "answer": {
+        "short": "La cabaña Potosí es el control del Cisne y también punto de salida hacia la Laguna del Otún. Llega por las destapadas desde Villamaría o Santa Rosa de Cabal: está a unos 3920 m y es la cabaña, no una cima.",
+        "variants": [
+          "Potosí queda a unos 3920 m y se alcanza por carretera terciaria desde Villamaría o Santa Rosa. Sirve de control del Cisne y de salida hacia el Otún."
+        ]
+      },
+      "sources": [
+        {
+          "label": "Parques Nacionales Naturales de Colombia — Parque Nacional Natural Los Nevados",
+          "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "last_verified": "2026-11-21",
+      "related": [
+        "access.from_villamaria",
+        "access.from_santa_rosa",
+        "access.otun_via_potosi"
+      ],
+      "tags": [
+        "potosí",
+        "control",
+        "3920"
+      ],
+      "entities": {
+        "sector": [
+          "cisne",
+          "otun"
+        ]
+      }
+    },
+    {
+      "id": "access.santa_barbara_control",
+      "label": "alto de Santa Bárbara",
+      "kind": "fact",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "santa barbara es un control",
+        "el alto de santa barbara donde queda",
+        "potosi y santa barbara son los dos puntos",
+        "¿se llega a Santa Bárbara por la destapada?",
+        "santa barbara no es el pueblo de caldas",
+        "where is the Santa Bárbara checkpoint",
+        "is Santa Bárbara the same as Potosí",
+        "¿el registro es allá en el alto y no en Brisas?",
+        "el alto de santa barbara es donde se encuentran las vias del cisne?",
+        "pa' Conejeras, ¿el registro queda por ese lado?",
+        "alto de santa barbara sector cisne",
+        "¿es el Santa Bárbara del Cisne o de otro lado?"
+      ],
+      "hard_negatives": [
+        "de villamaria a santa barbara",
+        "miro invías para saber si paso a santa bárbara",
+        "Cisne Santa Bárbara Potosí está en el plan"
+      ],
+      "answer": {
+        "short": "El alto de Santa Bárbara y la cabaña Potosí son los dos controles del sector Cisne. Llega por carretera terciaria desde Villamaría y Santa Rosa, no por el carreteable de Brisas.",
+        "variants": [
+          "Santa Bárbara y Potosí son los controles del sector Cisne. Se llega por carretera terciaria, no por el carreteable de Brisas."
+        ]
+      },
+      "sources": [
+        {
+          "label": "Parques Nacionales Naturales de Colombia — Parque Nacional Natural Los Nevados",
+          "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "last_verified": "2026-11-21",
+      "related": [
+        "access.potosi_control",
+        "access.conejeras_not_brisas",
+        "access.la_cueva_on_the_road"
+      ],
+      "tags": [
+        "santa bárbara",
+        "control",
+        "cisne"
+      ],
+      "entities": {
+        "sector": [
+          "cisne"
+        ]
+      }
+    },
+    {
+      "id": "access.dirt_roads_cisne",
+      "label": "vías destapadas hacia el Cisne",
+      "kind": "fact",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "las vias al cisne son destapadas",
+        "carretera terciaria hasta potosi",
+        "¿pa' el Cisne sí me piden 4x4?",
+        "tres trochas al sector",
+        "se puede ir en carro bajo",
+        "are the Cisne roads paved",
+        "do I need a 4x4 for those dirt roads",
+        "destapada desde villamaria y desde santa rosa",
+        "con quien planeo la trocha del cisne",
+        "no es pavimento hasta la cabaña",
+        "desde villamaria hasta el cisne el piso es trocha y no pavimento?",
+        "¿importa la marca del carro pa' esas trochas?"
+      ],
+      "hard_negatives": [
+        "no son desvios de una sola carretera",
+        "tour al cisne por villamaria o santa rosa",
+        "la vista del sector Cisne"
+      ],
+      "answer": {
+        "short": "Las tres vías al Cisne son carreteras terciarias destapadas hasta Potosí y Santa Bárbara. No tengo un tipo de carro indicado: planéalas con un prestador autorizado de ese sector.",
+        "variants": [
+          "Hasta Potosí y Santa Bárbara se va por destapada. La página no nombra un tipo de carro: cuadra el viaje con un prestador de ese sector."
+        ],
+        "detail": "La tabla de la reglamentación transitoria de diciembre de 2023, adaptada del POE, anota 42 km para Villamaría–La Telaraña–Hortensias–Potosí–Laguna y 60 km para Villamaría–Playa Larga–La Cueva–Santa Bárbara–Potosí. La página actual no repite esas distancias."
+      },
+      "sources": [
+        {
+          "label": "Parques Nacionales Naturales de Colombia — Parque Nacional Natural Los Nevados",
+          "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+          "retrieved_at": "2026-11-21"
+        },
+        {
+          "label": "Parques Nacionales Naturales — Reglamentación transitoria de ecoturismo, PNN Los Nevados, diciembre de 2023",
+          "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2023/12/ANEXO-PNN-NEVADOS.pdf",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "last_verified": "2026-11-21",
+      "related": [
+        "access.from_villamaria",
+        "access.from_santa_rosa",
+        "access.mountain_road_conditions"
+      ],
+      "tags": [
+        "destapada",
+        "cisne",
+        "terciaria"
+      ],
+      "entities": {
+        "sector": [
+          "cisne"
+        ]
+      }
+    },
+    {
+      "id": "access.el_cisne_approach",
+      "label": "cómo llegar al centro El Cisne",
+      "kind": "procedure",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "cómo llego al cisne",
+        "centro de visitantes el cisne por donde",
+        "¿pa' Poleka Kasue por qué vía me meto?",
+        "¿paramillo del Cisne es la misma carretera?",
+        "de villamaria o de santa rosa al centro",
+        "how do I reach the El Cisne center",
+        "which road leads to the Cisne visitor center",
+        "el cisne no es brisas",
+        "¿llego por Potosí, La Cueva o Santa Bárbara, cuál?",
+        "tres destapadas hasta los controles",
+        "¿pa' Santa Isabel por qué vía se llega?",
+        "el centro queda en ese sector, no en el norte"
+      ],
+      "hard_negatives": [
+        "el centro el cisne tambien se alcanza desde la cueva",
+        "¿de Santa Rosa pa' el Cisne, cómo me toca ir?",
+        "desde El Cisne qué recorridos hay"
+      ],
+      "answer": {
+        "short": "Al centro El Cisne (sector Cisne–Poleka Kasue) llegas desde Villamaría por El Páramo o Potosí, o desde Santa Rosa de Cabal por la vereda Páramo de Santa Rosa. Las tres son destapadas y llevan a la cabaña Potosí y al alto de Santa Bárbara. También se entra desde La Cueva y Potosí.",
+        "variants": [
+          "La vía al centro El Cisne sale de Villamaría o de Santa Rosa, por destapada, hasta Potosí y Santa Bárbara. No es el carreteable de Brisas."
+        ]
+      },
+      "sources": [
+        {
+          "label": "Parques Nacionales Naturales de Colombia — Parque Nacional Natural Los Nevados",
+          "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "last_verified": "2026-11-21",
+      "related": [
+        "access.from_villamaria",
+        "access.la_cueva_on_the_road",
+        "access.dirt_roads_cisne"
+      ],
+      "tags": [
+        "cisne",
+        "ruta",
+        "destapada"
+      ],
+      "entities": {
+        "sector": [
+          "cisne"
+        ]
+      }
+    },
+    {
+      "id": "access.conejeras_not_brisas",
+      "label": "Conejeras no sale de Brisas",
+      "kind": "procedure",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "¿pa' Conejeras me sirve Brisas o no?",
+        "la cumbre de santa isabel sale del carreteable",
+        "registro de conejeras en que control",
+        "pa' Conejeras, ¿por Villamaría o por Letras?",
+        "el sendero conejeras es del cisne",
+        "is Conejeras reached from Brisas",
+        "where do I check in for the Conejeras trail",
+        "¿Tengo que pasar por el control antes de hacer Conejeras?",
+        "potosi o santa barbara, no el valle de tumbas",
+        "cumbre del nevado santa isabel por que puerta",
+        "¿La entrada de Conejeras es distinta de la del Ruiz?",
+        "¿En qué control me registro para ir a Conejeras?"
+      ],
+      "hard_negatives": [
+        "Conejeras es la vía a la cumbre",
+        "Conejeras tiene infraestructura o solo camino",
+        "qué me llevo pa' Conejeras?"
+      ],
+      "answer": {
+        "short": "El sendero Conejeras, hacia la cumbre de Santa Isabel, no sale del carreteable de Brisas. Te registras en Potosí o en el alto de Santa Bárbara, el día anterior al ingreso programado.",
+        "variants": [
+          "Para Conejeras te registras en Potosí o Santa Bárbara, no en Brisas, y ese paso se hace el día antes de la cumbre."
+        ]
+      },
+      "sources": [
+        {
+          "label": "Parques Nacionales Naturales de Colombia — Parque Nacional Natural Los Nevados",
+          "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "last_verified": "2026-11-21",
+      "related": [
+        "access.santa_barbara_control",
+        "access.potosi_control",
+        "access.from_villamaria"
+      ],
+      "tags": [
+        "conejeras",
+        "cisne",
+        "registro"
+      ],
+      "entities": {
+        "sector": [
+          "cisne"
+        ]
+      }
+    },
+    {
+      "id": "access.from_santa_rosa",
+      "label": "cómo llegar desde Santa Rosa",
+      "kind": "procedure",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "cómo llego desde santa rosa de cabal",
+        "¿por cuál vereda sale uno de Santa Rosa?",
+        "¿de Santa Rosa a Potosí es destapada?",
+        "¿de Santa Rosa pa' el Cisne, cómo me toca ir?",
+        "pa' Santa Bárbara, ¿saliendo de Santa Rosa?",
+        "how do I get there from Santa Rosa de Cabal",
+        "como salgo de santa rosa de cabal hacia potosi y santa barbara?",
+        "paramo santa rosa es la vereda de salida",
+        "destapada desde santa rosa al control",
+        "no salgo de pereira para esta puerta",
+        "santa rosa de cabal al sector cisne",
+        "llegar a la cabaña potosi desde santa rosa"
+      ],
+      "hard_negatives": [
+        "quedarme en Santa Rosa antes de ir al nevado",
+        "santa rosa es risaralda, esa vía sirve",
+        "destapada desde villamaria y desde santa rosa"
+      ],
+      "answer": {
+        "short": "Desde Santa Rosa de Cabal sales por la vereda Páramo de Santa Rosa, por carretera terciaria destapada, hasta Potosí y el alto de Santa Bárbara. Es una de las tres vías del Cisne. No es el camino de Pereira por El Cedral.",
+        "variants": [
+          "Sales de Santa Rosa por Páramo de Santa Rosa y llegas a los controles de Potosí y Santa Bárbara. El Cedral es la otra puerta, la de Pereira."
+        ],
+        "detail": "La tabla de diciembre de 2023 anota 45 km para Santa Rosa de Cabal–Potosí. La página actual no repite esa distancia."
+      },
+      "sources": [
+        {
+          "label": "Parques Nacionales Naturales de Colombia — Parque Nacional Natural Los Nevados",
+          "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+          "retrieved_at": "2026-11-21"
+        },
+        {
+          "label": "Parques Nacionales Naturales — Reglamentación transitoria de ecoturismo, PNN Los Nevados, diciembre de 2023",
+          "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2023/12/ANEXO-PNN-NEVADOS.pdf",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "last_verified": "2026-11-21",
+      "related": [
+        "access.santa_rosa_vs_cedral",
+        "access.potosi_control",
+        "access.dirt_roads_cisne"
+      ],
+      "tags": [
+        "santa rosa",
+        "potosí",
+        "destapada"
+      ],
+      "entities": {
+        "origin": [
+          "santa_rosa"
+        ],
+        "sector": [
+          "cisne"
+        ]
+      }
+    },
+    {
+      "id": "access.santa_rosa_vs_cedral",
+      "label": "Santa Rosa no es El Cedral",
+      "kind": "explanation",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "santa rosa y pereira entran por el mismo sitio",
+        "¿El Cedral queda dentro de Santa Rosa?",
+        "paramo de santa rosa es el cedral",
+        "las dos son la via de la laguna",
+        "me enredo entre Potosí y El Cedral",
+        "is Santa Rosa the same trailhead as El Cedral",
+        "do both towns use the Cedral road",
+        "una es destapada a potosi y la otra es pereira",
+        "¿Santa Rosa y El Cedral son una misma puerta?",
+        "¿en Risaralda hay dos entradas distintas?",
+        "santa rosa potosi, pereira el cedral",
+        "cual de las dos va a la laguna"
+      ],
+      "hard_negatives": [
+        "santa rosa es risaralda, esa vía sirve",
+        "del Cedral a la laguna es una caminata",
+        "El Cedral está en la laguna"
+      ],
+      "answer": {
+        "short": "Desde Santa Rosa de Cabal vas por la vereda Páramo de Santa Rosa hasta Potosí y Santa Bárbara. Desde Pereira vas por La Florida y El Cedral, y de ahí a pie. Ambas pueden acercarte a la Laguna del Otún, pero no son el mismo punto de partida.",
+        "variants": [
+          "No salgas de Santa Rosa buscando el letrero de El Cedral. Potosí es la puerta de Santa Rosa; El Cedral es la de Pereira."
+        ]
+      },
+      "sources": [
+        {
+          "label": "Parques Nacionales Naturales de Colombia — Parque Nacional Natural Los Nevados",
+          "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "last_verified": "2026-11-21",
+      "related": [
+        "access.from_santa_rosa",
+        "access.from_pereira_cedral",
+        "access.choose_otun_trailhead"
+      ],
+      "tags": [
+        "santa rosa",
+        "cedral",
+        "otún"
+      ],
+      "entities": {
+        "origin": [
+          "santa_rosa",
+          "pereira"
+        ],
+        "sector": [
+          "cisne",
+          "otun"
+        ]
+      }
+    },
+    {
+      "id": "access.from_pereira_cedral",
+      "label": "cómo llegar desde Pereira por El Cedral",
+      "kind": "procedure",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "cómo llego desde pereira",
+        "¿pa' El Cedral se pasa por La Florida?",
+        "pa' la laguna del Otún, ¿salgo de Pereira?",
+        "¿hasta El Cedral sí cabe el carro?",
+        "corregimiento la florida y despues a pie",
+        "how do I get from Pereira to El Cedral",
+        "where does the drive from Pereira end",
+        "¿pa' El Bosque o El Cedral, por dónde me meto?",
+        "salgo de pereira al sector otun",
+        "no es la destapada de santa rosa",
+        "camino de herradura despues del cedral",
+        "desde pereira bajo a la florida y al cedral, y de ahi camino a la laguna?"
+      ],
+      "hard_negatives": [
+        "la caminata sale de pereira o del cedral",
+        "la subida desde El Cedral",
+        "El Cedral está en la laguna"
+      ],
+      "answer": {
+        "short": "Desde Pereira sales en carro hacia La Florida y el sitio El Cedral. Ahí empieza la caminata: unos 7,5 km hasta el límite del parque y 18 km hasta la Laguna del Otún. No es la vía de Santa Rosa a Potosí.",
+        "variants": [
+          "El carro desde Pereira llega por La Florida hasta El Cedral. Después caminas unos 7,5 km al límite y 18 km a la laguna, no por la destapada de Santa Rosa."
+        ],
+        "detail": "La reglamentación transitoria de diciembre de 2023 encadena La Florida–La Suiza–El Cedral y anota 26 km para Pereira–La Suiza–El Cedral. La guía de abril de 2016 también decía unos 26 km hasta el fin del carro. La página actual no repite esos 26 km; sí repite los 7,5 km y los 18 km a pie."
+      },
+      "sources": [
+        {
+          "label": "Parques Nacionales Naturales de Colombia — Parque Nacional Natural Los Nevados",
+          "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+          "retrieved_at": "2026-11-21"
+        },
+        {
+          "label": "Parques Nacionales Naturales — Reglamentación transitoria de ecoturismo, PNN Los Nevados, diciembre de 2023",
+          "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2023/12/ANEXO-PNN-NEVADOS.pdf",
+          "retrieved_at": "2026-11-21"
+        },
+        {
+          "label": "Parques Nacionales Naturales — How to get there, Los Nevados, version 1, April 2016",
+          "url": "https://old.parquesnacionales.gov.co/portal/en/ecotourism/andean-region/los-nevados-national-natural-park/how-to-get-there/",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "last_verified": "2026-11-21",
+      "related": [
+        "access.cedral_walk_distances",
+        "access.cedral_and_bosque_names",
+        "access.santa_rosa_vs_cedral"
+      ],
+      "tags": [
+        "pereira",
+        "cedral",
+        "otún"
+      ],
+      "entities": {
+        "origin": [
+          "pereira"
+        ],
+        "sector": [
+          "otun"
+        ]
+      }
+    },
+    {
+      "id": "access.cedral_walk_distances",
+      "label": "distancia y tiempo desde El Cedral",
+      "kind": "fact",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "cuántos km a pie desde el cedral",
+        "7,5 km hasta el límite",
+        "18 km a la laguna del otun",
+        "la caminata sale de pereira o del cedral",
+        "¿cuánto camino a pie hay desde El Cedral?",
+        "how many kilometers is the footpath from El Cedral to Laguna del Otún",
+        "is 7.5 km the whole way to Otún",
+        "del cedral al limite y de ahi a la laguna",
+        "esos kilometros se hacen caminando o en carro",
+        "¿esas distancias son aproximadas o exactas?",
+        "¿los 18 km son desde El Cedral o desde Pereira?",
+        "distancia de la caminata del otun"
+      ],
+      "hard_negatives": [
+        "del Cedral a la laguna es una caminata",
+        "25 o 37 kilometros, cual es",
+        "74 kilometros es adentro o afuera"
+      ],
+      "answer": {
+        "short": "Desde El Cedral son unos 7,5 km a pie hasta el límite del parque y 18 km hasta la Laguna del Otún. Son distancias aproximadas de esa caminata, no del carro desde Pereira. No tengo las horas publicadas.",
+        "variants": [
+          "A pie, después de El Cedral, son unos 7,5 km para tocar el límite y 18 km para llegar a la laguna. El carro no recorre esas dos cifras."
+        ]
+      },
+      "sources": [
+        {
+          "label": "Parques Nacionales Naturales de Colombia — Parque Nacional Natural Los Nevados",
+          "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "last_verified": "2026-11-21",
+      "related": [
+        "access.from_pereira_cedral",
+        "access.no_official_travel_time",
+        "access.otun_via_potosi"
+      ],
+      "tags": [
+        "cedral",
+        "7,5",
+        "18"
+      ],
+      "entities": {
+        "sector": [
+          "otun"
+        ]
+      }
+    },
+    {
+      "id": "access.cedral_and_bosque_names",
+      "label": "El Cedral y la vereda El Bosque",
+      "kind": "explanation",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "¿El Bosque y El Cedral son el mismo lugar?",
+        "pereira por la vereda el bosque",
+        "la florida el cedral o el bosque",
+        "dos nombres del lado de pereira",
+        "me citan en el bosque y yo iba al cedral",
+        "are El Bosque and El Cedral the same trailhead",
+        "which name should I give the driver",
+        "pa' la laguna del Otún, ¿El Bosque o El Cedral?",
+        "El Bosque y El Cedral son lo mismo o son dos sitios?",
+        "¿dónde me encuentro con el operador, pa' la laguna?",
+        "vereda el bosque hacia la laguna",
+        "el cedral es el sitio y el bosque la vereda"
+      ],
+      "hard_negatives": [
+        "El Cedral está en la laguna",
+        "del Cedral a la laguna es una caminata",
+        "¿pa' El Bosque o El Cedral, por dónde me meto?"
+      ],
+      "answer": {
+        "short": "En el sector Otún, El Bosque (vereda) y El Cedral son nombres del lado de Pereira hacia la laguna. No son dos ciudades. Confirma el punto exacto de encuentro con quien coordina el ingreso.",
+        "variants": [
+          "El Bosque y El Cedral están del lado de Pereira hacia la laguna. No asumas que son el mismo punto: confírmalo con el operador."
+        ],
+        "detail": "El reglamento de diciembre de 2023 encadena La Florida–La Suiza–El Cedral antes del camino de herradura. No declara que El Bosque y El Cedral sean el mismo letrero."
+      },
+      "sources": [
+        {
+          "label": "Parques Nacionales Naturales de Colombia — Parque Nacional Natural Los Nevados",
+          "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+          "retrieved_at": "2026-11-21"
+        },
+        {
+          "label": "Parques Nacionales Naturales — Reglamentación transitoria de ecoturismo, PNN Los Nevados, diciembre de 2023",
+          "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2023/12/ANEXO-PNN-NEVADOS.pdf",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "last_verified": "2026-11-21",
+      "related": [
+        "access.from_pereira_cedral",
+        "access.choose_otun_trailhead",
+        "access.santa_rosa_vs_cedral"
+      ],
+      "tags": [
+        "cedral",
+        "el bosque",
+        "pereira"
+      ],
+      "entities": {
+        "origin": [
+          "pereira"
+        ],
+        "sector": [
+          "otun"
+        ]
+      }
+    },
+    {
+      "id": "access.otun_via_potosi",
+      "label": "Laguna del Otún por Potosí",
+      "kind": "procedure",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "la laguna se entra por potosi",
+        "otro camino al otun distinto al cedral",
+        "carro hasta la cabaña y luego a pie",
+        "potosi hacia la laguna",
+        "villamaria o santa rosa y despues camino",
+        "can I reach Otún lake via Potosí",
+        "is Potosí a second start for the lake",
+        "no es la caminata de el cedral",
+        "desde villamaria o santa rosa se llega en carro hasta la cabaña de la laguna?",
+        "¿pa' la laguna desde La Linda y Potosí, cómo es?",
+        "elijo potosi para la laguna",
+        "cuando el carro ya no sigue, ahi empieza el tramo caminando hasta el agua?"
+      ],
+      "hard_negatives": [
+        "visita por Potosí a la laguna",
+        "3920 metros es Potosí o es la laguna",
+        "de Potosí se puede seguir hasta la laguna"
+      ],
+      "answer": {
+        "short": "A la Laguna del Otún también se llega en carro hasta la cabaña Potosí, por las vías del Cisne desde Villamaría o Santa Rosa, y de ahí a pie. Es distinto de la caminata de El Cedral. No tengo kilómetros publicados para ese tramo después de la cabaña.",
+        "variants": [
+          "Si entras por Potosí, llegas en la destapada del Cisne y luego caminas a la laguna. Quien sale de Pereira camina desde El Cedral."
+        ],
+        "detail": "El reglamento de diciembre de 2023 describe ese ingreso desde Santa Rosa de Cabal–La Linda–Potosí y luego por camino. La página actual no repite el nombre La Linda ni una distancia de la cabaña a la laguna."
+      },
+      "sources": [
+        {
+          "label": "Parques Nacionales Naturales de Colombia — Parque Nacional Natural Los Nevados",
+          "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+          "retrieved_at": "2026-11-21"
+        },
+        {
+          "label": "Parques Nacionales Naturales — Reglamentación transitoria de ecoturismo, PNN Los Nevados, diciembre de 2023",
+          "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2023/12/ANEXO-PNN-NEVADOS.pdf",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "last_verified": "2026-11-21",
+      "related": [
+        "access.potosi_control",
+        "access.choose_otun_trailhead",
+        "access.from_santa_rosa"
+      ],
+      "tags": [
+        "otún",
+        "potosí",
+        "caminata"
+      ],
+      "entities": {
+        "sector": [
+          "otun",
+          "cisne"
+        ]
+      }
+    },
+    {
+      "id": "access.choose_otun_trailhead",
+      "label": "elegir el inicio hacia el Otún",
+      "kind": "procedure",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "dos formas de llegar a la laguna",
+        "potosi o el cedral, cual escojo",
+        "inicio de la caminata al otun",
+        "¿hay otra portería pa' llegar a la laguna?",
+        "desde que ciudad salgo a la laguna",
+        "Potosí or El Cedral for Otún lake",
+        "which trailhead should I use for the lake",
+        "villamaria santa rosa o pereira",
+        "¿las dos llegan a la laguna por el mismo camino?",
+        "elijo una antes de salir",
+        "potosi y el cedral son dos comienzos distintos hacia la laguna?",
+        "laguna del otun por donde empiezo"
+      ],
+      "hard_negatives": [
+        "del Cedral a la laguna es una caminata",
+        "de Potosí se puede seguir hasta la laguna",
+        "cual de las dos va a la laguna"
+      ],
+      "answer": {
+        "short": "Hay dos inicios para la Laguna del Otún: en carro hasta Potosí, desde Villamaría o Santa Rosa, y luego a pie; o desde Pereira por La Florida y El Cedral, con unos 7,5 km al límite y 18 km a la laguna. No tengo una tercera portería publicada: elige uno antes de salir.",
+        "variants": [
+          "Potosí y El Cedral son los dos comienzos publicados. El primero se acerca por las destapadas del Cisne; el segundo sale de Pereira y sigue a pie unos 7,5 km al límite y 18 km a la laguna."
+        ]
+      },
+      "sources": [
+        {
+          "label": "Parques Nacionales Naturales de Colombia — Parque Nacional Natural Los Nevados",
+          "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "last_verified": "2026-11-21",
+      "related": [
+        "access.otun_via_potosi",
+        "access.from_pereira_cedral",
+        "access.santa_rosa_vs_cedral"
+      ],
+      "tags": [
+        "otún",
+        "potosí",
+        "cedral"
+      ],
+      "entities": {
+        "sector": [
+          "otun"
+        ]
+      }
+    },
+    {
+      "id": "access.from_pereira_choose",
+      "label": "desde Pereira hay que elegir puerta",
+      "kind": "procedure",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "desde pereira cuál entrada",
+        "pereira brisas o pereira cedral",
+        "salgo de pereira al parque",
+        "¿qué vía me toca coger desde Pereira?",
+        "pereira no es manizales",
+        "which gate do I use if I start in Pereira",
+        "from Pereira, is Brisas the published road",
+        "saliendo de pereira tengo una sola puerta o hay que escoger?",
+        "potosi no sale como carretera directa de pereira",
+        "¿desde Pereira me sirve pa' Brisas o no?",
+        "pereira hacia los nevados por donde",
+        "no hay una sola via pereira parque"
+      ],
+      "hard_negatives": [
+        "la caminata sale de pereira o del cedral",
+        "no salgo de pereira para esta puerta",
+        "cómo llego desde pereira"
+      ],
+      "answer": {
+        "short": "Desde Pereira la vía publicada es La Florida y El Cedral, y luego a pie hacia la Laguna del Otún. Potosí se alcanza por las carreteras del Cisne, desde Villamaría o Santa Rosa, no desde Pereira. A Brisas se llega desde Manizales o Murillo.",
+        "variants": [
+          "Si estás en Pereira y quieres la laguna, sigue a El Cedral. Brisas y Potosí salen de otras ciudades, no de un desvío de Pereira."
+        ]
+      },
+      "sources": [
+        {
+          "label": "Parques Nacionales Naturales de Colombia — Parque Nacional Natural Los Nevados",
+          "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "last_verified": "2026-11-21",
+      "related": [
+        "access.from_pereira_cedral",
+        "access.from_santa_rosa",
+        "access.from_manizales"
+      ],
+      "tags": [
+        "pereira",
+        "cedral",
+        "elegir"
+      ],
+      "entities": {
+        "origin": [
+          "pereira"
+        ],
+        "sector": [
+          "otun"
+        ]
+      }
+    },
+    {
+      "id": "access.from_salento_cocora",
+      "label": "cómo llegar desde Salento por Cocora",
+      "kind": "procedure",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "cómo llego desde salento",
+        "vereda cocora hasta el límite",
+        "14 km por cocora",
+        "¿de Salento me toca ir pal Cocora primero?",
+        "valle del cocora y despues el parque",
+        "how do I get from Salento to the park boundary",
+        "is Salento itself the gate",
+        "pa' el Quindío, ¿me toca por Cocora?",
+        "catorce kilometros hasta el limite del parque",
+        "¿de Salento toca pasar por el Cocora antes del parque?",
+        "¿eso no es Brisas ni Potosí, verdad?",
+        "salento cocora nevado del tolima"
+      ],
+      "hard_negatives": [
+        "la travesía de Juntas al Cocora",
+        "pasar la laguna y salir por Cocora",
+        "esa lagunita sale en la travesía al Cocora?"
+      ],
+      "answer": {
+        "short": "Desde Salento vas por la vereda Cocora: son 14 km hasta el límite del parque. El pueblo no es la portería; sigues al Valle del Cocora, punto de atención de Quindío–Dulima. Confirma el registro con el operador de ese sector.",
+        "variants": [
+          "Salento es la salida y Cocora el corredor. La cifra vigente es 14 km por esa vereda hasta el límite del parque."
+        ]
+      },
+      "sources": [
+        {
+          "label": "Parques Nacionales Naturales de Colombia — Parque Nacional Natural Los Nevados",
+          "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "last_verified": "2026-11-21",
+      "related": [
+        "access.cocora_before_park",
+        "access.cocora_registration",
+        "access.quindio_gate_is_cocora"
+      ],
+      "tags": [
+        "salento",
+        "cocora",
+        "14 km"
+      ],
+      "entities": {
+        "origin": [
+          "salento"
+        ],
+        "sector": [
+          "quindio"
+        ]
+      }
+    },
+    {
+      "id": "access.cocora_before_park",
+      "label": "Cocora todavía no es el límite",
+      "kind": "explanation",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "el valle del cocora ya es el parque",
+        "¿las palmas ya son la portería?",
+        "entre las palmas ya entré",
+        "¿Cocora y el límite del parque son lo mismo?",
+        "14 km hasta donde empieza el area",
+        "is the Cocora valley already inside the park",
+        "do the palm trees mark the gate",
+        "puedo estar en cocora y seguir fuera",
+        "el limite queda despues de la vereda",
+        "no doy la vuelta en las palmas",
+        "el punto de atencion no es el aviso de que ya pase",
+        "cocora acerca, el limite esta mas adelante"
+      ],
+      "hard_negatives": [
+        "pasar la laguna y salir por Cocora",
+        "la travesía de Juntas al Cocora",
+        "valle del cocora y despues el parque"
+      ],
+      "answer": {
+        "short": "El Valle del Cocora es el corredor y el punto de atención, no el aviso de que ya pasaste el límite. El límite está a 14 km por la vereda Cocora. Puedes estar entre palmas y aún no haber entrado por esa portería.",
+        "variants": [
+          "No des la vuelta en las palmas creyendo que esa es la entrada. Cocora acerca; el límite está 14 km por la vereda."
+        ]
+      },
+      "sources": [
+        {
+          "label": "Parques Nacionales Naturales de Colombia — Parque Nacional Natural Los Nevados",
+          "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "last_verified": "2026-11-21",
+      "related": [
+        "access.from_salento_cocora",
+        "access.cocora_registration",
+        "access.three_south_paths"
+      ],
+      "tags": [
+        "cocora",
+        "límite",
+        "palmas"
+      ],
+      "entities": {
+        "sector": [
+          "quindio"
+        ]
+      }
+    },
+    {
+      "id": "access.cocora_registration",
+      "label": "registro en el Valle del Cocora",
+      "kind": "fact",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "dónde me registro en cocora",
+        "¿en el Quindío dónde toca registrarse?",
+        "la puerta azul sigue siendo el control",
+        "kilometro 11 de salento cocora",
+        "truchera es el registro de ahora",
+        "where do I check in for the Cocora access",
+        "is the blue gate still the checkpoint",
+        "en el valle del cocora es donde me toca registrarme",
+        "¿y el registro es en los 2400 metros?",
+        "¿en Cocora toca registrarse en la puerta azul?",
+        "no doy por sentado el km 11",
+        "¿el registro de Dulima también es en Cocora?"
+      ],
+      "hard_negatives": [
+        "toca registrarnos aquí en la entrada?",
+        "hasta qué hora dejan registrarse en el cocora",
+        "la travesía de Juntas al Cocora"
+      ],
+      "answer": {
+        "short": "El punto de atención de Quindío–Dulima es el Valle del Cocora. En diciembre de 2023 el registro estaba en la puerta azul de la truchera, kilómetro 11, a unos 2.400 m: confirma con el operador que el mostrador siga ahí.",
+        "variants": [
+          "Hoy el punto es el Valle del Cocora. En diciembre de 2023 el texto precisaba el kilómetro 11, la puerta azul y unos 2.400 m, y eso no garantiza el mismo mostrador."
+        ]
+      },
+      "sources": [
+        {
+          "label": "Parques Nacionales Naturales de Colombia — Parque Nacional Natural Los Nevados",
+          "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+          "retrieved_at": "2026-11-21"
+        },
+        {
+          "label": "Parques Nacionales Naturales — Reglamentación transitoria de ecoturismo, PNN Los Nevados, diciembre de 2023",
+          "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2023/12/ANEXO-PNN-NEVADOS.pdf",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "last_verified": "2026-11-21",
+      "related": [
+        "access.from_salento_cocora",
+        "access.cocora_before_park",
+        "access.control_coordinates"
+      ],
+      "tags": [
+        "cocora",
+        "registro",
+        "2023"
+      ],
+      "entities": {
+        "sector": [
+          "quindio"
+        ]
+      }
+    },
+    {
+      "id": "access.armenia_salento_road",
+      "label": "Armenia como aproximación a Cocora",
+      "kind": "explanation",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "desde armenia cómo llego",
+        "armenia salento cocora cuantos km",
+        "25 o 37 kilometros, cual es",
+        "¿Armenia sirve de portería?",
+        "¿la vía pavimentada llega hasta el valle?",
+        "how do I approach the park from Armenia",
+        "which kilometer figure should I trust",
+        "armenia cuenta como otra entrada al parque",
+        "me guio por los km de la vereda o por los viejos",
+        "14 km hasta el limite, no el de armenia",
+        "salgo de armenia hacia salento",
+        "¿por qué no coinciden los km de 2023?"
+      ],
+      "hard_negatives": [
+        "armenia es via, no caseta",
+        "74 kilometros es adentro o afuera",
+        "14 km hasta donde empieza el area"
+      ],
+      "answer": {
+        "short": "Armenia no es portería: desde ahí vas hacia Salento y, por la vereda Cocora, hay 14 km hasta el límite. En diciembre de 2023 figuran 25 km en el texto y 37 km en la tabla: no uses ninguna de esas dos cifras.",
+        "variants": [
+          "Desde Armenia vas hacia Salento y Cocora, sin portería propia. Quédate con los 14 km de la vereda hasta el límite; las cifras de 2023 se contradicen."
+        ],
+        "detail": "La guía de abril de 2016 decía unos 25 km de Armenia a Salento y al Valle del Cocora. Esa cifra coincide con la prosa de 2023 y no con la tabla del mismo reglamento. La página actual no la usa."
+      },
+      "sources": [
+        {
+          "label": "Parques Nacionales Naturales de Colombia — Parque Nacional Natural Los Nevados",
+          "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+          "retrieved_at": "2026-11-21"
+        },
+        {
+          "label": "Parques Nacionales Naturales — Reglamentación transitoria de ecoturismo, PNN Los Nevados, diciembre de 2023",
+          "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2023/12/ANEXO-PNN-NEVADOS.pdf",
+          "retrieved_at": "2026-11-21"
+        },
+        {
+          "label": "Parques Nacionales Naturales — How to get there, Los Nevados, version 1, April 2016",
+          "url": "https://old.parquesnacionales.gov.co/portal/en/ecotourism/andean-region/los-nevados-national-natural-park/how-to-get-there/",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "last_verified": "2026-11-21",
+      "related": [
+        "access.from_salento_cocora",
+        "access.quindio_gate_is_cocora",
+        "access.ignore_single_kilometer"
+      ],
+      "tags": [
+        "armenia",
+        "salento",
+        "kilómetros"
+      ],
+      "entities": {
+        "origin": [
+          "armenia",
+          "salento"
+        ],
+        "sector": [
+          "quindio"
+        ]
+      }
+    },
+    {
+      "id": "access.quindio_gate_is_cocora",
+      "label": "en el Quindío la puerta es Cocora",
+      "kind": "fact",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "en el quindio por donde se entra",
+        "¿en Filandia hay portería?",
+        "circasia es otra entrada",
+        "¿en el Quindío solo se entra por Cocora?",
+        "armenia es via, no caseta",
+        "is there a second Quindío gate",
+        "does Filandia have a park entrance",
+        "en el quindio la unica puerta es cocora, o armenia tambien cuenta?",
+        "en el quindio solo me indican cocora para entrar",
+        "otro pueblo del quindio tiene entrada o solo cocora",
+        "quiero el parque y estoy en el quindio",
+        "cocora es la puerta que toca usar en el quindio"
+      ],
+      "hard_negatives": [
+        "hay porteo en la ruta de El Bosque",
+        "el quindio y el combeima son del parque",
+        "esa lagunita sale en la travesía al Cocora?"
+      ],
+      "answer": {
+        "short": "En el Quindío entras por Salento, vereda Cocora, con 14 km hasta el límite del parque. Armenia solo te acerca a ese valle, no es una segunda portería. Confirma el registro con el operador de ese sector.",
+        "variants": [
+          "Si estás en el Quindío, el camino publicado va a Cocora, con 14 km hasta el límite. Confirma el registro con el operador de ese sector."
+        ]
+      },
+      "sources": [
+        {
+          "label": "Parques Nacionales Naturales de Colombia — Parque Nacional Natural Los Nevados",
+          "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "last_verified": "2026-11-21",
+      "related": [
+        "access.from_salento_cocora",
+        "access.armenia_salento_road",
+        "access.three_south_paths"
+      ],
+      "tags": [
+        "quindío",
+        "cocora",
+        "portería"
+      ],
+      "entities": {
+        "origin": [
+          "salento"
+        ],
+        "sector": [
+          "quindio"
+        ]
+      }
+    },
+    {
+      "id": "access.from_ibague_juntas",
+      "label": "cómo llegar desde Ibagué por Juntas",
+      "kind": "procedure",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "cómo llego desde ibagué por juntas",
+        "vereda juntas 15 km",
+        "¿esos 15 km sí llegan hasta el límite?",
+        "¿de Ibagué pal nevado del Tolima se va por Juntas?",
+        "¿por Juntas uno llega pal sur?",
+        "how do I get from Ibagué through Juntas",
+        "do the 15 km reach the park boundary",
+        "no es murillo ni anzoategui",
+        "desde ibague se entra al sur por la vereda juntas?",
+        "esos 15 km de juntas llegan hasta el limite del parque",
+        "¿Juntas es la misma vía del Combeima?",
+        "ibague juntas sector dulima"
+      ],
+      "hard_negatives": [
+        "la travesía de Juntas al Cocora",
+        "Juntas es la referencia de acceso",
+        "desde ibagué cuál entrada"
+      ],
+      "answer": {
+        "short": "Desde Ibagué vas por la vereda Juntas, con 15 km asociados a ese camino: no están dados como límite del parque ni describen el tramo siguiente. Confírmalo con el operador del sector.",
+        "variants": [
+          "Juntas es el camino sur que sale de Ibagué. Usa los 15 km como cifra de esa vereda, no como el límite, y confirma el resto con el operador."
+        ],
+        "detail": "La guía de abril de 2016 llamaba Cañón del Combeima a la vía desde Ibagué, con unos 47 km hasta donde terminaba el carro y un sendero de 10 horas. La página actual no repite esas cifras."
+      },
+      "sources": [
+        {
+          "label": "Parques Nacionales Naturales de Colombia — Parque Nacional Natural Los Nevados",
+          "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+          "retrieved_at": "2026-11-21"
+        },
+        {
+          "label": "Parques Nacionales Naturales — How to get there, Los Nevados, version 1, April 2016",
+          "url": "https://old.parquesnacionales.gov.co/portal/en/ecotourism/andean-region/los-nevados-national-natural-park/how-to-get-there/",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "last_verified": "2026-11-21",
+      "related": [
+        "access.from_ibague_choose",
+        "access.three_south_paths",
+        "access.murillo_is_north_not_tolima"
+      ],
+      "tags": [
+        "ibagué",
+        "juntas",
+        "15 km"
+      ],
+      "entities": {
+        "origin": [
+          "ibague"
+        ],
+        "sector": [
+          "quindio"
+        ]
+      }
+    },
+    {
+      "id": "access.from_anzoategui_palomar",
+      "label": "cómo llegar desde Anzoátegui por Palomar",
+      "kind": "procedure",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "cómo llego desde anzoategui",
+        "vereda palomar 11 km",
+        "¿de Anzoátegui pa' el sur, cómo voy?",
+        "palomar es una de las tres entradas",
+        "32 o 85 km cual uso",
+        "how do I get from Anzoátegui to Palomar",
+        "is 11 km the current figure",
+        "no uses la distancia vieja de ibague",
+        "desde anzoategui la subida es por la vereda palomar?",
+        "la punta era el control de 2023",
+        "¿de Anzoátegui a Palomar son 11 km?",
+        "entro por anzoategui al tolima"
+      ],
+      "hard_negatives": [
+        "agendar entrada por Anzoátegui",
+        "salento ibague y anzoategui son ese lado",
+        "anzoategui la punta o palomar"
+      ],
+      "answer": {
+        "short": "Desde Anzoátegui vas por la vereda Palomar, con 11 km asociados a ese acceso. Es una de las tres entradas de Quindío–Dulima, junto a Cocora y Juntas. Las cifras viejas de 32 km y 85 km se contradicen; no las uses.",
+        "variants": [
+          "Palomar es la salida de Anzoátegui. La cifra vigente es 11 km para ese acceso; las distancias viejas hasta el pueblo no son esa cifra."
+        ],
+        "detail": "La guía de abril de 2016 decía que Anzoátegui está a 32 km de Ibagué y que el carro terminaba en la vereda La Cascada. La tabla de diciembre de 2023 anota 85 km para Ibagué–Anzoátegui–Palomar. No miden, con seguridad, el mismo tramo, y la página actual no las repite."
+      },
+      "sources": [
+        {
+          "label": "Parques Nacionales Naturales de Colombia — Parque Nacional Natural Los Nevados",
+          "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+          "retrieved_at": "2026-11-21"
+        },
+        {
+          "label": "Parques Nacionales Naturales — Reglamentación transitoria de ecoturismo, PNN Los Nevados, diciembre de 2023",
+          "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2023/12/ANEXO-PNN-NEVADOS.pdf",
+          "retrieved_at": "2026-11-21"
+        },
+        {
+          "label": "Parques Nacionales Naturales — How to get there, Los Nevados, version 1, April 2016",
+          "url": "https://old.parquesnacionales.gov.co/portal/en/ecotourism/andean-region/los-nevados-national-natural-park/how-to-get-there/",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "last_verified": "2026-11-21",
+      "related": [
+        "access.la_punta_control",
+        "access.three_south_paths",
+        "access.from_ibague_juntas"
+      ],
+      "tags": [
+        "anzoátegui",
+        "palomar",
+        "11 km"
+      ],
+      "entities": {
+        "origin": [
+          "anzoategui"
+        ],
+        "sector": [
+          "quindio"
+        ]
+      }
+    },
+    {
+      "id": "access.la_punta_control",
+      "label": "punto de control La Punta",
+      "kind": "fact",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "¿La Punta es el control que queda en Anzoátegui?",
+        "¿en La Cascada es donde me registro?",
+        "control flotante sigue igual",
+        "¿y La Punta sí sigue activa?",
+        "¿la Punta sigue siendo el control, o cambió?",
+        "is La Punta still the checkpoint",
+        "can I still use the old gps point for La Punta",
+        "palomar y la punta son el mismo punto para registrarme",
+        "los 11 km y la altura vieja son de lo mismo",
+        "antes de salir le pregunto al operador si la punta sigue",
+        "la punta era un control que se movia, sigue igual",
+        "anzoategui la punta o palomar"
+      ],
+      "hard_negatives": [
+        "el punto viejo de registro todavia me sirve",
+        "sirve como punto de control",
+        "el punto de atencion no es el aviso de que ya pase"
+      ],
+      "answer": {
+        "short": "La Punta, en la vereda La Cascada de Anzoátegui, figura como control flotante a 3100 m (dato de diciembre de 2023). Hoy no está confirmado como mostrador: pregunta al operador antes de usarlo como registro.",
+        "variants": [
+          "La Punta y los 3100 m son la referencia de diciembre de 2023, no una caseta garantizada ahora. Pregunta al operador si sigue vigente."
+        ]
+      },
+      "sources": [
+        {
+          "label": "Parques Nacionales Naturales de Colombia — Parque Nacional Natural Los Nevados",
+          "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+          "retrieved_at": "2026-11-21"
+        },
+        {
+          "label": "Parques Nacionales Naturales — Reglamentación transitoria de ecoturismo, PNN Los Nevados, diciembre de 2023",
+          "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2023/12/ANEXO-PNN-NEVADOS.pdf",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "last_verified": "2026-11-21",
+      "related": [
+        "access.from_anzoategui_palomar",
+        "access.control_coordinates",
+        "access.cocora_registration"
+      ],
+      "tags": [
+        "la punta",
+        "2023",
+        "anzoátegui"
+      ],
+      "entities": {
+        "origin": [
+          "anzoategui"
+        ],
+        "sector": [
+          "quindio"
+        ]
+      }
+    },
+    {
+      "id": "access.from_ibague_choose",
+      "label": "desde Ibagué hay varias entradas",
+      "kind": "procedure",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "desde ibagué cuál entrada",
+        "¿de Ibagué pa' Brisas o pa' Juntas, cuál me toca?",
+        "saliendo de Ibagué, ¿Murillo o Palomar?",
+        "palomar y murillo, saliendo de ibague, son carreteras distintas?",
+        "el tolima y el ruiz no salen juntos",
+        "which gate do I use from Ibagué",
+        "from Ibagué, is Murillo the Tolima volcano",
+        "¿Juntas o Palomar, cuál me queda más cerca?",
+        "brisas se va por murillo",
+        "elijo el nevado antes de salir",
+        "¿desde Ibagué hay más de una entrada?",
+        "no son desvios de una sola carretera"
+      ],
+      "hard_negatives": [
+        "la parte alta de Ibagué toca el Tolima",
+        "¿de Ibagué pal nevado del Tolima se va por Juntas?",
+        "pa' salir desde el Tolima, ¿qué puerta me toca?"
+      ],
+      "answer": {
+        "short": "Desde Ibagué elige sector. A Brisas vas por Murillo; al sur, Juntas (15 km asociados) o Palomar desde Anzoátegui (11 km).",
+        "variants": [
+          "Ibagué sirve de base a más de una puerta: Murillo mira a Brisas, y Juntas o Anzoátegui miran al sur."
+        ],
+        "detail": "Si entras a Brisas en noviembre, un fin de semana o puente, revisa el pico y placa ambiental del Tolima, Resolución 1815 del 24 de julio de 2026, de 5:00 a. m. a 4:00 p. m."
+      },
+      "sources": [
+        {
+          "label": "Parques Nacionales Naturales de Colombia — Parque Nacional Natural Los Nevados",
+          "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "last_verified": "2026-11-21",
+      "related": [
+        "access.from_murillo",
+        "access.from_ibague_juntas",
+        "hours_status.pico_y_placa_hours_murillo"
+      ],
+      "tags": [
+        "ibagué",
+        "murillo",
+        "juntas"
+      ],
+      "entities": {
+        "origin": [
+          "ibague"
+        ]
+      }
+    },
+    {
+      "id": "access.three_south_paths",
+      "label": "tres caminos al sector del Tolima",
+      "kind": "explanation",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "tres caminos al nevado del tolima",
+        "cocora juntas y palomar",
+        "¿los 14, 15 y 11 km llegan todos al límite?",
+        "el sur se recorre en carro hasta la cumbre",
+        "cual de las tres entradas",
+        "what are the three southern approaches",
+        "do all three distances reach the boundary",
+        "quindio dulima tiene tres puertas",
+        "de los tres caminos del sur, cual si llega al limite del parque?",
+        "no hay circuito en carro entre las tres",
+        "¿Salento, Ibagué o Anzoátegui, cuál me toca?",
+        "¿cuál de las tres me conviene más?"
+      ],
+      "hard_negatives": [
+        "esas tres vias siguen vigentes?",
+        "me alcanza con la entrada para tres dias de caminata?",
+        "de norte a sur cuáles van"
+      ],
+      "answer": {
+        "short": "Quindío–Dulima tiene tres caminos: Cocora, con 14 km hasta el límite; Juntas, con 15 km asociados; y Palomar, con 11 km asociados. Solo Cocora se indica como llegada al límite. Confirma con el operador cómo sigue cada camino.",
+        "variants": [
+          "Cocora, Juntas y Palomar salen de municipios distintos. El límite se indica en los 14 km de Cocora, no en los 15 km de Juntas ni en los 11 km de Palomar."
+        ]
+      },
+      "sources": [
+        {
+          "label": "Parques Nacionales Naturales de Colombia — Parque Nacional Natural Los Nevados",
+          "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "last_verified": "2026-11-21",
+      "related": [
+        "access.from_salento_cocora",
+        "access.from_ibague_juntas",
+        "access.from_anzoategui_palomar"
+      ],
+      "tags": [
+        "tolima",
+        "cocora",
+        "juntas",
+        "palomar"
+      ],
+      "entities": {
+        "sector": [
+          "quindio"
+        ]
+      }
+    },
+    {
+      "id": "access.murillo_is_north_not_tolima",
+      "label": "Murillo lleva al norte, no al Tolima",
+      "kind": "explanation",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "murillo es la entrada del tolima",
+        "¿desde Murillo se sube al nevado del Tolima?",
+        "Murillo es Tolima, ¿pero la vía va al Ruiz?",
+        "¿Murillo y Juntas son lo mismo?",
+        "murillo brisas no es palomar",
+        "does Murillo lead to Nevado del Tolima",
+        "Murillo is in Tolima, so is that the south gate",
+        "el corredor va al sector norte",
+        "para el tolima salgo por cocora juntas o palomar",
+        "no uso murillo como puerta del dulima",
+        "¿es Tolima pero otro nevado?",
+        "salir de murillo me lleva al ruiz o al nevado del tolima?"
+      ],
+      "hard_negatives": [
+        "rápido tolima llega a murillo",
+        "Murillo es Tolima y el volcán queda en el límite",
+        "murillo es tolima pero no se si es el sur"
+      ],
+      "answer": {
+        "short": "Desde Murillo, el corredor La Esperanza–Murillo lleva a Brisas, junto al Ruiz. No lleva al Nevado del Tolima; para el sur sal por Cocora, Juntas o Palomar.",
+        "variants": [
+          "No uses Murillo para el Nevado del Tolima. Ese pueblo conecta con Brisas; el sur publicado es Cocora, Juntas o Palomar."
+        ]
+      },
+      "sources": [
+        {
+          "label": "Parques Nacionales Naturales de Colombia — Parque Nacional Natural Los Nevados",
+          "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "last_verified": "2026-11-21",
+      "related": [
+        "access.from_murillo",
+        "access.three_south_paths",
+        "hours_status.pico_y_placa_hours_murillo"
+      ],
+      "tags": [
+        "murillo",
+        "tolima",
+        "brisas"
+      ],
+      "entities": {
+        "origin": [
+          "murillo"
+        ],
+        "sector": [
+          "brisas"
+        ]
+      }
+    },
+    {
+      "id": "access.olleta_not_a_gate",
+      "label": "La Olleta no es una entrada publicada",
+      "kind": "fact",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "la olleta es una portería",
+        "entro por el crater de la olleta",
+        "la piraña tiene caseta",
+        "¿hay desvío a La Olleta pa' visitantes?",
+        "¿el cono de La Olleta sirve de entrada?",
+        "is La Olleta a visitor gate",
+        "can I enter at La Piraña",
+        "si no sale en como llegar, la olleta no es puerta",
+        "el norte se entra por brisas",
+        "si la veo en el mapa, puedo entrar por ahi",
+        "caballete de la olleta es del circuito viejo",
+        "hay camino de visitantes por la olleta o no"
+      ],
+      "hard_negatives": [
+        "la olleta no esta activa",
+        "qué tan alta es La Olleta?",
+        "La Olleta se puede visitar"
+      ],
+      "answer": {
+        "short": "La Olleta y La Piraña son cráteres del complejo volcánico, no una portería. No tengo un camino verificado por ahí: el ingreso norte es Brisas, con su carreteable al valle.",
+        "variants": [
+          "Ver La Olleta en un mapa no crea una entrada. La portería del norte es Brisas, y por La Olleta no tengo un camino verificado."
+        ],
+        "detail": "La página nombra los cráteres La Olleta y La Piraña al describir el complejo volcánico, no en cómo llegar. El reglamento de diciembre de 2023 incluye el caballete de La Olleta en un circuito vial de infraestructura, no como un paseo autorizado de portería a portería."
+      },
+      "sources": [
+        {
+          "label": "Parques Nacionales Naturales de Colombia — Parque Nacional Natural Los Nevados",
+          "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+          "retrieved_at": "2026-11-21"
+        },
+        {
+          "label": "Parques Nacionales Naturales — Reglamentación transitoria de ecoturismo, PNN Los Nevados, diciembre de 2023",
+          "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2023/12/ANEXO-PNN-NEVADOS.pdf",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "last_verified": "2026-11-21",
+      "related": [
+        "access.brisas_visitor_center",
+        "access.circuit_not_scenic_loop",
+        "access.stay_on_official_gate"
+      ],
+      "tags": [
+        "olleta",
+        "portería",
+        "brisas"
+      ],
+      "entities": {
+        "sector": [
+          "brisas"
+        ]
+      }
+    },
+    {
+      "id": "access.santa_isabel_town_vs_sector",
+      "label": "pueblo Santa Isabel o sector del nevado",
+      "kind": "explanation",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "el pueblo santa isabel es la porteria",
+        "municipio santa isabel o el nevado",
+        "¿puedo entrar al sector desde el casco urbano?",
+        "¿el pueblo de Santa Isabel tiene carretera pa' entrar?",
+        "el sector se llama igual que el pueblo",
+        "is the town of Santa Isabel the gate",
+        "Santa Isabel the municipality or the volcano sector",
+        "villamaria y santa rosa si, el casco no",
+        "¿Poleka Kasue sale desde Santa Isabel?",
+        "no hay caseta en el pueblo santa isabel",
+        "me confundo: ¿el volcán y el pueblo se llaman igual?",
+        "por donde entra el sector santa isabel"
+      ],
+      "hard_negatives": [
+        "Santa Isabel es municipio y también es nevado",
+        "ya no es un solo manto de nieve el santa isabel",
+        "oiga el santa isabel ya casi no tiene nieve"
+      ],
+      "answer": {
+        "short": "El sector del Nevado de Santa Isabel se entra por Villamaría o Santa Rosa de Cabal, hasta Potosí y Santa Bárbara. El municipio de Santa Isabel, en el Tolima, está en el área del parque, pero no tengo una portería publicada desde su casco.",
+        "variants": [
+          "Si dices Santa Isabel, aclara si hablas del nevado o del municipio. Al nevado se va por Villamaría o Santa Rosa; del casco no tengo un camino publicado."
+        ]
+      },
+      "sources": [
+        {
+          "label": "Parques Nacionales Naturales de Colombia — Parque Nacional Natural Los Nevados",
+          "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "last_verified": "2026-11-21",
+      "related": [
+        "access.from_villamaria",
+        "access.from_santa_rosa",
+        "access.gateway_towns"
+      ],
+      "tags": [
+        "santa isabel",
+        "pueblo",
+        "cisne"
+      ],
+      "entities": {
+        "origin": [
+          "santa_isabel"
+        ],
+        "sector": [
+          "cisne"
+        ]
+      }
+    },
+    {
+      "id": "access.where_road_ends",
+      "label": "hasta dónde llega el carro",
+      "kind": "explanation",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "hasta dónde llega el carro",
+        "¿en todos los sectores puedo entrar en carro?",
+        "¿el carro sí sube hasta la nieve?",
+        "brisas en carro y los otros a pie",
+        "¿hasta Potosí llega carretera?",
+        "where does the car have to stop",
+        "can I drive to every sector",
+        "¿Desde El Cedral tengo que seguir caminando?",
+        "hasta que punto sigue el carro y donde ya toca seguir a pie?",
+        "¿Hasta qué punto puedo llegar manejando?",
+        "donde se acaba la carretera",
+        "¿hasta qué control subo en carro y de ahí toca caminar?"
+      ],
+      "hard_negatives": [
+        "carro hasta la cabaña y luego a pie",
+        "quiero ir en vehículo, cuál puerta",
+        "cual sector es en carro y cual a pie"
+      ],
+      "answer": {
+        "short": "En el norte llegas en carro hasta Brisas y el valle sigue en vehículo cubierto; a Potosí y Santa Bárbara llegas por carretera destapada; desde El Cedral, Cocora, Juntas y Palomar sigues a pie. Si vas a Brisas, confirma las restricciones de circulación de noviembre de 2026.",
+        "variants": [
+          "El vehículo llega a Brisas o a los controles del sector que elijas; después se camina, salvo el recorrido del valle en vehículo cubierto. Confirma las restricciones de noviembre de 2026 si vas a Brisas."
+        ],
+        "detail": "Si entras a Brisas en noviembre, un fin de semana o puente, revisa el pico y placa ambiental del Tolima, Resolución 1815 del 24 de julio de 2026, de 5:00 a. m. a 4:00 p. m."
+      },
+      "sources": [
+        {
+          "label": "Parques Nacionales Naturales de Colombia — Parque Nacional Natural Los Nevados",
+          "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "last_verified": "2026-11-21",
+      "related": [
+        "access.road_visit_or_trail",
+        "access.brisas_tumbas_drive",
+        "access.cedral_walk_distances"
+      ],
+      "tags": [
+        "carro",
+        "a pie",
+        "final"
+      ]
+    },
+    {
+      "id": "access.road_visit_or_trail",
+      "label": "visita por carretera o acceso a pie",
+      "kind": "explanation",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "hay visitas que van por carretera y otras que arrancan a pie?",
+        "brisas es la visita corta",
+        "¿los demás son pa' travesía de varios días?",
+        "quiero ir en vehículo, cuál puerta",
+        "¿cuál sector pa' una caminata larga?",
+        "which sector is the drive-up visit",
+        "where do I go if I need a vehicle access",
+        "el carreteable es el del norte",
+        "cocora y juntas no son un paseo en carro",
+        "visita esporadica en brisas",
+        "varios dias, los otros sectores",
+        "elijo segun si voy en carro o a pie"
+      ],
+      "hard_negatives": [
+        "esos kilometros se hacen caminando o en carro",
+        "hay paseo en carro y hay trekking",
+        "la entrada dura cuatro dias o menos"
+      ],
+      "answer": {
+        "short": "Para visitar en vehículo, la opción es Brisas–Valle de las Tumbas. Los demás sectores llegan en carro solo hasta su control o su vereda, y están pensados para travesías de varios días. Confirma con UTON las restricciones de circulación de noviembre de 2026.",
+        "variants": [
+          "Brisas es la visita en vehículo cubierto. Cisne, Otún y el sur llegan por carretera solo hasta su control o su vereda, y de ahí se camina. Confirma con UTON las restricciones de circulación de noviembre de 2026."
+        ],
+        "detail": "Si entras a Brisas en noviembre, un fin de semana o puente, revisa el pico y placa ambiental del Tolima, Resolución 1815 del 24 de julio de 2026, de 5:00 a. m. a 4:00 p. m."
+      },
+      "sources": [
+        {
+          "label": "Parques Nacionales Naturales de Colombia — Parque Nacional Natural Los Nevados",
+          "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "last_verified": "2026-11-21",
+      "related": [
+        "access.where_road_ends",
+        "access.brisas_tumbas_drive",
+        "access.four_sector_gates"
+      ],
+      "tags": [
+        "carro",
+        "travesía",
+        "brisas"
+      ]
+    },
+    {
+      "id": "access.circuit_not_scenic_loop",
+      "label": "el circuito interno no es un paseo",
+      "kind": "rule",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "puedo cruzar de brisas al cisne en carro",
+        "el circuito manizales olleta villamaria",
+        "¿alcanzo a recorrer todas las porterías en un día?",
+        "¿la vía alta está abierta pa' pasear?",
+        "caballete de la olleta es un mirador publico",
+        "can I drive the high circuit between gates",
+        "can I drive that high loop between the gates",
+        "de un sector a otro por dentro",
+        "ese circuito de arriba es solo para ubicar la zona",
+        "me dejan cruzar de un sector a otro por dentro",
+        "ese circuito de la parte alta es un paseo de un sector a otro?",
+        "brisas otun y cocora no se cruzan en carro"
+      ],
+      "hard_negatives": [
+        "me sirven un recorrido para aprender, no para la cima",
+        "por ese corredor se llega a brisas",
+        "si la veo en el mapa, puedo entrar por ahi"
+      ],
+      "answer": {
+        "short": "Un dato de diciembre de 2023 describe un circuito por la parte alta: Manizales, La Esperanza, Brisas, el caballete de La Olleta, El Cisne, Santa Bárbara y Villamaría. Sirve para entender la infraestructura, pero no te autoriza a pasar de un sector a otro: usa solo la entrada de tu sector.",
+        "variants": [
+          "Ver ese circuito de diciembre de 2023 no abre la carretera para ir de portería en portería. Cada ingreso se hace por su acceso publicado."
+        ]
+      },
+      "sources": [
+        {
+          "label": "Parques Nacionales Naturales de Colombia — Parque Nacional Natural Los Nevados",
+          "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+          "retrieved_at": "2026-11-21"
+        },
+        {
+          "label": "Parques Nacionales Naturales — Reglamentación transitoria de ecoturismo, PNN Los Nevados, diciembre de 2023",
+          "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2023/12/ANEXO-PNN-NEVADOS.pdf",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "last_verified": "2026-11-21",
+      "related": [
+        "access.stay_on_official_gate",
+        "access.olleta_not_a_gate",
+        "access.where_road_ends"
+      ],
+      "tags": [
+        "circuito",
+        "2023",
+        "sector"
+      ]
+    },
+    {
+      "id": "access.mountain_road_conditions",
+      "label": "vías de montaña sin parte del día",
+      "kind": "fact",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "cómo está la vía hoy",
+        "¿hoy hay derrumbe en la destapada?",
+        "¿hay parte de vías pa' hoy?",
+        "se pasa hoy al cisne",
+        "carretera de montaña, quien avisa",
+        "does the park page post today's road report",
+        "is the dirt road open this morning",
+        "con niebla, ¿se puede pasar al Cisne?",
+        "planeo con el prestador del sector",
+        "no hay un mapa de vias abiertas en la visita",
+        "antes de salir pregunto si se pasa",
+        "la terciaria puede cambiar"
+      ],
+      "hard_negatives": [
+        "las vias al cisne son destapadas",
+        "le pregunto al operador si la via de hoy sigue abierta",
+        "dónde confirmo si abren hoy"
+      ],
+      "answer": {
+        "short": "Hacia el Cisne las vías son carreteras terciarias destapadas, y conviene planearlas con un prestador autorizado. No tengo un parte de derrumbes ni de si hoy se puede pasar. Confirma con el operador del sector antes de salir.",
+        "variants": [
+          "No tengo el estado de la vía de esta mañana. En el Cisne son destapadas; pregunta al prestador de ese sector si el tramo se pasa."
+        ]
+      },
+      "sources": [
+        {
+          "label": "Parques Nacionales Naturales de Colombia — Parque Nacional Natural Los Nevados",
+          "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "last_verified": "2026-11-21",
+      "related": [
+        "access.confirm_road_before",
+        "access.dirt_roads_cisne",
+        "hours_status.pico_y_placa_hours_murillo"
+      ],
+      "tags": [
+        "vía",
+        "destapada",
+        "estado"
+      ],
+      "entities": {
+        "sector": [
+          "cisne"
+        ]
+      }
+    },
+    {
+      "id": "access.confirm_road_before",
+      "label": "confirmar el estado de la vía",
+      "kind": "procedure",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "confirmo la vía antes de salir",
+        "el acceso puede cambiar",
+        "¿si hay obra en la vía, cierran?",
+        "¿dónde miro si la carretera sigue abierta hoy?",
+        "¿hoy sí está habilitada la vía?",
+        "how do I check the road before leaving",
+        "the access can change, where do I look",
+        "le pregunto al operador si la via de hoy sigue abierta",
+        "clima obra o volcan pueden cerrar el tramo",
+        "si no pude confirmar, no lo doy por abierto",
+        "revisar brisas ademas del pico y placa",
+        "¿cómo está el corredor La Esperanza hoy?"
+      ],
+      "hard_negatives": [
+        "si la veo en el mapa, puedo entrar por ahi",
+        "dónde confirmo si abren hoy",
+        "toca revisar el boletín antes de ir"
+      ],
+      "answer": {
+        "short": "El acceso cambia por clima, obra o decisión del parque: confirma con el operador del sector que la vía esté abierta hoy, antes de salir.",
+        "variants": [
+          "No des el tramo por habilitado si no lo confirmaste con el operador del sector."
+        ],
+        "detail": "Si entras a Brisas en noviembre, un fin de semana o puente, revisa el pico y placa ambiental del Tolima, Resolución 1815 del 24 de julio de 2026, de 5:00 a. m. a 4:00 p. m."
+      },
+      "sources": [
+        {
+          "label": "Parques Nacionales Naturales de Colombia — Parque Nacional Natural Los Nevados",
+          "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "last_verified": "2026-11-21",
+      "related": [
+        "access.mountain_road_conditions",
+        "access.park_email_routes",
+        "hours_status.pico_y_placa_hours_murillo"
+      ],
+      "tags": [
+        "confirmar",
+        "vía",
+        "cambio"
+      ]
+    },
+    {
+      "id": "access.operator_transport_other",
+      "label": "transporte con operador en otros sectores",
+      "kind": "procedure",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "fuera de brisas quien consigue el carro, el operador de ese sector?",
+        "cocora no es uton",
+        "operador registrado del sector",
+        "el cedral con que agencia",
+        "¿con quién toca coordinar Juntas o Palomar?",
+        "who arranges transport outside Brisas",
+        "is UTON the operator for Cocora",
+        "en el cisne la uton no cubre el transporte",
+        "lo gestiono yo o con un operador de ese ingreso",
+        "cada sector tiene su gente",
+        "¿el carro de Brisas me sirve pa' el sur?",
+        "cada puerta tiene su propia agencia de transporte"
+      ],
+      "hard_negatives": [
+        "en brisas es la uton, en los otros un operador",
+        "ese sector no es Brisas",
+        "pa' Brisas, ¿UTON es la que me lleva?"
+      ],
+      "answer": {
+        "short": "Fuera de Brisas, el transporte se coordina contigo o con un guía o agencia registrada del sector. UTON es la concesión del norte: no la uses para Cocora, Juntas, Palomar ni El Cedral. En el Cisne va con la agencia registrada que elijas.",
+        "variants": [
+          "El transporte de los sectores distintos a Brisas se acuerda con un operador registrado de esa puerta, no con la concesión del norte."
+        ]
+      },
+      "sources": [
+        {
+          "label": "Parques Nacionales Naturales de Colombia — Parque Nacional Natural Los Nevados",
+          "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "last_verified": "2026-11-21",
+      "related": [
+        "access.uton_brisas_transport",
+        "access.organized_tour_transport",
+        "access.no_park_shuttle"
+      ],
+      "tags": [
+        "operador",
+        "transporte",
+        "sectores"
+      ]
+    },
+    {
+      "id": "access.organized_tour_transport",
+      "label": "llegar con un tour organizado",
+      "kind": "procedure",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "un tour me lleva al parque",
+        "¿la agencia sí me pone el carro pa' la portería?",
+        "¿el tour me pone otra entrada distinta?",
+        "salgo con operador pa' el sector, ¿verdad?",
+        "brisas con uton dentro del plan",
+        "does a tour create a new gate",
+        "can an agency drive me to a different entrance",
+        "el norte sigue siendo brisas",
+        "cocora sigue siendo cocora aunque vaya en tour",
+        "el vehiculo lo organiza la agencia registrada",
+        "¿en grupo me dejan saltar la portería?",
+        "tour al cisne por villamaria o santa rosa"
+      ],
+      "hard_negatives": [
+        "necesito contratar un guía para visitar",
+        "me dejan cruzar de un sector a otro por dentro",
+        "me toca pedir permiso para entrar a mi predio"
+      ],
+      "answer": {
+        "short": "Un tour organiza vehículo e ingreso, pero no crea otra puerta. Brisas sigue siendo del norte, con UTON; el Cisne, el Otún y el sur tienen sus propias entradas.",
+        "variants": [
+          "Ir con agencia no cambia la puerta. Brisas, Potosí, El Cedral, Cocora, Juntas y Palomar siguen siendo las entradas publicadas, y UTON es la del norte."
+        ],
+        "detail": "Si entras a Brisas en noviembre, un fin de semana o puente, revisa el pico y placa ambiental del Tolima, Resolución 1815 del 24 de julio de 2026, de 5:00 a. m. a 4:00 p. m."
+      },
+      "sources": [
+        {
+          "label": "Parques Nacionales Naturales de Colombia — Parque Nacional Natural Los Nevados",
+          "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "last_verified": "2026-11-21",
+      "related": [
+        "access.operator_transport_other",
+        "access.uton_brisas_transport",
+        "hours_status.pico_y_placa_hours_murillo"
+      ],
+      "tags": [
+        "tour",
+        "agencia",
+        "portería"
+      ]
+    },
+    {
+      "id": "access.control_coordinates",
+      "label": "coordenadas de los controles de ingreso",
+      "kind": "fact",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "coordenadas de la portería",
+        "¿me pasas el GPS del control?",
+        "latitud de brisas",
+        "¿coordenadas de Potosí pa' meter en el GPS?",
+        "¿en grados, dónde queda el punto de Cocora?",
+        "GPS coordinates of the checkpoints",
+        "are the 2023 coordinates still the gate",
+        "¿La Punta tiene coordenada?",
+        "no las uses como el mostrador de hoy",
+        "esas coordenadas de diciembre de 2023 todavia sirven",
+        "dime brisas potosi cocora o la punta",
+        "el punto viejo de registro todavia me sirve"
+      ],
+      "hard_negatives": [
+        "si el campamento es avanzado, pongo las coordenadas?",
+        "no te acerques al volcan ni a los rios",
+        "¿Tienes GPS para ubicarme?"
+      ],
+      "answer": {
+        "short": "Las coordenadas de los controles son de una norma transitoria de diciembre de 2023 y pueden no seguir vigentes. Para Brisas, Potosí, Cocora o La Punta, confirma el punto con el operador: no las uses como el mostrador de hoy.",
+        "variants": [
+          "Esas coordenadas son de diciembre de 2023, no la ubicación asegurada del control actual. Pide Brisas, Potosí, Cocora o La Punta y confirma el punto con el operador."
+        ],
+        "steps": [
+          [
+            "Brisas, reglamento de diciembre de 2023: N 04°56'0'' W 075°20'59'', 4.107 m. No es un control garantizado hoy."
+          ],
+          [
+            "Potosí, en ese mismo reglamento: N 04°49'52'' W 075°24'58'', 3.920 m. Confírmalo antes de salir; no reemplaza el registro."
+          ],
+          [
+            "Cocora, diciembre de 2023: puerta azul de la truchera, kilómetro 11, N 04°38'17,5'' W 075°29'11,3'', unos 2.400 m. La página actual nombra el Valle del Cocora y no repite ese punto."
+          ],
+          [
+            "La Punta, vereda La Cascada, diciembre de 2023, control flotante: N 04°38'10,7'' W 075°12'43,7'', 3100 m. La página actual habla de Palomar, no de este punto."
+          ]
+        ]
+      },
+      "sources": [
+        {
+          "label": "Parques Nacionales Naturales — Reglamentación transitoria de ecoturismo, PNN Los Nevados, diciembre de 2023",
+          "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2023/12/ANEXO-PNN-NEVADOS.pdf",
+          "retrieved_at": "2026-11-21"
+        },
+        {
+          "label": "Parques Nacionales Naturales de Colombia — Parque Nacional Natural Los Nevados",
+          "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "last_verified": "2026-11-21",
+      "related": [
+        "access.brisas_entry_altitude",
+        "access.potosi_control",
+        "access.cocora_registration"
+      ],
+      "tags": [
+        "coordenadas",
+        "2023",
+        "control"
+      ],
+      "entities": {
+        "sector": [
+          "brisas",
+          "cisne",
+          "quindio"
+        ]
+      },
+      "needs": [
+        "sector"
+      ]
+    },
+    {
+      "id": "access.bus_to_murillo",
+      "label": "bus de Manizales a Murillo",
+      "kind": "procedure",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "hay bus de manizales a murillo",
+        "rápido tolima llega a murillo",
+        "desde la terminal, qué bus va a murillo",
+        "el bus a murillo me deja en brisas",
+        "como llego en bus hasta murillo tolima",
+        "sale rápido tolima para murillo por letras",
+        "is there a bus from Manizales to Murillo",
+        "does the Murillo bus stop at the park gate",
+        "quiero ir a murillo en bus y seguir al parque",
+        "la terminal tiene ruta a murillo",
+        "bus intermunicipal manizales murillo",
+        "me bajo en murillo y de ahí cómo sigo al centro brisas"
+      ],
+      "hard_negatives": [
+        "ruta manizales brisas",
+        "cómo llego desde salento",
+        "puedo ir en moto"
+      ],
+      "entities": {
+        "origin": [
+          "manizales",
+          "murillo"
+        ],
+        "sector": [
+          "norte"
+        ]
+      },
+      "needs": [],
+      "answer": {
+        "short": "La Terminal de Transportes de Manizales publica un servicio de Rápido Tolima con destino Murillo, por la vía Letras. Murillo no es la portería: desde la cabecera sigues el corredor hasta Brisas. La tarifa y el horario cambian: confírmalos en el buscador de la terminal antes de salir.",
+        "variants": [
+          "Toma el Rápido Tolima a Murillo por Letras y, ya en el pueblo, sigue el corredor hasta Brisas. Confirma tarifa y horario en la terminal antes de salir."
+        ],
+        "steps": [
+          [
+            "Toma el Rápido Tolima a Murillo por Letras y, ya en el pueblo, sigue el corredor hasta Brisas. Confirma tarifa y horario en la terminal antes de salir."
+          ]
+        ],
+        "detail": "El buscador no dice que ese servicio pare en el centro de visitantes Brisas.",
+        "reflection": "Confirma el dato en el canal oficial antes de salir: las rutas publicadas cambian."
+      },
+      "sources": [
+        {
+          "label": "Terminal de Transportes de Manizales, buscador de rutas",
+          "url": "https://terminaldemanizales.com.co/institucional/buscador-de-rutas/?jsf=jet-engine:lista-rutas&pagenum=19",
+          "retrieved_at": "2026-11-21"
+        },
+        {
+          "label": "Parques Nacionales Naturales de Colombia",
+          "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "last_verified": "2026-11-21",
+      "valid_until": null,
+      "related": [
+        "access.from_murillo",
+        "access.no_public_bus",
+        "access.esperanza_murillo_corridor"
+      ],
+      "tags": [
+        "bus",
+        "murillo",
+        "terminal"
+      ]
+    },
+    {
+      "id": "access.bus_to_el_ocho",
+      "label": "bus hasta El Ocho",
+      "kind": "procedure",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "hay bus hasta el ocho",
+        "rápido tolima para el ocho",
+        "el bus a el ocho es la portería",
+        "me deja el bus en el parador el ocho",
+        "desde manizales hay servicio a el ocho",
+        "el ocho sale en la terminal de manizales",
+        "is there a bus to El Ocho",
+        "does the El Ocho bus enter the park",
+        "bajo en el ocho y sigo a brisas",
+        "la ruta del ocho es de rápido tolima",
+        "el bus dice el ocho, es la entrada",
+        "paso por el ocho en transporte público"
+      ],
+      "hard_negatives": [
+        "qué carretera agarro en Manizales hacia el parque",
+        "vereda cocora hasta el límite",
+        "confirmo la vía antes de salir"
+      ],
+      "entities": {
+        "origin": [
+          "manizales"
+        ],
+        "sector": [
+          "norte"
+        ]
+      },
+      "needs": [],
+      "answer": {
+        "short": "La terminal de Manizales publica Rápido Tolima con destino El Ocho, por Letras. El Ocho es el parador La Esperanza (dato de diciembre de 2023), no la portería: sigue hasta Brisas y confirma tarifa y horario en la terminal.",
+        "variants": [
+          "El Ocho del buscador es el parador del reglamento de 2023, no Brisas. Sigue el corredor y confirma el horario en la terminal."
+        ],
+        "steps": [
+          [
+            "El Ocho del buscador es el parador del reglamento de 2023, no Brisas. Sigue el corredor y confirma el horario en la terminal."
+          ]
+        ],
+        "detail": null,
+        "reflection": "Confirma el dato en el canal oficial antes de salir: las rutas publicadas cambian."
+      },
+      "sources": [
+        {
+          "label": "Terminal de Transportes de Manizales, buscador de rutas",
+          "url": "https://terminaldemanizales.com.co/institucional/buscador-de-rutas/?jsf=jet-engine:lista-rutas&pagenum=20",
+          "retrieved_at": "2026-11-21"
+        },
+        {
+          "label": "Reglamentación transitoria de ecoturismo, diciembre de 2023",
+          "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2023/12/ANEXO-PNN-NEVADOS.pdf",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "last_verified": "2026-11-21",
+      "valid_until": null,
+      "related": [
+        "access.esperanza_murillo_corridor",
+        "access.letras_not_the_gate",
+        "access.brisas_visitor_center"
+      ],
+      "tags": [
+        "bus",
+        "el ocho",
+        "terminal"
+      ]
+    },
+    {
+      "id": "access.bus_to_letras",
+      "label": "bus de la terminal hasta Letras",
+      "kind": "procedure",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "empresa arauca va a letras",
+        "hay bus de la terminal hasta letras",
+        "arauca por maltería llega al parque",
+        "el destino letras es la portería",
+        "desde manizales, bus a letras",
+        "me sirve el arauca para entrar a brisas",
+        "is there a bus to Letras from Manizales",
+        "does Empresa Arauca stop at the gate",
+        "la ruta maltería letras sigue al nevado",
+        "bus arauca destino letras",
+        "llego a letras en bus y después qué vía tomo",
+        "en la terminal sale un bus con destino letras"
+      ],
+      "hard_negatives": [
+        "ruta manizales brisas",
+        "cómo llego desde salento",
+        "puedo ir en moto"
+      ],
+      "entities": {
+        "origin": [
+          "manizales"
+        ],
+        "sector": [
+          "norte"
+        ]
+      },
+      "needs": [],
+      "answer": {
+        "short": "La terminal de Manizales publica Empresa Arauca con destino Letras, por Maltería. Letras no es la entrada: es un punto de la vía hacia Bogotá. Sigue el corredor La Esperanza–Murillo hasta Brisas y confirma el horario en la terminal.",
+        "variants": [
+          "Arauca te deja en Letras, por Maltería. Desde ahí tomas el corredor hacia Brisas y confirmas el horario en la terminal."
+        ],
+        "steps": [
+          [
+            "Arauca te deja en Letras, por Maltería. Desde ahí tomas el corredor hacia Brisas y confirmas el horario en la terminal."
+          ]
+        ],
+        "detail": null,
+        "reflection": "Confirma el dato en el canal oficial antes de salir: las rutas publicadas cambian."
+      },
+      "sources": [
+        {
+          "label": "Terminal de Transportes de Manizales, buscador de rutas",
+          "url": "https://terminaldemanizales.com.co/institucional/buscador-de-rutas/?jsf=jet-engine:lista-rutas&pagenum=23",
+          "retrieved_at": "2026-11-21"
+        },
+        {
+          "label": "Parques Nacionales Naturales de Colombia",
+          "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "last_verified": "2026-11-21",
+      "valid_until": null,
+      "related": [
+        "access.letras_highway",
+        "access.letras_not_the_gate",
+        "access.from_manizales"
+      ],
+      "tags": [
+        "bus",
+        "letras",
+        "terminal"
+      ]
+    },
+    {
+      "id": "access.bus_labeled_nevado",
+      "label": "bus con destino Nevado",
+      "kind": "fact",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "el bus que dice nevado entra al parque",
+        "rápido tolima destino nevado es brisas",
+        "hay un bus llamado nevado en la terminal",
+        "destino nevado me deja en el centro de visitantes",
+        "el rapido tolima a nevado por letras",
+        "ese nevado del buscador es la portería",
+        "is the bus labeled Nevado the park entrance",
+        "does the Nevado bus go to Brisas",
+        "vi un destino nevado en la terminal de manizales",
+        "no sé si el bus nevado es el parque",
+        "rápido tolima nevado por la vía letras",
+        "el bus dice nevado pero no aclara si para en brisas"
+      ],
+      "hard_negatives": [
+        "qué carretera agarro en Manizales hacia el parque",
+        "vereda cocora hasta el límite",
+        "confirmo la vía antes de salir"
+      ],
+      "entities": {
+        "origin": [
+          "manizales"
+        ],
+        "sector": [
+          "norte"
+        ]
+      },
+      "needs": [],
+      "answer": {
+        "short": "La terminal de Manizales publica Rápido Tolima con destino Nevado, por Letras. Esa ruta no confirma que la parada sea el centro Brisas: pregunta a la empresa dónde deja y entra por la portería de tu sector.",
+        "variants": [
+          "El destino Nevado de Rápido Tolima no está identificado como Brisas. Pregunta dónde para y usa la portería de tu sector."
+        ],
+        "steps": [
+          [
+            "El destino Nevado de Rápido Tolima no está identificado como Brisas. Pregunta dónde para y usa la portería de tu sector."
+          ]
+        ],
+        "detail": "La ficha del buscador dice destino Nevado y vía Letras. No nombra el centro de visitantes.",
+        "reflection": "Confirma el dato en el canal oficial antes de salir: las rutas publicadas cambian."
+      },
+      "sources": [
+        {
+          "label": "Terminal de Transportes de Manizales, buscador de rutas",
+          "url": "https://terminaldemanizales.com.co/institucional/buscador-de-rutas/?jsf=jet-engine:lista-rutas&pagenum=22",
+          "retrieved_at": "2026-11-21"
+        },
+        {
+          "label": "Parques Nacionales Naturales de Colombia",
+          "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "last_verified": "2026-11-21",
+      "valid_until": null,
+      "related": [
+        "access.brisas_visitor_center",
+        "access.no_public_bus",
+        "access.letras_not_the_gate"
+      ],
+      "tags": [
+        "bus",
+        "nevado",
+        "terminal"
+      ]
+    },
+    {
+      "id": "access.invias_not_tertiary",
+      "label": "parte de Invías y vías terciarias",
+      "kind": "explanation",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "el parte de invias incluye la destapada a potosí",
+        "miro invías para saber si paso a santa bárbara",
+        "la red primaria avisa de la vía terciaria del cisne",
+        "invias reporta las carreteras destapadas del parque",
+        "antes de potosí consulto el estado de la red de invias",
+        "la vía terciaria sale en el parte nacional",
+        "does Invias list the dirt road to Potosi",
+        "is the tertiary road in the Invias status report",
+        "el parte de invías me dice si la destapada está abierta",
+        "sirve el boletín de la red primaria para el cisne",
+        "invias no cubre la terciaria a potosí",
+        "confirmo la destapada con invias o con el operador"
+      ],
+      "hard_negatives": [
+        "el acceso puede cambiar",
+        "puedo ir en moto",
+        "cómo llego desde salento"
+      ],
+      "entities": {
+        "sector": [
+          "cisne"
+        ]
+      },
+      "needs": [],
+      "answer": {
+        "short": "El parte de Invías cubre la red vial primaria, no la terciaria. Las vías desde Villamaría y Santa Rosa hasta Potosí y Santa Bárbara son terciarias destapadas, así que ese parte no dice si hoy se pasa. Confírmalo con el operador del sector.",
+        "variants": [
+          "No uses el parte de la red primaria para la destapada a Potosí. Confirma ese tramo con el operador del sector."
+        ],
+        "steps": [
+          [
+            "No uses el parte de la red primaria para la destapada a Potosí. Confirma ese tramo con el operador del sector."
+          ]
+        ],
+        "detail": null,
+        "reflection": "Confirma el dato en el canal oficial antes de salir: las rutas publicadas cambian."
+      },
+      "sources": [
+        {
+          "label": "Instituto Nacional de Vías, estado de la red vial",
+          "url": "https://www.invias.gov.co/publicaciones/4217/estado-de-la-red-vial/",
+          "retrieved_at": "2026-11-21"
+        },
+        {
+          "label": "Parques Nacionales Naturales de Colombia",
+          "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "last_verified": "2026-11-21",
+      "valid_until": null,
+      "related": [
+        "access.dirt_roads_cisne",
+        "access.mountain_road_conditions",
+        "access.confirm_road_before"
+      ],
+      "tags": [
+        "invias",
+        "destapada",
+        "potosi"
+      ]
+    }
+  ]
+}

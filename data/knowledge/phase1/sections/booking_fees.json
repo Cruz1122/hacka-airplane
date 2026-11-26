@@ -1,0 +1,187 @@
+{
+  "contract_version": 1,
+  "id": "booking_fees",
+  "order": 5,
+  "title": "Reservas, tarifas y requisitos",
+  "description": "Cómo reservar, cuánto cuesta la entrada, guía obligatorio, edad mínima y seguro de accidentes.",
+  "retrieval": {
+    "profile": "lookup",
+    "top_k": 2
+  },
+  "clarification": {
+    "between_entries": "¿Te refieres a {label_a} o a {label_b}?",
+    "bank": [
+      "¿Quieres saber cómo reservar o cuánto cuesta?",
+      "¿Preguntas por los requisitos para entrar, como guía o seguro?"
+    ],
+    "fallback": "No tengo ese dato de reservas, pero puedo contarte cómo reservar y qué requisitos hay."
+  },
+  "featured": [
+    "booking_fees.how_to_book",
+    "booking_fees.entry_fee",
+    "booking_fees.guide_required"
+  ],
+  "entries": [
+    {
+      "id": "booking_fees.how_to_book",
+      "label": "cómo reservar",
+      "kind": "procedure",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "reservas",
+        "cómo reservo",
+        "necesito reserva",
+        "cómo agendo un cupo",
+        "dónde saco la reserva",
+        "hay que reservar antes",
+        "quiero apartar un puesto",
+        "dónde aparto un cupo",
+        "separar un cupo"
+      ],
+      "answer": {
+        "short": "Para Brisas–Valle de las Tumbas, reserva en reservasnevados.com con al menos un día de anticipación, especialmente en fines de semana y puentes festivos. Confirma la disponibilidad antes de salir.",
+        "variants": [
+          "Si vas a Brisas–Valle de las Tumbas, busca tu cupo en reservasnevados.com al menos un día antes, sobre todo si viajas en fin de semana o puente. Confirma la disponibilidad antes de salir."
+        ],
+        "steps": [
+          [
+            "Para Brisas–Valle de las Tumbas, busca cupo en reservasnevados.com al menos un día antes, especialmente en fines de semana y puentes festivos. Confirma la disponibilidad antes de salir."
+          ],
+          [
+            "Para los otros sectores, consulta la reserva con un operador registrado. El procedimiento depende del atractivo."
+          ],
+          [
+            "La ficha oficial indica que el ingreso exige acompañamiento de un guía o agencia registrada y un seguro de accidentes. En Brisas puedes consultarlo con el operador del sector."
+          ]
+        ]
+      },
+      "sources": [
+        {
+          "label": "Parques Nacionales Naturales",
+          "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+          "retrieved_at": "2026-11-21"
+        }
+      ]
+    },
+    {
+      "id": "booking_fees.entry_fee",
+      "label": "cuánto cuesta la entrada",
+      "kind": "fact",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "precios",
+        "tarifas",
+        "cuánto cuesta",
+        "cuánto cuesta entrar",
+        "cuánto vale el ingreso",
+        "cuánto cobran",
+        "dónde compro boletas",
+        "el ingreso es gratis",
+        "cuánto dinero necesito para entrar"
+      ],
+      "answer": {
+        "short": "Como referencia, la tabla oficial de 2026 para Brisas lista entradas de $12.500, $24.500 o $68.000 COP según la categoría. El seguro obligatorio se cobra aparte. Confirma tu categoría, la tarifa vigente y el costo de la guianza antes de viajar.",
+        "variants": [
+          "Para Brisas, la referencia oficial de 2026 es $12.500, $24.500 o $68.000 COP por entrada, según la categoría. El seguro obligatorio va aparte. Confirma qué categoría te corresponde, cuánto cuesta la guianza y si hubo cambios en la tarifa."
+        ],
+        "steps": [
+          [
+            "En Brisas, la tabla oficial de 2026 indicaba entradas de $12.500, $24.500 o $68.000 COP según la categoría. Confirma la tarifa vigente y tu categoría antes de viajar.",
+            "Los precios de referencia de 2026 para Brisas eran $12.500, $24.500 y $68.000 COP, según la categoría. Revisa cuál te corresponde y cuánto cuesta actualmente."
+          ],
+          [
+            "El seguro de accidentes es obligatorio y va por separado. Pregunta también por el precio de la guianza para calcular el total de tu visita."
+          ],
+          [
+            "Si vas a otro sector, revisa su propia tabla. El parque publica tarifas por sector y describe las posibles exenciones."
+          ]
+        ]
+      },
+      "sources": [
+        {
+          "label": "Parques Nacionales Naturales",
+          "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "last_verified": "2026-11-21"
+    },
+    {
+      "id": "booking_fees.guide_required",
+      "label": "si necesitas guía",
+      "kind": "rule",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "guía",
+        "necesito guía",
+        "puedo ir sin guía",
+        "puedo entrar por mi cuenta",
+        "cómo contrato un operador",
+        "requisitos para entrar"
+      ],
+      "answer": {
+        "short": "Parques Nacionales indica que debes entrar con un guía o una agencia registrada, y adquirir un seguro de accidentes. Para Brisas, consulta en la ficha oficial cómo contactar al operador autorizado."
+      },
+      "sources": [
+        {
+          "label": "Parques Nacionales Naturales",
+          "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+          "retrieved_at": "2026-11-21"
+        }
+      ]
+    },
+    {
+      "id": "booking_fees.minimum_age",
+      "label": "la edad para ingresar",
+      "kind": "rule",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "edad",
+        "pueden ir niños",
+        "puedo ir con mi hijo",
+        "edad mínima",
+        "hay límite de edad",
+        "pueden entrar menores"
+      ],
+      "answer": {
+        "short": "La ficha oficial indica una edad mínima de 6 años para algunos atractivos, incluidos el carreteable de Brisas y el centro El Cisne. Otras rutas exigen una edad mínima mayor. Confirma el límite de edad de tu recorrido y las condiciones para menores."
+      },
+      "sources": [
+        {
+          "label": "Parques Nacionales Naturales",
+          "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "last_verified": "2026-11-21"
+    },
+    {
+      "id": "booking_fees.accident_insurance",
+      "label": "el seguro de accidentes",
+      "kind": "rule",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "seguro",
+        "necesito seguro",
+        "dónde compro la póliza",
+        "póliza de accidentes",
+        "el seguro está incluido"
+      ],
+      "answer": {
+        "short": "El parque exige un seguro de accidentes. En Brisas se paga a través del operador del sector. Para otros atractivos, consulta cómo adquirirlo con tu agencia registrada."
+      },
+      "sources": [
+        {
+          "label": "Parques Nacionales Naturales",
+          "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+          "retrieved_at": "2026-11-21"
+        }
+      ]
+    }
+  ]
+}

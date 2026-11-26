@@ -1,0 +1,78 @@
+{
+  "contract_version": 1,
+  "id": "rules",
+  "order": 9,
+  "title": "Normas para el visitante",
+  "description": "Normas del parque para el visitante: mascotas, residuos, senderos y cuidado de la naturaleza.",
+  "retrieval": {
+    "profile": "rules",
+    "top_k": 2
+  },
+  "clarification": {
+    "between_entries": "¿Te refieres a {label_a} o a {label_b}?",
+    "bank": [
+      "¿Preguntas si algo está permitido o cómo cuidar el parque?",
+      "¿Qué quieres llevar o hacer?"
+    ],
+    "fallback": "No tengo esa norma, pero puedo contarte qué cuidar durante la visita."
+  },
+  "featured": [
+    "rules.visitor_care",
+    "rules.pets"
+  ],
+  "entries": [
+    {
+      "id": "rules.visitor_care",
+      "label": "qué debes cuidar durante la visita",
+      "kind": "rule",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "basura",
+        "residuos",
+        "cómo cuidar el parque",
+        "puedo arrancar frailejones",
+        "qué hago con la basura",
+        "puedo llevarme una planta"
+      ],
+      "answer": {
+        "short": "Quédate en los senderos habilitados, llévate tus residuos de regreso y deja las plantas en su lugar. Así ayudas a proteger el páramo durante tu visita.",
+        "variants": [
+          "En el páramo, camina por los senderos habilitados, deja las plantas donde crecen y lleva tus residuos de vuelta. Son tres maneras de cuidar el lugar durante tu visita."
+        ],
+        "reflection": "Cuidar la montaña empieza por las decisiones pequeñas que puedes tomar durante la visita."
+      },
+      "sources": [
+        {
+          "label": "Parques Nacionales Naturales",
+          "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+          "retrieved_at": "2026-11-21"
+        }
+      ]
+    },
+    {
+      "id": "rules.pets",
+      "label": "si puedes llevar mascotas",
+      "kind": "rule",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "mascota",
+        "mascotas",
+        "perro",
+        "puedo ir con mi perro",
+        "puedo llevar animales domésticos"
+      ],
+      "answer": {
+        "short": "Parques Nacionales indica que las mascotas no pueden ingresar a las áreas protegidas que administra. Organiza el cuidado de tu mascota antes de viajar."
+      },
+      "sources": [
+        {
+          "label": "Parques Nacionales Naturales · Preguntas frecuentes",
+          "url": "https://www.parquesnacionales.gov.co/atencion-al-ciudadano/",
+          "retrieved_at": "2026-11-21"
+        }
+      ]
+    }
+  ]
+}

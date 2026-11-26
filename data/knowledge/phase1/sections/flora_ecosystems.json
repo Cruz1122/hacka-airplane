@@ -1,0 +1,235 @@
+{
+  "contract_version": 1,
+  "id": "flora_ecosystems",
+  "order": 12,
+  "title": "Flora y ecosistemas",
+  "description": "Páramo, superpáramo, frailejones, humedales, glaciares, lagunas y el agua del parque.",
+  "retrieval": {
+    "profile": "explain",
+    "top_k": 2
+  },
+  "clarification": {
+    "between_entries": "¿Te refieres a {label_a} o a {label_b}?",
+    "bank": [
+      "¿Te interesa un ecosistema, como el páramo, o una planta, como el frailejón?",
+      "¿Preguntas por el agua, los glaciares o las lagunas?"
+    ],
+    "fallback": "No tengo ese tema, pero puedo contarte sobre el páramo y los frailejones."
+  },
+  "featured": [
+    "flora_ecosystems.ecosystems",
+    "flora_ecosystems.snow_glaciers",
+    "flora_ecosystems.laguna_otun"
+  ],
+  "entries": [
+    {
+      "id": "flora_ecosystems.ecosystems",
+      "label": "los ecosistemas del parque",
+      "kind": "explanation",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "qué ecosistemas tiene",
+        "hay frailejones",
+        "qué plantas hay",
+        "qué fauna vive",
+        "qué animales se pueden ver",
+        "por qué es importante el parque"
+      ],
+      "answer": {
+        "short": "El parque protege bosques altoandinos, páramos, superpáramos y glaciares. En los páramos crecen frailejones. Los ecosistemas de alta montaña ayudan a regular el agua que alimenta las cuencas de la región.",
+        "variants": [
+          "Al subir cambia el paisaje: hay bosque altoandino, páramo, superpáramo y glaciares. Los frailejones forman parte del páramo, y estos ecosistemas de altura ayudan a regular el agua de las cuencas de la región."
+        ],
+        "steps": [
+          [
+            "Los Nevados protege bosques altoandinos, páramos, superpáramos, humedales y glaciares."
+          ],
+          [
+            "En el páramo hay frailejones, pajonales y turberas. El superpáramo tiene condiciones más extremas, con rocas y suelos de origen volcánico."
+          ],
+          [
+            "Estos ecosistemas ayudan a regular el agua que llega a las cuencas de la región."
+          ]
+        ]
+      },
+      "sources": [
+        {
+          "label": "Parques Nacionales Naturales",
+          "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+          "retrieved_at": "2026-11-21"
+        }
+      ]
+    },
+    {
+      "id": "flora_ecosystems.snow_glaciers",
+      "label": "la nieve y los glaciares",
+      "kind": "explanation",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "nieve",
+        "glaciares",
+        "hay nieve",
+        "se ve nieve",
+        "hay hielo en el nevado",
+        "por qué hay un glaciar"
+      ],
+      "answer": {
+        "short": "En las partes altas del Ruiz hay cobertura glaciar. Desde un recorrido turístico, lo que alcances a ver depende de la nubosidad y del tramo autorizado. Pregunta al operador por las condiciones del día.",
+        "variants": [
+          "El Ruiz conserva hielo glaciar en sus partes altas. Si quieres verlo durante tu visita, pregunta al operador por la visibilidad y el tramo autorizado. Las nubes pueden ocultarlo."
+        ],
+        "reflection": "Puedes elegir cómo disfrutar el recorrido aunque no puedas elegir qué tan despejado estará el cielo."
+      },
+      "sources": [
+        {
+          "label": "Parques Nacionales Naturales",
+          "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+          "retrieved_at": "2026-11-21"
+        }
+      ]
+    },
+    {
+      "id": "flora_ecosystems.laguna_otun",
+      "label": "la Laguna del Otún",
+      "kind": "explanation",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "Otún",
+        "laguna del Otún",
+        "qué lagunas hay",
+        "qué es la laguna del Otún",
+        "puedo visitar el Otún"
+      ],
+      "answer": {
+        "short": "La Laguna del Otún da nombre a uno de los sectores ecoturísticos de Los Nevados, en Risaralda. Tiene su propio acceso. Consulta en la ficha del parque la ruta y las condiciones de ingreso del sector."
+      },
+      "sources": [
+        {
+          "label": "Parques Nacionales Naturales",
+          "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+          "retrieved_at": "2026-11-21"
+        }
+      ]
+    },
+    {
+      "id": "flora_ecosystems.frailejones",
+      "label": "los frailejones",
+      "kind": "explanation",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "frailejón",
+        "qué es un frailejón",
+        "qué especie de frailejón crece",
+        "cómo se llaman las plantas del páramo",
+        "qué plantas típicas hay"
+      ],
+      "answer": {
+        "short": "Parques Nacionales identifica a Espeletia hartwegiana como la especie de frailejón presente en el parque. Sus flores son una fuente de néctar para el chivito de páramo."
+      },
+      "sources": [
+        {
+          "label": "Parques Nacionales Naturales",
+          "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+          "retrieved_at": "2026-11-21"
+        }
+      ]
+    },
+    {
+      "id": "flora_ecosystems.water",
+      "label": "el agua del parque",
+      "kind": "explanation",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "agua",
+        "qué ríos alimenta",
+        "por qué el páramo es importante para el agua",
+        "de dónde sale el agua",
+        "qué cuencas abastece"
+      ],
+      "answer": {
+        "short": "Los ecosistemas de Los Nevados alimentan ríos y cuencas que abastecen a comunidades del Eje Cafetero. El agua que sale del área protegida llega a las cuencas del Cauca y del Magdalena."
+      },
+      "sources": [
+        {
+          "label": "Parques Nacionales Naturales",
+          "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+          "retrieved_at": "2026-11-21"
+        }
+      ]
+    },
+    {
+      "id": "flora_ecosystems.superparamo",
+      "label": "qué es el superpáramo",
+      "kind": "explanation",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "superpáramo",
+        "qué es el superpáramo",
+        "cómo es el superpáramo",
+        "qué hay encima del páramo"
+      ],
+      "answer": {
+        "short": "El superpáramo es un ecosistema de alta montaña de condiciones extremas. El paisaje tiene rocas, cenizas y organismos capaces de vivir en esas condiciones."
+      },
+      "sources": [
+        {
+          "label": "Parques Nacionales Naturales",
+          "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+          "retrieved_at": "2026-11-21"
+        }
+      ]
+    },
+    {
+      "id": "flora_ecosystems.wetlands",
+      "label": "qué son los humedales altoandinos",
+      "kind": "explanation",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "humedales",
+        "qué es un humedal altoandino",
+        "qué humedales hay",
+        "turberas y lagunas"
+      ],
+      "answer": {
+        "short": "Entre los ambientes de Los Nevados hay humedales altoandinos, como lagunas, pantanos y turberas. Estos espacios forman parte de los ecosistemas que regulan el agua."
+      },
+      "sources": [
+        {
+          "label": "Parques Nacionales Naturales",
+          "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+          "retrieved_at": "2026-11-21"
+        }
+      ]
+    },
+    {
+      "id": "flora_ecosystems.paramo",
+      "label": "qué es el páramo",
+      "kind": "explanation",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "páramo",
+        "qué es un páramo",
+        "cómo es el páramo",
+        "bosque o páramo"
+      ],
+      "answer": {
+        "short": "El páramo es un ecosistema de alta montaña. En Los Nevados incluye pajonales, arbustales, turberas, pantanos y lagunas. Es uno de los paisajes más representativos del parque."
+      },
+      "sources": [
+        {
+          "label": "Parques Nacionales Naturales",
+          "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+          "retrieved_at": "2026-11-21"
+        }
+      ]
+    }
+  ]
+}

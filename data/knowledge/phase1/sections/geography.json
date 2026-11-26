@@ -1,0 +1,236 @@
+{
+  "contract_version": 1,
+  "id": "geography",
+  "order": 13,
+  "title": "Geografía y volcanes",
+  "description": "Nevados y volcanes del parque, alturas, cráter, departamentos, extensión y creación.",
+  "retrieval": {
+    "profile": "explain",
+    "top_k": 2
+  },
+  "clarification": {
+    "between_entries": "¿Te refieres a {label_a} o a {label_b}?",
+    "bank": [
+      "¿Preguntas por un nevado en particular o por el parque en general?",
+      "¿Quieres datos como altura y extensión, o una explicación?"
+    ],
+    "fallback": "No tengo ese dato, pero puedo contarte sobre el Nevado del Ruiz y los nevados del parque."
+  },
+  "featured": [
+    "geography.peaks",
+    "geography.nevado_ruiz",
+    "geography.ruiz_height"
+  ],
+  "entries": [
+    {
+      "id": "geography.peaks",
+      "label": "los nevados del parque",
+      "kind": "fact",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "qué nevados hay",
+        "cuáles son los nevados",
+        "qué montañas tiene el parque",
+        "cuáles son los volcanes",
+        "qué es el Parque Los Nevados",
+        "dónde queda el parque"
+      ],
+      "answer": {
+        "short": "El Parque Nacional Natural Los Nevados protege un área de alta montaña del centro de Colombia, en la cordillera Central. Entre sus nevados están el Ruiz, Santa Isabel y Tolima."
+      },
+      "sources": [
+        {
+          "label": "Parques Nacionales Naturales",
+          "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+          "retrieved_at": "2026-11-21"
+        }
+      ]
+    },
+    {
+      "id": "geography.nevado_ruiz",
+      "label": "qué es el Nevado del Ruiz",
+      "kind": "explanation",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "ficha del Ruiz",
+        "qué tipo de volcán es",
+        "es un estratovolcán",
+        "quiero saber datos del nevado",
+        "datos del nevado",
+        "cuéntame sobre el Ruiz",
+        "háblame del nevado"
+      ],
+      "answer": {
+        "short": "El Nevado del Ruiz, también llamado Kumanday, es un estratovolcán activo de la cordillera Central. Tiene cobertura glaciar y su cráter principal se llama Arenas.",
+        "variants": [
+          "Kumanday es el otro nombre del Nevado del Ruiz, un estratovolcán activo de la cordillera Central. Conserva hielo glaciar y su cráter principal se llama Arenas.",
+          "Tres pistas para reconocer al Ruiz: es un estratovolcán activo, tiene cobertura glaciar y su cráter principal se llama Arenas. También se conoce como Kumanday."
+        ],
+        "steps": [
+          [
+            "El Nevado del Ruiz es un estratovolcán activo de la cordillera Central de Colombia. También se conoce como Kumanday."
+          ],
+          [
+            "Su cumbre alcanza unos 5.321 metros sobre el nivel del mar y tiene cobertura glaciar."
+          ],
+          [
+            "Su cráter principal se llama Arenas."
+          ]
+        ]
+      },
+      "sources": [
+        {
+          "label": "Servicio Geológico Colombiano · Nevado del Ruiz",
+          "url": "https://catalogo.sgc.gov.co/bib/78443",
+          "retrieved_at": "2026-11-21"
+        }
+      ]
+    },
+    {
+      "id": "geography.ruiz_height",
+      "label": "la altura del Ruiz",
+      "kind": "fact",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "altura",
+        "altitud",
+        "a qué altura está",
+        "cuánto mide el Nevado del Ruiz",
+        "cuántos metros sobre el nivel del mar",
+        "qué tan alto es",
+        "altura del nevado",
+        "cuánto mide el volcán",
+        "qué altitud tiene la cima"
+      ],
+      "answer": {
+        "short": "La cima del Nevado del Ruiz está a unos 5.321 metros sobre el nivel del mar. El cráter principal se llama Arenas.",
+        "variants": [
+          "El Ruiz alcanza unos 5.321 metros sobre el nivel del mar. En su cima se encuentra el cráter Arenas.",
+          "Si hablamos de la cumbre del Nevado del Ruiz, la referencia es 5.321 m s. n. m. Allí está el cráter principal, Arenas."
+        ],
+        "steps": [
+          [
+            "La cumbre del Nevado del Ruiz está a unos 5.321 metros sobre el nivel del mar.",
+            "El Ruiz alcanza aproximadamente 5.321 metros sobre el nivel del mar en su punto más alto.",
+            "La altitud de referencia de la cima del Ruiz es de 5.321 metros sobre el nivel del mar."
+          ],
+          [
+            "El cráter principal se llama Arenas y está en la zona de la cima.",
+            "En la zona de la cumbre se encuentra Arenas, el cráter principal del Ruiz."
+          ],
+          [
+            "La altura de la cumbre es una referencia geográfica. La cota que puedes alcanzar como visitante depende del recorrido autorizado."
+          ]
+        ],
+        "detail": "Los 5.321 metros corresponden a la cumbre del volcán. El punto más alto que alcances durante una visita depende del recorrido autorizado."
+      },
+      "sources": [
+        {
+          "label": "Servicio Geológico Colombiano · Nevado del Ruiz",
+          "url": "https://catalogo.sgc.gov.co/bib/78443",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "last_verified": "2026-11-21"
+    },
+    {
+      "id": "geography.departments",
+      "label": "los departamentos que comparten el parque",
+      "kind": "fact",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "departamentos",
+        "distribución del parque",
+        "en qué departamentos está",
+        "en qué parte de Colombia queda",
+        "dónde está ubicado Los Nevados"
+      ],
+      "answer": {
+        "short": "El área protegida se extiende por Caldas, Risaralda, Quindío y Tolima, en la cordillera Central de Colombia."
+      },
+      "sources": [
+        {
+          "label": "Parques Nacionales Naturales",
+          "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+          "retrieved_at": "2026-11-21"
+        }
+      ]
+    },
+    {
+      "id": "geography.area_creation",
+      "label": "la extensión y la creación del parque",
+      "kind": "fact",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "extensión",
+        "tamaño del parque",
+        "cuántas hectáreas tiene",
+        "cuándo se creó el parque",
+        "en qué año se declaró"
+      ],
+      "answer": {
+        "short": "Los Nevados fue declarado parque nacional el 30 de abril de 1974. Su ficha oficial registra una extensión de unas 61.388 hectáreas."
+      },
+      "sources": [
+        {
+          "label": "Parques Nacionales Naturales",
+          "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "last_verified": "2026-11-21"
+    },
+    {
+      "id": "geography.crater_name",
+      "label": "el nombre del cráter",
+      "kind": "fact",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "cráter Arenas",
+        "cómo se llama el cráter",
+        "nombre del cráter",
+        "cuál es el cráter principal",
+        "qué es Arenas"
+      ],
+      "answer": {
+        "short": "El cráter principal del Nevado del Ruiz se llama Arenas y se encuentra en la zona de la cima."
+      },
+      "sources": [
+        {
+          "label": "Servicio Geológico Colombiano · Nevado del Ruiz",
+          "url": "https://catalogo.sgc.gov.co/bib/78443",
+          "retrieved_at": "2026-11-21"
+        }
+      ]
+    },
+    {
+      "id": "geography.park_vs_volcano",
+      "label": "la diferencia entre el parque y el volcán",
+      "kind": "explanation",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "es lo mismo el parque que el volcán",
+        "diferencia parque y nevado",
+        "nevado y parque son lo mismo",
+        "el nevado queda dentro del parque"
+      ],
+      "answer": {
+        "short": "Los Nevados es el área protegida. El Nevado del Ruiz es uno de los volcanes que están dentro de ella, junto con otros nevados como Santa Isabel y Tolima."
+      },
+      "sources": [
+        {
+          "label": "Parques Nacionales Naturales",
+          "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+          "retrieved_at": "2026-11-21"
+        }
+      ]
+    }
+  ]
+}

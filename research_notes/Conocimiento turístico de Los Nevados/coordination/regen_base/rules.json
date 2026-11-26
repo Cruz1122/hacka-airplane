@@ -1,0 +1,1661 @@
+{
+  "contract_version": 1,
+  "id": "rules",
+  "order": 9,
+  "title": "Normas para visitar Los Nevados",
+  "description": "Reglas de cuidado y autorizaciones para visitantes: mascotas, residuos, elementos naturales, sustancias, armas, fuego, ruido, fauna, sanciones y actividades especiales en el Parque Nacional Natural Los Nevados.",
+  "retrieval": {
+    "profile": "rules",
+    "bm25_weight": 0.25,
+    "top_k": 2,
+    "min_score": null,
+    "entity_filters": []
+  },
+  "clarification": {
+    "between_entries": "¿Te refieres a {label_a} o a {label_b}?",
+    "bank": [
+      "¿Tu duda es sobre una mascota, residuos o el cuidado del entorno?",
+      "¿Quieres saber qué debes dejar en su lugar durante el recorrido?",
+      "¿Preguntas por una actividad personal o por una producción organizada?",
+      "¿La actividad sería comercial, deportiva, un evento o una investigación?",
+      "¿Necesitas una regla general o el permiso para una actividad especial?",
+      "¿Tu pregunta es sobre sustancias, plantas u otros elementos naturales?"
+    ],
+    "slot_questions": {},
+    "fallback": "No encontré una regla específica para esa consulta. Para confirmar una norma vigente, pregunta a Parques Nacionales antes de tu visita."
+  },
+  "featured": [
+    "rules.pets",
+    "rules.stay_on_routes",
+    "rules.leave_no_waste",
+    "rules.drones",
+    "rules.open_fires"
+  ],
+  "entries": [
+    {
+      "id": "rules.pets",
+      "label": "ingreso de mascotas",
+      "kind": "rule",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "puedo llevar a mi perro",
+        "dejan entrar mascotas al parque",
+        "mascotas",
+        "voy con mi gato, ¿puede entrar?",
+        "se permite llevar un perrito a Los Nevados",
+        "toca dejar al perro en casa?",
+        "puedo subir con mi mascota",
+        "¿reciben animales domésticos en Brisas?",
+        "llevar perro al nevado",
+        "mi perra puede acompañarme en el recorrido",
+        "can I bring my dog to the park?",
+        "dejan pasar mascotas o no",
+        "se puede entrar con animales de compañía",
+        "voy con el firulais, ¿lo dejan pasar?"
+      ],
+      "hard_negatives": [
+        "puedo caminar por donde quiera",
+        "dónde boto la basura"
+      ],
+      "entities": {},
+      "needs": [],
+      "answer": {
+        "short": "No puedes ingresar con mascotas al Parque Nacional Natural Los Nevados: el reglamento lo prohíbe. Antes de viajar, organiza quién la cuide durante tu visita.",
+        "variants": [
+          "Parques Nacionales indica que no está permitido el ingreso de mascotas a sus áreas protegidas; busca con anticipación quién pueda cuidarla mientras visitas Los Nevados."
+        ]
+      },
+      "sources": [
+        {
+          "label": "Parques Nacionales Naturales de Colombia · Resolución 207 de 2023 (reglamentación PNN Los Nevados)",
+          "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2023/08/Resolucion_207_2023_ReglamentacionNevados_.pdf",
+          "retrieved_at": "2026-11-21"
+        },
+        {
+          "label": "Parques Nacionales Naturales de Colombia · Preguntas frecuentes (pregunta 29)",
+          "url": "https://www.parquesnacionales.gov.co/atencion-al-ciudadano/",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "related": [
+        "rules.stay_on_routes",
+        "rules.leave_no_waste"
+      ],
+      "tags": [
+        "mascotas",
+        "perros",
+        "animales domésticos"
+      ]
+    },
+    {
+      "id": "rules.stay_on_routes",
+      "label": "permanecer en recorridos habilitados",
+      "kind": "rule",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "puedo caminar por donde quiera",
+        "me salgo del sendero para tomar fotos?",
+        "hay que seguir el camino marcado",
+        "puedo cortar camino por el páramo",
+        "se puede explorar fuera de la ruta",
+        "toca quedarse en el sendero habilitado",
+        "quiero acercarme por fuera al glaciar",
+        "¿está bien salirse de la ruta para ver mejor?",
+        "puedo andar libre por el parque",
+        "por dónde sí puedo caminar",
+        "can I leave the marked trail?",
+        "¿puedo abrir un atajo por el monte?",
+        "me meto un poquito fuera del camino para una foto",
+        "hay zonas donde no debo pasar"
+      ],
+      "hard_negatives": [
+        "dónde boto la basura",
+        "puedo arrancar un frailejón"
+      ],
+      "entities": {},
+      "needs": [],
+      "answer": {
+        "short": "Quédate en los senderos autorizados. El reglamento solo permite los senderos del mapa oficial, y tomar rutas alternas está prohibido. Recorre el sendero a pie y sin salirte de él.",
+        "variants": [
+          "Si te sales del sendero o tomas un atajo, incumples el reglamento. Si tienes dudas sobre la ruta permitida, pregunta al personal del parque antes de salir."
+        ]
+      },
+      "sources": [
+        {
+          "label": "Parques Nacionales Naturales de Colombia · Resolución 207 de 2023 (reglamentación PNN Los Nevados)",
+          "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2023/08/Resolucion_207_2023_ReglamentacionNevados_.pdf",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "related": [
+        "rules.leave_no_waste",
+        "rules.leave_natural_objects"
+      ],
+      "tags": [
+        "senderos",
+        "rutas autorizadas",
+        "cuidado del páramo"
+      ]
+    },
+    {
+      "id": "rules.leave_no_waste",
+      "label": "manejo de residuos",
+      "kind": "rule",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "dónde boto la basura",
+        "me llevo los empaques de vuelta?",
+        "qué hago con mis residuos en el recorrido",
+        "puedo dejar la cáscara ahí",
+        "basura en el parque",
+        "toca cargar la basura hasta la salida",
+        "dónde hay canecas en el páramo",
+        "¿dejo la botella al lado del camino?",
+        "qué hago con el papelito del snack",
+        "se vale enterrar los desechos",
+        "should I pack out my trash?",
+        "no encuentro caneca, ¿qué hago?",
+        "los residuos orgánicos también me los llevo?",
+        "dónde dejo el empaque del almuerzo"
+      ],
+      "hard_negatives": [
+        "puedo caminar por donde quiera",
+        "puedo arrancar un frailejón"
+      ],
+      "entities": {},
+      "needs": [],
+      "answer": {
+        "short": "Llévate tus residuos de regreso. El reglamento prohíbe depositar basuras o desechos en el parque, y también enterrarlos. Guarda envoltorios, pilas y bolsas en tu morral hasta salir.",
+        "variants": [
+          "Cada visitante debe retomar sus propios residuos y basuras al lugar de origen. No dejes nada en el sendero, ni siquiera cáscaras o envoltorios."
+        ]
+      },
+      "sources": [
+        {
+          "label": "Parques Nacionales Naturales de Colombia · Resolución 207 de 2023 (reglamentación PNN Los Nevados)",
+          "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2023/08/Resolucion_207_2023_ReglamentacionNevados_.pdf",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "related": [
+        "rules.stay_on_routes",
+        "rules.leave_natural_objects"
+      ],
+      "tags": [
+        "basura",
+        "residuos",
+        "no dejar rastro"
+      ]
+    },
+    {
+      "id": "rules.leave_natural_objects",
+      "label": "no retirar elementos naturales",
+      "kind": "rule",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "puedo arrancar un frailejón",
+        "me puedo llevar una piedra de recuerdo",
+        "está bien recoger flores del páramo",
+        "puedo sacar una planta para mi casa",
+        "se permite llevarse rocas del sendero",
+        "quiero guardar una flor que encontré",
+        "puedo recoger semillas en el parque",
+        "me llevo un pedacito de musgo?",
+        "puedo coger una planta sin dañarla",
+        "se pueden coleccionar piedras de Los Nevados",
+        "can I take a flower home?",
+        "no pasa nada si recojo una piedrita?",
+        "puedo arrancar una ramita como recuerdo",
+        "es permitido recolectar plantas para mí"
+      ],
+      "hard_negatives": [
+        "dónde boto la basura",
+        "puedo hacer una investigación en Los Nevados"
+      ],
+      "entities": {},
+      "needs": [],
+      "answer": {
+        "short": "No te lleves plantas, rocas ni otros elementos naturales. El reglamento prohíbe extraer material del suelo, vegetal, fauna o rocas. Fotografíalos sin retirarlos.",
+        "variants": [
+          "Recolectar flora o extraer rocas y animales está prohibido; la única excepción es la colecta autorizada con fines científicos o de investigación."
+        ]
+      },
+      "sources": [
+        {
+          "label": "Parques Nacionales Naturales de Colombia · Resolución 207 de 2023 (reglamentación PNN Los Nevados)",
+          "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2023/08/Resolucion_207_2023_ReglamentacionNevados_.pdf",
+          "retrieved_at": "2026-11-21"
+        },
+        {
+          "label": "Función Pública · Decreto 1076 de 2015, arts. 2.2.2.1.15.1, 2.2.2.1.15.2 y 2.2.2.1.16",
+          "url": "https://www.funcionpublica.gov.co/eva/gestornormativo/norma.php?i=78153",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "related": [
+        "rules.leave_no_waste",
+        "rules.research_permissions"
+      ],
+      "tags": [
+        "plantas",
+        "rocas",
+        "recolección",
+        "frailejón"
+      ]
+    },
+    {
+      "id": "rules.no_introduce_species",
+      "label": "no traer animales, semillas ni plantas",
+      "kind": "rule",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "puedo soltar peces en una laguna",
+        "llevo semillas de afuera para sembrar?",
+        "se permite traer plantas para plantar",
+        "puedo liberar un conejo en el parque",
+        "introducir especies al páramo",
+        "está bien dejar renacuajos en una charca",
+        "puedo traer flores de otro lugar para el páramo",
+        "quiero llevar peces a la laguna",
+        "se pueden llevar animales para soltarlos",
+        "¿puedo repoblar una zona con plantas?",
+        "may I release a pet fish in the lake?",
+        "puedo dejar unas semillas por el camino",
+        "puedo traer un arbolito de la casa para plantarlo",
+        "llevar una especie de otra región al parque"
+      ],
+      "hard_negatives": [
+        "puedo arrancar un frailejón",
+        "puedo botar aceite en el suelo"
+      ],
+      "entities": {},
+      "needs": [],
+      "answer": {
+        "short": "No traigas ni sueltes animales, semillas, flores ni propágulos en el parque, de ninguna especie. El reglamento lo prohíbe, sea de forma transitoria o permanente.",
+        "variants": [
+          "Introducir animales o material vegetal en el parque está prohibido, aunque sea transitorio. Antes de cualquier siembra o liberación, consulta con Parques Nacionales."
+        ]
+      },
+      "sources": [
+        {
+          "label": "Parques Nacionales Naturales de Colombia · Resolución 207 de 2023 (reglamentación PNN Los Nevados)",
+          "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2023/08/Resolucion_207_2023_ReglamentacionNevados_.pdf",
+          "retrieved_at": "2026-11-21"
+        },
+        {
+          "label": "Función Pública · Decreto 1076 de 2015, arts. 2.2.2.1.15.1, 2.2.2.1.15.2 y 2.2.2.1.16",
+          "url": "https://www.funcionpublica.gov.co/eva/gestornormativo/norma.php?i=78153",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "related": [
+        "rules.leave_natural_objects",
+        "rules.avoid_pollutants"
+      ],
+      "tags": [
+        "especies",
+        "semillas",
+        "liberar animales"
+      ]
+    },
+    {
+      "id": "rules.avoid_pollutants",
+      "label": "no contaminar el entorno",
+      "kind": "rule",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "puedo botar aceite en el suelo",
+        "dónde vacío el agua jabonosa",
+        "se puede echar detergente a la quebrada",
+        "qué hago con el combustible que sobró",
+        "puedo tirar pintura en un hueco",
+        "está bien dejar químicos en la laguna",
+        "dónde descarto una sustancia contaminante",
+        "verter residuos al agua del parque",
+        "puedo lavar cosas en la quebrada",
+        "¿puedo botar una pila usada en el páramo?",
+        "can I dump soap water in the stream?",
+        "dónde boto aceite de cocina acá",
+        "puedo dejar un envase con químico",
+        "se permite descargar aguas sucias al río"
+      ],
+      "hard_negatives": [
+        "puedo usar pólvora en el parque",
+        "dónde boto la basura"
+      ],
+      "entities": {},
+      "needs": [],
+      "answer": {
+        "short": "No viertas aceite, pinturas, detergentes ni otros productos químicos o contaminantes en el suelo, el agua o el aire del parque. Lleva fuera cualquier producto que pueda contaminar.",
+        "variants": [
+          "Utilizar sustancias contaminantes o productos químicos en grandes cantidades que puedan causar derrames está prohibido en el parque; consérvalos cerrados y retíralos contigo."
+        ]
+      },
+      "sources": [
+        {
+          "label": "Parques Nacionales Naturales de Colombia · Resolución 207 de 2023 (reglamentación PNN Los Nevados)",
+          "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2023/08/Resolucion_207_2023_ReglamentacionNevados_.pdf",
+          "retrieved_at": "2026-11-21"
+        },
+        {
+          "label": "Función Pública · Decreto 1076 de 2015, arts. 2.2.2.1.15.1, 2.2.2.1.15.2 y 2.2.2.1.16",
+          "url": "https://www.funcionpublica.gov.co/eva/gestornormativo/norma.php?i=78153",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "related": [
+        "rules.avoid_chemicals",
+        "rules.leave_no_waste"
+      ],
+      "tags": [
+        "contaminación",
+        "químicos",
+        "quebradas",
+        "residuos peligrosos"
+      ]
+    },
+    {
+      "id": "rules.avoid_chemicals",
+      "label": "uso de químicos y explosivos",
+      "kind": "rule",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "puedo usar pólvora en el parque",
+        "se permiten explosivos para una actividad",
+        "puedo fumigar una planta",
+        "llevo pesticida para los mosquitos?",
+        "está permitido usar químicos en el páramo",
+        "puedo prender un artefacto pirotécnico",
+        "usar explosivos en Los Nevados",
+        "¿puedo aplicar herbicida en un campamento?",
+        "se pueden llevar químicos para una demostración",
+        "puedo hacer una detonación pequeña",
+        "are fireworks allowed in the park?",
+        "sirve llevar insecticida para rociar el área",
+        "puedo usar fertilizante en el recorrido",
+        "qué regla hay sobre sustancias químicas"
+      ],
+      "hard_negatives": [
+        "puedo botar aceite en el suelo",
+        "puedo prender una fogata"
+      ],
+      "entities": {},
+      "needs": [],
+      "answer": {
+        "short": "No uses ni lleves pólvora, juegos pirotécnicos ni explosivos, ni productos químicos de efectos residuales o aerosoles. Solo una obra autorizada puede usar explosivos.",
+        "variants": [
+          "El reglamento prohíbe llevar y usar juegos pirotécnicos y sustancias explosivas, y usar productos químicos de efectos residuales. Consulta con el parque si tienes una actividad autorizada."
+        ]
+      },
+      "sources": [
+        {
+          "label": "Función Pública · Decreto 1076 de 2015, arts. 2.2.2.1.15.1, 2.2.2.1.15.2 y 2.2.2.1.16",
+          "url": "https://www.funcionpublica.gov.co/eva/gestornormativo/norma.php?i=78153",
+          "retrieved_at": "2026-11-21"
+        },
+        {
+          "label": "Parques Nacionales Naturales de Colombia · Resolución 207 de 2023 (reglamentación PNN Los Nevados)",
+          "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2023/08/Resolucion_207_2023_ReglamentacionNevados_.pdf",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "related": [
+        "rules.avoid_pollutants",
+        "rules.open_fires"
+      ],
+      "tags": [
+        "químicos",
+        "explosivos",
+        "pólvora",
+        "pesticidas"
+      ]
+    },
+    {
+      "id": "rules.commercial_photography",
+      "label": "fotografía con fines comerciales",
+      "kind": "rule",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "puedo hacer fotos para una marca",
+        "necesito permiso para una sesión paga",
+        "voy a fotografiar para publicidad",
+        "puedo grabar un catálogo en el parque",
+        "fotografía comercial en Los Nevados",
+        "cómo pido autorización para fotos profesionales",
+        "puedo hacer una sesión de producto en Brisas",
+        "se permiten fotos de stock con fines comerciales",
+        "voy a cobrar por las imágenes, ¿debo avisar?",
+        "permiso para fotos con patrocinador",
+        "can I shoot a commercial photo campaign?",
+        "puedo hacer fotos para venderlas después",
+        "tengo una producción fotográfica, qué permiso necesito",
+        "una sesión para una empresa requiere autorización"
+      ],
+      "hard_negatives": [
+        "puedo grabar un documental",
+        "puedo vender agua o snacks en el sendero?"
+      ],
+      "entities": {},
+      "needs": [],
+      "answer": {
+        "short": "Las fotos con fines comerciales o publicitarios necesitan autorización previa de Parques Nacionales. Las fotos y videos aficionados sí están permitidos en el parque.",
+        "variants": [
+          "Para uso comercial, consulta el trámite de permisos y licencias con Parques Nacionales antes de tomar las imágenes. La foto de turista no requiere ese trámite."
+        ]
+      },
+      "sources": [
+        {
+          "label": "Parques Nacionales Naturales de Colombia · Ficha oficial PNN Los Nevados",
+          "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+          "retrieved_at": "2026-11-21"
+        },
+        {
+          "label": "Parques Nacionales Naturales de Colombia · Resolución 207 de 2023 (reglamentación PNN Los Nevados)",
+          "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2023/08/Resolucion_207_2023_ReglamentacionNevados_.pdf",
+          "retrieved_at": "2026-11-21"
+        },
+        {
+          "label": "Función Pública · Decreto 1076 de 2015, arts. 2.2.2.1.15.1, 2.2.2.1.15.2 y 2.2.2.1.16",
+          "url": "https://www.funcionpublica.gov.co/eva/gestornormativo/norma.php?i=78153",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "related": [
+        "rules.audiovisual_permits",
+        "rules.sell_advertise"
+      ],
+      "tags": [
+        "fotografía comercial",
+        "permisos",
+        "producción"
+      ]
+    },
+    {
+      "id": "rules.audiovisual_permits",
+      "label": "filmación y tomas audiovisuales",
+      "kind": "rule",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "puedo grabar un documental",
+        "permiso para filmar en el parque",
+        "voy a hacer un video comercial en el páramo",
+        "cómo autorizan una producción audiovisual",
+        "se puede grabar con equipo profesional",
+        "necesito permiso para rodar una película",
+        "tomas audiovisuales en Los Nevados",
+        "quiero filmar un anuncio en la montaña",
+        "puedo grabar para una serie",
+        "dónde se solicita permiso de filmación",
+        "how can I get permission to film here?",
+        "voy a grabar un video para una marca, qué hago",
+        "se requiere autorización para grabar un documental",
+        "puedo llevar equipo de rodaje al parque"
+      ],
+      "hard_negatives": [
+        "puedo hacer fotos para una marca",
+        "puedo organizar un evento en Los Nevados"
+      ],
+      "entities": {},
+      "needs": [],
+      "answer": {
+        "short": "Para tomas audiovisuales debes solicitar autorización a Parques Nacionales, y el requisito aplica a todos los sectores del parque. Luces, pantallas, telones o estudios temporales también necesitan permisos.",
+        "variants": [
+          "Confirma con Parques Nacionales qué autorización corresponde a tu proyecto y sector antes de planear la grabación."
+        ]
+      },
+      "sources": [
+        {
+          "label": "Parques Nacionales Naturales de Colombia · Ficha oficial PNN Los Nevados",
+          "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+          "retrieved_at": "2026-11-21"
+        },
+        {
+          "label": "Parques Nacionales Naturales de Colombia · Resolución 207 de 2023 (reglamentación PNN Los Nevados)",
+          "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2023/08/Resolucion_207_2023_ReglamentacionNevados_.pdf",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "related": [
+        "rules.commercial_photography",
+        "rules.event_permits"
+      ],
+      "tags": [
+        "filmación",
+        "video",
+        "audiovisual",
+        "autorización"
+      ]
+    },
+    {
+      "id": "rules.event_permits",
+      "label": "eventos dentro del parque",
+      "kind": "rule",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "puedo organizar un evento en Los Nevados",
+        "permiso para hacer una actividad grupal",
+        "quiero hacer un evento en el páramo",
+        "se puede hacer un encuentro de marca",
+        "cómo tramito un evento en el área protegida",
+        "puedo celebrar una reunión en la montaña",
+        "evento privado dentro del parque",
+        "necesito autorización para una actividad especial",
+        "se permiten eventos en los senderos",
+        "voy a convocar gente al parque, qué permiso pido",
+        "can I host an event in the park?",
+        "puedo hacer una activación de marca en Brisas",
+        "organizar una actividad pública en el parque",
+        "dónde consulto el permiso para eventos"
+      ],
+      "hard_negatives": [
+        "puedo grabar un documental",
+        "puedo hacer una carrera en el parque"
+      ],
+      "entities": {},
+      "needs": [],
+      "answer": {
+        "short": "Para organizar un evento dentro del parque necesitas autorización de Parques Nacionales, en todos los sectores. Las reuniones no autorizadas por el parque no están permitidas. Pide el trámite antes de convocar a la gente.",
+        "variants": [
+          "Pide orientación a Parques Nacionales y espera la autorización antes de anunciar o programar el evento."
+        ]
+      },
+      "sources": [
+        {
+          "label": "Parques Nacionales Naturales de Colombia · Ficha oficial PNN Los Nevados",
+          "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+          "retrieved_at": "2026-11-21"
+        },
+        {
+          "label": "Función Pública · Decreto 1076 de 2015, arts. 2.2.2.1.15.1, 2.2.2.1.15.2 y 2.2.2.1.16",
+          "url": "https://www.funcionpublica.gov.co/eva/gestornormativo/norma.php?i=78153",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "related": [
+        "rules.audiovisual_permits",
+        "rules.organized_sports"
+      ],
+      "tags": [
+        "eventos",
+        "permisos",
+        "actividades especiales"
+      ]
+    },
+    {
+      "id": "rules.organized_sports",
+      "label": "actividades deportivas organizadas",
+      "kind": "rule",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "puedo hacer una carrera en el parque",
+        "permiso para una competencia de montaña",
+        "se puede organizar una carrera de trail",
+        "voy a hacer una carrera ciclística en Los Nevados",
+        "autorización para un evento deportivo",
+        "puedo convocar una competencia en el páramo",
+        "organizar una caminata deportiva grupal",
+        "se permiten carreras con participantes",
+        "necesito permiso para hacer una travesía deportiva organizada",
+        "cómo tramito una actividad deportiva en el parque",
+        "can I organize a trail race here?",
+        "puedo montar una competencia en los senderos",
+        "actividad deportiva con inscripción, qué autorización necesita",
+        "quiero hacer una prueba deportiva en el parque"
+      ],
+      "hard_negatives": [
+        "puedo organizar un evento en Los Nevados",
+        "puedo grabar un documental"
+      ],
+      "entities": {},
+      "needs": [],
+      "answer": {
+        "short": "Las actividades deportivas organizadas, como carreras o competencias, necesitan autorización de Parques Nacionales. El montañismo deportivo de clubes tiene condiciones propias según la Resolución 474 de 2018.",
+        "variants": [
+          "Consulta el trámite y las condiciones con Parques Nacionales antes de convocar participantes a una actividad deportiva."
+        ]
+      },
+      "sources": [
+        {
+          "label": "Parques Nacionales Naturales de Colombia · Ficha oficial PNN Los Nevados",
+          "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+          "retrieved_at": "2026-11-21"
+        },
+        {
+          "label": "Parques Nacionales Naturales de Colombia · Resolución 207 de 2023 (reglamentación PNN Los Nevados)",
+          "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2023/08/Resolucion_207_2023_ReglamentacionNevados_.pdf",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "related": [
+        "rules.event_permits",
+        "rules.audiovisual_permits"
+      ],
+      "tags": [
+        "deportes",
+        "competencias",
+        "autorización"
+      ],
+      "last_verified": "2026-11-21"
+    },
+    {
+      "id": "rules.research_permissions",
+      "label": "investigación y recolección científica",
+      "kind": "rule",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "puedo hacer una investigación en Los Nevados",
+        "permiso para tomar muestras científicas",
+        "voy a recolectar plantas para un estudio",
+        "cómo solicitar permiso de investigación",
+        "se puede hacer trabajo de campo en el parque",
+        "autorización para estudiar aves en el área",
+        "necesito ingresar para una tesis",
+        "puedo recolectar muestras de agua para un proyecto",
+        "qué trámite hay para una investigación ambiental",
+        "permiso científico PNN Los Nevados",
+        "how do I apply for a research permit?",
+        "voy a muestrear insectos, qué autorización necesito",
+        "puedo hacer investigación universitaria sin permiso",
+        "se requiere permiso para investigación biológica"
+      ],
+      "hard_negatives": [
+        "puedo arrancar un frailejón",
+        "se puede pescar en la Laguna del Otún"
+      ],
+      "entities": {},
+      "needs": [],
+      "answer": {
+        "short": "Los proyectos de investigación o académicos necesitan permiso previo de Parques Nacionales, y la colecta de especímenes solo se permite con fines científicos autorizados. Confirma qué permiso aplica a tu proyecto.",
+        "variants": [
+          "La ficha del parque pide autorización para las actividades de investigación; consulta con Parques Nacionales el trámite que corresponde antes de ingresar o recolectar muestras."
+        ]
+      },
+      "sources": [
+        {
+          "label": "Parques Nacionales Naturales de Colombia · Resolución 207 de 2023 (reglamentación PNN Los Nevados)",
+          "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2023/08/Resolucion_207_2023_ReglamentacionNevados_.pdf",
+          "retrieved_at": "2026-11-21"
+        },
+        {
+          "label": "Función Pública · Decreto 1076 de 2015, arts. 2.2.2.1.15.1, 2.2.2.1.15.2 y 2.2.2.1.16",
+          "url": "https://www.funcionpublica.gov.co/eva/gestornormativo/norma.php?i=78153",
+          "retrieved_at": "2026-11-21"
+        },
+        {
+          "label": "Parques Nacionales Naturales de Colombia · Ficha oficial PNN Los Nevados",
+          "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "related": [
+        "rules.leave_natural_objects",
+        "rules.fishing"
+      ],
+      "tags": [
+        "investigación",
+        "permisos",
+        "recolección científica"
+      ]
+    },
+    {
+      "id": "rules.drones",
+      "label": "uso de drones",
+      "kind": "rule",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "se puede volar dron en Los Nevados",
+        "puedo usar mi drone para unas fotos",
+        "dejan entrar drones al parque",
+        "dron recreativo en Brisas",
+        "quiero grabar desde el aire, está permitido?",
+        "se puede volar un cuadricóptero en el páramo",
+        "toca pedir permiso para volar dron?",
+        "puedo sacar el dron un momento",
+        "qué norma hay para drones en el parque",
+        "are drones allowed in the park?",
+        "puedo hacer tomas aéreas con drone",
+        "dejan usar dron para un video familiar"
+      ],
+      "hard_negatives": [
+        "puedo grabar un documental",
+        "puedo hacer fotos para una marca"
+      ],
+      "entities": {},
+      "needs": [],
+      "answer": {
+        "short": "El reglamento prohíbe utilizar drones en el parque. Deja el dron guardado durante toda la visita.",
+        "variants": [
+          "La Resolución 207 de 2023 prohíbe usar drones en el parque; confirma con Parques Nacionales si necesitas orientación sobre la norma vigente."
+        ]
+      },
+      "sources": [
+        {
+          "label": "Parques Nacionales Naturales de Colombia · Resolución 207 de 2023 (reglamentación PNN Los Nevados)",
+          "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2023/08/Resolucion_207_2023_ReglamentacionNevados_.pdf",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "related": [
+        "rules.audiovisual_permits",
+        "rules.commercial_photography"
+      ],
+      "tags": [
+        "drones",
+        "vuelo",
+        "tomas aéreas"
+      ],
+      "last_verified": "2026-11-21"
+    },
+    {
+      "id": "rules.open_fires",
+      "label": "fogatas y fuego abierto",
+      "kind": "rule",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "puedo prender una fogata",
+        "se permiten fogatas en el parque",
+        "hacer una fogata para calentar comida",
+        "toca llevar leña para cocinar",
+        "puedo encender fuego en el páramo",
+        "nos dejan hacer una fogata pequeña",
+        "qué pasa si prendo una fogata en el campamento",
+        "puedo quemar basura para no cargarla",
+        "fuego abierto en Los Nevados",
+        "can we make a campfire here?",
+        "se puede hacer una fogata de noche",
+        "hay alguna regla sobre fuego en el parque"
+      ],
+      "hard_negatives": [
+        "puedo montar carpa en cualquier parte",
+        "dónde boto la basura"
+      ],
+      "entities": {},
+      "needs": [],
+      "answer": {
+        "short": "No hagas fogatas: el reglamento del parque las prohíbe por el riesgo de incendios forestales. Para cocinar, el reglamento indica llevar camping gas.",
+        "variants": [
+          "Las fogatas están prohibidas en el parque por riesgo de incendios forestales. Para cocinar, lleva camping gas y consulta con el personal cualquier duda."
+        ]
+      },
+      "sources": [
+        {
+          "label": "Parques Nacionales Naturales de Colombia · Resolución 207 de 2023 (reglamentación PNN Los Nevados)",
+          "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2023/08/Resolucion_207_2023_ReglamentacionNevados_.pdf",
+          "retrieved_at": "2026-11-21"
+        },
+        {
+          "label": "Función Pública · Decreto 1076 de 2015, arts. 2.2.2.1.15.1, 2.2.2.1.15.2 y 2.2.2.1.16",
+          "url": "https://www.funcionpublica.gov.co/eva/gestornormativo/norma.php?i=78153",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "related": [
+        "rules.camping",
+        "rules.leave_no_waste"
+      ],
+      "tags": [
+        "fuego",
+        "fogatas",
+        "incendios"
+      ]
+    },
+    {
+      "id": "rules.noise",
+      "label": "ruido y equipos de sonido",
+      "kind": "rule",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "puedo poner música con un parlante",
+        "se permiten bafles en el sendero",
+        "puedo llevar un altavoz bluetooth",
+        "poner música duro en el parque",
+        "toca caminar en silencio?",
+        "hay regla sobre hacer ruido",
+        "puedo usar una bocina para llamar al grupo",
+        "can I play music on a speaker?",
+        "se puede poner música en el campamento",
+        "qué pasa si hago mucho ruido",
+        "dejan llevar parlante portátil",
+        "cómo debo comportarme con el ruido en el páramo"
+      ],
+      "hard_negatives": [
+        "puedo poner cantos de aves en el celular",
+        "se puede volar dron en Los Nevados"
+      ],
+      "entities": {},
+      "needs": [],
+      "answer": {
+        "short": "No produzcas ruidos ni uses parlantes u otros equipos sonoros que perturben el ambiente natural o incomoden a otros visitantes. El reglamento lo prohíbe.",
+        "variants": [
+          "Usar equipos sonoros que incomoden a los visitantes está prohibido en el parque; confirma cualquier actividad especial con Parques Nacionales."
+        ]
+      },
+      "sources": [
+        {
+          "label": "Parques Nacionales Naturales de Colombia · Resolución 207 de 2023 (reglamentación PNN Los Nevados)",
+          "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2023/08/Resolucion_207_2023_ReglamentacionNevados_.pdf",
+          "retrieved_at": "2026-11-21"
+        },
+        {
+          "label": "Función Pública · Decreto 1076 de 2015, arts. 2.2.2.1.15.1, 2.2.2.1.15.2 y 2.2.2.1.16",
+          "url": "https://www.funcionpublica.gov.co/eva/gestornormativo/norma.php?i=78153",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "related": [
+        "rules.playback",
+        "rules.drones"
+      ],
+      "tags": [
+        "ruido",
+        "parlantes",
+        "equipos de sonido"
+      ]
+    },
+    {
+      "id": "rules.feed_wildlife",
+      "label": "alimentar fauna silvestre",
+      "kind": "rule",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "puedo darle comida a un venado",
+        "está bien alimentar aves del parque",
+        "puedo dejarle fruta a un animal",
+        "cómo atraigo un oso para verlo",
+        "les puedo dar migas a los pájaros",
+        "puedo cebar animales para tomarles fotos",
+        "se puede alimentar fauna silvestre",
+        "dejo comida para los animales?",
+        "qué comida les gusta a las aves del páramo",
+        "can I feed the wildlife here?",
+        "puedo dejar sal para los venados?",
+        "alimentar animales en Los Nevados"
+      ],
+      "hard_negatives": [
+        "puedo poner cantos de aves en el celular",
+        "dónde boto la basura"
+      ],
+      "entities": {},
+      "needs": [],
+      "answer": {
+        "short": "No des de comer a la fauna silvestre: el reglamento prohíbe alimentarla para atraerla o capturarla y también suministrar alimentos a los animales. Obsérvala sin ofrecerle nada.",
+        "variants": [
+          "Dar de comer a los animales silvestres está prohibido en el parque; tampoco se permiten trampas para atraerlos."
+        ]
+      },
+      "sources": [
+        {
+          "label": "Parques Nacionales Naturales de Colombia · Resolución 207 de 2023 (reglamentación PNN Los Nevados)",
+          "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2023/08/Resolucion_207_2023_ReglamentacionNevados_.pdf",
+          "retrieved_at": "2026-11-21"
+        },
+        {
+          "label": "Función Pública · Decreto 1076 de 2015, arts. 2.2.2.1.15.1, 2.2.2.1.15.2 y 2.2.2.1.16",
+          "url": "https://www.funcionpublica.gov.co/eva/gestornormativo/norma.php?i=78153",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "related": [
+        "rules.playback",
+        "rules.leave_no_waste"
+      ],
+      "tags": [
+        "alimentación",
+        "fauna",
+        "atraer animales"
+      ]
+    },
+    {
+      "id": "rules.playback",
+      "label": "audios para atraer aves",
+      "kind": "rule",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "puedo poner cantos de aves en el celular",
+        "se puede usar playback para ver colibríes",
+        "audio para atraer pájaros",
+        "reproducir sonidos de aves en el sendero",
+        "cómo hago que se acerquen las aves",
+        "puedo usar un parlante con cantos de aves",
+        "playback en Los Nevados",
+        "dejan usar grabaciones para observar fauna",
+        "can I use bird calls to attract birds?",
+        "sirve poner cantos para fotografiar pájaros",
+        "usar sonidos de fauna en el páramo",
+        "se permite atraer aves con una grabación"
+      ],
+      "hard_negatives": [
+        "puedo darle comida a un venado",
+        "puedo poner música con un parlante"
+      ],
+      "entities": {},
+      "needs": [],
+      "answer": {
+        "short": "No uses playback: el reglamento prohíbe reproducir audios de fauna silvestre con un dispositivo electrónico, incluso para observar aves. Obsérvalas sin audios.",
+        "variants": [
+          "El reglamento prohíbe el playback durante la observación de aves en el parque; si quieres verlas, espera a que aparezcan sin grabaciones."
+        ]
+      },
+      "sources": [
+        {
+          "label": "Parques Nacionales Naturales de Colombia · Resolución 207 de 2023 (reglamentación PNN Los Nevados)",
+          "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2023/08/Resolucion_207_2023_ReglamentacionNevados_.pdf",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "related": [
+        "rules.feed_wildlife",
+        "rules.noise"
+      ],
+      "tags": [
+        "playback",
+        "aves",
+        "audios de fauna"
+      ]
+    },
+    {
+      "id": "rules.camping",
+      "label": "acampar dentro del parque",
+      "kind": "rule",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "puedo montar carpa en cualquier parte",
+        "dónde se puede acampar en Los Nevados",
+        "acampar fuera del sendero está permitido?",
+        "puedo dormir en la montaña sin reserva",
+        "camping en zona no autorizada",
+        "se puede pasar la noche en el páramo",
+        "dónde consulto si dejan acampar",
+        "puedo dormir en mi carpa en Brisas",
+        "can I camp anywhere in the park?",
+        "acampar en un sitio que no tiene zona marcada",
+        "puedo hacer vivac donde me coja la noche",
+        "¿hay sitios para acampar en el Tolima?"
+      ],
+      "hard_negatives": [
+        "puedo prender una fogata",
+        "dónde boto la basura"
+      ],
+      "entities": {},
+      "needs": [],
+      "answer": {
+        "short": "Acampar dentro del parque está prohibido, salvo en las zonas de camping autorizadas. Hoy el reglamento habilita de forma transitoria Termales Cañón, Arenales y Calvito, cerca del Tolima; el camping de Brisas está restringido por actividad volcánica. Confirma antes de viajar.",
+        "variants": [
+          "El reglamento prohíbe el camping en zonas no permitidas; no montes carpa en otro lugar y confirma la disponibilidad antes de tu visita."
+        ]
+      },
+      "sources": [
+        {
+          "label": "Parques Nacionales Naturales de Colombia · Resolución 207 de 2023 (reglamentación PNN Los Nevados)",
+          "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2023/08/Resolucion_207_2023_ReglamentacionNevados_.pdf",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "related": [
+        "rules.open_fires",
+        "rules.leave_no_waste"
+      ],
+      "tags": [
+        "camping",
+        "pernocte",
+        "zonas permitidas"
+      ]
+    },
+    {
+      "id": "rules.fishing",
+      "label": "pesca en el parque",
+      "kind": "rule",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "se puede pescar en la Laguna del Otún",
+        "dejan llevar caña de pescar",
+        "puedo pescar truchas en el parque",
+        "pesca recreativa en Los Nevados",
+        "está permitida la pesca deportiva",
+        "puedo lanzar una línea desde la orilla",
+        "se puede pescar para comer",
+        "pescar en los ríos del parque",
+        "qué regla hay para la pesca",
+        "can I fish in the park?",
+        "puedo usar anzuelo en la laguna",
+        "dejan hacer pesca con devolución"
+      ],
+      "hard_negatives": [
+        "puedo hacer una investigación en Los Nevados",
+        "puedo arrancar un frailejón"
+      ],
+      "entities": {},
+      "needs": [],
+      "answer": {
+        "short": "No puedes pescar en el parque. La única excepción es la pesca con fines científicos o investigativos autorizada por la autoridad ambiental.",
+        "variants": [
+          "La pesca recreativa está prohibida en el parque; si tu proyecto requiere pescar, pide la autorización a la autoridad ambiental antes de ingresar."
+        ]
+      },
+      "sources": [
+        {
+          "label": "Parques Nacionales Naturales de Colombia · Resolución 207 de 2023 (reglamentación PNN Los Nevados)",
+          "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2023/08/Resolucion_207_2023_ReglamentacionNevados_.pdf",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "related": [
+        "rules.research_permissions",
+        "rules.leave_natural_objects"
+      ],
+      "tags": [
+        "pesca",
+        "caña",
+        "laguna"
+      ]
+    },
+    {
+      "id": "rules.intoxication",
+      "label": "alcohol y sustancias psicoactivas",
+      "kind": "rule",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "puedo entrar si estoy borracho",
+        "dejan ingresar después de tomar",
+        "se puede visitar el parque con tragos encima",
+        "puedo ir al sendero bajo efectos de drogas",
+        "qué pasa si llego alicorado",
+        "se puede consumir y luego entrar al parque",
+        "puedo entrar tomado a Los Nevados",
+        "hay control si uno va borracho",
+        "visitar el parque después de beber",
+        "can I enter the park while intoxicated?",
+        "toca estar sobrio para ingresar",
+        "me dejan pasar si estoy enguayabado y aún tomado",
+        "puedo tomar una cerveza en la laguna?",
+        "¿puedo llevar una botella de licor cerrada?"
+      ],
+      "hard_negatives": [
+        "me van a revisar el morral al entrar?",
+        "puedo llevar un cuchillo para cortar comida"
+      ],
+      "entities": {},
+      "needs": [],
+      "answer": {
+        "short": "No puedes ingresar ni consumir alcohol ni sustancias psicoactivas en el parque, y tampoco entrar embriagado o bajo sus efectos. Si ya estás bajo sus efectos, no inicies la visita.",
+        "variants": [
+          "El reglamento prohíbe entrar en estado de alicoramiento o bajo sustancias psicoactivas, y embriagarse dentro del parque. Espera a estar en condiciones para empezar."
+        ]
+      },
+      "sources": [
+        {
+          "label": "Parques Nacionales Naturales de Colombia · Resolución 207 de 2023 (reglamentación PNN Los Nevados)",
+          "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2023/08/Resolucion_207_2023_ReglamentacionNevados_.pdf",
+          "retrieved_at": "2026-11-21"
+        },
+        {
+          "label": "Función Pública · Decreto 1076 de 2015, arts. 2.2.2.1.15.1, 2.2.2.1.15.2 y 2.2.2.1.16",
+          "url": "https://www.funcionpublica.gov.co/eva/gestornormativo/norma.php?i=78153",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "related": [
+        "rules.entry_bag_checks",
+        "rules.weapons"
+      ],
+      "tags": [
+        "alcohol",
+        "sustancias psicoactivas",
+        "embriaguez"
+      ]
+    },
+    {
+      "id": "rules.weapons",
+      "label": "armas y objetos cortopunzantes",
+      "kind": "rule",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "puedo llevar un cuchillo para cortar comida",
+        "se permite llevar armas para protegerse",
+        "puedo entrar con una pistola de defensa?",
+        "llevo un machete para abrir camino",
+        "dejan entrar navaja o cuchillo de bolsillo?",
+        "puedo llevar un arma de fuego en el recorrido",
+        "puedo cargar un arma con permiso de porte?",
+        "mi hermano va armado, ¿puede entrar?",
+        "cuchillo suizo o navaja multiusos, ¿lo puedo llevar?",
+        "is it allowed to bring a knife to the park?",
+        "me revisan las armas en el control?",
+        "se puede llevar una escopeta al parque?"
+      ],
+      "hard_negatives": [
+        "me van a revisar el morral al entrar?",
+        "puedo entrar si estoy borracho"
+      ],
+      "entities": {},
+      "needs": [],
+      "answer": {
+        "short": "No puedes ingresar ni usar armas de fuego ni elementos cortopunzantes en el parque. Los controles de ingreso los buscan; déjalos fuera antes de llegar al puesto de control.",
+        "variants": [
+          "El reglamento prohíbe portar armas de fuego en las áreas del Sistema de Parques Nacionales y el ingreso y uso de armas o elementos cortopunzantes en Los Nevados."
+        ]
+      },
+      "sources": [
+        {
+          "label": "Parques Nacionales Naturales de Colombia · Resolución 207 de 2023 (reglamentación PNN Los Nevados)",
+          "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2023/08/Resolucion_207_2023_ReglamentacionNevados_.pdf",
+          "retrieved_at": "2026-11-21"
+        },
+        {
+          "label": "Función Pública · Decreto 1076 de 2015, arts. 2.2.2.1.15.1, 2.2.2.1.15.2 y 2.2.2.1.16",
+          "url": "https://www.funcionpublica.gov.co/eva/gestornormativo/norma.php?i=78153",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "related": [
+        "rules.entry_bag_checks",
+        "rules.intoxication",
+        "rules.preventive_measures"
+      ],
+      "tags": [
+        "armas",
+        "cortopunzantes",
+        "control de ingreso"
+      ]
+    },
+    {
+      "id": "rules.entry_bag_checks",
+      "label": "controles de ingreso y salida",
+      "kind": "rule",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "me van a revisar el morral al entrar?",
+        "hay requisa de maletas en el parque",
+        "revisan lo que llevo en los controles?",
+        "control de salida, también revisan?",
+        "qué revisan en la caseta de ingreso",
+        "¿hay aduanas ecológicas en Brisas?",
+        "me pueden pedir que abra el bolso?",
+        "they search bags at the entrance?",
+        "revisan si llevo algo prohibido antes de subir",
+        "toca mostrar el equipaje en el puesto de control",
+        "en la portería revisan la mochila o no?",
+        "revisan los equipos de pesca en la entrada?"
+      ],
+      "hard_negatives": [
+        "puedo llevar un cuchillo para cortar comida",
+        "puedo entrar si estoy borracho"
+      ],
+      "entities": {},
+      "needs": [],
+      "answer": {
+        "short": "Sí, en los controles de ingreso y salida pueden revisar tu equipaje. Buscan sustancias psicoactivas, elementos embriagantes, armas, cortopunzantes y equipos de pesca. Déjalos fuera antes de llegar al control.",
+        "variants": [
+          "Debes participar en los controles de ingreso y salida. Si encuentran algo prohibido, se implementarán las medidas a las que haya lugar; pregunta al personal qué procede."
+        ]
+      },
+      "sources": [
+        {
+          "label": "Parques Nacionales Naturales de Colombia · Resolución 207 de 2023 (reglamentación PNN Los Nevados)",
+          "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2023/08/Resolucion_207_2023_ReglamentacionNevados_.pdf",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "related": [
+        "rules.weapons",
+        "rules.intoxication",
+        "rules.preventive_measures"
+      ],
+      "tags": [
+        "control",
+        "requisa",
+        "equipaje"
+      ]
+    },
+    {
+      "id": "rules.minors_protection",
+      "label": "protección de niños y adolescentes",
+      "kind": "rule",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "turismo sexual con menores está prohibido aquí?",
+        "qué pasa si alguien explota sexualmente a un menor en un tour",
+        "la explotación infantil se castiga en Los Nevados?",
+        "hay ley contra la explotación sexual de niños en el parque",
+        "¿qué norma protege a los niños del turismo sexual?",
+        "explotación sexual infantil en el turismo, está permitido?",
+        "is child sexual exploitation banned in the park?",
+        "si veo a un adulto abusando de un menor, a quién aviso aquí?",
+        "¿qué pasa si veo un caso de explotación infantil en el parque?",
+        "dónde denuncio la explotación sexual de menores en el parque?",
+        "abuso de menores en un tour, qué hago?",
+        "está penalizado el turismo sexual con niños?"
+      ],
+      "hard_negatives": [
+        "tengo que hacer caso a los guardaparques?",
+        "tengo que respetar a los campesinos que viven en el parque?"
+      ],
+      "entities": {},
+      "needs": [],
+      "answer": {
+        "short": "Está prohibido el turismo sexual y cualquier forma de explotación sexual de niños, niñas y adolescentes; la Ley 679 de 2001 lo penaliza. Si ves un caso, denúncialo ante el personal del parque o las autoridades.",
+        "variants": [
+          "La Resolución 207 de 2023 prohíbe participar en actividades de turismo sexual, y pide denunciar los delitos ante los funcionarios del parque o las autoridades competentes."
+        ]
+      },
+      "sources": [
+        {
+          "label": "Parques Nacionales Naturales de Colombia · Resolución 207 de 2023 (reglamentación PNN Los Nevados)",
+          "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2023/08/Resolucion_207_2023_ReglamentacionNevados_.pdf",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "related": [
+        "rules.follow_park_staff",
+        "rules.respect_communities"
+      ],
+      "tags": [
+        "menores",
+        "explotación sexual",
+        "protección infantil"
+      ],
+      "last_verified": "2026-11-21"
+    },
+    {
+      "id": "rules.follow_park_staff",
+      "label": "obedecer al personal del parque",
+      "kind": "rule",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "tengo que hacer caso a los guardaparques?",
+        "y si no quiero seguir las indicaciones del personal?",
+        "tengo que obedecer al guía o al ranger?",
+        "debo acatar lo que diga el personal de Parques",
+        "do I have to follow the rangers' instructions?",
+        "el guardaparque me pide salir, ¿tengo que irme?",
+        "si el personal me dice que me devuelva, ¿qué hago?",
+        "puedo discutir con el ranger si me pide algo?",
+        "las recomendaciones del guía son obligatorias?",
+        "qué hago si un funcionario me llama la atención",
+        "tengo que seguir al guía en la ruta?",
+        "¿los guías del parque mandan en el recorrido?"
+      ],
+      "hard_negatives": [
+        "me van a revisar el morral al entrar?",
+        "cuánto es la multa si rompo una regla del parque?"
+      ],
+      "entities": {},
+      "needs": [],
+      "answer": {
+        "short": "Debes acatar las recomendaciones de los funcionarios del parque y de los guías e intérpretes autorizados. Los funcionarios de control y vigilancia tienen funciones policivas. Si no estás de acuerdo, presenta tu queja por los canales oficiales.",
+        "variants": [
+          "Si una indicación te parece injusta, consúltala después por los canales oficiales de Parques Nacionales, sin desobedecerla en el momento."
+        ]
+      },
+      "sources": [
+        {
+          "label": "Parques Nacionales Naturales de Colombia · Resolución 207 de 2023 (reglamentación PNN Los Nevados)",
+          "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2023/08/Resolucion_207_2023_ReglamentacionNevados_.pdf",
+          "retrieved_at": "2026-11-21"
+        },
+        {
+          "label": "Función Pública · Decreto 1076 de 2015, arts. 2.2.2.1.15.1, 2.2.2.1.15.2 y 2.2.2.1.16",
+          "url": "https://www.funcionpublica.gov.co/eva/gestornormativo/norma.php?i=78153",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "related": [
+        "rules.entry_bag_checks",
+        "rules.sanctions_penalties"
+      ],
+      "tags": [
+        "personal del parque",
+        "guardaparques",
+        "autoridad"
+      ]
+    },
+    {
+      "id": "rules.sell_advertise",
+      "label": "vender o hacer publicidad en el parque",
+      "kind": "rule",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "puedo vender agua o snacks en el sendero?",
+        "se puede vender artesanías en Brisas",
+        "puedo repartir volantes de mi negocio",
+        "hacer publicidad de mi marca en el parque está permitido?",
+        "vender cosas a los turistas en la laguna",
+        "puedo poner un puesto de comida en el páramo",
+        "dejo un aviso publicitario en el camino, ¿sí?",
+        "can I sell souvenirs in the park?",
+        "puedo distribuir folletos de mi tienda en las rutas",
+        "pongo un stand para vender en Los Nevados?",
+        "poner pancartas de mi empresa en el sendero",
+        "puedo vender algo de comer al grupo en la ruta",
+        "vender ropa o gorras a los visitantes, ¿se puede?"
+      ],
+      "hard_negatives": [
+        "puedo hacer fotos para una marca",
+        "puedo organizar un evento en Los Nevados"
+      ],
+      "entities": {},
+      "needs": [],
+      "answer": {
+        "short": "No puedes vender, comerciar ni distribuir productos en el parque, salvo los que estén autorizados expresamente. Tampoco hagas propaganda no prevista en la regulación. Consulta primero con Parques Nacionales.",
+        "variants": [
+          "Vender agua, comida o artesanías, repartir folletos o poner avisos publicitarios requiere autorización expresa; sin ella, está prohibido en el parque."
+        ]
+      },
+      "sources": [
+        {
+          "label": "Función Pública · Decreto 1076 de 2015, arts. 2.2.2.1.15.1, 2.2.2.1.15.2 y 2.2.2.1.16",
+          "url": "https://www.funcionpublica.gov.co/eva/gestornormativo/norma.php?i=78153",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "related": [
+        "rules.commercial_photography",
+        "rules.event_permits"
+      ],
+      "tags": [
+        "venta",
+        "comercio",
+        "publicidad",
+        "propaganda"
+      ]
+    },
+    {
+      "id": "rules.single_use_plastics",
+      "label": "plásticos de un solo uso",
+      "kind": "rule",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "puedo llevar botellas de plástico al parque?",
+        "las bolsas plásticas están prohibidas?",
+        "llevo pitillos de plástico para el jugo, pasa?",
+        "se pueden ingresar vasos desechables",
+        "pitillos plásticos prohibidos en el parque?",
+        "is it allowed to bring single-use plastic bottles?",
+        "los platos desechables están permitidos?",
+        "hay que llevar recipiente reutilizable en vez de plástico?",
+        "cubiertos de plástico para el almuerzo, ¿sí o no?",
+        "reemplazo las botellas de plástico por una reutilizable, sirve?",
+        "bolsas de mercado plásticas, ¿entran?",
+        "¿puedo llevar un termo en lugar de botellas plásticas?",
+        "is plastic cutlery allowed in the park?"
+      ],
+      "hard_negatives": [
+        "dónde boto la basura",
+        "puedo botar aceite en el suelo"
+      ],
+      "entities": {},
+      "needs": [],
+      "answer": {
+        "short": "No ingreses plásticos de un solo uso al parque: el reglamento los prohíbe por la Resolución 1558 de 2019. Lleva una botella y recipientes reutilizables en su lugar.",
+        "variants": [
+          "La Resolución 207 de 2023 indica que no se deben ingresar plásticos de un solo uso, prohibidos según la Resolución 1558 de 2019; revisa tu equipaje antes de llegar al control."
+        ]
+      },
+      "sources": [
+        {
+          "label": "Parques Nacionales Naturales de Colombia · Resolución 207 de 2023 (reglamentación PNN Los Nevados)",
+          "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2023/08/Resolucion_207_2023_ReglamentacionNevados_.pdf",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "related": [
+        "rules.leave_no_waste",
+        "rules.avoid_pollutants"
+      ],
+      "tags": [
+        "plásticos",
+        "un solo uso",
+        "reutilizables"
+      ],
+      "last_verified": "2026-11-21"
+    },
+    {
+      "id": "rules.graffiti_signage",
+      "label": "rayar, pintar o mover señales",
+      "kind": "rule",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "puedo escribir mi nombre en una roca del sendero?",
+        "dejar mi firma pintada en un árbol",
+        "se puede pintar un grafiti en la valla?",
+        "puedo quitar un letrero que estorba en el camino?",
+        "rayar las piedras con un marcador, ¿hay problema?",
+        "me llevo la señal de la ruta de recuerdo",
+        "puedo hacer marcas con pintura en el sendero para no perderme",
+        "dejar un mensaje escrito en una piedra del páramo",
+        "is graffiti allowed on the rocks?",
+        "puedo mover la valla que tapa el paso?",
+        "escribir con un cuchillo en un árbol del sendero",
+        "puedo dibujar un corazón en una roca con tiza?",
+        "qué pasa si rayo una señal del parque"
+      ],
+      "hard_negatives": [
+        "puedo arrancar un frailejón",
+        "puedo caminar por donde quiera"
+      ],
+      "entities": {},
+      "needs": [],
+      "answer": {
+        "short": "No rayes ni pintes rocas, árboles o estructuras del sendero, y no alteres ni quites señales, avisos o vallas. Está prohibido por el reglamento del parque y el Decreto 1076.",
+        "variants": [
+          "Causar daño a las instalaciones o remover señalización y vallas en los senderos está prohibido; si una señal está dañada, avisa al personal del parque."
+        ]
+      },
+      "sources": [
+        {
+          "label": "Parques Nacionales Naturales de Colombia · Resolución 207 de 2023 (reglamentación PNN Los Nevados)",
+          "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2023/08/Resolucion_207_2023_ReglamentacionNevados_.pdf",
+          "retrieved_at": "2026-11-21"
+        },
+        {
+          "label": "Función Pública · Decreto 1076 de 2015, arts. 2.2.2.1.15.1, 2.2.2.1.15.2 y 2.2.2.1.16",
+          "url": "https://www.funcionpublica.gov.co/eva/gestornormativo/norma.php?i=78153",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "related": [
+        "rules.leave_natural_objects",
+        "rules.stay_on_routes"
+      ],
+      "tags": [
+        "grafitis",
+        "rayar",
+        "señales",
+        "vallas"
+      ],
+      "last_verified": "2026-11-21"
+    },
+    {
+      "id": "rules.respect_communities",
+      "label": "respeto a comunidades y cultura",
+      "kind": "rule",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "tengo que respetar a los campesinos que viven en el parque?",
+        "puedo hacer chistes sobre las costumbres de la gente de la zona?",
+        "hay reglas para tratar a las comunidades del parque?",
+        "se puede discriminar a alguien en el sendero?",
+        "los habitantes de la zona tienen costumbres que debo respetar?",
+        "is it required to respect local culture?",
+        "cómo debo tratar a los habitantes de la vereda?",
+        "discriminar por la pinta de alguien está permitido?",
+        "tengo que respetar las costumbres de los indígenas de la zona?",
+        "qué norma hay sobre el trato a las comunidades?",
+        "puedo burlarme de la forma de hablar de los arrieros?",
+        "respetar la cultura local es obligatorio aquí?"
+      ],
+      "hard_negatives": [
+        "turismo sexual con menores está prohibido aquí?",
+        "tengo que hacer caso a los guardaparques?"
+      ],
+      "entities": {},
+      "needs": [],
+      "answer": {
+        "short": "Respeta la cultura y las costumbres de los habitantes del lugar. El reglamento también prohíbe hacer discriminaciones de cualquier índole en el parque.",
+        "variants": [
+          "Trata con respeto a las comunidades de la zona; discriminar a alguien por cualquier motivo está prohibido en el área protegida."
+        ]
+      },
+      "sources": [
+        {
+          "label": "Parques Nacionales Naturales de Colombia · Resolución 207 de 2023 (reglamentación PNN Los Nevados)",
+          "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2023/08/Resolucion_207_2023_ReglamentacionNevados_.pdf",
+          "retrieved_at": "2026-11-21"
+        },
+        {
+          "label": "Función Pública · Decreto 1076 de 2015, arts. 2.2.2.1.15.1, 2.2.2.1.15.2 y 2.2.2.1.16",
+          "url": "https://www.funcionpublica.gov.co/eva/gestornormativo/norma.php?i=78153",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "related": [
+        "rules.minors_protection",
+        "rules.follow_park_staff"
+      ],
+      "tags": [
+        "comunidades",
+        "cultura",
+        "discriminación"
+      ]
+    },
+    {
+      "id": "rules.sanctions_penalties",
+      "label": "sanciones y multas por infringir",
+      "kind": "rule",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "cuánto es la multa si rompo una regla del parque?",
+        "qué pasa si incumplo el reglamento de Los Nevados?",
+        "me pueden multar por dejar basura?",
+        "cuál es la sanción por hacer fogata",
+        "hasta cuánto pueden cobrar de multa en el parque?",
+        "cómo funciona el proceso sancionatorio ambiental en el parque",
+        "qué castigo hay por entrar con armas?",
+        "cuánto pagaría por pisar un sendero no autorizado",
+        "what happens if I break the park rules?",
+        "pagar multa por llevar mascota al parque?",
+        "se pueden imponer sanciones a turistas por ruido?",
+        "hay multas por tirar basura en el parque?",
+        "es grave dejar basura en el páramo, cuánto pagan?"
+      ],
+      "hard_negatives": [
+        "me pueden quitar lo que llevo si está prohibido?",
+        "tengo que hacer caso a los guardaparques?"
+      ],
+      "entities": {},
+      "needs": [],
+      "answer": {
+        "short": "Incumplir el reglamento puede abrir un proceso sancionatorio ambiental (Ley 1333 de 2009, reformada por la Ley 2387 de 2024). Puede terminar en amonestación pública, servicio comunitario, multa de hasta 100.000 salarios mínimos legales vigentes u otras sanciones. Consulta con Parques Nacionales cualquier duda.",
+        "variants": [
+          "La multa se liquida con el salario mínimo vigente a la fecha de la decisión, así que su valor en pesos cambia cada año. Confirma el monto con Parques Nacionales."
+        ]
+      },
+      "sources": [
+        {
+          "label": "Parques Nacionales Naturales de Colombia · Resolución 207 de 2023 (reglamentación PNN Los Nevados)",
+          "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2023/08/Resolucion_207_2023_ReglamentacionNevados_.pdf",
+          "retrieved_at": "2026-11-21"
+        },
+        {
+          "label": "Cancillería · Ley 2387 de 2024 (modifica el procedimiento sancionatorio ambiental)",
+          "url": "https://cancilleria.gov.co/sites/default/files/Normograma/docs/ley_2387_2024.htm",
+          "retrieved_at": "2026-11-21"
+        },
+        {
+          "label": "Función Pública · Ley 1333 de 2009 (procedimiento sancionatorio ambiental)",
+          "url": "https://www.funcionpublica.gov.co/eva/gestornormativo/norma.php?i=36879",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "related": [
+        "rules.preventive_measures",
+        "rules.follow_park_staff"
+      ],
+      "tags": [
+        "sanción",
+        "multa",
+        "proceso sancionatorio"
+      ],
+      "last_verified": "2026-11-21"
+    },
+    {
+      "id": "rules.preventive_measures",
+      "label": "decomiso de lo que llevas",
+      "kind": "rule",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "me pueden quitar lo que llevo si está prohibido?",
+        "decomisan la pólvora si la traigo al parque?",
+        "qué pasa con las cosas que me confisquen en el control",
+        "si me encuentran algo prohibido, ¿se lo quedan?",
+        "pueden llevarse mis implementos de pesca?",
+        "me cobran el parqueadero si retienen mi carro",
+        "los costos del decomiso los paga el turista?",
+        "can they confiscate my gear at the entrance?",
+        "se pueden retener mis cosas por una infracción?",
+        "si llevo pólvora, me la quitan?",
+        "decomiso preventivo en el parque, ¿qué es?",
+        "me pueden retener el equipo mientras se resuelve el caso?",
+        "me quitan el alcohol si lo llevo al parque?"
+      ],
+      "hard_negatives": [
+        "cuánto es la multa si rompo una regla del parque?",
+        "me van a revisar el morral al entrar?"
+      ],
+      "entities": {},
+      "needs": [],
+      "answer": {
+        "short": "Si llevas algo prohibido, pueden decomisar preventivamente los elementos usados para cometer la infracción, hasta la decisión final. Los costos de almacenar, transportar o vigilar lo retenido, incluido el parqueadero, son a tu cargo. Pregunta al personal del parque qué procede.",
+        "variants": [
+          "Si el decomiso se mantiene, los costos de conservar lo retenido corren a tu cargo; consulta el caso con Parques Nacionales."
+        ]
+      },
+      "sources": [
+        {
+          "label": "Cancillería · Ley 2387 de 2024 (modifica el procedimiento sancionatorio ambiental)",
+          "url": "https://cancilleria.gov.co/sites/default/files/Normograma/docs/ley_2387_2024.htm",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "related": [
+        "rules.sanctions_penalties",
+        "rules.entry_bag_checks"
+      ],
+      "tags": [
+        "decomiso",
+        "medidas preventivas",
+        "costos"
+      ]
+    }
+  ]
+}

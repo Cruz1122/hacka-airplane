@@ -1,0 +1,909 @@
+{
+  "contract_version": 1,
+  "id": "weather_volcano",
+  "order": 3,
+  "title": "Clima y actividad volcánica",
+  "description": "Clima de montaña, lluvias, niebla, nieve, visibilidad y consulta segura de alertas y cierres por actividad del Nevado del Ruiz.",
+  "retrieval": {
+    "profile": "safety",
+    "bm25_weight": 0.25,
+    "top_k": 3,
+    "min_score": null,
+    "entity_filters": []
+  },
+  "clarification": {
+    "between_entries": "¿Te refieres a {label_a} o a {label_b}?",
+    "bank": [
+      "¿Buscas el clima general o el pronóstico para una fecha?",
+      "¿Tu duda es sobre lluvia, altura, niebla, nieve o visibilidad?",
+      "¿Quieres saber qué significa un color o cuál es el estado vigente?",
+      "¿Preguntas por ceniza y gases o por un cierre de sector?",
+      "¿Quieres consultar un boletín del SGC o el pronóstico del IDEAM?"
+    ],
+    "slot_questions": {},
+    "fallback": "Puedo orientarte sobre clima, visibilidad, nieve, alertas, ceniza, gases y cierres por actividad volcánica. Para condiciones del día, verifica el IDEAM, el SGC y las indicaciones de Parques antes de viajar."
+  },
+  "featured": [
+    "weather_volcano.current_forecast",
+    "weather_volcano.current_alert",
+    "weather_volcano.bulletin_channels",
+    "weather_volcano.ash_actions",
+    "weather_volcano.volcanic_closures"
+  ],
+  "entries": [
+    {
+      "id": "weather_volcano.park_weather",
+      "label": "clima general del parque",
+      "kind": "explanation",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "cómo es el clima en Los Nevados",
+        "qué tiempo suele hacer en el parque",
+        "clima general de los nevados",
+        "qué clima hace por allá arriba",
+        "el clima cambia mucho en la montaña",
+        "qué tal está el clima allá arriba",
+        "es frío el parque nacional",
+        "cómo es el tiempo en la alta montaña",
+        "clima de Los Nevados sin pronóstico",
+        "como es el clima alla en los nevados",
+        "parce que clima hace en el parque",
+        "what is the weather like in Los Nevados",
+        "is the park weather cold"
+      ],
+      "hard_negatives": [
+        "qué ropa llevar al parque los nevados",
+        "está abierto hoy"
+      ],
+      "needs": [],
+      "answer": {
+        "short": "El IDEAM describe la alta montaña colombiana como un clima intertropical frío, con cambios importantes durante el día. En Los Nevados el tiempo también depende de la topografía y la altura; para tu fecha, revisa el pronóstico oficial.",
+        "variants": [
+          "Es un clima frío de alta montaña y puede variar bastante en el día. No tomes esta descripción general como el pronóstico de tu visita: consulta el IDEAM."
+        ]
+      },
+      "sources": [
+        {
+          "label": "IDEAM, clima en alta montaña",
+          "url": "http://www.ideam.gov.co/web/otros-ecosistemas/investigacion-y-publicaciones?_31_INSTANCE_x5l2d9DnqhhZ_struts_action=%2Fimage_g",
+          "retrieved_at": "2026-11-21"
+        },
+        {
+          "label": "Parques Nacionales, ficha PNN Los Nevados",
+          "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "last_verified": "2026-11-21",
+      "related": [
+        "weather_volcano.rainy_seasons",
+        "weather_volcano.weather_by_elevation",
+        "weather_volcano.current_forecast"
+      ],
+      "tags": [
+        "clima",
+        "alta montaña",
+        "tiempo"
+      ]
+    },
+    {
+      "id": "weather_volcano.rainy_seasons",
+      "label": "lluvias por temporada",
+      "kind": "fact",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "cuándo llueve más en Los Nevados",
+        "cómo se distribuyen las lluvias del año",
+        "hay dos temporadas de lluvia",
+        "cuáles son los meses húmedos del parque",
+        "cuándo son las épocas secas",
+        "llueve todo el año en la montaña",
+        "qué meses tienen más lluvia allá",
+        "temporadas de lluvia y de verano en los nevados",
+        "la lluvia es bimodal en el parque",
+        "en que meses llueve mas por el nevado",
+        "toca esperar temporada seca para ir",
+        "does it rain all year in the park",
+        "when are the rainy seasons"
+      ],
+      "hard_negatives": [
+        "está abierto hoy",
+        "qué pasó en Armero"
+      ],
+      "needs": [],
+      "answer": {
+        "short": "El IDEAM identifica dos periodos húmedos aproximados, de marzo a mayo y de septiembre a noviembre, y dos secos, de diciembre a febrero y de junio a agosto. Es un patrón climático, no una garantía para el día de tu visita; comprueba el pronóstico.",
+        "variants": [
+          "La lluvia tiene un patrón de dos periodos húmedos y dos secos, pero puede cambiar de un día a otro. Consulta el pronóstico antes de salir."
+        ]
+      },
+      "sources": [
+        {
+          "label": "IDEAM, clima en alta montaña",
+          "url": "http://www.ideam.gov.co/web/otros-ecosistemas/investigacion-y-publicaciones?_31_INSTANCE_x5l2d9DnqhhZ_struts_action=%2Fimage_g",
+          "retrieved_at": "2026-11-21"
+        },
+        {
+          "label": "Parques Nacionales, ficha PNN Los Nevados",
+          "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "last_verified": "2026-11-21",
+      "related": [
+        "weather_volcano.park_weather",
+        "weather_volcano.current_forecast",
+        "weather_volcano.summit_visibility"
+      ],
+      "tags": [
+        "lluvia",
+        "temporada",
+        "precipitación"
+      ]
+    },
+    {
+      "id": "weather_volcano.weather_by_elevation",
+      "label": "clima según la altura",
+      "kind": "explanation",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "el clima cambia al subir",
+        "hace el mismo tiempo en todo el parque",
+        "cómo varía el clima por altura",
+        "diferencia de temperatura entre sectores",
+        "por qué arriba hace más frío",
+        "clima de páramo y zona nival",
+        "cada piso térmico tiene otro clima",
+        "qué pasa con el tiempo mientras asciendes",
+        "temperatura según la elevación en los nevados",
+        "como cambia el clima con la altura",
+        "se siente distinto el clima entre abajo y arriba",
+        "weather by elevation in Los Nevados",
+        "does altitude change the weather there"
+      ],
+      "hard_negatives": [
+        "es pesado para el cuerpo ir al parque",
+        "qué ropa llevar al parque los nevados"
+      ],
+      "needs": [],
+      "answer": {
+        "short": "La temperatura y la precipitación no son iguales en todo el recorrido: el IDEAM reporta variación con la altura y un gradiente térmico en la alta montaña. No extrapoles el tiempo de un pueblo o acceso a la cota más alta; revisa las condiciones del sector que visitarás.",
+        "variants": [
+          "La altura modifica las condiciones meteorológicas, así que un pronóstico local no representa necesariamente todo el parque. Verifica el sector de tu ruta."
+        ]
+      },
+      "sources": [
+        {
+          "label": "IDEAM, clima en alta montaña",
+          "url": "http://www.ideam.gov.co/web/otros-ecosistemas/investigacion-y-publicaciones?_31_INSTANCE_x5l2d9DnqhhZ_struts_action=%2Fimage_g",
+          "retrieved_at": "2026-11-21"
+        },
+        {
+          "label": "IDEAM, actualización climática de Caldas",
+          "url": "https://bart.ideam.gov.co/meteorologia/NOTAS_TECNICAS/NT_IDEAM-2025-003_ACTUALIZACION_CALDAS_LANG.pdf",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "last_verified": "2026-11-21",
+      "related": [
+        "weather_volcano.park_weather",
+        "weather_volcano.rainy_seasons",
+        "weather_volcano.summit_visibility"
+      ],
+      "tags": [
+        "altura",
+        "temperatura",
+        "pisos térmicos"
+      ]
+    },
+    {
+      "id": "weather_volcano.summit_visibility",
+      "label": "niebla y visibilidad de cumbres",
+      "kind": "safety",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "se va a ver la cumbre del Ruiz",
+        "puedo ver el nevado desde el recorrido",
+        "habrá visibilidad para tomar fotos",
+        "la niebla tapa la cima",
+        "qué tan despejado estará arriba",
+        "se alcanza a ver la cumbre hoy",
+        "las nubes dejan ver el volcán",
+        "me garantizan ver el nevado",
+        "cómo saber si habrá buena visibilidad",
+        "se ve el ruiz con lluvia",
+        "que tal la visibilidad en la cima",
+        "can I see the summit during my visit",
+        "will the volcano be visible from the trail"
+      ],
+      "hard_negatives": [
+        "está abierto hoy",
+        "qué ropa llevar al parque los nevados"
+      ],
+      "needs": [],
+      "answer": {
+        "short": "No se puede garantizar que veas una cumbre: el IDEAM describe humedad alta y nubosidad variable en la alta montaña, y Parques documentó una nevada asociada a nubosidad densa. Revisa el pronóstico del sector y sigue solo las indicaciones oficiales del recorrido.",
+        "variants": [
+          "La cumbre puede quedar oculta por nubes o niebla; no hay garantía de visibilidad. Consulta el pronóstico y disfruta el paisaje que esté visible."
+        ]
+      },
+      "sources": [
+        {
+          "label": "IDEAM, clima en alta montaña",
+          "url": "http://www.ideam.gov.co/web/otros-ecosistemas/investigacion-y-publicaciones?_31_INSTANCE_x5l2d9DnqhhZ_struts_action=%2Fimage_g",
+          "retrieved_at": "2026-11-21"
+        },
+        {
+          "label": "Parques Nacionales, nevada de octubre de 2025",
+          "url": "https://www.parquesnacionales.gov.co/sala-prensa/noticias/una-de-las-nevadas-mas-grandes-del-ano-cubre-el-parque-nacional-natural-los-nevados/",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "last_verified": "2026-11-21",
+      "related": [
+        "weather_volcano.current_forecast",
+        "weather_volcano.park_weather",
+        "weather_volcano.rainy_seasons"
+      ],
+      "tags": [
+        "niebla",
+        "nubosidad",
+        "visibilidad",
+        "cumbre"
+      ]
+    },
+    {
+      "id": "weather_volcano.snow_and_hail",
+      "label": "nieve y granizo",
+      "kind": "fact",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "nieva en Los Nevados",
+        "hay nieve en el parque",
+        "se puede ver nieve en el Ruiz",
+        "cuándo cae nieve en la alta montaña",
+        "la nevada es normal allá arriba",
+        "puede caer granizo en el recorrido",
+        "nieve o granizo en los nevados",
+        "qué tan frecuente es la nieve",
+        "el parque se cubre de nieve",
+        "ha nevado por el nevado del ruiz",
+        "hay nieve hoy en la cumbre",
+        "does it snow in Los Nevados",
+        "can there be hail on the trail"
+      ],
+      "hard_negatives": [
+        "qué ropa llevar al parque los nevados",
+        "me dio dolor de cabeza al llegar arriba"
+      ],
+      "needs": [],
+      "answer": {
+        "short": "Parques Nacionales documentó una nevada amplia en octubre de 2025, favorecida por nubosidad húmeda, bajas temperaturas y cambios de presión. Esa noticia no permite pronosticar nieve o granizo para tu fecha; revisa el pronóstico y los avisos oficiales.",
+        "variants": [
+          "Sí se han documentado nevadas en la alta montaña, pero no puedo prometer nieve ni confirmar granizo para tu visita. Consulta las condiciones actualizadas del sector."
+        ]
+      },
+      "sources": [
+        {
+          "label": "Parques Nacionales, nevada de octubre de 2025",
+          "url": "https://www.parquesnacionales.gov.co/sala-prensa/noticias/una-de-las-nevadas-mas-grandes-del-ano-cubre-el-parque-nacional-natural-los-nevados/",
+          "retrieved_at": "2026-11-21"
+        },
+        {
+          "label": "IDEAM, clima en alta montaña",
+          "url": "http://www.ideam.gov.co/web/otros-ecosistemas/investigacion-y-publicaciones?_31_INSTANCE_x5l2d9DnqhhZ_struts_action=%2Fimage_g",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "last_verified": "2026-11-21",
+      "related": [
+        "weather_volcano.summit_visibility",
+        "weather_volcano.current_forecast",
+        "weather_volcano.weather_by_elevation"
+      ],
+      "tags": [
+        "nieve",
+        "granizo",
+        "alta montaña"
+      ]
+    },
+    {
+      "id": "weather_volcano.current_forecast",
+      "label": "pronóstico para la visita",
+      "kind": "procedure",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "dónde miro el pronóstico del parque",
+        "qué clima hará mañana en Los Nevados",
+        "va a llover el día de mi visita",
+        "cómo reviso el tiempo antes de viajar",
+        "pronóstico para el fin de semana en Brisas",
+        "hay pronóstico para el sector Otún",
+        "necesito el clima actualizado del nevado",
+        "dónde consulto el tiempo por sector",
+        "cómo saber si estará despejado",
+        "pronostico de mañana para los nevados",
+        "toca mirar el IDEAM antes de subir",
+        "what is the forecast for the park",
+        "where can I check the weather forecast"
+      ],
+      "hard_negatives": [
+        "está abierto hoy",
+        "qué pasó en Armero"
+      ],
+      "needs": [],
+      "answer": {
+        "short": "Consulta los “Pronósticos y Alertas” del IDEAM y busca el sector y la fecha de tu visita. Esta ficha offline no confirma el tiempo en tiempo real; vuelve a comprobarlo antes de salir.",
+        "variants": [
+          "Para una fecha concreta, revisa el servicio de pronósticos del IDEAM. El clima puede cambiar y esta respuesta no sustituye una consulta actualizada."
+        ]
+      },
+      "sources": [
+        {
+          "label": "IDEAM, portal de pronósticos y alertas",
+          "url": "https://www.ideam.gov.co/",
+          "retrieved_at": "2026-11-21"
+        },
+        {
+          "label": "Parques Nacionales, ficha PNN Los Nevados",
+          "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "last_verified": "2026-11-21",
+      "related": [
+        "weather_volcano.park_weather",
+        "weather_volcano.rainy_seasons",
+        "weather_volcano.bulletin_channels"
+      ],
+      "tags": [
+        "pronóstico",
+        "fecha",
+        "sector"
+      ]
+    },
+    {
+      "id": "weather_volcano.alert_yellow_meaning",
+      "label": "alerta amarilla y visita",
+      "kind": "safety",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "qué significa alerta amarilla del Ruiz",
+        "qué implica el amarillo para un turista",
+        "puedo ir con alerta amarilla",
+        "cómo entender el estado amarillo",
+        "alerta amarilla es peligroso",
+        "qué cambios indica el amarillo",
+        "el nivel amarillo permite entrar",
+        "qué hago si el Ruiz está amarillo",
+        "amarillo significa erupción inminente",
+        "que quiere decir alerta amarilla del volcan",
+        "toca seguir al guardaparque con alerta amarilla",
+        "what does yellow volcanic alert mean",
+        "does yellow alert mean the park is closed"
+      ],
+      "hard_negatives": [
+        "está abierto hoy",
+        "qué pasó en Armero"
+      ],
+      "needs": [],
+      "answer": {
+        "short": "Para el SGC, la alerta amarilla significa un volcán activo con cambios respecto a su nivel base y otras manifestaciones; puede incluir emisiones esporádicas de ceniza. No decide por sí sola tu ingreso: consulta el boletín vigente y acata al personal del Parque, porque el acceso puede restringirse.",
+        "variants": [
+          "Amarilla no equivale automáticamente a cierre ni a permiso de entrada. Revisa el boletín del SGC y las instrucciones del Parque antes de acercarte."
+        ]
+      },
+      "sources": [
+        {
+          "label": "SGC, esquema de estados de alerta",
+          "url": "https://www2.sgc.gov.co/Paginas/estados-de-alerta-volcanes.aspx",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "last_verified": "2026-11-21",
+      "related": [
+        "weather_volcano.alert_orange_meaning",
+        "weather_volcano.current_alert",
+        "weather_volcano.volcanic_closures"
+      ],
+      "tags": [
+        "alerta amarilla",
+        "SGC",
+        "actividad volcánica"
+      ]
+    },
+    {
+      "id": "weather_volcano.alert_orange_meaning",
+      "label": "significado de alerta naranja",
+      "kind": "safety",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "qué significa alerta naranja del Ruiz",
+        "qué implica naranja para los visitantes",
+        "cómo actuar si el volcán está naranja",
+        "alerta naranja es erupción",
+        "qué cambios hay en estado naranja",
+        "puedo subir con alerta naranja",
+        "qué restricciones trae el naranja",
+        "naranja significa que ya está haciendo erupción",
+        "qué debe hacer un turista ante alerta naranja",
+        "que hago si cambian a naranja",
+        "toca cancelar la visita con alerta naranja",
+        "what does orange volcanic alert mean",
+        "is orange alert an eruption"
+      ],
+      "hard_negatives": [
+        "está abierto hoy",
+        "qué ropa llevar al parque los nevados"
+      ],
+      "needs": [],
+      "answer": {
+        "short": "Según el SGC, la alerta naranja indica cambios importantes en los parámetros monitoreados y una mayor probabilidad de erupciones mayores; no significa necesariamente que ya haya una erupción. Para una visita, espera las instrucciones oficiales y respeta cualquier restricción o evacuación.",
+        "variants": [
+          "Naranja es un estado de mayor inestabilidad, no una predicción horaria de erupción. No subas por tu cuenta: revisa el SGC y sigue a las autoridades."
+        ]
+      },
+      "sources": [
+        {
+          "label": "SGC, esquema de estados de alerta",
+          "url": "https://www2.sgc.gov.co/Paginas/estados-de-alerta-volcanes.aspx",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "last_verified": "2026-11-21",
+      "related": [
+        "weather_volcano.alert_yellow_meaning",
+        "weather_volcano.alert_red_meaning",
+        "weather_volcano.current_alert"
+      ],
+      "tags": [
+        "alerta naranja",
+        "restricción",
+        "evacuación"
+      ]
+    },
+    {
+      "id": "weather_volcano.alert_red_meaning",
+      "label": "respuesta ante alerta roja",
+      "kind": "safety",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "qué significa alerta roja del Ruiz",
+        "qué implica rojo para los turistas",
+        "qué hago si el volcán está en rojo",
+        "alerta roja significa erupción",
+        "se puede visitar con alerta roja",
+        "qué ordena el estado rojo",
+        "rojo es evacuación obligatoria",
+        "cómo actuar ante alerta roja volcánica",
+        "qué pasa con los accesos en rojo",
+        "que quiere decir rojo en el semaforo volcanico",
+        "toca alejarse si hay alerta roja",
+        "what does red volcanic alert mean",
+        "is the park open during red alert"
+      ],
+      "hard_negatives": [
+        "está abierto hoy",
+        "qué pasó en Armero"
+      ],
+      "needs": [],
+      "answer": {
+        "short": "Para el SGC, la alerta roja corresponde a un volcán en erupción y contempla evacuación obligatoria de las zonas que puedan ser afectadas, según el volcán y el mapa de amenaza. No te acerques ni intentes ingresar: sigue las instrucciones de las autoridades.",
+        "variants": [
+          "Roja significa erupción en curso según el esquema del SGC. Si se declara, aléjate y cumple la evacuación o restricción que ordenen las autoridades."
+        ]
+      },
+      "sources": [
+        {
+          "label": "SGC, esquema de estados de alerta",
+          "url": "https://www2.sgc.gov.co/Paginas/estados-de-alerta-volcanes.aspx",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "last_verified": "2026-11-21",
+      "related": [
+        "weather_volcano.alert_orange_meaning",
+        "weather_volcano.current_alert",
+        "weather_volcano.ash_actions"
+      ],
+      "tags": [
+        "alerta roja",
+        "erupción",
+        "evacuación"
+      ]
+    },
+    {
+      "id": "weather_volcano.alert_states_nonsequential",
+      "label": "cambio entre estados de alerta",
+      "kind": "explanation",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "los colores del volcán son una escala que siempre sube",
+        "el Ruiz debe pasar por amarillo antes de naranja",
+        "puede saltar de amarillo a rojo",
+        "cómo cambian los estados de alerta",
+        "los colores predicen días para una erupción",
+        "alerta naranja significa erupción en días",
+        "la alerta volcánica es progresiva",
+        "qué significa que cambie el color",
+        "el volcán puede volver a bajar de alerta",
+        "como se pasa de un estado a otro",
+        "toca esperar que pase por todos los colores",
+        "are volcanic alert colors sequential",
+        "can a volcano jump from yellow to red"
+      ],
+      "hard_negatives": [
+        "está abierto hoy",
+        "cuándo se creó el parque"
+      ],
+      "needs": [],
+      "answer": {
+        "short": "El SGC aclara que los estados de alerta no son una secuencia obligatoria y no asignan un plazo de días o semanas para una erupción. Por eso, consulta siempre el boletín más reciente en vez de inferir el riesgo solo por el color anterior.",
+        "variants": [
+          "Los estados pueden cambiar sin recorrer todos los colores y no son un reloj de cuenta regresiva. Usa el boletín vigente para decidir tu visita."
+        ]
+      },
+      "sources": [
+        {
+          "label": "SGC, explicación del esquema de alertas",
+          "url": "https://www2.sgc.gov.co/Noticias/Paginas/Como-saber-en-que-estado-de-alerta-por-actividad-volcanica-estan-los-volcanes-del-pais.aspx",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "last_verified": "2026-11-21",
+      "related": [
+        "weather_volcano.alert_yellow_meaning",
+        "weather_volcano.alert_orange_meaning",
+        "weather_volcano.current_alert"
+      ],
+      "tags": [
+        "estados",
+        "colores",
+        "alerta"
+      ]
+    },
+    {
+      "id": "weather_volcano.current_alert",
+      "label": "alerta vigente del Ruiz",
+      "kind": "procedure",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "qué alerta tiene hoy el Nevado del Ruiz",
+        "cuál es el estado actual del Ruiz",
+        "dónde miro la alerta de hoy",
+        "hay alerta volcánica para visitar",
+        "qué nivel reporta el SGC ahora",
+        "sigue activo el volcán hoy",
+        "último estado de actividad del Ruiz",
+        "cómo confirmo la alerta vigente",
+        "hay novedades del volcán para el viaje",
+        "alerta actual del nevado ruiz",
+        "toca revisar el boletín antes de ir",
+        "what is the current Ruiz alert",
+        "where do I check the current volcano status"
+      ],
+      "hard_negatives": [
+        "está abierto hoy",
+        "qué ropa llevar al parque los nevados"
+      ],
+      "needs": [],
+      "answer": {
+        "short": "No tomes esta ficha como confirmación del estado vigente: la alerta puede cambiar. Antes de viajar, abre el boletín más reciente del SGC sobre el Nevado del Ruiz y sigue también las indicaciones de Parques y de las autoridades locales.",
+        "variants": [
+          "Para saber el estado de hoy, consulta directamente el boletín más reciente del SGC. Aquí no se fija una alerta actual porque puede cambiar."
+        ]
+      },
+      "sources": [
+        {
+          "label": "SGC, boletines del Nevado del Ruiz",
+          "url": "https://www2.sgc.gov.co/sgc/volcanes/VolcanNevadoRuiz/Paginas/boletines-volcan-nevado-del-ruiz.aspx",
+          "retrieved_at": "2026-11-21"
+        },
+        {
+          "label": "SGC, boletín semanal del 10 al 16 de noviembre de 2026",
+          "url": "https://www2.sgc.gov.co/Noticias/boletinesDocumentos/Boletin_semanal_de_actividad_del_volcan_Nevado_del_Ruiz_del_10_de_noviembre_al_16_de_noviembre_de_2026.pdf",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "last_verified": "2026-11-21",
+      "related": [
+        "weather_volcano.bulletin_channels",
+        "weather_volcano.alert_yellow_meaning",
+        "weather_volcano.volcanic_closures"
+      ],
+      "tags": [
+        "alerta",
+        "estado actual",
+        "Ruiz"
+      ]
+    },
+    {
+      "id": "weather_volcano.bulletin_channels",
+      "label": "dónde ver boletines",
+      "kind": "procedure",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "dónde consulto los boletines del Ruiz",
+        "qué página publica la actividad del volcán",
+        "cómo leer el boletín del SGC",
+        "dónde miro las novedades del Nevado del Ruiz",
+        "el Observatorio de Manizales publica informes",
+        "qué fuente oficial vigila el volcán",
+        "dónde están los boletines semanales",
+        "cómo saber qué reportó el observatorio",
+        "boletines oficiales del nevado",
+        "donde veo el ultimo boletin del ruiz",
+        "toca revisar SGC u Observatorio",
+        "where are the official Ruiz bulletins",
+        "how can I check volcano updates"
+      ],
+      "hard_negatives": [
+        "está abierto hoy",
+        "qué pasó en Armero"
+      ],
+      "needs": [],
+      "answer": {
+        "short": "El SGC reúne los boletines semanales del Nevado del Ruiz y enlaza los más recientes; el Observatorio Vulcanológico y Sismológico de Manizales participa en el monitoreo que los alimenta. Consulta el boletín más nuevo y no uses una copia antigua para decidir si ingresas.",
+        "variants": [
+          "Busca la página de boletines del Nevado del Ruiz en el SGC; también puedes contrastar la información del Observatorio de Manizales. La publicación más reciente es la referencia para el estado dinámico."
+        ]
+      },
+      "sources": [
+        {
+          "label": "SGC, boletines del Nevado del Ruiz",
+          "url": "https://www2.sgc.gov.co/sgc/volcanes/VolcanNevadoRuiz/Paginas/boletines-volcan-nevado-del-ruiz.aspx",
+          "retrieved_at": "2026-11-21"
+        },
+        {
+          "label": "Alcaldía de Manizales, monitoreo del OVSM",
+          "url": "https://centrodeinformacion.manizales.gov.co/el-detras-de-camaras-del-monitoreo-a-un-volcan-amenazante/",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "last_verified": "2026-11-21",
+      "related": [
+        "weather_volcano.current_alert",
+        "weather_volcano.volcanic_activity",
+        "weather_volcano.ash_actions"
+      ],
+      "tags": [
+        "boletín",
+        "SGC",
+        "Observatorio de Manizales"
+      ]
+    },
+    {
+      "id": "weather_volcano.volcanic_activity",
+      "label": "qué monitorea el SGC",
+      "kind": "explanation",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "qué señales vigila el SGC en el Ruiz",
+        "cómo monitorean la actividad volcánica",
+        "qué mide el observatorio del nevado",
+        "cómo saben si el volcán cambia",
+        "qué significa actividad inestable",
+        "el SGC mira sismos y gases",
+        "qué revisan en un boletín del Ruiz",
+        "cómo se vigila el cráter Arenas",
+        "qué datos aparecen en los informes",
+        "que monitorea el observatorio volcanico",
+        "como saben si aumenta la actividad",
+        "what does the SGC monitor at Ruiz",
+        "how is Nevado del Ruiz monitored"
+      ],
+      "hard_negatives": [
+        "síntomas de soroche",
+        "qué pasó en Armero"
+      ],
+      "needs": [],
+      "answer": {
+        "short": "Los boletines del SGC describen, entre otros parámetros, sismicidad, gases volcánicos, altura y dispersión de la columna, y anomalías térmicas. Esos datos sirven para seguir la evolución del volcán; no permiten que esta ficha prediga una erupción.",
+        "variants": [
+          "El monitoreo combina señales sísmicas, gases, columnas y temperatura del cráter. Para saber qué cambió recientemente, consulta el boletín fechado más reciente."
+        ]
+      },
+      "sources": [
+        {
+          "label": "SGC, boletín semanal del 10 al 16 de noviembre de 2026",
+          "url": "https://www2.sgc.gov.co/Noticias/boletinesDocumentos/Boletin_semanal_de_actividad_del_volcan_Nevado_del_Ruiz_del_10_de_noviembre_al_16_de_noviembre_de_2026.pdf",
+          "retrieved_at": "2026-11-21"
+        },
+        {
+          "label": "Alcaldía de Manizales, monitoreo del OVSM",
+          "url": "https://centrodeinformacion.manizales.gov.co/el-detras-de-camaras-del-monitoreo-a-un-volcan-amenazante/",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "last_verified": "2026-11-21",
+      "related": [
+        "weather_volcano.bulletin_channels",
+        "weather_volcano.current_alert",
+        "weather_volcano.volcanic_gases"
+      ],
+      "tags": [
+        "monitoreo",
+        "sismos",
+        "gases",
+        "cráter"
+      ]
+    },
+    {
+      "id": "weather_volcano.ash_actions",
+      "label": "qué hacer ante ceniza",
+      "kind": "safety",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "qué hago si cae ceniza volcánica",
+        "cómo protegerme de la ceniza del Ruiz",
+        "me alcanzó una nube de ceniza",
+        "qué hacer si el volcán bota ceniza",
+        "ceniza en el camino qué hago",
+        "debo seguir caminando si cae ceniza",
+        "cómo respirar durante una caída de ceniza",
+        "qué hago con ceniza en los ojos",
+        "hay que cerrar puertas por ceniza",
+        "que hacer si cae ceniza en los nevados",
+        "toca buscar refugio si hay ceniza",
+        "what should I do if ash starts falling",
+        "how do I protect myself from volcanic ash"
+      ],
+      "hard_negatives": [
+        "qué ropa llevar al parque los nevados",
+        "me dio dolor de cabeza al llegar arriba"
+      ],
+      "needs": [],
+      "answer": {
+        "short": "Si empieza a caer ceniza, busca refugio bajo techo o dentro de un vehículo, cubre nariz y boca con una mascarilla, pañuelo o trapo, y evita los lentes de contacto. Cierra puertas y ventanas, no te acerques al volcán y sigue las instrucciones oficiales; si hay evacuación, obedécela.",
+        "variants": [
+          "Ante ceniza, resguárdate, protege nariz y boca, cierra aberturas y escucha a las autoridades. No intentes acercarte para mirar ni continúes hacia la zona de riesgo."
+        ]
+      },
+      "sources": [
+        {
+          "label": "UNGRD, comunidades preparadas ante erupciones volcánicas",
+          "url": "http://repositorio.gestiondelriesgo.gov.co/bitstream/handle/20.500.11762/19985/Comunidades_preparadas_ante_erupciones_volcanicas.pdf?sequence=1",
+          "retrieved_at": "2026-11-21"
+        },
+        {
+          "label": "SGC, guía de preparación ante lluvia de cenizas",
+          "url": "https://www2.sgc.gov.co/Direcciones-Tecnicas/Geoamenazas/Documents/Guia_preparacion_lluvia_cenizas.pdf",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "last_verified": "2026-11-21",
+      "related": [
+        "weather_volcano.volcanic_gases",
+        "weather_volcano.current_alert",
+        "weather_volcano.bulletin_channels"
+      ],
+      "tags": [
+        "ceniza",
+        "refugio",
+        "protección"
+      ]
+    },
+    {
+      "id": "weather_volcano.volcanic_gases",
+      "label": "riesgo de gases volcánicos",
+      "kind": "safety",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "qué gases emite el Nevado del Ruiz",
+        "los gases del volcán son peligrosos",
+        "qué hago si huelo azufre arriba",
+        "el dióxido de azufre afecta la respiración",
+        "cómo reconocer riesgo por gases volcánicos",
+        "puedo acercarme si veo fumarola",
+        "qué pasa si hay olor fuerte en el cráter",
+        "los gases se quedan en el aire",
+        "hay que alejarse por gases del Ruiz",
+        "que hacer con olor a azufre en la montaña",
+        "toca salir si me irritan los ojos",
+        "what are the volcanic gas risks",
+        "is sulfur dioxide dangerous near Ruiz"
+      ],
+      "hard_negatives": [
+        "qué riesgo tiene la altura",
+        "qué pasó en Armero"
+      ],
+      "needs": [],
+      "answer": {
+        "short": "El SGC explica que el Ruiz puede emitir vapor de agua, dióxido de carbono y dióxido de azufre, entre otros gases; el dióxido de azufre irrita ojos, garganta y vías respiratorias. Si notas olor fuerte o irritación, aléjate del cráter y sigue las instrucciones del personal y de las autoridades.",
+        "variants": [
+          "Los gases pueden irritar ojos y vías respiratorias, y no debes acercarte al cráter para comprobarlos. Aléjate y avisa al guía o guardaparque si notas síntomas o una emisión."
+        ]
+      },
+      "sources": [
+        {
+          "label": "SGC, hoja informativa del Nevado del Ruiz",
+          "url": "https://www2.sgc.gov.co/Temas-destacados/Documents/Hoja-informativa-volcan-Nevado-de-Ruiz-SGC.pdf",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "last_verified": "2026-11-21",
+      "related": [
+        "weather_volcano.ash_actions",
+        "weather_volcano.volcanic_activity",
+        "weather_volcano.current_alert"
+      ],
+      "tags": [
+        "gases",
+        "SO2",
+        "irritación"
+      ]
+    },
+    {
+      "id": "weather_volcano.volcanic_closures",
+      "label": "cierres por actividad volcánica",
+      "kind": "rule",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "pueden cerrar un sector por el volcán",
+        "qué pasa si aumenta la actividad del Ruiz",
+        "cierran Brisas por alerta volcánica",
+        "se puede subir a la cumbre del Ruiz",
+        "qué accesos restringe la actividad del nevado",
+        "hay evacuación por actividad volcánica",
+        "por qué no dejan llegar a la nieve del Ruiz",
+        "el camino Brisas Arenales está restringido",
+        "puedo hacer ciclomontañismo por Brisas",
+        "cierre del parque por el volcán",
+        "toca obedecer si cierran por alerta",
+        "can volcanic activity close a park sector",
+        "is summit access restricted because of Ruiz"
+      ],
+      "hard_negatives": [
+        "hay cierres",
+        "está abierto hoy"
+      ],
+      "needs": [],
+      "answer": {
+        "short": "Por actividad volcánica, Parques ha señalado restricciones para el ascenso a la cumbre y para el ciclomontañismo en el tramo Brisas–Arenales–Valle de las Tumbas; también puede ordenar cierre y evacuación. No confundas esto con los cierres ambientales u horarios: verifica el aviso vigente y sigue al personal del Parque.",
+        "variants": [
+          "La actividad del Ruiz puede restringir un sector o provocar cierre y evacuación. Antes de ir, confirma el aviso de Parques y acata cualquier instrucción en el lugar."
+        ]
+      },
+      "sources": [
+        {
+          "label": "Parques Nacionales, Resolución 268 de 2024",
+          "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2025/01/Res.-No.-268-del-22-de-octubre-de-2024-MODIFICA-PFFO-029-2024.pdf",
+          "retrieved_at": "2026-11-21"
+        },
+        {
+          "label": "Parques Nacionales, Resolución 259 de 2024",
+          "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2024/10/Res.-No.-259-del-09-de-octubre-de-2024-PFFO-022-2024.pdf",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "last_verified": "2026-11-21",
+      "related": [
+        "weather_volcano.current_alert",
+        "weather_volcano.alert_yellow_meaning",
+        "weather_volcano.bulletin_channels"
+      ],
+      "tags": [
+        "cierre",
+        "restricción",
+        "sector",
+        "evacuación"
+      ]
+    }
+  ]
+}

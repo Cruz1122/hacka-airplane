@@ -1,0 +1,54 @@
+
+## B6 phone speed (ctx 4096, 4 threads on cpu4-7)
+gemma4-e2b: decode tok/s p50 8.8
+  0.5k: prefill 103 tok/s, TTFT cold 4.89 s warm 0.19 s
+  1k: prefill 109 tok/s, TTFT cold 9.21 s warm 0.14 s
+  2k: prefill 96 tok/s, TTFT cold 20.78 s warm 0.18 s
+  sustained 30: decode first5 7.83 last5 7.73 tok/s (-1 %), cpu 59-63 C, freq 2000-2200 MHz
+  VmHWM peak 3.63 GiB
+  end thermal_status 3 skin 43.832
+qwen3-1.7b: decode tok/s p50 12.8
+  0.5k: prefill 78 tok/s, TTFT cold 6.40 s warm 0.10 s
+  1k: prefill 70 tok/s, TTFT cold 14.39 s warm 0.11 s
+  2k: prefill 63 tok/s, TTFT cold 31.48 s warm 0.13 s
+  sustained 30: decode first5 10.43 last5 10.42 tok/s (-0 %), cpu 60-62 C, freq 2000-2000 MHz
+  VmHWM peak 2.59 GiB
+  end thermal_status 3 skin 44.231
+granite4-micro: decode tok/s p50 6.7
+  0.5k: prefill 33 tok/s, TTFT cold 15.21 s warm 0.17 s
+  1k: prefill 29 tok/s, TTFT cold 34.40 s warm 0.18 s
+  2k: prefill 27 tok/s, TTFT cold 75.28 s warm 0.21 s
+  sustained 30: decode first5 5.66 last5 5.46 tok/s (-4 %), cpu 59-63 C, freq 1700-2000 MHz
+  VmHWM peak 4.13 GiB
+  end thermal_status 3 skin 45.519
+qwen3-0.6b: decode tok/s p50 33.9
+  0.5k: prefill 191 tok/s, TTFT cold 2.62 s warm 0.05 s
+  1k: prefill 171 tok/s, TTFT cold 5.86 s warm 0.06 s
+  2k: prefill 139 tok/s, TTFT cold 14.38 s warm 0.08 s
+  sustained 30: decode first5 21.51 last5 21.51 tok/s (+0 %), cpu 61-64 C, freq 2200-2200 MHz
+  VmHWM peak 1.25 GiB
+  end thermal_status 3 skin 43.677
+
+## Route call latency on the phone (B2 fc_core, uniform, 240 cases)
+gemma4-e2b [chat] n=240 total p50 4.84 s p95 10.89 s; output tokens p50 32; decode p50 4.02 s
+qwen3-1.7b [chat] n=240 total p50 3.02 s p95 8.25 s; output tokens p50 23; decode p50 2.21 s
+granite4-micro [chat] n=0 total p50 n/a s p95 n/a s; output tokens p50 None; decode p50 n/a s
+qwen3-0.6b [chat] n=240 total p50 1.67 s p95 3.64 s; output tokens p50 27; decode p50 1.19 s
+gemma4-e2b [completion] n=240 total p50 3.62 s p95 9.81 s; output tokens p50 25; decode p50 3.10 s
+
+## Model-call latency by call type inside B8 on the phone
+r2-phone-raw gemma4-e2b: extract n=34 p50 4.68 s p95 8.49 s; route n=139 p50 7.17 s p95 29.57 s
+r2-phone-deploy gemma4-e2b: extract n=47 p50 4.40 s p95 9.79 s; route n=193 p50 6.38 s p95 12.75 s
+r2-phone-deploy qwen3-1.7b: extract n=39 p50 3.22 s p95 19.07 s; route n=198 p50 6.89 s p95 17.15 s
+r2-phone-deploy granite4-micro: extract n=21 p50 6.33 s p95 17.40 s; route n=126 p50 10.09 s p95 22.65 s
+r2-phone-deploy qwen3-0.6b: extract n=33 p50 1.25 s p95 5.15 s; route n=196 p50 3.17 s p95 6.54 s
+
+## Per-turn latency (sum of model calls per visitor turn)
+r2-phone-raw/B8 gemma4-e2b free_run_extractive: dialogues 30 turns 180 p50 6.00 s p90 27.87 s p95 31.20 s max 40.0 s; <=5 s 36 %; calls/turn mean 0.96
+r2-phone-deploy/B8 gemma4-e2b free_run_extractive: dialogues 36 turns 252 p50 6.13 s p90 11.27 s p95 12.75 s max 27.9 s; <=5 s 32 %; calls/turn mean 0.95
+r2-phone-deploy/B8 qwen3-1.7b free_run_extractive: dialogues 36 turns 252 p50 6.58 s p90 10.48 s p95 16.93 s max 49.0 s; <=5 s 32 %; calls/turn mean 0.94
+r2-phone-deploy/B8 granite4-micro free_run_extractive: dialogues 28 turns 156 p50 9.88 s p90 18.42 s p95 22.65 s max 77.8 s; <=5 s 12 %; calls/turn mean 0.94
+r2-phone-deploy/B8 qwen3-0.6b free_run_extractive: dialogues 36 turns 252 p50 2.77 s p90 5.07 s p95 5.81 s max 16.7 s; <=5 s 89 %; calls/turn mean 0.91
+r2-laptop-v2/B7 gemma4-e2b free_run: dialogues 29 turns 168 p50 18.54 s p90 28.60 s p95 32.55 s max 45.4 s; <=5 s 19 %; calls/turn mean 1.33
+r2-laptop-v2/B7 gemma4-e2b free_run_guarded: dialogues 29 turns 168 p50 19.94 s p90 29.42 s p95 32.71 s max 45.7 s; <=5 s 26 %; calls/turn mean 1.39
+r2-laptop-v2/B8 gemma4-e2b free_run_extractive: dialogues 36 turns 252 p50 4.95 s p90 20.93 s p95 23.49 s max 40.1 s; <=5 s 52 %; calls/turn mean 0.95

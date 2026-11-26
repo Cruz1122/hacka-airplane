@@ -1,0 +1,23 @@
+{
+  "sample_seed": 20261121,
+  "sampled_ids": [
+    "services.charging_power",
+    "services.potosi_cabin",
+    "services.brisas_lodging",
+    "services.uton_offices",
+    "services.charla_induccion"
+  ],
+  "status": "changes_required",
+  "findings": [
+    "Scope: services.research_permits belongs to rules (order 9), services.registered_providers and services.charla_induccion to booking_fees (order 5) when asking entry requirements. Merge/reassign after other outputs land; do not leave duplicate intents in services.",
+    "uton_offices merges two addresses as if both official offices; the second is only supported by the concession website per log. Every numeric address/phone/hour must have official dated support; distinguish conflicting or alternate addresses rather than assert both without evidence.",
+    "potosi_cabin must distinguish the park cabin from the community-operated Refugio Potosí. Do not imply the public cabin offers lodging based only on nearby community lodging evidence.",
+    "brisas_lodging surfaces source-comparison research history in default visitor answer. Shorten to actionable confirmation before relying on accommodation; retain detailed conflict and historical report in detail/log.",
+    "charging_power default answer should say No tengo confirmado un punto de carga rather than narrate No encontré un dato oficial. Keep packing recommendation brief and avoid conflicting with preparation ownership.",
+    "cabin_status_2024 and refugio_cabin depend on historical 2024 status, and current availability is unverified. Keep date explicit and never imply service is currently operating/closed; merge historical maintenance detail into relevant cabin entry when it is not a distinct visitor intent.",
+    "charging_power example cargador is too ambiguous for a specific service; refine to a natural charging-location question."
+  ],
+  "resolved_from_existing_evidence": [
+    "The saved PNN page explicitly lists BOTH UTON addresses and office hours/phones (lines 324–327 in weather_volcano evidence). Both addresses have official support; do not remove either on the basis of the initial concern."
+  ]
+}

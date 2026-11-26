@@ -1,0 +1,661 @@
+{
+  "contract_version": 1,
+  "id": "rules",
+  "order": 9,
+  "title": "Normas para visitar Los Nevados",
+  "description": "Reglas de cuidado y autorizaciones para visitantes: mascotas, residuos, elementos naturales, sustancias contaminantes y actividades especiales en el Parque Nacional Natural Los Nevados.",
+  "retrieval": {
+    "profile": "rules",
+    "bm25_weight": 0.25,
+    "top_k": 2,
+    "min_score": null,
+    "entity_filters": []
+  },
+  "clarification": {
+    "between_entries": "¿Te refieres a {label_a} o a {label_b}?",
+    "bank": [
+      "¿Tu duda es sobre una mascota, residuos o el cuidado del entorno?",
+      "¿Quieres saber qué debes dejar en su lugar durante el recorrido?",
+      "¿Preguntas por una actividad personal o por una producción organizada?",
+      "¿La actividad sería comercial, deportiva, un evento o una investigación?",
+      "¿Necesitas una regla general o el permiso para una actividad especial?",
+      "¿Tu pregunta es sobre sustancias, plantas u otros elementos naturales?"
+    ],
+    "slot_questions": {},
+    "fallback": "No encontré una regla específica para esa consulta. Para confirmar una norma vigente, pregunta a Parques Nacionales antes de tu visita."
+  },
+  "featured": [
+    "rules.pets",
+    "rules.stay_on_routes",
+    "rules.leave_no_waste",
+    "rules.commercial_photography"
+  ],
+  "entries": [
+    {
+      "id": "rules.pets",
+      "label": "ingreso de mascotas",
+      "kind": "rule",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "puedo llevar a mi perro",
+        "dejan entrar mascotas al parque",
+        "mascotas",
+        "voy con mi gato, ¿puede entrar?",
+        "se permite llevar un perrito a Los Nevados",
+        "toca dejar al perro en casa?",
+        "puedo subir con mi mascota",
+        "¿reciben animales domésticos en Brisas?",
+        "llevar perro al nevado",
+        "mi perra puede acompañarme en el recorrido",
+        "can I bring my dog to the park?",
+        "dejan pasar mascotas o no",
+        "se puede entrar con animales de compañía",
+        "voy con el firulais, ¿lo dejan pasar?"
+      ],
+      "hard_negatives": [
+        "¿qué edad mínima piden para entrar?",
+        "¿puedo llevar una cámara para fotos comerciales?"
+      ],
+      "entities": {},
+      "needs": [],
+      "answer": {
+        "short": "No puedes ingresar con mascotas a las áreas protegidas administradas por Parques Nacionales. Organiza su cuidado antes de viajar.",
+        "variants": [
+          "Parques Nacionales indica que no se permite el ingreso de mascotas a sus áreas protegidas; busca con anticipación quién pueda cuidarla mientras visitas Los Nevados."
+        ]
+      },
+      "sources": [
+        {
+          "label": "Parques Nacionales Naturales de Colombia · Canales de atención / preguntas frecuentes",
+          "url": "https://www.parquesnacionales.gov.co/atencion-al-ciudadano/",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "related": [
+        "rules.stay_on_routes",
+        "rules.leave_no_waste"
+      ],
+      "tags": [
+        "mascotas",
+        "perros",
+        "animales domésticos"
+      ]
+    },
+    {
+      "id": "rules.stay_on_routes",
+      "label": "permanecer en recorridos habilitados",
+      "kind": "rule",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "puedo caminar por donde quiera",
+        "me salgo del sendero para tomar fotos?",
+        "hay que seguir el camino marcado",
+        "puedo cortar camino por el páramo",
+        "se puede explorar fuera de la ruta",
+        "toca quedarse en el sendero habilitado",
+        "quiero acercarme por fuera al glaciar",
+        "¿está bien salirse de la ruta para ver mejor?",
+        "puedo andar libre por el parque",
+        "por dónde sí puedo caminar",
+        "can I leave the marked trail?",
+        "¿puedo abrir un atajo por el monte?",
+        "me meto un poquito fuera del camino para una foto",
+        "hay zonas donde no debo pasar"
+      ],
+      "hard_negatives": [
+        "¿cómo llego al sendero desde Pereira?",
+        "¿qué nivel de alerta tiene el Ruiz?"
+      ],
+      "entities": {},
+      "needs": [],
+      "answer": {
+        "short": "Quédate en los recorridos habilitados para tu visita. El parque organiza las actividades ecoturísticas por sectores y recorridos; salir de la ruta puede afectar el entorno.",
+        "variants": [
+          "Sigue los pasos autorizados para el sector que visitas y respeta los límites indicados por el personal del parque."
+        ]
+      },
+      "sources": [
+        {
+          "label": "Parques Nacionales Naturales de Colombia · PNN Los Nevados",
+          "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "related": [
+        "rules.leave_no_waste",
+        "rules.leave_natural_objects"
+      ],
+      "tags": [
+        "senderos",
+        "rutas autorizadas",
+        "cuidado del páramo"
+      ]
+    },
+    {
+      "id": "rules.leave_no_waste",
+      "label": "manejo de residuos",
+      "kind": "rule",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "dónde boto la basura",
+        "me llevo los empaques de vuelta?",
+        "qué hago con mis residuos en el recorrido",
+        "puedo dejar la cáscara ahí",
+        "basura en el parque",
+        "toca cargar la basura hasta la salida",
+        "dónde hay canecas en el páramo",
+        "¿dejo la botella al lado del camino?",
+        "qué hago con el papelito del snack",
+        "se vale enterrar los desechos",
+        "should I pack out my trash?",
+        "no encuentro caneca, ¿qué hago?",
+        "los residuos orgánicos también me los llevo?",
+        "dónde dejo el empaque del almuerzo"
+      ],
+      "hard_negatives": [
+        "¿dónde hay baños en el sector?",
+        "¿puedo comprar comida en el parque?"
+      ],
+      "entities": {},
+      "needs": [],
+      "answer": {
+        "short": "Llévate tus residuos de regreso y no los abandones en el recorrido. Es una forma sencilla de ayudar a conservar el páramo y los demás ecosistemas del parque.",
+        "variants": [
+          "Guarda los empaques y demás residuos en tu bolso hasta encontrar dónde disponerlos fuera del área protegida."
+        ]
+      },
+      "sources": [
+        {
+          "label": "Parques Nacionales Naturales de Colombia · PNN Los Nevados",
+          "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "related": [
+        "rules.stay_on_routes",
+        "rules.leave_natural_objects"
+      ],
+      "tags": [
+        "basura",
+        "residuos",
+        "no dejar rastro"
+      ]
+    },
+    {
+      "id": "rules.leave_natural_objects",
+      "label": "no retirar elementos naturales",
+      "kind": "rule",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "puedo arrancar un frailejón",
+        "me puedo llevar una piedra de recuerdo",
+        "está bien recoger flores del páramo",
+        "puedo sacar una planta para mi casa",
+        "se permite llevarse rocas del sendero",
+        "quiero guardar una flor que encontré",
+        "puedo recoger semillas en el parque",
+        "me llevo un pedacito de musgo?",
+        "puedo coger una planta sin dañarla",
+        "se pueden coleccionar piedras de Los Nevados",
+        "can I take a flower home?",
+        "no pasa nada si recojo una piedrita?",
+        "puedo arrancar una ramita como recuerdo",
+        "es permitido recolectar plantas para mí"
+      ],
+      "hard_negatives": [
+        "¿qué especies de frailejón hay?",
+        "¿dónde compro un recuerdo autorizado?"
+      ],
+      "entities": {},
+      "needs": [],
+      "answer": {
+        "short": "Deja las plantas, rocas y demás elementos naturales donde están. Esta es una recomendación de cuidado coherente con el objetivo de conservar los valores naturales del parque; consulta al personal si tienes una duda sobre una actividad autorizada.",
+        "variants": [
+          "Evita llevarte elementos del paisaje: obsérvalos y fotografíalos sin retirarlos."
+        ]
+      },
+      "sources": [
+        {
+          "label": "Parques Nacionales Naturales de Colombia · PNN Los Nevados",
+          "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+          "retrieved_at": "2026-11-21"
+        },
+        {
+          "label": "Función Pública · Decreto Ley 2811 de 1974, artículos 331–336",
+          "url": "https://www.funcionpublica.gov.co/eva/gestornormativo/norma.php?i=1551",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "related": [
+        "rules.stay_on_routes",
+        "rules.leave_no_waste"
+      ],
+      "tags": [
+        "plantas",
+        "rocas",
+        "recolección",
+        "frailejón"
+      ]
+    },
+    {
+      "id": "rules.no_introduce_species",
+      "label": "no introducir especies exóticas",
+      "kind": "rule",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "puedo soltar peces en una laguna",
+        "llevo semillas de afuera para sembrar?",
+        "se permite traer plantas para plantar",
+        "puedo liberar un conejo en el parque",
+        "introducir especies al páramo",
+        "está bien dejar renacuajos en una charca",
+        "puedo sembrar flores nativas por mi cuenta",
+        "quiero llevar peces a la laguna",
+        "se pueden llevar animales para soltarlos",
+        "¿puedo repoblar una zona con plantas?",
+        "may I release a pet fish in the lake?",
+        "puedo dejar unas semillas por el camino",
+        "es legal sembrar árboles sin permiso",
+        "llevar una especie de otra región al parque"
+      ],
+      "hard_negatives": [
+        "¿puedo llevar mi mascota durante la visita?",
+        "¿qué plantas nativas puedo observar?"
+      ],
+      "entities": {},
+      "needs": [],
+      "answer": {
+        "short": "No introduzcas ni trasplantes especies animales o vegetales exóticas en el parque. El Código Nacional de Recursos Naturales prohíbe esa práctica en las áreas del Sistema de Parques Nacionales.",
+        "variants": [
+          "No liberes animales ni siembres plantas por tu cuenta; cualquier intervención debe contar con la autorización correspondiente."
+        ]
+      },
+      "sources": [
+        {
+          "label": "Función Pública · Decreto Ley 2811 de 1974, artículos 331–336",
+          "url": "https://www.funcionpublica.gov.co/eva/gestornormativo/norma.php?i=1551",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "related": [
+        "rules.leave_natural_objects",
+        "rules.avoid_pollutants"
+      ],
+      "tags": [
+        "especies exóticas",
+        "semillas",
+        "liberar animales"
+      ]
+    },
+    {
+      "id": "rules.avoid_pollutants",
+      "label": "no contaminar el entorno",
+      "kind": "rule",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "puedo botar aceite en el suelo",
+        "dónde vacío el agua jabonosa",
+        "se puede echar detergente a la quebrada",
+        "qué hago con el combustible que sobró",
+        "puedo tirar pintura en un hueco",
+        "está bien dejar químicos en la laguna",
+        "dónde descarto una sustancia contaminante",
+        "verter residuos al agua del parque",
+        "puedo lavar cosas en la quebrada",
+        "¿puedo botar una pila usada en el páramo?",
+        "can I dump soap water in the stream?",
+        "dónde boto aceite de cocina acá",
+        "puedo dejar un envase con químico",
+        "se permite descargar aguas sucias al río"
+      ],
+      "hard_negatives": [
+        "¿hay agua potable para llenar mi botella?",
+        "¿dónde está el baño más cercano?"
+      ],
+      "entities": {},
+      "needs": [],
+      "answer": {
+        "short": "No viertas, abandones ni distribuyas sustancias tóxicas o contaminantes en el área protegida. Si llevas un producto que pueda contaminar, consérvalo cerrado y retíralo contigo.",
+        "variants": [
+          "Lleva cualquier residuo potencialmente contaminante fuera del parque y dispón de él de forma segura."
+        ]
+      },
+      "sources": [
+        {
+          "label": "Función Pública · Decreto Ley 2811 de 1974, artículos 331–336",
+          "url": "https://www.funcionpublica.gov.co/eva/gestornormativo/norma.php?i=1551",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "related": [
+        "rules.leave_no_waste",
+        "rules.avoid_chemicals"
+      ],
+      "tags": [
+        "contaminación",
+        "químicos",
+        "quebradas",
+        "residuos peligrosos"
+      ]
+    },
+    {
+      "id": "rules.avoid_chemicals",
+      "label": "uso de químicos y explosivos",
+      "kind": "rule",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "puedo usar pólvora en el parque",
+        "se permiten explosivos para una actividad",
+        "puedo fumigar una planta",
+        "llevo pesticida para los mosquitos?",
+        "está permitido usar químicos en el páramo",
+        "puedo prender un artefacto pirotécnico",
+        "usar explosivos en Los Nevados",
+        "¿puedo aplicar herbicida en un campamento?",
+        "se pueden llevar químicos para una demostración",
+        "puedo hacer una detonación pequeña",
+        "are fireworks allowed in the park?",
+        "sirve llevar insecticida para rociar el área",
+        "puedo usar fertilizante en el recorrido",
+        "qué regla hay sobre sustancias químicas"
+      ],
+      "hard_negatives": [
+        "¿se permite hacer una fogata para calentarse?",
+        "¿puedo llevar repelente para uso personal?"
+      ],
+      "entities": {},
+      "needs": [],
+      "answer": {
+        "short": "En las áreas del Sistema de Parques Nacionales está prohibido usar productos químicos de efectos residuales. También se prohíben los explosivos, salvo los empleados en obras autorizadas. No uses estas sustancias en el parque.",
+        "variants": [
+          "No emplees químicos de efecto residual ni explosivos; una excepción para obras autorizadas no habilita su uso por visitantes."
+        ]
+      },
+      "sources": [
+        {
+          "label": "Función Pública · Decreto Ley 2811 de 1974, artículos 331–336",
+          "url": "https://www.funcionpublica.gov.co/eva/gestornormativo/norma.php?i=1551",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "related": [
+        "rules.avoid_pollutants",
+        "rules.no_introduce_species"
+      ],
+      "tags": [
+        "químicos",
+        "explosivos",
+        "pólvora",
+        "pesticidas"
+      ]
+    },
+    {
+      "id": "rules.commercial_photography",
+      "label": "fotografía con fines comerciales",
+      "kind": "rule",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "puedo hacer fotos para una marca",
+        "necesito permiso para una sesión paga",
+        "voy a fotografiar para publicidad",
+        "puedo grabar un catálogo en el parque",
+        "fotografía comercial en Los Nevados",
+        "cómo pido autorización para fotos profesionales",
+        "puedo hacer una sesión de producto en Brisas",
+        "se permiten fotos de stock con fines comerciales",
+        "voy a cobrar por las imágenes, ¿debo avisar?",
+        "permiso para fotos con patrocinador",
+        "can I shoot a commercial photo campaign?",
+        "puedo hacer fotos para venderlas después",
+        "tengo una producción fotográfica, qué permiso necesito",
+        "una sesión para una empresa requiere autorización"
+      ],
+      "hard_negatives": [
+        "¿puedo tomar fotos personales con el celular?",
+        "¿a qué hora abren el acceso de Brisas?"
+      ],
+      "entities": {},
+      "needs": [],
+      "answer": {
+        "short": "Para fotografías con fines comerciales debes solicitar la autorización correspondiente a Parques Nacionales. La ficha del parque distingue esta actividad de la fotografía no comercial permitida en los sectores que indica.",
+        "variants": [
+          "Consulta y tramita la autorización antes de organizar la producción comercial."
+        ]
+      },
+      "sources": [
+        {
+          "label": "Parques Nacionales Naturales de Colombia · PNN Los Nevados",
+          "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "related": [
+        "rules.audiovisual_permits",
+        "rules.event_permits"
+      ],
+      "tags": [
+        "fotografía comercial",
+        "permisos",
+        "producción"
+      ]
+    },
+    {
+      "id": "rules.audiovisual_permits",
+      "label": "filmación y tomas audiovisuales",
+      "kind": "rule",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "puedo grabar un documental",
+        "permiso para filmar en el parque",
+        "voy a hacer un video comercial en el páramo",
+        "cómo autorizan una producción audiovisual",
+        "se puede grabar con equipo profesional",
+        "necesito permiso para rodar una película",
+        "tomas audiovisuales en Los Nevados",
+        "quiero filmar un anuncio en la montaña",
+        "puedo grabar para una serie",
+        "dónde se solicita permiso de filmación",
+        "how can I get permission to film here?",
+        "voy a grabar un video para una marca, qué hago",
+        "se requiere autorización para grabar un documental",
+        "puedo llevar equipo de rodaje al parque"
+      ],
+      "hard_negatives": [
+        "¿se puede volar un dron recreativo?",
+        "¿qué ruta sirve para llegar desde Manizales?"
+      ],
+      "entities": {},
+      "needs": [],
+      "answer": {
+        "short": "Para realizar tomas audiovisuales debes solicitar la autorización correspondiente; la ficha del PNN indica que el requisito aplica a todos los sectores. Verifica las condiciones y el trámite directamente con Parques Nacionales antes de planear la grabación.",
+        "variants": [
+          "Confirma con Parques Nacionales qué autorización corresponde a tu proyecto audiovisual y sector."
+        ]
+      },
+      "sources": [
+        {
+          "label": "Parques Nacionales Naturales de Colombia · PNN Los Nevados",
+          "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "related": [
+        "rules.commercial_photography",
+        "rules.event_permits"
+      ],
+      "tags": [
+        "filmación",
+        "video",
+        "audiovisual",
+        "autorización"
+      ]
+    },
+    {
+      "id": "rules.event_permits",
+      "label": "eventos dentro del parque",
+      "kind": "rule",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "puedo organizar un evento en Los Nevados",
+        "permiso para hacer una actividad grupal",
+        "quiero hacer un evento en el páramo",
+        "se puede hacer un encuentro de marca",
+        "cómo tramito un evento en el área protegida",
+        "puedo celebrar una reunión en la montaña",
+        "evento privado dentro del parque",
+        "necesito autorización para una actividad especial",
+        "se permiten eventos en los senderos",
+        "voy a convocar gente al parque, qué permiso pido",
+        "can I host an event in the park?",
+        "puedo hacer una activación de marca en Brisas",
+        "organizar una actividad pública en el parque",
+        "dónde consulto el permiso para eventos"
+      ],
+      "hard_negatives": [
+        "¿qué cupo hay para reservar la entrada?",
+        "¿puedo ir con mi perro al evento?"
+      ],
+      "entities": {},
+      "needs": [],
+      "answer": {
+        "short": "Para realizar eventos dentro del parque debes solicitar la autorización correspondiente, aplicable a todos los sectores según la ficha oficial. Consulta con Parques Nacionales antes de anunciar o programar la actividad.",
+        "variants": [
+          "Pide orientación a Parques Nacionales y espera la autorización antes de realizar el evento."
+        ]
+      },
+      "sources": [
+        {
+          "label": "Parques Nacionales Naturales de Colombia · PNN Los Nevados",
+          "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "related": [
+        "rules.audiovisual_permits",
+        "rules.organized_sports"
+      ],
+      "tags": [
+        "eventos",
+        "permisos",
+        "actividades especiales"
+      ]
+    },
+    {
+      "id": "rules.organized_sports",
+      "label": "actividades deportivas organizadas",
+      "kind": "rule",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "puedo hacer una carrera en el parque",
+        "permiso para una competencia de montaña",
+        "se puede organizar una carrera de trail",
+        "voy a hacer una carrera ciclística en Los Nevados",
+        "autorización para un evento deportivo",
+        "puedo convocar una competencia en el páramo",
+        "organizar una caminata deportiva grupal",
+        "se permiten carreras con participantes",
+        "necesito permiso para hacer una travesía deportiva organizada",
+        "cómo tramito una actividad deportiva en el parque",
+        "can I organize a trail race here?",
+        "puedo montar una competencia en los senderos",
+        "actividad deportiva con inscripción, qué autorización necesita",
+        "quiero hacer una prueba deportiva en el parque"
+      ],
+      "hard_negatives": [
+        "¿puedo caminar por un sendero habilitado como visitante?",
+        "¿qué tan difícil es la ruta al Tolima?"
+      ],
+      "entities": {},
+      "needs": [],
+      "answer": {
+        "short": "Las actividades deportivas organizadas requieren autorización de Parques Nacionales, según la ficha oficial del PNN Los Nevados. Consulta el trámite y las condiciones antes de convocar participantes.",
+        "variants": [
+          "Las caminatas ordinarias de visitantes y los eventos deportivos organizados son casos distintos; consulta al parque por la autorización de estos últimos."
+        ]
+      },
+      "sources": [
+        {
+          "label": "Parques Nacionales Naturales de Colombia · PNN Los Nevados",
+          "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "related": [
+        "rules.event_permits",
+        "rules.audiovisual_permits"
+      ],
+      "tags": [
+        "deportes",
+        "competencias",
+        "autorización"
+      ]
+    },
+    {
+      "id": "rules.research_permissions",
+      "label": "investigación y recolección científica",
+      "kind": "rule",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "puedo hacer una investigación en Los Nevados",
+        "permiso para tomar muestras científicas",
+        "voy a recolectar plantas para un estudio",
+        "cómo solicitar permiso de investigación",
+        "se puede hacer trabajo de campo en el parque",
+        "autorización para estudiar aves en el área",
+        "necesito ingresar para una tesis",
+        "puedo recolectar muestras de agua para un proyecto",
+        "qué trámite hay para una investigación ambiental",
+        "permiso científico PNN Los Nevados",
+        "how do I apply for a research permit?",
+        "voy a muestrear insectos, qué autorización necesito",
+        "puedo hacer investigación universitaria sin permiso",
+        "se requiere permiso para investigación biológica"
+      ],
+      "hard_negatives": [
+        "¿qué animales puedo observar durante una visita?",
+        "¿cuánto cuesta la entrada al parque?"
+      ],
+      "entities": {},
+      "needs": [],
+      "answer": {
+        "short": "Las actividades de investigación requieren autorización previa. Parques Nacionales publica distintos instrumentos de permiso según el objetivo y la metodología; consulta cuál corresponde a tu proyecto antes de ingresar o recolectar muestras.",
+        "variants": [
+          "La ficha del PNN describe varios tipos de permisos de investigación y recolección; consulta directamente con Parques Nacionales cuál aplica a tu caso."
+        ]
+      },
+      "sources": [
+        {
+          "label": "Parques Nacionales Naturales de Colombia · PNN Los Nevados",
+          "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+          "retrieved_at": "2026-11-21"
+        },
+        {
+          "label": "Función Pública · Decreto Ley 2811 de 1974, artículos 331–336",
+          "url": "https://www.funcionpublica.gov.co/eva/gestornormativo/norma.php?i=1551",
+          "retrieved_at": "2026-11-21"
+        }
+      ],
+      "related": [
+        "rules.organized_sports",
+        "rules.leave_natural_objects"
+      ],
+      "tags": [
+        "investigación",
+        "permisos",
+        "recolección científica"
+      ]
+    }
+  ]
+}

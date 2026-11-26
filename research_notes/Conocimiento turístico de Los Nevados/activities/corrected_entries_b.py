@@ -1,0 +1,403 @@
+"""Corrected activities entries, glaciers, Otún and Tolima."""
+
+from __future__ import annotations
+
+from corrected_lib import add, entry
+
+
+def register() -> None:
+    add(entry(
+        "activities.conejeras_glacier_edge",
+        "sendero Conejeras al borde glaciar",
+        "fact",
+        [
+            "qué es el sendero Conejeras",
+            "Conejeras llega al borde del glaciar",
+            "la cara centro del Santa Isabel",
+            "puedo ir al borde glaciar por Conejeras",
+            "Conejeras es la vía a la cumbre",
+            "el borde de hielo del Santa Isabel",
+            "sendero conejeras esta en la lista",
+            "conejeras borde glaciar cara centro",
+            "se camina hasta el hielo por Conejeras",
+            "ese sendero del cisne al glaciar",
+            "what is the Conejeras trail to the glacier edge",
+            "can I hike Conejeras to the ice",
+        ],
+        [
+            "a qué hora entra Conejeras",
+            "cuántas personas caben por día",
+            "cómo reservo con tres días",
+        ],
+        "Conejeras, hasta el borde glaciar de la cara centro del Santa Isabel, está en los senderos de la reglamentación del 4 de agosto de 2023. Si el grupo sube de forma progresiva al glaciar, va liderado solo por guías especializados en alta montaña. Confirma que ese tramo esté abierto para tu fecha.",
+        [
+            "La reglamentación del 4 de agosto de 2023 incluye Conejeras hasta el borde glaciar de la cara centro. El ascenso progresivo al glaciar pide guías especializados en alta montaña, y debes confirmar que el tramo siga abierto en tu fecha.",
+        ],
+        ["activities.santa_isabel_summit", "activities.south_glacier_edge", "activities.snow_and_glacier_access"],
+        ["conejeras", "borde glaciar", "cara centro"],
+        ["res207", "ficha"],
+        sector=["santa_isabel"],
+    ))
+
+    add(entry(
+        "activities.south_glacier_edge",
+        "borde glaciar sur de Santa Isabel",
+        "fact",
+        [
+            "borde glaciar por la cara sur",
+            "desde la Laguna del Otún se llega al hielo",
+            "Alsacia queda camino al glaciar sur",
+            "la cara sur del Santa Isabel se visita",
+            "sendero Otún Alsacia borde glaciar",
+            "puedo ver el hielo llegando desde el sur",
+            "el borde sur es distinto de Conejeras",
+            "cara sur del santa isabel hay sendero",
+            "alsacia esta en esa ruta de hielo",
+            "llegar al glaciar desde la laguna del otun",
+            "is there a south-side glacier-edge trail",
+            "can I reach the ice from Laguna del Otún",
+        ],
+        [
+            "retroceso del glaciar del Santa Isabel",
+            "horario de la cabaña Potosí",
+            "qué aves hay en el borde del hielo",
+        ],
+        "La reglamentación del 4 de agosto de 2023 incluye el sendero Laguna del Otún–Alsacia–borde glaciar del Santa Isabel por la cara sur. Si subes de forma progresiva al glaciar, el grupo va solo con guías especializados en alta montaña. Confirma que esa cara esté habilitada para tu fecha.",
+        [
+            "Ese borde sur, por Alsacia desde la Laguna del Otún, figura en la reglamentación del 4 de agosto de 2023. Lleva guías especializados en alta montaña si el grupo sube de forma progresiva al glaciar, y confirma que la cara siga habilitada.",
+        ],
+        ["activities.conejeras_glacier_edge", "activities.sector_laguna_otun", "activities.snow_and_glacier_access"],
+        ["cara sur", "alsacia", "glaciar"],
+        ["res207", "ficha"],
+        sector=["otun", "santa_isabel"],
+    ))
+
+    add(entry(
+        "activities.laguna_verde",
+        "sendero al mirador Laguna Verde",
+        "fact",
+        [
+            "puedo ir a la Laguna Verde",
+            "el sendero de Laguna Verde está habilitado",
+            "mirador de la Laguna Verde",
+            "desde El Cisne se camina a Laguna Verde",
+            "La Cueva sirve para ir a esa laguna",
+            "Potosí también llega a Laguna Verde",
+            "laguna verde es una caminata del cisne",
+            "el mirador de laguna verde sale siempre",
+            "quiero ver la laguna verde del santa isabel",
+            "ese sendero verde del sector cisne",
+            "can I hike to Laguna Verde",
+            "is the Laguna Verde lookout open to visitors",
+        ],
+        [
+            "me puedo bañar en la Laguna Verde",
+            "qué plantas hay en esa laguna",
+            "horario de la Laguna Verde",
+        ],
+        "Puedes caminar a la Laguna Verde por el sendero habilitado, desde El Cisne, La Cueva o Potosí. Ese mirador quedó condicionado a la operación de servicios ecoturísticos en la reglamentación del 4 de agosto de 2023. Confirma con tu operador que haya salida el día de tu visita.",
+        [
+            "El sendero a la Laguna Verde figura como habilitado desde El Cisne, La Cueva o Potosí, y la reglamentación del 4 de agosto de 2023 lo condiciona a la operación de servicios. Confirma con tu operador que salga el día de tu visita.",
+        ],
+        ["activities.sector_santa_isabel", "activities.therapeutic_baths_banned", "activities.cisne_viewpoints"],
+        ["laguna verde", "mirador", "cisne"],
+        ["ficha", "res207"],
+        sector=["santa_isabel"],
+    ))
+
+    add(entry(
+        "activities.conservation_values_trail",
+        "sendero de valores de conservación",
+        "fact",
+        [
+            "hay un sendero de valores de conservación",
+            "el sendero VOC del Cisne",
+            "qué es el sendero Valores Objetos de Conservación",
+            "puedo caminar el sendero de conservación en Cisne",
+            "ese sendero interpretativo del Cisne",
+            "valores objeto de conservación como caminata",
+            "el cisne tiene un sendero de conservacion",
+            "sendero valores objetos de conservacion",
+            "me hablaron de un camino de conservación",
+            "esa ruta interpretativa del sector cisne",
+            "is there a conservation-values trail at Cisne",
+            "what is the Valores Objetos de Conservación trail",
+        ],
+        [
+            "qué especies son valores de conservación",
+            "cómo cuidamos el agua del páramo",
+            "sanción por salirme del sendero",
+        ],
+        "La reglamentación del 4 de agosto de 2023 lista en Cisne el sendero Valores Objetos de Conservación. No describe su longitud ni el paso a paso. Confirma con el parque si ese sendero está habilitado para tu fecha.",
+        [
+            "Ese sendero de Cisne, Valores Objetos de Conservación, está nombrado en la reglamentación del 4 de agosto de 2023, sin longitud ni duración. Pregunta al parque si puedes hacerlo en tu fecha.",
+        ],
+        ["activities.sector_santa_isabel", "activities.laguna_verde", "activities.published_trails"],
+        ["conservación", "cisne", "sendero"],
+        ["res207"],
+        sector=["santa_isabel"],
+    ))
+
+    add(entry(
+        "activities.cisne_viewpoints",
+        "vistas desde el sector Cisne",
+        "explanation",
+        [
+            "qué nevados se ven desde el Cisne",
+            "desde Santa Isabel se ve el Ruiz",
+            "el paramillo del Cisne se observa ahí",
+            "hay mirador de las tres cumbres",
+            "puedo ver Poleka Kasue y Kumanday",
+            "la vista del sector Cisne",
+            "se alcanza a ver el paramillo sin subirlo",
+            "desde el cisne se ven los nevados",
+            "quiero fotos de las cumbres desde abajo",
+            "el paramillo del cisne tiene cumbre turistica",
+            "what peaks can I see from the Cisne sector",
+            "can I climb Paramillo del Cisne",
+        ],
+        [
+            "altura del paramillo del Cisne",
+            "el pronóstico para ver las cumbres",
+            "nombre indígena del Ruiz",
+        ],
+        "Desde el sector Cisne se observan el Ruiz, el Santa Isabel y el paramillo del Cisne. Las actividades publicadas son el borde glaciar, la cumbre del Santa Isabel y el sendero a la Laguna Verde. Un ascenso solo al paramillo del Cisne no está en esa lista: pregúntalo al parque si lo estás planeando.",
+        [
+            "En Cisne la visita publicada es mirar el Ruiz, el Santa Isabel y el paramillo del Cisne, recorrer el borde glaciar, subir al Santa Isabel o ir a la Laguna Verde. Si quieres ascender solo el paramillo del Cisne, confírmalo con el parque: no está en esa lista.",
+        ],
+        ["activities.sector_santa_isabel", "activities.cloudy_visit_landscape", "activities.santa_isabel_summit"],
+        ["mirador", "cisne", "paramillo"],
+        ["ficha"],
+        sector=["santa_isabel"],
+    ))
+
+    add(entry(
+        "activities.sector_laguna_otun",
+        "visita a la Laguna del Otún",
+        "explanation",
+        [
+            "qué se hace en la Laguna del Otún",
+            "la laguna más grande del parque",
+            "puedo conocer el Otún y sus humedales",
+            "el páramo alrededor de la laguna",
+            "visita por Potosí a la laguna",
+            "también se entra por la vereda El Bosque",
+            "musgos y colchones de agua en el camino",
+            "que hay en la laguna del otun",
+            "potosi queda a cuanto para esa visita",
+            "el otun esta entre dos paramillos",
+            "what is the Laguna del Otún visit like",
+            "can I see wetlands on the way to the lake",
+        ],
+        [
+            "la laguna es sitio Ramsar",
+            "de qué río nace la laguna",
+            "cómo llego en carro hasta Potosí",
+        ],
+        "En la Laguna del Otún conoces la laguna más grande del parque, entre los paramillos del Quindío y Santa Rosa, en un páramo con humedales, musgos y colchones de agua. La visita se entra por la cabaña Potosí, a unos 3920 metros, o desde Pereira por la vereda El Bosque. Confirma el recorrido con un operador registrado.",
+        [
+            "La visita al Otún es la laguna más grande del parque, con páramo, humedales y colchones de agua, entre los paramillos del Quindío y Santa Rosa. Entra por Potosí, a unos 3920 metros, o por la vereda El Bosque, y confirma el recorrido con un operador registrado.",
+        ],
+        ["activities.otun_cedral_walk", "activities.el_bosque_houses", "activities.camping_otun"],
+        ["otún", "humedal", "potosí"],
+        ["ficha"],
+        sector=["otun"],
+    ))
+
+    add(entry(
+        "activities.asomadera_day",
+        "pasadía hasta la Asomadera",
+        "fact",
+        [
+            "puedo ir y volver a la Asomadera",
+            "la Asomadera es pasadía",
+            "sin dormir hasta la Asomadera",
+            "el carreteable de Potosí a la Asomadera",
+            "mirador de la Asomadera en el día",
+            "Corraleja queda en ese carreteable",
+            "Muelle es un punto de ese camino",
+            "asomadera se hace sin acampar",
+            "potosi asomadera es de un dia",
+            "el muelle del otun es un embarcadero",
+            "can I do the Asomadera as a day trip",
+            "is Muelle a boat dock on that road",
+        ],
+        [
+            "hay lancha en la laguna",
+            "horario de ingreso a Potosí",
+            "cabaña Potosí tiene camas",
+        ],
+        "La reglamentación del 4 de agosto de 2023 permite una pasadía, sin pernoctar, hasta la Asomadera, en el carreteable de interpretación desde Potosí. En ese nombre de sendero, Muelle es un punto del camino hacia la Laguna del Otún, y los textos no describen un bote. Confirma con el parque si el tramo sigue habilitado para tu fecha.",
+        [
+            "Hasta la Asomadera, la reglamentación del 4 de agosto de 2023 contempla pasadía sin pernoctar desde Potosí. Muelle va en el nombre del carreteable y no aparece descrito como bote. Confirma que el tramo siga habilitado en tu fecha.",
+        ],
+        ["activities.victor_mariposa_lagoons", "activities.sector_laguna_otun", "activities.day_or_multiday"],
+        ["asomadera", "pasadía", "muelle"],
+        ["res207"],
+        sector=["otun", "santa_isabel"],
+    ))
+
+    add(entry(
+        "activities.victor_mariposa_lagoons",
+        "lagunas Víctor y Mariposa",
+        "fact",
+        [
+            "puedo ver la Laguna de Víctor",
+            "quiero caminar hasta la Laguna Mariposa",
+            "hay lagunas cerca de la Asomadera",
+            "el desvío a Víctor y Mariposa",
+            "se visitan esas dos lagunas",
+            "mirador y luego Víctor y Mariposa",
+            "desde Potosí se llega a Mariposa",
+            "laguna de victor esta en el parque",
+            "mariposa es una laguna del recorrido",
+            "quiero ir a las lagunas pequenas del carreteable",
+            "can I visit Laguna Víctor and Laguna Mariposa",
+            "are Laguna Víctor and Laguna Mariposa worth a stop",
+        ],
+        [
+            "me puedo bañar en esas lagunas",
+            "qué aves hay en las lagunas pequeñas",
+            "la Laguna del Otún cuántas hectáreas tiene",
+        ],
+        "La reglamentación del 4 de agosto de 2023 incluye, desde el carreteable de Potosí hacia la Asomadera, un sendero al mirador, la Laguna de Víctor y la Laguna Mariposa. Esa lista no afirma que el sendero esté abierto hoy. Pregunta al parque o a tu operador antes de ir.",
+        [
+            "Víctor y Mariposa, con el mirador de la Asomadera, están en la reglamentación del 4 de agosto de 2023 y esa lista no las deja abiertas para cualquier fecha. Confirma con el parque o con tu operador antes de salir.",
+        ],
+        ["activities.asomadera_day", "activities.sector_laguna_otun", "activities.published_trails"],
+        ["víctor", "mariposa", "mirador"],
+        ["res207"],
+        sector=["otun", "santa_isabel"],
+    ))
+
+    add(entry(
+        "activities.otun_cedral_walk",
+        "caminata desde El Cedral",
+        "fact",
+        [
+            "cuánto se camina hasta la Laguna del Otún",
+            "la subida desde El Cedral",
+            "kilómetros a pie hasta la laguna",
+            "Peña Bonita queda en ese camino",
+            "del Cedral a la laguna es una caminata",
+            "18 kilómetros hasta el Otún",
+            "el camino pasa por La Pastora",
+            "la azufrera esta en la subida",
+            "laguna el mosquito queda de camino",
+            "desde pereira a pie por el cedral",
+            "how far is the walk from El Cedral to the lake",
+            "does the Cedral trail pass Laguna El Mosquito",
+        ],
+        [
+            "bus desde Pereira hasta El Cedral",
+            "horario para salir de El Cedral",
+            "hospedaje en La Pastora",
+        ],
+        "Si subes a pie desde El Cedral, hay unos 7,5 kilómetros hasta el límite del parque y unos 18 kilómetros hasta la Laguna del Otún. La reglamentación del 4 de agosto de 2023 nombra en ese corredor la azufrera, la Laguna El Mosquito, la vereda El Bosque, Peña Bonita y La Pastora. Confirma que el sendero esté habilitado; no hay horas de caminata publicadas.",
+        [
+            "Desde El Cedral la caminata publicada es de unos 7,5 kilómetros al límite y unos 18 kilómetros a la Laguna del Otún, con azufrera, Laguna El Mosquito, El Bosque, Peña Bonita y La Pastora en la norma del 4 de agosto de 2023. Confirma que siga habilitado: no hay duración en horas.",
+        ],
+        ["activities.sector_laguna_otun", "activities.otun_cocora_traverse", "activities.camping_otun"],
+        ["cedral", "distancia", "mosquito"],
+        ["ficha", "res207"],
+        sector=["otun"],
+    ))
+
+    add(entry(
+        "activities.otun_cocora_traverse",
+        "travesía del Otún al Cocora",
+        "fact",
+        [
+            "se puede cruzar del Otún al Cocora",
+            "la travesía por la cuchilla de Berlín",
+            "Buenos Aires queda en ese cruce",
+            "Mojón de Cárdenas es parte del camino",
+            "del Otún al Valle del Cocora a pie",
+            "esa travesía larga entre Risaralda y Quindío",
+            "pasar la laguna y salir por Cocora",
+            "travesia otun cocora por berlin",
+            "el mojon de cardenas esta en la ruta",
+            "puedo hacer el cruce completo del parque",
+            "can I traverse from Otún to Cocora",
+            "is the Berlin ridge on the Otún crossing",
+        ],
+        [
+            "cómo llego en jeep al Valle del Cocora",
+            "kilómetros de Salento al límite",
+            "entrada por Salento a qué hora",
+        ],
+        "La reglamentación del 4 de agosto de 2023 lista la travesía Laguna del Otún–azufrera–Laguna del Mosquito–cuchilla de Berlín–finca Buenos Aires–Mojón de Cárdenas–Valle del Cocora. Es una ruta de esa norma transitoria. Confírmala con el parque antes de salir: el texto no publica kilómetros ni horas.",
+        [
+            "Ese cruce del Otún al Cocora, por Berlín, Buenos Aires y el Mojón de Cárdenas, está en la reglamentación transitoria del 4 de agosto de 2023, sin kilómetros ni horas. Confirma con el parque si puedes hacerlo en tu fecha.",
+        ],
+        ["activities.otun_cedral_walk", "activities.combeima_cocora_traverse", "activities.day_or_multiday"],
+        ["travesía", "cocora", "berlín"],
+        ["res207"],
+        sector=["otun", "tolima"],
+    ))
+
+    add(entry(
+        "activities.el_bosque_houses",
+        "casas de la vereda El Bosque",
+        "fact",
+        [
+            "puedo quedarme en casas de El Bosque",
+            "hay casas tradicionales en la vereda",
+            "hospedaje de los habitantes del Otún",
+            "dormir en El Bosque durante la visita",
+            "las casas del camino a la laguna",
+            "estadía con las familias de El Bosque",
+            "el bosque tiene casas de visita",
+            "me puedo hospedar en la vereda el bosque",
+            "casas historicas camino a la laguna",
+            "alojarme con gente del otun",
+            "can I stay in the traditional houses of El Bosque",
+            "is there lodging with families on the Otún walk",
+        ],
+        [
+            "precio de la noche en El Bosque",
+            "cabaña Potosí tiene habitaciones",
+            "camping al lado de la laguna",
+        ],
+        "En la visita a la Laguna del Otún puedes hospedarte en casas tradicionales de los habitantes históricos de la vereda El Bosque. No hay cupos ni tarifas publicados en esa descripción. Coordínalo con un operador registrado y confirma que haya lugar para tu fecha.",
+        [
+            "Las casas tradicionales de la vereda El Bosque hacen parte de la visita a la Laguna del Otún. Coordina el hospedaje con un operador registrado y confirma disponibilidad: no hay cupos ni tarifas en esa descripción.",
+        ],
+        ["activities.sector_laguna_otun", "activities.otun_cedral_walk", "activities.camping_otun"],
+        ["el bosque", "casas", "hospedaje"],
+        ["ficha"],
+        sector=["otun"],
+    ))
+
+    add(entry(
+        "activities.sector_tolima",
+        "qué hacer en el sector Tolima",
+        "explanation",
+        [
+            "qué se visita en el Nevado del Tolima",
+            "Dulima qué actividades tiene",
+            "el sector Quindío–Dulima es de travesía",
+            "puedo entrar por el Cocora a caminar",
+            "senderismo cerca del Tolima",
+            "el sur es para montañismo",
+            "se ve el cambio de bosque a glaciar",
+            "que hay pa hacer en el tolima",
+            "quindio dulima es el sector del sur",
+            "la actividad principal alla es montañismo",
+            "what can I do in the Tolima sector",
+            "is Quindío–Dulima a trekking area",
+        ],
+        [
+            "vía desde Ibagué hasta Juntas",
+            "horario del punto en el Cocora",
+            "edad para la travesía",
+        ],
+        "Quindío–Dulima da acceso a los atractivos junto al Nevado del Tolima, para senderismo y travesías. En el camino se ve el paso de bosque altoandino a glaciar, por subpáramo, páramo y superpáramo, y la actividad principal es el montañismo. Es el terreno más exigente: prepárate y confirma la ruta con un operador registrado.",
+        [
+            "En Quindío–Dulima la visita es senderismo y travesía junto al Tolima, con montañismo como actividad principal y un terreno más exigente. Verás bosque altoandino, subpáramo, páramo, superpáramo y glaciar: confirma la ruta con un operador registrado.",
+        ],
+        ["activities.demanding_south", "activities.tolima_summit_schimmer", "activities.combeima_cocora_traverse"],
+        ["tolima", "dulima", "travesía"],
+        ["ficha"],
+        sector=["tolima"],
+    ))

@@ -1,0 +1,973 @@
+{
+  "contract_version": 1,
+  "id": "services",
+  "order": 10,
+  "title": "Servicios del parque",
+  "description": "Centro de visitantes, baños, comida, alojamiento, tiendas, primeros auxilios, señal, accesibilidad y cómo confirmar los servicios de Parques Nacionales y de la concesión UTON en Los Nevados.",
+  "retrieval": {
+    "profile": "lookup",
+    "bm25_weight": 0.3,
+    "top_k": 2,
+    "min_score": null,
+    "entity_filters": ["sector"]
+  },
+  "clarification": {
+    "between_entries": "¿Te refieres a {label_a} o a {label_b}?",
+    "bank": [
+      "¿Te interesa el norte (Brisas), El Cisne, el Otún o el sector Quindío–Dulima?",
+      "¿Buscas comida, baños, alojamiento, tienda o primeros auxilios?",
+      "¿Preguntas por lo que ofrece la concesión UTON o por lo que hace Parques Nacionales?",
+      "¿Quieres saber dónde dormir o qué servicios hay durante el día?",
+      "¿Necesitas señal de celular, carga de batería o accesibilidad?"
+    ],
+    "slot_questions": {
+      "sector": "¿De qué sector del parque hablas: Brisas, El Cisne, Otún o Quindío–Dulima?"
+    },
+    "fallback": "No tengo esa información exacta de servicios. Puedo contarte qué hay en Brisas, El Cisne o el Otún, o cómo confirmar servicios antes de viajar."
+  },
+  "featured": [
+    "services.brisas_visitor_center",
+    "services.toilets",
+    "services.north_food",
+    "services.uton_services",
+    "services.phone_signal"
+  ],
+  "entries": [
+    {
+      "id": "services.brisas_visitor_center",
+      "label": "centro de visitantes Brisas",
+      "kind": "fact",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "centro de visitantes Brisas",
+        "dónde queda el centro de visitantes de Brisas",
+        "hay caseta de entrada en Brisas",
+        "cómo es la entrada por Brisas",
+        "qué encuentro al llegar a Brisas",
+        "brisas tiene centro de inducción?",
+        "donde queda la taquilla de brisas",
+        "hay algo en Brisas antes de subir?",
+        "info del centro Brisas",
+        "toca pasar por el centro de Brisas?",
+        "what is at the Brisas visitor center",
+        "is there a visitor center in Brisas"
+      ],
+      "hard_negatives": ["dónde queda la entrada Brisas", "hay alojamiento en Brisas", "charla de inducción"],
+      "entities": {"sector": ["brisas"]},
+      "answer": {
+        "short": "En la entrada del sector Brisas hay un centro de inducción, taquilla y una cabaña, a unos 4.100 metros de altitud. Según Parques Nacionales, allí haces la charla de inducción obligatoria antes de seguir. Confirma horarios y servicios antes de viajar, porque pueden cambiar.",
+        "variants": ["La entrada de Brisas, a unos 4.100 metros, tiene centro de inducción, taquilla y cabaña según PNN. La charla de inducción es obligatoria. Confirma horarios y servicios antes de salir."]
+      },
+      "sources": [
+        {"label": "Parques Nacionales Naturales · Los Nevados (ficha oficial)", "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/", "retrieved_at": "2026-11-21"},
+        {"label": "PNN Los Nevados · Informe de necesidades de asistencia 2024", "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2024/12/Informe-de-necesidades-de-asistencia-PNN-Los-Nevados-2024.docx", "retrieved_at": "2026-11-21"}
+      ],
+      "last_verified": "2026-11-21",
+      "valid_until": null,
+      "related": ["services.charla_induccion", "services.uton_services", "services.cabin_status_2024"],
+      "tags": ["brisas", "centro de visitantes", "inducción", "taquilla"]
+    },
+    {
+      "id": "services.north_food",
+      "label": "comida en el sector norte",
+      "kind": "fact",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "comida en el parque",
+        "dónde puedo comer",
+        "hay restaurante en Brisas?",
+        "venden comida arriba",
+        "tienen comida en el Cisne",
+        "qué tal la comida en el parque",
+        "toca llevar almuerzo?",
+        "me puedo comer algo en la cabaña",
+        "hay cafetería en el norte",
+        "onde se come",
+        "cocina en Arenales",
+        "where can I eat near Brisas"
+      ],
+      "hard_negatives": ["hay tienda en Valle de las Tumbas", "agua potable en Brisas", "dónde compro snacks en el parque"],
+      "entities": {"sector": ["brisas"]},
+      "answer": {
+        "short": "En el norte, las cabañas de Brisas y Arenales prestan servicio de alimentos, y el centro El Cisne tiene alojamiento y alimentación. Como respaldo, lleva snacks y agua, porque PNN recomienda comer bien y llevar snacks energéticos. Confirma con UTON que la comida esté disponible el día de tu visita.",
+        "variants": ["Si vas al norte, hay comida en las cabañas de Brisas y Arenales, y en El Cisne hay alojamiento y alimentación según el informe 2024. Lleva snacks y agua por si acaso, y confirma antes de salir."]
+      },
+      "sources": [
+        {"label": "PNN Los Nevados · Informe de necesidades de asistencia 2024", "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2024/12/Informe-de-necesidades-de-asistencia-PNN-Los-Nevados-2024.docx", "retrieved_at": "2026-11-21"},
+        {"label": "Parques Nacionales Naturales · Los Nevados (ficha oficial)", "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/", "retrieved_at": "2026-11-21"}
+      ],
+      "last_verified": "2026-11-21",
+      "valid_until": null,
+      "related": ["services.toilets", "services.shop_ecotienda", "services.drinking_water"],
+      "tags": ["comida", "restaurante", "cafetería", "alimentación"]
+    },
+    {
+      "id": "services.toilets",
+      "label": "baños en el parque",
+      "kind": "fact",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "baños",
+        "hay baños en el parque",
+        "dónde están los baños",
+        "tienen sanitarios en Brisas",
+        "hay batería de baños",
+        "toca hacer pipí en el monte",
+        "donde hay baño en el páramo",
+        "hay servicio sanitario arriba",
+        "a dónde voy al baño en el Cisne",
+        "cuántos baños hay en Arenales",
+        "do you have toilets at the park",
+        "is there a bathroom near the visitor center",
+        "hay wc en el norte"
+      ],
+      "hard_negatives": ["hay duchas en el parque", "hay botiquín en las cabañas", "hay baños accesibles"],
+      "entities": {"sector": ["brisas"]},
+      "answer": {
+        "short": "En el norte, las cabañas de Brisas y Arenales tienen baños para visitantes, y Arenales cuenta con dos baterías de baños. Para los demás puntos no encontré un dato oficial verificado, así que conviene planear por si acaso. Confirma antes de viajar.",
+        "variants": ["Los baños para visitantes que documenta PNN están en el norte, en Brisas y Arenales. Para otros sectores no tengo confirmación oficial, así que conviene planear antes de viajar."]
+      },
+      "sources": [
+        {"label": "PNN Los Nevados · Informe de necesidades de asistencia 2024", "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2024/12/Informe-de-necesidades-de-asistencia-PNN-Los-Nevados-2024.docx", "retrieved_at": "2026-11-21"}
+      ],
+      "last_verified": "2026-11-21",
+      "valid_until": null,
+      "related": ["services.camp_showers", "services.first_aid_points", "services.north_food"],
+      "tags": ["baños", "sanitarios", "Arenales", "Brisas"]
+    },
+    {
+      "id": "services.first_aid_points",
+      "label": "puntos de primeros auxilios",
+      "kind": "fact",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "primeros auxilios",
+        "hay botiquín en las cabañas",
+        "dónde hay enfermería",
+        "hay puesto de primeros auxilios en el parque",
+        "dónde hay un punto de primeros auxilios cerca",
+        "tienen botiquin en Brisas",
+        "hay enfermera en la cabaña",
+        "hay atención médica en Arenales",
+        "primeros auxilios en el Cisne",
+        "dónde queda el kit de primeros auxilios",
+        "is there a first aid post in the park",
+        "any medical help at the cabins?"
+      ],
+      "hard_negatives": ["los guías llevan radio?", "hay baños en el parque", "hay duchas en el parque"],
+      "entities": {"sector": ["brisas", "cisne", "otun", "quindio_dulima"]},
+      "answer": {
+        "short": "Arenales tiene un punto de atención de primeros auxilios, según el informe de 2024. Ese mismo informe identifica puntos con botiquín en Brisas, Potosí, Laguna del Otún y El Cisne, pero como necesidades de asistencia, así que confirma cuáles están funcionando. En una emergencia, busca al personal o a tu guía de inmediato.",
+        "variants": ["En Arenales hay primeros auxilios según el informe 2024. Brisas, Potosí, Laguna del Otún y El Cisne aparecen como puntos de atención necesarios; confirma con PNN cuáles están activos antes de viajar."]
+      },
+      "sources": [
+        {"label": "PNN Los Nevados · Informe de necesidades de asistencia 2024", "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2024/12/Informe-de-necesidades-de-asistencia-PNN-Los-Nevados-2024.docx", "retrieved_at": "2026-11-21"}
+      ],
+      "last_verified": "2026-11-21",
+      "valid_until": null,
+      "related": ["services.toilets", "services.camp_showers", "services.north_food"],
+      "tags": ["primeros auxilios", "botiquín", "enfermería"]
+    },
+    {
+      "id": "services.cisne_visitor_center",
+      "label": "centro de visitantes El Cisne",
+      "kind": "fact",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "centro El Cisne",
+        "qué hay en el centro del Cisne",
+        "puedo quedarme en el centro El Cisne",
+        "cómo es el centro de visitantes del Cisne",
+        "el centro El Cisne tiene camas?",
+        "cuánta gente cabe en el centro El Cisne",
+        "hay alimentación en el Cisne",
+        "centro del Cisne altura",
+        "is there lodging at the El Cisne visitor center",
+        "what services does the El Cisne visitor center have",
+        "el cisne tiene comida y dormida",
+        "centro cisne sirve para dormir?"
+      ],
+      "hard_negatives": ["dónde es el valle", "hay alojamiento en Brisas", "hay comida en Potosí"],
+      "entities": {"sector": ["cisne"]},
+      "answer": {
+        "short": "El centro de visitantes El Cisne está a unos 4.100 metros de altitud, según PNN. Tiene capacidad de alojamiento para 32 visitantes, con alimentación y asistencia de primeros auxilios, según el informe de 2024. Confirma la disponibilidad antes de viajar.",
+        "variants": ["Si vas al Cisne, el centro de visitantes queda a unos 4.100 metros. El informe 2024 cita capacidad para 32 personas con alojamiento y alimentación. Confirma la disponibilidad antes de salir."]
+      },
+      "sources": [
+        {"label": "Parques Nacionales Naturales · Los Nevados (ficha oficial)", "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/", "retrieved_at": "2026-11-21"},
+        {"label": "PNN Los Nevados · Informe de necesidades de asistencia 2024", "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2024/12/Informe-de-necesidades-de-asistencia-PNN-Los-Nevados-2024.docx", "retrieved_at": "2026-11-21"}
+      ],
+      "last_verified": "2026-11-21",
+      "valid_until": null,
+      "related": ["services.potosi_cabin", "services.north_food", "services.cabin_status_2024"],
+      "tags": ["El Cisne", "alojamiento", "centro de visitantes"]
+    },
+    {
+      "id": "services.potosi_cabin",
+      "label": "cabaña Potosí y su refugio",
+      "kind": "fact",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "cabaña Potosí",
+        "refugio Potosí",
+        "qué hay en la cabaña Potosí",
+        "hay comida en Potosí",
+        "puedo dormir en Potosí",
+        "cabaña potosi esta abierta?",
+        "estado de la cabaña Potosí",
+        "cabaña potosi hospedaje y comida",
+        "potosi tiene baños",
+        "servicios de la cabaña del Potosí",
+        "Potosí cabin facilities",
+        "is there a place to sleep at Potosí",
+        "refugio del Potosí hospedaje"
+      ],
+      "hard_negatives": ["en qué condiciones están las cabañas", "hay baños en el parque", "hay hospedaje en El Bosque"],
+      "entities": {"sector": ["cisne", "otun"]},
+      "answer": {
+        "short": "La cabaña Potosí está a unos 3.920 metros de altitud, según PNN. En el límite del parque, la comunidad de Campo Alegre ofrece hospedaje y alimentación en el refugio Potosí. El informe de 2024 anotó mantenimiento en la cabaña, así que confirma su estado antes de planear.",
+        "variants": ["Según PNN, la cabaña Potosí queda a unos 3.920 metros. El informe 2024 anotó mantenimiento correctivo y preventivo, y la comunidad de Campo Alegre ofrece hospedaje y alimentación en el refugio. Confirma antes de viajar."]
+      },
+      "sources": [
+        {"label": "Parques Nacionales Naturales · Los Nevados (ficha oficial)", "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/", "retrieved_at": "2026-11-21"},
+        {"label": "PNN Los Nevados · Informe de necesidades de asistencia 2024", "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2024/12/Informe-de-necesidades-de-asistencia-PNN-Los-Nevados-2024.docx", "retrieved_at": "2026-11-21"}
+      ],
+      "last_verified": "2026-11-21",
+      "valid_until": null,
+      "related": ["services.cisne_visitor_center", "services.cabin_status_2024", "services.refugio_cabin"],
+      "tags": ["Potosí", "cabaña", "refugio", "hospedaje"]
+    },
+    {
+      "id": "services.otun_lodging",
+      "label": "alojamiento cerca de la Laguna del Otún",
+      "kind": "fact",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "alojamiento en el Otún",
+        "dónde duermo cerca de la laguna del Otún",
+        "casas en la vereda El Bosque",
+        "hay hospedaje en El Bosque",
+        "puedo quedarme en una casa campesina",
+        "dormir cerca de la Laguna del Otún",
+        "comida y cama en el Otún",
+        "quedarse en la vereda del Otún",
+        "hay posada cerca al Otún?",
+        "hospedaje para ir a la laguna",
+        "where can I stay near Otún lagoon",
+        "lodging near the Otún lake",
+        "se puede pasar la noche en el Otún con familia"
+      ],
+      "hard_negatives": ["hay hotel en Brisas", "quedarse a dormir en Brisas", "cabaña Potosí"],
+      "entities": {"sector": ["otun"]},
+      "answer": {
+        "short": "En la vereda El Bosque, en el límite del parque, PNN indica que puedes quedarte en casas tradicionales de sus habitantes. El informe de 2024 también menciona hospedaje, alimentación y porteo de maletas de esa comunidad. Confirma disponibilidad y precio directamente con la comunidad o con la agencia que elijas.",
+        "variants": ["Para dormir cerca de la Laguna del Otún, PNN menciona casas tradicionales de la vereda El Bosque, y el informe 2024 indica hospedaje y alimentación de la comunidad. Confirma disponibilidad y precio antes de ir."]
+      },
+      "sources": [
+        {"label": "Parques Nacionales Naturales · Los Nevados (ficha oficial)", "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/", "retrieved_at": "2026-11-21"},
+        {"label": "PNN Los Nevados · Informe de necesidades de asistencia 2024", "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2024/12/Informe-de-necesidades-de-asistencia-PNN-Los-Nevados-2024.docx", "retrieved_at": "2026-11-21"}
+      ],
+      "last_verified": "2026-11-21",
+      "valid_until": null,
+      "related": ["services.porter_luggage", "services.tolima_lodging", "services.cisne_visitor_center"],
+      "tags": ["Otún", "El Bosque", "alojamiento", "casas"]
+    },
+    {
+      "id": "services.tolima_lodging",
+      "label": "alojamiento por el lado de Juntas",
+      "kind": "fact",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "hospedaje en Juntas",
+        "dónde me quedo por el lado de Tolima",
+        "Termales Cañón hospedaje",
+        "alojamiento en La Playa",
+        "hay casa para dormir en la vereda Juntas",
+        "la Primavera tiene hospedaje",
+        "comida y cama en el lado de Ibagué",
+        "dónde pasar la noche por el sur del Tolima",
+        "quedarse en termales del lado tolimense",
+        "lodging on the Tolima side",
+        "is there accommodation near Juntas",
+        "hay donde dormir por Anzoátegui"
+      ],
+      "hard_negatives": ["hay alojamiento en Brisas", "hay hospedaje en El Bosque", "cuál es el acceso por Salento"],
+      "entities": {"sector": ["quindio_dulima"]},
+      "answer": {
+        "short": "Por el lado de Juntas, el informe de 2024 indica que la comunidad en el límite del parque presta hospedaje y alimentación en Termal Cañón, en el predio La Playa y en La Primavera. Esa información viene del plan ecoturístico 2017 a 2022, así que confirma con el prestador antes de contar con el servicio.",
+        "variants": ["En el lado de Juntas, el informe 2024 menciona hospedaje y alimentación en Termal Cañón, La Playa y La Primavera. Verifica con el prestador que siga vigente antes de viajar."]
+      },
+      "sources": [
+        {"label": "PNN Los Nevados · Informe de necesidades de asistencia 2024", "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2024/12/Informe-de-necesidades-de-asistencia-PNN-Los-Nevados-2024.docx", "retrieved_at": "2026-11-21"}
+      ],
+      "last_verified": "2026-11-21",
+      "valid_until": null,
+      "related": ["services.otun_lodging", "services.quindio_dulima", "services.first_aid_points"],
+      "tags": ["Juntas", "Termales Cañón", "alojamiento", "Tolima"]
+    },
+    {
+      "id": "services.brisas_lodging",
+      "label": "alojamiento en el sector Brisas",
+      "kind": "fact",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "hay alojamiento en Brisas",
+        "puedo dormir en Brisas",
+        "hay hotel en Brisas",
+        "camas en Brisas para pasar la noche",
+        "se puede dormir en la cabaña de Brisas",
+        "UTON da alojamiento en Brisas",
+        "tienen habitaciones en el norte",
+        "toca reservar hotel en Brisas?",
+        "alojamiento Brisas",
+        "quedarse a dormir en Brisas",
+        "can I sleep at Brisas",
+        "is lodging available in Brisas?"
+      ],
+      "hard_negatives": ["qué servicios da la concesión", "hay tienda en Valle de las Tumbas", "hay hospedaje en El Bosque"],
+      "entities": {"sector": ["brisas"]},
+      "answer": {
+        "short": "La página oficial de PNN dice que la concesión UTON gestiona alojamiento en el sector Brisas, pero el informe de 2024 solo menciona alimentos, baños y enfermería allí. Antes de viajar, confirma con UTON si hay camas disponibles para tu fecha. No cuentes con una cama sin confirmarla.",
+        "variants": ["UTON aparece en PNN como gestor de alojamiento en Brisas, pero el informe 2024 no lo confirma en ese sector. No cuentes con dormir en Brisas sin confirmarlo antes de viajar."]
+      },
+      "sources": [
+        {"label": "Parques Nacionales Naturales · Los Nevados (ficha oficial)", "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/", "retrieved_at": "2026-11-21"},
+        {"label": "PNN Los Nevados · Informe de necesidades de asistencia 2024", "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2024/12/Informe-de-necesidades-de-asistencia-PNN-Los-Nevados-2024.docx", "retrieved_at": "2026-11-21"}
+      ],
+      "last_verified": "2026-11-21",
+      "valid_until": null,
+      "related": ["services.brisas_visitor_center", "services.uton_services", "services.otun_lodging"],
+      "tags": ["Brisas", "alojamiento", "UTON", "conflicto de fuentes"]
+    },
+    {
+      "id": "services.porter_luggage",
+      "label": "porteo de maletas en el parque",
+      "kind": "fact",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "porteo",
+        "porteador",
+        "me cargan la maleta?",
+        "hay quien lleve el equipaje",
+        "alguien que cargue las maletas hasta arriba",
+        "servicio de carga de equipaje",
+        "cuánto cobran por cargar la maleta",
+        "cargar maletas en el sendero",
+        "contratar a alguien para cargar el morral",
+        "porter service for luggage",
+        "can someone carry my bags up the trail",
+        "ayuda para subir el equipaje"
+      ],
+      "hard_negatives": ["dónde cargo el celular", "qué servicios da la concesión", "hay botiquín en las cabañas"],
+      "entities": {"sector": ["otun", "quindio_dulima"]},
+      "answer": {
+        "short": "El informe de 2024 registra porteo de maletas en la vereda El Bosque, en la ruta de Juntas y en el sendero Los Chilcos–Arenales cumbre. Pregunta precio y disponibilidad al prestador antes de viajar, porque las tarifas pueden cambiar.",
+        "variants": ["Hay porteo de maletas en la vereda El Bosque, en la ruta de Juntas y en el sendero Los Chilcos–Arenales cumbre, según el informe 2024. Confirma precio y disponibilidad con el prestador."]
+      },
+      "sources": [
+        {"label": "PNN Los Nevados · Informe de necesidades de asistencia 2024", "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2024/12/Informe-de-necesidades-de-asistencia-PNN-Los-Nevados-2024.docx", "retrieved_at": "2026-11-21"}
+      ],
+      "last_verified": "2026-11-21",
+      "valid_until": null,
+      "related": ["services.otun_lodging", "services.tolima_lodging", "services.uton_services"],
+      "tags": ["porteo", "equipaje", "maletas", "comunidad"]
+    },
+    {
+      "id": "services.uton_services",
+      "label": "servicios que maneja la concesión UTON",
+      "kind": "fact",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "UTON",
+        "qué hace la UTON",
+        "quién maneja los servicios del norte",
+        "qué servicios da la concesión",
+        "la concesión qué ofrece en Brisas",
+        "quién administra la taquilla de Brisas",
+        "Unión Temporal Operación Nevados",
+        "a quién le compro servicios en el norte",
+        "servicios de la concesión en Brisas",
+        "what does UTON do at the park",
+        "who runs the services at Brisas",
+        "concesión del parque qué incluye"
+      ],
+      "hard_negatives": ["dirección UTON", "teléfono de la UTON", "hay alojamiento en Brisas"],
+      "entities": {"sector": ["brisas"]},
+      "answer": {
+        "short": "En el sector Brisas, la concesión UTON gestiona reservas, ingreso, guianza, transporte, alojamiento y tienda, según la página oficial de PNN. El informe de 2024 describe su contrato con taquilla, seguro, guianza y alimentos en el norte hasta Valle de las Tumbas. Los dos documentos no listan exactamente lo mismo, así que confirma con UTON qué incluye cada servicio.",
+        "variants": ["UTON opera en el norte la reserva, el ingreso, la guianza, el transporte, el alojamiento y la tienda, según PNN. El informe 2024 solo lista taquilla, seguro, guianza y alimentos hasta Valle de las Tumbas; confirma con la concesión."]
+      },
+      "sources": [
+        {"label": "Parques Nacionales Naturales · Los Nevados (ficha oficial)", "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/", "retrieved_at": "2026-11-21"},
+        {"label": "PNN Los Nevados · Informe de necesidades de asistencia 2024", "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2024/12/Informe-de-necesidades-de-asistencia-PNN-Los-Nevados-2024.docx", "retrieved_at": "2026-11-21"},
+        {"label": "UTON Operación Nevados (concesionario)", "url": "https://www.operacionnevados.co/", "retrieved_at": "2026-11-21"}
+      ],
+      "last_verified": "2026-11-21",
+      "valid_until": null,
+      "related": ["services.uton_offices", "services.brisas_lodging", "services.registered_providers"],
+      "tags": ["UTON", "concesión", "reservas", "taquilla"]
+    },
+    {
+      "id": "services.uton_offices",
+      "label": "oficinas de UTON en Manizales",
+      "kind": "fact",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "oficina UTON Manizales",
+        "dónde queda la oficina de la concesión",
+        "dirección UTON",
+        "cl 70 27-70 manizales",
+        "dónde atienden en Manizales para el parque",
+        "teléfono de la UTON",
+        "a qué hora abre la oficina UTON",
+        "dónde reservo en persona en Manizales",
+        "quiero ir a la oficina de los nevados en Manizales",
+        "UTON office Manizales address",
+        "phone number for the park operator",
+        "oficina palermo manizales nevados"
+      ],
+      "hard_negatives": ["qué servicios da la concesión", "teléfono de Parques Nacionales", "hay tienda en Valle de las Tumbas"],
+      "entities": {},
+      "answer": {
+        "short": "UTON tiene oficinas en Manizales, en la Carrera 26A #68-44 (barrio Palermo) y en la Calle 70 #27-70. Su horario publicado es de lunes a viernes, de 8:00 a. m. a 12:00 m. y de 2:00 p. m. a 5:00 p. m. Los teléfonos publicados son 321 506 6031 y 322 360 3637; confirma los datos antes de ir.",
+        "variants": ["Para la concesión UTON, en Manizales están la Carrera 26A #68-44 y la Calle 70 #27-70 (Palermo). Atiende de lunes a viernes, de 8:00 a. m. a 12:00 m. y de 2:00 p. m. a 5:00 p. m., según PNN. Confirma antes de ir."]
+      },
+      "sources": [
+        {"label": "Parques Nacionales Naturales · Los Nevados (ficha oficial, contacto UTON)", "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/", "retrieved_at": "2026-11-21"},
+        {"label": "UTON Operación Nevados (concesionario, pie de página)", "url": "https://www.operacionnevados.co/", "retrieved_at": "2026-11-21"}
+      ],
+      "last_verified": "2026-11-21",
+      "valid_until": null,
+      "related": ["services.uton_services", "services.pnn_customer_service", "services.official_sites"],
+      "tags": ["UTON", "Manizales", "oficina", "teléfono"]
+    },
+    {
+      "id": "services.pnn_customer_service",
+      "label": "atención al usuario de PNN",
+      "kind": "fact",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "teléfono de Parques Nacionales",
+        "llamar a Parques Nacionales",
+        "número del parque nacional",
+        "línea gratuita de Parques",
+        "a quién llamo para preguntar del parque",
+        "correo de Parques Nacionales",
+        "atención al ciudadano PNN",
+        "cómo contacto a Parques Nacionales",
+        "tel parques nacionales bogota",
+        "pnn contacto",
+        "how do I call the national parks office",
+        "phone number for Los Nevados park admin"
+      ],
+      "hard_negatives": ["teléfono de la UTON", "página oficial del parque", "permiso de investigación"],
+      "entities": {},
+      "answer": {
+        "short": "Para atención al usuario de Parques Nacionales, llama al conmutador +57 (601) 353 2400, extensiones 3011 y 3012, o a la línea gratuita 018000129722 desde un teléfono fijo. El horario publicado es de lunes a viernes, de 8:00 a. m. a 4:30 p. m. Confirma estos datos en la página oficial antes de llamar.",
+        "variants": ["Parques Nacionales atiende por el conmutador +57 (601) 353 2400, extensiones 3011 y 3012, y por la línea gratuita 018000129722 desde fijo. Su horario publicado es de lunes a viernes, de 8:00 a. m. a 4:30 p. m."]
+      },
+      "sources": [
+        {"label": "Parques Nacionales Naturales · Los Nevados (ficha oficial, contactos PNN)", "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/", "retrieved_at": "2026-11-21"}
+      ],
+      "last_verified": "2026-11-21",
+      "valid_until": null,
+      "related": ["services.official_sites", "services.uton_offices", "services.research_permits"],
+      "tags": ["teléfono", "atención al ciudadano", "PNN", "contacto"]
+    },
+    {
+      "id": "services.research_permits",
+      "label": "permiso para investigar o grabar",
+      "kind": "procedure",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "permiso de investigación",
+        "necesito permiso para grabar comercial",
+        "puedo hacer un video para empresa",
+        "tomas comerciales en el parque",
+        "quiero investigar en el páramo",
+        "dónde pido autorización para estudiar la fauna",
+        "rodaje en el nevado",
+        "permiso para hacer un documental",
+        "tesis en el parque, necesito algo?",
+        "investigación científica permiso PNN",
+        "can I film a commercial here",
+        "do I need a permit to do research at the park",
+        "toca pedir permiso para grabar un comercial?"
+      ],
+      "hard_negatives": ["página oficial del parque", "teléfono de Parques Nacionales", "puedo tomar fotos"],
+      "entities": {},
+      "answer": {
+        "short": "Para investigar en el parque necesitas un permiso de Parques Nacionales; existen seis tipos según el objetivo y la metodología. Las tomas audiovisuales o fotografías con fines comerciales, eventos o investigación también requieren autorización. Solicita el permiso desde la página oficial de PNN.",
+        "variants": ["Para investigación, PNN otorga seis tipos de permiso. Si grabas o fotografías con fines comerciales, eventos o educación ambiental, también necesitas autorización. Pídela en la página oficial de PNN."]
+      },
+      "sources": [
+        {"label": "Parques Nacionales Naturales · Los Nevados (ficha oficial, trámites de investigación)", "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/", "retrieved_at": "2026-11-21"}
+      ],
+      "last_verified": "2026-11-21",
+      "valid_until": null,
+      "related": ["services.pnn_customer_service", "services.official_sites"],
+      "tags": ["permisos", "investigación", "audiovisual", "autorización"]
+    },
+    {
+      "id": "services.guide_radios",
+      "label": "radios y equipo de guías",
+      "kind": "fact",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "radio",
+        "guías con radio",
+        "tienen radios en el parque",
+        "comunicación por radio en la montaña",
+        "los guías llevan radio?",
+        "frecuencia de radio del parque",
+        "llevan equipo médico los guías",
+        "cómo me comunico en la montaña",
+        "radiocomunicación en el parque",
+        "do guides carry radios",
+        "walkie talkie en el parque",
+        "guía con radio y botiquín"
+      ],
+      "hard_negatives": ["hay señal de celular", "agencia autorizada", "cómo sé si una agencia es legal"],
+      "entities": {},
+      "answer": {
+        "short": "Según PNN, los guías y operadores registrados deben llevar radios con la frecuencia requerida, además de equipo médico de respuesta. Por eso PNN recomienda acompañarte siempre de un guía o del personal de una agencia registrada. Verifica en la lista oficial que tu prestador esté autorizado.",
+        "variants": ["PNN exige que los guías registrados lleven radios con la frecuencia requerida y equipo médico de respuesta. Acompáñate siempre de un prestador registrado."]
+      },
+      "sources": [
+        {"label": "Parques Nacionales Naturales · Los Nevados (ficha oficial, guías y operadores)", "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/", "retrieved_at": "2026-11-21"}
+      ],
+      "last_verified": "2026-11-21",
+      "valid_until": null,
+      "related": ["services.phone_signal", "services.registered_providers"],
+      "tags": ["radio", "guías", "comunicación", "equipo médico"]
+    },
+    {
+      "id": "services.phone_signal",
+      "label": "señal de celular en el parque",
+      "kind": "fact",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "señal",
+        "hay señal de celular",
+        "tiene cobertura el celular allá",
+        "se pega el celular en el páramo",
+        "cobertura móvil en el nevado",
+        "llamadas arriba en la montaña",
+        "agarra la señal en Brisas",
+        "celular sin señal en el parque",
+        "hay internet en el parque",
+        "tengo datos en el nevado",
+        "does my phone have signal in the park",
+        "is there mobile coverage at the park",
+        "no agarra el celular hay dónde?"
+      ],
+      "hard_negatives": ["los guías llevan radio?", "dónde cargo el celular", "radio"],
+      "entities": {},
+      "answer": {
+        "short": "No encontré en fuentes oficiales un dato verificado sobre cobertura de celular dentro del parque. Por eso no cuentes con tu celular como única forma de pedir ayuda: viaja con un guía registrado, que debe llevar radio. Confirma la cobertura antes de subir.",
+        "variants": ["No tengo un dato oficial de señal celular en el parque. Viaja con un guía registrado y no dependas solo del celular para pedir ayuda."]
+      },
+      "sources": [
+        {"label": "Parques Nacionales Naturales · Los Nevados (ficha oficial, guías y radios)", "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/", "retrieved_at": "2026-11-21"}
+      ],
+      "last_verified": "2026-11-21",
+      "valid_until": null,
+      "related": ["services.guide_radios", "services.charging_power"],
+      "tags": ["señal", "celular", "cobertura", "comunicación"]
+    },
+    {
+      "id": "services.charging_power",
+      "label": "cargar el celular o batería",
+      "kind": "fact",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "dónde cargo el celular",
+        "hay enchufes en el parque",
+        "tomas de corriente en la cabaña",
+        "puedo cargar la batería",
+        "hay energía eléctrica arriba",
+        "power bank para el páramo, sirve?",
+        "cargar el celular en Brisas",
+        "cargador",
+        "hay luz para cargar cosas",
+        "is there electricity to charge my phone",
+        "can I charge my phone at the cabin",
+        "toca llevar batería portátil?"
+      ],
+      "hard_negatives": ["hay señal de celular", "los guías llevan radio?"],
+      "entities": {},
+      "answer": {
+        "short": "No encontré un dato oficial sobre puntos de carga o electricidad en los sectores del parque. Como precaución, lleva tu batería portátil cargada. Pregunta a Parques Nacionales antes de viajar.",
+        "variants": ["No tengo confirmado dónde cargar el celular dentro del parque. Lleva batería portátil cargada y confirma con PNN antes de viajar."]
+      },
+      "sources": [
+        {"label": "Parques Nacionales Naturales · Los Nevados (ficha oficial, sin dato de carga encontrado)", "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/", "retrieved_at": "2026-11-21"}
+      ],
+      "last_verified": "2026-11-21",
+      "valid_until": null,
+      "related": ["services.phone_signal", "services.guide_radios"],
+      "tags": ["carga", "batería", "electricidad", "celular"]
+    },
+    {
+      "id": "services.accessibility",
+      "label": "accesibilidad para movilidad reducida",
+      "kind": "fact",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "accesibilidad",
+        "silla de ruedas",
+        "puedo ir en silla de ruedas",
+        "hay rampas en el centro de visitantes",
+        "personas con discapacidad pueden entrar",
+        "movilidad reducida en el parque",
+        "adultos mayores pueden caminar el sendero",
+        "sirve para alguien con bastón",
+        "es accesible para personas con muletas",
+        "hay baños accesibles",
+        "wheelchair access at the park",
+        "is the trail accessible for disabled visitors"
+      ],
+      "hard_negatives": ["hay baños en el parque", "hay duchas en el parque"],
+      "entities": {},
+      "answer": {
+        "short": "No tengo información oficial verificada sobre accesibilidad para sillas de ruedas o movilidad reducida en el parque. Los recorridos son de alta montaña, y PNN indica que algunos sectores exigen buena preparación física. Consulta con PNN o con tu operador antes de planear la visita.",
+        "variants": ["No encontré datos oficiales sobre accesibilidad para movilidad reducida. Por la altura y el terreno, confirma con PNN o tu operador antes de viajar."]
+      },
+      "sources": [
+        {"label": "Parques Nacionales Naturales · Los Nevados (ficha oficial, Quindío–Dulima)", "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/", "retrieved_at": "2026-11-21"}
+      ],
+      "last_verified": "2026-11-21",
+      "valid_until": null,
+      "related": ["services.toilets", "services.first_aid_points", "services.quindio_dulima"],
+      "tags": ["accesibilidad", "discapacidad", "movilidad reducida"]
+    },
+    {
+      "id": "services.drinking_water",
+      "label": "agua para tomar en el parque",
+      "kind": "fact",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "hay agua para tomar",
+        "dónde tomo agua",
+        "llevo agua o consigo allá",
+        "fuente de agua en el sendero",
+        "agua potable en Brisas",
+        "el agua de la laguna se puede tomar",
+        "toca llevar toda el agua?",
+        "hay chorro de agua en la cabaña",
+        "agua para el camino, dónde la consigo",
+        "is there drinking water at the park",
+        "where can I refill my water bottle",
+        "can I drink water from the lagoon"
+      ],
+      "hard_negatives": ["venden agua o dulces arriba", "cocina para campistas", "hay baños en el parque"],
+      "entities": {},
+      "answer": {
+        "short": "No encontré un dato oficial sobre puntos de agua potable dentro del parque. PNN recomienda hidratarte bien antes, durante y después de la actividad, así que lleva tu propia agua. Confirma con el operador antes de subir.",
+        "variants": ["No tengo confirmado un punto de agua potable en el parque. PNN pide hidratación constante, así que lleva tu propia agua para la ruta."]
+      },
+      "sources": [
+        {"label": "Parques Nacionales Naturales · Los Nevados (ficha oficial, recomendaciones de salud)", "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/", "retrieved_at": "2026-11-21"}
+      ],
+      "last_verified": "2026-11-21",
+      "valid_until": null,
+      "related": ["services.north_food", "services.shop_ecotienda"],
+      "tags": ["agua", "hidratación", "agua potable"]
+    },
+    {
+      "id": "services.shop_ecotienda",
+      "label": "tienda y ecotienda del parque",
+      "kind": "fact",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "tienda",
+        "ecotienda",
+        "dónde compro snacks en el parque",
+        "venden recuerdos",
+        "hay tienda en Valle de las Tumbas",
+        "venden agua o dulces arriba",
+        "tienda en Brisas",
+        "souvenir del nevado",
+        "compro suvenir en el norte",
+        "hay tienda de cosas básicas",
+        "is there a shop inside the park",
+        "where can I buy souvenirs at the park"
+      ],
+      "hard_negatives": ["comida en el parque", "qué servicios da la concesión", "cocina para campistas"],
+      "entities": {"sector": ["brisas"]},
+      "answer": {
+        "short": "La concesión UTON gestiona tienda en el sector Brisas, según PNN, y el informe de 2024 registra una eco-tienda en el contenedor de Valle de las Tumbas. Confirma qué productos hay y si está atendiendo antes de viajar.",
+        "variants": ["En el norte hay tienda gestionada por UTON en Brisas, y una eco-tienda en Valle de las Tumbas según el informe 2024. Confirma disponibilidad antes de contar con ella."]
+      },
+      "sources": [
+        {"label": "Parques Nacionales Naturales · Los Nevados (ficha oficial)", "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/", "retrieved_at": "2026-11-21"},
+        {"label": "PNN Los Nevados · Informe de necesidades de asistencia 2024", "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2024/12/Informe-de-necesidades-de-asistencia-PNN-Los-Nevados-2024.docx", "retrieved_at": "2026-11-21"}
+      ],
+      "last_verified": "2026-11-21",
+      "valid_until": null,
+      "related": ["services.north_food", "services.drinking_water", "services.uton_services"],
+      "tags": ["tienda", "ecotienda", "souvenirs", "UTON"]
+    },
+    {
+      "id": "services.refugio_cabin",
+      "label": "cabaña El Refugio no habilitada",
+      "kind": "fact",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "refugio",
+        "cabaña El Refugio",
+        "puedo dormir en el Refugio",
+        "El Refugio está habilitado?",
+        "hay refugio en el camino a Brisas",
+        "refugio de montaña para descansar",
+        "hay cama en el refugio del Ruiz",
+        "el refugio sirve para algo",
+        "cabaña refugio abierta",
+        "el refugio del Ruiz está en malas condiciones",
+        "is El Refugio cabin open",
+        "can I stay in the El Refugio cabin"
+      ],
+      "hard_negatives": ["cabaña Potosí", "estado de las cabañas", "hay hospedaje en El Bosque"],
+      "entities": {"sector": ["brisas"]},
+      "answer": {
+        "short": "Según el informe de 2024, la cabaña El Refugio no está habilitada y debe darse de baja, así que no cuentes con ella para pasar la noche. Si buscas refugio por una emergencia, consulta la sección de salud y seguridad de la app.",
+        "variants": ["La cabaña El Refugio no estaba habilitada en el informe de 2024, que recomienda darla de baja. No la tomes como alojamiento. Para emergencias, ve a la sección de salud y seguridad."]
+      },
+      "sources": [
+        {"label": "PNN Los Nevados · Informe de necesidades de asistencia 2024", "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2024/12/Informe-de-necesidades-de-asistencia-PNN-Los-Nevados-2024.docx", "retrieved_at": "2026-11-21"}
+      ],
+      "last_verified": "2026-11-21",
+      "valid_until": null,
+      "related": ["services.potosi_cabin", "services.cabin_status_2024", "services.brisas_visitor_center"],
+      "tags": ["refugio", "cabaña", "no habilitada"]
+    },
+    {
+      "id": "services.camp_showers",
+      "label": "duchas y baños para campistas",
+      "kind": "fact",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "duchas",
+        "dónde me baño si acampo",
+        "hay duchas en el parque",
+        "baños para campistas",
+        "cocina para campistas",
+        "se puede cocinar en Arenales",
+        "agua caliente en el campamento",
+        "toca bañarse en el campamento?",
+        "dónde lavo la loza en la montaña",
+        "zona de aseo para acampar",
+        "is there a shower for campers",
+        "where do campers cook at the park"
+      ],
+      "hard_negatives": ["baños", "comida en el parque"],
+      "entities": {"sector": ["brisas"]},
+      "answer": {
+        "short": "En la cabaña Arenales, según el informe de 2024, hay una batería de baños y duchas para campistas, además de cocina y comedor para ellos. La zona de camping de Arenales no estaba habilitada por la actividad volcánica, así que confirma su estado antes de planear.",
+        "variants": ["Arenales tiene duchas y baños para campistas, con cocina y comedor, según el informe 2024. Su zona de camping no estaba habilitada por actividad volcánica; confírmalo con PNN."]
+      },
+      "sources": [
+        {"label": "PNN Los Nevados · Informe de necesidades de asistencia 2024", "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2024/12/Informe-de-necesidades-de-asistencia-PNN-Los-Nevados-2024.docx", "retrieved_at": "2026-11-21"}
+      ],
+      "last_verified": "2026-11-21",
+      "valid_until": null,
+      "related": ["services.toilets", "services.first_aid_points", "services.north_food"],
+      "tags": ["duchas", "campistas", "Arenales", "aseo"]
+    },
+    {
+      "id": "services.official_sites",
+      "label": "dónde verificar servicios en línea",
+      "kind": "procedure",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "página oficial del parque",
+        "sitio web de Parques Nacionales",
+        "cómo confirmo antes de viajar",
+        "pagina de la concesion",
+        "dónde consulto disponibilidad",
+        "info oficial de servicios",
+        "tienen página web los nevados",
+        "verifico en internet antes de salir",
+        "dónde miro qué servicios hay",
+        "cómo saber qué servicios hay antes de subir",
+        "official website of Los Nevados park",
+        "where do I check services before going"
+      ],
+      "hard_negatives": ["teléfono de Parques Nacionales", "dirección UTON", "registro de guías del parque"],
+      "entities": {},
+      "answer": {
+        "short": "Para confirmar servicios, consulta la página oficial de Parques Nacionales y la de la concesión UTON en operacionnevados.co cuando tengas conexión. Revisa también cierres, tarifas y horarios, porque pueden cambiar. Hazlo antes de salir de casa.",
+        "variants": ["Antes de viajar, revisa la página de Parques Nacionales y la de UTON (operacionnevados.co) con conexión. Los servicios, tarifas y cierres pueden cambiar."]
+      },
+      "sources": [
+        {"label": "Parques Nacionales Naturales · Los Nevados (ficha oficial)", "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/", "retrieved_at": "2026-11-21"},
+        {"label": "UTON Operación Nevados (concesionario)", "url": "https://www.operacionnevados.co/", "retrieved_at": "2026-11-21"}
+      ],
+      "last_verified": "2026-11-21",
+      "valid_until": null,
+      "related": ["services.pnn_customer_service", "services.uton_offices", "services.cabin_status_2024"],
+      "tags": ["página oficial", "verificar", "conexión", "antes de viajar"]
+    },
+    {
+      "id": "services.registered_providers",
+      "label": "verificar agencia o guía registrada",
+      "kind": "procedure",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "agencia autorizada",
+        "cómo sé si una agencia es legal",
+        "guía registrado",
+        "lista de operadores del parque",
+        "verificar un prestador",
+        "la agencia que me ofrecen es confiable",
+        "REPSE",
+        "registro de guías del parque",
+        "tour con operador no autorizado",
+        "puedo contratar cualquier guía?",
+        "how do I check a licensed tour operator",
+        "are the park guides certified"
+      ],
+      "hard_negatives": ["cómo contrato un operador", "qué servicios da la concesión", "página oficial del parque"],
+      "entities": {},
+      "answer": {
+        "short": "Antes de contratar una agencia o un guía, revisa que esté en el registro REPSE del parque. Verifica también que su categoría coincida con el sector que quieres visitar, porque no todos están autorizados para todos los atractivos. PNN publica la lista oficial de prestadores.",
+        "variants": ["Verifica que la agencia o guía esté en el REPSE de Los Nevados y que su categoría incluya el sector al que vas. PNN publica la lista de prestadores autorizados."]
+      },
+      "sources": [
+        {"label": "Parques Nacionales Naturales · Los Nevados (ficha oficial, prestadores REPSE)", "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/", "retrieved_at": "2026-11-21"}
+      ],
+      "last_verified": "2026-11-21",
+      "valid_until": null,
+      "related": ["services.guide_radios", "services.charla_induccion"],
+      "tags": ["REPSE", "agencia", "guía", "prestador"]
+    },
+    {
+      "id": "services.cabin_status_2024",
+      "label": "estado de las cabañas en 2024",
+      "kind": "fact",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "estado de las cabañas",
+        "en qué condiciones están las cabañas",
+        "cabañas en buen estado",
+        "las cabañas están bien?",
+        "cómo está la cabaña de Brisas",
+        "mantenimiento de cabañas del parque",
+        "la cabaña Potosí está en mantenimiento",
+        "cabañas dañadas o en malas condiciones",
+        "qué cabañas sirven",
+        "estado de los refugios",
+        "are the park cabins in good condition",
+        "which cabins are open for visitors"
+      ],
+      "hard_negatives": ["cabaña El Refugio", "cabaña Potosí", "hay baños en el parque"],
+      "entities": {"sector": ["brisas", "cisne", "otun"]},
+      "answer": {
+        "short": "Según el informe de 2024, las cabañas de Brisas, Arenales, La Cueva y Laguna del Otún estaban en buenas condiciones, Potosí estaba en mantenimiento y El Refugio en malas condiciones. Es un dato de 2024, así que confirma el estado actual con PNN antes de viajar.",
+        "variants": ["El informe 2024 anotó buen estado en Brisas, Arenales, La Cueva y Laguna del Otún; mantenimiento en Potosí; y malas condiciones en El Refugio. Confírmalo con PNN, porque es un dato de 2024."]
+      },
+      "sources": [
+        {"label": "PNN Los Nevados · Informe de necesidades de asistencia 2024 (estado de infraestructura)", "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2024/12/Informe-de-necesidades-de-asistencia-PNN-Los-Nevados-2024.docx", "retrieved_at": "2026-11-21"}
+      ],
+      "last_verified": "2026-11-21",
+      "valid_until": null,
+      "related": ["services.refugio_cabin", "services.potosi_cabin", "services.brisas_visitor_center"],
+      "tags": ["cabañas", "estado", "mantenimiento", "2024"]
+    },
+    {
+      "id": "services.charla_induccion",
+      "label": "charla de inducción obligatoria",
+      "kind": "procedure",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "charla de inducción",
+        "charla obligatoria antes de entrar",
+        "tengo que ir a una charla?",
+        "qué es la inducción del parque",
+        "hay que hacer charla en Brisas",
+        "toca asistir a la charla?",
+        "en qué consiste la charla de inducción",
+        "charla antes de subir al nevado",
+        "dónde hago la inducción",
+        "do I have to attend a briefing",
+        "is there a mandatory talk before the hike",
+        "la charla es obligatoria o no"
+      ],
+      "hard_negatives": ["requisitos para entrar", "cómo contrato un operador", "dónde compro boletas"],
+      "entities": {"sector": ["brisas"]},
+      "answer": {
+        "short": "En el sector Brisas, la charla de inducción es obligatoria antes de la visita, según PNN. El informe de 2024 también la menciona en recorridos del Cisne y del Otún. Consulta el horario de la última charla en la página oficial, porque puede cambiar.",
+        "variants": ["Según PNN, la charla de inducción es obligatoria en Brisas. Revisa el horario de la última charla en la página oficial antes de salir."]
+      },
+      "sources": [
+        {"label": "Parques Nacionales Naturales · Los Nevados (ficha oficial, horarios y charla)", "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/", "retrieved_at": "2026-11-21"},
+        {"label": "PNN Los Nevados · Informe de necesidades de asistencia 2024", "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2024/12/Informe-de-necesidades-de-asistencia-PNN-Los-Nevados-2024.docx", "retrieved_at": "2026-11-21"}
+      ],
+      "last_verified": "2026-11-21",
+      "valid_until": null,
+      "related": ["services.brisas_visitor_center", "services.registered_providers"],
+      "tags": ["inducción", "charla", "obligatoria", "Brisas"]
+    },
+    {
+      "id": "services.quindio_dulima",
+      "label": "servicios en el sector Quindío–Dulima",
+      "kind": "fact",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "servicios en Quindío Dulima",
+        "qué hay en el sector Dulima",
+        "hay comida por el nevado del Tolima",
+        "qué servicios hay del lado del Quindío",
+        "punto de atención en Valle del Cocora",
+        "hay baños en el Dulima",
+        "dónde me atienden en el sector de Quindío",
+        "alojamiento en el Dulima",
+        "servicios para el nevado del Tolima",
+        "services in the Quindío Dulima sector",
+        "what facilities are near Nevado del Tolima",
+        "hay algo en el Anzoátegui antes de subir"
+      ],
+      "hard_negatives": ["cuál es el acceso por Salento", "hay alojamiento en Brisas", "hay hospedaje en El Bosque"],
+      "entities": {"sector": ["quindio_dulima"]},
+      "answer": {
+        "short": "En el sector Quindío–Dulima el terreno exige más preparación, según PNN. El informe de 2024 identifica puntos de atención en Valle de Cocora, Juntas y Anzoátegui, junto con zonas de camping. Esos puntos aparecen como necesidades, así que confirma con tu operador qué servicios hay ese día.",
+        "variants": ["En Quindío–Dulima el terreno exige preparación previa, según PNN. El informe 2024 cita puntos de atención planeados en Valle de Cocora, Juntas y Anzoátegui. Confirma servicios con tu operador."]
+      },
+      "sources": [
+        {"label": "Parques Nacionales Naturales · Los Nevados (ficha oficial, sector Quindío–Dulima)", "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/", "retrieved_at": "2026-11-21"},
+        {"label": "PNN Los Nevados · Informe de necesidades de asistencia 2024", "url": "https://www.parquesnacionales.gov.co/wp-content/uploads/2024/12/Informe-de-necesidades-de-asistencia-PNN-Los-Nevados-2024.docx", "retrieved_at": "2026-11-21"}
+      ],
+      "last_verified": "2026-11-21",
+      "valid_until": null,
+      "related": ["services.tolima_lodging", "services.first_aid_points"],
+      "tags": ["Quindío", "Dulima", "Cocora", "Juntas", "Anzoátegui"]
+    }
+  ]
+}

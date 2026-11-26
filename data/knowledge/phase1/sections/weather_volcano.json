@@ -1,0 +1,70 @@
+{
+  "contract_version": 1,
+  "id": "weather_volcano",
+  "order": 3,
+  "title": "Clima y volcán",
+  "description": "Actividad volcánica del Nevado del Ruiz, alertas, clima y condiciones del día para la visita.",
+  "retrieval": {
+    "profile": "safety",
+    "top_k": 2
+  },
+  "clarification": {
+    "between_entries": "¿Te refieres a {label_a} o a {label_b}?",
+    "bank": [
+      "¿Quieres saber la actividad actual del volcán o cómo afecta tu visita?",
+      "¿Te interesa el clima del día o el estado del volcán?"
+    ],
+    "fallback": "No tengo ese dato del clima o del volcán, pero puedo contarte cómo se vigila el Ruiz."
+  },
+  "featured": [
+    "weather_volcano.volcano_activity"
+  ],
+  "entries": [
+    {
+      "id": "weather_volcano.volcano_activity",
+      "label": "la actividad del volcán",
+      "kind": "safety",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "actividad",
+        "actividad volcánica",
+        "cómo es la actividad del nevado",
+        "alerta",
+        "qué alerta tiene el volcán",
+        "cuál es el nivel de alerta",
+        "está activo el Nevado del Ruiz",
+        "va a hacer erupción",
+        "hay emisión de ceniza",
+        "actividad volcánica hoy",
+        "es seguro ir por el volcán"
+      ],
+      "answer": {
+        "short": "El Nevado del Ruiz es un volcán activo. Al vigilarlo, el Servicio Geológico Colombiano observa señales como sismos, emisiones de gases y ceniza. Para conocer el estado de alerta de hoy, consulta el boletín más reciente del SGC cuando tengas conexión.",
+        "variants": [
+          "El Ruiz sigue siendo un volcán activo. El SGC vigila señales como los sismos y las emisiones de gases o ceniza. Si quieres saber cuál es la alerta de hoy, consulta el último boletín del SGC cuando tengas conexión."
+        ],
+        "steps": [
+          [
+            "El Nevado del Ruiz es un volcán activo. Para conocer la alerta vigente consulta el boletín más reciente del Servicio Geológico Colombiano cuando tengas conexión.",
+            "El Ruiz sigue activo. La fuente para verificar el estado de alerta de hoy es el último boletín del Servicio Geológico Colombiano."
+          ],
+          [
+            "Durante el monitoreo se observan señales como sismos y emisiones de gases o ceniza."
+          ],
+          [
+            "El seguimiento del Ruiz se hace desde el Observatorio Vulcanológico y Sismológico de Manizales. Los boletines muestran cómo cambian sus señales con el tiempo."
+          ]
+        ],
+        "detail": "El Observatorio Vulcanológico y Sismológico de Manizales monitorea el Ruiz. Los boletines del SGC ayudan a entender cómo cambian las señales del volcán con el tiempo."
+      },
+      "sources": [
+        {
+          "label": "Servicio Geológico Colombiano",
+          "url": "https://www.sgc.gov.co/",
+          "retrieved_at": "2026-11-21"
+        }
+      ]
+    }
+  ]
+}

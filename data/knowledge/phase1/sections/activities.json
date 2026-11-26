@@ -1,0 +1,166 @@
+{
+  "contract_version": 1,
+  "id": "activities",
+  "order": 8,
+  "title": "Qué hacer en el parque",
+  "description": "Qué visitar, recorridos, subir al cráter, acampar, tomar fotos y ver la cumbre.",
+  "retrieval": {
+    "profile": "explain",
+    "top_k": 2
+  },
+  "clarification": {
+    "between_entries": "¿Te refieres a {label_a} o a {label_b}?",
+    "bank": [
+      "¿Quieres saber qué visitar o si una actividad está permitida?",
+      "¿En qué sector estás pensando?"
+    ],
+    "fallback": "No tengo esa actividad, pero puedo contarte qué se puede visitar en el parque."
+  },
+  "featured": [
+    "activities.what_to_visit",
+    "activities.climb_crater",
+    "activities.camping"
+  ],
+  "entries": [
+    {
+      "id": "activities.what_to_visit",
+      "label": "qué se puede visitar",
+      "kind": "explanation",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "qué puedo visitar",
+        "qué hay para hacer",
+        "qué puedo ver",
+        "qué lugares conocer",
+        "qué senderos hay",
+        "qué es el Valle de las Tumbas",
+        "qué recorrido recomiendas",
+        "qué actividades puedo hacer"
+      ],
+      "answer": {
+        "short": "En el sector norte, Brisas–Valle de las Tumbas es un recorrido para conocer el paisaje de alta montaña asociado al Nevado del Ruiz. Consulta qué tramos están habilitados para tu fecha.",
+        "variants": [
+          "Si vas por el norte, pregunta por el recorrido Brisas–Valle de las Tumbas. Es una forma de conocer el paisaje de alta montaña del Ruiz. Confirma qué tramos estarán habilitados para tu fecha."
+        ],
+        "steps": [
+          [
+            "Por el norte puedes conocer Brisas–Valle de las Tumbas, un recorrido cerca del Nevado del Ruiz. Confirma qué tramos están habilitados para tu fecha."
+          ],
+          [
+            "En ese paisaje de alta montaña puedes conocer el páramo. En Los Nevados, este ecosistema incluye pajonales, arbustales, turberas y lagunas."
+          ],
+          [
+            "Si vas a Brisas en fin de semana o puente festivo, procura reservar con al menos un día de anticipación en reservasnevados.com."
+          ]
+        ],
+        "reflection": "Si la cumbre queda entre nubes, todavía puedes prestar atención al paisaje que tienes delante."
+      },
+      "sources": [
+        {
+          "label": "Parques Nacionales Naturales",
+          "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+          "retrieved_at": "2026-11-21"
+        }
+      ]
+    },
+    {
+      "id": "activities.climb_crater",
+      "label": "si se puede subir al cráter",
+      "kind": "rule",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "puedo subir al cráter",
+        "se puede llegar a la cima",
+        "puedo caminar por el glaciar del Ruiz",
+        "puedo subir a la nieve del Ruiz",
+        "cómo hago cumbre",
+        "puedo entrar al cráter Arenas"
+      ],
+      "answer": {
+        "short": "El recorrido turístico de Brisas–Valle de las Tumbas permite conocer el paisaje del Ruiz. Para planear la visita, usa únicamente los recorridos autorizados por Parques Nacionales."
+      },
+      "sources": [
+        {
+          "label": "Parques Nacionales Naturales",
+          "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+          "retrieved_at": "2026-11-21"
+        }
+      ]
+    },
+    {
+      "id": "activities.camping",
+      "label": "acampar en el parque",
+      "kind": "rule",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "camping",
+        "acampar",
+        "se puede acampar",
+        "puedo llevar carpa",
+        "puedo dormir en el parque",
+        "pasar la noche"
+      ],
+      "answer": {
+        "short": "Si quieres pasar la noche en el parque, consulta las zonas de camping autorizadas y confirma si están habilitadas y requieren reserva. La ficha oficial detalla las condiciones por sector."
+      },
+      "sources": [
+        {
+          "label": "Parques Nacionales Naturales",
+          "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+          "retrieved_at": "2026-11-21"
+        }
+      ]
+    },
+    {
+      "id": "activities.photography",
+      "label": "la fotografía en el parque",
+      "kind": "rule",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "fotos",
+        "puedo tomar fotos",
+        "fotografía",
+        "quiero fotografiar la naturaleza",
+        "está permitida la fotografía"
+      ],
+      "answer": {
+        "short": "Parques Nacionales incluye la fotografía no comercial entre las actividades ecoturísticas. Toma las fotos desde puntos habilitados y verifica las condiciones si tu visita es para una producción comercial."
+      },
+      "sources": [
+        {
+          "label": "Parques Nacionales Naturales",
+          "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+          "retrieved_at": "2026-11-21"
+        }
+      ]
+    },
+    {
+      "id": "activities.see_summit",
+      "label": "si se puede ver la cumbre",
+      "kind": "explanation",
+      "audience": "visitor",
+      "lang": "es",
+      "examples": [
+        "visibilidad",
+        "se ve la cumbre",
+        "está nublado",
+        "se ve el volcán desde el recorrido",
+        "mejor día para ver el nevado"
+      ],
+      "answer": {
+        "short": "En los recorridos autorizados la visibilidad depende de las condiciones del día. La nubosidad puede tapar la cima del Ruiz, así que verifica el pronóstico y consulta al operador antes de salir."
+      },
+      "sources": [
+        {
+          "label": "Parques Nacionales Naturales",
+          "url": "https://www.parquesnacionales.gov.co/nuestros-parques/parque-nacional-natural-los-nevados/",
+          "retrieved_at": "2026-11-21"
+        }
+      ]
+    }
+  ]
+}
